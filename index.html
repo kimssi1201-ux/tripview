@@ -30,11 +30,22 @@
       a { color: inherit; text-decoration: none; }
       img { display: block; width: 100%; object-fit: cover; }
       .wrap { width: min(1080px, calc(100% - 32px)); margin: 0 auto; }
-      .top { border-bottom: 1px solid var(--line); background: #ffffff; }
-      .nav { min-height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+      .top {
+        position: fixed;
+        inset: 0 0 auto;
+        z-index: 30;
+        background: transparent;
+        transition: background 180ms ease, backdrop-filter 180ms ease, -webkit-backdrop-filter 180ms ease;
+      }
+      .top.is-scrolled {
+        background: rgba(255, 255, 255, 0.86);
+        -webkit-backdrop-filter: blur(16px);
+        backdrop-filter: blur(16px);
+      }
+      .nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
       .brand { font-size: 22px; font-weight: 900; letter-spacing: -0.02em; }
       .links { display: flex; gap: 24px; color: #333333; font-size: 14px; font-weight: 700; }
-      .hero { padding: 72px 0 48px; border-bottom: 1px solid var(--line); }
+      .hero { padding: 116px 0 48px; border-bottom: 1px solid var(--line); }
       .hero h1 { max-width: 820px; margin: 0; font-size: clamp(36px, 6vw, 64px); line-height: 1.08; letter-spacing: -0.05em; }
       .hero p { max-width: 680px; margin: 20px 0 0; color: #333333; font-size: clamp(17px, 2vw, 21px); font-weight: 700; }
       .featured { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr); gap: 36px; padding: 52px 0; border-bottom: 1px solid var(--line); }
@@ -65,10 +76,10 @@
       .foot h3 { margin: 0 0 8px; color: var(--ink); font-size: 15px; }
       .foot div { display: grid; align-content: start; gap: 7px; }
       @media (max-width: 880px) {
-        .nav { align-items: flex-start; flex-direction: column; padding: 18px 0; }
+        .nav { align-items: flex-start; flex-direction: column; justify-content: center; gap: 8px; min-height: 86px; padding: 14px 0; }
         .links { flex-wrap: wrap; gap: 14px; }
         .featured, .grid, .text-grid, .tools, .foot { grid-template-columns: 1fr; }
-        .hero { padding: 48px 0 36px; }
+        .hero { padding: 120px 0 36px; }
       }
     </style>
   </head>
@@ -82,5 +93,11 @@
       <section class="wrap section" id="tools"><h2>여행 도구</h2><div class="tools"><div class="tool"><strong>실제 장소 이미지 우선</strong><p>사진이 확인되는 장소는 실제 장소 이미지를 먼저 쓰고, 없는 경우에만 대체 이미지를 사용합니다.</p></div><div class="tool"><strong>필요한 정보만 정리</strong><p>위치, 운영 확인 포인트, 주차와 주변 동선을 중심으로 독자에게 필요한 정보만 남깁니다.</p></div></div></section>
     </main>
     <footer><div class="wrap foot"><div><strong>트립뷰</strong><p>유명 관광지 소개보다 실제로 움직이기 쉬운 여행 루트를 큐레이션합니다.</p></div><div><h3>탐색</h3><a href="#routes">주말 루트</a><a href="#routes">비 오는 날</a><a href="#routes">기차 여행</a></div><div><h3>카테고리</h3><a href="#routes">국내여행</a><a href="#routes">문화공간</a><a href="#routes">바다코스</a></div><div><h3>상태</h3><span>Cloudflare 연결 완료</span><span>장소 정보 자동 정리 준비</span></div></div></footer>
+    <script>
+      const header = document.querySelector('.top');
+      const syncHeader = () => header.classList.toggle('is-scrolled', window.scrollY > 8);
+      window.addEventListener('scroll', syncHeader, { passive: true });
+      syncHeader();
+    </script>
   </body>
 </html>
