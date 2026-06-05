@@ -25,13 +25,14 @@ async function loadLocalEnv() {
 }
 
 function slugify(value) {
-  return String(value)
+  const slug = String(value)
     .normalize("NFKD")
-    .replace(/[^\w\s-]/g, "")
+    .replace(/[^\p{Letter}\p{Number}\s-]/gu, "")
     .trim()
     .replace(/\s+/g, "-")
     .toLowerCase()
     .slice(0, 80);
+  return slug || `post-${Date.now()}`;
 }
 
 function compactText(values) {
@@ -89,7 +90,7 @@ function normalizeTourItem(item) {
   const excerpt = item.excerpt || item.description || compactText([destination, title, address, "방문 정보를 정리했습니다."]);
 
   return normalizePost({
-    slug: item.slug || `${slugify(destination)}-${slugify(title)}`,
+    slug: item.slug || (item.contentid ? `tour-${item.contentid}` : `${slugify(destination)}-${slugify(title)}`),
     title,
     category,
     excerpt,
