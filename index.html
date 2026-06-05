@@ -63,15 +63,8 @@
       .section h2 { margin: 0 0 24px; font-size: 28px; letter-spacing: -0.03em; }
       .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
       .card img { aspect-ratio: 1.45 / 1; background: var(--soft); }
-      .text-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
-      .text-link { padding-top: 14px; border-top: 1px solid var(--line); }
-      .text-link strong { display: block; margin-top: 6px; font-size: 19px; }
-      .tools { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
-      .tool { padding-top: 14px; border-top: 1px solid var(--line); }
-      .tool strong { display: block; font-size: 21px; }
-      .tool p { margin: 8px 0 0; color: #444444; }
       footer { padding: 36px 0 48px; color: var(--muted); }
-      .foot { display: grid; grid-template-columns: 1.4fr repeat(3, .8fr); gap: 24px; }
+      .foot { display: grid; grid-template-columns: 1.4fr .8fr .8fr; gap: 24px; }
       .foot h3 { margin: 0 0 8px; color: var(--ink); font-size: 15px; }
       .foot div { display: grid; align-content: start; gap: 7px; }
       @media (max-width: 880px) {
@@ -79,12 +72,12 @@
         .links { flex-wrap: wrap; gap: 14px; }
         .hero { padding: 120px 0 40px; }
         .hero-head { align-items: start; flex-direction: column; }
-        .latest-layout, .grid, .text-grid, .tools, .foot { grid-template-columns: 1fr; }
+        .latest-layout, .grid, .foot { grid-template-columns: 1fr; }
       }
     </style>
   </head>
   <body>
-    <header class="top"><div class="wrap nav"><a class="brand" href="#top" aria-label="트립뷰 홈">트립뷰</a><nav class="links" aria-label="주요 메뉴"><a href="#latest">최신글</a><a href="#routes">전체글</a><a href="#locals">지역별 보기</a></nav></div></header>
+    <header class="top"><div class="wrap nav"><a class="brand" href="#top" aria-label="트립뷰 홈">트립뷰</a><nav class="links" aria-label="주요 메뉴"><a href="#latest">최신글</a><a href="#routes">전체글</a></nav></div></header>
     <main id="top">
       <section class="wrap hero" id="latest" aria-labelledby="latestTitle">
         <div class="hero-head"><h1 id="latestTitle">최신글</h1><a href="#routes">전체글 보기</a></div>
@@ -94,10 +87,8 @@
         </div>
       </section>
       <section class="wrap section" id="routes"><h2>전체글</h2><div class="grid"><a class="card" href="/sejong-culture-center-jochiwon/"><img src="https://tong.visitkorea.or.kr/cms/resource/11/3585011_image3_1.jpg" alt="세종문화원 관련 사진" /><small>공연/축제</small><h3>세종문화원 조치원 방문 전 알아둘 운영정보와 주변 코스</h3><p>위치, 방문 동선, 주변에서 함께 볼 만한 코스를 정리했습니다.</p></a><a class="card" href="#routes"><img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=900&q=82" alt="서울 강변" /><small>국내여행</small><h3>동서울 강변 4시간 루프</h3><p>성수, 뚝섬, 광진교를 잇는 가벼운 야경 산책 코스.</p></a><a class="card" href="#routes"><img src="https://images.unsplash.com/photo-1528702748617-c64d49f918af?auto=format&fit=crop&w=900&q=82" alt="비 오는 골목" /><small>국내여행</small><h3>인천 개항장 실내 산책</h3><p>박물관, 오래된 골목, 책방과 카페를 잇는 비 오는 날 동선.</p></a><a class="card" href="#routes"><img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=900&q=82" alt="호수 풍경" /><small>국내여행</small><h3>제천 호수 피크닉</h3><p>빠르게 이동하지 않고 호수 주변에서 오래 머무는 하루.</p></a><a class="card" href="#routes"><img src="https://tong.visitkorea.or.kr/cms/resource/92/4062892_image2_1.JPG" alt="김포 애기봉" /><small>국내여행</small><h3>김포 애기봉 평화생태공원</h3><p>전망, 동선, 방문 전 확인할 점을 새롭게 정리했습니다.</p></a><a class="card" href="#routes"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=82" alt="제주 해안" /><small>국내여행</small><h3>제주 싱계물공원 해안 루트</h3><p>바람 많은 날 더 좋은 풍차, 바다색, 짧은 산책 코스.</p></a></div></section>
-      <section class="wrap section" id="locals"><h2>지역별 빠른 보기</h2><div class="text-grid"><a class="text-link" href="/sejong-culture-center-jochiwon/"><small>세종</small><strong>공연/축제</strong></a><a class="text-link" href="#routes"><small>서울</small><strong>국내여행</strong></a><a class="text-link" href="#routes"><small>인천</small><strong>국내여행</strong></a><a class="text-link" href="#routes"><small>제주</small><strong>국내여행</strong></a></div></section>
-      <section class="wrap section" id="tools"><h2>여행 도구</h2><div class="tools"><div class="tool"><strong>실제 장소 이미지 우선</strong><p>사진이 확인되는 장소는 실제 장소 이미지를 먼저 쓰고, 없는 경우에만 대체 이미지를 사용합니다.</p></div><div class="tool"><strong>필요한 정보만 정리</strong><p>위치, 운영 확인 포인트, 주차와 주변 동선을 중심으로 독자에게 필요한 정보만 남깁니다.</p></div></div></section>
     </main>
-    <footer><div class="wrap foot"><div><strong>트립뷰</strong><p>유명 관광지 소개보다 실제로 움직이기 쉬운 여행 루트를 큐레이션합니다.</p></div><div><h3>탐색</h3><a href="#latest">최신글</a><a href="#routes">전체글</a><a href="#locals">지역별 보기</a></div><div><h3>카테고리</h3><a href="#routes">국내여행</a><a href="#routes">공연/축제</a></div><div><h3>상태</h3><span>Cloudflare 연결 완료</span><span>장소 정보 자동 정리 준비</span></div></div></footer>
+    <footer><div class="wrap foot"><div><strong>트립뷰</strong><p>유명 관광지 소개보다 실제로 움직이기 쉬운 여행 루트를 큐레이션합니다.</p></div><div><h3>탐색</h3><a href="#latest">최신글</a><a href="#routes">전체글</a></div><div><h3>카테고리</h3><a href="#routes">국내여행</a><a href="#routes">공연/축제</a></div></div></footer>
     <script>
       const header = document.querySelector('.top');
       const syncHeader = () => header.classList.toggle('is-scrolled', window.scrollY > 8);
