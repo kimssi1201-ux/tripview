@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://kimssi1201-ux.github.io/tripview/</loc>
-    <lastmod>2026-06-05</lastmod>
+    <loc>https://tripview.pages.dev/</loc>
+    <lastmod>2026-06-06</lastmod>
   </url>
   <url>
-    <loc>https://kimssi1201-ux.github.io/tripview/privacy.html</loc>
+    <loc>https://tripview.pages.dev/gochang-tidal-flat-festival-2026/</loc>
+    <lastmod>2026-06-06</lastmod>
+  </url>
+  <url>
+    <loc>https://tripview.pages.dev/sejong-culture-center-jochiwon/</loc>
+    <lastmod>2026-06-06</lastmod>
+  </url>
+  <url>
+    <loc>https://tripview.pages.dev/privacy.html</loc>
     <lastmod>2026-06-05</lastmod>
   </url>
 </urlset>
