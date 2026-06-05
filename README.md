@@ -13,7 +13,7 @@
 ## 파일 구조
 
 - `index.html` - 메인 페이지
-- `style.css` / `styles.css` - 사이트 스타일
+- `style.css` - 사이트 스타일
 - `main.js` - 카테고리 필터, 검색, 더보기 동작
 - `privacy.html` - 개인정보 처리방침
 - `scripts/build-www.mjs` - `www/`, `site/` 배포 폴더 생성

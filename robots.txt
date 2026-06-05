@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kimssi1201-ux.github.io/tripview/sitemap.xml

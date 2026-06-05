@@ -1,0 +1,9 @@
+{
+  "name": "tripview",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Static Korean travel magazine and booking guide.",
+  "scripts": {
+    "build": "node scripts/build-www.mjs"
+  }
+}
