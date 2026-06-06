@@ -1,0 +1,65 @@
+name: Polish Generated Posts
+
+on:
+  push:
+    paths:
+      - '.github/workflows/polish-generated-posts.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  polish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Polish generated post wording
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const path = require('node:path');
+
+          const replacements = [
+            ['공연/축제 글감입니다', '공연/축제 방문 안내입니다'],
+            ['국내여행 글감입니다', '국내여행 일정 안내입니다'],
+            ['국내여행과 공연/축제 글감을 큐레이션합니다', '국내여행과 공연/축제 소식을 정리합니다'],
+            ['공연/축제 글감을 큐레이션합니다', '공연/축제 소식을 정리합니다'],
+            ['국내여행 글감을 큐레이션합니다', '국내여행 소식을 정리합니다'],
+            ['처음 보는 사람에게', '처음 방문하는 사람에게'],
+            ['사진만 보고 움직이기보다', '사진만 보고 정하기보다'],
+            ['여행 중 한 코스로 넣기 좋은 국내여행 글감입니다', '여행 중 한 코스로 넣기 좋은 국내여행 일정입니다'],
+            ['오늘 기준으로 다녀오기 좋은 국내여행과 공연/축제 글감을 정리합니다', '오늘 기준으로 확인하기 좋은 국내여행과 공연/축제 소식을 정리합니다']
+          ];
+
+          const files = new Set(['scripts/enrich-tour-posts.mjs', 'index.html', 'data/generated-posts.json']);
+          if (fs.existsSync('data/generated-posts.json')) {
+            const posts = JSON.parse(fs.readFileSync('data/generated-posts.json', 'utf8'));
+            for (const post of posts) {
+              if (post?.slug) files.add(path.join(post.slug, 'index.html'));
+            }
+          }
+
+          let changed = 0;
+          for (const file of files) {
+            if (!fs.existsSync(file)) continue;
+            let text = fs.readFileSync(file, 'utf8');
+            const before = text;
+            for (const [from, to] of replacements) text = text.split(from).join(to);
+            if (text !== before) {
+              fs.writeFileSync(file, text);
+              changed += 1;
+            }
+          }
+          console.log(`Polished ${changed} file(s).`);
+          NODE
+      - name: Commit polished wording
+        run: |
+          if git diff --quiet; then
+            echo "No wording changes."
+            exit 0
+          fi
+          git config user.name "tripview-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add scripts/enrich-tour-posts.mjs index.html data/generated-posts.json festival-*/index.html
+          git commit -m "Polish generated post wording"
+          git push
