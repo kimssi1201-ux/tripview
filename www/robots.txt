@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tripview.pages.dev/sitemap.xml

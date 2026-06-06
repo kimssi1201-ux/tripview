@@ -1,0 +1,12 @@
+{
+  "name": "여행노트 - 국내외 여행 정보와 후기",
+  "short_name": "여행노트",
+  "description": "국내외 여행지, 호텔, 항공권, 액티비티 정보를 정리한 한국어 여행 매거진",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "lang": "ko-KR",
+  "categories": ["travel", "news", "lifestyle"]
+}

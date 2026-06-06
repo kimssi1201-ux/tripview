@@ -1,0 +1,10 @@
+{
+  "name": "tripview",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Data-driven Korean travel magazine with RSS, sitemap, and scheduled post update workflow.",
+  "scripts": {
+    "build": "node scripts/build-www.mjs",
+    "refresh": "node scripts/update-posts.mjs"
+  }
+}
