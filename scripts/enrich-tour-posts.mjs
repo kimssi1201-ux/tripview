@@ -86,7 +86,7 @@ function buildFestivalSections(post) {
 
   return [
     ['한눈에 보는 방문 포인트', [
-      `${title}은 ${region}에서 일정과 체험을 함께 챙겨볼 수 있는 공연/축제 글감입니다. 처음 보는 사람에게 중요한 건 이름보다 실제로 언제 가야 하는지, 어디에서 열리는지, 비용이 어떻게 나뉘는지입니다. 이 글은 그 부분을 먼저 볼 수 있게 정리했습니다.`,
+      `${title}은 ${region}에서 일정과 체험을 함께 챙겨볼 수 있는 공연/축제 방문 안내입니다. 처음 방문하는 사람에게 중요한 건 이름보다 실제로 언제 가야 하는지, 어디에서 열리는지, 비용이 어떻게 나뉘는지입니다. 이 글은 그 부분을 먼저 볼 수 있게 정리했습니다.`,
       `축제는 현장 분위기가 좋아도 동선이 꼬이면 만족도가 금방 떨어집니다. 대표 프로그램을 하나 정하고, 그 앞뒤로 도착 시간, 식사 시간, 귀가 시간을 붙여두면 짧은 일정에서도 훨씬 여유 있게 움직일 수 있습니다.`
     ]],
     ['일정과 운영 흐름', [
@@ -122,7 +122,7 @@ function buildTravelSections(post) {
 
   return [
     ['어떤 일정에 넣기 좋은 곳인가', [
-      `${title}은 ${region} 여행 중 한 코스로 넣기 좋은 국내여행 글감입니다. 사진만 보고 움직이기보다 실제 위치, 이동 시간, 주변 식사 동선을 함께 보면 훨씬 안정적인 일정이 됩니다.`,
+      `${title}은 ${region} 여행 중 한 코스로 넣기 좋은 국내여행 일정 안내입니다. 사진만 보고 정하기보다 실제 위치, 이동 시간, 주변 식사 동선을 함께 보면 훨씬 안정적인 일정이 됩니다.`,
       `오래 머무는 목적지인지, 다른 장소와 묶어 짧게 들를 곳인지에 따라 만족도가 달라집니다. 처음 방문한다면 무리하게 여러 곳을 넣기보다 핵심 구간을 하나 정하고 주변 코스를 붙이는 편이 좋습니다.`
     ]],
     ['위치와 운영 확인', [
@@ -231,10 +231,10 @@ function renderIndex(posts) {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="트립뷰는 지금 바로 움직일 수 있는 국내여행과 공연/축제 글감을 큐레이션합니다." />
+    <meta name="description" content="트립뷰는 지금 바로 움직일 수 있는 국내여행과 공연/축제 소식을 정리합니다." />
     <meta name="theme-color" content="#ffffff" />
     <meta property="og:title" content="트립뷰 - 최신 여행 큐레이션" />
-    <meta property="og:description" content="오늘 기준으로 다녀오기 좋은 국내여행과 공연/축제 글감을 정리합니다." />
+    <meta property="og:description" content="오늘 기준으로 확인하기 좋은 국내여행과 공연/축제 소식을 정리합니다." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="${esc(primary.image)}" />
     <title>트립뷰 - 최신 여행 큐레이션</title>
