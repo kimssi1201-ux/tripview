@@ -1,20 +1,19 @@
-name: Daily Tour Posts
+name: Enrich Tour Posts
 
 on:
-  schedule:
-    - cron: "0 0 * * *"
+  push:
+    branches: ["main"]
+    paths:
+      - ".github/workflows/enrich-tour-posts.yml"
+      - "scripts/enrich-tour-posts.mjs"
   workflow_dispatch:
-    inputs:
-      limit:
-        description: "Number of posts to generate"
-        required: false
-        default: "10"
 
 permissions:
   contents: write
 
 jobs:
-  post:
+  enrich:
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -25,23 +24,17 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Generate daily tour posts
-        run: node scripts/daily-tour-posts.mjs
-        env:
-          TRIPVIEW_API_KEY: ${{ secrets.TRIPVIEW_API_KEY }}
-          POST_LIMIT: ${{ github.event.inputs.limit || '10' }}
-
       - name: Enrich generated posts
         run: node scripts/enrich-tour-posts.mjs
 
-      - name: Commit generated posts
+      - name: Commit enriched posts
         run: |
           if git diff --quiet; then
-            echo "No new posts to commit."
+            echo "No enriched posts to commit."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add .
-          git commit -m "Add daily tour posts"
+          git commit -m "Enrich generated tour posts"
           git push
