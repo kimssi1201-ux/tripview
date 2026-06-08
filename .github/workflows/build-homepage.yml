@@ -1,20 +1,17 @@
-name: Daily Tour Posts
+name: Build Homepage
 
 on:
-  schedule:
-    - cron: "0 0 * * *"
+  push:
+    paths:
+      - '.github/workflows/build-homepage.yml'
+      - 'scripts/build-homepage.mjs'
   workflow_dispatch:
-    inputs:
-      limit:
-        description: "Number of posts to generate"
-        required: false
-        default: "10"
 
 permissions:
   contents: write
 
 jobs:
-  post:
+  homepage:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -25,29 +22,20 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Generate daily tour posts
-        run: node scripts/daily-tour-posts.mjs
-        env:
-          TRIPVIEW_API_KEY: ${{ secrets.TRIPVIEW_API_KEY }}
-          POST_LIMIT: ${{ github.event.inputs.limit || '10' }}
-
-      - name: Enrich generated posts
-        run: node scripts/enrich-tour-posts.mjs
-
       - name: Build homepage
         run: node scripts/build-homepage.mjs
 
       - name: Build RSS feed
         run: node scripts/build-feed.mjs
 
-      - name: Commit generated posts
+      - name: Commit homepage updates
         run: |
           if git diff --quiet; then
-            echo "No new posts to commit."
+            echo "No homepage changes to commit."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add .
-          git commit -m "Add daily tour posts"
+          git add index.html feed.xml rss.xml
+          git commit -m "Show all posts on homepage"
           git push
