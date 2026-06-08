@@ -4,8 +4,19 @@ import { fileURLToPath } from "node:url";
 
 const scriptDir = dirname(fileURLToPath(import.meta.url));
 const root = join(scriptDir, "..");
-const publisher = "ca-pub-6066428844912614";
-const adsenseScript = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6066428844912614"\n     crossorigin="anonymous"></script>';
+
+const requiredHeadSnippets = [
+  {
+    name: "AdSense",
+    marker: "ca-pub-6066428844912614",
+    html: '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6066428844912614"\n     crossorigin="anonymous"></script>',
+  },
+  {
+    name: "Naver Search Advisor",
+    marker: "38616b4b4209994ed384d0d2439bddcbec2cc711",
+    html: '<meta name="naver-site-verification" content="38616b4b4209994ed384d0d2439bddcbec2cc711" />',
+  },
+];
 
 const generatorFiles = [
   join(root, "scripts", "daily-tour-posts.mjs"),
@@ -23,25 +34,33 @@ async function writeIfChanged(path, text) {
   return true;
 }
 
-function insertIntoHtml(text) {
-  if (!text.includes("<head") || text.includes(publisher)) return text;
-  return text.replace(/<head([^>]*)>/i, `<head$1>\n    ${adsenseScript}`);
+function insertRequiredHeadSnippets(text) {
+  return text.replace(/<head([^>]*)>([\s\S]*?)<\/head>/gi, (match, attrs, body) => {
+    let nextBody = body;
+
+    for (const snippet of requiredHeadSnippets) {
+      if (!nextBody.includes(snippet.marker)) {
+        nextBody = `\n    ${snippet.html}${nextBody}`;
+      }
+    }
+
+    return `<head${attrs}>${nextBody}</head>`;
+  });
 }
 
-function insertIntoGeneratorSource(text) {
-  if (text.includes(publisher)) return text;
+function missingHeadSnippets(text) {
+  const blocks = [...text.matchAll(/<head[^>]*>([\s\S]*?)<\/head>/gi)].map((match) => match[1]);
+  const missing = [];
 
-  let next = text.replaceAll(
-    "<head>\\n    <meta",
-    `<head>\\n    ${adsenseScript}\\n    <meta`,
-  );
+  blocks.forEach((block, index) => {
+    for (const snippet of requiredHeadSnippets) {
+      if (!block.includes(snippet.marker)) {
+        missing.push(`${snippet.name} in head #${index + 1}`);
+      }
+    }
+  });
 
-  next = next.replaceAll(
-    "<head>\n    <meta",
-    `<head>\n    ${adsenseScript}\n    <meta`,
-  );
-
-  return next;
+  return missing;
 }
 
 async function collectHtmlFiles(dir, files = []) {
@@ -62,7 +81,7 @@ async function collectHtmlFiles(dir, files = []) {
 let patchedGenerators = 0;
 for (const file of generatorFiles) {
   const source = await readText(file);
-  const next = insertIntoGeneratorSource(source);
+  const next = insertRequiredHeadSnippets(source);
   if (await writeIfChanged(file, next)) patchedGenerators += 1;
 }
 
@@ -72,27 +91,29 @@ const missingPages = [];
 
 for (const file of htmlFiles) {
   const source = await readText(file);
-  const next = insertIntoHtml(source);
+  const next = insertRequiredHeadSnippets(source);
   if (await writeIfChanged(file, next)) patchedPages += 1;
 
-  const updated = await readText(file);
-  if (updated.includes("<head") && !updated.includes(publisher)) {
-    missingPages.push(relative(root, file));
+  const missing = missingHeadSnippets(await readText(file));
+  if (missing.length) {
+    missingPages.push(`${relative(root, file)}: ${missing.join(", ")}`);
   }
 }
 
 const missingGenerators = [];
 for (const file of generatorFiles) {
-  const updated = await readText(file);
-  if (!updated.includes(publisher)) missingGenerators.push(relative(root, file));
+  const missing = missingHeadSnippets(await readText(file));
+  if (missing.length) {
+    missingGenerators.push(`${relative(root, file)}: ${missing.join(", ")}`);
+  }
 }
 
 if (missingPages.length || missingGenerators.length) {
   throw new Error(
-    `AdSense insertion incomplete. pages=${missingPages.join(", ")} generators=${missingGenerators.join(", ")}`,
+    `Head tag insertion incomplete. pages=${missingPages.join(" | ")} generators=${missingGenerators.join(" | ")}`,
   );
 }
 
 console.log(
-  `AdSense script verified. generators patched: ${patchedGenerators}, pages patched: ${patchedPages}, pages checked: ${htmlFiles.length}`,
+  `Head tags verified. generators patched: ${patchedGenerators}, pages patched: ${patchedPages}, pages checked: ${htmlFiles.length}`,
 );
