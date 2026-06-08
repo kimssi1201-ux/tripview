@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const outDir = join(root, "www");
 const siteDir = join(root, "site");
-const baseUrl = "https://kimssi1201-ux.github.io/tripview";
+const baseUrl = "https://tripview.kr";
 const posts = JSON.parse(await readFile(join(root, "data", "posts.json"), "utf8"));
 
 const files = [

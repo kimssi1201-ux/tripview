@@ -8,7 +8,7 @@ const ROOT = path.resolve(__dirname, '..');
 const NEW_DOMAIN = 'https://tripview.kr';
 const OLD_DOMAINS = [
   'https://tripview' + '.pages.dev',
-  'https://kimssi1201-ux.github.io/tripview',
+  'https://tripview.kr',
 ];
 const TARGET_EXTENSIONS = new Set(['.html', '.xml', '.mjs', '.json', '.yml', '.yaml', '.md', '.txt']);
 

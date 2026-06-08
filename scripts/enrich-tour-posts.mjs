@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, '..');
-const SITE_URL = 'https://tripview.pages.dev';
+const SITE_URL = 'https://tripview.kr';
 const TODAY = '2026-06-06';
 
 const MANUAL_POSTS = [

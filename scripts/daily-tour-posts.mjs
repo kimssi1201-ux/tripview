@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, '..');
-const SITE_URL = 'https://tripview.pages.dev';
+const SITE_URL = 'https://tripview.kr';
 const API_BASE = 'https://apis.data.go.kr/B551011/KorService2';
 const POST_LIMIT = Math.max(1, Number.parseInt(process.env.POST_LIMIT || '10', 10) || 10);
 const MAX_IMAGES_PER_POST = Math.max(1, Math.min(3, Number.parseInt(process.env.MAX_IMAGES_PER_POST || '3', 10) || 3));
