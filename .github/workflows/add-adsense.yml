@@ -1,0 +1,121 @@
+name: Add AdSense Script
+
+on:
+  push:
+    paths:
+      - '.github/workflows/add-adsense.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  adsense:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Insert AdSense script
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+          
+          ROOT = Path('.')
+          PUBLISHER = 'ca-pub-6066428844912614'
+          ADSENSE = '''<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6066428844912614"
+             crossorigin="anonymous"></script>'''
+          
+          SCRIPT_FILES = [
+              Path('scripts/daily-tour-posts.mjs'),
+              Path('scripts/enrich-tour-posts.mjs'),
+          ]
+          
+          for script in SCRIPT_FILES:
+              source = script.read_text(encoding='utf-8')
+              if PUBLISHER not in source:
+                  source = source.replace('<head>\n    <meta', f'<head>\n    {ADSENSE}\n    <meta')
+                  script.write_text(source, encoding='utf-8')
+          
+          def patch_html_file(path: Path):
+              text = path.read_text(encoding='utf-8')
+              if PUBLISHER in text:
+                  return False
+              if '<head>' not in text:
+                  return False
+              text = text.replace('<head>', f'<head>\n    {ADSENSE}', 1)
+              path.write_text(text, encoding='utf-8')
+              return True
+          
+          changed = 0
+          for path in ROOT.rglob('*.html'):
+              if '.git' in path.parts or 'node_modules' in path.parts:
+                  continue
+              if patch_html_file(path):
+                  changed += 1
+          
+          print(f'Patched {changed} static HTML file(s).')
+          PY
+
+      - name: Regenerate generated pages
+        run: |
+          node --check scripts/daily-tour-posts.mjs
+          node --check scripts/enrich-tour-posts.mjs
+          node scripts/enrich-tour-posts.mjs
+          python3 <<'PY'
+          from pathlib import Path
+          
+          PUBLISHER = 'ca-pub-6066428844912614'
+          ADSENSE = ''<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6066428844912614"
+             crossorigin="anonymous"></script>''
+          changed = 0
+          for path in Path('.').rglob('*.html'):
+              if '.git' in path.parts or 'node_modules' in path.parts:
+                  continue
+              text = path.read_text(encoding='utf-8')
+              if PUBLISHER in text or '<head>' not in text:
+                  continue
+              path.write_text(text.replace('<head>', f'<head>\n    {ADSENSE}', 1), encoding='utf-8')
+              changed += 1
+          print(f'Post-regeneration patched {changed} HTML file(s).')
+          PY
+
+      - name: Verify AdSense script
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+          
+          publisher = 'ca-pub-6066428844912614'
+          html_files = [p for p in Path('.').rglob('*.html') if '.git' not in p.parts and 'node_modules' not in p.parts]
+          missing = []
+          for path in html_files:
+              text = path.read_text(encoding='utf-8')
+              if '<head>' in text and publisher not in text:
+                  missing.append(str(path))
+          
+          script_missing = []
+          for path in [Path('scripts/daily-tour-posts.mjs'), Path('scripts/enrich-tour-posts.mjs')]:
+              if publisher not in path.read_text(encoding='utf-8'):
+                  script_missing.append(str(path))
+          
+          if missing or script_missing:
+              raise SystemExit('Missing AdSense code in: ' + ', '.join(missing + script_missing))
+          print(f'AdSense code verified in {len(html_files)} HTML file(s).')
+          PY
+
+      - name: Commit AdSense script
+        run: |
+          if git diff --quiet; then
+            echo "No AdSense changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Add AdSense verification script"
+          git push
