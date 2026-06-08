@@ -6,7 +6,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, '..');
 const PROGRAM_LABELS = new Set(['주요 프로그램', '방문 포인트']);
-const PROGRAM_STYLE = '.program-list{margin:0;padding:0;list-style:none;display:grid;gap:10px}.program-list li{padding:0 0 10px;border-bottom:1px solid var(--line)}.program-list li:last-child{padding-bottom:0;border-bottom:0}.program-list strong{display:block;margin-bottom:3px;color:var(--ink);font-size:15px}.program-list span{display:block;color:#333;line-height:1.65}';
+const PROGRAM_STYLE = '.program-cell{padding:14px 16px}.program-groups{display:grid;gap:12px}.program-group{padding:14px 15px;border:1px solid var(--line);background:#fff}.program-group h3{margin:0 0 8px;font-size:16px;line-height:1.35;letter-spacing:0}.program-group ul{margin:0;padding-left:18px;display:grid;gap:5px;color:#333}.program-group li{margin:0;line-height:1.62}.program-group li::marker{color:#777}@media(max-width:820px){.program-cell{padding:12px}.program-group{padding:12px 13px}}';
 
 function esc(value = '') {
   return String(value).replace(/[&<>"']/g, (match) => ({
@@ -20,8 +20,10 @@ function esc(value = '') {
 
 function strip(value = '') {
   return String(value)
+    .replace(/<br\s*\/?\s*>/gi, ', ')
     .replace(/<[^>]*>/g, ' ')
     .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
     .replace(/\s+/g, ' ')
     .trim();
 }
@@ -34,34 +36,49 @@ function cleanText(value = '') {
     .replace(/[,.，。]+$/g, '');
 }
 
+function cleanLabel(value = '') {
+  return cleanText(value)
+    .replace(/메인프로그램/g, '메인 프로그램')
+    .replace(/부대프로그램/g, '부대 프로그램')
+    .replace(/소비자참여/g, '소비자 참여')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
 function splitProgramText(value = '') {
   return cleanText(value)
     .split(/\s*,\s*|\s*[·ㆍ]\s*|\s*;\s*/u)
     .map(cleanText)
+    .map((item) => item.replace(/^[-•]\s*/, '').trim())
     .filter((item) => item.length > 1)
-    .slice(0, 12);
+    .slice(0, 14);
 }
 
 function parseProgramGroups(raw = '') {
   const text = cleanText(raw);
-  const re = /(?:^|\s)(\d+)\.\s*([^:：]+?)\s*[:：]\s*/g;
   const starts = [];
+  const numbered = /(?:^|\s)(\d+)\.\s*([^:：]+?)\s*[:：]\s*/g;
   let match;
 
-  while ((match = re.exec(text))) {
-    starts.push({ index: match.index, end: re.lastIndex, label: cleanText(match[2]) });
+  while ((match = numbered.exec(text))) {
+    starts.push({ index: match.index, end: numbered.lastIndex, label: cleanLabel(match[2]) });
   }
 
-  if (!starts.length) {
-    return splitProgramText(text).map((body) => ({ label: '', body }));
+  if (starts.length) {
+    return starts
+      .map((start, index) => ({
+        label: start.label || `프로그램 ${index + 1}`,
+        body: cleanText(text.slice(start.end, starts[index + 1]?.index ?? text.length)),
+      }))
+      .filter((item) => item.body);
   }
 
-  return starts
-    .map((start, index) => ({
-      label: start.label,
-      body: cleanText(text.slice(start.end, starts[index + 1]?.index ?? text.length)),
-    }))
-    .filter((item) => item.body);
+  const labeled = text.match(/^([^:：]{2,24})\s*[:：]\s*(.+)$/);
+  if (labeled) {
+    return [{ label: cleanLabel(labeled[1]), body: cleanText(labeled[2]) }];
+  }
+
+  return [{ label: '주요 프로그램', body: text }].filter((item) => item.body);
 }
 
 function infoValue(post) {
@@ -73,33 +90,34 @@ function sourceTitle(post) {
   return cleanText(post.sourceTitle || post.title || '방문지').replace(/\s*\|\s*트립뷰$/, '');
 }
 
-function buildProgramList(raw) {
+function buildProgramGroups(raw) {
   const groups = parseProgramGroups(raw);
   if (!groups.length) return '';
 
-  const items = groups.map(({ label, body }) => {
-    if (label) {
-      const lines = splitProgramText(body);
-      const detail = (lines.length ? lines : [body]).map(esc).join('<br />');
-      return `<li><strong>${esc(label)}</strong><span>${detail}</span></li>`;
-    }
-    return `<li><span>${esc(body)}</span></li>`;
+  const sections = groups.map(({ label, body }, index) => {
+    const items = splitProgramText(body);
+    const listItems = (items.length ? items : [body]).map((item) => `<li>${esc(item)}</li>`).join('');
+    return `<section class="program-group"><h3>${esc(label || `프로그램 ${index + 1}`)}</h3><ul>${listItems}</ul></section>`;
   }).join('');
 
-  return `<ul class="program-list">${items}</ul>`;
+  return `<div class="program-groups">${sections}</div>`;
 }
 
 function programSummary(post, raw) {
-  const groups = parseProgramGroups(raw);
-  const labels = [...new Set(groups.map((item) => item.label || item.body).map(cleanText).filter(Boolean))].slice(0, 5);
+  const labels = parseProgramGroups(raw)
+    .map((item) => cleanLabel(item.label))
+    .filter(Boolean)
+    .slice(0, 5);
+
   if (!labels.length) {
     return `${sourceTitle(post)}의 주요 프로그램은 현장 시간표와 접수 방식을 먼저 확인한 뒤 일정에 맞춰 고르는 편이 좋습니다.`;
   }
-  return `${sourceTitle(post)}의 주요 프로그램은 ${labels.join(', ')} 중심으로 나뉩니다. 운영 시간과 접수 방식이 다를 수 있으니, 도착하면 전체 시간표와 대기 가능 시간을 먼저 확인하고 우선순위를 정하는 편이 좋습니다.`;
+
+  return `${sourceTitle(post)}의 주요 프로그램은 ${labels.join(', ')}로 나뉩니다. 각 프로그램은 운영 시간과 접수 방식이 다를 수 있으니, 도착 후 전체 시간표를 먼저 확인하고 꼭 볼 프로그램부터 정하는 편이 좋습니다.`;
 }
 
 function injectProgramStyle(html) {
-  if (html.includes('.program-list')) return html;
+  if (html.includes('.program-groups{')) return html;
   const marker = '.info-table tr:last-child th,.info-table tr:last-child td{border-bottom:0}';
   if (!html.includes(marker)) return html;
   return html.replace(marker, `${marker}${PROGRAM_STYLE}`);
@@ -107,9 +125,9 @@ function injectProgramStyle(html) {
 
 function replaceInfoCell(html, programHtml) {
   let replaced = false;
-  const next = html.replace(/(<tr><th>(?:주요 프로그램|방문 포인트)<\/th><td>)[\s\S]*?(<\/td><\/tr>)/, (_match, start, end) => {
+  const next = html.replace(/<tr><th>(주요 프로그램|방문 포인트)<\/th><td(?:\s+class="[^"]*")?>[\s\S]*?<\/td><\/tr>/, (_match, label) => {
     replaced = true;
-    return `${start}${programHtml}${end}`;
+    return `<tr><th>${label}</th><td class="program-cell">${programHtml}</td></tr>`;
   });
   return { html: next, replaced };
 }
@@ -145,7 +163,7 @@ async function main() {
       continue;
     }
 
-    const programHtml = buildProgramList(raw);
+    const programHtml = buildProgramGroups(raw);
     if (!programHtml) continue;
 
     let next = injectProgramStyle(html);
