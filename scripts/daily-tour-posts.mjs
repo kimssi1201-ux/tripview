@@ -8,6 +8,7 @@ const ROOT = path.resolve(__dirname, '..');
 const SITE_URL = 'https://tripview.pages.dev';
 const API_BASE = 'https://apis.data.go.kr/B551011/KorService2';
 const POST_LIMIT = Math.max(1, Number.parseInt(process.env.POST_LIMIT || '10', 10) || 10);
+const MAX_IMAGES_PER_POST = Math.max(1, Math.min(3, Number.parseInt(process.env.MAX_IMAGES_PER_POST || '3', 10) || 3));
 const SERVICE_KEY = process.env.TRIPVIEW_API_KEY || process.env.TRIPVIEW_API_KEY_PARAM || '';
 
 if (!SERVICE_KEY) {
@@ -158,7 +159,7 @@ function imageFamilyKey(src) {
 }
 
 function addImage(images, seen, src) {
-  if (!src) return;
+  if (!src || images.length >= MAX_IMAGES_PER_POST) return;
   const key = imageFamilyKey(src);
   if (seen.has(key)) return;
   seen.add(key);
@@ -169,9 +170,15 @@ async function collectImages(contentId, seedImages = []) {
   const images = [];
   const seen = new Set();
   const detailImages = await tourGet('detailImage2', { contentId, imageYN: 'Y', subImageYN: 'Y', numOfRows: '50' }).catch(() => []);
-  for (const image of detailImages) addImage(images, seen, image.originimgurl || image.smallimageurl);
-  for (const src of seedImages) addImage(images, seen, src);
-  return images;
+  for (const image of detailImages) {
+    addImage(images, seen, image.originimgurl || image.smallimageurl);
+    if (images.length >= MAX_IMAGES_PER_POST) break;
+  }
+  for (const src of seedImages) {
+    addImage(images, seen, src);
+    if (images.length >= MAX_IMAGES_PER_POST) break;
+  }
+  return images.slice(0, MAX_IMAGES_PER_POST);
 }
 
 function regionFromAddr(addr = '') {
