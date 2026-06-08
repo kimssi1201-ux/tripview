@@ -287,6 +287,8 @@ function renderArticle(post) {
   return `<!doctype html>
 <html lang="ko">
   <head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6066428844912614"
+     crossorigin="anonymous"></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="${esc(post.description)}" />
@@ -324,6 +326,8 @@ function renderIndex(posts) {
   return `<!doctype html>
 <html lang="ko">
   <head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6066428844912614"
+     crossorigin="anonymous"></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="트립뷰는 지금 바로 움직일 수 있는 국내여행과 공연/축제 글감을 큐레이션합니다." />
