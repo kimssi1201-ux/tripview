@@ -1,0 +1,116 @@
+name: Add Category Counts
+
+on:
+  push:
+    paths:
+      - '.github/workflows/add-category-counts.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  category-counts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add category counting to generated pages
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+
+          const scriptPath = 'scripts/enrich-tour-posts.mjs';
+          let source = fs.readFileSync(scriptPath, 'utf8');
+
+          function replaceOnce(text, from, to, label) {
+            if (!text.includes(from)) throw new Error(`Missing target: ${label}`);
+            return text.replace(from, to);
+          }
+
+          if (!source.includes('function countCategories(posts)')) {
+            const helpers = `
+function countCategories(posts) {
+  const categories = ['국내여행', '공연/축제'];
+  const counts = Object.fromEntries(categories.map((category) => [category, 0]));
+  for (const post of posts) {
+    const category = post.category || '국내여행';
+    counts[category] = (counts[category] || 0) + 1;
+  }
+  return { total: posts.length, categories: counts };
+}
+
+function categoryCountLinks(counts, href = '#routes') {
+  const categories = ['국내여행', '공연/축제'];
+  return categories.map((category) => \`<a href="\${href}" data-category="\${esc(category)}">\${esc(category)} <span>\${counts.categories[category] || 0}</span></a>\`).join('');
+}
+
+function renderCategorySummary(counts) {
+  const categories = ['국내여행', '공연/축제'];
+  const cards = categories.map((category) => \`<a href="#routes" data-category="\${esc(category)}"><b>\${esc(category)}</b><span>\${counts.categories[category] || 0}</span></a>\`).join('');
+  return \`<section class="wrap category-counts" aria-label="카테고리별 글 수"><a href="#routes"><b>전체글</b><span>\${counts.total}</span></a>\${cards}</section>\`;
+}
+`;
+            source = source.replace(/function card\(post, className = 'card', heading = 'h3'\) \{[\s\S]*?\n\}\n\nfunction renderIndex\(posts\) \{/, (match) => match.replace('\n\nfunction renderIndex(posts) {', `${helpers}\nfunction renderIndex(posts) {`));
+          }
+
+          source = source.replace('function renderArticle(post) {', "function renderArticle(post, counts = { total: 0, categories: {} }) {");
+
+          const memoLine = "  const memo = (post.memo || []).map((m) => `<span>${esc(m)}</span>`).join('');";
+          if (!source.includes("const categoryNav = categoryCountLinks(counts, '../#routes');")) {
+            source = replaceOnce(source, memoLine, `${memoLine}\n  const categoryNav = categoryCountLinks(counts, '../#routes');`, 'article category nav variable');
+          }
+
+          const articleNavOld = '<a href=\\"../#latest\\">최신글</a><a href=\\"../#routes\\">전체글</a><a href=\\"../#routes\\">국내여행</a><a href=\\"../#routes\\">공연/축제</a>';
+          const articleNavNew = '<a href=\\"../#latest\\">최신글</a><a href=\\"../#routes\\">전체글 <span>${counts.total}</span></a>${categoryNav}';
+          if (source.includes(articleNavOld)) source = source.replace(articleNavOld, articleNavNew);
+
+          if (!source.includes('const categoryNav = categoryCountLinks(counts);')) {
+            const renderIndexAnchor = "  const primary = list[0];\n  if (!primary) return '';";
+            source = replaceOnce(source, renderIndexAnchor, `${renderIndexAnchor}\n  const counts = countCategories(posts);\n  const categoryNav = categoryCountLinks(counts);\n  const categoryFooter = categoryCountLinks(counts);\n  const categorySummary = renderCategorySummary(counts);`, 'index category count variables');
+          }
+
+          const indexNavOld = '<a href=\\"#latest\\">최신글</a><a href=\\"#routes\\">전체글</a><a href=\\"#routes\\">국내여행</a><a href=\\"#routes\\">공연/축제</a>';
+          const indexNavNew = '<a href=\\"#latest\\">최신글</a><a href=\\"#routes\\">전체글 <span>${counts.total}</span></a>${categoryNav}';
+          if (source.includes(indexNavOld)) source = source.replace(indexNavOld, indexNavNew);
+
+          const footerCategoryOld = '<a href=\\"#routes\\">국내여행</a><a href=\\"#routes\\">공연/축제</a>';
+          if (source.includes(footerCategoryOld)) source = source.replace(footerCategoryOld, '${categoryFooter}');
+
+          const routesOld = '</div></section><section class=\\"wrap section\\" id=\\"routes\\"><h2>전체글</h2>';
+          const routesNew = '</div></section>${categorySummary}<section class=\\"wrap section\\" id=\\"routes\\"><h2>전체글 <span>${counts.total}</span></h2>';
+          if (source.includes(routesOld)) source = source.replace(routesOld, routesNew);
+
+          const indexLinksCssOld = '.links{display:flex;gap:24px;color:#333;font-size:14px;font-weight:700}.hero{';
+          const indexLinksCssNew = '.links{display:flex;gap:24px;color:#333;font-size:14px;font-weight:700}.links span{font-size:12px;color:var(--muted);font-weight:900}.hero{';
+          if (source.includes(indexLinksCssOld)) source = source.replace(indexLinksCssOld, indexLinksCssNew);
+
+          const articleLinksCssOld = '.links{display:flex;flex-wrap:wrap;gap:18px;color:#222;font-size:14px;font-weight:800}.hero{';
+          const articleLinksCssNew = '.links{display:flex;flex-wrap:wrap;gap:18px;color:#222;font-size:14px;font-weight:800}.links span{font-size:12px;color:var(--muted);font-weight:900}.hero{';
+          if (source.includes(articleLinksCssOld)) source = source.replace(articleLinksCssOld, articleLinksCssNew);
+
+          const categoryCssOld = '.card img{aspect-ratio:1.45/1;background:var(--soft)}footer{';
+          const categoryCssNew = '.card img{aspect-ratio:1.45/1;background:var(--soft)}.section h2 span{color:var(--muted);font-size:.72em}.category-counts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;padding:28px 0;border-bottom:1px solid var(--line)}.category-counts a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;border:1px solid var(--line);background:#fff}.category-counts b{font-size:15px}.category-counts span{font-size:24px;font-weight:900}@media(max-width:880px){.category-counts{grid-template-columns:1fr}}footer{';
+          if (source.includes(categoryCssOld)) source = source.replace(categoryCssOld, categoryCssNew);
+
+          const bottomOld = "if (!posts.length) {\n  console.log('No generated posts to enrich.');\n  process.exit(0);\n}\n\nfor (const post of posts) {";
+          const bottomNew = "if (!posts.length) {\n  console.log('No generated posts to enrich.');\n  process.exit(0);\n}\n\nconst counts = countCategories(posts);\n\nfor (const post of posts) {";
+          if (!source.includes('const counts = countCategories(posts);\n\nfor (const post of posts)')) source = replaceOnce(source, bottomOld, bottomNew, 'shared category counts');
+
+          source = source.replace('renderArticle(post), \'utf8\')', 'renderArticle(post, counts), \'utf8\')');
+
+          fs.writeFileSync(scriptPath, source);
+          NODE
+      - name: Regenerate pages
+        run: |
+          node --check scripts/enrich-tour-posts.mjs
+          node scripts/enrich-tour-posts.mjs
+      - name: Commit category counts
+        run: |
+          if git diff --quiet; then
+            echo "No category count changes."
+            exit 0
+          fi
+          git config user.name "tripview-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add scripts/enrich-tour-posts.mjs index.html data/generated-posts.json festival-*/index.html
+          git commit -m "Show category counts"
+          git push
