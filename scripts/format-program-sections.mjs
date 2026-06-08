@@ -46,6 +46,22 @@ function cleanLabel(value = '') {
     .trim();
 }
 
+function hasFinalConsonant(value = '') {
+  for (const char of [...cleanText(value)].reverse()) {
+    const code = char.charCodeAt(0);
+    if (code >= 0xac00 && code <= 0xd7a3) return (code - 0xac00) % 28 !== 0;
+  }
+  return false;
+}
+
+function topicParticle(value) {
+  return hasFinalConsonant(value) ? '은' : '는';
+}
+
+function objectParticle(value) {
+  return hasFinalConsonant(value) ? '을' : '를';
+}
+
 function splitProgramText(value = '') {
   return cleanText(value)
     .split(/\s*,\s*|\s*[·ㆍ]\s*|\s*;\s*/u)
@@ -99,7 +115,7 @@ function buildProgramOverview(post, raw) {
     return `<div class="program-card"><h3>${esc(label || `프로그램 ${index + 1}`)}</h3><ul>${listItems}</ul></div>`;
   }).join('');
 
-  return `<section class="program-overview" aria-labelledby="programTitle"><h2 id="programTitle">주요 프로그램</h2><p class="program-lead">${esc(sourceTitle(post))}에서 볼 수 있는 프로그램을 성격별로 나눠 정리했습니다. 먼저 볼 프로그램을 정한 뒤 도착 시간과 식사 시간을 맞추면 현장에서 덜 헤맵니다.</p><div class="program-grid">${cards}</div><p class="program-tip">인기 프로그램은 현장 접수나 선착순으로 운영될 수 있습니다. 도착하면 안내 부스에서 시간표, 접수 위치, 대기 시간을 먼저 확인하세요.</p></section>`;
+  return `<section class="program-overview" aria-labelledby="programTitle"><h2 id="programTitle">주요 프로그램</h2><p class="program-lead">${esc(sourceTitle(post))}에서 볼 수 있는 프로그램을 성격별로 나눠 정리했습니다. 먼저 볼 프로그램을 정한 뒤 도착 시간과 식사 시간을 맞추면 현장에서 이동 순서를 정하기 쉽습니다.</p><div class="program-grid">${cards}</div><p class="program-tip">인기 프로그램은 현장 접수나 선착순으로 운영될 수 있습니다. 도착하면 안내 부스에서 시간표, 접수 위치, 대기 시간을 먼저 확인하세요.</p></section>`;
 }
 
 function programSummary(post, raw) {
@@ -113,6 +129,18 @@ function programSummary(post, raw) {
   }
 
   return `${sourceTitle(post)}의 주요 프로그램은 ${labels.join(', ')}로 나뉩니다. 위 프로그램 목록에서 꼭 볼 항목을 먼저 정하고, 현장에서는 시간표와 접수 위치를 확인한 뒤 동선을 잡는 편이 좋습니다.`;
+}
+
+function fixTitleParticles(html, post) {
+  const title = sourceTitle(post);
+  if (!title) return html;
+
+  let next = html;
+  for (const variant of [...new Set([title, esc(title)])]) {
+    next = next.split(`${variant}은`).join(`${variant}${topicParticle(title)}`);
+    next = next.split(`${variant}을`).join(`${variant}${objectParticle(title)}`);
+  }
+  return next;
 }
 
 function injectProgramStyle(html) {
@@ -181,6 +209,7 @@ async function main() {
     if (!result.removed && !html.includes('program-overview')) continue;
     next = insertProgramOverview(result.html, overview);
     next = replaceProgramParagraph(next, post, raw);
+    next = fixTitleParticles(next, post);
 
     if (next !== html) {
       await fs.writeFile(file, next, 'utf8');
