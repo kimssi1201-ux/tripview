@@ -287,6 +287,7 @@ function renderArticle(post) {
   return `<!doctype html>
 <html lang="ko">
   <head>
+    <meta name="naver-site-verification" content="38616b4b4209994ed384d0d2439bddcbec2cc711" />
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6066428844912614"
      crossorigin="anonymous"></script>
     <meta charset="utf-8" />
@@ -301,7 +302,8 @@ function renderArticle(post) {
     </style>
   </head>
   <body>
-    <header class="top"><div class="wrap nav"><a class="brand" href="../">트립뷰</a><nav class="links"><a href="../">홈</a><a href="../#latest">최신글</a><a href="../#routes">전체글</a><a href="../#routes">국내여행</a><a href="../#routes">공연/축제</a></nav></div></header>
+    <header class="top">
+    <meta name="naver-site-verification" content="38616b4b4209994ed384d0d2439bddcbec2cc711" /><div class="wrap nav"><a class="brand" href="../">트립뷰</a><nav class="links"><a href="../">홈</a><a href="../#latest">최신글</a><a href="../#routes">전체글</a><a href="../#routes">국내여행</a><a href="../#routes">공연/축제</a></nav></div></header>
     <main>
       <section class="wrap hero"><h1>${esc(post.title)}</h1><div class="meta"><span>트립뷰 편집팀</span><span>${esc(post.date)}</span><span>${esc(post.read)}</span><span>${esc(post.region)}</span></div></section>
       ${gallery}
