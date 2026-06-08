@@ -34,6 +34,9 @@ jobs:
       - name: Enrich generated posts
         run: node scripts/enrich-tour-posts.mjs
 
+      - name: Build RSS feed
+        run: node scripts/build-feed.mjs
+
       - name: Commit generated posts
         run: |
           if git diff --quiet; then
