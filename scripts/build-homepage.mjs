@@ -56,8 +56,16 @@ async function urlsFromSitemap() {
 }
 
 function categoryFromHtml(content) {
-  if (content.includes('공연/축제')) return '공연/축제';
+  const small = content.match(/<small>\s*(국내여행|공연\/축제)\s*<\/small>/i);
+  if (small) return small[1];
+
+  const type = stripHtml(content).match(/유형:\s*(국내여행|공연\/축제)/);
+  if (type) return type[1];
+
+  const title = titleFromHtml(content);
+  if (/축제|페스티벌|공연|행사/.test(title)) return '공연/축제';
   if (content.includes('국내여행')) return '국내여행';
+  if (content.includes('공연/축제')) return '공연/축제';
   return '국내여행';
 }
 
