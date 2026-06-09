@@ -7,6 +7,8 @@ on:
       - 'scripts/build-homepage.mjs'
       - 'scripts/enrich-tour-posts.mjs'
       - 'scripts/format-program-sections.mjs'
+      - 'scripts/merge-manual-posts.mjs'
+      - 'data/manual-posts-*.json'
   workflow_dispatch:
 
 permissions:
@@ -23,6 +25,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
+
+      - name: Merge manual posts
+        run: node scripts/merge-manual-posts.mjs
 
       - name: Enrich generated posts
         run: node scripts/enrich-tour-posts.mjs
