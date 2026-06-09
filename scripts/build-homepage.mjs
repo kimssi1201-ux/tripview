@@ -42,6 +42,10 @@ function titleFromHtml(content) {
     .trim();
 }
 
+function categoryFromTitle(title = '') {
+  return /축제|페스티벌|공연|문화제|행사|단오제|불꽃|콘서트|마켓|박람회/i.test(title) ? '공연/축제' : '';
+}
+
 function normalizePath(value = '') {
   let pathname = String(value || '').trim();
   if (!pathname) return '';
@@ -138,6 +142,9 @@ function categoryFromHtml(content) {
   const type = text.match(/유형:\s*(국내여행|공연\/축제)/);
   if (type) return type[1];
 
+  const titleCategory = categoryFromTitle(titleFromHtml(content));
+  if (titleCategory) return titleCategory;
+
   const hasDomestic = text.includes('국내여행');
   const hasFestival = text.includes('공연/축제');
   if (hasDomestic && !hasFestival) return '국내여행';
@@ -165,7 +172,8 @@ async function postFromUrl(url, categoryLookup) {
   if (!title) return null;
 
   const parsed = new URL(url);
-  const category = categoryLookup.get(normalizePath(parsed.pathname))
+  const category = categoryFromTitle(title)
+    || categoryLookup.get(normalizePath(parsed.pathname))
     || categoryLookup.get(slugFromPath(parsed.pathname))
     || categoryFromHtml(html);
 
