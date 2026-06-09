@@ -42,6 +42,31 @@ function titleFromHtml(content) {
     .trim();
 }
 
+function normalizePath(value = '') {
+  let pathname = String(value || '').trim();
+  if (!pathname) return '';
+
+  try {
+    if (/^https?:\/\//i.test(pathname)) pathname = new URL(pathname).pathname;
+  } catch {
+    return '';
+  }
+
+  try {
+    pathname = decodeURIComponent(pathname);
+  } catch {
+    // Keep the original string if it is already a plain slug/path.
+  }
+
+  if (!pathname.startsWith('/')) pathname = `/${pathname}`;
+  if (!pathname.endsWith('/')) pathname = `${pathname}/`;
+  return pathname;
+}
+
+function slugFromPath(value = '') {
+  return normalizePath(value).replace(/^\/|\/$/g, '');
+}
+
 function localPathForUrl(url) {
   const parsed = new URL(url);
   const pathname = decodeURIComponent(parsed.pathname);
@@ -55,17 +80,68 @@ async function urlsFromSitemap() {
   return [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
 }
 
+async function readJsonArray(filePath) {
+  try {
+    const parsed = JSON.parse(await fs.readFile(filePath, 'utf8'));
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+function addCategoryLookup(lookup, post) {
+  if (!post || !CATEGORIES.includes(post.category)) return;
+
+  const keys = [post.slug, post.path, post.url]
+    .filter(Boolean)
+    .flatMap((value) => {
+      const normalized = normalizePath(value);
+      const slug = slugFromPath(value);
+      return [normalized, slug].filter(Boolean);
+    });
+
+  for (const key of keys) lookup.set(key, post.category);
+}
+
+async function categoryLookupFromData() {
+  const dataDir = path.join(ROOT, 'data');
+  const files = [
+    path.join(dataDir, 'posts.json'),
+    path.join(dataDir, 'generated-posts.json'),
+  ];
+
+  try {
+    const entries = await fs.readdir(dataDir);
+    for (const entry of entries) {
+      if (/^manual-posts-.*\.json$/.test(entry)) files.push(path.join(dataDir, entry));
+    }
+  } catch {
+    // Data files are optional for local previews.
+  }
+
+  const lookup = new Map();
+  const seenFiles = new Set();
+  for (const file of files) {
+    if (seenFiles.has(file)) continue;
+    seenFiles.add(file);
+    const posts = await readJsonArray(file);
+    for (const post of posts) addCategoryLookup(lookup, post);
+  }
+  return lookup;
+}
+
 function categoryFromHtml(content) {
   const small = content.match(/<small>\s*(국내여행|공연\/축제)\s*<\/small>/i);
   if (small) return small[1];
 
-  const type = stripHtml(content).match(/유형:\s*(국내여행|공연\/축제)/);
+  const text = stripHtml(content);
+  const type = text.match(/유형:\s*(국내여행|공연\/축제)/);
   if (type) return type[1];
 
-  const title = titleFromHtml(content);
-  if (/축제|페스티벌|공연|행사/.test(title)) return '공연/축제';
-  if (content.includes('국내여행')) return '국내여행';
-  if (content.includes('공연/축제')) return '공연/축제';
+  const hasDomestic = text.includes('국내여행');
+  const hasFestival = text.includes('공연/축제');
+  if (hasDomestic && !hasFestival) return '국내여행';
+  if (hasFestival && !hasDomestic) return '공연/축제';
   return '국내여행';
 }
 
@@ -74,7 +150,7 @@ function regionFromHtml(content) {
   return spans.find((item) => /시|군|구|도|서울|부산|인천|제주|경기|강원|충청|전라|경상/.test(item)) || '';
 }
 
-async function postFromUrl(url) {
+async function postFromUrl(url, categoryLookup) {
   const file = localPathForUrl(url);
   if (!file) return null;
 
@@ -89,13 +165,17 @@ async function postFromUrl(url) {
   if (!title) return null;
 
   const parsed = new URL(url);
+  const category = categoryLookup.get(normalizePath(parsed.pathname))
+    || categoryLookup.get(slugFromPath(parsed.pathname))
+    || categoryFromHtml(html);
+
   return {
     title,
     path: parsed.pathname,
     url,
     image: meta(html, 'og:image'),
     excerpt: meta(html, 'description') || meta(html, 'og:description') || stripHtml(html).slice(0, 150),
-    category: categoryFromHtml(html),
+    category,
     region: regionFromHtml(html),
   };
 }
@@ -170,13 +250,14 @@ function renderIndex(posts) {
 }
 
 const urls = await urlsFromSitemap();
+const categoryLookup = await categoryLookupFromData();
 const posts = [];
 const seen = new Set();
 
 for (const url of urls) {
   if (seen.has(url)) continue;
   seen.add(url);
-  const post = await postFromUrl(url);
+  const post = await postFromUrl(url, categoryLookup);
   if (post) posts.push(post);
 }
 
