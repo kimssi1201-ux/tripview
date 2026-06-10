@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - '.github/workflows/build-homepage.yml'
+      - 'scripts/add-adsense.mjs'
       - 'scripts/build-homepage.mjs'
       - 'scripts/enrich-tour-posts.mjs'
       - 'scripts/format-program-sections.mjs'
@@ -40,6 +41,9 @@ jobs:
 
       - name: Build RSS feed
         run: node scripts/build-feed.mjs
+
+      - name: Apply head tags
+        run: node scripts/add-adsense.mjs
 
       - name: Commit homepage updates
         run: |
