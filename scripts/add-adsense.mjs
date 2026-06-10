@@ -7,6 +7,7 @@ const root = join(scriptDir, "..");
 
 const ADSENSE_PUBLISHER_ID = "ca-pub-8468106244002167";
 const NAVER_VERIFICATION_ID = "38616b4b4209994ed384d0d2439bddcbec2cc711";
+const ADSENSE_PUBLISHER_RE = /ca-pub-\d+/g;
 const ADSENSE_SCRIPT_RE = /\s*<script\s+async\s+src=["']https:\/\/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=ca-pub-\d+["'][^>]*crossorigin=["']anonymous["'][^>]*><\/script>/gi;
 
 const requiredHeadSnippets = [
@@ -40,7 +41,9 @@ async function writeIfChanged(path, text) {
 }
 
 function insertRequiredHeadSnippets(text) {
-  return text.replace(/<head([^>]*)>([\s\S]*?)<\/head>/gi, (match, attrs, body) => {
+  const normalizedText = text.replace(ADSENSE_PUBLISHER_RE, ADSENSE_PUBLISHER_ID);
+
+  return normalizedText.replace(/<head([^>]*)>([\s\S]*?)<\/head>/gi, (match, attrs, body) => {
     let nextBody = body.replace(ADSENSE_SCRIPT_RE, "");
 
     for (const snippet of requiredHeadSnippets) {
