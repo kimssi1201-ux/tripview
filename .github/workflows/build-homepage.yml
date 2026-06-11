@@ -5,6 +5,7 @@ on:
     paths:
       - '.github/workflows/build-homepage.yml'
       - 'scripts/add-adsense.mjs'
+      - 'scripts/add-map-preview.mjs'
       - 'scripts/build-homepage.mjs'
       - 'scripts/enrich-tour-posts.mjs'
       - 'scripts/format-program-sections.mjs'
@@ -44,6 +45,9 @@ jobs:
 
       - name: Apply head tags
         run: node scripts/add-adsense.mjs
+
+      - name: Apply map previews
+        run: node scripts/add-map-preview.mjs
 
       - name: Commit homepage updates
         run: |
