@@ -37,7 +37,8 @@ async function manualPosts() {
   const files = entries
     .filter((entry) => entry.isFile() && /^manual-posts-.*\.json$/.test(entry.name))
     .map((entry) => path.join(DATA_DIR, entry.name))
-    .sort();
+    .sort()
+    .reverse();
 
   const posts = [];
   for (const file of files) {
