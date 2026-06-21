@@ -1,461 +1,169 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0">
   <channel>
-    <title>트립뷰</title>
+    <title>여행노트</title>
     <link>https://tripview.kr/</link>
-    <atom:link href="https://tripview.kr/feed.xml" rel="self" type="application/rss+xml" />
-    <description>국내여행과 공연/축제 방문 정보를 정리하는 트립뷰 최신 글 RSS입니다.</description>
-    <language>ko</language>
-    <lastBuildDate>Sat, 20 Jun 2026 10:20:29 GMT</lastBuildDate>
+    <description>국내외 여행 정보와 후기</description>
+    <lastBuildDate>Fri, 19 Jun 2026 00:00:00 GMT</lastBuildDate>
     <item>
-      <title>서울어텀페스타 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-3544886/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-3544886/</guid>
-      <description>서울어텀페스타 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/66/4031666_image2_1.jpg" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
+      <title>아우라지</title>
+      <link>https://tripview.kr/post.html?slug=tour-125777</link>
+      <guid>https://tripview.kr/post.html?slug=tour-125777</guid>
+      <description>강원특별자치도 아우라지 강원특별자치도 정선군 여량면 아우라지길 69 방문 정보를 정리했습니다.</description>
+      <category>국내여행</category>
+      <pubDate>Fri, 19 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>GES2026 (게임 e스포츠 서울), 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-3524889/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-3524889/</guid>
-      <description>GES2026 (게임 e스포츠 서울) 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/45/4070145_image2_1.jpg" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
+      <title>강화 전등사</title>
+      <link>https://tripview.kr/post.html?slug=tour-125534</link>
+      <guid>https://tripview.kr/post.html?slug=tour-125534</guid>
+      <description>인천광역시 강화 전등사 인천광역시 강화군 길상면 전등사로 37-41 방문 정보를 정리했습니다.</description>
+      <category>국내여행</category>
+      <pubDate>Fri, 19 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>양산웅상회야제 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-2381291/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-2381291/</guid>
-      <description>양산웅상회야제 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/53/4077553_image2_1.jpg" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
+      <title>수원 화성 [유네스코 세계유산]</title>
+      <link>https://tripview.kr/post.html?slug=tour-125555</link>
+      <guid>https://tripview.kr/post.html?slug=tour-125555</guid>
+      <description>경기도 수원 화성 [유네스코 세계유산] 경기도 수원시 장안구 영화동 320-2 방문 정보를 정리했습니다.</description>
+      <category>국내여행</category>
+      <pubDate>Fri, 19 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>진안홍삼축제 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-1718060/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-1718060/</guid>
-      <description>진안홍삼축제 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/02/3535902_image2_1.jpg" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
+      <title>함백산</title>
+      <link>https://tripview.kr/post.html?slug=tour-125594</link>
+      <guid>https://tripview.kr/post.html?slug=tour-125594</guid>
+      <description>강원특별자치도 함백산 강원특별자치도 태백시 황지동 산 176-12 방문 정보를 정리했습니다.</description>
+      <category>국내여행</category>
+      <pubDate>Fri, 19 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>2026 경기도자비엔날레, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-1250585/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-1250585/</guid>
-      <description>2026 경기도자비엔날레 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/71/4065571_image2_1.jpg" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
+      <title>민둥산</title>
+      <link>https://tripview.kr/post.html?slug=tour-125616</link>
+      <guid>https://tripview.kr/post.html?slug=tour-125616</guid>
+      <description>강원특별자치도 민둥산 강원특별자치도 정선군 남면 무릉리 방문 정보를 정리했습니다.</description>
+      <category>국내여행</category>
+      <pubDate>Fri, 19 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>영광불갑산상사화축제 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-1078905/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-1078905/</guid>
-      <description>영광불갑산상사화축제 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/32/4041232_image2_1.jpg" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
+      <title>무릉계곡</title>
+      <link>https://tripview.kr/post.html?slug=tour-125677</link>
+      <guid>https://tripview.kr/post.html?slug=tour-125677</guid>
+      <description>강원특별자치도 무릉계곡 강원특별자치도 동해시 삼화로 538 (삼화동) 방문 정보를 정리했습니다.</description>
+      <category>국내여행</category>
+      <pubDate>Fri, 19 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>부천국제만화축제 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-589386/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-589386/</guid>
-      <description>부천국제만화축제 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/75/3557475_image2_1.JPG" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
+      <title>장호해변·장호항</title>
+      <link>https://tripview.kr/post.html?slug=tour-125711</link>
+      <guid>https://tripview.kr/post.html?slug=tour-125711</guid>
+      <description>강원특별자치도 장호해변·장호항 강원특별자치도 삼척시 근덕면 장호리 방문 정보를 정리했습니다.</description>
+      <category>국내여행</category>
+      <pubDate>Fri, 19 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>시흥갯골축제 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-142197/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-142197/</guid>
-      <description>시흥갯골축제 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/09/3528809_image2_1.jpg" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
+      <title>망상해변</title>
+      <link>https://tripview.kr/post.html?slug=tour-125713</link>
+      <guid>https://tripview.kr/post.html?slug=tour-125713</guid>
+      <description>강원특별자치도 망상해변 강원특별자치도 동해시 동해대로 6270-10 (망상동) 방문 정보를 정리했습니다.</description>
+      <category>국내여행</category>
+      <pubDate>Fri, 19 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>문구전 2026 여름, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-4076709/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-4076709/</guid>
-      <description>문구전 2026 여름 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/26/4076726_image2_1.png" type="image/png" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
+      <title>방동약수</title>
+      <link>https://tripview.kr/post.html?slug=tour-125723</link>
+      <guid>https://tripview.kr/post.html?slug=tour-125723</guid>
+      <description>강원특별자치도 방동약수 강원특별자치도 인제군 기린면 방동약수로 89-59 방문 정보를 정리했습니다.</description>
+      <category>국내여행</category>
+      <pubDate>Fri, 19 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>독립출판 북페어 전주책쾌 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-3495394/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-3495394/</guid>
-      <description>독립출판 북페어 전주책쾌 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/55/4076355_image2_1.png" type="image/png" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
+      <title>청평사(춘천)</title>
+      <link>https://tripview.kr/post.html?slug=tour-125762</link>
+      <guid>https://tripview.kr/post.html?slug=tour-125762</guid>
+      <description>강원특별자치도 청평사(춘천) 강원특별자치도 춘천시 북산면 오봉산길 810 방문 정보를 정리했습니다.</description>
+      <category>국내여행</category>
+      <pubDate>Fri, 19 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>코믹월드 SUMMER 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-3352452/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-3352452/</guid>
-      <description>코믹월드 SUMMER 2026 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/38/4076738_image2_1.png" type="image/png" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
+      <title>상원사(오대산)</title>
+      <link>https://tripview.kr/post.html?slug=tour-125771</link>
+      <guid>https://tripview.kr/post.html?slug=tour-125771</guid>
+      <description>강원특별자치도 상원사(오대산) 강원특별자치도 평창군 진부면 오대산로 1211-50 방문 정보를 정리했습니다.</description>
+      <category>국내여행</category>
+      <pubDate>Fri, 19 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>2026 경기인형극제 in 수원, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-1825520/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-1825520/</guid>
-      <description>2026 경기인형극제 in 수원 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/47/4076547_image2_1.jpg" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
+      <title>월정사·월정사 전나무숲</title>
+      <link>https://tripview.kr/post.html?slug=tour-125772</link>
+      <guid>https://tripview.kr/post.html?slug=tour-125772</guid>
+      <description>강원특별자치도 월정사·월정사 전나무숲 강원특별자치도 평창군 진부면 오대산로 374-8 방문 정보를 정리했습니다.</description>
+      <category>국내여행</category>
+      <pubDate>Fri, 19 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>안성 남사당바우덕이 풍물단 상설 공연 ‘곰뱅이텄다’ 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-293030/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-293030/</guid>
-      <description>안성 남사당바우덕이 풍물단 상설 공연 ‘곰뱅이텄다’ 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/32/4039532_image2_1.jpg" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
+      <title>청간정</title>
+      <link>https://tripview.kr/post.html?slug=tour-125796</link>
+      <guid>https://tripview.kr/post.html?slug=tour-125796</guid>
+      <description>강원특별자치도 청간정 강원특별자치도 고성군 토성면 동해대로 5110 방문 정보를 정리했습니다.</description>
+      <category>국내여행</category>
+      <pubDate>Fri, 19 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>서울 왕궁수문장 교대의식 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-292961/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-292961/</guid>
-      <description>서울 왕궁수문장 교대의식 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/79/4039379_image2_1.jpg" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
+      <title>고성 왕곡마을</title>
+      <link>https://tripview.kr/post.html?slug=tour-125804</link>
+      <guid>https://tripview.kr/post.html?slug=tour-125804</guid>
+      <description>강원특별자치도 고성 왕곡마을 강원특별자치도 고성군 왕곡마을길 41 방문 정보를 정리했습니다.</description>
+      <category>국내여행</category>
+      <pubDate>Fri, 19 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>홍천 찰옥수수 축제 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-140833/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-140833/</guid>
-      <description>홍천 찰옥수수 축제 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/51/4075351_image2_1.jpg" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
+      <title>공주 공산성 [유네스코 세계유산]</title>
+      <link>https://tripview.kr/post.html?slug=tour-125949</link>
+      <guid>https://tripview.kr/post.html?slug=tour-125949</guid>
+      <description>충청남도 공주 공산성 [유네스코 세계유산] 충청남도 공주시 웅진로 280 (금성동) 방문 정보를 정리했습니다.</description>
+      <category>국내여행</category>
+      <pubDate>Fri, 19 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>홍천강 별빛음악 맥주축제 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-2539802/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-2539802/</guid>
-      <description>홍천강 별빛음악 맥주축제 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/16/4075616_image2_1.jpg" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
+      <title>청주 상당산성</title>
+      <link>https://tripview.kr/post.html?slug=tour-125964</link>
+      <guid>https://tripview.kr/post.html?slug=tour-125964</guid>
+      <description>충청북도 청주 상당산성 충청북도 청주시 상당구 성내로 70 방문 정보를 정리했습니다.</description>
+      <category>국내여행</category>
+      <pubDate>Fri, 19 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>대구앞산축제 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-2375382/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-2375382/</guid>
-      <description>대구앞산축제 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/78/4075978_image2_1.jpg" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
+      <title>서동공원과 궁남지</title>
+      <link>https://tripview.kr/post.html?slug=tour-125984</link>
+      <guid>https://tripview.kr/post.html?slug=tour-125984</guid>
+      <description>충청남도 서동공원과 궁남지 충청남도 부여군 부여읍 궁남로 52 방문 정보를 정리했습니다.</description>
+      <category>국내여행</category>
+      <pubDate>Fri, 19 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>부여서동연꽃축제 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-574047/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-574047/</guid>
-      <description>부여서동연꽃축제 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/74/4067074_image2_1.jpg" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
+      <title>하동송림공원</title>
+      <link>https://tripview.kr/post.html?slug=tour-126233</link>
+      <guid>https://tripview.kr/post.html?slug=tour-126233</guid>
+      <description>경상남도 하동송림공원 경상남도 하동군 하동읍 광평리 440-5 방문 정보를 정리했습니다.</description>
+      <category>국내여행</category>
+      <pubDate>Fri, 19 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>인천펜타포트 락 페스티벌 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-561027/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-561027/</guid>
-      <description>인천펜타포트 락 페스티벌 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/68/4070168_image2_1.jpg" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
+      <title>피아골계곡</title>
+      <link>https://tripview.kr/post.html?slug=tour-126265</link>
+      <guid>https://tripview.kr/post.html?slug=tour-126265</guid>
+      <description>전라남도 피아골계곡 전라남도 구례군 토지면 내서리 방문 정보를 정리했습니다.</description>
+      <category>국내여행</category>
+      <pubDate>Fri, 19 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>강릉단오제 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-531391/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-531391/</guid>
-      <description>강릉단오제 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/76/4057376_image2_1.JPG" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>평창효석문화제 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-507635/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-507635/</guid>
-      <description>평창효석문화제 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/28/3523028_image2_1.jpg" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>통영한산대첩축제 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-507454/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-507454/</guid>
-      <description>통영한산대첩축제 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/08/4041308_image2_1.jpg" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>보령머드축제 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-506534/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-506534/</guid>
-      <description>보령머드축제 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/79/3534979_image2_1.jpg" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>무주반딧불축제 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-506523/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-506523/</guid>
-      <description>무주반딧불축제 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/69/3520569_image2_1.jpg" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>제20회 대구국제뮤지컬페스티벌 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-141963/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-141963/</guid>
-      <description>제20회 대구국제뮤지컬페스티벌 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/51/4075151_image2_1.jpg" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>2026 전국 장애학생 e페스티벌, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-4075091/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-4075091/</guid>
-      <description>2026 전국 장애학생 e페스티벌 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/88/4075188_image2_1.jpg" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>제14회 부산국제항만컨퍼런스 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-4033328/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-4033328/</guid>
-      <description>제14회 부산국제항만컨퍼런스 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/79/4039679_image2_1.jpg" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>부산국제매직페스티벌 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-1032770/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-1032770/</guid>
-      <description>부산국제매직페스티벌 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/20/4064420_image2_1.jpg" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>서울국제작가축제 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-1018469/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-1018469/</guid>
-      <description>서울국제작가축제 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/69/4073769_image2_1.jpg" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>부산항축제 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-1007868/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-1007868/</guid>
-      <description>부산항축제 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/70/4058670_image2_1.jpg" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>정남진 장흥 물축제 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-767114/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-767114/</guid>
-      <description>정남진 장흥 물축제 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/77/4071277_image2_1.jpg" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>장수한우랑사과랑축제 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-763974/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-763974/</guid>
-      <description>장수한우랑사과랑축제 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/91/3519591_image2_1.jpg" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>세종 조치원 복숭아 축제 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-606610/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-606610/</guid>
-      <description>세종 조치원 복숭아 축제 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/49/4062949_image2_1.png" type="image/png" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>제24회 동강국제사진제 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-606549/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-606549/</guid>
-      <description>제24회 동강국제사진제 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/56/4075256_image2_1.jpg" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>동강뗏목축제 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-581063/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-581063/</guid>
-      <description>동강뗏목축제 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/34/4071434_image2_1.JPG" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>한강·낙동강 발원지 축제 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-2391294/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-2391294/</guid>
-      <description>한강·낙동강 발원지 축제 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/56/4064656_image2_1.jpg" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>2026 보드게임콘, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-2387785/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-2387785/</guid>
-      <description>2026 보드게임콘 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/36/4067236_image2_1.jpg" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>전주독서대전 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-1945450/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-1945450/</guid>
-      <description>전주독서대전 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/69/4060669_image2_1.jpg" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>마토예술제 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-1841539/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-1841539/</guid>
-      <description>마토예술제 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/53/4067353_image2_1.jpg" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>평창더위사냥축제 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-1831344/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-1831344/</guid>
-      <description>평창더위사냥축제 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/23/4061523_image2_1.JPG" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>아시아프 (ASYAAF 100) 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-1829696/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-1829696/</guid>
-      <description>아시아프 (ASYAAF 100) 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/49/4057349_image2_1.jpg" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>제18회 통영연극예술축제 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-1824778/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-1824778/</guid>
-      <description>제18회 통영연극예술축제 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/82/4070082_image2_1.jpg" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>대구치맥페스티벌 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-1801011/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-1801011/</guid>
-      <description>대구치맥페스티벌 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/84/4071284_image2_1.jpg" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>무안 연꽃축제 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-1302214/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-1302214/</guid>
-      <description>무안 연꽃축제 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/90/4071390_image2_1.JPG" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>울산조선해양축제 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-1049327/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-1049327/</guid>
-      <description>울산조선해양축제 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/50/4072450_image2_1.jpg" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>2026 광주 ACE Fair, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-2614198/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-2614198/</guid>
-      <description>2026 광주 ACE Fair 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/46/4001646_image2_1.jpg" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>김포아라마린페스티벌 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-2611559/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-2611559/</guid>
-      <description>김포아라마린페스티벌 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/46/4063746_image2_1.jpg" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>문화가 흐르는 서울광장 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-2598331/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-2598331/</guid>
-      <description>문화가 흐르는 서울광장 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/68/4059668_image2_1.jpg" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>전주한옥마을 전통연희 퍼레이드-노상놀이야 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-2547013/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-2547013/</guid>
-      <description>전주한옥마을 전통연희 퍼레이드-노상놀이야 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/58/4067258_image2_1.JPG" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
-    </item>
-    <item>
-      <title>강릉 국가유산 야행 2026, 방문 전 알아둘 일정과 운영정보</title>
-      <link>https://tripview.kr/festival-2541883/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-2541883/</guid>
-      <description>강릉 국가유산 야행 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/77/3317777_image2_1.jpg" type="image/jpeg" />
-      <pubDate>Sat, 20 Jun 2026 10:20:29 GMT</pubDate>
+      <title>방축도</title>
+      <link>https://tripview.kr/post.html?slug=tour-126296</link>
+      <guid>https://tripview.kr/post.html?slug=tour-126296</guid>
+      <description>전북특별자치도 방축도 전북특별자치도 군산시 옥도면 방축도길 9 방문 정보를 정리했습니다.</description>
+      <category>국내여행</category>
+      <pubDate>Fri, 19 Jun 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
