@@ -19,7 +19,8 @@ const files = [
   "_headers",
   "robots.txt",
   "sitemap.xml",
-  "feed.xml"
+  "feed.xml",
+  "ads.txt"
 ];
 
 function xml(value) {
@@ -67,7 +68,7 @@ async function generateFeed() {
 
   await writeFile(
     join(root, "feed.xml"),
-    `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0">\n  <channel>\n    <title>여행노트</title>\n    <link>${baseUrl}/</link>\n    <description>국내외 여행 정보와 후기</description>\n    <lastBuildDate>${new Date(latest).toUTCString()}</lastBuildDate>\n${items}\n  </channel>\n</rss>\n`,
+    `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0">\n  <channel>\n    <title>트립뷰</title>\n    <link>${baseUrl}/</link>\n    <description>국내여행과 공연/축제 큐레이션</description>\n    <lastBuildDate>${new Date(latest).toUTCString()}</lastBuildDate>\n${items}\n  </channel>\n</rss>\n`,
     "utf8"
   );
 }
