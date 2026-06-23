@@ -1,5 +1,5 @@
 import { readdir, readFile, writeFile } from "node:fs/promises";
-import { dirname, join, relative } from "node:path";
+import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const scriptDir = dirname(fileURLToPath(import.meta.url));
@@ -45,16 +45,23 @@ function tableValue(html, labels) {
   return "";
 }
 
-function titleFromHtml(html) {
-  return stripHtml(html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)?.[1] || html.match(/<title>([\s\S]*?)<\/title>/i)?.[1] || "")
-    .replace(/\s*\|\s*트립뷰$/, "")
+function isUsableAddress(value = "") {
+  const address = stripHtml(value)
+    .replace(/\s+/g, " ")
     .trim();
+
+  if (!address) return false;
+  if (/방문 전 확인|확인 필요|시설별|상이|없음|미정|문의/i.test(address)) return false;
+  if (address.length < 8) return false;
+
+  const hasRegion = /(서울|부산|대구|인천|광주|대전|울산|세종|제주|경기|강원|충북|충청북도|충남|충청남도|전북|전라북도|전남|전라남도|경북|경상북도|경남|경상남도)/.test(address);
+  const hasDetail = /(시|군|구|읍|면|동|로|길|리)\b?|\d/.test(address);
+  return hasRegion && hasDetail;
 }
 
 function mapQuery(html) {
-  const address = tableValue(html, ["주소", "장소"]);
-  const title = titleFromHtml(html);
-  return address || title;
+  const address = tableValue(html, ["주소"]);
+  return isUsableAddress(address) ? address : "";
 }
 
 function mapBlock(query) {
@@ -87,10 +94,11 @@ function ensureMapCss(html) {
 
 function patchHtml(html) {
   if (!html.includes('class="info-table"')) return html;
-  const query = mapQuery(html);
-  if (!query) return html;
 
+  const query = mapQuery(html);
   let next = removeExistingMap(html);
+  if (!query) return next;
+
   next = ensureMapCss(next);
   return next.replace(/<\/table>/i, `</table>${mapBlock(query)}`);
 }
@@ -121,4 +129,4 @@ for (const file of htmlFiles) {
   }
 }
 
-console.log(`Map previews verified. pages patched: ${patched}, pages checked: ${htmlFiles.length}`);
+console.log(`Map previews updated. pages patched: ${patched}, pages checked: ${htmlFiles.length}`);
