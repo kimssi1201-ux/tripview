@@ -5,6 +5,7 @@ on:
     paths:
       - '.github/workflows/build-homepage.yml'
       - 'scripts/add-adsense.mjs'
+      - 'scripts/add-helpful-article-sections.mjs'
       - 'scripts/add-image-zoom.mjs'
       - 'scripts/add-map-preview.mjs'
       - 'scripts/build-homepage.mjs'
@@ -38,6 +39,9 @@ jobs:
 
       - name: Format program sections
         run: node scripts/format-program-sections.mjs
+
+      - name: Add helpful article sections
+        run: node scripts/add-helpful-article-sections.mjs
 
       - name: Build homepage
         run: node scripts/build-homepage.mjs
