@@ -5,6 +5,7 @@ on:
     paths:
       - '.github/workflows/build-homepage.yml'
       - 'scripts/add-adsense.mjs'
+      - 'scripts/add-image-zoom.mjs'
       - 'scripts/add-map-preview.mjs'
       - 'scripts/build-homepage.mjs'
       - 'scripts/enrich-tour-posts.mjs'
@@ -46,6 +47,9 @@ jobs:
 
       - name: Polish AdSense readiness
         run: node scripts/polish-adsense-readiness.mjs
+
+      - name: Apply homepage image zoom
+        run: node scripts/add-image-zoom.mjs
 
       - name: Apply head tags
         run: node scripts/add-adsense.mjs
