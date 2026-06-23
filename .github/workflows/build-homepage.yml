@@ -10,6 +10,7 @@ on:
       - 'scripts/enrich-tour-posts.mjs'
       - 'scripts/format-program-sections.mjs'
       - 'scripts/merge-manual-posts.mjs'
+      - 'scripts/polish-adsense-readiness.mjs'
       - 'data/manual-posts-*.json'
   workflow_dispatch:
 
@@ -42,6 +43,9 @@ jobs:
 
       - name: Build RSS feed
         run: node scripts/build-feed.mjs
+
+      - name: Polish AdSense readiness
+        run: node scripts/polish-adsense-readiness.mjs
 
       - name: Apply head tags
         run: node scripts/add-adsense.mjs
