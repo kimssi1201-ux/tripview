@@ -55,7 +55,7 @@ function isUsableAddress(value = "") {
   if (address.length < 8) return false;
 
   const hasRegion = /(서울|부산|대구|인천|광주|대전|울산|세종|제주|경기|강원|충북|충청북도|충남|충청남도|전북|전라북도|전남|전라남도|경북|경상북도|경남|경상남도)/.test(address);
-  const hasDetail = /(시|군|구|읍|면|동|로|길|리)\b?|\d/.test(address);
+  const hasDetail = /(시|군|구|읍|면|동|로|길|리)|\d/.test(address);
   return hasRegion && hasDetail;
 }
 
