@@ -39,6 +39,7 @@ jobs:
           OPENAI_TIMEOUT_MS: ${{ vars.OPENAI_TIMEOUT_MS || '90000' }}
 
       - name: Commit enriched posts
+        if: github.event_name == 'workflow_dispatch'
         run: |
           if git diff --quiet; then
             echo "No enriched posts to commit."
