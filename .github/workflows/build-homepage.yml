@@ -13,6 +13,7 @@ on:
       - 'scripts/format-program-sections.mjs'
       - 'scripts/merge-manual-posts.mjs'
       - 'scripts/polish-adsense-readiness.mjs'
+      - 'scripts/restructure-homepage-reference.mjs'
       - 'data/manual-posts-*.json'
   workflow_dispatch:
 
@@ -45,6 +46,9 @@ jobs:
 
       - name: Build homepage
         run: node scripts/build-homepage.mjs
+
+      - name: Apply reference homepage structure
+        run: node scripts/restructure-homepage-reference.mjs
 
       - name: Build RSS feed
         run: node scripts/build-feed.mjs
