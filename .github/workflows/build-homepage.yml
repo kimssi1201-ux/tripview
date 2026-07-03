@@ -56,14 +56,14 @@ jobs:
       - name: Fix reference homepage categories
         run: node scripts/fix-reference-homepage-categories.mjs
 
-      - name: Apply homepage content config
-        run: node scripts/apply-homepage-content-config.mjs
-
       - name: Build RSS feed
         run: node scripts/build-feed.mjs
 
       - name: Polish AdSense readiness
         run: node scripts/polish-adsense-readiness.mjs
+
+      - name: Apply homepage content config
+        run: node scripts/apply-homepage-content-config.mjs
 
       - name: Apply homepage image zoom
         run: node scripts/add-image-zoom.mjs
