@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://tripview.kr/</loc><lastmod>2026-06-06</lastmod></url>
+  <url><loc>https://tripview.kr/travel-252587/</loc><lastmod>2026-06-06</lastmod></url>
+  <url><loc>https://tripview.kr/travel-252545/</loc><lastmod>2026-06-06</lastmod></url>
+  <url><loc>https://tripview.kr/travel-970138/</loc><lastmod>2026-06-06</lastmod></url>
+  <url><loc>https://tripview.kr/festival-2989580/</loc><lastmod>2026-06-06</lastmod></url>
+  <url><loc>https://tripview.kr/festival-2987489/</loc><lastmod>2026-06-06</lastmod></url>
+  <url><loc>https://tripview.kr/festival-2952109/</loc><lastmod>2026-06-06</lastmod></url>
+  <url><loc>https://tripview.kr/travel-4073447/</loc><lastmod>2026-06-06</lastmod></url>
+  <url><loc>https://tripview.kr/travel-4073368/</loc><lastmod>2026-06-06</lastmod></url>
+  <url><loc>https://tripview.kr/travel-4072509/</loc><lastmod>2026-06-06</lastmod></url>
+  <url><loc>https://tripview.kr/festival-141578/</loc><lastmod>2026-06-06</lastmod></url>
+  <url><loc>https://tripview.kr/festival-2853719/</loc><lastmod>2026-06-06</lastmod></url>
+  <url><loc>https://tripview.kr/travel-2031668/</loc><lastmod>2026-06-06</lastmod></url>
+  <url><loc>https://tripview.kr/travel-298099/</loc><lastmod>2026-06-06</lastmod></url>
+  <url><loc>https://tripview.kr/travel-2735607/</loc><lastmod>2026-06-06</lastmod></url>
+  <url><loc>https://tripview.kr/festival-4071535/</loc><lastmod>2026-06-06</lastmod></url>
+  <url><loc>https://tripview.kr/festival-3305155/</loc><lastmod>2026-06-06</lastmod></url>
   <url><loc>https://tripview.kr/festival-3532372/</loc><lastmod>2026-06-06</lastmod></url>
   <url><loc>https://tripview.kr/festival-2992940/</loc><lastmod>2026-06-06</lastmod></url>
   <url><loc>https://tripview.kr/festival-2609985/</loc><lastmod>2026-06-06</lastmod></url>
@@ -24,22 +40,6 @@
   <url><loc>https://tripview.kr/festival-1939183/</loc><lastmod>2026-06-06</lastmod></url>
   <url><loc>https://tripview.kr/festival-2699287/</loc><lastmod>2026-06-06</lastmod></url>
   <url><loc>https://tripview.kr/festival-2607445/</loc><lastmod>2026-06-06</lastmod></url>
-  <url><loc>https://tripview.kr/travel-252587/</loc><lastmod>2026-06-06</lastmod></url>
-  <url><loc>https://tripview.kr/travel-252545/</loc><lastmod>2026-06-06</lastmod></url>
-  <url><loc>https://tripview.kr/travel-970138/</loc><lastmod>2026-06-06</lastmod></url>
-  <url><loc>https://tripview.kr/festival-2989580/</loc><lastmod>2026-06-06</lastmod></url>
-  <url><loc>https://tripview.kr/festival-2987489/</loc><lastmod>2026-06-06</lastmod></url>
-  <url><loc>https://tripview.kr/festival-2952109/</loc><lastmod>2026-06-06</lastmod></url>
-  <url><loc>https://tripview.kr/travel-4073447/</loc><lastmod>2026-06-06</lastmod></url>
-  <url><loc>https://tripview.kr/travel-4073368/</loc><lastmod>2026-06-06</lastmod></url>
-  <url><loc>https://tripview.kr/travel-4072509/</loc><lastmod>2026-06-06</lastmod></url>
-  <url><loc>https://tripview.kr/festival-141578/</loc><lastmod>2026-06-06</lastmod></url>
-  <url><loc>https://tripview.kr/festival-2853719/</loc><lastmod>2026-06-06</lastmod></url>
-  <url><loc>https://tripview.kr/travel-2031668/</loc><lastmod>2026-06-06</lastmod></url>
-  <url><loc>https://tripview.kr/travel-298099/</loc><lastmod>2026-06-06</lastmod></url>
-  <url><loc>https://tripview.kr/travel-2735607/</loc><lastmod>2026-06-06</lastmod></url>
-  <url><loc>https://tripview.kr/festival-4071535/</loc><lastmod>2026-06-06</lastmod></url>
-  <url><loc>https://tripview.kr/festival-3305155/</loc><lastmod>2026-06-06</lastmod></url>
   <url><loc>https://tripview.kr/festival-4077756/</loc><lastmod>2026-06-06</lastmod></url>
   <url><loc>https://tripview.kr/festival-2644679/</loc><lastmod>2026-06-06</lastmod></url>
   <url><loc>https://tripview.kr/festival-2556687/</loc><lastmod>2026-06-06</lastmod></url>
@@ -196,4 +196,6 @@
   <url><loc>https://tripview.kr/gongju-yugu-hydrangea-garden-festival-2026/</loc><lastmod>2026-06-06</lastmod></url>
   <url><loc>https://tripview.kr/sejong-culture-center-jochiwon/</loc><lastmod>2026-06-06</lastmod></url>
   <url><loc>https://tripview.kr/privacy.html</loc><lastmod>2026-06-06</lastmod></url>
+  <url><loc>https://tripview.kr/about.html</loc><lastmod>2026-07-03</lastmod></url>
+  <url><loc>https://tripview.kr/contact.html</loc><lastmod>2026-07-03</lastmod></url>
 </urlset>
