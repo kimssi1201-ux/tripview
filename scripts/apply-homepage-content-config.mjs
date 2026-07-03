@@ -107,7 +107,8 @@ function card(post, className = 'card', heading = 'h3') {
 }
 
 function miniCard(post) {
-  return `<a class="mini-card" href="${esc(postHref(post))}"><small>${esc(post.category || '여행 정보')}</small><strong>${esc(post.title)}</strong><span>${esc(prettyDate(post))} · ${esc(post.read || '약 7분')}</span></a>`;
+  const image = post.image ? `<span class="thumb mini-thumb"><img src="${esc(post.image)}" alt="${esc(post.alt || post.title)}" loading="lazy" /></span>` : '';
+  return `<a class="mini-card" href="${esc(postHref(post))}">${image}<span class="mini-copy"><small>${esc(post.category || '여행 정보')}</small><strong>${esc(post.title)}</strong><span>${esc(prettyDate(post))} · ${esc(post.read || '약 7분')}</span></span></a>`;
 }
 
 function headerNav() {
@@ -232,6 +233,10 @@ function injectCss(html) {
   }
   if (!next.includes('.region-blocks{')) {
     const css = `.region-blocks{display:grid;gap:30px}.region-block{display:grid;gap:14px;scroll-margin-top:106px}.region-block-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-top:1px solid #111;padding-top:14px}.region-block-head h3{margin:0;font-size:26px;line-height:1.2}.region-block-head span{font-size:13px;color:var(--muted);font-weight:900}.region-rows{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px 22px}.region-row{display:grid;gap:2px;border-bottom:1px solid var(--line);padding:0 0 10px}.region-row strong{font-size:15px;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.region-row span{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}@media(max-width:920px){.region-rows{grid-template-columns:1fr}.region-block{scroll-margin-top:130px}}`;
+    next = next.replace('</style>', `${css}</style>`);
+  }
+  if (!next.includes('.mini-thumb{')) {
+    const css = `.latest-list .mini-card{grid-template-columns:104px minmax(0,1fr);gap:12px;align-items:start}.mini-thumb{aspect-ratio:1.28/1}.mini-thumb img{height:100%}.mini-copy{display:grid;gap:5px;min-width:0}.mini-copy span{color:var(--muted);font-size:14px}@media(max-width:520px){.latest-list .mini-card{grid-template-columns:96px minmax(0,1fr)}}`;
     next = next.replace('</style>', `${css}</style>`);
   }
   if (!next.includes('/* nav-readable */')) {

@@ -160,7 +160,8 @@ function sectionLead(kicker, title, href = '') {
 }
 
 function miniCard(post) {
-  return `<a class="mini-card" href="${esc(post.path)}"><small>${esc(post.category)}</small><strong>${esc(post.title)}</strong><span>${esc(post.date)} · ${esc(post.read)}</span></a>`;
+  const image = post.image ? `<span class="thumb mini-thumb"><img src="${esc(post.image)}" alt="${esc(post.title)}" loading="lazy" /></span>` : '';
+  return `<a class="mini-card" href="${esc(post.path)}">${image}<span class="mini-copy"><small>${esc(post.category)}</small><strong>${esc(post.title)}</strong><span>${esc(post.date)} · ${esc(post.read)}</span></span></a>`;
 }
 
 function renderIndex(posts) {
