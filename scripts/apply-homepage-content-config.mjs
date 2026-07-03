@@ -6,6 +6,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const INDEX = path.join(ROOT, 'index.html');
 const CONFIG = path.join(ROOT, 'data', 'homepage-content.json');
 const POSTS = path.join(ROOT, 'data', 'generated-posts.json');
+const REGION_ORDER = ['서울', '경기·인천', '충청', '강원', '전라', '경상', '제주', '기타'];
 
 function esc(value = '') {
   return String(value).replace(/[&<>"']/g, (match) => ({
@@ -38,6 +39,28 @@ function compactRegion(value = '') {
   return (parts[1] || first).replace(/[시군구]$/g, '') || first;
 }
 
+function broadRegion(value = '') {
+  const text = String(value);
+  if (/서울/.test(text)) return '서울';
+  if (/경기|인천/.test(text)) return '경기·인천';
+  if (/충청|충북|충남|대전|세종/.test(text)) return '충청';
+  if (/강원/.test(text)) return '강원';
+  if (/전라|전북|전남|광주/.test(text)) return '전라';
+  if (/경상|경북|경남|부산|대구|울산/.test(text)) return '경상';
+  if (/제주/.test(text)) return '제주';
+  return compactRegion(value) || '기타';
+}
+
+function regionGroups(posts) {
+  const groups = new Map(REGION_ORDER.map((label) => [label, []]));
+  for (const post of posts) {
+    const label = broadRegion(post.region);
+    if (!groups.has(label)) groups.set(label, []);
+    groups.get(label).push(post);
+  }
+  return [...groups.entries()].filter(([, groupPosts]) => groupPosts.length > 0);
+}
+
 function uniqueBy(items, keyFn) {
   const seen = new Set();
   return items.filter((item) => {
@@ -58,9 +81,9 @@ function headerNav() {
 }
 
 function deriveTodayKeywords(posts, config) {
-  const regionLinks = uniqueBy(posts, (post) => compactRegion(post.region))
+  const regionLinks = regionGroups(posts)
     .slice(0, 5)
-    .map((post) => ({ label: `${compactRegion(post.region)} 여행`, href: postHref(post) }));
+    .map(([label, groupPosts]) => ({ label: `${label} 여행`, href: postHref(groupPosts[0]) }));
   const festivalLinks = posts
     .filter((post) => post.category === '공연/축제')
     .slice(0, 3)
@@ -79,20 +102,22 @@ function bookingSection(config) {
 }
 
 function regionSection(posts) {
-  const regions = uniqueBy(posts, (post) => compactRegion(post.region)).slice(0, 12);
-  const cards = regions.map((post) => `<a class="region-chip" href="${esc(postHref(post))}"><strong>${esc(compactRegion(post.region))}</strong><span>${esc(shorten(post.sourceTitle || post.title || '여행 정보', 18))}</span><small>${esc(post.category || '여행 정보')}</small></a>`).join('');
+  const cards = regionGroups(posts).map(([label, groupPosts]) => {
+    const links = groupPosts.slice(0, 3).map((post) => `<a href="${esc(postHref(post))}">${esc(shorten(post.sourceTitle || post.title || '여행 정보', 20))}</a>`).join('');
+    return `<article class="region-card"><div class="region-card-head"><strong>${esc(label)}</strong><span>${groupPosts.length}건</span></div><div class="region-posts">${links}</div></article>`;
+  }).join('');
   return `<section class="wrap section" id="region-guide">${sectionLead('REGION', '지역별 여행 보기', '#routes')}<div class="region-list">${cards}</div></section>`;
 }
 
 function dynamicCategoryGroups(config, counts, posts) {
-  const regionLinks = uniqueBy(posts, (post) => compactRegion(post.region))
+  const regionLinks = regionGroups(posts)
     .slice(0, 4)
-    .map((post) => ({ label: `${compactRegion(post.region)} 여행`, href: postHref(post) }));
+    .map(([label, groupPosts]) => ({ label: `${label} 여행`, href: postHref(groupPosts[0]) }));
   const festival = posts.find((post) => post.category === '공연/축제');
   return [
     {
       title: '가볼만한 곳',
-      description: `국내여행 글 ${counts.domestic}건을 지역과 동선 중심으로 정리합니다.`,
+      description: `국내여행 글 ${counts.domestic}건을 권역과 동선 중심으로 정리합니다.`,
       links: [{ label: '국내 여행지', href: '#category-domestic' }, ...regionLinks.slice(0, 3)],
     },
     {
@@ -119,9 +144,9 @@ function faqSection(config) {
 }
 
 function popularLinks(config, posts) {
-  const fromPosts = uniqueBy(posts, (post) => compactRegion(post.region))
+  const fromPosts = regionGroups(posts)
     .slice(0, 4)
-    .map((post) => ({ label: `${compactRegion(post.region)} 여행`, href: postHref(post) }));
+    .map(([label, groupPosts]) => ({ label: `${label} 여행`, href: postHref(groupPosts[0]) }));
   return fromPosts.length ? fromPosts : (config.footer?.popular || []);
 }
 
@@ -146,8 +171,8 @@ function injectCss(html) {
     const css = `.check-card{display:block;color:inherit}.faq-list{display:grid;gap:12px}.faq-item{border-top:1px solid var(--line);padding:16px 0}.faq-item:last-child{border-bottom:1px solid var(--line)}.faq-item summary{cursor:pointer;font-weight:900;font-size:18px}.faq-item p{margin:10px 0 0;color:#444}.foot{grid-template-columns:1.3fr repeat(5,.75fr)}@media(max-width:1100px){.foot{grid-template-columns:repeat(3,1fr)}}@media(max-width:720px){.foot{grid-template-columns:1fr}}`;
     next = next.replace('</style>', `${css}</style>`);
   }
-  if (!next.includes('.region-list{')) {
-    const css = `.region-list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.region-chip{display:grid;gap:4px;border-top:1px solid var(--line);padding:14px 0 12px}.region-chip strong{font-size:20px;line-height:1.2}.region-chip span{font-size:14px;color:#333;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.region-chip small{font-size:12px}@media(max-width:920px){.region-list{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:520px){.region-list{grid-template-columns:1fr}}`;
+  if (!next.includes('.region-card{')) {
+    const css = `.region-list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.region-card{border-top:1px solid var(--line);padding:16px 0 12px;display:grid;gap:12px}.region-card-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px}.region-card-head strong{font-size:22px;line-height:1.2}.region-card-head span{font-size:13px;color:var(--muted);font-weight:900}.region-posts{display:grid;gap:6px}.region-posts a{font-size:14px;color:#333;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}@media(max-width:920px){.region-list{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:520px){.region-list{grid-template-columns:1fr}}`;
     next = next.replace('</style>', `${css}</style>`);
   }
   return next;
