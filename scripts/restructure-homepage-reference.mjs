@@ -189,6 +189,14 @@ function renderIndex(posts) {
     <meta property="og:description" content="가볼 만한 곳, 축제 일정, 방문 전 체크 정보를 한 화면에서 정리합니다." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="${esc(primary.image)}" />
+    <meta property="og:image:secure_url" content="${esc(primary.image)}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="트립뷰 - 국내여행과 공연/축제 매거진" />
+    <meta name="twitter:description" content="가볼 만한 곳, 축제 일정, 방문 전 체크 정보를 한 화면에서 정리합니다." />
+    <meta name="twitter:image" content="${esc(primary.image)}" />
+    <link rel="image_src" href="${esc(primary.image)}" />
     <link rel="alternate" type="application/rss+xml" title="트립뷰 RSS" href="${SITE_URL}/rss.xml" />
     <title>트립뷰 - 국내여행과 공연/축제 매거진</title>
     <style>

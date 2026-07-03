@@ -9,7 +9,8 @@ const SITE_URL = 'https://tripview.kr';
 const TODAY = '2026-06-06';
 const OPENAI_API_URL = 'https://api.openai.com/v1/responses';
 const AI_PROMPT_VERSION = 1;
-const OPENAI_TIMEOUT_MS = Math.max(15000, Number.parseInt(process.env.OPENAI_TIMEOUT_MS || '90000', 10) || 90000);
+const RAW_OPENAI_TIMEOUT_MS = Number.parseInt(process.env.OPENAI_TIMEOUT_MS ?? '90000', 10);
+const OPENAI_TIMEOUT_MS = Math.max(15000, Number.isFinite(RAW_OPENAI_TIMEOUT_MS) ? RAW_OPENAI_TIMEOUT_MS : 90000);
 
 const MANUAL_POSTS = [
   'gochang-tidal-flat-festival-2026',
@@ -389,7 +390,12 @@ async function applyOpenAiEnrichment(posts) {
     return posts;
   }
 
-  const limit = Math.max(1, Number.parseInt(process.env.OPENAI_ENRICH_LIMIT || '10', 10) || 10);
+  const rawLimit = Number.parseInt(process.env.OPENAI_ENRICH_LIMIT ?? '10', 10);
+  const limit = Math.max(0, Number.isFinite(rawLimit) ? rawLimit : 10);
+  if (limit === 0) {
+    console.log('OPENAI_ENRICH_LIMIT is 0. Skipping AI enrichment.');
+    return posts;
+  }
   let changed = 0;
   let attempted = 0;
   const next = [];
