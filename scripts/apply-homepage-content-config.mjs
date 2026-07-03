@@ -53,6 +53,10 @@ function shorten(value = '', max = 14) {
   return text.length > max ? `${text.slice(0, max - 1)}…` : text;
 }
 
+function headerNav() {
+  return `<header class="top"><div class="wrap nav"><a class="brand" href="#top">트립뷰</a><nav class="links" aria-label="주요 메뉴"><a href="#category-bundle">카테고리</a><a href="#region-guide">지역별</a><a href="#curation">행사정보</a><a href="#booking">방문 전 체크</a><a href="#guide">여행 정보</a></nav></div></header>`;
+}
+
 function deriveTodayKeywords(posts, config) {
   const regionLinks = uniqueBy(posts, (post) => compactRegion(post.region))
     .slice(0, 5)
@@ -72,6 +76,12 @@ function defaultBookingCards(config) {
 function bookingSection(config) {
   const cards = defaultBookingCards(config).map((item) => `<a class="check-card" href="${esc(item.href || '#')}" aria-label="${esc(item.title)}"><h3>${esc(item.title)}</h3><p>${esc(item.description)}</p></a>`).join('');
   return `<section class="wrap section" id="booking"><div class="booking"><div class="booking-copy"><small>VISIT CHECK</small><h2>방문 전 체크는 실제 동선 기준으로</h2><p>보유한 여행 글의 위치, 일정, 운영 정보, 주차와 대중교통 확인 포인트를 기준으로 방문 전 필요한 내용을 다시 묶었습니다.</p></div><div class="check-cards">${cards}</div></div></section>`;
+}
+
+function regionSection(posts) {
+  const regions = uniqueBy(posts, (post) => compactRegion(post.region)).slice(0, 12);
+  const cards = regions.map((post) => `<a class="region-chip" href="${esc(postHref(post))}"><strong>${esc(compactRegion(post.region))}</strong><span>${esc(shorten(post.sourceTitle || post.title || '여행 정보', 18))}</span><small>${esc(post.category || '여행 정보')}</small></a>`).join('');
+  return `<section class="wrap section" id="region-guide">${sectionLead('REGION', '지역별 여행 보기', '#routes')}<div class="region-list">${cards}</div></section>`;
 }
 
 function dynamicCategoryGroups(config, counts, posts) {
@@ -131,9 +141,16 @@ function replaceBetween(html, startRegex, endRegex, replacement) {
 }
 
 function injectCss(html) {
-  if (html.includes('.faq-list{')) return html;
-  const css = `.check-card{display:block;color:inherit}.faq-list{display:grid;gap:12px}.faq-item{border-top:1px solid var(--line);padding:16px 0}.faq-item:last-child{border-bottom:1px solid var(--line)}.faq-item summary{cursor:pointer;font-weight:900;font-size:18px}.faq-item p{margin:10px 0 0;color:#444}.foot{grid-template-columns:1.3fr repeat(5,.75fr)}@media(max-width:1100px){.foot{grid-template-columns:repeat(3,1fr)}}@media(max-width:720px){.foot{grid-template-columns:1fr}}`;
-  return html.replace('</style>', `${css}</style>`);
+  let next = html;
+  if (!next.includes('.faq-list{')) {
+    const css = `.check-card{display:block;color:inherit}.faq-list{display:grid;gap:12px}.faq-item{border-top:1px solid var(--line);padding:16px 0}.faq-item:last-child{border-bottom:1px solid var(--line)}.faq-item summary{cursor:pointer;font-weight:900;font-size:18px}.faq-item p{margin:10px 0 0;color:#444}.foot{grid-template-columns:1.3fr repeat(5,.75fr)}@media(max-width:1100px){.foot{grid-template-columns:repeat(3,1fr)}}@media(max-width:720px){.foot{grid-template-columns:1fr}}`;
+    next = next.replace('</style>', `${css}</style>`);
+  }
+  if (!next.includes('.region-list{')) {
+    const css = `.region-list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.region-chip{display:grid;gap:4px;border-top:1px solid var(--line);padding:14px 0 12px}.region-chip strong{font-size:20px;line-height:1.2}.region-chip span{font-size:14px;color:#333;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.region-chip small{font-size:12px}@media(max-width:920px){.region-list{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:520px){.region-list{grid-template-columns:1fr}}`;
+    next = next.replace('</style>', `${css}</style>`);
+  }
+  return next;
 }
 
 const config = JSON.parse(await fs.readFile(CONFIG, 'utf8'));
@@ -146,8 +163,11 @@ const counts = {
 let html = await fs.readFile(INDEX, 'utf8');
 const todayItems = deriveTodayKeywords(posts, config);
 const today = `<section class="wrap today" aria-label="오늘의 여행 키워드"><div class="today-row"><b>TODAY</b>${todayItems.map(link).join('')}</div></section>`;
+html = html.replace(/<header class="top">[\s\S]*?<\/header>/, headerNav());
 html = html.replace(/<section class="wrap today"[\s\S]*?<\/section>/, today);
 html = html.replace(/<section class="wrap section" id="booking">[\s\S]*?<\/section>\s*<section class="wrap section" id="curation">/, `${bookingSection(config)}\n      <section class="wrap section" id="curation">`);
+html = html.replace(/\s*<section class="wrap section" id="region-guide">[\s\S]*?<\/section>\s*/g, '\n      ');
+html = html.replace(/(<section class="wrap section" id="curation">[\s\S]*?<\/section>)\s*<section class="wrap section" id="routes">/, `$1\n      ${regionSection(posts)}\n      <section class="wrap section" id="routes">`);
 html = replaceBetween(html, /<section class="wrap section" id="category-bundle">/, /<section class="wrap section" id="guide">/, `${categoryBundle(config, counts, posts)}\n      `);
 html = replaceBetween(html, /<section class="wrap section" id="guide">/, /\s*<\/main>/, faqSection(config));
 html = html.replace(/<footer>[\s\S]*?<\/footer>/, footer(config, counts, posts));
