@@ -84,14 +84,18 @@ async function itemFromUrl(url) {
 function renderFeed(items) {
   const now = new Date().toUTCString();
   const body = items.map((item) => {
+    const imageMime = imageType(item.image);
     const enclosure = item.image
-      ? `\n      <enclosure url="${xmlEscape(item.image)}" type="${imageType(item.image)}" />`
+      ? `\n      <enclosure url="${xmlEscape(item.image)}" type="${imageMime}" />`
+      : '';
+    const media = item.image
+      ? `\n      <media:thumbnail url="${xmlEscape(item.image)}" />\n      <media:content url="${xmlEscape(item.image)}" medium="image" type="${imageMime}" />`
       : '';
     const category = item.category ? `\n      <category>${xmlEscape(item.category)}</category>` : '';
-    return `    <item>\n      <title>${xmlEscape(item.title)}</title>\n      <link>${xmlEscape(item.url)}</link>\n      <guid isPermaLink="true">${xmlEscape(item.url)}</guid>\n      <description>${xmlEscape(item.description)}</description>${category}${enclosure}\n      <pubDate>${now}</pubDate>\n    </item>`;
+    return `    <item>\n      <title>${xmlEscape(item.title)}</title>\n      <link>${xmlEscape(item.url)}</link>\n      <guid isPermaLink="true">${xmlEscape(item.url)}</guid>\n      <description>${xmlEscape(item.description)}</description>${category}${enclosure}${media}\n      <pubDate>${now}</pubDate>\n    </item>`;
   }).join('\n');
 
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n  <channel>\n    <title>트립뷰</title>\n    <link>${SITE_URL}/</link>\n    <atom:link href="${FEED_URL}" rel="self" type="application/rss+xml" />\n    <description>국내여행과 공연/축제 방문 정보를 정리하는 트립뷰 최신 글 RSS입니다.</description>\n    <language>ko</language>\n    <lastBuildDate>${now}</lastBuildDate>\n${body}\n  </channel>\n</rss>\n`;
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">\n  <channel>\n    <title>트립뷰</title>\n    <link>${SITE_URL}/</link>\n    <atom:link href="${FEED_URL}" rel="self" type="application/rss+xml" />\n    <description>국내여행과 공연/축제 방문 정보를 정리하는 트립뷰 최신 글 RSS입니다.</description>\n    <language>ko</language>\n    <lastBuildDate>${now}</lastBuildDate>\n${body}\n  </channel>\n</rss>\n`;
 }
 
 const urls = await urlsFromSitemap();
