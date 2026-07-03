@@ -76,8 +76,29 @@ function shorten(value = '', max = 14) {
   return text.length > max ? `${text.slice(0, max - 1)}…` : text;
 }
 
+function prettyDate(post) {
+  if (post.date) return post.date;
+  if (post.sortDate) {
+    const [year, month, day] = String(post.sortDate).split('-');
+    if (year && month && day) return `${Number(month)}월 ${Number(day)}일`;
+  }
+  return '최근 업데이트';
+}
+
+function card(post, className = 'card', heading = 'h3') {
+  const image = post.image ? `<span class="thumb"><img src="${esc(post.image)}" alt="${esc(post.alt || post.title)}" loading="lazy" /></span>` : '';
+  const excerpt = post.excerpt || post.description || '';
+  const read = post.read || '약 7분';
+  return `<a class="${esc(className)}" href="${esc(postHref(post))}">${image}<small>${esc(post.category || '여행 정보')}</small><${heading}>${esc(post.title)}</${heading}><p>${esc(excerpt)}</p><div class="meta"><span>${esc(prettyDate(post))}</span><span>${esc(read)}</span>${post.region ? `<span>${esc(post.region)}</span>` : ''}</div></a>`;
+}
+
 function headerNav() {
-  return `<header class="top"><div class="wrap nav"><a class="brand" href="#top">트립뷰</a><nav class="links" aria-label="주요 메뉴"><a href="#category-bundle">카테고리</a><a href="#region-guide">지역별</a><a href="#curation">행사정보</a><a href="#booking">방문 전 체크</a><a href="#guide">여행 정보</a></nav></div></header>`;
+  return `<header class="top"><div class="wrap nav"><a class="brand" href="#top">트립뷰</a><nav class="links" aria-label="주요 메뉴"><a href="#region-guide">지역별</a><a href="#curation">지역축제 정보</a><a href="#category-domestic">가볼만한 곳</a><a href="#booking">방문 전 체크</a><a href="#guide">여행 정보</a></nav></div></header>`;
+}
+
+function regionCategorySection(posts) {
+  const tabs = regionGroups(posts).map(([label, groupPosts]) => `<a class="region-tab" href="${esc(postHref(groupPosts[0]))}"><strong>${esc(label)}</strong><span>${groupPosts.length}건</span></a>`).join('');
+  return `<section class="wrap region-top" id="region-guide" aria-label="지역 카테고리"><div class="region-top-head"><small>REGION</small><h2>지역 카테고리</h2></div><div class="region-tabs">${tabs}</div></section>`;
 }
 
 function deriveTodayKeywords(posts, config) {
@@ -92,6 +113,16 @@ function deriveTodayKeywords(posts, config) {
   return uniqueBy([...regionLinks, ...festivalLinks, ...fallback], (item) => item.label).slice(0, 8);
 }
 
+function festivalSection(posts) {
+  const festivalPosts = posts.filter((post) => post.category === '공연/축제').slice(0, 6);
+  return `<section class="wrap section" id="curation">${sectionLead('EVENT', '지역축제 정보', '#routes')}<div class="grid">${festivalPosts.map((post) => card(post)).join('')}</div></section>`;
+}
+
+function placesSection(posts) {
+  const domesticPosts = posts.filter((post) => post.category === '국내여행').slice(0, 9);
+  return `<section class="wrap section" id="category-domestic">${sectionLead('PLACES', '가볼만한 곳', '#routes')}<div class="grid">${domesticPosts.map((post) => card(post)).join('')}</div></section>`;
+}
+
 function defaultBookingCards(config) {
   return config.bookingCards || [];
 }
@@ -101,14 +132,6 @@ function bookingSection(config) {
   return `<section class="wrap section" id="booking"><div class="booking"><div class="booking-copy"><small>VISIT CHECK</small><h2>방문 전 체크는 실제 동선 기준으로</h2><p>보유한 여행 글의 위치, 일정, 운영 정보, 주차와 대중교통 확인 포인트를 기준으로 방문 전 필요한 내용을 다시 묶었습니다.</p></div><div class="check-cards">${cards}</div></div></section>`;
 }
 
-function regionSection(posts) {
-  const cards = regionGroups(posts).map(([label, groupPosts]) => {
-    const links = groupPosts.slice(0, 3).map((post) => `<a href="${esc(postHref(post))}">${esc(shorten(post.sourceTitle || post.title || '여행 정보', 20))}</a>`).join('');
-    return `<article class="region-card"><div class="region-card-head"><strong>${esc(label)}</strong><span>${groupPosts.length}건</span></div><div class="region-posts">${links}</div></article>`;
-  }).join('');
-  return `<section class="wrap section" id="region-guide">${sectionLead('REGION', '지역별 여행 보기', '#routes')}<div class="region-list">${cards}</div></section>`;
-}
-
 function dynamicCategoryGroups(config, counts, posts) {
   const regionLinks = regionGroups(posts)
     .slice(0, 4)
@@ -116,19 +139,19 @@ function dynamicCategoryGroups(config, counts, posts) {
   const festival = posts.find((post) => post.category === '공연/축제');
   return [
     {
-      title: '가볼만한 곳',
-      description: `국내여행 글 ${counts.domestic}건을 권역과 동선 중심으로 정리합니다.`,
-      links: [{ label: '국내 여행지', href: '#category-domestic' }, ...regionLinks.slice(0, 3)],
+      title: '지역별',
+      description: '서울, 경기·인천, 충청, 강원, 전라, 경상, 제주 권역으로 여행 정보를 봅니다.',
+      links: [{ label: '지역 카테고리', href: '#region-guide' }, ...regionLinks.slice(0, 3)],
     },
     {
-      title: '공연/축제',
+      title: '지역축제 정보',
       description: `공연/축제 글 ${counts.festival}건을 일정, 장소, 프로그램 중심으로 봅니다.`,
       links: [{ label: '축제 일정', href: '#curation' }, { label: '전체 축제 글', href: '#routes' }, ...(festival ? [{ label: shorten(festival.sourceTitle || festival.title), href: postHref(festival) }] : [])],
     },
     {
-      title: '여행 정보',
-      description: '운영시간, 주차, 대중교통, 지도와 주변 동선을 확인합니다.',
-      links: (config.categoryGroups?.[2]?.links || []).slice(0, 4),
+      title: '가볼만한 곳',
+      description: `국내여행 글 ${counts.domestic}건을 위치와 동선 중심으로 정리합니다.`,
+      links: [{ label: '국내 여행지', href: '#category-domestic' }, { label: '지도 확인', href: '#routes' }, { label: '방문 전 체크', href: '#booking' }],
     },
   ];
 }
@@ -152,7 +175,7 @@ function popularLinks(config, posts) {
 
 function footer(config, counts, posts) {
   const footerData = config.footer || {};
-  return `<footer><div class="wrap foot"><div><strong>트립뷰</strong><p>${esc(footerData.intro || '')}</p></div><div><h3>방문 전 체크</h3>${(footerData.reservation || []).map(link).join('')}</div><div><h3>여행 허브</h3>${(footerData.hub || []).map(link).join('')}</div><div><h3>카테고리</h3><a href="#category-domestic">국내여행 <span>${counts.domestic}</span></a><a href="#curation">공연/축제 <span>${counts.festival}</span></a></div><div><h3>인기 지역</h3>${popularLinks(config, posts).map(link).join('')}</div><div><h3>Language</h3>${(footerData.languages || []).map(link).join('')}</div></div><div class="wrap legal">Copyright 2026 Tripview. All Rights Reserved.</div></footer>`;
+  return `<footer><div class="wrap foot"><div><strong>트립뷰</strong><p>${esc(footerData.intro || '')}</p></div><div><h3>방문 전 체크</h3>${(footerData.reservation || []).map(link).join('')}</div><div><h3>여행 허브</h3><a href="#region-guide">지역별</a><a href="#curation">지역축제 정보</a><a href="#category-domestic">가볼만한 곳</a><a href="#guide">여행 정보</a></div><div><h3>카테고리</h3><a href="#category-domestic">국내여행 <span>${counts.domestic}</span></a><a href="#curation">공연/축제 <span>${counts.festival}</span></a></div><div><h3>인기 지역</h3>${popularLinks(config, posts).map(link).join('')}</div><div><h3>Language</h3>${(footerData.languages || []).map(link).join('')}</div></div><div class="wrap legal">Copyright 2026 Tripview. All Rights Reserved.</div></footer>`;
 }
 
 function replaceBetween(html, startRegex, endRegex, replacement) {
@@ -171,8 +194,8 @@ function injectCss(html) {
     const css = `.check-card{display:block;color:inherit}.faq-list{display:grid;gap:12px}.faq-item{border-top:1px solid var(--line);padding:16px 0}.faq-item:last-child{border-bottom:1px solid var(--line)}.faq-item summary{cursor:pointer;font-weight:900;font-size:18px}.faq-item p{margin:10px 0 0;color:#444}.foot{grid-template-columns:1.3fr repeat(5,.75fr)}@media(max-width:1100px){.foot{grid-template-columns:repeat(3,1fr)}}@media(max-width:720px){.foot{grid-template-columns:1fr}}`;
     next = next.replace('</style>', `${css}</style>`);
   }
-  if (!next.includes('.region-card{')) {
-    const css = `.region-list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.region-card{border-top:1px solid var(--line);padding:16px 0 12px;display:grid;gap:12px}.region-card-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px}.region-card-head strong{font-size:22px;line-height:1.2}.region-card-head span{font-size:13px;color:var(--muted);font-weight:900}.region-posts{display:grid;gap:6px}.region-posts a{font-size:14px;color:#333;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}@media(max-width:920px){.region-list{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:520px){.region-list{grid-template-columns:1fr}}`;
+  if (!next.includes('.region-tabs{')) {
+    const css = `.region-top{padding:106px 0 18px;border-bottom:1px solid var(--line)}.region-top-head{display:flex;align-items:baseline;gap:12px;margin-bottom:14px}.region-top-head h2{margin:0;font-size:22px;line-height:1.2}.region-tabs{display:flex;gap:10px;overflow:auto;padding-bottom:4px}.region-tab{flex:0 0 auto;min-width:118px;border-top:1px solid #111;padding:10px 0 6px;display:grid;gap:2px}.region-tab strong{font-size:18px;line-height:1.2}.region-tab span{font-size:12px;color:var(--muted);font-weight:900}.region-top + .today{padding-top:18px}@media(max-width:920px){.region-top{padding-top:128px}.region-tab{min-width:100px}}`;
     next = next.replace('</style>', `${css}</style>`);
   }
   return next;
@@ -188,11 +211,15 @@ const counts = {
 let html = await fs.readFile(INDEX, 'utf8');
 const todayItems = deriveTodayKeywords(posts, config);
 const today = `<section class="wrap today" aria-label="오늘의 여행 키워드"><div class="today-row"><b>TODAY</b>${todayItems.map(link).join('')}</div></section>`;
+const hero = html.match(/<section class="wrap hero" id="latest">[\s\S]*?<\/section>\s*/)?.[0] || '';
+const mainStart = html.search(/<section class="wrap today"/);
+const routesStart = html.search(/<section class="wrap section" id="routes">/);
+
 html = html.replace(/<header class="top">[\s\S]*?<\/header>/, headerNav());
-html = html.replace(/<section class="wrap today"[\s\S]*?<\/section>/, today);
-html = html.replace(/<section class="wrap section" id="booking">[\s\S]*?<\/section>\s*<section class="wrap section" id="curation">/, `${bookingSection(config)}\n      <section class="wrap section" id="curation">`);
-html = html.replace(/\s*<section class="wrap section" id="region-guide">[\s\S]*?<\/section>\s*/g, '\n      ');
-html = html.replace(/(<section class="wrap section" id="curation">[\s\S]*?<\/section>)\s*<section class="wrap section" id="routes">/, `$1\n      ${regionSection(posts)}\n      <section class="wrap section" id="routes">`);
+if (mainStart >= 0 && routesStart > mainStart) {
+  const topBlocks = `${regionCategorySection(posts)}\n      ${today}\n      ${hero.trim()}\n      ${festivalSection(posts)}\n      ${placesSection(posts)}\n      ${bookingSection(config)}\n      `;
+  html = html.slice(0, mainStart) + topBlocks + html.slice(routesStart);
+}
 html = replaceBetween(html, /<section class="wrap section" id="category-bundle">/, /<section class="wrap section" id="guide">/, `${categoryBundle(config, counts, posts)}\n      `);
 html = replaceBetween(html, /<section class="wrap section" id="guide">/, /\s*<\/main>/, faqSection(config));
 html = html.replace(/<footer>[\s\S]*?<\/footer>/, footer(config, counts, posts));
