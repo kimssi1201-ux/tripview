@@ -1,9 +1,6 @@
 name: Post 10 Tour Posts Now
 
 on:
-  push:
-    paths:
-      - '.github/workflows/post-10-now.yml'
   workflow_dispatch:
 
 permissions:
