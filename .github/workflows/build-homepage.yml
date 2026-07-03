@@ -4,10 +4,12 @@ on:
   push:
     paths:
       - '.github/workflows/build-homepage.yml'
+      - 'data/homepage-content.json'
       - 'scripts/add-adsense.mjs'
       - 'scripts/add-helpful-article-sections.mjs'
       - 'scripts/add-image-zoom.mjs'
       - 'scripts/add-map-preview.mjs'
+      - 'scripts/apply-homepage-content-config.mjs'
       - 'scripts/build-homepage.mjs'
       - 'scripts/enrich-tour-posts.mjs'
       - 'scripts/fix-reference-homepage-categories.mjs'
@@ -53,6 +55,9 @@ jobs:
 
       - name: Fix reference homepage categories
         run: node scripts/fix-reference-homepage-categories.mjs
+
+      - name: Apply homepage content config
+        run: node scripts/apply-homepage-content-config.mjs
 
       - name: Build RSS feed
         run: node scripts/build-feed.mjs
