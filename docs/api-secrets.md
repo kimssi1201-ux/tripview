@@ -14,6 +14,7 @@ Use this when scheduled jobs or post generation scripts need an API key.
    - `OPENAI_API_KEY`: OpenAI API key for AI-assisted content generation.
    - `OPENAI_MODEL`: optional repository variable. Defaults to `gpt-5.5`.
    - `OPENAI_ENRICH_LIMIT`: optional repository variable. Defaults to `10`.
+   - `OPENAI_TIMEOUT_MS`: optional repository variable. Defaults to `90000`.
 5. Save the secret.
 
 The code should read keys from `process.env.TRIPVIEW_API_KEY` or `process.env.OPENAI_API_KEY`.

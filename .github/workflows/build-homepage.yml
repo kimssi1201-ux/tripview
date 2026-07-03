@@ -44,6 +44,7 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-5.5' }}
           OPENAI_ENRICH_LIMIT: ${{ vars.OPENAI_ENRICH_LIMIT || '10' }}
+          OPENAI_TIMEOUT_MS: ${{ vars.OPENAI_TIMEOUT_MS || '90000' }}
 
       - name: Format program sections
         run: node scripts/format-program-sections.mjs

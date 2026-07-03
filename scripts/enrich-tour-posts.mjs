@@ -9,6 +9,7 @@ const SITE_URL = 'https://tripview.kr';
 const TODAY = '2026-06-06';
 const OPENAI_API_URL = 'https://api.openai.com/v1/responses';
 const AI_PROMPT_VERSION = 1;
+const OPENAI_TIMEOUT_MS = Math.max(15000, Number.parseInt(process.env.OPENAI_TIMEOUT_MS || '90000', 10) || 90000);
 
 const MANUAL_POSTS = [
   'gochang-tidal-flat-festival-2026',
@@ -324,27 +325,38 @@ async function openAiEnrichPost(post) {
   if (!apiKey) return post;
 
   const model = process.env.OPENAI_MODEL || 'gpt-5.5';
-  const response = await fetch(OPENAI_API_URL, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      model,
-      input: [
-        {
-          role: 'developer',
-          content: [{ type: 'input_text', text: 'You write practical Korean travel magazine articles. Return valid JSON only.' }]
-        },
-        {
-          role: 'user',
-          content: [{ type: 'input_text', text: aiPrompt(post) }]
-        }
-      ],
-      max_output_tokens: 2600
-    })
-  });
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), OPENAI_TIMEOUT_MS);
+  let response;
+  try {
+    response = await fetch(OPENAI_API_URL, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        'Content-Type': 'application/json'
+      },
+      signal: controller.signal,
+      body: JSON.stringify({
+        model,
+        input: [
+          {
+            role: 'developer',
+            content: [{ type: 'input_text', text: 'You write practical Korean travel magazine articles. Return valid JSON only.' }]
+          },
+          {
+            role: 'user',
+            content: [{ type: 'input_text', text: aiPrompt(post) }]
+          }
+        ],
+        max_output_tokens: 2200
+      })
+    });
+  } catch (error) {
+    if (error.name === 'AbortError') throw new Error(`OpenAI request timed out after ${Math.round(OPENAI_TIMEOUT_MS / 1000)}s`);
+    throw error;
+  } finally {
+    clearTimeout(timeout);
+  }
 
   const payload = await response.json().catch(() => ({}));
   if (!response.ok) {
