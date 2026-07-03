@@ -10,6 +10,7 @@ on:
       - 'scripts/add-map-preview.mjs'
       - 'scripts/build-homepage.mjs'
       - 'scripts/enrich-tour-posts.mjs'
+      - 'scripts/fix-reference-homepage-categories.mjs'
       - 'scripts/format-program-sections.mjs'
       - 'scripts/merge-manual-posts.mjs'
       - 'scripts/polish-adsense-readiness.mjs'
@@ -49,6 +50,9 @@ jobs:
 
       - name: Apply reference homepage structure
         run: node scripts/restructure-homepage-reference.mjs
+
+      - name: Fix reference homepage categories
+        run: node scripts/fix-reference-homepage-categories.mjs
 
       - name: Build RSS feed
         run: node scripts/build-feed.mjs
