@@ -141,7 +141,7 @@ function heroSection(posts) {
   const primary = posts[0];
   if (!primary) return '';
   const latestSide = posts.slice(1, 5).map(miniCard).join('');
-  return `<section class="wrap hero" id="latest"><h1 class="hero-title">트립뷰</h1><div class="lead-layout">${card(primary, 'latest-primary', 'h2')}<div class="latest-list">${latestSide}</div></div></section>`;
+  return `<section class="wrap hero" id="latest"><div class="lead-layout">${card(primary, 'latest-primary', 'h2')}<div class="latest-list">${latestSide}</div></div></section>`;
 }
 
 function festivalSection(posts) {

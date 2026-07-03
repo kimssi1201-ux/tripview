@@ -134,6 +134,21 @@ async function categoryLookupFromData() {
   return lookup;
 }
 
+async function postsFromGeneratedData() {
+  const dataPosts = await readJsonArray(path.join(ROOT, 'data', 'generated-posts.json'));
+  return dataPosts
+    .filter((post) => post?.slug && post?.title)
+    .map((post) => ({
+      title: post.title,
+      path: `/${post.slug}/`,
+      url: `${SITE_URL}/${post.slug}/`,
+      image: post.image || post.images?.[0] || '',
+      excerpt: post.excerpt || post.description || '',
+      category: post.category || CATEGORIES[0],
+      region: post.region || '',
+    }));
+}
+
 function categoryFromHtml(content) {
   const small = content.match(/<small>\s*(국내여행|공연\/축제)\s*<\/small>/i);
   if (small) return small[1];
@@ -374,6 +389,8 @@ for (const url of urls) {
   const post = await postFromUrl(url, categoryLookup);
   if (post) posts.push(post);
 }
+
+if (!posts.length) posts.push(...await postsFromGeneratedData());
 
 await fs.writeFile(path.join(ROOT, 'index.html'), renderIndex(posts), 'utf8');
 console.log(`Built homepage with ${posts.length} post(s).`);

@@ -164,6 +164,23 @@ function miniCard(post) {
   return `<a class="mini-card" href="${esc(post.path)}">${image}<span class="mini-copy"><small>${esc(post.category)}</small><strong>${esc(post.title)}</strong><span>${esc(post.date)} · ${esc(post.read)}</span></span></a>`;
 }
 
+async function postsFromGeneratedData() {
+  const parsed = JSON.parse(await fs.readFile(path.join(ROOT, 'data', 'generated-posts.json'), 'utf8'));
+  return parsed
+    .filter((post) => post?.slug && post?.title)
+    .map((post) => ({
+      title: post.title,
+      path: `/${post.slug}/`,
+      url: `${SITE_URL}/${post.slug}/`,
+      image: post.image || post.images?.[0] || '',
+      excerpt: post.excerpt || post.description || '',
+      category: post.category || CATEGORIES[0],
+      region: post.region || '',
+      date: post.date || '',
+      read: post.read || '약 7분',
+    }));
+}
+
 function renderIndex(posts) {
   const primary = posts[0];
   if (!primary) throw new Error('No posts found for homepage.');
@@ -208,7 +225,7 @@ function renderIndex(posts) {
     <header class="top"><div class="wrap nav"><a class="brand" href="#top">트립뷰</a><nav class="links" aria-label="주요 메뉴"><a href="#category-domestic">가볼 만한 곳</a><a href="#booking">예약</a><a href="#guide">여행 정보</a></nav></div></header>
     <main id="top">
       <section class="wrap today" aria-label="오늘의 여행 키워드"><div class="today-row"><b>TODAY</b>${chips}</div></section>
-      <section class="wrap hero" id="latest"><h1 class="hero-title">트립뷰</h1><div class="lead-layout">${card(primary, 'latest-primary', 'h2')}<div class="latest-list">${latestSide}</div></div></section>
+      <section class="wrap hero" id="latest"><div class="lead-layout">${card(primary, 'latest-primary', 'h2')}<div class="latest-list">${latestSide}</div></div></section>
       <section class="wrap section" id="category-domestic">${sectionLead('PLACES', '가볼만한 곳', '#routes')}<div class="grid">${places}</div></section>
       <section class="wrap section" id="booking"><div class="booking"><div class="booking-copy"><small>BOOKING CHECK</small><h2>예약 전 체크는 별도 기준으로 빠르게</h2><p>메인은 여행 정보를 읽는 곳이고, 예약 전에는 위치, 취소 조건, 이동 시간, 현장 운영 여부를 따로 확인하는 흐름으로 정리합니다.</p></div><div class="check-cards"><article class="check-card"><h3>숙소는 위치부터</h3><p>방문지와 숙소 사이 이동 시간, 주차, 늦은 체크인 가능 여부를 먼저 봅니다.</p></article><article class="check-card"><h3>교통은 귀가 기준</h3><p>출발보다 돌아오는 시간표와 막차, 주차장 출차 시간을 먼저 확인합니다.</p></article><article class="check-card"><h3>투어·체험은 운영 시간</h3><p>예약 가능 시간, 포함 사항, 우천 시 운영 여부를 같이 확인합니다.</p></article></div></div></section>
       <section class="wrap section" id="curation">${sectionLead('CURATION', '지금 함께 보면 좋은 여행 큐레이션', '#routes')}<div class="grid">${curation}</div></section>
@@ -232,6 +249,8 @@ for (const url of urls) {
   const post = await postFromUrl(url);
   if (post) posts.push(post);
 }
+
+if (!posts.length) posts.push(...await postsFromGeneratedData());
 
 await fs.writeFile(path.join(ROOT, 'index.html'), renderIndex(posts), 'utf8');
 console.log(`Restructured homepage with ${posts.length} post(s).`);
