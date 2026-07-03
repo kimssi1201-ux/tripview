@@ -7,6 +7,16 @@ const INDEX = path.join(ROOT, 'index.html');
 const CONFIG = path.join(ROOT, 'data', 'homepage-content.json');
 const POSTS = path.join(ROOT, 'data', 'generated-posts.json');
 const REGION_ORDER = ['서울', '경기·인천', '충청', '강원', '전라', '경상', '제주', '기타'];
+const REGION_IDS = {
+  '서울': 'region-seoul',
+  '경기·인천': 'region-gyeonggi-incheon',
+  '충청': 'region-chungcheong',
+  '강원': 'region-gangwon',
+  '전라': 'region-jeolla',
+  '경상': 'region-gyeongsang',
+  '제주': 'region-jeju',
+  '기타': 'region-etc',
+};
 
 function esc(value = '') {
   return String(value).replace(/[&<>"']/g, (match) => ({
@@ -28,6 +38,10 @@ function sectionLead(kicker, title, href = '') {
 
 function postHref(post) {
   return post?.slug ? `/${post.slug}/` : '#routes';
+}
+
+function regionHref(label) {
+  return `#${REGION_IDS[label] || 'region-etc'}`;
 }
 
 function compactRegion(value = '') {
@@ -101,14 +115,14 @@ function headerNav() {
 }
 
 function regionCategorySection(posts) {
-  const tabs = regionGroups(posts).map(([label, groupPosts]) => `<a class="region-tab" href="${esc(postHref(groupPosts[0]))}"><strong>${esc(label)}</strong><span>${groupPosts.length}건</span></a>`).join('');
+  const tabs = regionGroups(posts).map(([label, groupPosts]) => `<a class="region-tab" href="${esc(regionHref(label))}"><strong>${esc(label)}</strong><span>${Math.min(groupPosts.length, 30)}건 보기</span></a>`).join('');
   return `<section class="wrap region-top" id="region-guide" aria-label="지역 카테고리"><div class="region-top-head"><small>REGION</small><h2>지역 카테고리</h2></div><div class="region-tabs">${tabs}</div></section>`;
 }
 
 function deriveTodayKeywords(posts, config) {
   const regionLinks = regionGroups(posts)
     .slice(0, 5)
-    .map(([label, groupPosts]) => ({ label: `${label} 여행`, href: postHref(groupPosts[0]) }));
+    .map(([label]) => ({ label: `${label} 여행`, href: regionHref(label) }));
   const festivalLinks = posts
     .filter((post) => post.category === '공연/축제')
     .slice(0, 3)
@@ -139,6 +153,14 @@ function placesSection(posts) {
   return `<section class="wrap section" id="category-domestic">${sectionLead('PLACES', '가볼만한 곳', '#routes')}<div class="grid">${domesticPosts.map((post) => card(post)).join('')}</div></section>`;
 }
 
+function regionThirtySection(posts) {
+  const groups = regionGroups(posts).map(([label, groupPosts]) => {
+    const rows = groupPosts.slice(0, 30).map((post) => `<a class="region-row" href="${esc(postHref(post))}"><strong>${esc(post.sourceTitle || post.title)}</strong><span>${esc(post.category || '여행 정보')} · ${esc(prettyDate(post))} · ${esc(compactRegion(post.region))}</span></a>`).join('');
+    return `<article class="region-block" id="${esc(REGION_IDS[label] || 'region-etc')}"><div class="region-block-head"><h3>${esc(label)}</h3><span>${Math.min(groupPosts.length, 30)} / ${groupPosts.length}건</span></div><div class="region-rows">${rows}</div></article>`;
+  }).join('');
+  return `<section class="wrap section" id="region-lists">${sectionLead('REGION LIST', '지역별 최신 글 30건씩', '#region-guide')}<div class="region-blocks">${groups}</div></section>`;
+}
+
 function allPostsSection(posts) {
   return `<section class="wrap section" id="routes">${sectionLead('ALL POSTS', `전체 글 ${posts.length}`)}<div class="grid">${posts.slice(0, 12).map((post) => card(post)).join('')}</div></section>`;
 }
@@ -155,12 +177,12 @@ function bookingSection(config) {
 function dynamicCategoryGroups(config, counts, posts) {
   const regionLinks = regionGroups(posts)
     .slice(0, 4)
-    .map(([label, groupPosts]) => ({ label: `${label} 여행`, href: postHref(groupPosts[0]) }));
+    .map(([label]) => ({ label: `${label} 여행`, href: regionHref(label) }));
   const festival = posts.find((post) => post.category === '공연/축제');
   return [
     {
       title: '지역별',
-      description: '서울, 경기·인천, 충청, 강원, 전라, 경상, 제주 권역으로 여행 정보를 봅니다.',
+      description: '서울, 경기·인천, 충청, 강원, 전라, 경상, 제주 권역별로 최대 30건씩 봅니다.',
       links: [{ label: '지역 카테고리', href: '#region-guide' }, ...regionLinks.slice(0, 3)],
     },
     {
@@ -189,7 +211,7 @@ function faqSection(config) {
 function popularLinks(config, posts) {
   const fromPosts = regionGroups(posts)
     .slice(0, 4)
-    .map(([label, groupPosts]) => ({ label: `${label} 여행`, href: postHref(groupPosts[0]) }));
+    .map(([label]) => ({ label: `${label} 여행`, href: regionHref(label) }));
   return fromPosts.length ? fromPosts : (config.footer?.popular || []);
 }
 
@@ -208,6 +230,10 @@ function injectCss(html) {
     const css = `.region-top{padding:106px 0 18px;border-bottom:1px solid var(--line)}.region-top-head{display:flex;align-items:baseline;gap:12px;margin-bottom:14px}.region-top-head h2{margin:0;font-size:22px;line-height:1.2}.region-tabs{display:flex;gap:10px;overflow:auto;padding-bottom:4px}.region-tab{flex:0 0 auto;min-width:118px;border-top:1px solid #111;padding:10px 0 6px;display:grid;gap:2px}.region-tab strong{font-size:18px;line-height:1.2}.region-tab span{font-size:12px;color:var(--muted);font-weight:900}.region-top + .today{padding-top:18px}@media(max-width:920px){.region-top{padding-top:128px}.region-tab{min-width:100px}}`;
     next = next.replace('</style>', `${css}</style>`);
   }
+  if (!next.includes('.region-blocks{')) {
+    const css = `.region-blocks{display:grid;gap:30px}.region-block{display:grid;gap:14px;scroll-margin-top:106px}.region-block-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-top:1px solid #111;padding-top:14px}.region-block-head h3{margin:0;font-size:26px;line-height:1.2}.region-block-head span{font-size:13px;color:var(--muted);font-weight:900}.region-rows{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px 22px}.region-row{display:grid;gap:2px;border-bottom:1px solid var(--line);padding:0 0 10px}.region-row strong{font-size:15px;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.region-row span{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}@media(max-width:920px){.region-rows{grid-template-columns:1fr}.region-block{scroll-margin-top:130px}}`;
+    next = next.replace('</style>', `${css}</style>`);
+  }
   return next;
 }
 
@@ -220,6 +246,7 @@ function homepageBody(config, counts, posts) {
       ${heroSection(posts)}
       ${festivalSection(posts)}
       ${placesSection(posts)}
+      ${regionThirtySection(posts)}
       ${bookingSection(config)}
       ${allPostsSection(posts)}
       ${categoryBundle(config, counts, posts)}
