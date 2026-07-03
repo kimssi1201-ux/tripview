@@ -25,13 +25,81 @@ function sectionLead(kicker, title, href = '') {
   return `<div class="section-head"><div><small>${esc(kicker)}</small><h2>${esc(title)}</h2></div>${href ? `<a href="${esc(href)}">더보기</a>` : ''}</div>`;
 }
 
-function bookingSection(config) {
-  const cards = (config.bookingCards || []).map((item) => `<a class="check-card" href="${esc(item.href || '#')}" aria-label="${esc(item.title)}"><h3>${esc(item.title)}</h3><p>${esc(item.description)}</p></a>`).join('');
-  return `<section class="wrap section" id="booking"><div class="booking"><div class="booking-copy"><small>BOOKING CHECK</small><h2>예약 전 체크는 별도 페이지에서 빠르게</h2><p>메인은 여행 정보를 읽는 곳이고, 예약 전 체크는 위치, 가격, 취소 조건, 운영 시간을 비교하는 데 집중합니다.</p></div><div class="check-cards">${cards}</div></div></section>`;
+function postHref(post) {
+  return post?.slug ? `/${post.slug}/` : '#routes';
 }
 
-function categoryBundle(config) {
-  const groups = (config.categoryGroups || []).map((group) => `<article class="bundle"><h3>${esc(group.title)}</h3><p>${esc(group.description)}</p><div class="bundle-links">${(group.links || []).map(link).join('')}</div></article>`).join('');
+function compactRegion(value = '') {
+  const cleaned = String(value).replace(/\([^)]*\)/g, '').trim();
+  if (!cleaned) return '';
+  const parts = cleaned.split(/\s+/).filter(Boolean);
+  const first = (parts[0] || '').replace(/특별시|광역시|특별자치시|특별자치도|도$/g, '');
+  if (['서울', '부산', '인천', '대구', '대전', '광주', '울산', '세종', '제주'].includes(first)) return first;
+  return (parts[1] || first).replace(/시|군|구$/g, '') || first;
+}
+
+function uniqueBy(items, keyFn) {
+  const seen = new Set();
+  return items.filter((item) => {
+    const key = keyFn(item);
+    if (!key || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+function shorten(value = '', max = 14) {
+  const text = String(value).replace(/\s*2026\s*/g, ' ').replace(/,.*$/, '').trim();
+  return text.length > max ? `${text.slice(0, max - 1)}…` : text;
+}
+
+function deriveTodayKeywords(posts, config) {
+  const regionLinks = uniqueBy(posts, (post) => compactRegion(post.region))
+    .slice(0, 5)
+    .map((post) => ({ label: `${compactRegion(post.region)} 여행`, href: postHref(post) }));
+  const festivalLinks = posts
+    .filter((post) => post.category === '공연/축제')
+    .slice(0, 3)
+    .map((post) => ({ label: shorten(post.sourceTitle || post.title || '축제 일정'), href: postHref(post) }));
+  const fallback = config.todayKeywords || [];
+  return uniqueBy([...regionLinks, ...festivalLinks, ...fallback], (item) => item.label).slice(0, 8);
+}
+
+function defaultBookingCards(config) {
+  return config.bookingCards || [];
+}
+
+function bookingSection(config) {
+  const cards = defaultBookingCards(config).map((item) => `<a class="check-card" href="${esc(item.href || '#')}" aria-label="${esc(item.title)}"><h3>${esc(item.title)}</h3><p>${esc(item.description)}</p></a>`).join('');
+  return `<section class="wrap section" id="booking"><div class="booking"><div class="booking-copy"><small>VISIT CHECK</small><h2>방문 전 체크는 실제 동선 기준으로</h2><p>보유한 여행 글의 위치, 일정, 운영 정보, 주차와 대중교통 확인 포인트를 기준으로 방문 전 필요한 내용을 다시 묶었습니다.</p></div><div class="check-cards">${cards}</div></div></section>`;
+}
+
+function dynamicCategoryGroups(config, counts, posts) {
+  const regionLinks = uniqueBy(posts, (post) => compactRegion(post.region))
+    .slice(0, 4)
+    .map((post) => ({ label: `${compactRegion(post.region)} 여행`, href: postHref(post) }));
+  const festival = posts.find((post) => post.category === '공연/축제');
+  return [
+    {
+      title: '가볼만한 곳',
+      description: `국내여행 글 ${counts.domestic}건을 지역과 동선 중심으로 정리합니다.`,
+      links: [{ label: '국내 여행지', href: '#category-domestic' }, ...regionLinks.slice(0, 3)],
+    },
+    {
+      title: '공연/축제',
+      description: `공연/축제 글 ${counts.festival}건을 일정, 장소, 프로그램 중심으로 봅니다.`,
+      links: [{ label: '축제 일정', href: '#curation' }, { label: '전체 축제 글', href: '#routes' }, ...(festival ? [{ label: shorten(festival.sourceTitle || festival.title), href: postHref(festival) }] : [])],
+    },
+    {
+      title: '여행 정보',
+      description: '운영시간, 주차, 대중교통, 지도와 주변 동선을 확인합니다.',
+      links: (config.categoryGroups?.[2]?.links || []).slice(0, 4),
+    },
+  ];
+}
+
+function categoryBundle(config, counts, posts) {
+  const groups = dynamicCategoryGroups(config, counts, posts).map((group) => `<article class="bundle"><h3>${esc(group.title)}</h3><p>${esc(group.description)}</p><div class="bundle-links">${(group.links || []).map(link).join('')}</div></article>`).join('');
   return `<section class="wrap section" id="category-bundle">${sectionLead('CATEGORY', '여행 정보 카테고리 묶음')}<div class="bundle-grid">${groups}</div></section>`;
 }
 
@@ -40,9 +108,16 @@ function faqSection(config) {
   return `<section class="wrap section" id="guide">${sectionLead('GUIDE', '트립뷰 이용 가이드')}<div class="faq-list">${faqs}</div></section>`;
 }
 
-function footer(config, counts) {
+function popularLinks(config, posts) {
+  const fromPosts = uniqueBy(posts, (post) => compactRegion(post.region))
+    .slice(0, 4)
+    .map((post) => ({ label: `${compactRegion(post.region)} 여행`, href: postHref(post) }));
+  return fromPosts.length ? fromPosts : (config.footer?.popular || []);
+}
+
+function footer(config, counts, posts) {
   const footerData = config.footer || {};
-  return `<footer><div class="wrap foot"><div><strong>트립뷰</strong><p>${esc(footerData.intro || '')}</p></div><div><h3>예약</h3>${(footerData.reservation || []).map(link).join('')}</div><div><h3>여행 허브</h3>${(footerData.hub || []).map(link).join('')}</div><div><h3>카테고리</h3><a href="#category-domestic">국내여행 <span>${counts.domestic}</span></a><a href="#curation">공연/축제 <span>${counts.festival}</span></a></div><div><h3>인기 여행지</h3>${(footerData.popular || []).map(link).join('')}</div><div><h3>Language</h3>${(footerData.languages || []).map(link).join('')}</div></div><div class="wrap legal">Copyright 2026 Tripview. All Rights Reserved.</div></footer>`;
+  return `<footer><div class="wrap foot"><div><strong>트립뷰</strong><p>${esc(footerData.intro || '')}</p></div><div><h3>방문 전 체크</h3>${(footerData.reservation || []).map(link).join('')}</div><div><h3>여행 허브</h3>${(footerData.hub || []).map(link).join('')}</div><div><h3>카테고리</h3><a href="#category-domestic">국내여행 <span>${counts.domestic}</span></a><a href="#curation">공연/축제 <span>${counts.festival}</span></a></div><div><h3>인기 지역</h3>${popularLinks(config, posts).map(link).join('')}</div><div><h3>Language</h3>${(footerData.languages || []).map(link).join('')}</div></div><div class="wrap legal">Copyright 2026 Tripview. All Rights Reserved.</div></footer>`;
 }
 
 function replaceBetween(html, startRegex, endRegex, replacement) {
@@ -69,12 +144,13 @@ const counts = {
 };
 
 let html = await fs.readFile(INDEX, 'utf8');
-const today = `<section class="wrap today" aria-label="오늘의 여행 키워드"><div class="today-row"><b>TODAY</b>${(config.todayKeywords || []).map(link).join('')}</div></section>`;
+const todayItems = deriveTodayKeywords(posts, config);
+const today = `<section class="wrap today" aria-label="오늘의 여행 키워드"><div class="today-row"><b>TODAY</b>${todayItems.map(link).join('')}</div></section>`;
 html = html.replace(/<section class="wrap today"[\s\S]*?<\/section>/, today);
 html = html.replace(/<section class="wrap section" id="booking">[\s\S]*?<\/section>\s*<section class="wrap section" id="curation">/, `${bookingSection(config)}\n      <section class="wrap section" id="curation">`);
-html = replaceBetween(html, /<section class="wrap section" id="category-bundle">/, /<section class="wrap section" id="guide">/, `${categoryBundle(config)}\n      `);
+html = replaceBetween(html, /<section class="wrap section" id="category-bundle">/, /<section class="wrap section" id="guide">/, `${categoryBundle(config, counts, posts)}\n      `);
 html = replaceBetween(html, /<section class="wrap section" id="guide">/, /\s*<\/main>/, faqSection(config));
-html = html.replace(/<footer>[\s\S]*?<\/footer>/, footer(config, counts));
+html = html.replace(/<footer>[\s\S]*?<\/footer>/, footer(config, counts, posts));
 html = injectCss(html);
 await fs.writeFile(INDEX, html, 'utf8');
-console.log('Homepage content configuration applied.');
+console.log('Homepage content configuration applied from existing post data.');
