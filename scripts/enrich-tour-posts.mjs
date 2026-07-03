@@ -7,6 +7,8 @@ const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, '..');
 const SITE_URL = 'https://tripview.kr';
 const TODAY = '2026-06-06';
+const OPENAI_API_URL = 'https://api.openai.com/v1/responses';
+const AI_PROMPT_VERSION = 1;
 
 const MANUAL_POSTS = [
   'gochang-tidal-flat-festival-2026',
@@ -35,6 +37,24 @@ async function readJson(file, fallback) {
 async function writeJson(file, value) {
   await fs.mkdir(path.dirname(path.join(ROOT, file)), { recursive: true });
   await fs.writeFile(path.join(ROOT, file), `${JSON.stringify(value, null, 2)}\n`, 'utf8');
+}
+
+async function loadLocalEnv() {
+  const file = path.join(ROOT, '.env');
+  let text = '';
+  try {
+    text = await fs.readFile(file, 'utf8');
+  } catch {
+    return;
+  }
+  for (const line of text.split(/\r?\n/)) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith('#') || !trimmed.includes('=')) continue;
+    const [key, ...rest] = trimmed.split('=');
+    if (!process.env[key]) {
+      process.env[key] = rest.join('=').replace(/^["']|["']$/g, '');
+    }
+  }
 }
 
 function infoValue(post, label) {
@@ -171,10 +191,7 @@ function enrichPost(post) {
   const title = titleWithYear(post);
   const base = sourceTitle(post);
   const isFestival = post.category === '공연/축제';
-  return {
-    ...post,
-    title,
-    read: '약 7분',
+  const fallback = {
     description: isFestival
       ? `${base} 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.`
       : `${base} 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자세히 정리했습니다.`,
@@ -184,6 +201,204 @@ function enrichPost(post) {
     sections: isFestival ? buildFestivalSections(post) : buildTravelSections(post),
     faq: buildFaq(post)
   };
+
+  if (post.aiEnrichedVersion === AI_PROMPT_VERSION && Array.isArray(post.sections) && post.sections.length >= 4) {
+    return {
+      ...post,
+      title: post.title || title,
+      read: post.read || '약 9분',
+      description: post.description || fallback.description,
+      excerpt: post.excerpt || fallback.excerpt,
+      sections: post.sections,
+      faq: Array.isArray(post.faq) && post.faq.length ? post.faq : fallback.faq
+    };
+  }
+
+  return {
+    ...post,
+    title,
+    read: '약 7분',
+    ...fallback
+  };
+}
+
+function outputText(response) {
+  if (typeof response.output_text === 'string') return response.output_text;
+  return (response.output || [])
+    .flatMap((item) => item.content || [])
+    .map((content) => content.text || content.output_text || '')
+    .filter(Boolean)
+    .join('\n');
+}
+
+function parseAiJson(text) {
+  const cleaned = String(text || '').replace(/^```(?:json)?/i, '').replace(/```$/i, '').trim();
+  const start = cleaned.indexOf('{');
+  const end = cleaned.lastIndexOf('}');
+  if (start < 0 || end < start) throw new Error('AI response did not contain JSON.');
+  return JSON.parse(cleaned.slice(start, end + 1));
+}
+
+function cleanAiText(value, limit = 1200) {
+  return strip(value)
+    .replace(/\bTourAPI\b/gi, '')
+    .replace(/\bOpenAI\b/gi, '')
+    .replace(/\bAPI\b/g, '')
+    .replace(/한국관광공사\s*(제공|검색 결과|데이터|정보)?/g, '공식 관광 정보')
+    .replace(/\s+/g, ' ')
+    .slice(0, limit)
+    .trim();
+}
+
+function normalizeAiSections(sections) {
+  return (Array.isArray(sections) ? sections : [])
+    .map((section) => {
+      const heading = cleanAiText(section.heading || section[0] || '', 80);
+      const paragraphs = Array.isArray(section.paragraphs) ? section.paragraphs : section[1];
+      return [
+        heading,
+        (Array.isArray(paragraphs) ? paragraphs : [])
+          .map((paragraph) => cleanAiText(paragraph, 700))
+          .filter((paragraph) => paragraph.length >= 40)
+          .slice(0, 3)
+      ];
+    })
+    .filter(([heading, paragraphs]) => heading && paragraphs.length >= 2)
+    .slice(0, 7);
+}
+
+function normalizeAiFaq(faq) {
+  return (Array.isArray(faq) ? faq : [])
+    .map((item) => [
+      cleanAiText(item.question || item.q || item[0] || '', 100),
+      cleanAiText(item.answer || item.a || item[1] || '', 500)
+    ])
+    .filter(([question, answer]) => question && answer.length >= 20)
+    .slice(0, 6);
+}
+
+function aiPrompt(post) {
+  const context = {
+    title: sourceTitle(post),
+    currentTitle: post.title,
+    category: post.category,
+    region: post.region,
+    date: post.date,
+    info: Object.fromEntries((post.info || []).map(([key, value]) => [key, value])),
+    memo: post.memo || [],
+    imageCount: (post.images || []).filter(Boolean).length
+  };
+  return `트립뷰 여행 매거진 글을 한국어로 보강해줘.
+
+조건:
+- 독자가 방문 전 궁금해할 운영 정보, 동선, 준비물, 혼잡 회피, 가족/커플/혼자 방문 팁을 구체적으로 쓴다.
+- 입력 데이터에 없는 확정 일정, 가격, 주차 가능 여부를 지어내지 않는다. 모르면 "방문 전 공식 공지 확인"처럼 쓴다.
+- TourAPI, API, OpenAI, 자동 생성, 검색 결과 같은 내부 제작 과정은 절대 쓰지 않는다.
+- 이미지 설명이나 출처 안내 문장은 쓰지 않는다.
+- 광고성 과장 문구보다 실제 방문 판단에 도움되는 문장으로 쓴다.
+- 전체 본문은 공백 포함 약 1800~2200자 분량이 되게 한다.
+- JSON만 반환한다.
+
+JSON 형식:
+{
+  "title": "현재 제목과 같은 의미의 자연스러운 제목",
+  "description": "검색 결과용 120~160자 설명",
+  "excerpt": "카드용 80~120자 요약",
+  "read": "약 8분",
+  "sections": [
+    {"heading": "소제목", "paragraphs": ["문단", "문단"]}
+  ],
+  "faq": [
+    {"question": "질문", "answer": "답변"}
+  ]
+}
+
+섹션은 5~6개, 각 섹션 문단은 2개씩 작성한다. FAQ는 4~5개 작성한다.
+
+입력 데이터:
+${JSON.stringify(context, null, 2)}`;
+}
+
+async function openAiEnrichPost(post) {
+  const apiKey = process.env.OPENAI_API_KEY;
+  if (!apiKey) return post;
+
+  const model = process.env.OPENAI_MODEL || 'gpt-5.5';
+  const response = await fetch(OPENAI_API_URL, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      model,
+      input: [
+        {
+          role: 'developer',
+          content: [{ type: 'input_text', text: 'You write practical Korean travel magazine articles. Return valid JSON only.' }]
+        },
+        {
+          role: 'user',
+          content: [{ type: 'input_text', text: aiPrompt(post) }]
+        }
+      ],
+      max_output_tokens: 2600
+    })
+  });
+
+  const payload = await response.json().catch(() => ({}));
+  if (!response.ok) {
+    const message = payload.error?.message || `${response.status} ${response.statusText}`;
+    throw new Error(message);
+  }
+
+  const parsed = parseAiJson(outputText(payload));
+  const sections = normalizeAiSections(parsed.sections);
+  const faq = normalizeAiFaq(parsed.faq);
+  if (sections.length < 4 || faq.length < 3) throw new Error('AI response did not meet article shape requirements.');
+
+  return {
+    ...post,
+    title: cleanAiText(parsed.title, 90) || post.title,
+    description: cleanAiText(parsed.description, 170) || post.description,
+    excerpt: cleanAiText(parsed.excerpt, 130) || post.excerpt,
+    read: cleanAiText(parsed.read, 20) || '약 8분',
+    sections,
+    faq,
+    aiEnrichedVersion: AI_PROMPT_VERSION,
+    aiEnrichedAt: new Date().toISOString()
+  };
+}
+
+async function applyOpenAiEnrichment(posts) {
+  await loadLocalEnv();
+  if (!process.env.OPENAI_API_KEY) {
+    console.log('OPENAI_API_KEY is not set. Skipping AI enrichment.');
+    return posts;
+  }
+
+  const limit = Math.max(1, Number.parseInt(process.env.OPENAI_ENRICH_LIMIT || '10', 10) || 10);
+  let changed = 0;
+  let attempted = 0;
+  const next = [];
+  for (const post of posts) {
+    if (attempted >= limit || post.aiEnrichedVersion === AI_PROMPT_VERSION) {
+      next.push(post);
+      continue;
+    }
+    attempted += 1;
+    try {
+      const enriched = await openAiEnrichPost(post);
+      next.push(enriched);
+      if (enriched !== post && enriched.aiEnrichedVersion === AI_PROMPT_VERSION) changed += 1;
+      console.log(`AI enriched: ${post.slug}`);
+    } catch (error) {
+      console.warn(`AI enrichment skipped for ${post.slug}: ${error.message}`);
+      next.push(post);
+    }
+  }
+  console.log(`AI enrichment complete. Attempted ${attempted}, updated ${changed} post(s).`);
+  return next;
 }
 
 function renderArticle(post, counts = { total: 0, categories: {} }) {
@@ -295,7 +510,7 @@ function renderSitemap(posts) {
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`;
 }
 
-const posts = (await readJson('data/generated-posts.json', [])).map(enrichPost);
+const posts = await applyOpenAiEnrichment((await readJson('data/generated-posts.json', [])).map(enrichPost));
 if (!posts.length) {
   console.log('No generated posts to enrich.');
   process.exit(0);

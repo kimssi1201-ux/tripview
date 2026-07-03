@@ -40,6 +40,10 @@ jobs:
 
       - name: Enrich generated posts
         run: node scripts/enrich-tour-posts.mjs
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-5.5' }}
+          OPENAI_ENRICH_LIMIT: ${{ vars.OPENAI_ENRICH_LIMIT || '10' }}
 
       - name: Format program sections
         run: node scripts/format-program-sections.mjs
