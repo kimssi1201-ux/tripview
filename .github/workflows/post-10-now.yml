@@ -53,6 +53,9 @@ jobs:
       - name: Generate 10 posts
         env:
           TRIPVIEW_API_KEY: ${{ secrets.TRIPVIEW_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-5.5' }}
+          OPENAI_ENRICH_LIMIT: ${{ vars.OPENAI_ENRICH_LIMIT || '10' }}
         run: |
           node --check scripts/daily-tour-posts.mjs
           node --check scripts/enrich-tour-posts.mjs
