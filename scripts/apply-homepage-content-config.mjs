@@ -246,7 +246,6 @@ function homepageBody(config, counts, posts) {
     ${headerNav()}
     <main id="top">
       ${regionCategorySection(posts)}
-      ${todaySection(posts, config)}
       ${heroSection(posts)}
       ${festivalSection(posts)}
       ${placesSection(posts)}
