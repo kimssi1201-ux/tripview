@@ -35,7 +35,7 @@ function compactRegion(value = '') {
   const parts = cleaned.split(/\s+/).filter(Boolean);
   const first = (parts[0] || '').replace(/특별시|광역시|특별자치시|특별자치도|도$/g, '');
   if (['서울', '부산', '인천', '대구', '대전', '광주', '울산', '세종', '제주'].includes(first)) return first;
-  return (parts[1] || first).replace(/시|군|구$/g, '') || first;
+  return (parts[1] || first).replace(/[시군구]$/g, '') || first;
 }
 
 function uniqueBy(items, keyFn) {
