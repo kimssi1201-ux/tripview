@@ -1,4 +1,5 @@
 name: Enrich Tour Posts
+# Touch this file to verify OpenAI enrichment secrets after setup.
 
 on:
   push:
