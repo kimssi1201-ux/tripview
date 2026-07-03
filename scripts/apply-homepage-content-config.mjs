@@ -92,6 +92,10 @@ function card(post, className = 'card', heading = 'h3') {
   return `<a class="${esc(className)}" href="${esc(postHref(post))}">${image}<small>${esc(post.category || '여행 정보')}</small><${heading}>${esc(post.title)}</${heading}><p>${esc(excerpt)}</p><div class="meta"><span>${esc(prettyDate(post))}</span><span>${esc(read)}</span>${post.region ? `<span>${esc(post.region)}</span>` : ''}</div></a>`;
 }
 
+function miniCard(post) {
+  return `<a class="mini-card" href="${esc(postHref(post))}"><small>${esc(post.category || '여행 정보')}</small><strong>${esc(post.title)}</strong><span>${esc(prettyDate(post))} · ${esc(post.read || '약 7분')}</span></a>`;
+}
+
 function headerNav() {
   return `<header class="top"><div class="wrap nav"><a class="brand" href="#top">트립뷰</a><nav class="links" aria-label="주요 메뉴"><a href="#region-guide">지역별</a><a href="#curation">지역축제 정보</a><a href="#category-domestic">가볼만한 곳</a><a href="#booking">방문 전 체크</a><a href="#guide">여행 정보</a></nav></div></header>`;
 }
@@ -113,6 +117,18 @@ function deriveTodayKeywords(posts, config) {
   return uniqueBy([...regionLinks, ...festivalLinks, ...fallback], (item) => item.label).slice(0, 8);
 }
 
+function todaySection(posts, config) {
+  const todayItems = deriveTodayKeywords(posts, config);
+  return `<section class="wrap today" aria-label="오늘의 여행 키워드"><div class="today-row"><b>TODAY</b>${todayItems.map(link).join('')}</div></section>`;
+}
+
+function heroSection(posts) {
+  const primary = posts[0];
+  if (!primary) return '';
+  const latestSide = posts.slice(1, 5).map(miniCard).join('');
+  return `<section class="wrap hero" id="latest"><h1 class="hero-title">트립뷰</h1><div class="lead-layout">${card(primary, 'latest-primary', 'h2')}<div class="latest-list">${latestSide}</div></div></section>`;
+}
+
 function festivalSection(posts) {
   const festivalPosts = posts.filter((post) => post.category === '공연/축제').slice(0, 6);
   return `<section class="wrap section" id="curation">${sectionLead('EVENT', '지역축제 정보', '#routes')}<div class="grid">${festivalPosts.map((post) => card(post)).join('')}</div></section>`;
@@ -121,6 +137,10 @@ function festivalSection(posts) {
 function placesSection(posts) {
   const domesticPosts = posts.filter((post) => post.category === '국내여행').slice(0, 9);
   return `<section class="wrap section" id="category-domestic">${sectionLead('PLACES', '가볼만한 곳', '#routes')}<div class="grid">${domesticPosts.map((post) => card(post)).join('')}</div></section>`;
+}
+
+function allPostsSection(posts) {
+  return `<section class="wrap section" id="routes">${sectionLead('ALL POSTS', `전체 글 ${posts.length}`)}<div class="grid">${posts.slice(0, 12).map((post) => card(post)).join('')}</div></section>`;
 }
 
 function defaultBookingCards(config) {
@@ -178,16 +198,6 @@ function footer(config, counts, posts) {
   return `<footer><div class="wrap foot"><div><strong>트립뷰</strong><p>${esc(footerData.intro || '')}</p></div><div><h3>방문 전 체크</h3>${(footerData.reservation || []).map(link).join('')}</div><div><h3>여행 허브</h3><a href="#region-guide">지역별</a><a href="#curation">지역축제 정보</a><a href="#category-domestic">가볼만한 곳</a><a href="#guide">여행 정보</a></div><div><h3>카테고리</h3><a href="#category-domestic">국내여행 <span>${counts.domestic}</span></a><a href="#curation">공연/축제 <span>${counts.festival}</span></a></div><div><h3>인기 지역</h3>${popularLinks(config, posts).map(link).join('')}</div><div><h3>Language</h3>${(footerData.languages || []).map(link).join('')}</div></div><div class="wrap legal">Copyright 2026 Tripview. All Rights Reserved.</div></footer>`;
 }
 
-function replaceBetween(html, startRegex, endRegex, replacement) {
-  const start = html.search(startRegex);
-  if (start < 0) return html;
-  const tail = html.slice(start);
-  const endMatch = tail.match(endRegex);
-  if (!endMatch?.index && endMatch?.index !== 0) return html;
-  const end = start + endMatch.index;
-  return html.slice(0, start) + replacement + html.slice(end);
-}
-
 function injectCss(html) {
   let next = html;
   if (!next.includes('.faq-list{')) {
@@ -201,6 +211,24 @@ function injectCss(html) {
   return next;
 }
 
+function homepageBody(config, counts, posts) {
+  return `<body>
+    ${headerNav()}
+    <main id="top">
+      ${regionCategorySection(posts)}
+      ${todaySection(posts, config)}
+      ${heroSection(posts)}
+      ${festivalSection(posts)}
+      ${placesSection(posts)}
+      ${bookingSection(config)}
+      ${allPostsSection(posts)}
+      ${categoryBundle(config, counts, posts)}
+      ${faqSection(config)}
+    </main>
+    ${footer(config, counts, posts)}
+  </body>`;
+}
+
 const config = JSON.parse(await fs.readFile(CONFIG, 'utf8'));
 const posts = JSON.parse(await fs.readFile(POSTS, 'utf8'));
 const counts = {
@@ -209,20 +237,7 @@ const counts = {
 };
 
 let html = await fs.readFile(INDEX, 'utf8');
-const todayItems = deriveTodayKeywords(posts, config);
-const today = `<section class="wrap today" aria-label="오늘의 여행 키워드"><div class="today-row"><b>TODAY</b>${todayItems.map(link).join('')}</div></section>`;
-const hero = html.match(/<section class="wrap hero" id="latest">[\s\S]*?<\/section>\s*/)?.[0] || '';
-const mainStart = html.search(/<section class="wrap today"/);
-const routesStart = html.search(/<section class="wrap section" id="routes">/);
-
-html = html.replace(/<header class="top">[\s\S]*?<\/header>/, headerNav());
-if (mainStart >= 0 && routesStart > mainStart) {
-  const topBlocks = `${regionCategorySection(posts)}\n      ${today}\n      ${hero.trim()}\n      ${festivalSection(posts)}\n      ${placesSection(posts)}\n      ${bookingSection(config)}\n      `;
-  html = html.slice(0, mainStart) + topBlocks + html.slice(routesStart);
-}
-html = replaceBetween(html, /<section class="wrap section" id="category-bundle">/, /<section class="wrap section" id="guide">/, `${categoryBundle(config, counts, posts)}\n      `);
-html = replaceBetween(html, /<section class="wrap section" id="guide">/, /\s*<\/main>/, faqSection(config));
-html = html.replace(/<footer>[\s\S]*?<\/footer>/, footer(config, counts, posts));
+html = html.replace(/<body[\s\S]*?<\/body>/, homepageBody(config, counts, posts));
 html = injectCss(html);
 await fs.writeFile(INDEX, html, 'utf8');
 console.log('Homepage content configuration applied from existing post data.');
