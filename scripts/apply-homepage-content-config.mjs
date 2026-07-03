@@ -120,6 +120,22 @@ function regionCategorySection(posts) {
   return `<section class="wrap region-top" id="region-guide" aria-label="지역 카테고리"><div class="region-top-head"><small>REGION</small><h2>지역 카테고리</h2></div><div class="region-tabs">${tabs}</div></section>`;
 }
 
+function directoryItem(title, meta, href = '#routes') {
+  return `<a class="region-tab directory-tab" href="${esc(href)}"><strong>${esc(title)}</strong><span>${esc(meta)}</span></a>`;
+}
+
+function postDirectoryItem(post) {
+  return directoryItem(
+    post.sourceTitle || post.title,
+    `${post.category || '여행 정보'} · ${prettyDate(post)} · ${compactRegion(post.region)}`,
+    postHref(post),
+  );
+}
+
+function directorySection(id, kicker, title, items, moreHref = '') {
+  return `<section class="wrap section directory-section" id="${esc(id)}">${sectionLead(kicker, title, moreHref)}<div class="region-tabs directory-tabs">${items.join('')}</div></section>`;
+}
+
 function deriveTodayKeywords(posts, config) {
   const regionLinks = regionGroups(posts)
     .slice(0, 5)
@@ -146,12 +162,12 @@ function heroSection(posts) {
 
 function festivalSection(posts) {
   const festivalPosts = posts.filter((post) => post.category === '공연/축제').slice(0, 6);
-  return `<section class="wrap section" id="curation">${sectionLead('EVENT', '지역축제 정보', '#routes')}<div class="grid">${festivalPosts.map((post) => card(post)).join('')}</div></section>`;
+  return directorySection('curation', 'EVENT', '지역축제 정보', festivalPosts.map(postDirectoryItem), '#routes');
 }
 
 function placesSection(posts) {
   const domesticPosts = posts.filter((post) => post.category === '국내여행').slice(0, 9);
-  return `<section class="wrap section" id="category-domestic">${sectionLead('PLACES', '가볼만한 곳', '#routes')}<div class="grid">${domesticPosts.map((post) => card(post)).join('')}</div></section>`;
+  return directorySection('category-domestic', 'PLACES', '가볼만한 곳', domesticPosts.map(postDirectoryItem), '#routes');
 }
 
 function regionThirtySection(posts) {
@@ -163,7 +179,7 @@ function regionThirtySection(posts) {
 }
 
 function allPostsSection(posts) {
-  return `<section class="wrap section" id="routes">${sectionLead('ALL POSTS', `전체 글 ${posts.length}`)}<div class="grid">${posts.slice(0, 12).map((post) => card(post)).join('')}</div></section>`;
+  return directorySection('routes', 'ALL POSTS', `전체 글 ${posts.length}`, posts.slice(0, 12).map(postDirectoryItem));
 }
 
 function defaultBookingCards(config) {
@@ -171,8 +187,8 @@ function defaultBookingCards(config) {
 }
 
 function bookingSection(config) {
-  const cards = defaultBookingCards(config).map((item) => `<a class="check-card" href="${esc(item.href || '#')}" aria-label="${esc(item.title)}"><h3>${esc(item.title)}</h3><p>${esc(item.description)}</p></a>`).join('');
-  return `<section class="wrap section" id="booking"><div class="booking"><div class="booking-copy"><small>VISIT CHECK</small><h2>방문 전 체크는 실제 동선 기준으로</h2><p>보유한 여행 글의 위치, 일정, 운영 정보, 주차와 대중교통 확인 포인트를 기준으로 방문 전 필요한 내용을 다시 묶었습니다.</p></div><div class="check-cards">${cards}</div></div></section>`;
+  const cards = defaultBookingCards(config).map((item) => directoryItem(item.title, item.description, item.href || '#routes'));
+  return directorySection('booking', 'VISIT CHECK', '방문 전 체크', cards);
 }
 
 function dynamicCategoryGroups(config, counts, posts) {
@@ -200,8 +216,8 @@ function dynamicCategoryGroups(config, counts, posts) {
 }
 
 function categoryBundle(config, counts, posts) {
-  const groups = dynamicCategoryGroups(config, counts, posts).map((group) => `<article class="bundle"><h3>${esc(group.title)}</h3><p>${esc(group.description)}</p><div class="bundle-links">${(group.links || []).map(link).join('')}</div></article>`).join('');
-  return `<section class="wrap section" id="category-bundle">${sectionLead('CATEGORY', '여행 정보 카테고리 묶음')}<div class="bundle-grid">${groups}</div></section>`;
+  const groups = dynamicCategoryGroups(config, counts, posts).map((group) => directoryItem(group.title, group.description, group.links?.[0]?.href || '#routes'));
+  return directorySection('category-bundle', 'CATEGORY', '여행 정보 카테고리 묶음', groups);
 }
 
 function faqSection(config) {
@@ -237,6 +253,10 @@ function injectCss(html) {
   }
   if (!next.includes('.mini-thumb{')) {
     const css = `.latest-list .mini-card{grid-template-columns:104px minmax(0,1fr);gap:12px;align-items:start}.mini-thumb{aspect-ratio:1.28/1}.mini-thumb img{height:100%}.mini-copy{display:grid;gap:5px;min-width:0}.mini-copy span{color:var(--muted);font-size:14px}@media(max-width:520px){.latest-list .mini-card{grid-template-columns:96px minmax(0,1fr)}}`;
+    next = next.replace('</style>', `${css}</style>`);
+  }
+  if (!next.includes('.directory-tabs{')) {
+    const css = `.directory-section{padding-top:42px}.directory-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px 18px;overflow:visible}.directory-tab{min-width:0;padding-top:12px}.directory-tab strong{font-size:18px;white-space:normal}.directory-tab span{line-height:1.45;white-space:normal}@media(max-width:920px){.directory-tabs{display:flex;overflow:auto}.directory-tab{flex:0 0 72%;min-width:210px}}`;
     next = next.replace('</style>', `${css}</style>`);
   }
   if (!next.includes('/* nav-readable */')) {
