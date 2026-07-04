@@ -116,7 +116,7 @@ function headerNav() {
 }
 
 function regionCategorySection(posts) {
-  const tabs = regionGroups(posts).map(([label, groupPosts]) => `<a class="region-tab" href="${esc(regionHref(label))}"><strong>${esc(label)}</strong><span>${Math.min(groupPosts.length, 30)}건 보기</span></a>`).join('');
+  const tabs = regionGroups(posts).map(([label, groupPosts]) => `<a class="region-tab" href="#routes"><strong>${esc(label)}</strong><span>${Math.min(groupPosts.length, 30)}건 보기</span></a>`).join('');
   return `<section class="wrap region-top" id="region-guide" aria-label="지역 카테고리"><div class="region-top-head"><small>REGION</small><h2>지역 카테고리</h2></div><div class="region-tabs">${tabs}</div></section>`;
 }
 
@@ -285,7 +285,6 @@ function homepageBody(config, counts, posts) {
       ${heroSection(posts)}
       ${festivalSection(posts)}
       ${placesSection(posts)}
-      ${regionThirtySection(posts)}
       ${bookingSection(config)}
       ${allPostsSection(posts)}
       ${categoryBundle(config, counts, posts)}
