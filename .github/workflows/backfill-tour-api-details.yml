@@ -1,0 +1,78 @@
+name: Backfill Tour API Details
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - ".github/workflows/backfill-tour-api-details.yml"
+      - "scripts/backfill-tour-api-details.mjs"
+      - "scripts/polish-contextual-copy.mjs"
+      - "scripts/daily-tour-posts.mjs"
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Number of existing posts to refresh"
+        required: false
+        default: "300"
+
+permissions:
+  contents: write
+
+jobs:
+  backfill:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Backfill Tour API details
+        run: |
+          node --check scripts/backfill-tour-api-details.mjs
+          node --check scripts/polish-contextual-copy.mjs
+          BACKFILL_LIMIT="${{ github.event.inputs.limit || '300' }}" node scripts/backfill-tour-api-details.mjs
+          node scripts/polish-contextual-copy.mjs
+          node scripts/build-homepage.mjs
+          node scripts/apply-homepage-content-config.mjs
+          node scripts/add-image-zoom.mjs
+          node scripts/add-adsense.mjs
+          node scripts/add-i18n.mjs
+          node scripts/add-map-preview.mjs
+          node scripts/build-feed.mjs
+          npm run build
+        env:
+          TRIPVIEW_API_KEY: ${{ secrets.TRIPVIEW_API_KEY }}
+          TRIPVIEW_API_KEY_PARAM: ${{ secrets.TRIPVIEW_API_KEY_PARAM }}
+
+      - name: Verify enriched article data
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const posts = JSON.parse(fs.readFileSync('data/generated-posts.json', 'utf8'));
+          const enriched = posts.filter((post) => post.tourApi?.overview || Object.keys(post.tourApi?.intro || {}).length);
+          if (enriched.length < Math.min(posts.length, 20)) {
+            throw new Error(`Too few enriched posts: ${enriched.length}/${posts.length}`);
+          }
+          const html = fs.readFileSync(`${enriched[0].slug}/index.html`, 'utf8');
+          if (!html.includes('공식 관광 정보') && !html.includes('운영 정보에서 놓치기 쉬운 부분')) {
+            throw new Error('API-derived article sections were not rendered.');
+          }
+          console.log(`Verified TourAPI detail enrichment: ${enriched.length}/${posts.length}`);
+          NODE
+
+      - name: Commit backfilled posts
+        run: |
+          if git diff --quiet; then
+            echo "No TourAPI detail changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Backfill Tour API details"
+          git push

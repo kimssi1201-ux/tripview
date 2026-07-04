@@ -37,6 +37,70 @@ function infoValue(post, labels) {
   return strip(row?.[1] || "");
 }
 
+function compactText(value = "", limit = 700) {
+  return strip(value)
+    .replace(/\bTourAPI\b/gi, "")
+    .replace(/\bAPI\b/g, "")
+    .replace(/한국관광공사\s*(검색 결과|API|TourAPI)?/g, "공식 관광 정보")
+    .replace(/\s+/g, " ")
+    .slice(0, limit)
+    .trim();
+}
+
+function apiOverview(post) {
+  return compactText(post.tourApi?.overview || post.apiOverview || post.overview || "");
+}
+
+function apiFacts(post) {
+  const intro = post.tourApi?.intro || {};
+  const rows = [
+    ["홈페이지", post.tourApi?.homepage],
+    ["주차", intro.parking || intro.parkingculture || intro.parkingfestival || intro.parkingleports],
+    ["쉬는 날", intro.restdate || intro.restdateculture],
+    ["이용 시간", intro.usetime || intro.usetimeculture || intro.usetimeleports || intro.playtime],
+    ["체험 안내", intro.expguide || intro.expagerange],
+    ["행사 장소", intro.eventplace],
+    ["행사 기간", intro.eventstartdate && intro.eventenddate ? `${intro.eventstartdate}~${intro.eventenddate}` : ""],
+    ["프로그램", intro.program || intro.subevent],
+    ["이용 요금", intro.usetimefestival || intro.usefee]
+  ];
+  return rows
+    .map(([label, value]) => [label, compactText(value, 260)])
+    .filter(([, value]) => value && !/방문 전 확인 필요|시설별 상이|현장 프로그램별 상이/.test(value));
+}
+
+function withApiSections(post, sections, isFestival) {
+  const title = sourceTitle(post);
+  const overview = apiOverview(post);
+  const facts = apiFacts(post);
+  const next = [...sections];
+
+  if (overview && !next.some(([, paragraphs]) => paragraphs.some((p) => p.includes(overview.slice(0, 40))))) {
+    next.unshift([
+      isFestival ? "행사 개요를 먼저 보면" : "장소 개요를 먼저 보면",
+      [
+        `${title}은 공식 관광 정보에 등록된 소개 내용을 기준으로 보면 다음처럼 이해하면 좋습니다. ${overview}`,
+        isFestival
+          ? "행사 소개만 보고 바로 이동하기보다 기간, 장소, 프로그램, 요금, 주차 가능 여부를 함께 확인해야 현장에서 기다리는 시간을 줄일 수 있습니다."
+          : "장소 소개만 보고 바로 이동하기보다 실제 입구, 운영 여부, 주차 또는 대중교통 동선, 주변 식사 동선을 함께 잡아야 방문 만족도가 높아집니다."
+      ]
+    ]);
+  }
+
+  if (facts.length) {
+    const factText = facts.map(([label, value]) => `${label}: ${value}`).join(" / ");
+    next.splice(Math.min(2, next.length), 0, [
+      "운영 정보에서 놓치기 쉬운 부분",
+      [
+        `${title} 방문 전 확인할 만한 세부 정보는 ${factText}입니다. 이 정보는 제목이나 대표 이미지보다 실제 일정에 더 직접적으로 영향을 줍니다.`,
+        "특히 주차, 쉬는 날, 이용 시간, 체험 접수처럼 현장에서 바로 막히는 항목은 출발 전에 다시 확인하는 편이 좋습니다. 같은 지역 안에서도 입구와 주차 위치가 다르면 이동 시간이 크게 달라질 수 있습니다."
+      ]
+    ]);
+  }
+
+  return next;
+}
+
 function sourceTitle(post) {
   return strip(post.sourceTitle || post.title || "여행지").replace(/\s*\|\s*트립뷰$/, "");
 }
@@ -268,7 +332,7 @@ function buildFaq(post) {
 function polishPost(post) {
   const base = sourceTitle(post);
   const isFestival = post.category === "공연/축제";
-  const sections = isFestival ? buildFestivalSections(post) : buildTravelSections(post);
+  const sections = withApiSections(post, isFestival ? buildFestivalSections(post) : buildTravelSections(post), isFestival);
   return {
     ...post,
     read: sections.length >= 6 ? "약 8분" : "약 7분",

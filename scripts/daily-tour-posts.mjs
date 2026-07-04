@@ -202,6 +202,39 @@ function buildDescription(title, category, region) {
   return `${title} 위치, 관람 포인트, 이동 동선, 방문 전 체크포인트를 정리했습니다.`;
 }
 
+function pickIntroFields(intro = {}) {
+  const keys = [
+    'eventstartdate',
+    'eventenddate',
+    'eventplace',
+    'playtime',
+    'program',
+    'subevent',
+    'usetimefestival',
+    'sponsor1',
+    'sponsor1tel',
+    'sponsor2',
+    'sponsor2tel',
+    'parking',
+    'parkingculture',
+    'parkingfestival',
+    'parkingleports',
+    'restdate',
+    'restdateculture',
+    'usetime',
+    'usetimeculture',
+    'usetimeleports',
+    'usefee',
+    'expguide',
+    'expagerange',
+    'chkpet',
+    'infocenter',
+    'infocenterculture',
+    'infocenterleports'
+  ];
+  return Object.fromEntries(keys.map((key) => [key, stripHtml(intro[key])]).filter(([, value]) => value));
+}
+
 function makeArticle(candidate, common, intro, images, category, today) {
   const title = safeText(candidate.title || common.title, '국내 여행지');
   const region = regionFromAddr(common.addr1 || candidate.addr1 || '');
@@ -273,6 +306,15 @@ function makeArticle(candidate, common, intro, images, category, today) {
     excerpt: isFestival ? `${title}의 일정, 장소, 요금, 프로그램, 방문 전 체크포인트를 정리했습니다.` : `${title}의 위치, 운영 확인 포인트, 주변 동선을 정리했습니다.`,
     info,
     memo,
+    tourApi: {
+      contentTypeId: String(candidate.contentTypeId || candidate.contenttypeid || ''),
+      overview: stripHtml(common.overview),
+      homepage: stripHtml(common.homepage),
+      mapx: common.mapx || candidate.mapx || '',
+      mapy: common.mapy || candidate.mapy || '',
+      mlevel: common.mlevel || '',
+      intro: pickIntroFields(intro)
+    },
     sections,
     faq
   };
