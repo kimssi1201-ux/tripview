@@ -166,9 +166,10 @@ function buildSections(posts) {
 }
 
 function categoryNav(sections) {
+  const regionSections = sections.filter((section) => !["travel", "festival"].includes(section.id));
   return [
     `<a class="is-active" href="#all" data-filter="all">${esc(TEXT.navAll)}</a>`,
-    ...sections.map((section) => `<a href="#${esc(section.id)}" data-filter="${esc(section.id)}">${esc(section.title)}</a>`),
+    ...regionSections.map((section) => `<a href="#${esc(section.id)}" data-filter="${esc(section.id)}">${esc(section.title)}</a>`),
   ].join("");
 }
 
