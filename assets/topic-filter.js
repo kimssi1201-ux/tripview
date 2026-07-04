@@ -66,10 +66,12 @@
     const image = post.image || post.images?.[0] || '';
     const title = post.sourceTitle || post.title || '여행 글';
     const meta = [post.category || '여행 정보', post.date || '', compactRegion(post.region)].filter(Boolean).join(' · ');
+    const excerpt = post.excerpt || post.description || '';
     const thumb = image
       ? `<span class="directory-thumb"><img src="${esc(image)}" alt="${esc(post.alt || title)}" loading="lazy" /></span>`
       : '';
-    return `<a class="region-tab directory-tab topic-result-card" href="${esc(postHref(post))}">${thumb}<span class="directory-copy"><strong>${esc(title)}</strong><span>${esc(meta)}</span></span></a>`;
+    const summary = excerpt ? `<span class="topic-card-excerpt">${esc(excerpt)}</span>` : '';
+    return `<a class="region-tab directory-tab topic-result-card" href="${esc(postHref(post))}">${thumb}<span class="directory-copy"><strong>${esc(title)}</strong><span>${esc(meta)}</span>${summary}<em>글 내용 보기</em></span></a>`;
   }
 
   function routeSection() {
@@ -116,6 +118,9 @@
       '.topic-empty{padding:24px 0;color:#666;font-weight:800}',
       '.topic-more{display:inline-flex;align-items:center;justify-content:center;margin-top:18px;min-height:42px;padding:9px 16px;border:1px solid #111;background:#fff;font-weight:900;cursor:pointer}',
       '.is-topic-active{color:#111!important;border-bottom:1px solid #111}',
+      '.topic-result-card .directory-copy{gap:6px}',
+      '.topic-card-excerpt{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;color:#444!important;font-size:14px!important;font-weight:500!important;line-height:1.55!important}',
+      '.topic-result-card em{margin-top:2px;color:#111;font-size:13px;font-style:normal;font-weight:900;text-decoration:underline;text-underline-offset:3px}',
     ].join('');
     document.head.appendChild(style);
   }
