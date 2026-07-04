@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SKIP_DIRS = new Set(['.git', 'node_modules', '.venv']);
 
-const LANGUAGE_SWITCH = '<div class="language-switch" aria-label="Language selector"><a href="?lang=ko" data-lang="ko" lang="ko">KO</a><a href="?lang=en" data-lang="en" lang="en">EN</a><a href="?lang=ja" data-lang="ja" lang="ja">JA</a><a href="?lang=zh" data-lang="zh" lang="zh-CN">ZH</a></div>';
+const LANGUAGE_SWITCH = '<div class="language-switch notranslate" translate="no" aria-label="Language selector"><a href="?lang=ko" data-lang="ko" lang="ko">KO</a><a href="?lang=en" data-lang="en" lang="en">EN</a><a href="?lang=ja" data-lang="ja" lang="ja">JA</a><a href="?lang=zh" data-lang="zh" lang="zh-CN">ZH</a></div>';
 const LANGUAGE_FOOTER = '<div><h3>Language</h3><a href="?lang=ko" data-lang="ko" lang="ko">한국어</a><a href="?lang=en" data-lang="en" lang="en">English</a><a href="?lang=ja" data-lang="ja" lang="ja">日本語</a><a href="?lang=zh" data-lang="zh" lang="zh-CN">简体中文</a></div>';
 const I18N_SCRIPT = '<script src="/assets/i18n.js" defer></script>';
 const I18N_CSS = '.language-switch{display:flex;align-items:center;gap:8px;white-space:nowrap}.language-switch a{font-size:12px;font-weight:900;color:#555;border-bottom:1px solid transparent;padding:2px 0}.language-switch a.is-active{color:#111;border-bottom-color:#111}@media(max-width:920px){.language-switch{gap:10px}.language-switch a{font-size:12px}}';
