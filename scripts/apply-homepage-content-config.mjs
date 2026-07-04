@@ -120,8 +120,14 @@ function regionCategorySection(posts) {
   return `<section class="wrap region-top" id="region-guide" aria-label="지역 카테고리"><div class="region-top-head"><small>REGION</small><h2>지역 카테고리</h2></div><div class="region-tabs">${tabs}</div></section>`;
 }
 
-function directoryItem(title, meta, href = '#routes') {
-  return `<a class="region-tab directory-tab" href="${esc(href)}"><strong>${esc(title)}</strong><span>${esc(meta)}</span></a>`;
+function thumbMarkup(post, className = 'list-thumb') {
+  const src = post?.image || post?.images?.[0] || '';
+  if (!src) return '';
+  return `<span class="${esc(className)}"><img src="${esc(src)}" alt="${esc(post.alt || post.sourceTitle || post.title || '')}" loading="lazy" /></span>`;
+}
+
+function directoryItem(title, meta, href = '#routes', post = null) {
+  return `<a class="region-tab directory-tab" href="${esc(href)}">${thumbMarkup(post, 'directory-thumb')}<span class="directory-copy"><strong>${esc(title)}</strong><span>${esc(meta)}</span></span></a>`;
 }
 
 function postDirectoryItem(post) {
@@ -129,6 +135,7 @@ function postDirectoryItem(post) {
     post.sourceTitle || post.title,
     `${post.category || '여행 정보'} · ${prettyDate(post)} · ${compactRegion(post.region)}`,
     postHref(post),
+    post,
   );
 }
 
@@ -172,7 +179,7 @@ function placesSection(posts) {
 
 function regionThirtySection(posts) {
   const groups = regionGroups(posts).map(([label, groupPosts]) => {
-    const rows = groupPosts.slice(0, 30).map((post) => `<a class="region-row" href="${esc(postHref(post))}"><strong>${esc(post.sourceTitle || post.title)}</strong><span>${esc(post.category || '여행 정보')} · ${esc(prettyDate(post))} · ${esc(compactRegion(post.region))}</span></a>`).join('');
+    const rows = groupPosts.slice(0, 30).map((post) => `<a class="region-row" href="${esc(postHref(post))}">${thumbMarkup(post, 'region-thumb')}<span class="region-copy"><strong>${esc(post.sourceTitle || post.title)}</strong><span>${esc(post.category || '여행 정보')} · ${esc(prettyDate(post))} · ${esc(compactRegion(post.region))}</span></span></a>`).join('');
     return `<article class="region-block" id="${esc(REGION_IDS[label] || 'region-etc')}"><div class="region-block-head"><h3>${esc(label)}</h3><span>${Math.min(groupPosts.length, 30)} / ${groupPosts.length}건</span></div><div class="region-rows">${rows}</div></article>`;
   }).join('');
   return `<section class="wrap section" id="region-lists">${sectionLead('REGION LIST', '지역별 최신 글 30건씩', '#region-guide')}<div class="region-blocks">${groups}</div></section>`;
@@ -257,6 +264,10 @@ function injectCss(html) {
   }
   if (!next.includes('.directory-tabs{')) {
     const css = `.directory-section{padding-top:42px}.directory-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px 18px;overflow:visible}.directory-tab{min-width:0;padding-top:12px}.directory-tab strong{font-size:18px;white-space:normal}.directory-tab span{line-height:1.45;white-space:normal}@media(max-width:920px){.directory-tabs{display:flex;overflow:auto}.directory-tab{flex:0 0 72%;min-width:210px}}`;
+    next = next.replace('</style>', `${css}</style>`);
+  }
+  if (!next.includes('.region-thumb{')) {
+    const css = `.region-row{grid-template-columns:82px minmax(0,1fr);gap:12px;align-items:start}.region-thumb,.directory-thumb{display:block;overflow:hidden;background:var(--soft)}.region-thumb{aspect-ratio:1.2/1}.directory-thumb{aspect-ratio:1.35/1;margin-bottom:9px}.region-thumb img,.directory-thumb img{display:block;width:100%;height:100%;object-fit:cover}.region-copy,.directory-copy{display:grid;gap:3px;min-width:0}.directory-tab{display:grid}.directory-tab:has(.directory-thumb){gap:0}@media(max-width:920px){.region-row{grid-template-columns:92px minmax(0,1fr)}.directory-thumb{aspect-ratio:1.45/1}}`;
     next = next.replace('</style>', `${css}</style>`);
   }
   if (!next.includes('/* nav-readable */')) {
