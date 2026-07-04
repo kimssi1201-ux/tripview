@@ -12,11 +12,21 @@ const CAT_FESTIVAL = "\uACF5\uC5F0/\uCD95\uC81C";
 const REGION_OTHER = "\uAE30\uD0C0";
 const REGIONS = [
   { id: "seoul", title: "\uC11C\uC6B8" },
-  { id: "gyeonggi", title: "\uACBD\uAE30\u00B7\uC778\uCC9C" },
-  { id: "chungcheong", title: "\uCDA9\uCCAD" },
+  { id: "gyeonggi", title: "\uACBD\uAE30" },
+  { id: "incheon", title: "\uC778\uCC9C" },
   { id: "gangwon", title: "\uAC15\uC6D0" },
-  { id: "jeolla", title: "\uC804\uB77C" },
-  { id: "gyeongsang", title: "\uACBD\uC0C1" },
+  { id: "daejeon", title: "\uB300\uC804" },
+  { id: "sejong", title: "\uC138\uC885" },
+  { id: "chungbuk", title: "\uCDA9\uBD81" },
+  { id: "chungnam", title: "\uCDA9\uB0A8" },
+  { id: "gwangju", title: "\uAD11\uC8FC" },
+  { id: "jeonbuk", title: "\uC804\uBD81" },
+  { id: "jeonnam", title: "\uC804\uB0A8" },
+  { id: "daegu", title: "\uB300\uAD6C" },
+  { id: "busan", title: "\uBD80\uC0B0" },
+  { id: "ulsan", title: "\uC6B8\uC0B0" },
+  { id: "gyeongbuk", title: "\uACBD\uBD81" },
+  { id: "gyeongnam", title: "\uACBD\uB0A8" },
   { id: "jeju", title: "\uC81C\uC8FC" },
 ];
 
@@ -58,29 +68,21 @@ function compactRegion(value = "") {
   const text = normalize(value).replace(/\([^)]*\)/g, "");
   if (!text) return REGION_OTHER;
   if (text.includes("\uC11C\uC6B8")) return "\uC11C\uC6B8";
-  if (text.includes("\uACBD\uAE30") || text.includes("\uC778\uCC9C")) return "\uACBD\uAE30\u00B7\uC778\uCC9C";
-  if (
-    text.includes("\uCDA9\uCCAD") ||
-    text.includes("\uCDA9\uBD81") ||
-    text.includes("\uCDA9\uB0A8") ||
-    text.includes("\uB300\uC804") ||
-    text.includes("\uC138\uC885")
-  ) return "\uCDA9\uCCAD";
+  if (text.includes("\uACBD\uAE30")) return "\uACBD\uAE30";
+  if (text.includes("\uC778\uCC9C")) return "\uC778\uCC9C";
   if (text.includes("\uAC15\uC6D0")) return "\uAC15\uC6D0";
-  if (
-    text.includes("\uC804\uB77C") ||
-    text.includes("\uC804\uBD81") ||
-    text.includes("\uC804\uB0A8") ||
-    text.includes("\uAD11\uC8FC")
-  ) return "\uC804\uB77C";
-  if (
-    text.includes("\uACBD\uC0C1") ||
-    text.includes("\uACBD\uBD81") ||
-    text.includes("\uACBD\uB0A8") ||
-    text.includes("\uBD80\uC0B0") ||
-    text.includes("\uB300\uAD6C") ||
-    text.includes("\uC6B8\uC0B0")
-  ) return "\uACBD\uC0C1";
+  if (text.includes("\uB300\uC804")) return "\uB300\uC804";
+  if (text.includes("\uC138\uC885")) return "\uC138\uC885";
+  if (text.includes("\uCDA9\uBD81") || text.includes("\uCDA9\uCCAD\uBD81")) return "\uCDA9\uBD81";
+  if (text.includes("\uCDA9\uB0A8") || text.includes("\uCDA9\uCCAD\uB0A8")) return "\uCDA9\uB0A8";
+  if (text.includes("\uAD11\uC8FC")) return "\uAD11\uC8FC";
+  if (text.includes("\uC804\uBD81") || text.includes("\uC804\uB77C\uBD81")) return "\uC804\uBD81";
+  if (text.includes("\uC804\uB0A8") || text.includes("\uC804\uB77C\uB0A8")) return "\uC804\uB0A8";
+  if (text.includes("\uB300\uAD6C")) return "\uB300\uAD6C";
+  if (text.includes("\uBD80\uC0B0")) return "\uBD80\uC0B0";
+  if (text.includes("\uC6B8\uC0B0")) return "\uC6B8\uC0B0";
+  if (text.includes("\uACBD\uBD81") || text.includes("\uACBD\uC0C1\uBD81")) return "\uACBD\uBD81";
+  if (text.includes("\uACBD\uB0A8") || text.includes("\uACBD\uC0C1\uB0A8")) return "\uACBD\uB0A8";
   if (text.includes("\uC81C\uC8FC")) return "\uC81C\uC8FC";
   return text.split(/\s+/).filter(Boolean)[0] || REGION_OTHER;
 }
