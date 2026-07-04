@@ -1,318 +1,167 @@
-import { promises as fs } from 'node:fs';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { promises as fs } from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const INDEX = path.join(ROOT, 'index.html');
-const CONFIG = path.join(ROOT, 'data', 'homepage-content.json');
-const POSTS = path.join(ROOT, 'data', 'generated-posts.json');
-const REGION_ORDER = ['서울', '경기·인천', '충청', '강원', '전라', '경상', '제주', '기타'];
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const POSTS_PATH = path.join(ROOT, "data", "generated-posts.json");
+const INDEX_PATH = path.join(ROOT, "index.html");
 
-function esc(value = '') {
-  return String(value).replace(/[&<>"']/g, (match) => ({
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#39;',
+const esc = (value = "") =>
+  String(value).replace(/[&<>"']/g, (match) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;",
   }[match]));
+
+const normalize = (value = "") => String(value).trim();
+const hrefOf = (post) => (post?.slug ? `/${post.slug}/` : "#");
+const imageOf = (post) => post?.image || post?.images?.[0] || "";
+const titleOf = (post) => normalize(post?.sourceTitle || post?.title || "여행 기사");
+const dateOf = (post) => normalize(post?.date || post?.sortDate || "");
+const categoryOf = (post) => normalize(post?.category || "여행 정보");
+const regionOf = (post) => normalize(post?.region || "");
+
+function compactRegion(value = "") {
+  const text = normalize(value).replace(/\([^)]*\)/g, "");
+  if (!text) return "기타";
+  if (text.includes("서울")) return "서울";
+  if (text.includes("경기") || text.includes("인천")) return "경기·인천";
+  if (text.includes("충청") || text.includes("충북") || text.includes("충남") || text.includes("대전") || text.includes("세종")) return "충청";
+  if (text.includes("강원")) return "강원";
+  if (text.includes("전라") || text.includes("전북") || text.includes("전남") || text.includes("광주")) return "전라";
+  if (text.includes("경상") || text.includes("경북") || text.includes("경남") || text.includes("부산") || text.includes("대구") || text.includes("울산")) return "경상";
+  if (text.includes("제주")) return "제주";
+  return text.split(/\s+/).filter(Boolean)[0] || "기타";
 }
 
-function link(item) {
-  return `<a href="${esc(item.href || '#')}">${esc(item.label || '')}</a>`;
-}
-
-function sectionLead(kicker, title, href = '') {
-  return `<div class="section-head"><div><small>${esc(kicker)}</small><h2>${esc(title)}</h2></div>${href ? `<a href="${esc(href)}">더보기</a>` : ''}</div>`;
-}
-
-function postHref(post) {
-  return post?.slug ? `/${post.slug}/` : '#routes';
-}
-
-function compactRegion(value = '') {
-  const cleaned = String(value).replace(/\([^)]*\)/g, '').trim();
-  if (!cleaned) return '';
-  const parts = cleaned.split(/\s+/).filter(Boolean);
-  const first = (parts[0] || '').replace(/특별시|광역시|특별자치시|특별자치도|도$/g, '');
-  if (['서울', '부산', '인천', '대구', '대전', '광주', '울산', '세종', '제주'].includes(first)) return first;
-  return (parts[1] || first).replace(/[시군구]$/g, '') || first;
-}
-
-function broadRegion(value = '') {
-  const text = String(value);
-  if (/서울/.test(text)) return '서울';
-  if (/경기|인천/.test(text)) return '경기·인천';
-  if (/충청|충북|충남|대전|세종/.test(text)) return '충청';
-  if (/강원/.test(text)) return '강원';
-  if (/전라|전북|전남|광주/.test(text)) return '전라';
-  if (/경상|경북|경남|부산|대구|울산/.test(text)) return '경상';
-  if (/제주/.test(text)) return '제주';
-  return compactRegion(value) || '기타';
-}
-
-function regionGroups(posts) {
-  const groups = new Map(REGION_ORDER.map((label) => [label, []]));
-  for (const post of posts) {
-    const label = broadRegion(post.region);
-    if (!groups.has(label)) groups.set(label, []);
-    groups.get(label).push(post);
-  }
-  return [...groups.entries()].filter(([, groupPosts]) => groupPosts.length > 0);
-}
-
-function uniqueBy(items, keyFn) {
+function uniquePosts(posts) {
   const seen = new Set();
-  return items.filter((item) => {
-    const key = keyFn(item);
+  return posts.filter((post) => {
+    const key = post?.slug || post?.title;
     if (!key || seen.has(key)) return false;
     seen.add(key);
     return true;
   });
 }
 
-function shorten(value = '', max = 14) {
-  const text = String(value).replace(/\s*2026\s*/g, ' ').replace(/,.*$/, '').trim();
-  return text.length > max ? `${text.slice(0, max - 1)}…` : text;
+function fillSection(posts, preferred, count = 10) {
+  return uniquePosts([...preferred, ...posts]).slice(0, count);
 }
 
-function prettyDate(post) {
-  if (post.date) return post.date;
-  if (post.sortDate) {
-    const [year, month, day] = String(post.sortDate).split('-');
-    if (year && month && day) return `${Number(month)}월 ${Number(day)}일`;
-  }
-  return '최근 업데이트';
+function articleImage(post, className) {
+  const image = imageOf(post);
+  if (!image) return `<span class="${className} no-image"></span>`;
+  return `<span class="${className}"><img src="${esc(image)}" alt="${esc(titleOf(post))}" loading="lazy"></span>`;
 }
 
-function card(post, className = 'card', heading = 'h3') {
-  const image = post.image ? `<span class="thumb"><img src="${esc(post.image)}" alt="${esc(post.alt || post.title)}" loading="lazy" /></span>` : '';
-  const excerpt = post.excerpt || post.description || '';
-  const read = post.read || '약 7분';
-  return `<a class="${esc(className)}" href="${esc(postHref(post))}">${image}<small>${esc(post.category || '여행 정보')}</small><${heading}>${esc(post.title)}</${heading}><p>${esc(excerpt)}</p><div class="meta"><span>${esc(prettyDate(post))}</span><span>${esc(read)}</span>${post.region ? `<span>${esc(post.region)}</span>` : ''}</div></a>`;
+function metaLine(post) {
+  return [categoryOf(post), dateOf(post), compactRegion(regionOf(post))].filter(Boolean).join(" · ");
 }
 
-function miniCard(post) {
-  const image = post.image ? `<span class="thumb mini-thumb"><img src="${esc(post.image)}" alt="${esc(post.alt || post.title)}" loading="lazy" /></span>` : '';
-  return `<a class="mini-card" href="${esc(postHref(post))}">${image}<span class="mini-copy"><small>${esc(post.category || '여행 정보')}</small><strong>${esc(post.title)}</strong><span>${esc(prettyDate(post))} · ${esc(post.read || '약 7분')}</span></span></a>`;
+function leadArticle(post) {
+  if (!post) return "";
+  return `<a class="news-lead" href="${esc(hrefOf(post))}">
+    ${articleImage(post, "lead-thumb")}
+    <strong>${esc(titleOf(post))}</strong>
+    <span>${esc(metaLine(post))}</span>
+  </a>`;
 }
 
-function headerNav() {
-  return `<header class="top"><div class="wrap nav"><a class="brand" href="#top">트립뷰</a><nav class="links" aria-label="주요 메뉴"><a href="#region-guide">지역별</a><a href="#curation">지역축제 정보</a><a href="#category-domestic">가볼만한 곳</a><a href="#booking">방문 전 체크</a><a href="#guide">여행 정보</a></nav></div></header>`;
+function pickCard(post) {
+  return `<a class="pick-card" href="${esc(hrefOf(post))}">
+    ${articleImage(post, "pick-thumb")}
+    <strong>${esc(titleOf(post))}</strong>
+  </a>`;
 }
 
-function regionCategorySection(posts) {
-  const tabs = regionGroups(posts).map(([label, groupPosts]) => `<a class="region-tab" href="#routes"><strong>${esc(label)}</strong><span>${Math.min(groupPosts.length, 30)}건 보기</span></a>`).join('');
-  return `<section class="wrap region-top" id="region-guide" aria-label="지역 카테고리"><div class="region-top-head"><small>REGION</small><h2>지역 카테고리</h2></div><div class="region-tabs">${tabs}</div></section>`;
+function listItem(post) {
+  return `<a class="news-row" href="${esc(hrefOf(post))}">
+    ${articleImage(post, "row-thumb")}
+    <span><strong>${esc(titleOf(post))}</strong><em>${esc(metaLine(post))}</em></span>
+  </a>`;
 }
 
-function thumbMarkup(post, className = 'list-thumb') {
-  const src = post?.image || post?.images?.[0] || '';
-  if (!src) return '';
-  return `<span class="${esc(className)}"><img src="${esc(src)}" alt="${esc(post.alt || post.sourceTitle || post.title || '')}" loading="lazy" /></span>`;
+function newsSection({ id, title, posts }) {
+  const items = uniquePosts(posts).slice(0, 10);
+  if (!items.length) return "";
+  const lead = items[0];
+  const picks = items.slice(1, 4);
+  const list = items.slice(4, 10);
+  return `<section class="news-section" id="${esc(id)}" aria-labelledby="${esc(id)}-title">
+    <h2 id="${esc(id)}-title">${esc(title)}</h2>
+    ${leadArticle(lead)}
+    <div class="pick-grid">${picks.map(pickCard).join("")}</div>
+    <div class="news-list">${list.map(listItem).join("")}</div>
+  </section>`;
 }
 
-function directoryItem(title, meta, href = '#routes', post = null) {
-  return `<a class="region-tab directory-tab" href="${esc(href)}">${thumbMarkup(post, 'directory-thumb')}<span class="directory-copy"><strong>${esc(title)}</strong><span>${esc(meta)}</span></span></a>`;
-}
+function buildSections(posts) {
+  const domestic = posts.filter((post) => categoryOf(post) === "국내여행");
+  const festivals = posts.filter((post) => categoryOf(post) === "공연/축제");
+  const byRegion = (region) => posts.filter((post) => compactRegion(regionOf(post)) === region);
 
-function postDirectoryItem(post) {
-  return directoryItem(
-    post.sourceTitle || post.title,
-    `${post.category || '여행 정보'} · ${prettyDate(post)} · ${compactRegion(post.region)}`,
-    postHref(post),
-    post,
-  );
-}
-
-function directorySection(id, kicker, title, items, moreHref = '') {
-  return `<section class="wrap section directory-section" id="${esc(id)}">${sectionLead(kicker, title, moreHref)}<div class="region-tabs directory-tabs">${items.join('')}</div></section>`;
-}
-
-function deriveTodayKeywords(posts, config) {
-  const regionLinks = regionGroups(posts)
-    .slice(0, 5)
-    .map(([label]) => ({ label: `${label} 여행`, href: '#routes' }));
-  const festivalLinks = posts
-    .filter((post) => post.category === '공연/축제')
-    .slice(0, 3)
-    .map((post) => ({ label: shorten(post.sourceTitle || post.title || '축제 일정'), href: postHref(post) }));
-  const fallback = config.todayKeywords || [];
-  return uniqueBy([...regionLinks, ...festivalLinks, ...fallback], (item) => item.label).slice(0, 8);
-}
-
-function todaySection(posts, config) {
-  const todayItems = deriveTodayKeywords(posts, config);
-  return `<section class="wrap today" aria-label="오늘의 여행 키워드"><div class="today-row"><b>TODAY</b>${todayItems.map(link).join('')}</div></section>`;
-}
-
-function heroSection(posts) {
-  const primary = posts[0];
-  if (!primary) return '';
-  const latestSide = posts.slice(1, 5).map(miniCard).join('');
-  return `<section class="wrap hero" id="latest"><div class="lead-layout">${card(primary, 'latest-primary', 'h2')}<div class="latest-list">${latestSide}</div></div></section>`;
-}
-
-function festivalSection(posts) {
-  const festivalPosts = posts.filter((post) => post.category === '공연/축제').slice(0, 6);
-  return directorySection('curation', 'EVENT', '지역축제 정보', festivalPosts.map(postDirectoryItem), '#routes');
-}
-
-function placesSection(posts) {
-  const domesticPosts = posts.filter((post) => post.category === '국내여행').slice(0, 9);
-  return directorySection('category-domestic', 'PLACES', '가볼만한 곳', domesticPosts.map(postDirectoryItem), '#routes');
-}
-
-function allPostsSection(posts) {
-  return directorySection('routes', 'ALL POSTS', `전체 글 ${posts.length}`, posts.slice(0, 12).map(postDirectoryItem));
-}
-
-function defaultBookingCards(config) {
-  return config.bookingCards || [];
-}
-
-function bookingSection(config) {
-  const cards = defaultBookingCards(config).map((item) => directoryItem(item.title, item.description, item.href || '#routes'));
-  return directorySection('booking', 'VISIT CHECK', '방문 전 체크', cards);
-}
-
-function dynamicCategoryGroups(config, counts, posts) {
-  const regionLinks = regionGroups(posts)
-    .slice(0, 4)
-    .map(([label]) => ({ label: `${label} 여행`, href: '#routes' }));
-  const festival = posts.find((post) => post.category === '공연/축제');
   return [
-    {
-      title: '지역별',
-      description: '서울, 경기·인천, 충청, 강원, 전라, 경상, 제주 권역별 주요 글을 빠르게 확인합니다.',
-      links: [{ label: '지역 카테고리', href: '#region-guide' }, ...regionLinks.slice(0, 3)],
-    },
-    {
-      title: '지역축제 정보',
-      description: `공연/축제 글 ${counts.festival}건을 일정, 장소, 프로그램 중심으로 봅니다.`,
-      links: [{ label: '축제 일정', href: '#curation' }, { label: '전체 축제 글', href: '#routes' }, ...(festival ? [{ label: shorten(festival.sourceTitle || festival.title), href: postHref(festival) }] : [])],
-    },
-    {
-      title: '가볼만한 곳',
-      description: `국내여행 글 ${counts.domestic}건을 위치와 동선 중심으로 정리합니다.`,
-      links: [{ label: '국내 여행지', href: '#category-domestic' }, { label: '지도 확인', href: '#routes' }, { label: '방문 전 체크', href: '#booking' }],
-    },
+    { id: "travel", title: "Travel", posts: fillSection(posts, domestic) },
+    { id: "festival", title: "Festival", posts: fillSection(posts, festivals) },
+    { id: "seoul", title: "Seoul", posts: fillSection(posts, byRegion("서울")) },
+    { id: "gyeonggi", title: "Gyeonggi/Incheon", posts: fillSection(posts, byRegion("경기·인천")) },
+    { id: "jeju", title: "Jeju", posts: fillSection(posts, byRegion("제주")) },
   ];
 }
 
-function categoryBundle(config, counts, posts) {
-  const groups = dynamicCategoryGroups(config, counts, posts).map((group) => directoryItem(group.title, group.description, group.links?.[0]?.href || '#routes'));
-  return directorySection('category-bundle', 'CATEGORY', '여행 정보 카테고리 묶음', groups);
+function categoryNav(sections) {
+  return sections.map((section) => `<a href="#${esc(section.id)}">${esc(section.title)}</a>`).join("");
 }
 
-function faqSection(config) {
-  const faqs = (config.faqs || []).map((item, index) => `<details class="faq-item" ${index === 0 ? 'open' : ''}><summary>${esc(item.question)}</summary><p>${esc(item.answer)}</p></details>`).join('');
-  return `<section class="wrap section" id="guide">${sectionLead('GUIDE', '트립뷰 이용 가이드')}<div class="faq-list">${faqs}</div></section>`;
-}
+function html(posts) {
+  const sections = buildSections(posts).filter((section) => section.posts.length);
+  const hero = posts[0];
+  const ogImage = imageOf(hero);
 
-function popularLinks(config, posts) {
-  const fromPosts = regionGroups(posts)
-    .slice(0, 4)
-    .map(([label]) => ({ label: `${label} 여행`, href: '#routes' }));
-  return fromPosts.length ? fromPosts : (config.footer?.popular || []);
-}
-
-function footer(config, counts, posts) {
-  const footerData = config.footer || {};
-  return `<footer><div class="wrap foot"><div><strong>트립뷰</strong><p>${esc(footerData.intro || '')}</p></div><div><h3>방문 전 체크</h3>${(footerData.reservation || []).map(link).join('')}</div><div><h3>여행 허브</h3><a href="#region-guide">지역별</a><a href="#curation">지역축제 정보</a><a href="#category-domestic">가볼만한 곳</a><a href="#guide">여행 정보</a></div><div><h3>카테고리</h3><a href="#category-domestic">국내여행 <span>${counts.domestic}</span></a><a href="#curation">공연/축제 <span>${counts.festival}</span></a></div><div><h3>인기 지역</h3>${popularLinks(config, posts).map(link).join('')}</div><div><h3>Language</h3>${(footerData.languages || []).map(link).join('')}</div></div><div class="wrap legal">Copyright 2026 Tripview. All Rights Reserved.</div></footer>`;
-}
-
-function injectCss(html) {
-  let next = html;
-  next = next.replace(/\.region-blocks\{display:grid;gap:30px\}.*?\.region-block\{scroll-margin-top:130px\}\}/g, '');
-  next = next.replace(/\.region-row\{grid-template-columns:82px minmax\(0,1fr\).*?\.directory-thumb\{aspect-ratio:1\.45\/1\}\}/g, '');
-
-  if (!next.includes('.faq-list{')) {
-    const css = `.check-card{display:block;color:inherit}.faq-list{display:grid;gap:12px}.faq-item{border-top:1px solid var(--line);padding:16px 0}.faq-item:last-child{border-bottom:1px solid var(--line)}.faq-item summary{cursor:pointer;font-weight:900;font-size:18px}.faq-item p{margin:10px 0 0;color:#444}.foot{grid-template-columns:1.3fr repeat(5,.75fr)}@media(max-width:1100px){.foot{grid-template-columns:repeat(3,1fr)}}@media(max-width:720px){.foot{grid-template-columns:1fr}}`;
-    next = next.replace('</style>', `${css}</style>`);
-  }
-  if (!next.includes('.region-tabs{')) {
-    const css = `.region-top{padding:106px 0 18px;border-bottom:1px solid var(--line)}.region-top-head{display:flex;align-items:baseline;gap:12px;margin-bottom:14px}.region-top-head h2{margin:0;font-size:22px;line-height:1.2}.region-tabs{display:flex;gap:10px;overflow:auto;padding-bottom:4px}.region-tab{flex:0 0 auto;min-width:118px;border-top:1px solid #111;padding:10px 0 6px;display:grid;gap:2px}.region-tab strong{font-size:18px;line-height:1.2}.region-tab span{font-size:12px;color:var(--muted);font-weight:900}.region-top + .today{padding-top:18px}@media(max-width:920px){.region-top{padding-top:128px}.region-tab{min-width:100px}}`;
-    next = next.replace('</style>', `${css}</style>`);
-  }
-  if (!next.includes('.mini-thumb{')) {
-    const css = `.latest-list .mini-card{grid-template-columns:104px minmax(0,1fr);gap:12px;align-items:start}.mini-thumb{aspect-ratio:1.28/1}.mini-thumb img{height:100%}.mini-copy{display:grid;gap:5px;min-width:0}.mini-copy span{color:var(--muted);font-size:14px}@media(max-width:520px){.latest-list .mini-card{grid-template-columns:96px minmax(0,1fr)}}`;
-    next = next.replace('</style>', `${css}</style>`);
-  }
-  if (!next.includes('.directory-tabs{')) {
-    const css = `.directory-section{padding-top:42px}.directory-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px 18px;overflow:visible}.directory-tab{min-width:0;padding-top:12px}.directory-tab strong{font-size:18px;white-space:normal}.directory-tab span{line-height:1.45;white-space:normal}@media(max-width:920px){.directory-tabs{display:flex;overflow:auto}.directory-tab{flex:0 0 72%;min-width:210px}}`;
-    next = next.replace('</style>', `${css}</style>`);
-  }
-  if (!next.includes('.directory-thumb{display:block')) {
-    const css = `.directory-thumb{display:block;overflow:hidden;background:var(--soft);aspect-ratio:1.35/1;margin-bottom:9px}.directory-thumb img{display:block;width:100%;height:100%;object-fit:cover}.directory-copy{display:grid;gap:3px;min-width:0}.directory-tab{display:grid}.directory-tab:has(.directory-thumb){gap:0}@media(max-width:920px){.directory-thumb{aspect-ratio:1.45/1}}`;
-    next = next.replace('</style>', `${css}</style>`);
-  }
-  if (!next.includes('/* nav-readable */')) {
-    const css = `/* nav-readable */.top{background:rgba(255,255,255,.94)!important;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid rgba(0,0,0,.08);box-shadow:0 6px 22px rgba(0,0,0,.04)}.top.is-scrolled{background:rgba(255,255,255,.98)!important;border-bottom-color:rgba(0,0,0,.1)}.brand,.links a{color:#111;text-shadow:none}`;
-    next = next.replace('</style>', `${css}</style>`);
-  }
-  return next;
-}
-
-async function readJsonFile(filePath, label) {
-  let raw;
-  try {
-    raw = await fs.readFile(filePath, 'utf8');
-  } catch (error) {
-    throw new Error(`${label} file could not be read: ${error.message}`);
-  }
-
-  try {
-    return JSON.parse(raw);
-  } catch (error) {
-    throw new Error(`${label} file contains invalid JSON: ${error.message}`);
-  }
-}
-
-function assertHomepageData(config, posts) {
-  if (!config || typeof config !== 'object' || Array.isArray(config)) {
-    throw new Error('homepage-content.json must contain an object.');
-  }
-  if (!Array.isArray(posts)) {
-    throw new Error('generated-posts.json must contain an array.');
-  }
-}
-
-function replaceBody(html, body) {
-  const bodyPattern = /<body[\s\S]*?<\/body>/;
-  if (!bodyPattern.test(html)) {
-    throw new Error('index.html must contain a <body>...</body> block.');
-  }
-  return html.replace(bodyPattern, body);
-}
-
-function homepageBody(config, counts, posts) {
-  return `<body>
-    ${headerNav()}
-    <main id="top">
-      ${regionCategorySection(posts)}
-      ${heroSection(posts)}
-      ${festivalSection(posts)}
-      ${placesSection(posts)}
-      ${bookingSection(config)}
-      ${allPostsSection(posts)}
-      ${categoryBundle(config, counts, posts)}
-      ${faqSection(config)}
+  return `<!doctype html>
+<html lang="ko">
+  <head>
+    <meta name="naver-site-verification" content="38616b4b4209994ed384d0d2439bddcbec2cc711">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8468106244002167" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="트립뷰는 국내 여행지와 지역 축제 정보를 모바일 뉴스 피드처럼 빠르게 확인할 수 있는 여행 정보 매거진입니다.">
+    <meta name="theme-color" content="#ffffff">
+    <meta property="og:title" content="트립뷰 - 여행 뉴스 피드">
+    <meta property="og:description" content="가볼 만한 곳, 지역 축제, 방문 전 체크 정보를 카테고리별 뉴스 섹션으로 정리합니다.">
+    <meta property="og:type" content="website">
+    ${ogImage ? `<meta property="og:image" content="${esc(ogImage)}">` : ""}
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="alternate" type="application/rss+xml" title="트립뷰 RSS" href="https://tripview.kr/rss.xml">
+    <title>트립뷰 - 여행 뉴스 피드</title>
+    <style>
+      :root{--ink:#111;--muted:#777;--line:#e2e2e2;--paper:#fff;--soft:#f5f5f5}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:112px}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;letter-spacing:0;line-height:1.45}a{color:inherit;text-decoration:none}img{display:block;width:100%;height:100%;object-fit:cover;background:var(--soft)}.site-header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}.header-inner{max-width:720px;margin:0 auto;padding:15px 16px 10px}.brand{display:block;margin-bottom:12px;font-size:28px;font-weight:900;line-height:1}.nav-scroll{display:flex;gap:18px;overflow-x:auto;padding-bottom:4px;white-space:nowrap;font-size:15px;font-weight:800}.nav-scroll::-webkit-scrollbar,.pick-grid::-webkit-scrollbar{display:none}.page{max-width:720px;margin:0 auto;padding:10px 16px 40px}.top-line{display:flex;align-items:center;justify-content:space-between;padding:10px 0 18px;color:var(--muted);font-size:13px;border-bottom:1px solid var(--line)}.news-section{padding:28px 0 34px;border-bottom:8px solid #f2f2f2;scroll-margin-top:112px}.news-section h2{margin:0 0 16px;font-size:31px;line-height:1.05;font-weight:900;letter-spacing:-.01em}.news-lead{display:block}.lead-thumb{display:block;width:100%;aspect-ratio:1.78/1;overflow:hidden;background:var(--soft)}.news-lead strong{display:block;margin-top:12px;font-size:24px;line-height:1.22;font-weight:900}.news-lead span{display:block;margin-top:7px;color:var(--muted);font-size:13px}.pick-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:20px}.pick-card{min-width:0}.pick-thumb{display:block;aspect-ratio:1.2/1;overflow:hidden;background:var(--soft)}.pick-card strong{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:7px;font-size:13px;line-height:1.34;font-weight:800}.news-list{margin-top:22px;border-top:1px solid var(--line)}.news-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}.row-thumb{display:block;aspect-ratio:1.28/1;overflow:hidden;background:var(--soft)}.news-row strong{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:17px;line-height:1.35;font-weight:900}.news-row em{display:block;margin-top:5px;color:var(--muted);font-size:12px;font-style:normal}.no-image{background:linear-gradient(135deg,#f1f1f1,#dedede)}.site-footer{max-width:720px;margin:0 auto;padding:28px 16px 44px;color:var(--muted);font-size:13px}.site-footer strong{display:block;color:var(--ink);font-size:20px;margin-bottom:6px}@media(min-width:760px){.header-inner,.page,.site-footer{max-width:1040px}.page{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 36px}.top-line{grid-column:1/-1}.news-section{border-bottom:1px solid var(--line)}.news-section h2{font-size:34px}}@media(max-width:360px){.news-section h2{font-size:28px}.news-lead strong{font-size:21px}.news-row{grid-template-columns:82px minmax(0,1fr)}.pick-grid{gap:7px}.pick-card strong{font-size:12px}}
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="/">트립뷰</a>
+        <nav class="nav-scroll" aria-label="카테고리">${categoryNav(sections)}</nav>
+      </div>
+    </header>
+    <main class="page">
+      <div class="top-line"><span>Travel News Feed</span><span>${esc(new Date().toISOString().slice(0, 10))}</span></div>
+      ${sections.map(newsSection).join("\n")}
     </main>
-    ${footer(config, counts, posts)}
-  </body>`;
+    <footer class="site-footer">
+      <strong>트립뷰</strong>
+      <span>국내 여행지와 지역 축제 정보를 카테고리별로 빠르게 확인하는 여행 뉴스 피드입니다.</span>
+    </footer>
+  </body>
+</html>`;
 }
 
-const config = await readJsonFile(CONFIG, 'homepage-content.json');
-const posts = await readJsonFile(POSTS, 'generated-posts.json');
-assertHomepageData(config, posts);
-const counts = {
-  domestic: posts.filter((post) => post.category === '국내여행').length,
-  festival: posts.filter((post) => post.category === '공연/축제').length,
-};
+const posts = JSON.parse(await fs.readFile(POSTS_PATH, "utf8"))
+  .filter((post) => post?.slug && post?.title)
+  .sort((a, b) => String(b.sortDate || "").localeCompare(String(a.sortDate || "")));
 
-let html = await fs.readFile(INDEX, 'utf8');
-html = replaceBody(html, homepageBody(config, counts, posts));
-html = injectCss(html);
-await fs.writeFile(INDEX, html, 'utf8');
-console.log('Homepage content configuration applied from existing post data.');
+await fs.writeFile(INDEX_PATH, html(posts), "utf8");
+console.log(`Homepage rebuilt as mobile news feed with ${posts.length} post(s).`);
