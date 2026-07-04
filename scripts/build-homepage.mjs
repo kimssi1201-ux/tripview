@@ -6,8 +6,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, '..');
 const SITE_URL = 'https://tripview.kr';
-const NAVER_META = '<meta name="naver-site-verification" content="38616b4b4209994ed384d0d2439bddcbec2cc711" />';
-const ADSENSE = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8468106244002167"\n     crossorigin="anonymous"></script>';
+const NAVER_META = '';
+const ADSENSE = '';
 const CATEGORIES = ['국내여행', '공연/축제'];
 
 function esc(value = '') {
@@ -284,9 +284,9 @@ function renderIndex(posts) {
   return `<!doctype html>
 <html lang="ko">
   <head>
+    <meta name="naver-site-verification" content="38616b4b4209994ed384d0d2439bddcbec2cc711" />
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8468106244002167"
      crossorigin="anonymous"></script>
-    <meta name="naver-site-verification" content="38616b4b4209994ed384d0d2439bddcbec2cc711" />
     ${ADSENSE}
     ${NAVER_META}
     <meta charset="utf-8" />

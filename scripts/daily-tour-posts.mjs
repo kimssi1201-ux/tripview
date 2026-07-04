@@ -287,9 +287,9 @@ function renderArticle(post) {
   return `<!doctype html>
 <html lang="ko">
   <head>
+    <meta name="naver-site-verification" content="38616b4b4209994ed384d0d2439bddcbec2cc711" />
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8468106244002167"
      crossorigin="anonymous"></script>
-    <meta name="naver-site-verification" content="38616b4b4209994ed384d0d2439bddcbec2cc711" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="${esc(post.description)}" />
@@ -302,10 +302,7 @@ function renderArticle(post) {
     </style>
   </head>
   <body>
-    <header class="top">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8468106244002167"
-     crossorigin="anonymous"></script>
-    <meta name="naver-site-verification" content="38616b4b4209994ed384d0d2439bddcbec2cc711" /><div class="wrap nav"><a class="brand" href="../">트립뷰</a><nav class="links"><a href="../">홈</a><a href="../#latest">최신글</a><a href="../#routes">전체글</a><a href="../#routes">국내여행</a><a href="../#routes">공연/축제</a></nav></div></header>
+    <header class="top"><div class="wrap nav"><a class="brand" href="../">트립뷰</a><nav class="links"><a href="../">홈</a><a href="../#latest">최신글</a><a href="../#routes">전체글</a><a href="../#routes">국내여행</a><a href="../#routes">공연/축제</a></nav></div></header>
     <main>
       <section class="wrap hero"><h1>${esc(post.title)}</h1><div class="meta"><span>트립뷰 편집팀</span><span>${esc(post.date)}</span><span>${esc(post.read)}</span><span>${esc(post.region)}</span></div></section>
       ${gallery}
@@ -330,6 +327,9 @@ function renderIndex(posts) {
   return `<!doctype html>
 <html lang="ko">
   <head>
+    <meta name="naver-site-verification" content="38616b4b4209994ed384d0d2439bddcbec2cc711" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8468106244002167"
+     crossorigin="anonymous"></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="트립뷰는 지금 바로 움직일 수 있는 국내여행과 공연/축제 글감을 큐레이션합니다." />

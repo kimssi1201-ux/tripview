@@ -9,6 +9,7 @@ const ADSENSE_PUBLISHER_ID = "ca-pub-8468106244002167";
 const NAVER_VERIFICATION_ID = "38616b4b4209994ed384d0d2439bddcbec2cc711";
 const ADSENSE_PUBLISHER_RE = /ca-pub-\d+/g;
 const ADSENSE_SCRIPT_RE = /\s*<script\s+async\s+src=["']https:\/\/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=ca-pub-\d+["'][^>]*crossorigin=["']anonymous["'][^>]*><\/script>/gi;
+const NAVER_VERIFICATION_RE = /\s*<meta\s+name=["']naver-site-verification["']\s+content=["'][^"']+["']\s*\/?>/gi;
 
 const requiredHeadSnippets = [
   {
@@ -41,10 +42,14 @@ async function writeIfChanged(path, text) {
 }
 
 function insertRequiredHeadSnippets(text) {
-  const normalizedText = text.replace(ADSENSE_PUBLISHER_RE, ADSENSE_PUBLISHER_ID);
+  const normalizedText = removeManagedSnippetsOutsideHead(
+    text.replace(ADSENSE_PUBLISHER_RE, ADSENSE_PUBLISHER_ID),
+  );
 
-  return normalizedText.replace(/<head([^>]*)>([\s\S]*?)<\/head>/gi, (match, attrs, body) => {
-    let nextBody = body.replace(ADSENSE_SCRIPT_RE, "");
+  return normalizedText.replace(/<head(?=[\s>])([^>]*)>([\s\S]*?)<\/head>/gi, (match, attrs, body) => {
+    let nextBody = body
+      .replace(ADSENSE_SCRIPT_RE, "")
+      .replace(NAVER_VERIFICATION_RE, "");
 
     for (const snippet of requiredHeadSnippets) {
       if (!nextBody.includes(snippet.marker)) {
@@ -56,8 +61,29 @@ function insertRequiredHeadSnippets(text) {
   });
 }
 
+function removeManagedSnippetsOutsideHead(text) {
+  const headRe = /<head(?=[\s>])[^>]*>[\s\S]*?<\/head>/gi;
+  let result = "";
+  let lastIndex = 0;
+
+  for (const match of text.matchAll(headRe)) {
+    result += stripManagedSnippets(text.slice(lastIndex, match.index));
+    result += match[0];
+    lastIndex = match.index + match[0].length;
+  }
+
+  result += stripManagedSnippets(text.slice(lastIndex));
+  return result;
+}
+
+function stripManagedSnippets(text) {
+  return text
+    .replace(ADSENSE_SCRIPT_RE, "")
+    .replace(NAVER_VERIFICATION_RE, "");
+}
+
 function missingHeadSnippets(text) {
-  const blocks = [...text.matchAll(/<head[^>]*>([\s\S]*?)<\/head>/gi)].map((match) => match[1]);
+  const blocks = [...text.matchAll(/<head(?=[\s>])[^>]*>([\s\S]*?)<\/head>/gi)].map((match) => match[1]);
   const missing = [];
 
   blocks.forEach((block, index) => {
