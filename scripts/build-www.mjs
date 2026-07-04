@@ -6,7 +6,18 @@ const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const outDir = join(root, "www");
 const siteDir = join(root, "site");
 const baseUrl = "https://tripview.kr";
-const posts = JSON.parse(await readFile(join(root, "data", "posts.json"), "utf8"));
+
+async function readJson(relativePath, fallback = []) {
+  try {
+    return JSON.parse(await readFile(join(root, relativePath), "utf8"));
+  } catch {
+    return fallback;
+  }
+}
+
+const generatedPosts = await readJson("data/generated-posts.json");
+const legacyPosts = await readJson("data/posts.json");
+const posts = generatedPosts.length ? generatedPosts : legacyPosts;
 
 const files = [
   "index.html",
@@ -20,11 +31,12 @@ const files = [
   "robots.txt",
   "sitemap.xml",
   "feed.xml",
+  "rss.xml",
   "ads.txt"
 ];
 
 function xml(value) {
-  return String(value)
+  return String(value ?? "")
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
@@ -33,7 +45,15 @@ function xml(value) {
 }
 
 function postUrl(post) {
-  return `${baseUrl}/post.html?slug=${encodeURIComponent(post.slug)}`;
+  return `${baseUrl}/${encodeURIComponent(post.slug)}/`;
+}
+
+function postDate(post) {
+  return post.sortDate || post.date || new Date().toISOString().slice(0, 10);
+}
+
+function postExcerpt(post) {
+  return post.excerpt || post.description || "";
 }
 
 async function generateSitemap() {
@@ -41,36 +61,67 @@ async function generateSitemap() {
   const urls = [
     { loc: `${baseUrl}/`, lastmod: today },
     { loc: `${baseUrl}/privacy.html`, lastmod: today },
-    ...posts.map((post) => ({ loc: postUrl(post), lastmod: post.date }))
+    ...posts.map((post) => ({ loc: postUrl(post), lastmod: postDate(post) }))
   ];
 
   const body = urls
     .map(
-      (item) => `  <url>\n    <loc>${xml(item.loc)}</loc>\n    <lastmod>${xml(item.lastmod)}</lastmod>\n  </url>`
+      (item) => `  <url>
+    <loc>${xml(item.loc)}</loc>
+    <lastmod>${xml(item.lastmod)}</lastmod>
+  </url>`
     )
     .join("\n");
 
   await writeFile(
     join(root, "sitemap.xml"),
-    `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`,
+    `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${body}
+</urlset>
+`,
     "utf8"
   );
 }
 
 async function generateFeed() {
-  const latest = posts[0]?.date || new Date().toISOString().slice(0, 10);
+  const latest = postDate(posts[0] || {});
   const items = posts
-    .slice(0, 20)
+    .slice(0, 50)
     .map(
-      (post) => `    <item>\n      <title>${xml(post.title)}</title>\n      <link>${xml(postUrl(post))}</link>\n      <guid>${xml(postUrl(post))}</guid>\n      <description>${xml(post.excerpt)}</description>\n      <category>${xml(post.category)}</category>\n      <pubDate>${new Date(post.date).toUTCString()}</pubDate>\n    </item>`
+      (post) => `    <item>
+      <title>${xml(post.title)}</title>
+      <link>${xml(postUrl(post))}</link>
+      <guid>${xml(postUrl(post))}</guid>
+      <description>${xml(postExcerpt(post))}</description>
+      <category>${xml(post.category || "")}</category>
+      <pubDate>${new Date(postDate(post)).toUTCString()}</pubDate>
+    </item>`
     )
     .join("\n");
 
-  await writeFile(
-    join(root, "feed.xml"),
-    `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0">\n  <channel>\n    <title>트립뷰</title>\n    <link>${baseUrl}/</link>\n    <description>국내여행과 공연/축제 큐레이션</description>\n    <lastBuildDate>${new Date(latest).toUTCString()}</lastBuildDate>\n${items}\n  </channel>\n</rss>\n`,
-    "utf8"
-  );
+  const feed = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>트립뷰</title>
+    <link>${baseUrl}/</link>
+    <description>국내여행과 공연/축제 여행 정보</description>
+    <lastBuildDate>${new Date(latest).toUTCString()}</lastBuildDate>
+${items}
+  </channel>
+</rss>
+`;
+
+  await writeFile(join(root, "feed.xml"), feed, "utf8");
+  await writeFile(join(root, "rss.xml"), feed, "utf8");
+}
+
+async function copyIfExists(from, to) {
+  try {
+    await cp(from, to, { recursive: true });
+  } catch (error) {
+    if (error.code !== "ENOENT") throw error;
+  }
 }
 
 async function copySite(targetDir) {
@@ -78,11 +129,15 @@ async function copySite(targetDir) {
   await mkdir(targetDir, { recursive: true });
 
   for (const file of files) {
-    await cp(join(root, file), join(targetDir, file), { recursive: true });
+    await copyIfExists(join(root, file), join(targetDir, file));
   }
 
-  await mkdir(join(targetDir, "data"), { recursive: true });
-  await cp(join(root, "data", "posts.json"), join(targetDir, "data", "posts.json"));
+  await copyIfExists(join(root, "assets"), join(targetDir, "assets"));
+  await copyIfExists(join(root, "data"), join(targetDir, "data"));
+
+  for (const post of generatedPosts) {
+    await copyIfExists(join(root, post.slug), join(targetDir, post.slug));
+  }
 }
 
 await generateSitemap();

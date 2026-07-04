@@ -395,11 +395,29 @@ async function fetchCandidates(today) {
     byId.add(String(item.contentid));
     candidates.push({ ...item, category, contentTypeId });
   };
-  const festivals = await tourGet('searchFestival2', { eventStartDate: ymd(today), eventEndDate: ymd(addDays(today, 90)), arrange: 'D', numOfRows: '120', pageNo: '1' });
-  for (const item of festivals) push(item, '공연/축제', '15');
-  if (candidates.length < POST_LIMIT * 2) {
-    const places = await tourGet('areaBasedList2', { contentTypeId: '12', arrange: 'Q', numOfRows: '200', pageNo: '1' });
-    for (const item of places) push(item, '국내여행', '12');
+
+  const targetPool = Math.max(POST_LIMIT * 8, 240);
+  for (const pageNo of ['1', '2', '3', '4', '5']) {
+    const festivals = await tourGet('searchFestival2', {
+      eventStartDate: ymd(today),
+      eventEndDate: ymd(addDays(today, 180)),
+      arrange: 'D',
+      numOfRows: '100',
+      pageNo
+    });
+    for (const item of festivals) push(item, '공연/축제', '15');
+    if (candidates.length >= targetPool) break;
+  }
+
+  if (candidates.length < targetPool) {
+    for (const arrange of ['Q', 'R', 'D', 'P']) {
+      for (const pageNo of ['1', '2', '3', '4', '5']) {
+        const places = await tourGet('areaBasedList2', { contentTypeId: '12', arrange, numOfRows: '100', pageNo });
+        for (const item of places) push(item, '국내여행', '12');
+        if (candidates.length >= targetPool) break;
+      }
+      if (candidates.length >= targetPool) break;
+    }
   }
   return candidates;
 }
