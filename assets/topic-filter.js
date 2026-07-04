@@ -71,7 +71,7 @@
       ? `<span class="directory-thumb"><img src="${esc(image)}" alt="${esc(post.alt || title)}" loading="lazy" /></span>`
       : '';
     const summary = excerpt ? `<span class="topic-card-excerpt">${esc(excerpt)}</span>` : '';
-    return `<a class="region-tab directory-tab topic-result-card" href="${esc(postHref(post))}">${thumb}<span class="directory-copy"><strong>${esc(title)}</strong><span>${esc(meta)}</span>${summary}<em>글 내용 보기</em></span></a>`;
+    return `<a class="region-tab directory-tab topic-result-card" href="${esc(postHref(post))}" data-post-card="true">${thumb}<span class="directory-copy"><strong>${esc(title)}</strong><span>${esc(meta)}</span>${summary}<em>글 내용 보기</em></span></a>`;
   }
 
   function routeSection() {
@@ -224,6 +224,14 @@
   }
 
   document.addEventListener('click', (event) => {
+    const postCard = event.target.closest('a[data-post-card]');
+    if (postCard && postCard.href && !postCard.target && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey) {
+      event.preventDefault();
+      event.stopPropagation();
+      window.location.assign(postCard.href);
+      return;
+    }
+
     const link = event.target.closest('a');
     if (!link || link.matches('[data-lang]')) return;
     if (!isTopicLink(link)) return;
@@ -237,7 +245,7 @@
 
     event.preventDefault();
     applyFilter(filter).catch(() => {});
-  });
+  }, { capture: true });
 
   async function applyInitialFilter() {
     if (!routeSection()) return;
