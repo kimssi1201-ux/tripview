@@ -128,7 +128,7 @@
   if (metaDesc) metaDesc.setAttribute('content', post.description);
   const rows = post.info.map(([k,v]) => `<tr><th>${esc(k)}</th><td>${esc(v)}</td></tr>`).join('');
   const sections = post.sections.map(([heading, paragraphs]) => `<h2>${esc(heading)}</h2>${paragraphs.map((p) => `<p>${esc(p)}</p>`).join('')}`).join('');
-  const faqs = post.faq.map(([q,a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('');
+  const faqs = post.faq.map(([q,a]) => `<details open><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('');
   const memo = post.memo.map((m) => `<span>${esc(m)}</span>`).join('');
   document.body.innerHTML = `<header class="top"><div class="wrap nav"><a class="brand" href="../">트립뷰</a><nav class="links"><a href="../">홈</a><a href="../#latest">최신글</a><a href="../#routes">전체글</a><a href="../#routes">국내여행</a><a href="../#routes">공연/축제</a></nav></div></header><main><section class="wrap hero"><h1>${esc(post.title)}</h1><div class="meta"><span>트립뷰 편집팀</span><span>${esc(post.date)}</span><span>${esc(post.read)}</span><span>${esc(post.region)}</span></div></section><figure class="cover-figure"><img class="cover" src="${esc(post.image)}" alt="${esc(post.alt)}"><figcaption>출처: 한국관광공사</figcaption></figure><section class="wrap layout"><article class="content"><table class="info-table"><tbody>${rows}</tbody></table>${sections}<h2>자주 묻는 질문</h2>${faqs}<p class="note">일정, 세부 프로그램, 체험 접수, 요금은 현장 사정에 따라 달라질 수 있습니다. 출발 전 문의처와 당일 공지를 한 번 더 확인하면 이동 실패를 줄일 수 있습니다.</p></article><aside class="aside"><strong>운영 메모</strong>${memo}<a href="../">목록으로 돌아가기</a></aside></section></main><footer><div class="wrap"><strong>트립뷰</strong><p>오늘 바로 움직일 수 있는 여행 큐레이션.</p></div></footer>`;
   const header = document.querySelector('.top');

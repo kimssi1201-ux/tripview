@@ -282,7 +282,7 @@ function renderArticle(post) {
   const rows = post.info.map(([k, v]) => `<tr><th>${esc(k)}</th><td>${esc(v)}</td></tr>`).join('');
   const gallery = post.images.map((src, index) => `<figure class="${index === 0 ? 'cover-figure' : 'inline-figure'}"><img class="${index === 0 ? 'cover' : ''}" src="${esc(src)}" alt="${esc(`${post.sourceTitle} 이미지 ${index + 1}`)}"${index === 0 ? '' : ' loading="lazy"'} /><figcaption>출처: 한국관광공사</figcaption></figure>`).join('\n');
   const sections = post.sections.map(([heading, paragraphs]) => `<h2>${esc(heading)}</h2>${paragraphs.map((p) => `<p>${esc(p)}</p>`).join('')}`).join('');
-  const faqs = post.faq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('');
+  const faqs = post.faq.map(([q, a]) => `<details open><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('');
   const memo = post.memo.map((m) => `<span>${esc(m)}</span>`).join('');
   return `<!doctype html>
 <html lang="ko">
