@@ -134,14 +134,38 @@ function listItem(post) {
   </a>`;
 }
 
-function newsSection({ id, title, posts }) {
+function searchableText(post) {
+  return [
+    titleOf(post),
+    post?.sourceTitle,
+    post?.description,
+    post?.excerpt,
+    ...(Array.isArray(post?.memo) ? post.memo : []),
+    ...(Array.isArray(post?.info) ? post.info.flat() : []),
+  ].filter(Boolean).join(" ");
+}
+
+function summerHeadline(title, posts, fallback = false) {
+  if (["travel", "festival"].includes(String(title).toLowerCase())) return title;
+  const text = posts.map(searchableText).join(" ");
+  const topics = [
+    { label: "\uC218\uC601\uC7A5", pattern: /\uC218\uC601\uC7A5|\uD480\uC7A5|\uC6CC\uD130\uD30C\uD06C|\uC544\uCFE0\uC544|\uBB3C\uB180\uC774|\uC378\uBA38\uBE44\uCE58/ },
+    { label: "\uACC4\uACE1", pattern: /\uACC4\uACE1|\uD3ED\uD3EC|\uC720\uC6D0\uC9C0/ },
+    { label: "\uD574\uC218\uC695\uC7A5", pattern: /\uD574\uC218\uC695\uC7A5|\uD574\uBCC0|\uD574\uC548|\uBC14\uB2E4/ },
+  ].filter((topic) => topic.pattern.test(text)).map((topic) => topic.label);
+  const suffix = topics.length ? `${topics.join("\u00B7")} \uAC00\uBCFC\uB9CC\uD55C \uACF3` : "\uAC00\uBCFC\uB9CC\uD55C \uACF3";
+  return fallback ? `\uC9C0\uC5ED\uBCC4 7\uC6D4 ${suffix}` : `${title} 7\uC6D4 ${suffix}`;
+}
+
+function newsSection({ id, title, posts, headline }) {
   const items = uniquePosts(posts).slice(0, 10);
   if (!items.length) return "";
   const lead = items[0];
   const picks = items.slice(1, 4);
   const list = items.slice(4, 10);
-  return `<section class="news-section" id="${esc(id)}" aria-labelledby="${esc(id)}-title">
-    <h2 id="${esc(id)}-title">${esc(title)}</h2>
+  const heading = headline || title;
+  return `<section class="news-section" id="${esc(id)}" aria-labelledby="${esc(id)}-title" data-headline="${esc(heading)}">
+    <h2 id="${esc(id)}-title">${esc(heading)}</h2>
     ${leadArticle(lead)}
     <div class="pick-grid">${picks.map(pickCard).join("")}</div>
     <div class="news-list">${list.map(listItem).join("")}</div>
@@ -156,11 +180,14 @@ function buildSections(posts) {
     id: region.id,
     title: region.title,
     posts: fillSection(posts, byRegion(region.title)),
+  })).map((section) => ({
+    ...section,
+    headline: summerHeadline(section.title, section.posts),
   }));
 
   return [
-    { id: "travel", title: TEXT.navTravel, posts: fillSection(posts, domestic) },
-    { id: "festival", title: TEXT.navFestival, posts: fillSection(posts, festivals) },
+    { id: "travel", title: TEXT.navTravel, posts: fillSection(posts, domestic), headline: summerHeadline(TEXT.navTravel, domestic, true) },
+    { id: "festival", title: TEXT.navFestival, posts: fillSection(posts, festivals), headline: TEXT.navFestival },
     ...regionSections,
   ];
 }
@@ -177,6 +204,7 @@ function html(posts) {
   const sections = buildSections(posts).filter((section) => section.posts.length);
   const hero = posts[0];
   const ogImage = imageOf(hero);
+  const defaultHeadline = summerHeadline("", posts, true);
 
   return `<!doctype html>
 <html lang="ko">
@@ -206,7 +234,7 @@ function html(posts) {
       </div>
     </header>
     <main class="page">
-      <div class="top-line"><span data-feed-label><b>${esc(TEXT.feedAll)}</b> ${esc(TEXT.feedShowing)}</span><span>${esc(new Date().toISOString().slice(0, 10))}</span></div>
+      <div class="top-line"><span data-feed-label>${esc(defaultHeadline)}</span><span>${esc(new Date().toISOString().slice(0, 10))}</span></div>
       ${sections.map(newsSection).join("\n")}
     </main>
     <footer class="site-footer">
@@ -223,10 +251,12 @@ function html(posts) {
           const id = link.dataset.filter || link.getAttribute('href').replace('#', '');
           const title = link.textContent.trim();
           const showAll = id === 'all';
+          const selectedSection = document.getElementById(id);
+          const headline = showAll ? '${esc(defaultHeadline)}' : (selectedSection?.dataset.headline || title);
           links.forEach((item) => item.classList.remove('is-active'));
           link.classList.add('is-active');
           sections.forEach((section) => section.classList.toggle('is-hidden', !showAll && section.id !== id));
-          if (label) label.innerHTML = '<b>' + title + '</b> ' + (showAll ? '${esc(TEXT.feedShowing)}' : '${esc(TEXT.feedSelected)}');
+          if (label) label.textContent = headline;
           document.querySelector('.page').scrollIntoView({ block: 'start' });
         });
       });
