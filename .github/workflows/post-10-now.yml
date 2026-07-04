@@ -59,6 +59,7 @@ jobs:
           node --check scripts/enrich-tour-posts.mjs
           POST_LIMIT=10 MAX_IMAGES_PER_POST=3 node scripts/daily-tour-posts.mjs
           node scripts/enrich-tour-posts.mjs
+          node scripts/polish-contextual-copy.mjs
 
       - name: Apply homepage layout
         run: |

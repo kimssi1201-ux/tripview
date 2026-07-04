@@ -54,6 +54,9 @@ jobs:
       - name: Add helpful article sections
         run: node scripts/add-helpful-article-sections.mjs
 
+      - name: Polish contextual article copy
+        run: node scripts/polish-contextual-copy.mjs
+
       - name: Build homepage
         run: node scripts/build-homepage.mjs
 

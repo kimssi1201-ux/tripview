@@ -42,6 +42,9 @@ jobs:
       - name: Format program sections
         run: node scripts/format-program-sections.mjs
 
+      - name: Polish contextual article copy
+        run: node scripts/polish-contextual-copy.mjs
+
       - name: Build homepage
         run: node scripts/build-homepage.mjs
 
