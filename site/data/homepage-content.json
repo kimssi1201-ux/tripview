@@ -1,0 +1,107 @@
+{
+  "todayKeywords": [
+    { "label": "국내여행", "href": "#category-domestic" },
+    { "label": "공연/축제", "href": "#curation" },
+    { "label": "서울 여행", "href": "#routes" },
+    { "label": "부산 여행", "href": "#routes" },
+    { "label": "제주 여행", "href": "#routes" },
+    { "label": "강원 여행", "href": "#routes" },
+    { "label": "축제 일정", "href": "#curation" },
+    { "label": "방문 전 체크", "href": "#booking" }
+  ],
+  "bookingCards": [
+    {
+      "title": "운영시간 먼저 확인",
+      "description": "방문 전 공식 안내, 휴무일, 입장 마감 시간, 우천 시 운영 여부를 먼저 확인합니다.",
+      "href": "#routes"
+    },
+    {
+      "title": "주차와 대중교통 체크",
+      "description": "주차장 위치, 혼잡 시간, 가장 가까운 정류장과 귀가 동선을 함께 확인합니다.",
+      "href": "#routes"
+    },
+    {
+      "title": "축제는 일정과 장소 확인",
+      "description": "축제 글은 기간, 장소, 주요 프로그램, 현장 이동 동선을 중심으로 다시 살펴봅니다.",
+      "href": "#curation"
+    },
+    {
+      "title": "지도와 주변 동선 확인",
+      "description": "본문의 위치 정보와 주변 코스를 같이 보고 이동 시간을 현실적으로 잡습니다.",
+      "href": "#guide"
+    }
+  ],
+  "categoryGroups": [
+    {
+      "title": "가볼만한 곳",
+      "description": "국내 여행지, 계절 코스, 주말 방문지",
+      "links": [
+        { "label": "국내 여행지", "href": "#category-domestic" },
+        { "label": "최신 여행지", "href": "#routes" },
+        { "label": "지역별 보기", "href": "#routes" },
+        { "label": "방문 전 체크", "href": "#booking" }
+      ]
+    },
+    {
+      "title": "공연/축제",
+      "description": "기간, 장소, 프로그램, 현장 체크",
+      "links": [
+        { "label": "축제 일정", "href": "#curation" },
+        { "label": "행사 장소", "href": "#routes" },
+        { "label": "운영 정보", "href": "#booking" },
+        { "label": "전체 글", "href": "#routes" }
+      ]
+    },
+    {
+      "title": "여행 정보",
+      "description": "위치, 주차, 대중교통, 주변 동선",
+      "links": [
+        { "label": "이용 가이드", "href": "#guide" },
+        { "label": "지도 확인", "href": "#routes" },
+        { "label": "주차 확인", "href": "#booking" },
+        { "label": "문의", "href": "/contact.html" }
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "question": "트립뷰 메인에서는 무엇을 먼저 보면 좋나요?",
+      "answer": "목적지가 정해지지 않았다면 가볼만한 곳과 공연/축제 섹션을 먼저 보고, 목적지가 정해졌다면 글 안의 위치, 지도, 주차, 운영 체크를 확인하면 좋습니다."
+    },
+    {
+      "question": "방문 전 체크는 어떤 기준으로 보면 좋나요?",
+      "answer": "운영시간, 휴무일, 주차, 대중교통, 주변 동선을 먼저 확인하면 실제 방문 일정이 흔들릴 가능성을 줄일 수 있습니다."
+    },
+    {
+      "question": "검색엔진이 이해하기 쉬운 구조인가요?",
+      "answer": "여행지, 지역, 축제, 운영정보 같은 검색 의도를 섹션과 내부 링크로 묶어 사람과 검색엔진이 모두 해석하기 쉬운 구조를 목표로 합니다."
+    }
+  ],
+  "footer": {
+    "intro": "국내 여행지와 공연·축제 정보를 위치, 일정, 운영 체크 중심으로 정리하는 여행 정보 매거진입니다.",
+    "reservation": [
+      { "label": "운영시간 확인", "href": "#booking" },
+      { "label": "주차 확인", "href": "#booking" },
+      { "label": "지도 확인", "href": "#routes" },
+      { "label": "축제 일정", "href": "#curation" }
+    ],
+    "hub": [
+      { "label": "가볼만한 곳", "href": "#category-domestic" },
+      { "label": "공연/축제", "href": "#curation" },
+      { "label": "전체 글", "href": "#routes" },
+      { "label": "여행 정보", "href": "#guide" }
+    ],
+    "popular": [
+      { "label": "서울 여행", "href": "#routes" },
+      { "label": "부산 여행", "href": "#routes" },
+      { "label": "제주 여행", "href": "#routes" },
+      { "label": "강원 여행", "href": "#routes" }
+    ],
+    "languages": [
+      { "label": "한국어", "href": "/" },
+      { "label": "English", "href": "#" },
+      { "label": "日本語", "href": "#" },
+      { "label": "简体中文", "href": "#" }
+    ]
+  }
+}
