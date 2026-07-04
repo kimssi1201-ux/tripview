@@ -60,6 +60,14 @@ jobs:
           POST_LIMIT=10 MAX_IMAGES_PER_POST=3 node scripts/daily-tour-posts.mjs
           node scripts/enrich-tour-posts.mjs
 
+      - name: Apply homepage layout
+        run: |
+          node scripts/apply-homepage-content-config.mjs
+          node scripts/add-image-zoom.mjs
+          node scripts/add-adsense.mjs
+          node scripts/add-map-preview.mjs
+          node scripts/build-feed.mjs
+
       - name: Verify posts
         run: |
           node <<'NODE'
@@ -74,7 +82,8 @@ jobs:
           if (tooManyImages.length) throw new Error(`Posts over image limit: ${tooManyImages.map((post) => post.slug).join(', ')}`);
           const duplicateSlugs = newPosts.filter((post, index) => newPosts.findIndex((item) => item.slug === post.slug) !== index);
           if (duplicateSlugs.length) throw new Error(`Duplicate new slugs: ${duplicateSlugs.map((post) => post.slug).join(', ')}`);
-          if (!fs.readFileSync('index.html', 'utf8').includes('전체글 <span>')) throw new Error('Category counts missing from index');
+          const homepage = fs.readFileSync('index.html', 'utf8');
+          if (!homepage.includes('id="region-guide"') || !homepage.includes('directory-section')) throw new Error('Homepage layout missing from index');
           console.log(`Verified ${added} new posts. Max new post images: ${Math.max(...newPosts.map((post) => (post.images || []).length))}`);
           for (const post of newPosts.slice(0, 10)) console.log(`- ${post.slug}: ${(post.images || []).length} image(s)`);
           NODE

@@ -45,6 +45,13 @@ jobs:
       - name: Build homepage
         run: node scripts/build-homepage.mjs
 
+      - name: Apply homepage layout
+        run: |
+          node scripts/apply-homepage-content-config.mjs
+          node scripts/add-image-zoom.mjs
+          node scripts/add-adsense.mjs
+          node scripts/add-map-preview.mjs
+
       - name: Build RSS feed
         run: node scripts/build-feed.mjs
 
