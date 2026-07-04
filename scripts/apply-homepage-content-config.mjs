@@ -28,6 +28,12 @@ const TEXT = {
   ogDescription: "\uAC00\uBCFC \uB9CC\uD55C \uACF3, \uC9C0\uC5ED \uCD95\uC81C, \uBC29\uBB38 \uC804 \uCCB4\uD06C \uC815\uBCF4\uB97C \uCE74\uD14C\uACE0\uB9AC\uBCC4 \uB274\uC2A4 \uC139\uC158\uC73C\uB85C \uC815\uB9AC\uD569\uB2C8\uB2E4.",
   rssTitle: `${BRAND} RSS`,
   navLabel: "\uCE74\uD14C\uACE0\uB9AC",
+  navAll: "\uC804\uCCB4",
+  navTravel: "\uAC00\uBCFC\uB9CC\uD55C \uACF3",
+  navFestival: "\uC9C0\uC5ED\uCD95\uC81C \uC815\uBCF4",
+  feedAll: "\uC804\uCCB4 \uAE00",
+  feedShowing: "\uBCF4\uAE30",
+  feedSelected: "\uC120\uD0DD\uB428",
   footer: "\uAD6D\uB0B4 \uC5EC\uD589\uC9C0\uC640 \uC9C0\uC5ED \uCD95\uC81C \uC815\uBCF4\uB97C \uCE74\uD14C\uACE0\uB9AC\uBCC4\uB85C \uBE60\uB974\uAC8C \uD655\uC778\uD558\uB294 \uC5EC\uD589 \uB274\uC2A4 \uD53C\uB4DC\uC785\uB2C8\uB2E4.",
 };
 
@@ -151,14 +157,17 @@ function buildSections(posts) {
   }));
 
   return [
-    { id: "travel", title: "Travel", posts: fillSection(posts, domestic) },
-    { id: "festival", title: "Festival", posts: fillSection(posts, festivals) },
+    { id: "travel", title: TEXT.navTravel, posts: fillSection(posts, domestic) },
+    { id: "festival", title: TEXT.navFestival, posts: fillSection(posts, festivals) },
     ...regionSections,
   ];
 }
 
 function categoryNav(sections) {
-  return sections.map((section) => `<a href="#${esc(section.id)}">${esc(section.title)}</a>`).join("");
+  return [
+    `<a class="is-active" href="#all" data-filter="all">${esc(TEXT.navAll)}</a>`,
+    ...sections.map((section) => `<a href="#${esc(section.id)}" data-filter="${esc(section.id)}">${esc(section.title)}</a>`),
+  ].join("");
 }
 
 function html(posts) {
@@ -194,7 +203,7 @@ function html(posts) {
       </div>
     </header>
     <main class="page">
-      <div class="top-line"><span data-feed-label>Travel News Feed</span><span>${esc(new Date().toISOString().slice(0, 10))}</span></div>
+      <div class="top-line"><span data-feed-label><b>${esc(TEXT.feedAll)}</b> ${esc(TEXT.feedShowing)}</span><span>${esc(new Date().toISOString().slice(0, 10))}</span></div>
       ${sections.map(newsSection).join("\n")}
     </main>
     <footer class="site-footer">
@@ -208,12 +217,13 @@ function html(posts) {
       links.forEach((link) => {
         link.addEventListener('click', (event) => {
           event.preventDefault();
-          const id = link.getAttribute('href').replace('#', '');
+          const id = link.dataset.filter || link.getAttribute('href').replace('#', '');
           const title = link.textContent.trim();
+          const showAll = id === 'all';
           links.forEach((item) => item.classList.remove('is-active'));
           link.classList.add('is-active');
-          sections.forEach((section) => section.classList.toggle('is-hidden', section.id !== id));
-          if (label) label.innerHTML = '<b>' + title + '</b> 선택됨';
+          sections.forEach((section) => section.classList.toggle('is-hidden', !showAll && section.id !== id));
+          if (label) label.innerHTML = '<b>' + title + '</b> ' + (showAll ? '${esc(TEXT.feedShowing)}' : '${esc(TEXT.feedSelected)}');
           document.querySelector('.page').scrollIntoView({ block: 'start' });
         });
       });

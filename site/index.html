@@ -23,13 +23,13 @@
     <header class="site-header">
       <div class="header-inner">
         <a class="brand" href="/">트립뷰</a>
-        <nav class="nav-scroll" aria-label="카테고리"><a href="#travel">Travel</a><a href="#festival">Festival</a><a href="#seoul">서울</a><a href="#gyeonggi">경기·인천</a><a href="#chungcheong">충청</a><a href="#gangwon">강원</a><a href="#jeolla">전라</a><a href="#gyeongsang">경상</a><a href="#jeju">제주</a></nav>
+        <nav class="nav-scroll" aria-label="카테고리"><a class="is-active" href="#all" data-filter="all">전체</a><a href="#travel" data-filter="travel">가볼만한 곳</a><a href="#festival" data-filter="festival">지역축제 정보</a><a href="#seoul" data-filter="seoul">서울</a><a href="#gyeonggi" data-filter="gyeonggi">경기·인천</a><a href="#chungcheong" data-filter="chungcheong">충청</a><a href="#gangwon" data-filter="gangwon">강원</a><a href="#jeolla" data-filter="jeolla">전라</a><a href="#gyeongsang" data-filter="gyeongsang">경상</a><a href="#jeju" data-filter="jeju">제주</a></nav>
       </div>
     </header>
     <main class="page">
-      <div class="top-line"><span data-feed-label>Travel News Feed</span><span>2026-07-04</span></div>
+      <div class="top-line"><span data-feed-label><b>전체 글</b> 보기</span><span>2026-07-04</span></div>
       <section class="news-section" id="travel" aria-labelledby="travel-title">
-    <h2 id="travel-title">Travel</h2>
+    <h2 id="travel-title">가볼만한 곳</h2>
     <a class="news-lead" href="/travel-2633949/">
     <span class="lead-thumb"><img src="https://tong.visitkorea.or.kr/cms/resource/04/4081604_image2_1.jpg" alt="영동 와인터널" loading="lazy"></span>
     <strong>영동 와인터널</strong>
@@ -66,7 +66,7 @@
   </a></div>
   </section>
 <section class="news-section" id="festival" aria-labelledby="festival-title">
-    <h2 id="festival-title">Festival</h2>
+    <h2 id="festival-title">지역축제 정보</h2>
     <a class="news-lead" href="/festival-3501104/">
     <span class="lead-thumb"><img src="https://tong.visitkorea.or.kr/cms/resource/74/4078274_image2_1.JPG" alt="성남동 커피페스티벌" loading="lazy"></span>
     <strong>성남동 커피페스티벌</strong>
@@ -373,12 +373,13 @@
       links.forEach((link) => {
         link.addEventListener('click', (event) => {
           event.preventDefault();
-          const id = link.getAttribute('href').replace('#', '');
+          const id = link.dataset.filter || link.getAttribute('href').replace('#', '');
           const title = link.textContent.trim();
+          const showAll = id === 'all';
           links.forEach((item) => item.classList.remove('is-active'));
           link.classList.add('is-active');
-          sections.forEach((section) => section.classList.toggle('is-hidden', section.id !== id));
-          if (label) label.innerHTML = '<b>' + title + '</b> 선택됨';
+          sections.forEach((section) => section.classList.toggle('is-hidden', !showAll && section.id !== id));
+          if (label) label.innerHTML = '<b>' + title + '</b> ' + (showAll ? '보기' : '선택됨');
           document.querySelector('.page').scrollIntoView({ block: 'start' });
         });
       });
