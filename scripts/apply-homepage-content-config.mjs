@@ -101,6 +101,10 @@ function fillSection(posts, preferred, count = 10) {
   return uniquePosts([...preferred, ...posts]).slice(0, count);
 }
 
+function takePosts(posts, count = 10) {
+  return uniquePosts(posts).slice(0, count);
+}
+
 function articleImage(post, className) {
   const image = imageOf(post);
   if (!image) return `<span class="${className} no-image"></span>`;
@@ -145,14 +149,29 @@ function searchableText(post) {
   ].filter(Boolean).join(" ");
 }
 
+const SUMMER_TOPICS = [
+  { label: "\uC218\uC601\uC7A5", pattern: /\uC218\uC601\uC7A5|\uD480\uC7A5|\uC6CC\uD130\uD30C\uD06C|\uC544\uCFE0\uC544|\uBB3C\uB180\uC774|\uBB3C\uCD95\uC81C|\uC218\(水\)\uD398\uC2A4\uD0C0|\uC378\uBA38\uBE44\uCE58/ },
+  { label: "\uACC4\uACE1", pattern: /\uACC4\uACE1|\uD3ED\uD3EC|\uC720\uC6D0\uC9C0/ },
+  { label: "\uD574\uC218\uC695\uC7A5", pattern: /\uD574\uC218\uC695\uC7A5|\uD574\uBCC0|\uD574\uC548|\uBC14\uB2F7\uAC00|\uD574\uBCC0\uAC00|\uAD11\uC548\uB9AC|\uD574\uC6B4\uB300|\uB2E4\uB300\uD3EC|\uC1A1\uC815|\uAC15\uB989\uBE44\uCE58|\uC0BC\uCC99 \uBE44\uCE58/ },
+];
+
+function visibleTopicText(post) {
+  return [titleOf(post), post?.sourceTitle].filter(Boolean).join(" ");
+}
+
+function summerTopics(posts) {
+  const text = posts.map(visibleTopicText).join(" ");
+  return SUMMER_TOPICS.filter((topic) => topic.pattern.test(text)).map((topic) => topic.label);
+}
+
+function isSummerPost(post) {
+  const text = visibleTopicText(post);
+  return SUMMER_TOPICS.some((topic) => topic.pattern.test(text));
+}
+
 function summerHeadline(title, posts, fallback = false) {
   if (["travel", "festival"].includes(String(title).toLowerCase())) return title;
-  const text = posts.map(searchableText).join(" ");
-  const topics = [
-    { label: "\uC218\uC601\uC7A5", pattern: /\uC218\uC601\uC7A5|\uD480\uC7A5|\uC6CC\uD130\uD30C\uD06C|\uC544\uCFE0\uC544|\uBB3C\uB180\uC774|\uC378\uBA38\uBE44\uCE58/ },
-    { label: "\uACC4\uACE1", pattern: /\uACC4\uACE1|\uD3ED\uD3EC|\uC720\uC6D0\uC9C0/ },
-    { label: "\uD574\uC218\uC695\uC7A5", pattern: /\uD574\uC218\uC695\uC7A5|\uD574\uBCC0|\uD574\uC548|\uBC14\uB2E4/ },
-  ].filter((topic) => topic.pattern.test(text)).map((topic) => topic.label);
+  const topics = summerTopics(posts);
   const suffix = topics.length ? `${topics.join("\u00B7")} \uAC00\uBCFC\uB9CC\uD55C \uACF3` : "\uAC00\uBCFC\uB9CC\uD55C \uACF3";
   return fallback ? `\uC9C0\uC5ED\uBCC4 7\uC6D4 ${suffix}` : `${title} 7\uC6D4 ${suffix}`;
 }
@@ -175,18 +194,22 @@ function newsSection({ id, title, posts, headline }) {
 function buildSections(posts) {
   const domestic = posts.filter((post) => categoryOf(post) === CAT_DOMESTIC);
   const festivals = posts.filter((post) => categoryOf(post) === CAT_FESTIVAL);
+  const summerPosts = posts.filter(isSummerPost);
   const byRegion = (region) => posts.filter((post) => compactRegion(regionOf(post)) === region);
-  const regionSections = REGIONS.map((region) => ({
-    id: region.id,
-    title: region.title,
-    posts: fillSection(posts, byRegion(region.title)),
-  })).map((section) => ({
-    ...section,
-    headline: summerHeadline(section.title, section.posts),
-  }));
+  const regionSections = REGIONS.map((region) => {
+    const regionPosts = takePosts(byRegion(region.title));
+    const matchingPosts = takePosts(regionPosts.filter(isSummerPost));
+    const sectionPosts = matchingPosts.length ? matchingPosts : regionPosts;
+    return {
+      id: region.id,
+      title: region.title,
+      posts: sectionPosts,
+      headline: summerHeadline(region.title, sectionPosts),
+    };
+  });
 
   return [
-    { id: "travel", title: TEXT.navTravel, posts: fillSection(posts, domestic), headline: summerHeadline(TEXT.navTravel, domestic, true) },
+    { id: "travel", title: TEXT.navTravel, posts: takePosts(summerPosts.length ? summerPosts : domestic), headline: summerHeadline(TEXT.navTravel, summerPosts.length ? summerPosts : domestic, true) },
     { id: "festival", title: TEXT.navFestival, posts: fillSection(posts, festivals), headline: TEXT.navFestival },
     ...regionSections,
   ];
@@ -204,7 +227,8 @@ function html(posts) {
   const sections = buildSections(posts).filter((section) => section.posts.length);
   const hero = posts[0];
   const ogImage = imageOf(hero);
-  const defaultHeadline = summerHeadline("", posts, true);
+  const regionalSummer = posts.filter(isSummerPost);
+  const defaultHeadline = summerHeadline("", regionalSummer.length ? regionalSummer : posts, true);
 
   return `<!doctype html>
 <html lang="ko">
