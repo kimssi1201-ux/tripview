@@ -223,16 +223,27 @@
     return Boolean(inferFilter(link).type);
   }
 
+  function isArticleLink(link) {
+    if (!link?.href || link.target || link.matches('[data-lang]')) return false;
+    const url = new URL(link.href, window.location.href);
+    if (url.origin !== window.location.origin) return false;
+    return /^\/(?:travel-\d+|festival-\d+|[a-z0-9-]+-2026|sejong-culture-center-jochiwon)\/?$/i.test(url.pathname);
+  }
+
+  function openArticle(link, event) {
+    if (!isArticleLink(link) || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return false;
+    event.preventDefault();
+    event.stopPropagation();
+    window.location.assign(link.href);
+    return true;
+  }
+
   document.addEventListener('click', (event) => {
     const postCard = event.target.closest('a[data-post-card]');
-    if (postCard && postCard.href && !postCard.target && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey) {
-      event.preventDefault();
-      event.stopPropagation();
-      window.location.assign(postCard.href);
-      return;
-    }
+    if (openArticle(postCard, event)) return;
 
     const link = event.target.closest('a');
+    if (openArticle(link, event)) return;
     if (!link || link.matches('[data-lang]')) return;
     if (!isTopicLink(link)) return;
 
