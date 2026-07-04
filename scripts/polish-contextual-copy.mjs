@@ -6,7 +6,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, "..");
 const VERSION = 2;
-const TENPING_AD = `<div class="tenping-ad"><tenping class="adsbytenping" style="width: 100%; margin: 0px auto; display: block; max-width: 768px;" tenping-ad-client="%2fnyDIt3jSiYh7KXeo4%2bsm7S2Hydb6U%2fzbuFekGjT%2frlZrkiEUQ%2btrnyYLz7zJ6Li" tenping-ad-display-type="1LawCE8FqKOhetXZhMopsQ%3d%3d"></tenping></div><script async src="https://ads.tenping.kr/scripts/adsbytenping.min.js"></script>`;
+const TENPING_SLOT = `<div class="tenping-ad"><tenping class="adsbytenping" style="width: 100%; margin: 0px auto; display: block; max-width: 768px;" tenping-ad-client="%2fnyDIt3jSiYh7KXeo4%2bsm7S2Hydb6U%2fzbuFekGjT%2frlZrkiEUQ%2btrnyYLz7zJ6Li" tenping-ad-display-type="1LawCE8FqKOhetXZhMopsQ%3d%3d"></tenping></div>`;
+const TENPING_SCRIPT = `<script async src="https://ads.tenping.kr/scripts/adsbytenping.min.js"></script>`;
 
 const esc = (value = "") =>
   String(value).replace(/[&<>"']/g, (m) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m]));
@@ -304,7 +305,9 @@ function renderArticle(post, counts) {
         `<figure class="${index === 0 ? "cover-figure" : "inline-figure"}"><img class="${index === 0 ? "cover" : ""}" src="${esc(src)}" alt="${esc(`${sourceTitle(post)} 이미지 ${index + 1}`)}"${index === 0 ? "" : ' loading="lazy"'} /><figcaption>출처: 한국관광공사</figcaption></figure>`
     )
     .join("\n");
-  const sections = (post.sections || []).map(([heading, paragraphs]) => `<h2>${esc(heading)}</h2>${paragraphs.map((p) => `<p>${esc(p)}</p>`).join("")}`).join("");
+  const sectionBlocks = (post.sections || []).map(([heading, paragraphs]) => `<h2>${esc(heading)}</h2>${paragraphs.map((p) => `<p>${esc(p)}</p>`).join("")}`);
+  const middleAdIndex = Math.min(3, Math.max(1, Math.ceil(sectionBlocks.length / 2)));
+  const sections = [...sectionBlocks.slice(0, middleAdIndex), TENPING_SLOT, ...sectionBlocks.slice(middleAdIndex)].join("");
   const faqs = (post.faq || []).map(([q, a]) => `<details open><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join("");
   const memo = (post.memo || []).map((m) => `<span>${esc(m)}</span>`).join("");
   const categoryNav = categoryCountLinks(counts);
@@ -330,7 +333,7 @@ function renderArticle(post, counts) {
     <main>
       <section class="wrap hero"><h1>${esc(post.title)}</h1><div class="meta"><span>트립뷰 편집팀</span><span>${esc(post.date)}</span><span>${esc(post.read)}</span><span>${esc(post.region)}</span></div></section>
       ${gallery}
-      <section class="wrap layout"><article class="content"><table class="info-table"><tbody>${rows}</tbody></table>${sections}<h2>자주 묻는 질문</h2>${faqs}<p class="note">일정과 세부 운영은 현장 사정에 따라 달라질 수 있습니다. 출발 전 당일 공지를 한 번 더 확인하면 불필요한 이동을 줄일 수 있습니다.</p>${TENPING_AD}</article><aside class="aside"><strong>운영 메모</strong>${memo}<a href="../">목록으로 돌아가기</a></aside></section>
+      <section class="wrap layout"><article class="content"><table class="info-table"><tbody>${rows}</tbody></table>${TENPING_SLOT}${sections}<h2>자주 묻는 질문</h2>${faqs}<p class="note">일정과 세부 운영은 현장 사정에 따라 달라질 수 있습니다. 출발 전 당일 공지를 한 번 더 확인하면 불필요한 이동을 줄일 수 있습니다.</p>${TENPING_SLOT}${TENPING_SCRIPT}</article><aside class="aside"><strong>운영 메모</strong>${memo}<a href="../">목록으로 돌아가기</a></aside></section>
     </main>
     <footer><div class="wrap"><strong>트립뷰</strong><p>오늘 바로 움직일 수 있는 여행 큐레이션.</p></div></footer>
     <script>const header=document.querySelector('.top');const syncHeader=()=>header.classList.toggle('is-scrolled',window.scrollY>24);syncHeader();window.addEventListener('scroll',syncHeader,{passive:true});</script>
