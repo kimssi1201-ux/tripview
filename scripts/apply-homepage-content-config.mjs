@@ -7,16 +7,6 @@ const INDEX = path.join(ROOT, 'index.html');
 const CONFIG = path.join(ROOT, 'data', 'homepage-content.json');
 const POSTS = path.join(ROOT, 'data', 'generated-posts.json');
 const REGION_ORDER = ['서울', '경기·인천', '충청', '강원', '전라', '경상', '제주', '기타'];
-const REGION_IDS = {
-  '서울': 'region-seoul',
-  '경기·인천': 'region-gyeonggi-incheon',
-  '충청': 'region-chungcheong',
-  '강원': 'region-gangwon',
-  '전라': 'region-jeolla',
-  '경상': 'region-gyeongsang',
-  '제주': 'region-jeju',
-  '기타': 'region-etc',
-};
 
 function esc(value = '') {
   return String(value).replace(/[&<>"']/g, (match) => ({
@@ -38,10 +28,6 @@ function sectionLead(kicker, title, href = '') {
 
 function postHref(post) {
   return post?.slug ? `/${post.slug}/` : '#routes';
-}
-
-function regionHref(label) {
-  return `#${REGION_IDS[label] || 'region-etc'}`;
 }
 
 function compactRegion(value = '') {
@@ -146,7 +132,7 @@ function directorySection(id, kicker, title, items, moreHref = '') {
 function deriveTodayKeywords(posts, config) {
   const regionLinks = regionGroups(posts)
     .slice(0, 5)
-    .map(([label]) => ({ label: `${label} 여행`, href: regionHref(label) }));
+    .map(([label]) => ({ label: `${label} 여행`, href: '#routes' }));
   const festivalLinks = posts
     .filter((post) => post.category === '공연/축제')
     .slice(0, 3)
@@ -177,14 +163,6 @@ function placesSection(posts) {
   return directorySection('category-domestic', 'PLACES', '가볼만한 곳', domesticPosts.map(postDirectoryItem), '#routes');
 }
 
-function regionThirtySection(posts) {
-  const groups = regionGroups(posts).map(([label, groupPosts]) => {
-    const rows = groupPosts.slice(0, 30).map((post) => `<a class="region-row" href="${esc(postHref(post))}">${thumbMarkup(post, 'region-thumb')}<span class="region-copy"><strong>${esc(post.sourceTitle || post.title)}</strong><span>${esc(post.category || '여행 정보')} · ${esc(prettyDate(post))} · ${esc(compactRegion(post.region))}</span></span></a>`).join('');
-    return `<article class="region-block" id="${esc(REGION_IDS[label] || 'region-etc')}"><div class="region-block-head"><h3>${esc(label)}</h3><span>${Math.min(groupPosts.length, 30)} / ${groupPosts.length}건</span></div><div class="region-rows">${rows}</div></article>`;
-  }).join('');
-  return `<section class="wrap section" id="region-lists">${sectionLead('REGION LIST', '지역별 최신 글 30건씩', '#region-guide')}<div class="region-blocks">${groups}</div></section>`;
-}
-
 function allPostsSection(posts) {
   return directorySection('routes', 'ALL POSTS', `전체 글 ${posts.length}`, posts.slice(0, 12).map(postDirectoryItem));
 }
@@ -201,12 +179,12 @@ function bookingSection(config) {
 function dynamicCategoryGroups(config, counts, posts) {
   const regionLinks = regionGroups(posts)
     .slice(0, 4)
-    .map(([label]) => ({ label: `${label} 여행`, href: regionHref(label) }));
+    .map(([label]) => ({ label: `${label} 여행`, href: '#routes' }));
   const festival = posts.find((post) => post.category === '공연/축제');
   return [
     {
       title: '지역별',
-      description: '서울, 경기·인천, 충청, 강원, 전라, 경상, 제주 권역별로 최대 30건씩 봅니다.',
+      description: '서울, 경기·인천, 충청, 강원, 전라, 경상, 제주 권역별 주요 글을 빠르게 확인합니다.',
       links: [{ label: '지역 카테고리', href: '#region-guide' }, ...regionLinks.slice(0, 3)],
     },
     {
@@ -235,7 +213,7 @@ function faqSection(config) {
 function popularLinks(config, posts) {
   const fromPosts = regionGroups(posts)
     .slice(0, 4)
-    .map(([label]) => ({ label: `${label} 여행`, href: regionHref(label) }));
+    .map(([label]) => ({ label: `${label} 여행`, href: '#routes' }));
   return fromPosts.length ? fromPosts : (config.footer?.popular || []);
 }
 
@@ -246,16 +224,15 @@ function footer(config, counts, posts) {
 
 function injectCss(html) {
   let next = html;
+  next = next.replace(/\.region-blocks\{display:grid;gap:30px\}.*?\.region-block\{scroll-margin-top:130px\}\}/g, '');
+  next = next.replace(/\.region-row\{grid-template-columns:82px minmax\(0,1fr\).*?\.directory-thumb\{aspect-ratio:1\.45\/1\}\}/g, '');
+
   if (!next.includes('.faq-list{')) {
     const css = `.check-card{display:block;color:inherit}.faq-list{display:grid;gap:12px}.faq-item{border-top:1px solid var(--line);padding:16px 0}.faq-item:last-child{border-bottom:1px solid var(--line)}.faq-item summary{cursor:pointer;font-weight:900;font-size:18px}.faq-item p{margin:10px 0 0;color:#444}.foot{grid-template-columns:1.3fr repeat(5,.75fr)}@media(max-width:1100px){.foot{grid-template-columns:repeat(3,1fr)}}@media(max-width:720px){.foot{grid-template-columns:1fr}}`;
     next = next.replace('</style>', `${css}</style>`);
   }
   if (!next.includes('.region-tabs{')) {
     const css = `.region-top{padding:106px 0 18px;border-bottom:1px solid var(--line)}.region-top-head{display:flex;align-items:baseline;gap:12px;margin-bottom:14px}.region-top-head h2{margin:0;font-size:22px;line-height:1.2}.region-tabs{display:flex;gap:10px;overflow:auto;padding-bottom:4px}.region-tab{flex:0 0 auto;min-width:118px;border-top:1px solid #111;padding:10px 0 6px;display:grid;gap:2px}.region-tab strong{font-size:18px;line-height:1.2}.region-tab span{font-size:12px;color:var(--muted);font-weight:900}.region-top + .today{padding-top:18px}@media(max-width:920px){.region-top{padding-top:128px}.region-tab{min-width:100px}}`;
-    next = next.replace('</style>', `${css}</style>`);
-  }
-  if (!next.includes('.region-blocks{')) {
-    const css = `.region-blocks{display:grid;gap:30px}.region-block{display:grid;gap:14px;scroll-margin-top:106px}.region-block-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;border-top:1px solid #111;padding-top:14px}.region-block-head h3{margin:0;font-size:26px;line-height:1.2}.region-block-head span{font-size:13px;color:var(--muted);font-weight:900}.region-rows{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px 22px}.region-row{display:grid;gap:2px;border-bottom:1px solid var(--line);padding:0 0 10px}.region-row strong{font-size:15px;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.region-row span{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}@media(max-width:920px){.region-rows{grid-template-columns:1fr}.region-block{scroll-margin-top:130px}}`;
     next = next.replace('</style>', `${css}</style>`);
   }
   if (!next.includes('.mini-thumb{')) {
@@ -266,8 +243,8 @@ function injectCss(html) {
     const css = `.directory-section{padding-top:42px}.directory-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px 18px;overflow:visible}.directory-tab{min-width:0;padding-top:12px}.directory-tab strong{font-size:18px;white-space:normal}.directory-tab span{line-height:1.45;white-space:normal}@media(max-width:920px){.directory-tabs{display:flex;overflow:auto}.directory-tab{flex:0 0 72%;min-width:210px}}`;
     next = next.replace('</style>', `${css}</style>`);
   }
-  if (!next.includes('.region-thumb{')) {
-    const css = `.region-row{grid-template-columns:82px minmax(0,1fr);gap:12px;align-items:start}.region-thumb,.directory-thumb{display:block;overflow:hidden;background:var(--soft)}.region-thumb{aspect-ratio:1.2/1}.directory-thumb{aspect-ratio:1.35/1;margin-bottom:9px}.region-thumb img,.directory-thumb img{display:block;width:100%;height:100%;object-fit:cover}.region-copy,.directory-copy{display:grid;gap:3px;min-width:0}.directory-tab{display:grid}.directory-tab:has(.directory-thumb){gap:0}@media(max-width:920px){.region-row{grid-template-columns:92px minmax(0,1fr)}.directory-thumb{aspect-ratio:1.45/1}}`;
+  if (!next.includes('.directory-thumb{display:block')) {
+    const css = `.directory-thumb{display:block;overflow:hidden;background:var(--soft);aspect-ratio:1.35/1;margin-bottom:9px}.directory-thumb img{display:block;width:100%;height:100%;object-fit:cover}.directory-copy{display:grid;gap:3px;min-width:0}.directory-tab{display:grid}.directory-tab:has(.directory-thumb){gap:0}@media(max-width:920px){.directory-thumb{aspect-ratio:1.45/1}}`;
     next = next.replace('</style>', `${css}</style>`);
   }
   if (!next.includes('/* nav-readable */')) {
@@ -275,6 +252,38 @@ function injectCss(html) {
     next = next.replace('</style>', `${css}</style>`);
   }
   return next;
+}
+
+async function readJsonFile(filePath, label) {
+  let raw;
+  try {
+    raw = await fs.readFile(filePath, 'utf8');
+  } catch (error) {
+    throw new Error(`${label} file could not be read: ${error.message}`);
+  }
+
+  try {
+    return JSON.parse(raw);
+  } catch (error) {
+    throw new Error(`${label} file contains invalid JSON: ${error.message}`);
+  }
+}
+
+function assertHomepageData(config, posts) {
+  if (!config || typeof config !== 'object' || Array.isArray(config)) {
+    throw new Error('homepage-content.json must contain an object.');
+  }
+  if (!Array.isArray(posts)) {
+    throw new Error('generated-posts.json must contain an array.');
+  }
+}
+
+function replaceBody(html, body) {
+  const bodyPattern = /<body[\s\S]*?<\/body>/;
+  if (!bodyPattern.test(html)) {
+    throw new Error('index.html must contain a <body>...</body> block.');
+  }
+  return html.replace(bodyPattern, body);
 }
 
 function homepageBody(config, counts, posts) {
@@ -294,15 +303,16 @@ function homepageBody(config, counts, posts) {
   </body>`;
 }
 
-const config = JSON.parse(await fs.readFile(CONFIG, 'utf8'));
-const posts = JSON.parse(await fs.readFile(POSTS, 'utf8'));
+const config = await readJsonFile(CONFIG, 'homepage-content.json');
+const posts = await readJsonFile(POSTS, 'generated-posts.json');
+assertHomepageData(config, posts);
 const counts = {
   domestic: posts.filter((post) => post.category === '국내여행').length,
   festival: posts.filter((post) => post.category === '공연/축제').length,
 };
 
 let html = await fs.readFile(INDEX, 'utf8');
-html = html.replace(/<body[\s\S]*?<\/body>/, homepageBody(config, counts, posts));
+html = replaceBody(html, homepageBody(config, counts, posts));
 html = injectCss(html);
 await fs.writeFile(INDEX, html, 'utf8');
 console.log('Homepage content configuration applied from existing post data.');
