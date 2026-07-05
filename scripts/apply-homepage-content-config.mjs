@@ -64,7 +64,7 @@ const CURRENT_TRAVEL_KEYWORDS = [
 ];
 const hrefOf = (post) => (post?.slug ? `/${post.slug}/` : "#");
 const imageOf = (post) => post?.image || post?.images?.[0] || "";
-const titleOf = (post) => normalize(post?.sourceTitle || post?.title || TEXT.articleFallback);
+const titleOf = (post) => normalize(post?.title || post?.sourceTitle || TEXT.articleFallback);
 const categoryOf = (post) => normalize(post?.category || TEXT.infoFallback);
 const regionOf = (post) => normalize(post?.region || "");
 const isFestival = (post) => categoryOf(post) === CAT_FESTIVAL;
