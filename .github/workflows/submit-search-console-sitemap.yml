@@ -1,0 +1,33 @@
+name: Submit Search Console Sitemap
+
+on:
+  workflow_run:
+    workflows: ["Deploy Tripview Pages"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  submit:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Wait for public deployment
+        run: sleep 90
+
+      - name: Submit sitemap to Google Search Console
+        run: node scripts/submit-search-console-sitemap.mjs
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          SEARCH_CONSOLE_SITE_URL: ${{ vars.SEARCH_CONSOLE_SITE_URL || 'sc-domain:tripview.kr' }}
+          SEARCH_CONSOLE_SITEMAP_URL: ${{ vars.SEARCH_CONSOLE_SITEMAP_URL || 'https://tripview.kr/sitemap.xml' }}
