@@ -330,6 +330,8 @@ function buildSections(posts) {
     ...byType("39"),
     ...posts.filter((post) => hasAnyKeyword(post, bookingKeywords)),
   ]);
+  const weekendPool = [...byType("12"), ...byType("25"), ...byType("28"), ...domestic]
+    .filter((post) => !hasAnyKeyword(post, waterKeywords));
   const generalTravel = domestic.filter((post) => (
     !hasAnyKeyword(post, waterKeywords) &&
     !hasAnyKeyword(post, indoorKeywords) &&
@@ -337,7 +339,7 @@ function buildSections(posts) {
   ));
   const sectionDefs = [
     { id: "popular", title: TEXT.navPopular, posts: sortCurrentPlaces(generalTravel.length ? generalTravel : domestic) },
-    { id: "weekend", title: TEXT.navWeekend, posts: sortLatest([...byType("12"), ...byType("25"), ...byType("28"), ...domestic]) },
+    { id: "weekend", title: TEXT.navWeekend, posts: sortLatest(weekendPool.length ? weekendPool : domestic) },
     { id: "festival", title: "7~8\uC6D4 \uCD95\uC81C/\uD589\uC0AC", posts: festivals },
     { id: "water", title: TEXT.navWater, posts: sortCurrentPlaces(waterPool) },
     { id: "indoor", title: TEXT.navIndoor, posts: indoorPool.length ? indoorPool : sortLatest(domestic), fallbackPosts: sortLatest(domestic) },

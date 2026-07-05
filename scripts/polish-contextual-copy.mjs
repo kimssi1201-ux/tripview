@@ -329,6 +329,10 @@ function buildFaq(post) {
 }
 
 function polishPost(post) {
+  if (post.manualWaterPostVersion) {
+    return { ...post, copyPolishedVersion: VERSION };
+  }
+
   const base = sourceTitle(post);
   const isFestival = post.category === "공연/축제";
   const sections = withApiSections(post, isFestival ? buildFestivalSections(post) : buildTravelSections(post), isFestival);
