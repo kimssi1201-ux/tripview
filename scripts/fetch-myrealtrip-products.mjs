@@ -5,11 +5,16 @@ import { fileURLToPath } from "node:url";
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const OUT_PATH = path.join(ROOT, "data", "myrealtrip-products.json");
 
-const API_KEY = process.env.MYREALTRIP_API_KEY || "";
+const API_KEY = process.env.MYREALTRIP_API_KEY
+  || process.env.PARTNER_API_KEY
+  || process.env.MYREALTRIP_PARTNER_API_KEY
+  || "";
 const API_URL = process.env.MYREALTRIP_API_BASE_URL
   || process.env.MYREALTRIP_PRODUCTS_URL
   || process.env.MYREALTRIP_API_URL
   || process.env.MYREALTRIP_ENDPOINT_URL
+  || process.env.PARTNER_API_URL
+  || process.env.PARTNER_PRODUCTS_URL
   || "";
 const AUTH_MODE = (process.env.MYREALTRIP_AUTH_MODE || "bearer").toLowerCase();
 const API_KEY_PARAM = process.env.MYREALTRIP_API_KEY_PARAM || "apiKey";
@@ -129,12 +134,17 @@ function buildRequest() {
 }
 
 if (!API_KEY.trim()) {
-  console.log("MyRealTrip fetch skipped: MYREALTRIP_API_KEY is not configured.");
+  console.log("MyRealTrip fetch skipped: API key is not configured. Set MYREALTRIP_API_KEY or PARTNER_API_KEY.");
   process.exit(0);
 }
 
 if (!API_URL.trim()) {
-  console.log("MyRealTrip fetch skipped: product API URL is not configured. Set MYREALTRIP_PRODUCTS_URL, MYREALTRIP_API_BASE_URL, MYREALTRIP_API_URL, or MYREALTRIP_ENDPOINT_URL.");
+  console.log("MyRealTrip fetch skipped: product API URL is not configured. Set MYREALTRIP_PRODUCTS_URL, MYREALTRIP_API_BASE_URL, MYREALTRIP_API_URL, MYREALTRIP_ENDPOINT_URL, or PARTNER_API_URL.");
+  process.exit(0);
+}
+
+if (API_URL.includes("/revenues")) {
+  console.log("MyRealTrip fetch skipped: /revenues is a private settlement API, not a public product feed. Use a product/tour/ticket/deeplink endpoint for homepage cards.");
   process.exit(0);
 }
 

@@ -62,11 +62,14 @@ jobs:
       - name: Fetch MyRealTrip products
         run: node scripts/fetch-myrealtrip-products.mjs
         env:
-          MYREALTRIP_API_KEY: ${{ secrets.MYREALTRIP_API_KEY }}
+          MYREALTRIP_API_KEY: ${{ secrets.MYREALTRIP_API_KEY || secrets.PARTNER_API_KEY || secrets.MYREALTRIP_PARTNER_API_KEY }}
+          PARTNER_API_KEY: ${{ secrets.PARTNER_API_KEY }}
           MYREALTRIP_API_BASE_URL: ${{ vars.MYREALTRIP_API_BASE_URL || secrets.MYREALTRIP_API_BASE_URL }}
           MYREALTRIP_PRODUCTS_URL: ${{ vars.MYREALTRIP_PRODUCTS_URL || secrets.MYREALTRIP_PRODUCTS_URL }}
           MYREALTRIP_API_URL: ${{ vars.MYREALTRIP_API_URL || secrets.MYREALTRIP_API_URL }}
           MYREALTRIP_ENDPOINT_URL: ${{ vars.MYREALTRIP_ENDPOINT_URL || secrets.MYREALTRIP_ENDPOINT_URL }}
+          PARTNER_API_URL: ${{ vars.PARTNER_API_URL || secrets.PARTNER_API_URL }}
+          PARTNER_PRODUCTS_URL: ${{ vars.PARTNER_PRODUCTS_URL || secrets.PARTNER_PRODUCTS_URL }}
           MYREALTRIP_AUTH_MODE: ${{ vars.MYREALTRIP_AUTH_MODE || secrets.MYREALTRIP_AUTH_MODE || 'bearer' }}
           MYREALTRIP_API_KEY_PARAM: ${{ vars.MYREALTRIP_API_KEY_PARAM || secrets.MYREALTRIP_API_KEY_PARAM || 'apiKey' }}
           MYREALTRIP_API_KEY_HEADER: ${{ vars.MYREALTRIP_API_KEY_HEADER || secrets.MYREALTRIP_API_KEY_HEADER }}
