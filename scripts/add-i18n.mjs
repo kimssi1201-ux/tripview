@@ -32,11 +32,8 @@ function ensureHeadCss(html) {
 }
 
 function ensureHeaderSwitch(html) {
-  if (html.includes('class="language-switch"')) return html;
-  if (html.includes('</nav></div></header>')) {
-    return html.replace('</nav></div></header>', `</nav>${LANGUAGE_SWITCH}</div></header>`);
-  }
-  return html;
+  if (html.includes('class="language-switch')) return html;
+  return html.replace(/(<\/nav>)(\s*<\/div>\s*<\/header>)/, `$1${LANGUAGE_SWITCH}$2`);
 }
 
 function ensureFooterLanguage(html) {

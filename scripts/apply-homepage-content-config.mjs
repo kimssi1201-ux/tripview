@@ -14,6 +14,7 @@ const BRAND = "\uD2B8\uB9BD\uBDF0";
 const CAT_DOMESTIC = "\uAD6D\uB0B4\uC5EC\uD589";
 const CAT_FESTIVAL = "\uACF5\uC5F0/\uCD95\uC81C";
 const REGION_OTHER = "\uAE30\uD0C0";
+const LANGUAGE_SWITCH = '<div class="language-switch notranslate" translate="no" aria-label="Language selector"><a href="?lang=ko" data-lang="ko" lang="ko">KO</a><a href="?lang=en" data-lang="en" lang="en">EN</a><a href="?lang=ja" data-lang="ja" lang="ja">JA</a><a href="?lang=zh" data-lang="zh" lang="zh-CN">ZH</a></div>';
 
 const TEXT = {
   articleFallback: "\uC5EC\uD589 \uAE30\uC0AC",
@@ -594,6 +595,7 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
       <div class="header-inner">
         <a class="brand" href="/">${esc(BRAND)}</a>
         <nav class="nav-scroll" aria-label="${esc(TEXT.navLabel)}">${categoryNav(sections)}</nav>
+        ${LANGUAGE_SWITCH}
       </div>
     </header>
     <main class="page">
