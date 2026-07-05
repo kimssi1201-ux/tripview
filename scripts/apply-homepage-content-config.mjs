@@ -288,6 +288,44 @@ function bookingGroup(title, products) {
   </div>`;
 }
 
+function uniqueProducts(products, count = 2) {
+  const seen = new Set();
+  const picked = [];
+  for (const product of products) {
+    if (!product?.title || !product?.url) continue;
+    const key = `${product.source || ""}:${product.url}:${product.title}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    picked.push(product);
+    if (picked.length >= count) break;
+  }
+  return picked;
+}
+
+function inlineProductsForSection(id, feeds) {
+  const { accommodations = [], tnaProducts = [], flights = [], products = [] } = feeds;
+  const fallback = rankedProducts([...accommodations, ...tnaProducts, ...flights, ...products], [], 2);
+  const bySection = {
+    popular: [accommodations[0], flights[0], tnaProducts[0]],
+    weekend: [accommodations[1], tnaProducts[0], flights[1]],
+    festival: [tnaProducts[1], accommodations[2], flights[2]],
+    water: [accommodations[3], flights[1], tnaProducts[2]],
+    indoor: [tnaProducts[2], accommodations[4], flights[3]],
+    family: [tnaProducts[3], accommodations[5], flights[4]],
+  };
+  return uniqueProducts(bySection[id] || fallback, 2);
+}
+
+function interleaveListItems(posts, products = []) {
+  const rows = [];
+  posts.forEach((post, index) => {
+    rows.push(listItem(post));
+    if (index === 1 && products[0]) rows.push(productCard(products[0]));
+    if (index === 3 && products[1]) rows.push(productCard(products[1]));
+  });
+  return rows.join("");
+}
+
 function leadArticle(post) {
   if (!post) return "";
   return `<a class="news-lead" href="${esc(hrefOf(post))}">
@@ -358,7 +396,7 @@ function takeFresh(posts, used, count = 10) {
   return items;
 }
 
-function newsSection({ id, title, posts }) {
+function newsSection({ id, title, posts, inlineProducts = [] }) {
   const items = uniquePosts(posts).slice(0, 10);
   if (!items.length) return "";
   const lead = items[0];
@@ -368,7 +406,7 @@ function newsSection({ id, title, posts }) {
     <h2 id="${esc(id)}-title">${esc(title)}</h2>
     ${leadArticle(lead)}
     <div class="pick-grid">${picks.map(pickCard).join("")}</div>
-    <div class="news-list">${list.map(listItem).join("")}</div>
+    <div class="news-list">${interleaveListItems(list, inlineProducts)}</div>
   </section>`;
 }
 
@@ -519,8 +557,14 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
   const hero = posts[0];
   const ogImage = imageOf(hero);
   const defaultHeadline = "\uC8FC\uC81C\uBCC4 \uCD5C\uC2E0 \uC5EC\uD589 \uC815\uBCF4";
+  const productFeeds = { accommodations, tnaProducts, flights, products };
+  const allProducts = [...accommodations, ...tnaProducts, ...flights, ...products];
   const sectionHtml = sections
-    .map((section) => section.kind === "booking" ? bookingSection({ ...section, products: [...accommodations, ...tnaProducts, ...flights, ...products] }) : newsSection(section))
+    .map((section) => (
+      section.kind === "booking"
+        ? bookingSection({ ...section, products: allProducts })
+        : newsSection({ ...section, inlineProducts: inlineProductsForSection(section.id, productFeeds) })
+    ))
     .reduce((parts, markup, index) => {
       parts.push(markup);
       if (index === 3) parts.push(TENPING_HOME_AD);
