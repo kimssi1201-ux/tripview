@@ -13,8 +13,8 @@ const SEARCH_URL = process.env.MYREALTRIP_TNA_SEARCH_URL
   || "https://partner-ext-api.myrealtrip.com/v1/products/tna/search";
 const KEYWORD = process.env.MYREALTRIP_TNA_KEYWORD || "오사카 투어";
 const CATEGORY = process.env.MYREALTRIP_TNA_CATEGORY || "";
-const MIN_PRICE = process.env.MYREALTRIP_TNA_MIN_PRICE || "";
-const MAX_PRICE = process.env.MYREALTRIP_TNA_MAX_PRICE || "";
+const MIN_PRICE = process.env.MYREALTRIP_TNA_MIN_PRICE || "10000";
+const MAX_PRICE = process.env.MYREALTRIP_TNA_MAX_PRICE || "200000";
 const SORT = process.env.MYREALTRIP_TNA_SORT || "price_asc";
 const SIZE = Math.max(1, Math.min(100, Number.parseInt(process.env.MYREALTRIP_TNA_SIZE || "20", 10) || 20));
 const LIMIT = Math.max(1, Math.min(20, Number.parseInt(process.env.MYREALTRIP_TNA_LIMIT || "8", 10) || 8));

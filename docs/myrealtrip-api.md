@@ -115,6 +115,8 @@ Default request settings:
 
 ```text
 keyword=오사카 투어
+minPrice=10000
+maxPrice=200000
 sort=price_asc
 page=1
 size=20
