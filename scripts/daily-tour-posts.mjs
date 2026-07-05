@@ -452,10 +452,22 @@ async function fetchCandidates(today) {
   }
 
   if (candidates.length < targetPool) {
+    const contentPools = [
+      { contentTypeId: '12', category: '국내여행' },
+      { contentTypeId: '14', category: '국내여행' },
+      { contentTypeId: '25', category: '국내여행' },
+      { contentTypeId: '28', category: '국내여행' },
+      { contentTypeId: '32', category: '숙소/예약' },
+      { contentTypeId: '38', category: '생활정보' },
+      { contentTypeId: '39', category: '생활정보' }
+    ];
     for (const arrange of ['Q', 'R', 'D', 'P']) {
-      for (const pageNo of ['1', '2', '3', '4', '5']) {
-        const places = await tourGet('areaBasedList2', { contentTypeId: '12', arrange, numOfRows: '100', pageNo });
-        for (const item of places) push(item, '국내여행', '12');
+      for (const pool of contentPools) {
+        for (const pageNo of ['1', '2', '3', '4', '5']) {
+          const items = await tourGet('areaBasedList2', { contentTypeId: pool.contentTypeId, arrange, numOfRows: '100', pageNo });
+          for (const item of items) push(item, pool.category, pool.contentTypeId);
+          if (candidates.length >= targetPool) break;
+        }
         if (candidates.length >= targetPool) break;
       }
       if (candidates.length >= targetPool) break;

@@ -10,43 +10,28 @@ const BRAND = "\uD2B8\uB9BD\uBDF0";
 const CAT_DOMESTIC = "\uAD6D\uB0B4\uC5EC\uD589";
 const CAT_FESTIVAL = "\uACF5\uC5F0/\uCD95\uC81C";
 const REGION_OTHER = "\uAE30\uD0C0";
-const REGIONS = [
-  { id: "seoul", title: "\uC11C\uC6B8" },
-  { id: "gyeonggi", title: "\uACBD\uAE30" },
-  { id: "incheon", title: "\uC778\uCC9C" },
-  { id: "gangwon", title: "\uAC15\uC6D0" },
-  { id: "daejeon", title: "\uB300\uC804" },
-  { id: "sejong", title: "\uC138\uC885" },
-  { id: "chungbuk", title: "\uCDA9\uBD81" },
-  { id: "chungnam", title: "\uCDA9\uB0A8" },
-  { id: "gwangju", title: "\uAD11\uC8FC" },
-  { id: "jeonbuk", title: "\uC804\uBD81" },
-  { id: "jeonnam", title: "\uC804\uB0A8" },
-  { id: "daegu", title: "\uB300\uAD6C" },
-  { id: "busan", title: "\uBD80\uC0B0" },
-  { id: "ulsan", title: "\uC6B8\uC0B0" },
-  { id: "gyeongbuk", title: "\uACBD\uBD81" },
-  { id: "gyeongnam", title: "\uACBD\uB0A8" },
-  { id: "jeju", title: "\uC81C\uC8FC" },
-];
 
 const TEXT = {
   articleFallback: "\uC5EC\uD589 \uAE30\uC0AC",
   infoFallback: "\uC5EC\uD589 \uC815\uBCF4",
-  description: `${BRAND}\uB294 \uAD6D\uB0B4 \uC5EC\uD589\uC9C0\uC640 \uC9C0\uC5ED \uCD95\uC81C \uC815\uBCF4\uB97C \uBAA8\uBC14\uC77C \uB274\uC2A4 \uD53C\uB4DC\uCC98\uB7FC \uBE60\uB974\uAC8C \uD655\uC778\uD560 \uC218 \uC788\uB294 \uC5EC\uD589 \uC815\uBCF4 \uB9E4\uAC70\uC9C4\uC785\uB2C8\uB2E4.`,
+  description: `${BRAND}\uB294 \uAC00\uBCFC\uB9CC\uD55C \uACF3, \uCD95\uC81C\u00B7\uD589\uC0AC, \uBB3C\uB180\uC774, \uC2E4\uB0B4\uC5EC\uD589, \uC5EC\uD589\uCF54\uC2A4\uB97C \uC8FC\uC81C\uBCC4\uB85C \uC815\uB9AC\uD55C \uC5EC\uD589 \uC815\uBCF4 \uB9E4\uAC70\uC9C4\uC785\uB2C8\uB2E4.`,
   ogTitle: `${BRAND} - \uC5EC\uD589 \uB274\uC2A4 \uD53C\uB4DC`,
-  ogDescription: "\uAC00\uBCFC \uB9CC\uD55C \uACF3, \uC9C0\uC5ED \uCD95\uC81C, \uBC29\uBB38 \uC804 \uCCB4\uD06C \uC815\uBCF4\uB97C \uCE74\uD14C\uACE0\uB9AC\uBCC4 \uB274\uC2A4 \uC139\uC158\uC73C\uB85C \uC815\uB9AC\uD569\uB2C8\uB2E4.",
+  ogDescription: "\uC5EC\uD589\uC9C0, \uCD95\uC81C, \uBB3C\uB180\uC774, \uC2E4\uB0B4\uC5EC\uD589, \uC5EC\uD589\uCF54\uC2A4\uB97C \uC8FC\uC81C\uBCC4 \uB274\uC2A4 \uC139\uC158\uC73C\uB85C \uC815\uB9AC\uD569\uB2C8\uB2E4.",
   rssTitle: `${BRAND} RSS`,
   navLabel: "\uCE74\uD14C\uACE0\uB9AC",
   navAll: "\uC804\uCCB4",
   navTravel: "\uAC00\uBCFC\uB9CC\uD55C \uACF3",
-  navFestival: "\uC9C0\uC5ED\uCD95\uC81C \uC815\uBCF4",
-  regionTravel: "\uC9C0\uAE08 \uAC00\uBCFC\uB9CC\uD55C \uACF3",
-  regionFestival: "7~8\uC6D4 \uCD95\uC81C\uC815\uBCF4",
+  navFestival: "\uCD95\uC81C\u00B7\uD589\uC0AC",
+  navWater: "\uBB3C\uB180\uC774",
+  navIndoor: "\uC2E4\uB0B4\uC5EC\uD589",
+  navCourse: "\uC5EC\uD589\uCF54\uC2A4",
+  navActivity: "\uC561\uD2F0\uBE44\uD2F0",
+  navStay: "\uC219\uC18C\u00B7\uC608\uC57D",
+  navFood: "\uB9DB\uC9D1\u00B7\uCE74\uD398",
   feedAll: "\uC804\uCCB4 \uAE00",
   feedShowing: "\uBCF4\uAE30",
   feedSelected: "\uC120\uD0DD\uB428",
-  footer: "\uAD6D\uB0B4 \uC5EC\uD589\uC9C0\uC640 \uC9C0\uC5ED \uCD95\uC81C \uC815\uBCF4\uB97C \uCE74\uD14C\uACE0\uB9AC\uBCC4\uB85C \uBE60\uB974\uAC8C \uD655\uC778\uD558\uB294 \uC5EC\uD589 \uB274\uC2A4 \uD53C\uB4DC\uC785\uB2C8\uB2E4.",
+  footer: "\uAD6D\uB0B4 \uC5EC\uD589\uC9C0\uC640 \uCD95\uC81C\u00B7\uD589\uC0AC \uC815\uBCF4\uB97C \uC8FC\uC81C\uBCC4\uB85C \uBE60\uB974\uAC8C \uD655\uC778\uD558\uB294 \uC5EC\uD589 \uB274\uC2A4 \uD53C\uB4DC\uC785\uB2C8\uB2E4.",
 };
 
 const esc = (value = "") =>
@@ -79,6 +64,7 @@ const titleOf = (post) => normalize(post?.sourceTitle || post?.title || TEXT.art
 const categoryOf = (post) => normalize(post?.category || TEXT.infoFallback);
 const regionOf = (post) => normalize(post?.region || "");
 const isFestival = (post) => categoryOf(post) === CAT_FESTIVAL;
+const contentTypeOf = (post) => String(post?.tourApi?.contentTypeId || post?.contentTypeId || post?.contenttypeid || "");
 
 function infoValue(post, label) {
   const rows = Array.isArray(post?.info) ? post.info : [];
@@ -245,6 +231,27 @@ function sortCurrentPlaces(posts) {
   });
 }
 
+function hasAnyKeyword(post, keywords) {
+  const text = searchableText(post);
+  return keywords.some((keyword) => text.includes(keyword));
+}
+
+function sortLatest(posts) {
+  return [...posts].sort((a, b) => String(b.sortDate || "").localeCompare(String(a.sortDate || "")));
+}
+
+function takeFresh(posts, used, count = 10) {
+  const items = [];
+  for (const post of uniquePosts(posts)) {
+    const key = post?.slug || post?.title;
+    if (!key || used.has(key)) continue;
+    used.add(key);
+    items.push(post);
+    if (items.length >= count) break;
+  }
+  return items;
+}
+
 function newsSection({ id, title, posts }) {
   const items = uniquePosts(posts).slice(0, 10);
   if (!items.length) return "";
@@ -259,81 +266,46 @@ function newsSection({ id, title, posts }) {
   </section>`;
 }
 
-function regionGroup(title, posts) {
-  const items = uniquePosts(posts).slice(0, 5);
-  if (!items.length) return "";
-  return `<div class="region-group">
-    <h3>${esc(title)}</h3>
-    <div class="news-list region-news-list">${items.map(listItem).join("")}</div>
-  </div>`;
-}
-
-function regionSection({ id, title, places = [], festivals = [] }) {
-  if (!places.length && !festivals.length) return "";
-  return `<section class="news-section region-section" id="${esc(id)}" aria-labelledby="${esc(id)}-title" data-headline="${esc(title)}">
-    <h2 id="${esc(id)}-title">${esc(title)}</h2>
-    ${regionGroup(TEXT.regionTravel, places)}
-    ${regionGroup(TEXT.regionFestival, festivals)}
-  </section>`;
-}
-
-function renderSection(section) {
-  return section.type === "region" ? regionSection(section) : newsSection(section);
-}
-
 function buildSections(posts) {
-  const domestic = posts.filter((post) => categoryOf(post) === CAT_DOMESTIC);
+  const domestic = posts.filter((post) => categoryOf(post) === CAT_DOMESTIC && !isFestival(post));
   const festivals = posts
     .filter(festivalInJulyAugust)
     .sort((a, b) => festivalStart(a).localeCompare(festivalStart(b)));
-  const visiblePost = (post) => !isFestival(post) || festivalInJulyAugust(post);
-  const byRegion = (region) => posts
-    .filter((post) => compactRegion(regionOf(post)) === region)
-    .filter(visiblePost)
-    .sort((a, b) => {
-      if (isFestival(a) && isFestival(b)) return festivalStart(a).localeCompare(festivalStart(b));
-      if (isFestival(a)) return -1;
-      if (isFestival(b)) return 1;
-      return String(b.sortDate || "").localeCompare(String(a.sortDate || ""));
-    });
-  const regionSections = REGIONS.map((region) => ({
-    id: region.id,
-    title: region.title,
-    type: "region",
-    places: takePosts(sortCurrentPlaces(byRegion(region.title).filter((post) => !isFestival(post))), 5),
-    festivals: takePosts(byRegion(region.title).filter(isFestival), 5),
-  }));
+  const waterKeywords = ["\uC218\uC601\uC7A5", "\uACC4\uACE1", "\uD574\uC218\uC695\uC7A5", "\uD574\uBCC0", "\uBC14\uB2E4", "\uBB3C\uB180\uC774", "\uC6CC\uD130\uD30C\uD06C", "\uD3ED\uD3EC", "\uC218\uBCC0"];
+  const indoorKeywords = ["\uBC15\uBB3C\uAD00", "\uBBF8\uC220\uAD00", "\uC804\uC2DC", "\uBB38\uD654", "\uC13C\uD130", "\uC544\uD2B8", "\uACF5\uC5F0\uC7A5"];
+  const courseKeywords = ["\uCF54\uC2A4", "\uB458\uB808\uAE38", "\uC0B0\uCC45", "\uD2B8\uB808\uD0B9", "\uAC78\uC73C", "\uAE38"];
+  const activityKeywords = ["\uB808\uD3EC\uCE20", "\uCCB4\uD5D8", "\uC790\uC804\uAC70", "\uCE90\uB2C8\uC5B8", "\uC11C\uD551", "\uCE74\uC57D", "\uCEA0\uD551"];
 
-  return [
-    { id: "travel", title: TEXT.navTravel, posts: fillSection(posts, domestic) },
-    { id: "festival", title: TEXT.navFestival, posts: takePosts(festivals) },
-    ...regionSections.map((section) => ({
-      ...section,
-      posts: [...section.places, ...section.festivals],
-    })),
+  const byType = (typeId) => posts.filter((post) => contentTypeOf(post) === typeId);
+  const used = new Set();
+  const sectionDefs = [
+    { id: "water", title: "7\uC6D4 \uBB3C\uB180\uC774\u00B7\uACC4\uACE1\u00B7\uD574\uC218\uC695\uC7A5", posts: sortCurrentPlaces(domestic.filter((post) => hasAnyKeyword(post, waterKeywords))) },
+    { id: "travel", title: TEXT.navTravel, posts: sortCurrentPlaces(domestic) },
+    { id: "festival", title: "7~8\uC6D4 \uCD95\uC81C\u00B7\uD589\uC0AC", posts: festivals },
+    { id: "indoor", title: "\uBE44 \uC624\uB294 \uB0A0 \uC2E4\uB0B4\uC5EC\uD589", posts: sortLatest([...byType("14"), ...domestic.filter((post) => hasAnyKeyword(post, indoorKeywords))]) },
+    { id: "course", title: TEXT.navCourse, posts: sortLatest([...byType("25"), ...domestic.filter((post) => hasAnyKeyword(post, courseKeywords))]) },
+    { id: "activity", title: TEXT.navActivity, posts: sortLatest([...byType("28"), ...domestic.filter((post) => hasAnyKeyword(post, activityKeywords))]) },
+    { id: "stay", title: TEXT.navStay, posts: sortLatest(byType("32")) },
+    { id: "food", title: TEXT.navFood, posts: sortLatest(byType("39")) },
   ];
+
+  return sectionDefs
+    .map((section) => ({ ...section, posts: takeFresh(section.posts, used) }))
+    .filter((section) => section.posts.length);
 }
 
 function categoryNav(sections) {
-  const regionSections = sections.filter((section) => !["travel", "festival"].includes(section.id));
   return [
     `<a class="is-active" href="#all" data-filter="all">${esc(TEXT.navAll)}</a>`,
-    ...regionSections.map((section) => `<a href="#${esc(section.id)}" data-filter="${esc(section.id)}">${esc(section.title)}</a>`),
+    ...sections.map((section) => `<a href="#${esc(section.id)}" data-filter="${esc(section.id)}">${esc(section.title)}</a>`),
   ].join("");
-}
-
-function topicTabs() {
-  return `<div class="topic-tabs" aria-label="\uC8FC\uC81C">
-    <a href="#travel" data-filter="travel">${esc(TEXT.navTravel)}</a>
-    <a href="#festival" data-filter="festival">\uCD95\uC81C\uC815\uBCF4</a>
-  </div>`;
 }
 
 function html(posts) {
   const sections = buildSections(posts).filter((section) => section.posts.length);
   const hero = posts[0];
   const ogImage = imageOf(hero);
-  const defaultHeadline = "\uC9C0\uC5ED\uBCC4 \uCD5C\uC2E0 \uC5EC\uD589 \uC815\uBCF4";
+  const defaultHeadline = "\uC8FC\uC81C\uBCC4 \uCD5C\uC2E0 \uC5EC\uD589 \uC815\uBCF4";
 
   return `<!doctype html>
 <html lang="ko">
@@ -360,12 +332,11 @@ function html(posts) {
       <div class="header-inner">
         <a class="brand" href="/">${esc(BRAND)}</a>
         <nav class="nav-scroll" aria-label="${esc(TEXT.navLabel)}">${categoryNav(sections)}</nav>
-        ${topicTabs()}
       </div>
     </header>
     <main class="page">
       <div class="top-line"><span data-feed-label>${esc(defaultHeadline)}</span><span>${esc(new Date().toISOString().slice(0, 10))}</span></div>
-      ${sections.map(renderSection).join("\n")}
+      ${sections.map(newsSection).join("\n")}
     </main>
     <footer class="site-footer">
       <strong>${esc(BRAND)}</strong>
@@ -400,4 +371,4 @@ const posts = JSON.parse(await fs.readFile(POSTS_PATH, "utf8"))
   .sort((a, b) => String(b.sortDate || "").localeCompare(String(a.sortDate || "")));
 
 await fs.writeFile(INDEX_PATH, html(posts), "utf8");
-console.log(`Homepage rebuilt as mobile regional news feed with ${posts.length} post(s).`);
+console.log(`Homepage rebuilt as topic-based travel news feed with ${posts.length} post(s).`);
