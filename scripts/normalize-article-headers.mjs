@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
-const ARTICLE_HEADER = `<header class="top"><div class="wrap nav"><a class="brand" href="../">&#53944;&#47549;&#48624;</a><nav class="links" aria-label="&#51452;&#50836; &#47700;&#45684;"><a href="../">&#54856;</a><a href="../#travel">&#44032;&#48380;&#47564;&#54620; &#44275;</a><a href="../#festival">&#52629;&#51228;&#51221;&#48372;</a><a href="../#seoul">&#51648;&#50669;&#48324;</a></nav></div></header>`;
+const ARTICLE_HEADER = `<header class="top"><div class="wrap nav"><a class="brand" href="../">트립뷰</a><nav class="links" aria-label="주요 메뉴"><a href="../">홈</a><a href="../#popular">지금 많이 찾는 여행지</a><a href="../#weekend">이번 주말 가볼만한 곳</a><a href="../#festival">7~8월 축제/행사</a><a href="../#water">물놀이·계곡·해수욕장</a><a href="../#indoor">비 오는 날 실내 여행</a><a href="../#family">아이와 가기 좋은 곳</a><a href="../#booking">예약 전 체크</a></nav></div></header>`;
 
 async function patchFile(file) {
   let html;

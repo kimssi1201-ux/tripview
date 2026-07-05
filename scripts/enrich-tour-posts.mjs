@@ -453,7 +453,7 @@ function renderArticle(post, counts = { total: 0, categories: {} }) {
     </style>
   </head>
   <body>
-    <header class="top"><div class="wrap nav"><a class="brand" href="../">트립뷰</a><nav class="links"><a href="../">홈</a><a href="../#latest">최신글</a><a href="../#routes">전체글 <span>${counts.total}</span></a>${categoryNav}</nav></div></header>
+    <header class="top"><div class="wrap nav"><a class="brand" href="../">트립뷰</a><nav class="links" aria-label="주요 메뉴"><a href="../">홈</a><a href="../#popular">지금 많이 찾는 여행지</a><a href="../#weekend">이번 주말 가볼만한 곳</a><a href="../#festival">7~8월 축제/행사</a><a href="../#water">물놀이·계곡·해수욕장</a><a href="../#indoor">비 오는 날 실내 여행</a><a href="../#family">아이와 가기 좋은 곳</a><a href="../#booking">예약 전 체크</a></nav></div></header>
     <main><section class="wrap hero"><h1>${esc(post.title)}</h1><div class="meta"><span>트립뷰 편집팀</span><span>${esc(post.date)}</span><span>${esc(post.read)}</span><span>${esc(post.region)}</span></div></section>${gallery}<section class="wrap layout"><article class="content"><table class="info-table"><tbody>${rows}</tbody></table>${sections}<h2>자주 묻는 질문</h2>${faqs}<p class="note">일정, 세부 프로그램, 체험 접수, 요금은 현장 사정에 따라 달라질 수 있습니다. 출발 전 문의처와 당일 공지를 한 번 더 확인하면 이동 실패를 줄일 수 있습니다.</p></article><aside class="aside"><strong>운영 메모</strong>${memo}<a href="../">목록으로 돌아가기</a></aside></section></main>
     <footer><div class="wrap"><strong>트립뷰</strong><p>오늘 바로 움직일 수 있는 여행 큐레이션.</p></div></footer>
     <script>const header=document.querySelector('.top');const syncHeader=()=>header.classList.toggle('is-scrolled',window.scrollY>24);syncHeader();window.addEventListener('scroll',syncHeader,{passive:true});</script>
