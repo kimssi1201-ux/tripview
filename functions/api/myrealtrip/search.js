@@ -115,8 +115,8 @@ function normalizeFlight(item) {
 
   return {
     type: "flight",
-    title: `${from}-${to} 항공권 최저가`,
-    url: PUBLIC_FLIGHT_URL,
+    title: `${from}-${to} 항공권 최저가 ${price}`,
+    url: "/flight-deals/",
     image: "",
     price: Number(item?.totalPrice) || 0,
     meta: [price, item?.departureDate ? `출발 ${item.departureDate}` : "", item?.returnDate ? `귀국 ${item.returnDate}` : ""].filter(Boolean).join(" · "),
