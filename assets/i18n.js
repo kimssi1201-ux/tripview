@@ -3,7 +3,7 @@
   const htmlLang = { ko: 'ko', en: 'en', ja: 'ja', zh: 'zh-CN' };
   const googleLang = { en: 'en', ja: 'ja', zh: 'zh-CN' };
   const googleTranslateState = { requested: null, initialized: false };
-  const languageSwitch = '<div class="language-switch" aria-label="Language selector"><a href="?lang=ko" data-lang="ko" lang="ko">KO</a><a href="?lang=en" data-lang="en" lang="en">EN</a><a href="?lang=ja" data-lang="ja" lang="ja">JA</a><a href="?lang=zh" data-lang="zh" lang="zh-CN">ZH</a></div>';
+  const languageSwitch = '';
 
   const copy = [
     { ko: '트립뷰', en: 'Tripview', ja: 'トリップビュー', zh: 'Tripview' },
@@ -182,10 +182,7 @@
   }
 
   function ensureLanguageSwitch() {
-    if (document.querySelector('.language-switch')) return;
-    const nav = document.querySelector('.top .nav, .nav');
-    if (!nav) return;
-    nav.insertAdjacentHTML('beforeend', languageSwitch);
+    document.querySelectorAll('.language-switch').forEach((element) => element.remove());
   }
 
   function protectLanguageControls() {
