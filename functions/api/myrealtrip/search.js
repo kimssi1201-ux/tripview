@@ -12,7 +12,15 @@ function json(data, status = 200) {
 }
 
 function getApiKey(env = {}) {
-  return env.MYREALTRIP_API_KEY || env.PARTNER_API_KEY || env.MYREALTRIP_PARTNER_API_KEY || "";
+  return env.MYREALTRIP_API_KEY
+    || env.MYREALTRIP_PARTNER_API_KEY
+    || env.MYREALTRIP_PARTNER_KEY
+    || env.MYREALTRIP_OPEN_API_KEY
+    || env.MYREALTRIP_API
+    || env.MRT_API_KEY
+    || env.PARTNER_API_KEY
+    || env.PARTNER_EXT_API_KEY
+    || "";
 }
 
 function text(value, fallback = "") {
