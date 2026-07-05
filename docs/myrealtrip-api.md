@@ -21,6 +21,7 @@ PARTNER_API_URL
 PARTNER_PRODUCTS_URL
 MYREALTRIP_ACCOMMODATION_REGION_URL
 MYREALTRIP_ACCOMMODATION_SEARCH_URL
+MYREALTRIP_TNA_SEARCH_URL
 MYREALTRIP_FLIGHT_API_URL
 MYREALTRIP_FLIGHT_LOWEST_URL
 PARTNER_FLIGHT_API_URL
@@ -40,6 +41,13 @@ MYREALTRIP_ACCOMMODATION_ADULT_COUNT
 MYREALTRIP_ACCOMMODATION_CHILD_COUNT
 MYREALTRIP_ACCOMMODATION_STAR_RATING
 MYREALTRIP_ACCOMMODATION_LIMIT
+MYREALTRIP_TNA_KEYWORD
+MYREALTRIP_TNA_CATEGORY
+MYREALTRIP_TNA_MIN_PRICE
+MYREALTRIP_TNA_MAX_PRICE
+MYREALTRIP_TNA_SORT
+MYREALTRIP_TNA_SIZE
+MYREALTRIP_TNA_LIMIT
 MYREALTRIP_FLIGHT_DEP_AIRPORT
 MYREALTRIP_FLIGHT_PERIOD
 MYREALTRIP_FLIGHT_LIMIT
@@ -94,6 +102,25 @@ childCount=0
 ```
 
 `scripts/fetch-myrealtrip-accommodations.mjs` stores normalized hotel cards in `data/myrealtrip-accommodations.json`. The homepage merges those cards into the `예약 전 체크` section before flight deals and generic booking guides.
+
+## Tour Ticket API
+
+The tour ticket API searches tours, transport tickets, entrance tickets, and activities:
+
+```text
+POST /v1/products/tna/search
+```
+
+Default request settings:
+
+```text
+keyword=오사카 투어
+sort=price_asc
+page=1
+size=20
+```
+
+`scripts/fetch-myrealtrip-tna-products.mjs` stores normalized tour ticket cards in `data/myrealtrip-tna-products.json`. The homepage booking section picks a balanced set from accommodation, tour ticket, and flight cards so one source does not hide the others.
 
 ## Flight Lowest Price API
 

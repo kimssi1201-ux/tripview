@@ -6,6 +6,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const POSTS_PATH = path.join(ROOT, "data", "generated-posts.json");
 const MYREALTRIP_PRODUCTS_PATH = path.join(ROOT, "data", "myrealtrip-products.json");
 const MYREALTRIP_ACCOMMODATIONS_PATH = path.join(ROOT, "data", "myrealtrip-accommodations.json");
+const MYREALTRIP_TNA_PATH = path.join(ROOT, "data", "myrealtrip-tna-products.json");
 const MYREALTRIP_FLIGHTS_PATH = path.join(ROOT, "data", "myrealtrip-flight-deals.json");
 const INDEX_PATH = path.join(ROOT, "index.html");
 
@@ -240,13 +241,23 @@ function scoreProduct(product, posts) {
 }
 
 function rankedProducts(products, posts, count = 3) {
-  return products
+  const ranked = products
     .filter((product) => product?.title && product?.url)
     .map((product) => ({ product, score: scoreProduct(product, posts) }))
     .filter((item) => item.score > 0)
-    .sort((a, b) => b.score - a.score)
-    .slice(0, count)
-    .map((item) => item.product);
+    .sort((a, b) => b.score - a.score);
+  const picked = [];
+  const sourceOrder = ["myrealtrip-accommodation", "myrealtrip-tna", "myrealtrip-flight"];
+  for (const source of sourceOrder) {
+    const item = ranked.find((entry) => entry.product.source === source && !picked.includes(entry.product));
+    if (item) picked.push(item.product);
+    if (picked.length >= count) return picked;
+  }
+  for (const item of ranked) {
+    if (!picked.includes(item.product)) picked.push(item.product);
+    if (picked.length >= count) break;
+  }
+  return picked;
 }
 
 function productMeta(product) {
@@ -459,6 +470,15 @@ async function readMyRealTripAccommodations() {
   }
 }
 
+async function readMyRealTripTnaProducts() {
+  try {
+    const products = JSON.parse(await fs.readFile(MYREALTRIP_TNA_PATH, "utf8"));
+    return Array.isArray(products) ? products : [];
+  } catch {
+    return [];
+  }
+}
+
 async function readMyRealTripFlights() {
   try {
     const flights = JSON.parse(await fs.readFile(MYREALTRIP_FLIGHTS_PATH, "utf8"));
@@ -468,13 +488,13 @@ async function readMyRealTripFlights() {
   }
 }
 
-function html(posts, products = [], accommodations = [], flights = []) {
+function html(posts, products = [], accommodations = [], tnaProducts = [], flights = []) {
   const sections = buildSections(posts).filter((section) => section.kind === "booking" || section.posts.length);
   const hero = posts[0];
   const ogImage = imageOf(hero);
   const defaultHeadline = "\uC8FC\uC81C\uBCC4 \uCD5C\uC2E0 \uC5EC\uD589 \uC815\uBCF4";
   const sectionHtml = sections
-    .map((section) => section.kind === "booking" ? bookingSection({ ...section, products: [...accommodations, ...flights, ...products] }) : newsSection(section))
+    .map((section) => section.kind === "booking" ? bookingSection({ ...section, products: [...accommodations, ...tnaProducts, ...flights, ...products] }) : newsSection(section))
     .reduce((parts, markup, index) => {
       parts.push(markup);
       if (index === 3) parts.push(TENPING_HOME_AD);
@@ -549,7 +569,8 @@ const posts = JSON.parse(await fs.readFile(POSTS_PATH, "utf8"))
 
 const myrealtripProducts = await readMyRealTripProducts();
 const myrealtripAccommodations = await readMyRealTripAccommodations();
+const myrealtripTnaProducts = await readMyRealTripTnaProducts();
 const myrealtripFlights = await readMyRealTripFlights();
 
-await fs.writeFile(INDEX_PATH, html(posts, myrealtripProducts, myrealtripAccommodations, myrealtripFlights), "utf8");
-console.log(`Homepage rebuilt as topic-based travel news feed with ${posts.length} post(s), ${myrealtripProducts.length} MyRealTrip product(s), ${myrealtripAccommodations.length} accommodation(s), ${myrealtripFlights.length} flight deal(s).`);
+await fs.writeFile(INDEX_PATH, html(posts, myrealtripProducts, myrealtripAccommodations, myrealtripTnaProducts, myrealtripFlights), "utf8");
+console.log(`Homepage rebuilt as topic-based travel news feed with ${posts.length} post(s), ${myrealtripProducts.length} MyRealTrip product(s), ${myrealtripAccommodations.length} accommodation(s), ${myrealtripTnaProducts.length} TNA product(s), ${myrealtripFlights.length} flight deal(s).`);
