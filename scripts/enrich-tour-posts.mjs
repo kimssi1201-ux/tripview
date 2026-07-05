@@ -190,7 +190,7 @@ function buildFaq(post) {
 }
 
 function enrichPost(post) {
-  if (post.manualWaterPostVersion && Array.isArray(post.sections) && post.sections.length >= 4) {
+  if ((post.manualWaterPostVersion || post.manualIndoorPostVersion) && Array.isArray(post.sections) && post.sections.length >= 4) {
     return post;
   }
 
@@ -404,7 +404,7 @@ async function applyOpenAiEnrichment(posts) {
   let attempted = 0;
   const next = [];
   for (const post of posts) {
-    if (post.manualWaterPostVersion || attempted >= limit || post.aiEnrichedVersion === AI_PROMPT_VERSION) {
+    if (post.manualWaterPostVersion || post.manualIndoorPostVersion || attempted >= limit || post.aiEnrichedVersion === AI_PROMPT_VERSION) {
       next.push(post);
       continue;
     }

@@ -329,7 +329,7 @@ function buildFaq(post) {
 }
 
 function polishPost(post) {
-  if (post.manualWaterPostVersion) {
+  if (post.manualWaterPostVersion || post.manualIndoorPostVersion) {
     return { ...post, copyPolishedVersion: VERSION };
   }
 
