@@ -14,24 +14,28 @@ const REGION_OTHER = "\uAE30\uD0C0";
 const TEXT = {
   articleFallback: "\uC5EC\uD589 \uAE30\uC0AC",
   infoFallback: "\uC5EC\uD589 \uC815\uBCF4",
-  description: `${BRAND}\uB294 \uAC00\uBCFC\uB9CC\uD55C \uACF3, \uCD95\uC81C\u00B7\uD589\uC0AC, \uBB3C\uB180\uC774, \uC2E4\uB0B4\uC5EC\uD589, \uC5EC\uD589\uCF54\uC2A4\uB97C \uC8FC\uC81C\uBCC4\uB85C \uC815\uB9AC\uD55C \uC5EC\uD589 \uC815\uBCF4 \uB9E4\uAC70\uC9C4\uC785\uB2C8\uB2E4.`,
+  description: `${BRAND}\uB294 \uC9C0\uAE08 \uB9CE\uC774 \uCC3E\uB294 \uC5EC\uD589\uC9C0, \uC8FC\uB9D0 \uC5EC\uD589, 7~8\uC6D4 \uCD95\uC81C, \uBB3C\uB180\uC774, \uC2E4\uB0B4\uC5EC\uD589, \uC544\uC774\uC640 \uAC00\uAE30 \uC88B\uC740 \uACF3, \uC608\uC57D \uC804 \uCCB4\uD06C\uB97C \uC815\uB9AC\uD55C \uC5EC\uD589 \uC815\uBCF4 \uB9E4\uAC70\uC9C4\uC785\uB2C8\uB2E4.`,
   ogTitle: `${BRAND} - \uC5EC\uD589 \uB274\uC2A4 \uD53C\uB4DC`,
-  ogDescription: "\uC5EC\uD589\uC9C0, \uCD95\uC81C, \uBB3C\uB180\uC774, \uC2E4\uB0B4\uC5EC\uD589, \uC5EC\uD589\uCF54\uC2A4\uB97C \uC8FC\uC81C\uBCC4 \uB274\uC2A4 \uC139\uC158\uC73C\uB85C \uC815\uB9AC\uD569\uB2C8\uB2E4.",
+  ogDescription: "\uC9C0\uAE08 \uB9CE\uC774 \uCC3E\uB294 \uC5EC\uD589\uC9C0, \uC8FC\uB9D0 \uC5EC\uD589, \uCD95\uC81C, \uBB3C\uB180\uC774, \uC2E4\uB0B4\uC5EC\uD589, \uC608\uC57D \uC804 \uCCB4\uD06C\uB97C \uB274\uC2A4 \uC139\uC158\uC73C\uB85C \uC815\uB9AC\uD569\uB2C8\uB2E4.",
   rssTitle: `${BRAND} RSS`,
   navLabel: "\uCE74\uD14C\uACE0\uB9AC",
   navAll: "\uC804\uCCB4",
+  navPopular: "\uC9C0\uAE08 \uB9CE\uC774 \uCC3E\uB294 \uC5EC\uD589\uC9C0",
+  navWeekend: "\uC774\uBC88 \uC8FC\uB9D0 \uAC00\uBCFC\uB9CC\uD55C \uACF3",
   navTravel: "\uAC00\uBCFC\uB9CC\uD55C \uACF3",
-  navFestival: "\uCD95\uC81C\u00B7\uD589\uC0AC",
-  navWater: "\uBB3C\uB180\uC774",
-  navIndoor: "\uC2E4\uB0B4\uC5EC\uD589",
+  navFestival: "\uCD95\uC81C/\uD589\uC0AC",
+  navWater: "\uBB3C\uB180\uC774\u00B7\uACC4\uACE1\u00B7\uD574\uC218\uC695\uC7A5",
+  navIndoor: "\uBE44 \uC624\uB294 \uB0A0 \uC2E4\uB0B4 \uC5EC\uD589",
+  navFamily: "\uC544\uC774\uC640 \uAC00\uAE30 \uC88B\uC740 \uACF3",
   navCourse: "\uC5EC\uD589\uCF54\uC2A4",
   navActivity: "\uC561\uD2F0\uBE44\uD2F0",
+  navBooking: "\uC608\uC57D \uC804 \uCCB4\uD06C",
   navStay: "\uC219\uC18C\u00B7\uC608\uC57D",
   navFood: "\uB9DB\uC9D1\u00B7\uCE74\uD398",
   feedAll: "\uC804\uCCB4 \uAE00",
   feedShowing: "\uBCF4\uAE30",
   feedSelected: "\uC120\uD0DD\uB428",
-  footer: "\uAD6D\uB0B4 \uC5EC\uD589\uC9C0\uC640 \uCD95\uC81C\u00B7\uD589\uC0AC \uC815\uBCF4\uB97C \uC8FC\uC81C\uBCC4\uB85C \uBE60\uB974\uAC8C \uD655\uC778\uD558\uB294 \uC5EC\uD589 \uB274\uC2A4 \uD53C\uB4DC\uC785\uB2C8\uB2E4.",
+  footer: "\uC5EC\uD589\uC9C0, \uCD95\uC81C\u00B7\uD589\uC0AC, \uBB3C\uB180\uC774, \uC2E4\uB0B4\uC5EC\uD589, \uC608\uC57D \uC804 \uCCB4\uD06C\uB97C \uC758\uB3C4\uBCC4\uB85C \uBE60\uB974\uAC8C \uD655\uC778\uD558\uB294 \uC5EC\uD589 \uB274\uC2A4 \uD53C\uB4DC\uC785\uB2C8\uB2E4.",
 };
 
 const esc = (value = "") =>
@@ -266,6 +270,45 @@ function newsSection({ id, title, posts }) {
   </section>`;
 }
 
+const BOOKING_CHECKS = [
+  {
+    title: "\uC219\uC18C \uC608\uC57D \uC804 \uCCB4\uD06C",
+    text: "\uD6C4\uAE30\uB9CC \uBCF4\uAE30\uBCF4\uB2E4 \uC704\uCE58, \uC785\uC2E4 \uC2DC\uAC04, \uC8FC\uCC28, \uCDE8\uC18C \uAE30\uD55C, \uC870\uC2DD \uD3EC\uD568 \uC5EC\uBD80\uB97C \uBA3C\uC800 \uD655\uC778\uD558\uC138\uC694.",
+    href: "#booking-stay",
+  },
+  {
+    title: "\uCD95\uC81C\u00B7\uC785\uC7A5\uAD8C \uC608\uC57D",
+    text: "\uD604\uC7A5 \uBC1C\uAD8C\uB9CC \uAC00\uB2A5\uD55C\uC9C0, \uC0AC\uC804 \uC608\uC57D\uC774 \uD544\uC694\uD55C\uC9C0, \uC785\uC7A5 \uB9C8\uAC10 \uC2DC\uAC04\uACFC \uD658\uBD88 \uAE30\uC900\uC744 \uAC19\uC774 \uBCF4\uC138\uC694.",
+    href: "#booking-ticket",
+  },
+  {
+    title: "\uD22C\uC5B4\u00B7\uCCB4\uD5D8 \uC0C1\uD488",
+    text: "\uC9D1\uACB0 \uC7A5\uC18C, \uC18C\uC694 \uC2DC\uAC04, \uC6B0\uCC9C \uC2DC \uC9C4\uD589 \uC5EC\uBD80, \uC900\uBE44\uBB3C\uC744 \uC608\uC57D \uC804\uC5D0 \uD655\uC778\uD558\uBA74 \uC2E4\uD328\uAC00 \uC904\uC5B4\uB4ED\uB2C8\uB2E4.",
+    href: "#booking-tour",
+  },
+  {
+    title: "\uD560\uC778\uCF54\uB4DC\u00B7\uCD94\uAC00\uBE44\uC6A9",
+    text: "\uD45C\uC2DC\uAC00\uC640 \uCD5C\uC885 \uACB0\uC81C\uAC00\uAC00 \uB2E4\uB97C \uC218 \uC788\uC73C\uB2C8 \uC138\uAE08, \uBD09\uC0AC\uB8CC, \uC218\uC218\uB8CC, \uD560\uC778 \uC801\uC6A9 \uC870\uAC74\uC744 \uB05D\uAE4C\uC9C0 \uBCF4\uC138\uC694.",
+    href: "#booking-discount",
+  },
+];
+
+function bookingSection({ id, title, posts = [] }) {
+  const items = uniquePosts(posts).slice(0, 4);
+  const postCards = items.map((post) => `<a class="check-card" href="${esc(hrefOf(post))}">
+    <strong>${esc(titleOf(post))}</strong>
+    <span>${esc(metaLine(post))}</span>
+  </a>`);
+  const guideCards = BOOKING_CHECKS.map((item) => `<a class="check-card" href="${esc(item.href)}">
+    <strong>${esc(item.title)}</strong>
+    <span>${esc(item.text)}</span>
+  </a>`);
+  return `<section class="news-section check-section" id="${esc(id)}" aria-labelledby="${esc(id)}-title" data-headline="${esc(title)}">
+    <h2 id="${esc(id)}-title">${esc(title)}</h2>
+    <div class="check-grid">${[...postCards, ...guideCards].slice(0, 6).join("")}</div>
+  </section>`;
+}
+
 function buildSections(posts) {
   const domestic = posts.filter((post) => categoryOf(post) === CAT_DOMESTIC && !isFestival(post));
   const festivals = posts
@@ -273,25 +316,42 @@ function buildSections(posts) {
     .sort((a, b) => festivalStart(a).localeCompare(festivalStart(b)));
   const waterKeywords = ["\uC218\uC601\uC7A5", "\uACC4\uACE1", "\uD574\uC218\uC695\uC7A5", "\uD574\uBCC0", "\uBC14\uB2E4", "\uBB3C\uB180\uC774", "\uC6CC\uD130\uD30C\uD06C", "\uD3ED\uD3EC", "\uC218\uBCC0"];
   const indoorKeywords = ["\uBC15\uBB3C\uAD00", "\uBBF8\uC220\uAD00", "\uC804\uC2DC", "\uBB38\uD654", "\uC13C\uD130", "\uC544\uD2B8", "\uACF5\uC5F0\uC7A5"];
-  const courseKeywords = ["\uCF54\uC2A4", "\uB458\uB808\uAE38", "\uC0B0\uCC45", "\uD2B8\uB808\uD0B9", "\uAC78\uC73C", "\uAE38"];
-  const activityKeywords = ["\uB808\uD3EC\uCE20", "\uCCB4\uD5D8", "\uC790\uC804\uAC70", "\uCE90\uB2C8\uC5B8", "\uC11C\uD551", "\uCE74\uC57D", "\uCEA0\uD551"];
+  const familyKeywords = ["\uC544\uC774", "\uAC00\uC871", "\uC5B4\uB9B0\uC774", "\uCCB4\uD5D8", "\uACF5\uC6D0", "\uC0DD\uD0DC", "\uB3D9\uBB3C", "\uB18D\uCD0C", "\uC790\uC5F0\uD559\uC2B5"];
+  const bookingKeywords = ["\uC219\uC18C", "\uD638\uD154", "\uC608\uC57D", "\uD22C\uC5B4", "\uC785\uC7A5\uAD8C", "\uD560\uC778", "\uC2DD\uB2F9", "\uB9DB\uC9D1", "\uCE74\uD398", "\uC1FC\uD551"];
 
   const byType = (typeId) => posts.filter((post) => contentTypeOf(post) === typeId);
   const used = new Set();
+  const waterPool = domestic.filter((post) => hasAnyKeyword(post, waterKeywords));
+  const indoorPool = sortLatest([...byType("14"), ...domestic.filter((post) => hasAnyKeyword(post, indoorKeywords))]);
+  const familyPool = sortLatest(posts.filter((post) => !isFestival(post) && hasAnyKeyword(post, familyKeywords)));
+  const bookingPool = sortLatest([
+    ...byType("32"),
+    ...byType("38"),
+    ...byType("39"),
+    ...posts.filter((post) => hasAnyKeyword(post, bookingKeywords)),
+  ]);
+  const generalTravel = domestic.filter((post) => (
+    !hasAnyKeyword(post, waterKeywords) &&
+    !hasAnyKeyword(post, indoorKeywords) &&
+    !hasAnyKeyword(post, familyKeywords)
+  ));
   const sectionDefs = [
-    { id: "water", title: "7\uC6D4 \uBB3C\uB180\uC774\u00B7\uACC4\uACE1\u00B7\uD574\uC218\uC695\uC7A5", posts: sortCurrentPlaces(domestic.filter((post) => hasAnyKeyword(post, waterKeywords))) },
-    { id: "travel", title: TEXT.navTravel, posts: sortCurrentPlaces(domestic) },
-    { id: "festival", title: "7~8\uC6D4 \uCD95\uC81C\u00B7\uD589\uC0AC", posts: festivals },
-    { id: "indoor", title: "\uBE44 \uC624\uB294 \uB0A0 \uC2E4\uB0B4\uC5EC\uD589", posts: sortLatest([...byType("14"), ...domestic.filter((post) => hasAnyKeyword(post, indoorKeywords))]) },
-    { id: "course", title: TEXT.navCourse, posts: sortLatest([...byType("25"), ...domestic.filter((post) => hasAnyKeyword(post, courseKeywords))]) },
-    { id: "activity", title: TEXT.navActivity, posts: sortLatest([...byType("28"), ...domestic.filter((post) => hasAnyKeyword(post, activityKeywords))]) },
-    { id: "stay", title: TEXT.navStay, posts: sortLatest(byType("32")) },
-    { id: "food", title: TEXT.navFood, posts: sortLatest(byType("39")) },
+    { id: "popular", title: TEXT.navPopular, posts: sortCurrentPlaces(generalTravel.length ? generalTravel : domestic) },
+    { id: "weekend", title: TEXT.navWeekend, posts: sortLatest([...byType("12"), ...byType("25"), ...byType("28"), ...domestic]) },
+    { id: "festival", title: "7~8\uC6D4 \uCD95\uC81C/\uD589\uC0AC", posts: festivals },
+    { id: "water", title: TEXT.navWater, posts: sortCurrentPlaces(waterPool) },
+    { id: "indoor", title: TEXT.navIndoor, posts: indoorPool.length ? indoorPool : sortLatest(domestic), fallbackPosts: sortLatest(domestic) },
+    { id: "family", title: TEXT.navFamily, posts: familyPool.length ? familyPool : sortLatest(domestic), fallbackPosts: sortLatest(domestic) },
+    { id: "booking", title: TEXT.navBooking, kind: "booking", posts: bookingPool },
   ];
 
   return sectionDefs
-    .map((section) => ({ ...section, posts: takeFresh(section.posts, used) }))
-    .filter((section) => section.posts.length);
+    .map((section) => {
+      if (section.kind === "booking") return { ...section, posts: takePosts(section.posts, 4) };
+      const freshPosts = takeFresh(section.posts, used);
+      return freshPosts.length ? { ...section, posts: freshPosts } : { ...section, posts: takePosts(section.fallbackPosts || [], 10) };
+    })
+    .filter((section) => section.kind === "booking" || section.posts.length);
 }
 
 function categoryNav(sections) {
@@ -302,7 +362,7 @@ function categoryNav(sections) {
 }
 
 function html(posts) {
-  const sections = buildSections(posts).filter((section) => section.posts.length);
+  const sections = buildSections(posts).filter((section) => section.kind === "booking" || section.posts.length);
   const hero = posts[0];
   const ogImage = imageOf(hero);
   const defaultHeadline = "\uC8FC\uC81C\uBCC4 \uCD5C\uC2E0 \uC5EC\uD589 \uC815\uBCF4";
@@ -324,7 +384,7 @@ function html(posts) {
     <link rel="alternate" type="application/rss+xml" title="${esc(TEXT.rssTitle)}" href="https://tripview.kr/rss.xml">
     <title>${esc(TEXT.ogTitle)}</title>
     <style>
-      :root{--ink:#111;--muted:#777;--line:#e2e2e2;--paper:#fff;--soft:#f5f5f5}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:128px}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;letter-spacing:0;line-height:1.45}a{color:inherit;text-decoration:none}img{display:block;width:100%;height:100%;object-fit:cover;background:var(--soft)}.site-header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}.header-inner{max-width:720px;margin:0 auto;padding:15px 16px 10px}.brand{display:block;margin-bottom:12px;font-size:28px;font-weight:900;line-height:1}.nav-scroll{display:flex;gap:18px;overflow-x:auto;padding-bottom:4px;white-space:nowrap;font-size:15px;font-weight:800}.nav-scroll a{display:block;padding:2px 0;border-bottom:2px solid transparent}.nav-scroll a.is-active{border-bottom-color:#111}.topic-tabs{display:flex;gap:8px;margin-top:10px;overflow-x:auto;white-space:nowrap}.topic-tabs a{display:block;border:1px solid var(--line);border-radius:999px;padding:6px 11px;font-size:13px;font-weight:800}.topic-tabs a.is-active{background:#111;color:#fff;border-color:#111}.nav-scroll::-webkit-scrollbar,.topic-tabs::-webkit-scrollbar,.pick-grid::-webkit-scrollbar{display:none}.page{max-width:720px;margin:0 auto;padding:10px 16px 40px}.top-line{display:flex;align-items:center;justify-content:space-between;padding:10px 0 18px;color:var(--muted);font-size:13px;border-bottom:1px solid var(--line)}.top-line b{color:var(--ink)}.news-section{padding:28px 0 34px;border-bottom:8px solid #f2f2f2;scroll-margin-top:128px}.news-section.is-hidden{display:none}.news-section h2{margin:0 0 16px;font-size:31px;line-height:1.05;font-weight:900;letter-spacing:-.01em}.news-lead{display:block}.lead-thumb{display:block;width:100%;aspect-ratio:1.78/1;overflow:hidden;background:var(--soft)}.news-lead strong{display:block;margin-top:12px;font-size:24px;line-height:1.22;font-weight:900}.news-lead span{display:block;margin-top:7px;color:var(--muted);font-size:13px}.pick-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:20px}.pick-card{min-width:0}.pick-thumb{display:block;aspect-ratio:1.2/1;overflow:hidden;background:var(--soft)}.pick-card strong{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:7px;font-size:13px;line-height:1.34;font-weight:800}.region-group{margin-top:18px}.region-group+ .region-group{margin-top:28px}.region-group h3{margin:0 0 8px;padding-bottom:8px;border-bottom:2px solid #111;font-size:18px;line-height:1.2;font-weight:900}.news-list{margin-top:22px;border-top:1px solid var(--line)}.region-news-list{margin-top:0;border-top:0}.news-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}.row-thumb{display:block;aspect-ratio:1.28/1;overflow:hidden;background:var(--soft)}.news-row strong{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:17px;line-height:1.35;font-weight:900}.news-row em{display:block;margin-top:5px;color:var(--muted);font-size:12px;font-style:normal}.no-image{background:linear-gradient(135deg,#f1f1f1,#dedede)}.site-footer{max-width:720px;margin:0 auto;padding:28px 16px 44px;color:var(--muted);font-size:13px}.site-footer strong{display:block;color:var(--ink);font-size:20px;margin-bottom:6px}@media(min-width:760px){.header-inner,.page,.site-footer{max-width:1040px}.page{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 36px}.top-line{grid-column:1/-1}.news-section{border-bottom:1px solid var(--line)}.news-section h2{font-size:34px}}@media(max-width:360px){.news-section h2{font-size:28px}.news-lead strong{font-size:21px}.news-row{grid-template-columns:82px minmax(0,1fr)}.pick-grid{gap:7px}.pick-card strong{font-size:12px}}
+      :root{--ink:#111;--muted:#777;--line:#e2e2e2;--paper:#fff;--soft:#f5f5f5}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:128px}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;letter-spacing:0;line-height:1.45}a{color:inherit;text-decoration:none}img{display:block;width:100%;height:100%;object-fit:cover;background:var(--soft)}.site-header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}.header-inner{max-width:720px;margin:0 auto;padding:15px 16px 10px}.brand{display:block;margin-bottom:12px;font-size:28px;font-weight:900;line-height:1}.nav-scroll{display:flex;gap:18px;overflow-x:auto;padding-bottom:4px;white-space:nowrap;font-size:15px;font-weight:800}.nav-scroll a{display:block;padding:2px 0;border-bottom:2px solid transparent}.nav-scroll a.is-active{border-bottom-color:#111}.nav-scroll::-webkit-scrollbar,.pick-grid::-webkit-scrollbar{display:none}.page{max-width:720px;margin:0 auto;padding:10px 16px 40px}.top-line{display:flex;align-items:center;justify-content:space-between;padding:10px 0 18px;color:var(--muted);font-size:13px;border-bottom:1px solid var(--line)}.top-line b{color:var(--ink)}.news-section{padding:28px 0 34px;border-bottom:8px solid #f2f2f2;scroll-margin-top:128px}.news-section.is-hidden{display:none}.news-section h2{margin:0 0 16px;font-size:31px;line-height:1.05;font-weight:900;letter-spacing:-.01em}.news-lead{display:block}.lead-thumb{display:block;width:100%;aspect-ratio:1.78/1;overflow:hidden;background:var(--soft)}.news-lead strong{display:block;margin-top:12px;font-size:24px;line-height:1.22;font-weight:900}.news-lead span{display:block;margin-top:7px;color:var(--muted);font-size:13px}.pick-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:20px}.pick-card{min-width:0}.pick-thumb{display:block;aspect-ratio:1.2/1;overflow:hidden;background:var(--soft)}.pick-card strong{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:7px;font-size:13px;line-height:1.34;font-weight:800}.news-list{margin-top:22px;border-top:1px solid var(--line)}.news-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}.row-thumb{display:block;aspect-ratio:1.28/1;overflow:hidden;background:var(--soft)}.news-row strong{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:17px;line-height:1.35;font-weight:900}.news-row em{display:block;margin-top:5px;color:var(--muted);font-size:12px;font-style:normal}.check-grid{display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid var(--line)}.check-card{display:block;padding:15px 0;border-bottom:1px solid var(--line)}.check-card strong{display:block;font-size:18px;line-height:1.32;font-weight:900}.check-card span{display:block;margin-top:6px;color:var(--muted);font-size:13px;line-height:1.55}.no-image{background:linear-gradient(135deg,#f1f1f1,#dedede)}.site-footer{max-width:720px;margin:0 auto;padding:28px 16px 44px;color:var(--muted);font-size:13px}.site-footer strong{display:block;color:var(--ink);font-size:20px;margin-bottom:6px}@media(min-width:760px){.header-inner,.page,.site-footer{max-width:1040px}.page{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 36px}.top-line{grid-column:1/-1}.news-section{border-bottom:1px solid var(--line)}.news-section h2{font-size:34px}.check-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 18px}}@media(max-width:360px){.news-section h2{font-size:28px}.news-lead strong{font-size:21px}.news-row{grid-template-columns:82px minmax(0,1fr)}.pick-grid{gap:7px}.pick-card strong{font-size:12px}}
     </style>
   </head>
   <body>
@@ -336,7 +396,7 @@ function html(posts) {
     </header>
     <main class="page">
       <div class="top-line"><span data-feed-label>${esc(defaultHeadline)}</span><span>${esc(new Date().toISOString().slice(0, 10))}</span></div>
-      ${sections.map(newsSection).join("\n")}
+      ${sections.map((section) => section.kind === "booking" ? bookingSection(section) : newsSection(section)).join("\n")}
     </main>
     <footer class="site-footer">
       <strong>${esc(BRAND)}</strong>
