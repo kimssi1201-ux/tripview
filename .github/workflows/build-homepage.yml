@@ -5,6 +5,7 @@ on:
     paths:
       - '.github/workflows/build-homepage.yml'
       - 'data/homepage-content.json'
+      - 'data/myrealtrip-products.json'
       - 'scripts/add-adsense.mjs'
       - 'scripts/add-helpful-article-sections.mjs'
       - 'scripts/add-image-zoom.mjs'
@@ -15,6 +16,7 @@ on:
       - 'scripts/enrich-tour-posts.mjs'
       - 'scripts/fix-reference-homepage-categories.mjs'
       - 'scripts/format-program-sections.mjs'
+      - 'scripts/fetch-myrealtrip-products.mjs'
       - 'scripts/merge-manual-posts.mjs'
       - 'scripts/polish-adsense-readiness.mjs'
       - 'scripts/restructure-homepage-reference.mjs'
@@ -56,6 +58,17 @@ jobs:
 
       - name: Polish contextual article copy
         run: node scripts/polish-contextual-copy.mjs
+
+      - name: Fetch MyRealTrip products
+        run: node scripts/fetch-myrealtrip-products.mjs
+        env:
+          MYREALTRIP_API_KEY: ${{ secrets.MYREALTRIP_API_KEY }}
+          MYREALTRIP_API_BASE_URL: ${{ vars.MYREALTRIP_API_BASE_URL }}
+          MYREALTRIP_PRODUCTS_URL: ${{ vars.MYREALTRIP_PRODUCTS_URL }}
+          MYREALTRIP_AUTH_MODE: ${{ vars.MYREALTRIP_AUTH_MODE || 'bearer' }}
+          MYREALTRIP_API_KEY_PARAM: ${{ vars.MYREALTRIP_API_KEY_PARAM || 'apiKey' }}
+          MYREALTRIP_API_KEY_HEADER: ${{ vars.MYREALTRIP_API_KEY_HEADER }}
+          MYREALTRIP_PRODUCT_LIMIT: ${{ vars.MYREALTRIP_PRODUCT_LIMIT || '60' }}
 
       - name: Build homepage
         run: node scripts/build-homepage.mjs
