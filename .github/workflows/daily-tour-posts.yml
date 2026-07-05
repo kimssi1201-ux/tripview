@@ -69,6 +69,19 @@ jobs:
           MYREALTRIP_API_KEY_HEADER: ${{ vars.MYREALTRIP_API_KEY_HEADER || secrets.MYREALTRIP_API_KEY_HEADER }}
           MYREALTRIP_PRODUCT_LIMIT: ${{ vars.MYREALTRIP_PRODUCT_LIMIT || secrets.MYREALTRIP_PRODUCT_LIMIT || '60' }}
 
+      - name: Fetch MyRealTrip flight deals
+        run: node scripts/fetch-myrealtrip-flight-deals.mjs
+        env:
+          MYREALTRIP_API_KEY: ${{ secrets.MYREALTRIP_API_KEY || secrets.PARTNER_API_KEY || secrets.MYREALTRIP_PARTNER_API_KEY }}
+          PARTNER_API_KEY: ${{ secrets.PARTNER_API_KEY }}
+          MYREALTRIP_FLIGHT_API_URL: ${{ vars.MYREALTRIP_FLIGHT_API_URL || secrets.MYREALTRIP_FLIGHT_API_URL }}
+          MYREALTRIP_FLIGHT_LOWEST_URL: ${{ vars.MYREALTRIP_FLIGHT_LOWEST_URL || secrets.MYREALTRIP_FLIGHT_LOWEST_URL }}
+          PARTNER_FLIGHT_API_URL: ${{ vars.PARTNER_FLIGHT_API_URL || secrets.PARTNER_FLIGHT_API_URL }}
+          MYREALTRIP_FLIGHT_DEP_AIRPORT: ${{ vars.MYREALTRIP_FLIGHT_DEP_AIRPORT || 'ICN' }}
+          MYREALTRIP_FLIGHT_PERIOD: ${{ vars.MYREALTRIP_FLIGHT_PERIOD || '5' }}
+          MYREALTRIP_FLIGHT_LIMIT: ${{ vars.MYREALTRIP_FLIGHT_LIMIT || '8' }}
+          MYREALTRIP_FLIGHT_URL_TEMPLATE: ${{ vars.MYREALTRIP_FLIGHT_URL_TEMPLATE || secrets.MYREALTRIP_FLIGHT_URL_TEMPLATE }}
+
       - name: Build homepage
         run: node scripts/build-homepage.mjs
 

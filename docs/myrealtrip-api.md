@@ -19,6 +19,9 @@ MYREALTRIP_API_URL
 MYREALTRIP_ENDPOINT_URL
 PARTNER_API_URL
 PARTNER_PRODUCTS_URL
+MYREALTRIP_FLIGHT_API_URL
+MYREALTRIP_FLIGHT_LOWEST_URL
+PARTNER_FLIGHT_API_URL
 ```
 
 Optional auth variables:
@@ -28,6 +31,10 @@ MYREALTRIP_AUTH_MODE
 MYREALTRIP_API_KEY_PARAM
 MYREALTRIP_API_KEY_HEADER
 MYREALTRIP_PRODUCT_LIMIT
+MYREALTRIP_FLIGHT_DEP_AIRPORT
+MYREALTRIP_FLIGHT_PERIOD
+MYREALTRIP_FLIGHT_LIMIT
+MYREALTRIP_FLIGHT_URL_TEMPLATE
 ```
 
 Default authentication matches the partner docs:
@@ -59,3 +66,24 @@ The homepage reads that file and maps products into the `예약 전 체크` sect
 - product type keywords: tour, ticket, activity, stay, transport, discount
 
 For public site cards, request or configure a product/tour/ticket/deeplink feed endpoint that returns fields such as title, URL, image, price, region, category, and description. If no product endpoint URL is configured, the fetch step exits safely and the site keeps the existing booking guide cards.
+
+## Flight Lowest Price API
+
+The flight lowest-price API can be mapped into public booking cards because it returns route, date, airline, and price data.
+
+Default endpoint:
+
+```text
+https://partner-ext-api.myrealtrip.com/v1/products/flight/calendar/bulk-lowest
+```
+
+Default request body:
+
+```json
+{
+  "depCityCd": "ICN",
+  "period": 5
+}
+```
+
+`scripts/fetch-myrealtrip-flight-deals.mjs` stores normalized cards in `data/myrealtrip-flight-deals.json`. The homepage merges those cards into the `예약 전 체크` section before generic booking guides.
