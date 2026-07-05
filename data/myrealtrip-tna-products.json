@@ -1,1 +1,228 @@
-[]
+[
+  {
+    "id": "tna-3443071",
+    "type": "tna",
+    "title": "일본 이심 eSIM 도쿄 후쿠오카 소프트뱅크 매일 500MB 무제한 1일 유심사 알림톡",
+    "url": "https://experiences.myrealtrip.com/products/3443071",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/08/04/UBDG/ESEVPTGioK.jpg",
+    "price": 300,
+    "priceText": "300원부터",
+    "region": "도쿄",
+    "city": "도쿄",
+    "category": "유심·와이파이",
+    "description": "도쿄 ∙ 유심·와이파이 · 평점 4.5(763개) · 무료취소 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "도쿄",
+      "무료취소",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking"
+    ],
+    "gid": "3443071",
+    "reviewScore": 4.5,
+    "reviewCount": 763,
+    "deepLink": "mrt://experiences/detail/3443071",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-4818059",
+    "type": "tna",
+    "title": "일본 eSIM 이심 전지역 데이터 무제한 매일 500MB~5GB / 완전 무제한 선택",
+    "url": "https://experiences.myrealtrip.com/products/4818059",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/04/13/IuYc/9KEzOh384Y.jpg",
+    "price": 400,
+    "priceText": "400원부터",
+    "region": "오사카",
+    "city": "오사카",
+    "category": "유심·와이파이",
+    "description": "오사카 ∙ 유심·와이파이 · 평점 4.4(11개) · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "오사카",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking"
+    ],
+    "gid": "4818059",
+    "reviewScore": 4.4,
+    "reviewCount": 11,
+    "deepLink": "mrt://experiences/detail/4818059",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-4701855",
+    "type": "tna",
+    "title": "일본 이심 eSIM 소프트뱅크 Softbank 로컬망 데이터 데일리 무제한 이심통",
+    "url": "https://experiences.myrealtrip.com/products/4701855",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/07/08/APVb/tqyzdMlSsE.jpeg",
+    "price": 800,
+    "priceText": "800원부터",
+    "region": "오사카",
+    "city": "오사카",
+    "category": "유심·와이파이",
+    "description": "오사카 ∙ 유심·와이파이 · 무료취소 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "오사카",
+      "무료취소",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking"
+    ],
+    "gid": "4701855",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/4701855",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-3443074",
+    "type": "tna",
+    "title": "일본 로컬 이심 eSIM 오사카 후쿠오카 매일 500MB 저속무제한 1일 유심사 알림톡",
+    "url": "https://experiences.myrealtrip.com/products/3443074",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/02/11/rq6V/8dhrgJ36R4.jpg",
+    "price": 900,
+    "priceText": "900원부터",
+    "region": "도쿄",
+    "city": "도쿄",
+    "category": "유심·와이파이",
+    "description": "도쿄 ∙ 유심·와이파이 · 평점 4.2(26개) · 무료취소 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "도쿄",
+      "무료취소",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking"
+    ],
+    "gid": "3443074",
+    "reviewScore": 4.2,
+    "reviewCount": 26,
+    "deepLink": "mrt://experiences/detail/3443074",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-5708119",
+    "type": "tna",
+    "title": "일본이심 데이터 무제한 KDDI 소프트뱅크 듀얼망 도시락eSIM 오사카 도쿄 후쿠오카",
+    "url": "https://experiences.myrealtrip.com/products/5708119",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/02/05/JLpG/n08is0Zpof.jpg",
+    "price": 900,
+    "priceText": "900원부터",
+    "region": "도쿄",
+    "city": "도쿄",
+    "category": "유심·와이파이",
+    "description": "도쿄 ∙ 유심·와이파이",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "도쿄"
+    ],
+    "intents": [
+      "booking"
+    ],
+    "gid": "5708119",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/5708119",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-3860404",
+    "type": "tna",
+    "title": "[일본 eSIM] 일본 전지역 1~30일 무제한 데이터 일본이심",
+    "url": "https://experiences.myrealtrip.com/products/3860404",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/18/SDo2/jLAwE0K5WW.jpg",
+    "price": 990,
+    "priceText": "990원부터",
+    "region": "오사카",
+    "city": "오사카",
+    "category": "유심·와이파이",
+    "description": "오사카 ∙ 유심·와이파이 · 평점 3.5(13개)",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "오사카"
+    ],
+    "intents": [
+      "booking"
+    ],
+    "gid": "3860404",
+    "reviewScore": 3.5,
+    "reviewCount": 13,
+    "deepLink": "mrt://experiences/detail/3860404",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6117152",
+    "type": "tna",
+    "title": "[부산-오사카]팬스타크루즈 미라클호 승선권",
+    "url": "https://experiences.myrealtrip.com/products/6117152",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/06/12/mpY3/LnZIRZzF3f.jpg",
+    "price": 1000,
+    "priceText": "1,000원부터",
+    "region": "오사카",
+    "city": "오사카",
+    "category": "입장권",
+    "description": "오사카 ∙ 입장권 · 평점 4.7(23개) · 최저가보장제 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "오사카",
+      "최저가보장제",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport"
+    ],
+    "gid": "6117152",
+    "reviewScore": 4.7,
+    "reviewCount": 23,
+    "deepLink": "mrt://experiences/detail/6117152",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-3860366",
+    "type": "tna",
+    "title": "[일본 유심 / 무료배송]  일본 전지역 데이터 무제한 (110V어뎁터 1개 무료제공)",
+    "url": "https://experiences.myrealtrip.com/products/3860366",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/18/ooFQ/CMqpgysx4H.jpg",
+    "price": 1000,
+    "priceText": "1,000원부터",
+    "region": "오사카",
+    "city": "오사카",
+    "category": "유심·와이파이",
+    "description": "오사카 ∙ 유심·와이파이 · 평점 4.2(233개)",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "오사카"
+    ],
+    "intents": [
+      "booking"
+    ],
+    "gid": "3860366",
+    "reviewScore": 4.2,
+    "reviewCount": 233,
+    "deepLink": "mrt://experiences/detail/3860366",
+    "source": "myrealtrip-tna"
+  }
+]
