@@ -31,6 +31,7 @@ const files = [
   "package.json",
   "README.md",
   "_headers",
+  "_redirects",
   "robots.txt",
   "sitemap.xml",
   "feed.xml",
