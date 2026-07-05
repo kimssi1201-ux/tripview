@@ -267,7 +267,7 @@ function productMeta(product) {
 function productCard(product) {
   const image = product.image ? `<span class="booking-thumb"><img src="${esc(product.image)}" alt="${esc(product.title)}" loading="lazy"></span>` : "";
   const className = `check-card product-card${image ? "" : " no-thumb"}`;
-  return `<a class="${className}" href="${esc(product.url)}" target="_blank" rel="sponsored noopener">
+  return `<a class="${className}" href="${esc(product.url)}" rel="sponsored noopener">
     ${image}
     <strong>${esc(product.title)}</strong>
     <span>${esc(productMeta(product) || "\uC5EC\uD589 \uC804 \uC608\uC57D \uC815\uBCF4")}</span>
