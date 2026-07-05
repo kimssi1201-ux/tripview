@@ -7,7 +7,6 @@ on:
       - ".github/workflows/backfill-tour-api-details.yml"
       - "scripts/backfill-tour-api-details.mjs"
       - "scripts/polish-contextual-copy.mjs"
-      - "scripts/daily-tour-posts.mjs"
   workflow_dispatch:
     inputs:
       limit:

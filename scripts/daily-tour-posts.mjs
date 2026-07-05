@@ -446,9 +446,8 @@ async function fetchCandidates(today) {
     byId.add(String(item.contentid));
     bucket.items.push({ ...item, category: bucket.category, contentTypeId: bucket.contentTypeId });
   };
-  const totalCandidates = () => buckets.reduce((sum, bucket) => sum + bucket.items.length, 0);
-
   const targetPool = Math.max(POST_LIMIT * 8, 240);
+  const bucketTarget = Math.max(POST_LIMIT * 3, 30);
   const festivalBucket = buckets.find((bucket) => bucket.contentTypeId === '15');
   for (const pageNo of ['1', '2', '3', '4', '5']) {
     const festivals = await tourGet('searchFestival2', {
@@ -459,21 +458,18 @@ async function fetchCandidates(today) {
       pageNo
     });
     for (const item of festivals) addToBucket(festivalBucket, item);
-    if (totalCandidates() >= targetPool) break;
+    if (festivalBucket.items.length >= bucketTarget) break;
   }
 
-  if (totalCandidates() < targetPool) {
-    const contentPools = buckets.filter((bucket) => bucket.contentTypeId !== '15');
+  const contentPools = buckets.filter((bucket) => bucket.contentTypeId !== '15');
+  for (const pool of contentPools) {
     for (const arrange of ['Q', 'R', 'D', 'P']) {
-      for (const pool of contentPools) {
         for (const pageNo of ['1', '2', '3', '4', '5']) {
           const items = await tourGet('areaBasedList2', { contentTypeId: pool.contentTypeId, arrange, numOfRows: '100', pageNo });
           for (const item of items) addToBucket(pool, item);
-          if (totalCandidates() >= targetPool) break;
+          if (pool.items.length >= bucketTarget) break;
         }
-        if (totalCandidates() >= targetPool) break;
-      }
-      if (totalCandidates() >= targetPool) break;
+        if (pool.items.length >= bucketTarget) break;
     }
   }
 
