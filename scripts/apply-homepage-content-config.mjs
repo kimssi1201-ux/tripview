@@ -41,6 +41,8 @@ const TEXT = {
   navAll: "\uC804\uCCB4",
   navTravel: "\uAC00\uBCFC\uB9CC\uD55C \uACF3",
   navFestival: "\uC9C0\uC5ED\uCD95\uC81C \uC815\uBCF4",
+  regionTravel: "\uC9C0\uAE08 \uAC00\uBCFC\uB9CC\uD55C \uACF3",
+  regionFestival: "7~8\uC6D4 \uCD95\uC81C\uC815\uBCF4",
   feedAll: "\uC804\uCCB4 \uAE00",
   feedShowing: "\uBCF4\uAE30",
   feedSelected: "\uC120\uD0DD\uB428",
@@ -57,6 +59,20 @@ const esc = (value = "") =>
   }[match]));
 
 const normalize = (value = "") => String(value).trim();
+const CURRENT_TRAVEL_KEYWORDS = [
+  "\uC218\uC601\uC7A5",
+  "\uACC4\uACE1",
+  "\uD574\uC218\uC695\uC7A5",
+  "\uD574\uBCC0",
+  "\uBC14\uB2E4",
+  "\uBB3C\uB180\uC774",
+  "\uC6CC\uD130\uD30C\uD06C",
+  "\uD3ED\uD3EC",
+  "\uC218\uBCC0",
+  "\uAC15",
+  "\uD638\uC218",
+  "\uC5EC\uB984",
+];
 const hrefOf = (post) => (post?.slug ? `/${post.slug}/` : "#");
 const imageOf = (post) => post?.image || post?.images?.[0] || "";
 const titleOf = (post) => normalize(post?.sourceTitle || post?.title || TEXT.articleFallback);
@@ -214,6 +230,21 @@ function searchableText(post) {
   ].filter(Boolean).join(" ");
 }
 
+function currentKeywordScore(post) {
+  const text = searchableText(post);
+  return CURRENT_TRAVEL_KEYWORDS.reduce((score, keyword) => (
+    text.includes(keyword) ? score + 1 : score
+  ), 0);
+}
+
+function sortCurrentPlaces(posts) {
+  return [...posts].sort((a, b) => {
+    const scoreDiff = currentKeywordScore(b) - currentKeywordScore(a);
+    if (scoreDiff) return scoreDiff;
+    return String(b.sortDate || "").localeCompare(String(a.sortDate || ""));
+  });
+}
+
 function newsSection({ id, title, posts }) {
   const items = uniquePosts(posts).slice(0, 10);
   if (!items.length) return "";
@@ -226,6 +257,28 @@ function newsSection({ id, title, posts }) {
     <div class="pick-grid">${picks.map(pickCard).join("")}</div>
     <div class="news-list">${list.map(listItem).join("")}</div>
   </section>`;
+}
+
+function regionGroup(title, posts) {
+  const items = uniquePosts(posts).slice(0, 5);
+  if (!items.length) return "";
+  return `<div class="region-group">
+    <h3>${esc(title)}</h3>
+    <div class="news-list region-news-list">${items.map(listItem).join("")}</div>
+  </div>`;
+}
+
+function regionSection({ id, title, places = [], festivals = [] }) {
+  if (!places.length && !festivals.length) return "";
+  return `<section class="news-section region-section" id="${esc(id)}" aria-labelledby="${esc(id)}-title" data-headline="${esc(title)}">
+    <h2 id="${esc(id)}-title">${esc(title)}</h2>
+    ${regionGroup(TEXT.regionTravel, places)}
+    ${regionGroup(TEXT.regionFestival, festivals)}
+  </section>`;
+}
+
+function renderSection(section) {
+  return section.type === "region" ? regionSection(section) : newsSection(section);
 }
 
 function buildSections(posts) {
@@ -246,13 +299,18 @@ function buildSections(posts) {
   const regionSections = REGIONS.map((region) => ({
     id: region.id,
     title: region.title,
-    posts: takePosts(byRegion(region.title)),
+    type: "region",
+    places: takePosts(sortCurrentPlaces(byRegion(region.title).filter((post) => !isFestival(post))), 5),
+    festivals: takePosts(byRegion(region.title).filter(isFestival), 5),
   }));
 
   return [
     { id: "travel", title: TEXT.navTravel, posts: fillSection(posts, domestic) },
     { id: "festival", title: TEXT.navFestival, posts: takePosts(festivals) },
-    ...regionSections,
+    ...regionSections.map((section) => ({
+      ...section,
+      posts: [...section.places, ...section.festivals],
+    })),
   ];
 }
 
@@ -294,7 +352,7 @@ function html(posts) {
     <link rel="alternate" type="application/rss+xml" title="${esc(TEXT.rssTitle)}" href="https://tripview.kr/rss.xml">
     <title>${esc(TEXT.ogTitle)}</title>
     <style>
-      :root{--ink:#111;--muted:#777;--line:#e2e2e2;--paper:#fff;--soft:#f5f5f5}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:128px}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;letter-spacing:0;line-height:1.45}a{color:inherit;text-decoration:none}img{display:block;width:100%;height:100%;object-fit:cover;background:var(--soft)}.site-header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}.header-inner{max-width:720px;margin:0 auto;padding:15px 16px 10px}.brand{display:block;margin-bottom:12px;font-size:28px;font-weight:900;line-height:1}.nav-scroll{display:flex;gap:18px;overflow-x:auto;padding-bottom:4px;white-space:nowrap;font-size:15px;font-weight:800}.nav-scroll a{display:block;padding:2px 0;border-bottom:2px solid transparent}.nav-scroll a.is-active{border-bottom-color:#111}.topic-tabs{display:flex;gap:8px;margin-top:10px;overflow-x:auto;white-space:nowrap}.topic-tabs a{display:block;border:1px solid var(--line);border-radius:999px;padding:6px 11px;font-size:13px;font-weight:800}.topic-tabs a.is-active{background:#111;color:#fff;border-color:#111}.nav-scroll::-webkit-scrollbar,.topic-tabs::-webkit-scrollbar,.pick-grid::-webkit-scrollbar{display:none}.page{max-width:720px;margin:0 auto;padding:10px 16px 40px}.top-line{display:flex;align-items:center;justify-content:space-between;padding:10px 0 18px;color:var(--muted);font-size:13px;border-bottom:1px solid var(--line)}.top-line b{color:var(--ink)}.news-section{padding:28px 0 34px;border-bottom:8px solid #f2f2f2;scroll-margin-top:128px}.news-section.is-hidden{display:none}.news-section h2{margin:0 0 16px;font-size:31px;line-height:1.05;font-weight:900;letter-spacing:-.01em}.news-lead{display:block}.lead-thumb{display:block;width:100%;aspect-ratio:1.78/1;overflow:hidden;background:var(--soft)}.news-lead strong{display:block;margin-top:12px;font-size:24px;line-height:1.22;font-weight:900}.news-lead span{display:block;margin-top:7px;color:var(--muted);font-size:13px}.pick-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:20px}.pick-card{min-width:0}.pick-thumb{display:block;aspect-ratio:1.2/1;overflow:hidden;background:var(--soft)}.pick-card strong{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:7px;font-size:13px;line-height:1.34;font-weight:800}.news-list{margin-top:22px;border-top:1px solid var(--line)}.news-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}.row-thumb{display:block;aspect-ratio:1.28/1;overflow:hidden;background:var(--soft)}.news-row strong{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:17px;line-height:1.35;font-weight:900}.news-row em{display:block;margin-top:5px;color:var(--muted);font-size:12px;font-style:normal}.no-image{background:linear-gradient(135deg,#f1f1f1,#dedede)}.site-footer{max-width:720px;margin:0 auto;padding:28px 16px 44px;color:var(--muted);font-size:13px}.site-footer strong{display:block;color:var(--ink);font-size:20px;margin-bottom:6px}@media(min-width:760px){.header-inner,.page,.site-footer{max-width:1040px}.page{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 36px}.top-line{grid-column:1/-1}.news-section{border-bottom:1px solid var(--line)}.news-section h2{font-size:34px}}@media(max-width:360px){.news-section h2{font-size:28px}.news-lead strong{font-size:21px}.news-row{grid-template-columns:82px minmax(0,1fr)}.pick-grid{gap:7px}.pick-card strong{font-size:12px}}
+      :root{--ink:#111;--muted:#777;--line:#e2e2e2;--paper:#fff;--soft:#f5f5f5}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:128px}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;letter-spacing:0;line-height:1.45}a{color:inherit;text-decoration:none}img{display:block;width:100%;height:100%;object-fit:cover;background:var(--soft)}.site-header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}.header-inner{max-width:720px;margin:0 auto;padding:15px 16px 10px}.brand{display:block;margin-bottom:12px;font-size:28px;font-weight:900;line-height:1}.nav-scroll{display:flex;gap:18px;overflow-x:auto;padding-bottom:4px;white-space:nowrap;font-size:15px;font-weight:800}.nav-scroll a{display:block;padding:2px 0;border-bottom:2px solid transparent}.nav-scroll a.is-active{border-bottom-color:#111}.topic-tabs{display:flex;gap:8px;margin-top:10px;overflow-x:auto;white-space:nowrap}.topic-tabs a{display:block;border:1px solid var(--line);border-radius:999px;padding:6px 11px;font-size:13px;font-weight:800}.topic-tabs a.is-active{background:#111;color:#fff;border-color:#111}.nav-scroll::-webkit-scrollbar,.topic-tabs::-webkit-scrollbar,.pick-grid::-webkit-scrollbar{display:none}.page{max-width:720px;margin:0 auto;padding:10px 16px 40px}.top-line{display:flex;align-items:center;justify-content:space-between;padding:10px 0 18px;color:var(--muted);font-size:13px;border-bottom:1px solid var(--line)}.top-line b{color:var(--ink)}.news-section{padding:28px 0 34px;border-bottom:8px solid #f2f2f2;scroll-margin-top:128px}.news-section.is-hidden{display:none}.news-section h2{margin:0 0 16px;font-size:31px;line-height:1.05;font-weight:900;letter-spacing:-.01em}.news-lead{display:block}.lead-thumb{display:block;width:100%;aspect-ratio:1.78/1;overflow:hidden;background:var(--soft)}.news-lead strong{display:block;margin-top:12px;font-size:24px;line-height:1.22;font-weight:900}.news-lead span{display:block;margin-top:7px;color:var(--muted);font-size:13px}.pick-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:20px}.pick-card{min-width:0}.pick-thumb{display:block;aspect-ratio:1.2/1;overflow:hidden;background:var(--soft)}.pick-card strong{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:7px;font-size:13px;line-height:1.34;font-weight:800}.region-group{margin-top:18px}.region-group+ .region-group{margin-top:28px}.region-group h3{margin:0 0 8px;padding-bottom:8px;border-bottom:2px solid #111;font-size:18px;line-height:1.2;font-weight:900}.news-list{margin-top:22px;border-top:1px solid var(--line)}.region-news-list{margin-top:0;border-top:0}.news-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}.row-thumb{display:block;aspect-ratio:1.28/1;overflow:hidden;background:var(--soft)}.news-row strong{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:17px;line-height:1.35;font-weight:900}.news-row em{display:block;margin-top:5px;color:var(--muted);font-size:12px;font-style:normal}.no-image{background:linear-gradient(135deg,#f1f1f1,#dedede)}.site-footer{max-width:720px;margin:0 auto;padding:28px 16px 44px;color:var(--muted);font-size:13px}.site-footer strong{display:block;color:var(--ink);font-size:20px;margin-bottom:6px}@media(min-width:760px){.header-inner,.page,.site-footer{max-width:1040px}.page{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 36px}.top-line{grid-column:1/-1}.news-section{border-bottom:1px solid var(--line)}.news-section h2{font-size:34px}}@media(max-width:360px){.news-section h2{font-size:28px}.news-lead strong{font-size:21px}.news-row{grid-template-columns:82px minmax(0,1fr)}.pick-grid{gap:7px}.pick-card strong{font-size:12px}}
     </style>
   </head>
   <body>
@@ -307,7 +365,7 @@ function html(posts) {
     </header>
     <main class="page">
       <div class="top-line"><span data-feed-label>${esc(defaultHeadline)}</span><span>${esc(new Date().toISOString().slice(0, 10))}</span></div>
-      ${sections.map(newsSection).join("\n")}
+      ${sections.map(renderSection).join("\n")}
     </main>
     <footer class="site-footer">
       <strong>${esc(BRAND)}</strong>
