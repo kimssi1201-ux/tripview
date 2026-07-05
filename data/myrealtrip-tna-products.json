@@ -116,17 +116,17 @@
     "source": "myrealtrip-tna"
   },
   {
-    "id": "tna-5809066",
+    "id": "tna-5542827",
     "type": "tna",
-    "title": "[즉시확정] JR 하루카 공항 특급열차 편도 티켓 (실물 티켓 교환| 간사이 공항 ↔ 오사카, 신오사카, 교토, 나라, 고베, 텐노지 역 사이 구간)",
-    "url": "https://experiences.myrealtrip.com/products/5809066",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/06/16/BkU3/Qtcau64FGv.jpg",
-    "price": 10078,
-    "priceText": "10,078원부터",
+    "title": "시가 히에이산 엔랴쿠지 입장권",
+    "url": "https://experiences.myrealtrip.com/products/5542827",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/12/11/9Mvy/zDuY9Zct8Y.jpg",
+    "price": 10003,
+    "priceText": "10,003원부터",
     "region": "오사카",
     "city": "오사카",
-    "category": "이동·교통",
-    "description": "오사카 ∙ 이동·교통 · 평점 3.8(48개) · 즉시 확정",
+    "category": "티켓·입장권",
+    "description": "오사카 ∙ 티켓·입장권 · 즉시 확정",
     "tags": [
       "투어티켓",
       "액티비티",
@@ -138,10 +138,10 @@
       "booking",
       "transport"
     ],
-    "gid": "5809066",
-    "reviewScore": 3.8,
-    "reviewCount": 48,
-    "deepLink": "mrt://experiences/detail/5809066",
+    "gid": "5542827",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/5542827",
     "source": "myrealtrip-tna"
   },
   {

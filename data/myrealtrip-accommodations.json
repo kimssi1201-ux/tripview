@@ -5,8 +5,8 @@
     "title": "서울 숙소 토요코인 서울영등포",
     "url": "https://accommodation.myrealtrip.com/union/products/1485138?checkIn=2026-07-19&checkOut=2026-07-21&adultCount=2&childCount=0&childAges=",
     "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/05/11/JCvE/zULsJLFNww.jpg?width=720",
-    "price": 115622,
-    "priceText": "115,622원부터",
+    "price": 123684,
+    "priceText": "123,684원부터",
     "region": "서울",
     "city": "서울",
     "category": "숙소 예약",
@@ -27,8 +27,40 @@
     "starRating": 3,
     "reviewScore": "4.5",
     "reviewCount": 1757,
-    "originalPrice": 115622,
+    "originalPrice": 123684,
     "deepLink": "mrt://unionstay/detail/1485138?checkIn=2026-07-19&checkOut=2026-07-21&adultCount=2&childCount=0&childAges=",
+    "source": "myrealtrip-accommodation"
+  },
+  {
+    "id": "accommodation-2775388",
+    "type": "accommodation",
+    "title": "서울 숙소 서울올림픽파크텔",
+    "url": "https://accommodation.myrealtrip.com/union/products/2775388?checkIn=2026-07-19&checkOut=2026-07-21&adultCount=2&childCount=0&childAges=",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/01/04/1jQz/O9P20D856v.jpg?width=720",
+    "price": 159500,
+    "priceText": "159,500원부터",
+    "region": "서울",
+    "city": "서울",
+    "category": "숙소 예약",
+    "description": "2026년 7월 19일 체크인 · 2박 · 4성급 · 평점 4.8(4개)",
+    "tags": [
+      "숙소",
+      "호텔",
+      "예약",
+      "서울"
+    ],
+    "intents": [
+      "booking"
+    ],
+    "checkIn": "2026-07-19",
+    "checkOut": "2026-07-21",
+    "adultCount": 2,
+    "childCount": 0,
+    "starRating": 4,
+    "reviewScore": "4.8",
+    "reviewCount": 4,
+    "originalPrice": 159500,
+    "deepLink": "mrt://unionstay/detail/2775388?checkIn=2026-07-19&checkOut=2026-07-21&adultCount=2&childCount=0&childAges=",
     "source": "myrealtrip-accommodation"
   },
   {
@@ -42,7 +74,7 @@
     "region": "서울",
     "city": "서울",
     "category": "숙소 예약",
-    "description": "2026년 7월 19일 체크인 · 2박 · 4성급 · 평점 4.2(1,035개)",
+    "description": "2026년 7월 19일 체크인 · 2박 · 4성급 · 평점 4.2(1,036개)",
     "tags": [
       "숙소",
       "호텔",
@@ -58,7 +90,7 @@
     "childCount": 0,
     "starRating": 4,
     "reviewScore": "4.2",
-    "reviewCount": 1035,
+    "reviewCount": 1036,
     "originalPrice": 175719,
     "deepLink": "mrt://unionstay/detail/1142308?checkIn=2026-07-19&checkOut=2026-07-21&adultCount=2&childCount=0&childAges=",
     "source": "myrealtrip-accommodation"
@@ -106,7 +138,7 @@
     "region": "서울",
     "city": "서울",
     "category": "숙소 예약",
-    "description": "2026년 7월 19일 체크인 · 2박 · 4성급 · 평점 4.6(2,069개)",
+    "description": "2026년 7월 19일 체크인 · 2박 · 4성급 · 평점 4.6(2,072개)",
     "tags": [
       "숙소",
       "호텔",
@@ -122,7 +154,7 @@
     "childCount": 0,
     "starRating": 4,
     "reviewScore": "4.6",
-    "reviewCount": 2069,
+    "reviewCount": 2072,
     "originalPrice": 214494,
     "deepLink": "mrt://unionstay/detail/1194221?checkIn=2026-07-19&checkOut=2026-07-21&adultCount=2&childCount=0&childAges=",
     "source": "myrealtrip-accommodation"
@@ -133,8 +165,8 @@
     "title": "서울 숙소 스위스 그랜드 호텔",
     "url": "https://accommodation.myrealtrip.com/union/products/1134667?checkIn=2026-07-19&checkOut=2026-07-21&adultCount=2&childCount=0&childAges=",
     "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/05/26/XVOB/pM4KIVlXDR.jpg?width=720",
-    "price": 228916,
-    "priceText": "228,916원부터",
+    "price": 228847,
+    "priceText": "228,847원부터",
     "region": "서울",
     "city": "서울",
     "category": "숙소 예약",
@@ -155,7 +187,7 @@
     "starRating": 5,
     "reviewScore": "4.1",
     "reviewCount": 883,
-    "originalPrice": 228916,
+    "originalPrice": 228847,
     "deepLink": "mrt://unionstay/detail/1134667?checkIn=2026-07-19&checkOut=2026-07-21&adultCount=2&childCount=0&childAges=",
     "source": "myrealtrip-accommodation"
   },
@@ -202,7 +234,7 @@
     "region": "서울",
     "city": "서울",
     "category": "숙소 예약",
-    "description": "2026년 7월 19일 체크인 · 2박 · 4성급 · 평점 4.4(1,411개)",
+    "description": "2026년 7월 19일 체크인 · 2박 · 4성급 · 평점 4.4(1,414개)",
     "tags": [
       "숙소",
       "호텔",
@@ -218,41 +250,9 @@
     "childCount": 0,
     "starRating": 4,
     "reviewScore": "4.4",
-    "reviewCount": 1411,
+    "reviewCount": 1414,
     "originalPrice": 298215,
     "deepLink": "mrt://unionstay/detail/1105545?checkIn=2026-07-19&checkOut=2026-07-21&adultCount=2&childCount=0&childAges=",
-    "source": "myrealtrip-accommodation"
-  },
-  {
-    "id": "accommodation-5011075",
-    "type": "accommodation",
-    "title": "서울 숙소 노보텔 스위트 앰배서더 서울 용산",
-    "url": "https://accommodation.myrealtrip.com/union/products/5011075?checkIn=2026-07-19&checkOut=2026-07-21&adultCount=2&childCount=0&childAges=",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/12/31/FBiK/wWLlVl3dpi.jpg?width=720",
-    "price": 299260,
-    "priceText": "299,260원부터",
-    "region": "서울",
-    "city": "서울",
-    "category": "숙소 예약",
-    "description": "2026년 7월 19일 체크인 · 2박 · 5성급 · 평점 4.5(1,144개)",
-    "tags": [
-      "숙소",
-      "호텔",
-      "예약",
-      "서울"
-    ],
-    "intents": [
-      "booking"
-    ],
-    "checkIn": "2026-07-19",
-    "checkOut": "2026-07-21",
-    "adultCount": 2,
-    "childCount": 0,
-    "starRating": 5,
-    "reviewScore": "4.5",
-    "reviewCount": 1144,
-    "originalPrice": 299260,
-    "deepLink": "mrt://unionstay/detail/5011075?checkIn=2026-07-19&checkOut=2026-07-21&adultCount=2&childCount=0&childAges=",
     "source": "myrealtrip-accommodation"
   }
 ]
