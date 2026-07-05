@@ -10,7 +10,7 @@
     "region": "서울",
     "city": "서울",
     "category": "숙소 예약",
-    "description": "2026년 7월 19일 체크인 · 2박 · 3성급 · 평점 4.5(1,757개)",
+    "description": "2026년 7월 19일 체크인 · 2박 · 3성급 · 평점 4.5(1,759개)",
     "tags": [
       "숙소",
       "호텔",
@@ -26,7 +26,7 @@
     "childCount": 0,
     "starRating": 3,
     "reviewScore": "4.5",
-    "reviewCount": 1757,
+    "reviewCount": 1759,
     "originalPrice": 114870,
     "deepLink": "mrt://unionstay/detail/1485138?checkIn=2026-07-19&checkOut=2026-07-21&adultCount=2&childCount=0&childAges=",
     "source": "myrealtrip-accommodation"
@@ -165,8 +165,8 @@
     "title": "서울 숙소 스위스 그랜드 호텔",
     "url": "https://accommodation.myrealtrip.com/union/products/1134667?checkIn=2026-07-19&checkOut=2026-07-21&adultCount=2&childCount=0&childAges=",
     "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/05/26/XVOB/pM4KIVlXDR.jpg?width=720",
-    "price": 228847,
-    "priceText": "228,847원부터",
+    "price": 228916,
+    "priceText": "228,916원부터",
     "region": "서울",
     "city": "서울",
     "category": "숙소 예약",
@@ -187,7 +187,7 @@
     "starRating": 5,
     "reviewScore": "4.1",
     "reviewCount": 883,
-    "originalPrice": 228847,
+    "originalPrice": 228916,
     "deepLink": "mrt://unionstay/detail/1134667?checkIn=2026-07-19&checkOut=2026-07-21&adultCount=2&childCount=0&childAges=",
     "source": "myrealtrip-accommodation"
   },
@@ -229,8 +229,8 @@
     "title": "서울 숙소 코리아나 호텔",
     "url": "https://accommodation.myrealtrip.com/union/products/1105545?checkIn=2026-07-19&checkOut=2026-07-21&adultCount=2&childCount=0&childAges=",
     "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/06/25/idIh/4SB02Wpviv.jpg?width=720",
-    "price": 298215,
-    "priceText": "298,215원부터",
+    "price": 303397,
+    "priceText": "303,397원부터",
     "region": "서울",
     "city": "서울",
     "category": "숙소 예약",
@@ -251,7 +251,7 @@
     "starRating": 4,
     "reviewScore": "4.4",
     "reviewCount": 1414,
-    "originalPrice": 298215,
+    "originalPrice": 303397,
     "deepLink": "mrt://unionstay/detail/1105545?checkIn=2026-07-19&checkOut=2026-07-21&adultCount=2&childCount=0&childAges=",
     "source": "myrealtrip-accommodation"
   }
