@@ -11,7 +11,7 @@ function json(data, status = 200) {
   });
 }
 
-function getApiKey(env) {
+function getApiKey(env = {}) {
   return env.MYREALTRIP_API_KEY || env.PARTNER_API_KEY || env.MYREALTRIP_PARTNER_API_KEY || "";
 }
 
@@ -202,9 +202,9 @@ export async function onRequestGet(context) {
   try {
     const url = new URL(context.request.url);
     const type = text(url.searchParams.get("type"));
-    if (type === "accommodation") return searchAccommodation(context.request, context.env);
-    if (type === "tna") return searchTna(context.request, context.env);
-    if (type === "flight") return searchFlight(context.request, context.env);
+    if (type === "accommodation") return await searchAccommodation(context.request, context.env);
+    if (type === "tna") return await searchTna(context.request, context.env);
+    if (type === "flight") return await searchFlight(context.request, context.env);
     return json({ ok: false, message: "지원하지 않는 검색 유형입니다." }, 400);
   } catch (error) {
     return json({ ok: false, message: error.message || "검색 중 오류가 발생했습니다." }, 500);
