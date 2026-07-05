@@ -60,9 +60,74 @@ const normalize = (value = "") => String(value).trim();
 const hrefOf = (post) => (post?.slug ? `/${post.slug}/` : "#");
 const imageOf = (post) => post?.image || post?.images?.[0] || "";
 const titleOf = (post) => normalize(post?.sourceTitle || post?.title || TEXT.articleFallback);
-const dateOf = (post) => normalize(post?.date || post?.sortDate || "");
 const categoryOf = (post) => normalize(post?.category || TEXT.infoFallback);
 const regionOf = (post) => normalize(post?.region || "");
+const isFestival = (post) => categoryOf(post) === CAT_FESTIVAL;
+
+function infoValue(post, label) {
+  const rows = Array.isArray(post?.info) ? post.info : [];
+  const found = rows.find((row) => Array.isArray(row) && normalize(row[0]) === label);
+  return normalize(found?.[1] || "");
+}
+
+function isoDate(year, month, day) {
+  return `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+}
+
+function extractScheduleDates(value = "") {
+  const text = normalize(value);
+  const dates = [];
+  for (const match of text.matchAll(/(\d{4})\D+(\d{1,2})\D+(\d{1,2})/g)) {
+    dates.push(isoDate(match[1], match[2], match[3]));
+  }
+  if (dates.length) return dates;
+
+  const compact = [...text.matchAll(/(\d{4})(\d{2})(\d{2})/g)].map((match) => isoDate(match[1], match[2], match[3]));
+  if (compact.length) return compact;
+
+  return [];
+}
+
+function festivalSchedule(post) {
+  const intro = post?.tourApi?.intro || {};
+  const period = infoValue(post, "\uAE30\uAC04");
+  const introStart = normalize(intro.eventstartdate || "");
+  const introEnd = normalize(intro.eventenddate || "");
+  const dates = extractScheduleDates(period || `${introStart} ${introEnd}`);
+  const start = dates[0] || "";
+  const end = dates[1] || dates[0] || "";
+  return { start, end, label: period || [start, end].filter(Boolean).join("~") };
+}
+
+function formatIsoDate(value = "") {
+  const match = String(value).match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!match) return normalize(value);
+  return `${match[1]}\uB144 ${Number(match[2])}\uC6D4 ${Number(match[3])}\uC77C`;
+}
+
+function festivalDateLabel(post) {
+  const schedule = festivalSchedule(post);
+  if (schedule.label) return schedule.label;
+  if (schedule.start && schedule.end && schedule.start !== schedule.end) return `${formatIsoDate(schedule.start)}~${formatIsoDate(schedule.end)}`;
+  return formatIsoDate(schedule.start);
+}
+
+function dateOf(post) {
+  if (isFestival(post)) return festivalDateLabel(post) || normalize(post?.date || post?.sortDate || "");
+  return normalize(post?.date || post?.sortDate || "");
+}
+
+function festivalInJulyAugust(post) {
+  if (!isFestival(post)) return false;
+  const { start, end } = festivalSchedule(post);
+  if (!start) return false;
+  const month = Number(start.slice(5, 7));
+  return month === 7 || month === 8;
+}
+
+function festivalStart(post) {
+  return festivalSchedule(post).start || post?.sortDate || "";
+}
 
 function compactRegion(value = "") {
   const text = normalize(value).replace(/\([^)]*\)/g, "");
@@ -165,8 +230,19 @@ function newsSection({ id, title, posts }) {
 
 function buildSections(posts) {
   const domestic = posts.filter((post) => categoryOf(post) === CAT_DOMESTIC);
-  const festivals = posts.filter((post) => categoryOf(post) === CAT_FESTIVAL);
-  const byRegion = (region) => posts.filter((post) => compactRegion(regionOf(post)) === region);
+  const festivals = posts
+    .filter(festivalInJulyAugust)
+    .sort((a, b) => festivalStart(a).localeCompare(festivalStart(b)));
+  const visiblePost = (post) => !isFestival(post) || festivalInJulyAugust(post);
+  const byRegion = (region) => posts
+    .filter((post) => compactRegion(regionOf(post)) === region)
+    .filter(visiblePost)
+    .sort((a, b) => {
+      if (isFestival(a) && isFestival(b)) return festivalStart(a).localeCompare(festivalStart(b));
+      if (isFestival(a)) return -1;
+      if (isFestival(b)) return 1;
+      return String(b.sortDate || "").localeCompare(String(a.sortDate || ""));
+    });
   const regionSections = REGIONS.map((region) => ({
     id: region.id,
     title: region.title,
@@ -175,7 +251,7 @@ function buildSections(posts) {
 
   return [
     { id: "travel", title: TEXT.navTravel, posts: fillSection(posts, domestic) },
-    { id: "festival", title: TEXT.navFestival, posts: fillSection(posts, festivals) },
+    { id: "festival", title: TEXT.navFestival, posts: takePosts(festivals) },
     ...regionSections,
   ];
 }
