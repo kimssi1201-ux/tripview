@@ -1,158 +1,16 @@
 [
   {
-    "id": "tna-3443071",
+    "id": "tna-4146327",
     "type": "tna",
-    "title": "일본 이심 eSIM 도쿄 후쿠오카 소프트뱅크 매일 500MB 무제한 1일 유심사 알림톡",
-    "url": "https://experiences.myrealtrip.com/products/3443071",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/08/04/UBDG/ESEVPTGioK.jpg",
-    "price": 300,
-    "priceText": "300원부터",
-    "region": "도쿄",
-    "city": "도쿄",
-    "category": "유심·와이파이",
-    "description": "도쿄 ∙ 유심·와이파이 · 평점 4.5(763개) · 무료취소 · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "도쿄",
-      "무료취소",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking"
-    ],
-    "gid": "3443071",
-    "reviewScore": 4.5,
-    "reviewCount": 763,
-    "deepLink": "mrt://experiences/detail/3443071",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-4818059",
-    "type": "tna",
-    "title": "일본 eSIM 이심 전지역 데이터 무제한 매일 500MB~5GB / 완전 무제한 선택",
-    "url": "https://experiences.myrealtrip.com/products/4818059",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/04/13/IuYc/9KEzOh384Y.jpg",
-    "price": 400,
-    "priceText": "400원부터",
+    "title": "가족끼리 떠나는  오사카  밴 투어.",
+    "url": "https://experiences.myrealtrip.com/products/4146327",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/12/30/Z5Kd/Z0n9QeOOww.jpg",
+    "price": 10000,
+    "priceText": "10,000원부터",
     "region": "오사카",
     "city": "오사카",
-    "category": "유심·와이파이",
-    "description": "오사카 ∙ 유심·와이파이 · 평점 4.4(11개) · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "오사카",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking"
-    ],
-    "gid": "4818059",
-    "reviewScore": 4.4,
-    "reviewCount": 11,
-    "deepLink": "mrt://experiences/detail/4818059",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-4701855",
-    "type": "tna",
-    "title": "일본 이심 eSIM 소프트뱅크 Softbank 로컬망 데이터 데일리 무제한 이심통",
-    "url": "https://experiences.myrealtrip.com/products/4701855",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/07/08/APVb/tqyzdMlSsE.jpeg",
-    "price": 800,
-    "priceText": "800원부터",
-    "region": "오사카",
-    "city": "오사카",
-    "category": "유심·와이파이",
-    "description": "오사카 ∙ 유심·와이파이 · 무료취소 · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "오사카",
-      "무료취소",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking"
-    ],
-    "gid": "4701855",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/4701855",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-3443074",
-    "type": "tna",
-    "title": "일본 로컬 이심 eSIM 오사카 후쿠오카 매일 500MB 저속무제한 1일 유심사 알림톡",
-    "url": "https://experiences.myrealtrip.com/products/3443074",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/02/11/rq6V/8dhrgJ36R4.jpg",
-    "price": 900,
-    "priceText": "900원부터",
-    "region": "도쿄",
-    "city": "도쿄",
-    "category": "유심·와이파이",
-    "description": "도쿄 ∙ 유심·와이파이 · 평점 4.2(26개) · 무료취소 · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "도쿄",
-      "무료취소",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking"
-    ],
-    "gid": "3443074",
-    "reviewScore": 4.2,
-    "reviewCount": 26,
-    "deepLink": "mrt://experiences/detail/3443074",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-5708119",
-    "type": "tna",
-    "title": "일본이심 데이터 무제한 KDDI 소프트뱅크 듀얼망 도시락eSIM 오사카 도쿄 후쿠오카",
-    "url": "https://experiences.myrealtrip.com/products/5708119",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/02/05/JLpG/n08is0Zpof.jpg",
-    "price": 900,
-    "priceText": "900원부터",
-    "region": "도쿄",
-    "city": "도쿄",
-    "category": "유심·와이파이",
-    "description": "도쿄 ∙ 유심·와이파이",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "도쿄"
-    ],
-    "intents": [
-      "booking"
-    ],
-    "gid": "5708119",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/5708119",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-3860404",
-    "type": "tna",
-    "title": "[일본 eSIM] 일본 전지역 1~30일 무제한 데이터 일본이심",
-    "url": "https://experiences.myrealtrip.com/products/3860404",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/18/SDo2/jLAwE0K5WW.jpg",
-    "price": 990,
-    "priceText": "990원부터",
-    "region": "오사카",
-    "city": "오사카",
-    "category": "유심·와이파이",
-    "description": "오사카 ∙ 유심·와이파이 · 평점 3.5(13개)",
+    "category": "시내투어",
+    "description": "오사카 ∙ 시내투어 · 평점 5(2개)",
     "tags": [
       "투어티켓",
       "액티비티",
@@ -160,69 +18,217 @@
       "오사카"
     ],
     "intents": [
-      "booking"
+      "booking",
+      "tour",
+      "family"
     ],
-    "gid": "3860404",
-    "reviewScore": 3.5,
-    "reviewCount": 13,
-    "deepLink": "mrt://experiences/detail/3860404",
+    "gid": "4146327",
+    "reviewScore": 5,
+    "reviewCount": 2,
+    "deepLink": "mrt://experiences/detail/4146327",
     "source": "myrealtrip-tna"
   },
   {
-    "id": "tna-6117152",
+    "id": "tna-3887891",
     "type": "tna",
-    "title": "[부산-오사카]팬스타크루즈 미라클호 승선권",
-    "url": "https://experiences.myrealtrip.com/products/6117152",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/06/12/mpY3/LnZIRZzF3f.jpg",
-    "price": 1000,
-    "priceText": "1,000원부터",
+    "title": "[단독차량] 픽업/샌딩 간사이 공항 ↔ 오사카 시내 숙소 이동 서비스 정식등록업체",
+    "url": "https://experiences.myrealtrip.com/products/3887891",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/12/17/UclA/malIif2IX2.jpg",
+    "price": 10000,
+    "priceText": "10,000원부터",
     "region": "오사카",
     "city": "오사카",
-    "category": "입장권",
-    "description": "오사카 ∙ 입장권 · 평점 4.7(23개) · 최저가보장제 · 즉시 확정",
+    "category": "이동·교통",
+    "description": "오사카 ∙ 이동·교통 · 평점 5(43개) · 즉시 확정",
     "tags": [
       "투어티켓",
       "액티비티",
       "예약",
       "오사카",
-      "최저가보장제",
       "즉시 확정"
     ],
     "intents": [
       "booking",
       "transport"
     ],
-    "gid": "6117152",
-    "reviewScore": 4.7,
-    "reviewCount": 23,
-    "deepLink": "mrt://experiences/detail/6117152",
+    "gid": "3887891",
+    "reviewScore": 5,
+    "reviewCount": 43,
+    "deepLink": "mrt://experiences/detail/3887891",
     "source": "myrealtrip-tna"
   },
   {
-    "id": "tna-3860366",
+    "id": "tna-3831771",
     "type": "tna",
-    "title": "[일본 유심 / 무료배송]  일본 전지역 데이터 무제한 (110V어뎁터 1개 무료제공)",
-    "url": "https://experiences.myrealtrip.com/products/3860366",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/18/ooFQ/CMqpgysx4H.jpg",
-    "price": 1000,
-    "priceText": "1,000원부터",
+    "title": "단독차량 오사카 교토 유니버셜 스튜디오 린쿠 프리미엄 아울렛 골프장 이동 픽업 서비스",
+    "url": "https://experiences.myrealtrip.com/products/3831771",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/07/3u1r/e1oMESsD0U.jpg",
+    "price": 10000,
+    "priceText": "10,000원부터",
     "region": "오사카",
     "city": "오사카",
-    "category": "유심·와이파이",
-    "description": "오사카 ∙ 유심·와이파이 · 평점 4.2(233개)",
+    "category": "이동·교통",
+    "description": "오사카 ∙ 이동·교통 · 평점 5(2개) · 즉시 확정",
     "tags": [
       "투어티켓",
       "액티비티",
       "예약",
-      "오사카"
+      "오사카",
+      "즉시 확정"
     ],
     "intents": [
-      "booking"
+      "booking",
+      "transport"
     ],
-    "gid": "3860366",
-    "reviewScore": 4.2,
-    "reviewCount": 233,
-    "deepLink": "mrt://experiences/detail/3860366",
+    "gid": "3831771",
+    "reviewScore": 5,
+    "reviewCount": 2,
+    "deepLink": "mrt://experiences/detail/3831771",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-5644779",
+    "type": "tna",
+    "title": "오사카/교토/나라 1일[10시간 ] 프라이빗투어 /단독차량[녹색넘버차량][여행지선택가능]",
+    "url": "https://experiences.myrealtrip.com/products/5644779",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/01/13/3vvy/U6uNqAwzKU.jpg",
+    "price": 10000,
+    "priceText": "10,000원부터",
+    "region": "교토",
+    "city": "교토",
+    "category": "근교투어",
+    "description": "교토 ∙ 근교투어 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "교토",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "tour"
+    ],
+    "gid": "5644779",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/5644779",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-5809066",
+    "type": "tna",
+    "title": "[즉시확정] JR 하루카 공항 특급열차 편도 티켓 (실물 티켓 교환| 간사이 공항 ↔ 오사카, 신오사카, 교토, 나라, 고베, 텐노지 역 사이 구간)",
+    "url": "https://experiences.myrealtrip.com/products/5809066",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/06/16/BkU3/Qtcau64FGv.jpg",
+    "price": 10078,
+    "priceText": "10,078원부터",
+    "region": "오사카",
+    "city": "오사카",
+    "category": "이동·교통",
+    "description": "오사카 ∙ 이동·교통 · 평점 3.8(48개) · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "오사카",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport"
+    ],
+    "gid": "5809066",
+    "reviewScore": 3.8,
+    "reviewCount": 48,
+    "deepLink": "mrt://experiences/detail/5809066",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6082912",
+    "type": "tna",
+    "title": "[즉시확정] 유니버설 스튜디오 재팬 식사&쇼핑 바우처",
+    "url": "https://experiences.myrealtrip.com/products/6082912",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/05/28/Nk5X/bTZUVOu4MX.jpg",
+    "price": 10119,
+    "priceText": "10,119원부터",
+    "region": "오사카",
+    "city": "오사카",
+    "category": "티켓·입장권",
+    "description": "오사카 ∙ 티켓·입장권 · 평점 4.6(5개) · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "오사카",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport"
+    ],
+    "gid": "6082912",
+    "reviewScore": 4.6,
+    "reviewCount": 5,
+    "deepLink": "mrt://experiences/detail/6082912",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6082963",
+    "type": "tna",
+    "title": "고시엔 역사관 입장권 (오리지널 굿즈 포함)",
+    "url": "https://experiences.myrealtrip.com/products/6082963",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/05/28/0NwD/4DdYXRcEAq.jpg",
+    "price": 10209,
+    "priceText": "10,209원부터",
+    "region": "오사카",
+    "city": "오사카",
+    "category": "티켓·입장권",
+    "description": "오사카 ∙ 티켓·입장권 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "오사카",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport"
+    ],
+    "gid": "6082963",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/6082963",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-5869510",
+    "type": "tna",
+    "title": "츠텐카쿠 일반 전망대 입장권 (오사카)",
+    "url": "https://experiences.myrealtrip.com/products/5869510",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/03/16/jLgm/IouK0w9V1n.jpg",
+    "price": 10255,
+    "priceText": "10,255원부터",
+    "region": "오사카",
+    "city": "오사카",
+    "category": "티켓·입장권",
+    "description": "오사카 ∙ 티켓·입장권 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "오사카",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport"
+    ],
+    "gid": "5869510",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/5869510",
     "source": "myrealtrip-tna"
   }
 ]
