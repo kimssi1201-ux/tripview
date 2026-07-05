@@ -19,6 +19,8 @@ MYREALTRIP_API_URL
 MYREALTRIP_ENDPOINT_URL
 PARTNER_API_URL
 PARTNER_PRODUCTS_URL
+MYREALTRIP_ACCOMMODATION_REGION_URL
+MYREALTRIP_ACCOMMODATION_SEARCH_URL
 MYREALTRIP_FLIGHT_API_URL
 MYREALTRIP_FLIGHT_LOWEST_URL
 PARTNER_FLIGHT_API_URL
@@ -31,6 +33,13 @@ MYREALTRIP_AUTH_MODE
 MYREALTRIP_API_KEY_PARAM
 MYREALTRIP_API_KEY_HEADER
 MYREALTRIP_PRODUCT_LIMIT
+MYREALTRIP_ACCOMMODATION_KEYWORD
+MYREALTRIP_ACCOMMODATION_IS_DOMESTIC
+MYREALTRIP_ACCOMMODATION_NIGHTS
+MYREALTRIP_ACCOMMODATION_ADULT_COUNT
+MYREALTRIP_ACCOMMODATION_CHILD_COUNT
+MYREALTRIP_ACCOMMODATION_STAR_RATING
+MYREALTRIP_ACCOMMODATION_LIMIT
 MYREALTRIP_FLIGHT_DEP_AIRPORT
 MYREALTRIP_FLIGHT_PERIOD
 MYREALTRIP_FLIGHT_LIMIT
@@ -66,6 +75,25 @@ The homepage reads that file and maps products into the `예약 전 체크` sect
 - product type keywords: tour, ticket, activity, stay, transport, discount
 
 For public site cards, request or configure a product/tour/ticket/deeplink feed endpoint that returns fields such as title, URL, image, price, region, category, and description. If no product endpoint URL is configured, the fetch step exits safely and the site keeps the existing booking guide cards.
+
+## Accommodation Search API
+
+The accommodation API is a two-step flow:
+
+1. `POST /v1/products/accommodation/region-autocomplete`
+2. `POST /v1/products/accommodation/search`
+
+Default request settings:
+
+```text
+keyword=서울
+isDomestic=true
+nights=2
+adultCount=2
+childCount=0
+```
+
+`scripts/fetch-myrealtrip-accommodations.mjs` stores normalized hotel cards in `data/myrealtrip-accommodations.json`. The homepage merges those cards into the `예약 전 체크` section before flight deals and generic booking guides.
 
 ## Flight Lowest Price API
 

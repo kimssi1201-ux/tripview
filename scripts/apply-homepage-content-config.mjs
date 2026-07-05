@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const POSTS_PATH = path.join(ROOT, "data", "generated-posts.json");
 const MYREALTRIP_PRODUCTS_PATH = path.join(ROOT, "data", "myrealtrip-products.json");
+const MYREALTRIP_ACCOMMODATIONS_PATH = path.join(ROOT, "data", "myrealtrip-accommodations.json");
 const MYREALTRIP_FLIGHTS_PATH = path.join(ROOT, "data", "myrealtrip-flight-deals.json");
 const INDEX_PATH = path.join(ROOT, "index.html");
 
@@ -449,6 +450,15 @@ async function readMyRealTripProducts() {
   }
 }
 
+async function readMyRealTripAccommodations() {
+  try {
+    const accommodations = JSON.parse(await fs.readFile(MYREALTRIP_ACCOMMODATIONS_PATH, "utf8"));
+    return Array.isArray(accommodations) ? accommodations : [];
+  } catch {
+    return [];
+  }
+}
+
 async function readMyRealTripFlights() {
   try {
     const flights = JSON.parse(await fs.readFile(MYREALTRIP_FLIGHTS_PATH, "utf8"));
@@ -458,13 +468,13 @@ async function readMyRealTripFlights() {
   }
 }
 
-function html(posts, products = [], flights = []) {
+function html(posts, products = [], accommodations = [], flights = []) {
   const sections = buildSections(posts).filter((section) => section.kind === "booking" || section.posts.length);
   const hero = posts[0];
   const ogImage = imageOf(hero);
   const defaultHeadline = "\uC8FC\uC81C\uBCC4 \uCD5C\uC2E0 \uC5EC\uD589 \uC815\uBCF4";
   const sectionHtml = sections
-    .map((section) => section.kind === "booking" ? bookingSection({ ...section, products: [...flights, ...products] }) : newsSection(section))
+    .map((section) => section.kind === "booking" ? bookingSection({ ...section, products: [...accommodations, ...flights, ...products] }) : newsSection(section))
     .reduce((parts, markup, index) => {
       parts.push(markup);
       if (index === 3) parts.push(TENPING_HOME_AD);
@@ -538,7 +548,8 @@ const posts = JSON.parse(await fs.readFile(POSTS_PATH, "utf8"))
   .sort((a, b) => String(b.sortDate || "").localeCompare(String(a.sortDate || "")));
 
 const myrealtripProducts = await readMyRealTripProducts();
+const myrealtripAccommodations = await readMyRealTripAccommodations();
 const myrealtripFlights = await readMyRealTripFlights();
 
-await fs.writeFile(INDEX_PATH, html(posts, myrealtripProducts, myrealtripFlights), "utf8");
-console.log(`Homepage rebuilt as topic-based travel news feed with ${posts.length} post(s), ${myrealtripProducts.length} MyRealTrip product(s), ${myrealtripFlights.length} flight deal(s).`);
+await fs.writeFile(INDEX_PATH, html(posts, myrealtripProducts, myrealtripAccommodations, myrealtripFlights), "utf8");
+console.log(`Homepage rebuilt as topic-based travel news feed with ${posts.length} post(s), ${myrealtripProducts.length} MyRealTrip product(s), ${myrealtripAccommodations.length} accommodation(s), ${myrealtripFlights.length} flight deal(s).`);
