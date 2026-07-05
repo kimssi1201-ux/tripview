@@ -17,7 +17,7 @@
     <title>트립뷰 - 여행 뉴스 피드</title>
     <style>
       :root{--ink:#111;--muted:#777;--line:#e2e2e2;--paper:#fff;--soft:#f5f5f5}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:128px}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;letter-spacing:0;line-height:1.45}a{color:inherit;text-decoration:none}img{display:block;width:100%;height:100%;object-fit:cover;background:var(--soft)}.site-header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}.header-inner{max-width:720px;margin:0 auto;padding:15px 16px 10px}.brand{display:block;margin-bottom:12px;font-size:28px;font-weight:900;line-height:1}.nav-scroll{display:flex;gap:18px;overflow-x:auto;padding-bottom:4px;white-space:nowrap;font-size:15px;font-weight:800}.nav-scroll a{display:block;padding:2px 0;border-bottom:2px solid transparent}.nav-scroll a.is-active{border-bottom-color:#111}.nav-scroll::-webkit-scrollbar,.pick-grid::-webkit-scrollbar{display:none}.page{max-width:720px;margin:0 auto;padding:10px 16px 40px}.top-line{display:flex;align-items:center;justify-content:space-between;padding:10px 0 18px;color:var(--muted);font-size:13px;border-bottom:1px solid var(--line)}.top-line b{color:var(--ink)}.news-section{padding:28px 0 34px;border-bottom:8px solid #f2f2f2;scroll-margin-top:128px}.news-section.is-hidden{display:none}.news-section h2{margin:0 0 16px;font-size:31px;line-height:1.05;font-weight:900;letter-spacing:-.01em}.news-lead{display:block}.lead-thumb{display:block;width:100%;aspect-ratio:1.78/1;overflow:hidden;background:var(--soft)}.news-lead strong{display:block;margin-top:12px;font-size:24px;line-height:1.22;font-weight:900}.news-lead span{display:block;margin-top:7px;color:var(--muted);font-size:13px}.pick-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:20px}.pick-card{min-width:0}.pick-thumb{display:block;aspect-ratio:1.2/1;overflow:hidden;background:var(--soft)}.pick-card strong{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:7px;font-size:13px;line-height:1.34;font-weight:800}.news-list{margin-top:22px;border-top:1px solid var(--line)}.news-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}.row-thumb{display:block;aspect-ratio:1.28/1;overflow:hidden;background:var(--soft)}.news-row strong{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:17px;line-height:1.35;font-weight:900}.news-row em{display:block;margin-top:5px;color:var(--muted);font-size:12px;font-style:normal}.check-grid{display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid var(--line)}.check-card{display:block;padding:15px 0;border-bottom:1px solid var(--line)}.check-card strong{display:block;font-size:18px;line-height:1.32;font-weight:900}.check-card span{display:block;margin-top:6px;color:var(--muted);font-size:13px;line-height:1.55}.product-card{display:grid;grid-template-columns:84px minmax(0,1fr);gap:12px;align-items:center}.product-card strong,.product-card span{grid-column:2}.product-card.no-thumb{grid-template-columns:1fr}.product-card.no-thumb strong,.product-card.no-thumb span{grid-column:1}.booking-thumb{grid-row:1/3;display:block;aspect-ratio:1.28/1;overflow:hidden;background:var(--soft)}.home-ad{display:block;width:100%;min-height:124px;margin:8px 0 28px;padding:14px 0;border-bottom:8px solid #f2f2f2;overflow:visible}.home-ad.is-hidden{display:none}.home-ad .ad-label{display:block;margin:0 0 6px;color:#999;font-size:12px;font-weight:700}.home-ad tenping{display:block!important;width:100%!important;min-height:110px!important}.no-image{background:linear-gradient(135deg,#f1f1f1,#dedede)}.site-footer{max-width:720px;margin:0 auto;padding:28px 16px 44px;color:var(--muted);font-size:13px}.site-footer strong{display:block;color:var(--ink);font-size:20px;margin-bottom:6px}@media(min-width:760px){.header-inner,.page,.site-footer{max-width:1040px}.page{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 36px}.top-line{grid-column:1/-1}.news-section{border-bottom:1px solid var(--line)}.news-section h2{font-size:34px}.check-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 18px}.home-ad{grid-column:1/-1;border-bottom:1px solid var(--line)}}@media(max-width:360px){.news-section h2{font-size:28px}.news-lead strong{font-size:21px}.news-row{grid-template-columns:82px minmax(0,1fr)}.pick-grid{gap:7px}.pick-card strong{font-size:12px}.product-card{grid-template-columns:76px minmax(0,1fr)}.product-card.no-thumb{grid-template-columns:1fr}}
-    .language-switch{display:flex;align-items:center;gap:8px;white-space:nowrap}.language-switch a{font-size:12px;font-weight:900;color:#555;border-bottom:1px solid transparent;padding:2px 0}.language-switch a.is-active{color:#111;border-bottom-color:#111}@media(max-width:920px){.language-switch{gap:10px}.language-switch a{font-size:12px}}</style>
+    .thumb{display:block;overflow:hidden;background:var(--soft)}.latest-primary .thumb{aspect-ratio:1.34/1}.side-card .thumb{aspect-ratio:1.25/1}.card .thumb{aspect-ratio:1.45/1}.thumb img{height:100%;aspect-ratio:inherit;transition:transform .42s ease,filter .28s ease}.latest-primary:hover .thumb img,.latest-primary:focus-visible .thumb img,.side-card:hover .thumb img,.side-card:focus-visible .thumb img,.card:hover .thumb img,.card:focus-visible .thumb img{transform:scale(1.04)}.latest-primary:active .thumb img,.side-card:active .thumb img,.card:active .thumb img,.latest-primary.is-opening .thumb img,.side-card.is-opening .thumb img,.card.is-opening .thumb img{transform:scale(1.12);filter:brightness(.92)}.latest-primary.is-opening,.side-card.is-opening,.card.is-opening{pointer-events:none}@media(prefers-reduced-motion:reduce){.thumb img{transition:none}.latest-primary:hover .thumb img,.latest-primary:focus-visible .thumb img,.side-card:hover .thumb img,.side-card:focus-visible .thumb img,.card:hover .thumb img,.card:focus-visible .thumb img,.latest-primary:active .thumb img,.side-card:active .thumb img,.card:active .thumb img,.latest-primary.is-opening .thumb img,.side-card.is-opening .thumb img,.card.is-opening .thumb img{transform:none;filter:none}}.language-switch{display:flex;align-items:center;gap:8px;white-space:nowrap}.language-switch a{font-size:12px;font-weight:900;color:#555;border-bottom:1px solid transparent;padding:2px 0}.language-switch a.is-active{color:#111;border-bottom-color:#111}@media(max-width:920px){.language-switch{gap:10px}.language-switch a{font-size:12px}}</style>
   </head>
   <body>
     <header class="site-header">
@@ -248,7 +248,19 @@
   </section>
 <section class="news-section check-section" id="booking" aria-labelledby="booking-title" data-headline="예약 전 체크">
     <h2 id="booking-title">예약 전 체크</h2>
-    <div class="check-grid"><a class="check-card" href="/travel-2651450/">
+    <div class="check-grid"><a class="check-card product-card no-thumb" href="https://www.myrealtrip.com/flights" target="_blank" rel="sponsored noopener">
+    
+    <strong>인천-HIJ 왕복 5일 최저가 155,000원</strong>
+    <span>HIJ · 항공권 최저가 · 155,000원</span>
+  </a><a class="check-card product-card no-thumb" href="https://www.myrealtrip.com/flights" target="_blank" rel="sponsored noopener">
+    
+    <strong>인천-MYJ 왕복 5일 최저가 164,800원</strong>
+    <span>MYJ · 항공권 최저가 · 164,800원</span>
+  </a><a class="check-card product-card no-thumb" href="https://www.myrealtrip.com/flights" target="_blank" rel="sponsored noopener">
+    
+    <strong>인천-후쿠오카 왕복 5일 최저가 180,500원</strong>
+    <span>후쿠오카 · 항공권 최저가 · 180,500원</span>
+  </a><a class="check-card" href="/travel-2651450/">
     <strong>한옥혜윰 방문 전 알아둘 위치와 전주 여행 동선</strong>
     <span>숙소/예약 · 2026년 7월 5일 · 전북</span>
   </a><a class="check-card" href="/travel-2652634/">
@@ -257,15 +269,6 @@
   </a><a class="check-card" href="/travel-1303709/">
     <strong>애플아울렛 방문 전 알아두면 좋은 위치와 여행 동선</strong>
     <span>생활정보 · 2026년 7월 5일 · 부산</span>
-  </a><a class="check-card" href="/travel-2838922/">
-    <strong>오르디 방문 전 알아두면 좋은 위치와 여행 동선</strong>
-    <span>생활정보 · 2026년 7월 5일 · 부산</span>
-  </a><a class="check-card" href="#booking-stay">
-    <strong>숙소 예약 전 체크</strong>
-    <span>후기만 보기보다 위치, 입실 시간, 주차, 취소 기한, 조식 포함 여부를 먼저 확인하세요.</span>
-  </a><a class="check-card" href="#booking-ticket">
-    <strong>축제·입장권 예약</strong>
-    <span>현장 발권만 가능한지, 사전 예약이 필요한지, 입장 마감 시간과 환불 기준을 같이 보세요.</span>
   </a></div>
   </section>
     </main>
@@ -295,5 +298,5 @@
         });
       });
     </script>
-  <script src="/assets/i18n.js" defer></script><script src="/assets/topic-filter.js?v=post-click-20260704" defer></script></body>
+  <script id="post-card-transition">(() => { const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; const selector = 'a.latest-primary, a.side-card, a.card'; document.addEventListener('click', (event) => { const card = event.target.closest(selector); if (!card || !card.href || card.target || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.defaultPrevented) return; const url = new URL(card.href, window.location.href); if (url.origin !== window.location.origin) return; if (reduce) return; event.preventDefault(); card.classList.add('is-opening'); window.setTimeout(() => { window.location.href = card.href; }, 180); }, { capture: true }); })();</script><script src="/assets/i18n.js" defer></script><script src="/assets/topic-filter.js?v=post-click-20260704" defer></script></body>
 </html>
