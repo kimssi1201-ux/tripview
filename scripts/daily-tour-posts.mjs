@@ -430,15 +430,26 @@ function renderSitemap(posts, today) {
 }
 
 async function fetchCandidates(today) {
-  const candidates = [];
+  const buckets = [
+    { items: [], category: '국내여행', contentTypeId: '12' },
+    { items: [], category: '국내여행', contentTypeId: '14' },
+    { items: [], category: '공연/축제', contentTypeId: '15' },
+    { items: [], category: '국내여행', contentTypeId: '25' },
+    { items: [], category: '국내여행', contentTypeId: '28' },
+    { items: [], category: '숙소/예약', contentTypeId: '32' },
+    { items: [], category: '생활정보', contentTypeId: '39' },
+    { items: [], category: '생활정보', contentTypeId: '38' }
+  ];
   const byId = new Set();
-  const push = (item, category, contentTypeId) => {
+  const addToBucket = (bucket, item) => {
     if (!item?.contentid || byId.has(String(item.contentid))) return;
     byId.add(String(item.contentid));
-    candidates.push({ ...item, category, contentTypeId });
+    bucket.items.push({ ...item, category: bucket.category, contentTypeId: bucket.contentTypeId });
   };
+  const totalCandidates = () => buckets.reduce((sum, bucket) => sum + bucket.items.length, 0);
 
   const targetPool = Math.max(POST_LIMIT * 8, 240);
+  const festivalBucket = buckets.find((bucket) => bucket.contentTypeId === '15');
   for (const pageNo of ['1', '2', '3', '4', '5']) {
     const festivals = await tourGet('searchFestival2', {
       eventStartDate: ymd(today),
@@ -447,29 +458,30 @@ async function fetchCandidates(today) {
       numOfRows: '100',
       pageNo
     });
-    for (const item of festivals) push(item, '공연/축제', '15');
-    if (candidates.length >= targetPool) break;
+    for (const item of festivals) addToBucket(festivalBucket, item);
+    if (totalCandidates() >= targetPool) break;
   }
 
-  if (candidates.length < targetPool) {
-    const contentPools = [
-      { contentTypeId: '12', category: '국내여행' },
-      { contentTypeId: '14', category: '국내여행' },
-      { contentTypeId: '25', category: '국내여행' },
-      { contentTypeId: '28', category: '국내여행' },
-      { contentTypeId: '32', category: '숙소/예약' },
-      { contentTypeId: '38', category: '생활정보' },
-      { contentTypeId: '39', category: '생활정보' }
-    ];
+  if (totalCandidates() < targetPool) {
+    const contentPools = buckets.filter((bucket) => bucket.contentTypeId !== '15');
     for (const arrange of ['Q', 'R', 'D', 'P']) {
       for (const pool of contentPools) {
         for (const pageNo of ['1', '2', '3', '4', '5']) {
           const items = await tourGet('areaBasedList2', { contentTypeId: pool.contentTypeId, arrange, numOfRows: '100', pageNo });
-          for (const item of items) push(item, pool.category, pool.contentTypeId);
-          if (candidates.length >= targetPool) break;
+          for (const item of items) addToBucket(pool, item);
+          if (totalCandidates() >= targetPool) break;
         }
-        if (candidates.length >= targetPool) break;
+        if (totalCandidates() >= targetPool) break;
       }
+      if (totalCandidates() >= targetPool) break;
+    }
+  }
+
+  const candidates = [];
+  while (candidates.length < targetPool && buckets.some((bucket) => bucket.items.length)) {
+    for (const bucket of buckets) {
+      const item = bucket.items.shift();
+      if (item) candidates.push(item);
       if (candidates.length >= targetPool) break;
     }
   }
