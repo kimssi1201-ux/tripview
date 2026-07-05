@@ -30,6 +30,9 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Sync latest main
+        run: git pull --rebase origin main
+
       - name: Generate daily tour posts
         run: node scripts/daily-tour-posts.mjs
         env:
