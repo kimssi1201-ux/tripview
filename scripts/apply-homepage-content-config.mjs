@@ -607,13 +607,6 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
       <span>${esc(TEXT.footer)}</span>
     </footer>
     <script>
-      document.addEventListener('click', (event) => {
-        const link = event.target.closest('a.product-card');
-        if (!link || !link.href || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.defaultPrevented) return;
-        event.preventDefault();
-        event.stopImmediatePropagation();
-        window.location.href = link.href;
-      }, { capture: true });
       const bookingResults = document.querySelector('[data-booking-results]');
       const today = new Date();
       const toDateInput = (date) => date.toISOString().slice(0, 10);

@@ -397,13 +397,6 @@
       <span>여행지, 축제·행사, 물놀이, 실내여행, 예약 전 체크를 의도별로 빠르게 확인하는 여행 뉴스 피드입니다.</span>
     </footer>
     <script>
-      document.addEventListener('click', (event) => {
-        const link = event.target.closest('a.product-card');
-        if (!link || !link.href || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.defaultPrevented) return;
-        event.preventDefault();
-        event.stopImmediatePropagation();
-        window.location.href = link.href;
-      }, { capture: true });
       const bookingResults = document.querySelector('[data-booking-results]');
       const today = new Date();
       const toDateInput = (date) => date.toISOString().slice(0, 10);
