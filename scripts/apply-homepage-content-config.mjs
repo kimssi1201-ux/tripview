@@ -608,6 +608,13 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
       <span>${esc(TEXT.footer)}</span>
     </footer>
     <script>
+      document.addEventListener('click', (event) => {
+        const link = event.target.closest('a.product-card');
+        if (!link || !link.href || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.defaultPrevented) return;
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        window.location.href = link.href;
+      }, { capture: true });
       const links = [...document.querySelectorAll('[data-filter]')];
       const sections = [...document.querySelectorAll('.news-section')];
       const adBlocks = [...document.querySelectorAll('[data-ad-block]')];
