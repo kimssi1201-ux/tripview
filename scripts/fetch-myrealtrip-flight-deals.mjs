@@ -32,9 +32,15 @@ const AIRPORT_NAMES = {
   HND: "도쿄 하네다",
   TYO: "도쿄",
   KIX: "오사카",
+  OSA: "오사카",
   FUK: "후쿠오카",
   CTS: "삿포로",
   OKA: "오키나와",
+  HIJ: "히로시마",
+  MYJ: "마쓰야마",
+  YGJ: "요나고",
+  TAK: "다카마쓰",
+  KKJ: "기타큐슈",
   TPE: "타이베이",
   HKG: "홍콩",
   MFM: "마카오",
@@ -67,9 +73,10 @@ function formatWon(value) {
 
 function formatDate(value) {
   if (!value) return "";
-  const date = new Date(`${value}T00:00:00+09:00`);
-  if (Number.isNaN(date.getTime())) return value;
-  return `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일`;
+  const match = String(value).match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!match) return value;
+  const [, year, month, day] = match;
+  return `${year}년 ${Number(month)}월 ${Number(day)}일`;
 }
 
 function buildUrl(deal) {
