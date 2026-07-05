@@ -6,7 +6,11 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const OUT_PATH = path.join(ROOT, "data", "myrealtrip-products.json");
 
 const API_KEY = process.env.MYREALTRIP_API_KEY || "";
-const API_URL = process.env.MYREALTRIP_API_BASE_URL || process.env.MYREALTRIP_PRODUCTS_URL || "";
+const API_URL = process.env.MYREALTRIP_API_BASE_URL
+  || process.env.MYREALTRIP_PRODUCTS_URL
+  || process.env.MYREALTRIP_API_URL
+  || process.env.MYREALTRIP_ENDPOINT_URL
+  || "";
 const AUTH_MODE = (process.env.MYREALTRIP_AUTH_MODE || "bearer").toLowerCase();
 const API_KEY_PARAM = process.env.MYREALTRIP_API_KEY_PARAM || "apiKey";
 const API_KEY_HEADER = process.env.MYREALTRIP_API_KEY_HEADER || "";
@@ -25,11 +29,17 @@ function firstArray(value) {
   if (Array.isArray(value?.items)) return value.items;
   if (Array.isArray(value?.products)) return value.products;
   if (Array.isArray(value?.results)) return value.results;
+  if (Array.isArray(value?.list)) return value.list;
+  if (Array.isArray(value?.records)) return value.records;
   if (Array.isArray(value?.data)) return value.data;
   if (Array.isArray(value?.data?.items)) return value.data.items;
   if (Array.isArray(value?.data?.products)) return value.data.products;
+  if (Array.isArray(value?.data?.results)) return value.data.results;
+  if (Array.isArray(value?.data?.list)) return value.data.list;
+  if (Array.isArray(value?.data?.records)) return value.data.records;
   if (Array.isArray(value?.result?.items)) return value.result.items;
   if (Array.isArray(value?.result?.products)) return value.result.products;
+  if (Array.isArray(value?.result?.results)) return value.result.results;
   return [];
 }
 
@@ -56,10 +66,10 @@ function inferIntents(product) {
   const intents = new Set(["booking"]);
 
   const rules = [
-    ["water", ["물놀이", "해수욕장", "바다", "요트", "서핑", "스노클링", "워터", "수영"]],
-    ["indoor", ["실내", "전시", "박물관", "미술관", "공연", "체험", "테마"]],
-    ["festival", ["축제", "행사", "티켓", "입장권", "공연"]],
-    ["family", ["아이", "가족", "키즈", "체험", "테마파크", "동물", "농장"]],
+    ["water", ["물놀이", "해수욕장", "바다", "요트", "서핑", "스노클링", "워터", "수영", "계곡", "래프팅", "카약"]],
+    ["indoor", ["실내", "전시", "박물관", "미술관", "공연", "체험", "테마", "클래스", "스파"]],
+    ["festival", ["축제", "행사", "페스티벌", "티켓", "입장권", "공연", "콘서트"]],
+    ["family", ["아이", "가족", "키즈", "체험", "테마파크", "동물", "농장", "목장", "아쿠아리움"]],
   ];
 
   for (const [intent, keywords] of rules) {
@@ -124,11 +134,12 @@ if (!API_KEY.trim()) {
 }
 
 if (!API_URL.trim()) {
-  console.log("MyRealTrip fetch skipped: MYREALTRIP_API_BASE_URL or MYREALTRIP_PRODUCTS_URL is not configured.");
+  console.log("MyRealTrip fetch skipped: product API URL is not configured. Set MYREALTRIP_PRODUCTS_URL, MYREALTRIP_API_BASE_URL, MYREALTRIP_API_URL, or MYREALTRIP_ENDPOINT_URL.");
   process.exit(0);
 }
 
 const { url, headers } = buildRequest();
+console.log(`MyRealTrip fetch started: endpoint=${url.origin}${url.pathname}, auth=${API_KEY_HEADER ? "custom-header" : AUTH_MODE}`);
 const response = await fetch(url, { headers });
 if (!response.ok) {
   const body = await response.text();
