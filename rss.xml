@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+<rss version="2.0">
   <channel>
     <title>트립뷰</title>
     <link>https://tripview.kr/</link>
@@ -8,10 +8,10 @@
     <language>ko</language>
     <lastBuildDate>Sun, 05 Jul 2026 11:02:10 GMT</lastBuildDate>
     <item>
-      <title>반야사(영동), 방문 전 알아둘 위치와 여행 동선</title>
-      <link>https://tripview.kr/travel-252587/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-252587/</guid>
-      <description>반야사(영동) 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
+      <title>철원 삼부연폭포 여름 물길 여행, 물놀이보다 전망과 안전이 먼저</title>
+      <link>https://tripview.kr/travel-125652/</link>
+      <guid>https://tripview.kr/travel-125652/</guid>
+      <description>삼부연폭포는 물놀이 장소라기보다 폭포 전망과 시원한 물길을 보는 여름 코스로 접근하는 편이 좋습니다.</description>
       <category>국내여행</category>
       <enclosure url="https://tong.visitkorea.or.kr/cms/resource/42/4061142_image2_1.jpg" type="image/jpeg" />
       <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/42/4061142_image2_1.jpg" />
@@ -216,8 +216,8 @@
     <item>
       <title>공주 공산성, 방문 전 알아두면 좋은 위치와 여행 동선</title>
       <link>https://tripview.kr/travel-125949/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-125949/</guid>
-      <description>공주 공산성 [유네스코 세계유산] 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
+      <guid>https://tripview.kr/travel-125949/</guid>
+      <description>공주 공산성 [유네스코 세계유산] 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
       <category>국내여행</category>
       <enclosure url="https://tong.visitkorea.or.kr/cms/resource_photo/41/3404541_image2_1.jpg" type="image/jpeg" />
       <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource_photo/41/3404541_image2_1.jpg" />
@@ -368,8 +368,8 @@
     <item>
       <title>합천 옥전 고분군, 방문 전 알아둘 위치와 여행 동선</title>
       <link>https://tripview.kr/travel-231949/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-231949/</guid>
-      <description>합천 옥전 고분군 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
+      <guid>https://tripview.kr/travel-231949/</guid>
+      <description>합천 옥전 고분군 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
       <category>국내여행</category>
       <enclosure url="https://tong.visitkorea.or.kr/cms/resource/05/3585005_image2_1.jpg" type="image/jpeg" />
       <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/05/3585005_image2_1.jpg" />
@@ -399,8 +399,8 @@
     <item>
       <title>삼탄아트마인 방문 전 알아둘 위치와 여행 동선</title>
       <link>https://tripview.kr/travel-2470392/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-2470392/</guid>
-      <description>삼탄아트마인 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
+      <guid>https://tripview.kr/travel-2470392/</guid>
+      <description>삼탄아트마인 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
       <category>국내여행</category>
       <enclosure url="https://tong.visitkorea.or.kr/cms/resource/15/3364115_image2_1.jpg" type="image/jpeg" />
       <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/15/3364115_image2_1.jpg" />

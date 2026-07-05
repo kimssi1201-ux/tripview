@@ -38,6 +38,12 @@ const TEXT = {
   footer: "\uC5EC\uD589\uC9C0, \uCD95\uC81C\u00B7\uD589\uC0AC, \uBB3C\uB180\uC774, \uC2E4\uB0B4\uC5EC\uD589, \uC608\uC57D \uC804 \uCCB4\uD06C\uB97C \uC758\uB3C4\uBCC4\uB85C \uBE60\uB974\uAC8C \uD655\uC778\uD558\uB294 \uC5EC\uD589 \uB274\uC2A4 \uD53C\uB4DC\uC785\uB2C8\uB2E4.",
 };
 
+const TENPING_HOME_AD = `<aside class="home-ad" data-ad-block aria-label="광고">
+  <span class="ad-label">광고</span>
+  <tenping class="adsbytenping" style="width: 100%; margin: 0px auto; display: block; max-width: 768px; min-height: 110px;" tenping-ad-client="%2fnyDIt3jSiYh7KXeo4%2bsm7S2Hydb6U%2fzbuFekGjT%2frlZrkiEUQ%2btrnyYLz7zJ6Li" tenping-ad-display-type="1LawCE8FqKOhetXZhMopsQ%3d%3d"></tenping>
+</aside>
+<script async src="https://ads.tenping.kr/scripts/adsbytenping.min.js"></script>`;
+
 const esc = (value = "") =>
   String(value).replace(/[&<>"']/g, (match) => ({
     "&": "&amp;",
@@ -368,6 +374,14 @@ function html(posts) {
   const hero = posts[0];
   const ogImage = imageOf(hero);
   const defaultHeadline = "\uC8FC\uC81C\uBCC4 \uCD5C\uC2E0 \uC5EC\uD589 \uC815\uBCF4";
+  const sectionHtml = sections
+    .map((section) => section.kind === "booking" ? bookingSection(section) : newsSection(section))
+    .reduce((parts, markup, index) => {
+      parts.push(markup);
+      if (index === 3) parts.push(TENPING_HOME_AD);
+      return parts;
+    }, [])
+    .join("\n");
 
   return `<!doctype html>
 <html lang="ko">
@@ -386,7 +400,7 @@ function html(posts) {
     <link rel="alternate" type="application/rss+xml" title="${esc(TEXT.rssTitle)}" href="https://tripview.kr/rss.xml">
     <title>${esc(TEXT.ogTitle)}</title>
     <style>
-      :root{--ink:#111;--muted:#777;--line:#e2e2e2;--paper:#fff;--soft:#f5f5f5}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:128px}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;letter-spacing:0;line-height:1.45}a{color:inherit;text-decoration:none}img{display:block;width:100%;height:100%;object-fit:cover;background:var(--soft)}.site-header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}.header-inner{max-width:720px;margin:0 auto;padding:15px 16px 10px}.brand{display:block;margin-bottom:12px;font-size:28px;font-weight:900;line-height:1}.nav-scroll{display:flex;gap:18px;overflow-x:auto;padding-bottom:4px;white-space:nowrap;font-size:15px;font-weight:800}.nav-scroll a{display:block;padding:2px 0;border-bottom:2px solid transparent}.nav-scroll a.is-active{border-bottom-color:#111}.nav-scroll::-webkit-scrollbar,.pick-grid::-webkit-scrollbar{display:none}.page{max-width:720px;margin:0 auto;padding:10px 16px 40px}.top-line{display:flex;align-items:center;justify-content:space-between;padding:10px 0 18px;color:var(--muted);font-size:13px;border-bottom:1px solid var(--line)}.top-line b{color:var(--ink)}.news-section{padding:28px 0 34px;border-bottom:8px solid #f2f2f2;scroll-margin-top:128px}.news-section.is-hidden{display:none}.news-section h2{margin:0 0 16px;font-size:31px;line-height:1.05;font-weight:900;letter-spacing:-.01em}.news-lead{display:block}.lead-thumb{display:block;width:100%;aspect-ratio:1.78/1;overflow:hidden;background:var(--soft)}.news-lead strong{display:block;margin-top:12px;font-size:24px;line-height:1.22;font-weight:900}.news-lead span{display:block;margin-top:7px;color:var(--muted);font-size:13px}.pick-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:20px}.pick-card{min-width:0}.pick-thumb{display:block;aspect-ratio:1.2/1;overflow:hidden;background:var(--soft)}.pick-card strong{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:7px;font-size:13px;line-height:1.34;font-weight:800}.news-list{margin-top:22px;border-top:1px solid var(--line)}.news-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}.row-thumb{display:block;aspect-ratio:1.28/1;overflow:hidden;background:var(--soft)}.news-row strong{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:17px;line-height:1.35;font-weight:900}.news-row em{display:block;margin-top:5px;color:var(--muted);font-size:12px;font-style:normal}.check-grid{display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid var(--line)}.check-card{display:block;padding:15px 0;border-bottom:1px solid var(--line)}.check-card strong{display:block;font-size:18px;line-height:1.32;font-weight:900}.check-card span{display:block;margin-top:6px;color:var(--muted);font-size:13px;line-height:1.55}.no-image{background:linear-gradient(135deg,#f1f1f1,#dedede)}.site-footer{max-width:720px;margin:0 auto;padding:28px 16px 44px;color:var(--muted);font-size:13px}.site-footer strong{display:block;color:var(--ink);font-size:20px;margin-bottom:6px}@media(min-width:760px){.header-inner,.page,.site-footer{max-width:1040px}.page{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 36px}.top-line{grid-column:1/-1}.news-section{border-bottom:1px solid var(--line)}.news-section h2{font-size:34px}.check-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 18px}}@media(max-width:360px){.news-section h2{font-size:28px}.news-lead strong{font-size:21px}.news-row{grid-template-columns:82px minmax(0,1fr)}.pick-grid{gap:7px}.pick-card strong{font-size:12px}}
+      :root{--ink:#111;--muted:#777;--line:#e2e2e2;--paper:#fff;--soft:#f5f5f5}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:128px}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;letter-spacing:0;line-height:1.45}a{color:inherit;text-decoration:none}img{display:block;width:100%;height:100%;object-fit:cover;background:var(--soft)}.site-header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}.header-inner{max-width:720px;margin:0 auto;padding:15px 16px 10px}.brand{display:block;margin-bottom:12px;font-size:28px;font-weight:900;line-height:1}.nav-scroll{display:flex;gap:18px;overflow-x:auto;padding-bottom:4px;white-space:nowrap;font-size:15px;font-weight:800}.nav-scroll a{display:block;padding:2px 0;border-bottom:2px solid transparent}.nav-scroll a.is-active{border-bottom-color:#111}.nav-scroll::-webkit-scrollbar,.pick-grid::-webkit-scrollbar{display:none}.page{max-width:720px;margin:0 auto;padding:10px 16px 40px}.top-line{display:flex;align-items:center;justify-content:space-between;padding:10px 0 18px;color:var(--muted);font-size:13px;border-bottom:1px solid var(--line)}.top-line b{color:var(--ink)}.news-section{padding:28px 0 34px;border-bottom:8px solid #f2f2f2;scroll-margin-top:128px}.news-section.is-hidden{display:none}.news-section h2{margin:0 0 16px;font-size:31px;line-height:1.05;font-weight:900;letter-spacing:-.01em}.news-lead{display:block}.lead-thumb{display:block;width:100%;aspect-ratio:1.78/1;overflow:hidden;background:var(--soft)}.news-lead strong{display:block;margin-top:12px;font-size:24px;line-height:1.22;font-weight:900}.news-lead span{display:block;margin-top:7px;color:var(--muted);font-size:13px}.pick-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:20px}.pick-card{min-width:0}.pick-thumb{display:block;aspect-ratio:1.2/1;overflow:hidden;background:var(--soft)}.pick-card strong{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:7px;font-size:13px;line-height:1.34;font-weight:800}.news-list{margin-top:22px;border-top:1px solid var(--line)}.news-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}.row-thumb{display:block;aspect-ratio:1.28/1;overflow:hidden;background:var(--soft)}.news-row strong{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:17px;line-height:1.35;font-weight:900}.news-row em{display:block;margin-top:5px;color:var(--muted);font-size:12px;font-style:normal}.check-grid{display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid var(--line)}.check-card{display:block;padding:15px 0;border-bottom:1px solid var(--line)}.check-card strong{display:block;font-size:18px;line-height:1.32;font-weight:900}.check-card span{display:block;margin-top:6px;color:var(--muted);font-size:13px;line-height:1.55}.home-ad{display:block;width:100%;min-height:124px;margin:8px 0 28px;padding:14px 0;border-bottom:8px solid #f2f2f2;overflow:visible}.home-ad.is-hidden{display:none}.home-ad .ad-label{display:block;margin:0 0 6px;color:#999;font-size:12px;font-weight:700}.home-ad tenping{display:block!important;width:100%!important;min-height:110px!important}.no-image{background:linear-gradient(135deg,#f1f1f1,#dedede)}.site-footer{max-width:720px;margin:0 auto;padding:28px 16px 44px;color:var(--muted);font-size:13px}.site-footer strong{display:block;color:var(--ink);font-size:20px;margin-bottom:6px}@media(min-width:760px){.header-inner,.page,.site-footer{max-width:1040px}.page{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 36px}.top-line{grid-column:1/-1}.news-section{border-bottom:1px solid var(--line)}.news-section h2{font-size:34px}.check-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 18px}.home-ad{grid-column:1/-1;border-bottom:1px solid var(--line)}}@media(max-width:360px){.news-section h2{font-size:28px}.news-lead strong{font-size:21px}.news-row{grid-template-columns:82px minmax(0,1fr)}.pick-grid{gap:7px}.pick-card strong{font-size:12px}}
     </style>
   </head>
   <body>
@@ -398,7 +412,7 @@ function html(posts) {
     </header>
     <main class="page">
       <div class="top-line"><span data-feed-label>${esc(defaultHeadline)}</span><span>${esc(new Date().toISOString().slice(0, 10))}</span></div>
-      ${sections.map((section) => section.kind === "booking" ? bookingSection(section) : newsSection(section)).join("\n")}
+      ${sectionHtml}
     </main>
     <footer class="site-footer">
       <strong>${esc(BRAND)}</strong>
@@ -407,6 +421,7 @@ function html(posts) {
     <script>
       const links = [...document.querySelectorAll('[data-filter]')];
       const sections = [...document.querySelectorAll('.news-section')];
+      const adBlocks = [...document.querySelectorAll('[data-ad-block]')];
       const label = document.querySelector('[data-feed-label]');
       links.forEach((link) => {
         link.addEventListener('click', (event) => {
@@ -419,6 +434,7 @@ function html(posts) {
           links.forEach((item) => item.classList.remove('is-active'));
           link.classList.add('is-active');
           sections.forEach((section) => section.classList.toggle('is-hidden', !showAll && section.id !== id));
+          adBlocks.forEach((ad) => ad.classList.toggle('is-hidden', !showAll));
           if (label) label.textContent = headline;
           document.querySelector('.page').scrollIntoView({ block: 'start' });
         });
