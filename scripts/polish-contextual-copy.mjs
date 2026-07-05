@@ -373,7 +373,7 @@ function renderArticle(post, counts) {
   const sections = [...sectionBlocks.slice(0, middleAdIndex), TENPING_AD, ...sectionBlocks.slice(middleAdIndex)].join("");
   const faqs = (post.faq || []).map(([q, a]) => `<details open><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join("");
   const memo = (post.memo || []).map((m) => `<span>${esc(m)}</span>`).join("");
-  const categoryNav = categoryCountLinks(counts);
+  const articleNav = `<nav class="links" aria-label="주요 메뉴"><a href="../">홈</a><a href="../#travel">가볼만한 곳</a><a href="../#festival">축제정보</a><a href="../#seoul">지역별</a></nav>`;
   return `<!doctype html>
 <html lang="ko">
   <head>
@@ -392,7 +392,7 @@ function renderArticle(post, counts) {
     </style>
   </head>
   <body>
-    <header class="top"><div class="wrap nav"><a class="brand" href="../">트립뷰</a><nav class="links"><a href="../">홈</a><a href="../#latest">최신글</a><a href="../#routes">전체글 <span>${counts.total}</span></a>${categoryNav}</nav><div class="language-switch notranslate" translate="no" aria-label="Language selector"><a href="?lang=ko" data-lang="ko" lang="ko">KO</a><a href="?lang=en" data-lang="en" lang="en">EN</a><a href="?lang=ja" data-lang="ja" lang="ja">JA</a><a href="?lang=zh" data-lang="zh" lang="zh-CN">ZH</a></div></div></header>
+    <header class="top"><div class="wrap nav"><a class="brand" href="../">트립뷰</a>${articleNav}</div></header>
     <main>
       <section class="wrap hero"><h1>${esc(post.title)}</h1><div class="meta"><span>트립뷰 편집팀</span><span>${esc(post.date)}</span><span>${esc(post.read)}</span><span>${esc(post.region)}</span></div></section>
       ${gallery}
