@@ -404,55 +404,19 @@ function newsSection({ id, title, posts, inlineProducts = [] }) {
   </section>`;
 }
 
-const BOOKING_CHECKS = [
-  {
-    title: "\uC219\uC18C \uC608\uC57D \uC804 \uCCB4\uD06C",
-    text: "\uD6C4\uAE30\uB9CC \uBCF4\uAE30\uBCF4\uB2E4 \uC704\uCE58, \uC785\uC2E4 \uC2DC\uAC04, \uC8FC\uCC28, \uCDE8\uC18C \uAE30\uD55C, \uC870\uC2DD \uD3EC\uD568 \uC5EC\uBD80\uB97C \uBA3C\uC800 \uD655\uC778\uD558\uC138\uC694.",
-    href: "#booking-stay",
-  },
-  {
-    title: "\uCD95\uC81C\u00B7\uC785\uC7A5\uAD8C \uC608\uC57D",
-    text: "\uD604\uC7A5 \uBC1C\uAD8C\uB9CC \uAC00\uB2A5\uD55C\uC9C0, \uC0AC\uC804 \uC608\uC57D\uC774 \uD544\uC694\uD55C\uC9C0, \uC785\uC7A5 \uB9C8\uAC10 \uC2DC\uAC04\uACFC \uD658\uBD88 \uAE30\uC900\uC744 \uAC19\uC774 \uBCF4\uC138\uC694.",
-    href: "#booking-ticket",
-  },
-  {
-    title: "\uD22C\uC5B4\u00B7\uCCB4\uD5D8 \uC0C1\uD488",
-    text: "\uC9D1\uACB0 \uC7A5\uC18C, \uC18C\uC694 \uC2DC\uAC04, \uC6B0\uCC9C \uC2DC \uC9C4\uD589 \uC5EC\uBD80, \uC900\uBE44\uBB3C\uC744 \uC608\uC57D \uC804\uC5D0 \uD655\uC778\uD558\uBA74 \uC2E4\uD328\uAC00 \uC904\uC5B4\uB4ED\uB2C8\uB2E4.",
-    href: "#booking-tour",
-  },
-  {
-    title: "\uD560\uC778\uCF54\uB4DC\u00B7\uCD94\uAC00\uBE44\uC6A9",
-    text: "\uD45C\uC2DC\uAC00\uC640 \uCD5C\uC885 \uACB0\uC81C\uAC00\uAC00 \uB2E4\uB97C \uC218 \uC788\uC73C\uB2C8 \uC138\uAE08, \uBD09\uC0AC\uB8CC, \uC218\uC218\uB8CC, \uD560\uC778 \uC801\uC6A9 \uC870\uAC74\uC744 \uB05D\uAE4C\uC9C0 \uBCF4\uC138\uC694.",
-    href: "#booking-discount",
-  },
-];
-
 function bookingSection({ id, title, posts = [], products = [] }) {
-  const items = uniquePosts(posts).slice(0, 4);
   const accommodationCards = productsFromSource(products, "myrealtrip-accommodation", 4);
   const tnaCards = productsFromSource(products, "myrealtrip-tna", 4);
   const flightCards = productsFromSource(products, "myrealtrip-flight", 4);
   const groupedProducts = [
-    bookingGroup("숙소", accommodationCards),
-    bookingGroup("투어티켓", tnaCards),
-    bookingGroup("항공권", flightCards),
+    bookingGroup("\uC219\uC18C", accommodationCards),
+    bookingGroup("\uD22C\uC5B4\uD2F0\uCF13", tnaCards),
+    bookingGroup("\uD56D\uACF5\uAD8C", flightCards),
   ].filter(Boolean).join("");
   const productCards = groupedProducts || `<div class="check-grid">${rankedProducts(products, posts, 6).map(productCard).join("")}</div>`;
-  const postCards = items.map((post) => `<a class="check-card" href="${esc(hrefOf(post))}">
-    <strong>${esc(titleOf(post))}</strong>
-    <span>${esc(metaLine(post))}</span>
-  </a>`);
-  const guideCards = BOOKING_CHECKS.slice(0, 2).map((item) => `<a class="check-card" href="${esc(item.href)}">
-    <strong>${esc(item.title)}</strong>
-    <span>${esc(item.text)}</span>
-  </a>`);
   return `<section class="news-section check-section" id="${esc(id)}" aria-labelledby="${esc(id)}-title" data-headline="${esc(title)}">
     <h2 id="${esc(id)}-title">${esc(title)}</h2>
     ${productCards}
-    <div class="booking-group">
-      <h3>예약 전 확인</h3>
-      <div class="check-grid">${[...postCards.slice(0, 2), ...guideCards].join("")}</div>
-    </div>
   </section>`;
 }
 
