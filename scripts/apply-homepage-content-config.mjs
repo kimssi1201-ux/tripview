@@ -32,6 +32,7 @@ const TEXT = {
   navWater: "\uBB3C\uB180\uC774\u00B7\uACC4\uACE1\u00B7\uD574\uC218\uC695\uC7A5",
   navIndoor: "\uBE44 \uC624\uB294 \uB0A0 \uC2E4\uB0B4 \uC5EC\uD589",
   navFamily: "\uC544\uC774\uC640 \uAC00\uAE30 \uC88B\uC740 \uACF3",
+  navFlight: "\uD56D\uACF5\uAD8C \uCD5C\uC800\uAC00 \uC5EC\uD589\uC9C0",
   navCourse: "\uC5EC\uD589\uCF54\uC2A4",
   navActivity: "\uC561\uD2F0\uBE44\uD2F0",
   navBooking: "\uC608\uC57D \uC804 \uCCB4\uD06C",
@@ -271,6 +272,49 @@ function productCard(product) {
     <strong>${esc(product.title)}</strong>
     <span>${esc(productMeta(product) || "\uC5EC\uD589 \uC804 \uC608\uC57D \uC815\uBCF4")}</span>
   </a>`;
+}
+
+function flightSlug(deal) {
+  return String(deal?.id || deal?.title || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9가-힣]+/g, "-")
+    .replace(/^-+|-+$/g, "") || "flight-deal";
+}
+
+function flightHref(deal) {
+  return `/flight-deals/${flightSlug(deal)}/`;
+}
+
+function flightMeta(deal) {
+  return [
+    deal?.priceText ? `최저가 ${deal.priceText}` : "",
+    deal?.departureDate ? `출발 ${formatIsoDate(deal.departureDate)}` : "",
+    deal?.period ? `${deal.period}일 일정` : "",
+  ].filter(Boolean).join(" · ");
+}
+
+function flightDealSection(flights = []) {
+  const deals = [...flights]
+    .filter((deal) => deal?.title && deal?.price)
+    .sort((a, b) => Number(a.price || 0) - Number(b.price || 0))
+    .slice(0, 8);
+  if (!deals.length) return "";
+
+  const lead = deals[0];
+  const rows = deals.slice(1).map((deal) => `<a class="news-row" href="${esc(flightHref(deal))}">
+    <span class="row-thumb no-image"></span>
+    <span><strong>${esc(deal.title)}</strong><em>${esc(flightMeta(deal))}</em></span>
+  </a>`).join("");
+
+  return `<section class="news-section flight-section" id="flight-deals" aria-labelledby="flight-deals-title" data-headline="${esc(TEXT.navFlight)}">
+    <h2 id="flight-deals-title">${esc(TEXT.navFlight)}</h2>
+    <a class="news-lead" href="${esc(flightHref(lead))}">
+      <span class="lead-thumb no-image"></span>
+      <strong>${esc(lead.title)}</strong>
+      <span>${esc(flightMeta(lead))}</span>
+    </a>
+    <div class="news-list">${rows}</div>
+  </section>`;
 }
 
 function productsFromSource(products, source, count = 4) {
@@ -551,17 +595,23 @@ async function readMyRealTripFlights() {
 
 function html(posts, products = [], accommodations = [], tnaProducts = [], flights = []) {
   const sections = buildSections(posts).filter((section) => section.kind === "booking" || section.posts.length);
+  const flightNav = flights.length ? { id: "flight-deals", title: TEXT.navFlight, kind: "flight" } : null;
+  const navSections = flightNav
+    ? [sections[0], sections[1], flightNav, ...sections.slice(2)].filter(Boolean)
+    : sections;
   const hero = posts[0];
   const ogImage = imageOf(hero);
   const defaultHeadline = "\uC8FC\uC81C\uBCC4 \uCD5C\uC2E0 \uC5EC\uD589 \uC815\uBCF4";
   const productFeeds = { accommodations, tnaProducts, products };
   const allProducts = [...accommodations, ...tnaProducts, ...products];
+  const flightHtml = flightDealSection(flights);
   const sectionHtml = sections
-    .map((section) => (
-      section.kind === "booking"
+    .map((section) => {
+      const html = section.kind === "booking"
         ? bookingSection({ ...section, products: allProducts })
-        : newsSection({ ...section, inlineProducts: inlineProductsForSection(section.id, productFeeds) })
-    ))
+        : newsSection({ ...section, inlineProducts: inlineProductsForSection(section.id, productFeeds) });
+      return section.id === "weekend" && flightHtml ? `${html}\n${flightHtml}` : html;
+    })
     .join("\n");
 
   return `<!doctype html>
@@ -588,7 +638,7 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
     <header class="site-header">
       <div class="header-inner">
         <a class="brand" href="/">${esc(BRAND)}</a>
-        <nav class="nav-scroll" aria-label="${esc(TEXT.navLabel)}">${categoryNav(sections)}</nav>
+        <nav class="nav-scroll" aria-label="${esc(TEXT.navLabel)}">${categoryNav(navSections)}</nav>
         ${LANGUAGE_SWITCH}
       </div>
     </header>
