@@ -1,6 +1,20 @@
 const API_BASE = "https://partner-ext-api.myrealtrip.com";
 const PUBLIC_FLIGHT_URL = "https://www.myrealtrip.com/flights";
 
+const STATIC_DATA = {
+  accommodation: "/data/myrealtrip-accommodations.json",
+  tna: "/data/myrealtrip-tna-products.json",
+  flight: "/data/myrealtrip-flight-deals.json",
+};
+
+const AIRPORT_ALIASES = {
+  ICN: "인천",
+  GMP: "김포",
+  CJU: "제주",
+  PUS: "부산",
+  CJJ: "청주",
+};
+
 function json(data, status = 200) {
   return new Response(JSON.stringify(data), {
     status,
@@ -21,6 +35,10 @@ function getApiKey(env = {}) {
     || env.PARTNER_API_KEY
     || env.PARTNER_EXT_API_KEY
     || "";
+}
+
+function hasApiKey(env = {}) {
+  return Boolean(getApiKey(env).trim());
 }
 
 function text(value, fallback = "") {
@@ -53,6 +71,97 @@ function productUrl(value) {
   const url = text(value);
   if (!/^https:\/\/(accommodation|experiences)\.myrealtrip\.com\//.test(url)) return "";
   return url;
+}
+
+function includesKeyword(item, keyword) {
+  const needle = text(keyword).toLowerCase();
+  if (!needle) return true;
+  const haystack = [
+    item?.title,
+    item?.region,
+    item?.city,
+    item?.category,
+    item?.description,
+    Array.isArray(item?.tags) ? item.tags.join(" ") : "",
+  ].filter(Boolean).join(" ").toLowerCase();
+  return haystack.includes(needle);
+}
+
+function staticMeta(item) {
+  return [item?.region || item?.city, item?.category || item?.type, item?.priceText || item?.price]
+    .filter(Boolean)
+    .join(" · ");
+}
+
+function flightSlug(deal) {
+  return String(deal?.id || deal?.title || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9가-힣]+/g, "-")
+    .replace(/^-+|-+$/g, "") || "flight-deal";
+}
+
+function normalizeStaticProduct(item, type) {
+  const title = text(item?.title);
+  if (!title) return null;
+  const isFlight = type === "flight" || item?.source === "myrealtrip-flight";
+  return {
+    type: isFlight ? "flight" : (type === "tna" ? "tna" : "accommodation"),
+    title,
+    url: isFlight ? `/flight-deals/${flightSlug(item)}/` : text(item?.url),
+    image: text(item?.image),
+    price: Number(item?.price || 0),
+    meta: isFlight
+      ? [item?.priceText, item?.departureDate ? `출발 ${item.departureDate}` : "", item?.returnDate ? `귀국 ${item.returnDate}` : ""].filter(Boolean).join(" · ")
+      : staticMeta(item),
+  };
+}
+
+async function readStaticData(context, type) {
+  const pathname = STATIC_DATA[type];
+  if (!pathname) return [];
+
+  const url = new URL(context.request.url);
+  url.pathname = pathname;
+  url.search = "";
+
+  const request = new Request(url.toString(), context.request);
+  const response = context.env?.ASSETS
+    ? await context.env.ASSETS.fetch(request)
+    : await fetch(request);
+  if (!response.ok) return [];
+
+  const rows = await response.json().catch(() => []);
+  return Array.isArray(rows) ? rows : [];
+}
+
+async function staticSearch(context, type) {
+  const url = new URL(context.request.url);
+  const rows = await readStaticData(context, type);
+  const keyword = text(url.searchParams.get(type === "flight" ? "departure" : "keyword"));
+  const departure = keyword.toUpperCase();
+  const departureName = AIRPORT_ALIASES[departure] || keyword;
+
+  const matched = rows.filter((item) => {
+    if (type === "flight") {
+      if (!keyword) return true;
+      return text(item?.fromCity).toUpperCase() === departure || includesKeyword(item, departureName);
+    }
+    return includesKeyword(item, keyword);
+  });
+
+  const source = matched.length ? matched : rows;
+  const items = source
+    .map((item) => normalizeStaticProduct(item, type))
+    .filter((item) => item?.title && item?.url)
+    .sort((a, b) => Number(a.price || 0) - Number(b.price || 0))
+    .slice(0, 8);
+
+  return json({
+    ok: true,
+    fallback: true,
+    items,
+    message: items.length ? "" : "저장된 상품 데이터가 없습니다.",
+  });
 }
 
 async function postMyRealTrip(env, pathname, body) {
@@ -210,11 +319,24 @@ export async function onRequestGet(context) {
   try {
     const url = new URL(context.request.url);
     const type = text(url.searchParams.get("type"));
+    if (!["accommodation", "tna", "flight"].includes(type)) {
+      return json({ ok: false, message: "지원하지 않는 검색 유형입니다." }, 400);
+    }
+
+    if (!hasApiKey(context.env)) {
+      return await staticSearch(context, type);
+    }
+
     if (type === "accommodation") return await searchAccommodation(context.request, context.env);
     if (type === "tna") return await searchTna(context.request, context.env);
     if (type === "flight") return await searchFlight(context.request, context.env);
-    return json({ ok: false, message: "지원하지 않는 검색 유형입니다." }, 400);
   } catch (error) {
+    const url = new URL(context.request.url);
+    const type = text(url.searchParams.get("type"));
+    if (["accommodation", "tna", "flight"].includes(type)) {
+      const fallback = await staticSearch(context, type).catch(() => null);
+      if (fallback) return fallback;
+    }
     return json({ ok: false, message: error.message || "검색 중 오류가 발생했습니다." }, 500);
   }
 }
