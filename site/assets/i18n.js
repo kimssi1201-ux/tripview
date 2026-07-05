@@ -198,9 +198,9 @@
     const lang = normalizeLang(link.getAttribute('data-lang'));
     if (!lang) return;
 
-    event.preventDefault();
-    window.history.replaceState({}, '', targetUrl(lang));
-    applyLanguage(lang);
+    saveLang(lang);
+    if (lang === 'ko') clearTranslateCookie();
+    else setTranslateCookie(`/ko/${googleLang[lang]}`, 31536000);
   });
 
   if (document.readyState === 'loading') {

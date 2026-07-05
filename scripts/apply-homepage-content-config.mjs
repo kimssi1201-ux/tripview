@@ -259,10 +259,14 @@ function productMeta(product) {
   return [productRegionOf(product), product.category || product.type, product.priceText || product.price].filter(Boolean).join(" \u00B7 ");
 }
 
+function externalAttrs(url = "") {
+  return /^https?:\/\//i.test(String(url)) ? ' target="_blank" rel="sponsored noopener"' : ' rel="sponsored noopener"';
+}
+
 function productCard(product) {
   const image = product.image ? `<span class="booking-thumb"><img src="${esc(product.image)}" alt="${esc(product.title)}" loading="lazy"></span>` : "";
   const className = `check-card product-card${image ? "" : " no-thumb"}`;
-  return `<a class="${className}" href="${esc(product.url)}" rel="sponsored noopener">
+  return `<a class="${className}" href="${esc(product.url)}"${externalAttrs(product.url)}>
     ${image}
     <strong>${esc(product.title)}</strong>
     <span>${esc(productMeta(product) || "\uC5EC\uD589 \uC804 \uC608\uC57D \uC815\uBCF4")}</span>
@@ -607,6 +611,14 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
       <span>${esc(TEXT.footer)}</span>
     </footer>
     <script>
+      document.addEventListener('click', (event) => {
+        const link = event.target.closest('a[href]');
+        if (!link) return;
+        const url = new URL(link.href, window.location.href);
+        if (url.origin !== window.location.origin || link.rel.includes('sponsored')) {
+          event.stopImmediatePropagation();
+        }
+      }, { capture: true });
       const bookingResults = document.querySelector('[data-booking-results]');
       const today = new Date();
       const toDateInput = (date) => date.toISOString().slice(0, 10);
@@ -633,6 +645,7 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
         card.className = 'check-card product-card' + (item.image ? '' : ' no-thumb');
         card.href = item.url || 'https://www.myrealtrip.com/';
         card.rel = 'sponsored noopener';
+        if (new URL(card.href, window.location.href).origin !== window.location.origin) card.target = '_blank';
         if (item.image) {
           const thumb = document.createElement('span');
           thumb.className = 'booking-thumb';

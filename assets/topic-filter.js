@@ -239,6 +239,12 @@
   }
 
   document.addEventListener('click', (event) => {
+    const externalLink = event.target.closest('a[href]');
+    if (externalLink) {
+      const url = new URL(externalLink.href, window.location.href);
+      if (url.origin !== window.location.origin || externalLink.rel.includes('sponsored')) return;
+    }
+
     const postCard = event.target.closest('a[data-post-card]');
     if (openArticle(postCard, event)) return;
 
