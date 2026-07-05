@@ -190,6 +190,10 @@ function buildFaq(post) {
 }
 
 function enrichPost(post) {
+  if (post.manualWaterPostVersion && Array.isArray(post.sections) && post.sections.length >= 4) {
+    return post;
+  }
+
   const title = titleWithYear(post);
   const base = sourceTitle(post);
   const isFestival = post.category === '공연/축제';
@@ -400,7 +404,7 @@ async function applyOpenAiEnrichment(posts) {
   let attempted = 0;
   const next = [];
   for (const post of posts) {
-    if (attempted >= limit || post.aiEnrichedVersion === AI_PROMPT_VERSION) {
+    if (post.manualWaterPostVersion || attempted >= limit || post.aiEnrichedVersion === AI_PROMPT_VERSION) {
       next.push(post);
       continue;
     }
