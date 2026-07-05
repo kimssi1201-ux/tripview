@@ -44,7 +44,7 @@
   }
 
   function updateLanguageLinks(lang) {
-    document.querySelectorAll('[data-lang]').forEach((link) => {
+    document.querySelectorAll('.language-switch [data-lang]').forEach((link) => {
       const target = normalizeLang(link.getAttribute('data-lang'));
       if (!target) return;
       link.href = targetUrl(target);
@@ -55,7 +55,7 @@
   }
 
   function protectLanguageControls() {
-    document.querySelectorAll('.language-switch, [data-lang]').forEach((element) => {
+    document.querySelectorAll('.language-switch, .language-switch [data-lang]').forEach((element) => {
       element.classList.add('notranslate');
       element.setAttribute('translate', 'no');
     });
@@ -177,7 +177,7 @@
 
   function applyLanguage(lang) {
     document.documentElement.lang = htmlLang[lang] || 'ko';
-    document.documentElement.dataset.lang = lang;
+    document.documentElement.dataset.tripviewLang = lang;
     saveLang(lang);
     protectLanguageControls();
     updateLanguageLinks(lang);
@@ -192,7 +192,7 @@
   }
 
   document.addEventListener('click', (event) => {
-    const link = event.target.closest('[data-lang]');
+    const link = event.target.closest('.language-switch [data-lang]');
     if (!link) return;
 
     const lang = normalizeLang(link.getAttribute('data-lang'));
