@@ -1,5 +1,5 @@
 (() => {
-  if (window.tripviewHomepageReady) return;
+  if (window.tripviewHomepageReady && window.tripviewSubmitBooking) return;
   window.tripviewHomepageReady = true;
 
   function initHomepage() {
@@ -15,11 +15,6 @@
       next.setDate(next.getDate() + days);
       return next;
     };
-
-    document.querySelectorAll('[data-booking-search] input[type="date"]').forEach((input, index) => {
-      input.value = toDateInput(addDays(today, index === 0 ? 14 : 16));
-      input.min = toDateInput(today);
-    });
 
     const bookingTitle = (type) => ({
       accommodation: "숙소 검색 결과",
@@ -147,6 +142,11 @@
     window.tripviewCloseBooking = closeBookingSheet;
     window.tripviewPresetBooking = applyBookingPreset;
     window.tripviewSubmitBooking = submitBookingForm;
+
+    document.querySelectorAll('[data-booking-search] input[type="date"]').forEach((input, index) => {
+      input.value = toDateInput(addDays(today, index === 0 ? 14 : 16));
+      input.min = toDateInput(today);
+    });
 
     document.addEventListener("click", (event) => {
       const opener = event.target.closest("[data-open-booking]");
