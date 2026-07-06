@@ -27,7 +27,7 @@
     "returnDate": "2026-07-23",
     "airline": "",
     "transfer": "",
-    "averagePrice": 535578,
+    "averagePrice": 535379,
     "source": "myrealtrip-flight"
   },
   {
@@ -58,7 +58,7 @@
     "returnDate": "2026-07-24",
     "airline": "",
     "transfer": "",
-    "averagePrice": 457424,
+    "averagePrice": 459475,
     "source": "myrealtrip-flight"
   },
   {
@@ -89,11 +89,11 @@
     "returnDate": "2026-08-28",
     "airline": "",
     "transfer": "",
-    "averagePrice": 547480,
+    "averagePrice": 545459,
     "source": "myrealtrip-flight"
   },
   {
-    "id": "flight-ICN-YGJ-2026-07-19-2026-07-23",
+    "id": "flight-ICN-YGJ-2026-07-09-2026-07-13",
     "type": "flight",
     "title": "인천-요나고 왕복 5일 최저가 184,100원",
     "url": "https://www.myrealtrip.com/flights",
@@ -103,7 +103,7 @@
     "region": "요나고",
     "city": "요나고",
     "category": "항공권 최저가",
-    "description": "출발 2026년 7월 19일 · 귀국 2026년 7월 23일",
+    "description": "출발 2026년 7월 9일 · 귀국 2026년 7월 13일",
     "tags": [
       "항공권",
       "최저가",
@@ -116,11 +116,11 @@
     "fromCity": "ICN",
     "toCity": "YGJ",
     "period": 5,
-    "departureDate": "2026-07-19",
-    "returnDate": "2026-07-23",
+    "departureDate": "2026-07-09",
+    "returnDate": "2026-07-13",
     "airline": "",
     "transfer": "",
-    "averagePrice": 533694,
+    "averagePrice": 534854,
     "source": "myrealtrip-flight"
   },
   {
@@ -151,7 +151,38 @@
     "returnDate": "2026-07-15",
     "airline": "",
     "transfer": "",
-    "averagePrice": 324176,
+    "averagePrice": 323402,
+    "source": "myrealtrip-flight"
+  },
+  {
+    "id": "flight-ICN-KIX-2026-08-12-2026-08-16",
+    "type": "flight",
+    "title": "인천-오사카 왕복 5일 최저가 188,200원",
+    "url": "https://www.myrealtrip.com/flights",
+    "image": "",
+    "price": 188200,
+    "priceText": "188,200원",
+    "region": "오사카",
+    "city": "오사카",
+    "category": "항공권 최저가",
+    "description": "출발 2026년 8월 12일 · 귀국 2026년 8월 16일",
+    "tags": [
+      "항공권",
+      "최저가",
+      "예약",
+      "해외여행"
+    ],
+    "intents": [
+      "booking"
+    ],
+    "fromCity": "ICN",
+    "toCity": "KIX",
+    "period": 5,
+    "departureDate": "2026-08-12",
+    "returnDate": "2026-08-16",
+    "airline": "",
+    "transfer": "",
+    "averagePrice": 499095,
     "source": "myrealtrip-flight"
   },
   {
@@ -182,38 +213,7 @@
     "returnDate": "2026-07-17",
     "airline": "",
     "transfer": "",
-    "averagePrice": 353606,
-    "source": "myrealtrip-flight"
-  },
-  {
-    "id": "flight-ICN-KIX-2026-09-05-2026-09-09",
-    "type": "flight",
-    "title": "인천-오사카 왕복 5일 최저가 189,740원",
-    "url": "https://www.myrealtrip.com/flights",
-    "image": "",
-    "price": 189740,
-    "priceText": "189,740원",
-    "region": "오사카",
-    "city": "오사카",
-    "category": "항공권 최저가",
-    "description": "출발 2026년 9월 5일 · 귀국 2026년 9월 9일",
-    "tags": [
-      "항공권",
-      "최저가",
-      "예약",
-      "해외여행"
-    ],
-    "intents": [
-      "booking"
-    ],
-    "fromCity": "ICN",
-    "toCity": "KIX",
-    "period": 5,
-    "departureDate": "2026-09-05",
-    "returnDate": "2026-09-09",
-    "airline": "",
-    "transfer": "",
-    "averagePrice": 498922,
+    "averagePrice": 353293,
     "source": "myrealtrip-flight"
   },
   {
@@ -244,7 +244,7 @@
     "returnDate": "2026-12-21",
     "airline": "",
     "transfer": "",
-    "averagePrice": 409547,
+    "averagePrice": 411107,
     "source": "myrealtrip-flight"
   }
 ]
