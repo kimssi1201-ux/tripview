@@ -165,8 +165,8 @@ async function staticSearch(context, type, options = {}) {
   const periodMatched = type === "flight" && period
     ? matchedByKeyword.filter((item) => Number(item?.period) === period)
     : [];
-  const matched = periodMatched.length ? periodMatched : matchedByKeyword;
-  const source = matched.length ? matched : rows;
+  const matched = type === "flight" && period ? periodMatched : matchedByKeyword;
+  const source = matched.length ? matched : (type === "flight" && period ? [] : rows);
   const items = source
     .map((item) => normalizeStaticProduct(item, type))
     .filter((item) => item?.title && item?.url)
@@ -179,7 +179,9 @@ async function staticSearch(context, type, options = {}) {
     items,
     message: items.length
       ? (options.message || "현재 확인된 추천 데이터를 보여드립니다.")
-      : "저장된 상품 데이터가 없습니다.",
+      : (type === "flight" && period
+        ? `${period}일 일정 항공권 추천 데이터가 아직 없습니다. 다른 기간으로 검색해 보세요.`
+        : "저장된 상품 데이터가 없습니다."),
   });
 }
 
@@ -252,14 +254,11 @@ function normalizeFlight(item) {
   if (!from || !to || !price) return null;
   const departureDate = text(item?.departureDate);
   const returnDate = text(item?.returnDate);
-  const slugSource = {
-    id: ["flight", from, to, departureDate, returnDate].filter(Boolean).join("-"),
-  };
 
   return {
     type: "flight",
     title: `${from}-${to} 항공권 최저가 ${price}`,
-    url: flightDealPath(slugSource) || PUBLIC_FLIGHT_URL,
+    url: PUBLIC_FLIGHT_URL,
     image: "",
     price: Number(item?.totalPrice) || 0,
     meta: [price, departureDate ? `출발 ${departureDate}` : "", returnDate ? `귀국 ${returnDate}` : ""].filter(Boolean).join(" · "),
