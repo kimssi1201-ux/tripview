@@ -27,7 +27,7 @@
     "returnDate": "2026-07-23",
     "airline": "",
     "transfer": "",
-    "averagePrice": 540792,
+    "averagePrice": 541037,
     "source": "myrealtrip-flight"
   },
   {
@@ -58,7 +58,7 @@
     "returnDate": "2026-07-25",
     "airline": "",
     "transfer": "",
-    "averagePrice": 457228,
+    "averagePrice": 457564,
     "source": "myrealtrip-flight"
   },
   {
@@ -93,7 +93,7 @@
     "source": "myrealtrip-flight"
   },
   {
-    "id": "flight-ICN-YGJ-2026-07-09-2026-07-13",
+    "id": "flight-ICN-YGJ-2026-08-23-2026-08-27",
     "type": "flight",
     "title": "인천-요나고 왕복 5일 최저가 184,100원",
     "url": "https://www.myrealtrip.com/flights",
@@ -103,7 +103,7 @@
     "region": "요나고",
     "city": "요나고",
     "category": "항공권 최저가",
-    "description": "출발 2026년 7월 9일 · 귀국 2026년 7월 13일",
+    "description": "출발 2026년 8월 23일 · 귀국 2026년 8월 27일",
     "tags": [
       "항공권",
       "최저가",
@@ -116,11 +116,11 @@
     "fromCity": "ICN",
     "toCity": "YGJ",
     "period": 5,
-    "departureDate": "2026-07-09",
-    "returnDate": "2026-07-13",
+    "departureDate": "2026-08-23",
+    "returnDate": "2026-08-27",
     "airline": "",
     "transfer": "",
-    "averagePrice": 533297,
+    "averagePrice": 531359,
     "source": "myrealtrip-flight"
   },
   {
@@ -151,7 +151,7 @@
     "returnDate": "2026-07-23",
     "airline": "",
     "transfer": "",
-    "averagePrice": 327072,
+    "averagePrice": 326755,
     "source": "myrealtrip-flight"
   },
   {
@@ -182,7 +182,7 @@
     "returnDate": "2026-07-17",
     "airline": "",
     "transfer": "",
-    "averagePrice": 352538,
+    "averagePrice": 352764,
     "source": "myrealtrip-flight"
   },
   {

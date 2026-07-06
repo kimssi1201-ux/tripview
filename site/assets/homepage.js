@@ -61,6 +61,11 @@
 
     function setBookingStatus(message, type = "") {
       startBookingResults(type);
+      appendBookingNotice(message);
+    }
+
+    function appendBookingNotice(message) {
+      if (!bookingResults || !message) return;
       const status = document.createElement("p");
       status.className = "booking-status";
       status.textContent = message;
@@ -119,6 +124,7 @@
           return;
         }
 
+        if (payload.fallback && payload.message) appendBookingNotice(payload.message);
         items.forEach(appendBookingResult);
         closeBookingSheet();
         bookingResults?.scrollIntoView({ block: "start", behavior: "smooth" });

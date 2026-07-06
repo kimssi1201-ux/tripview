@@ -1,5 +1,6 @@
 const API_BASE = "https://partner-ext-api.myrealtrip.com";
 const PUBLIC_FLIGHT_URL = "https://www.myrealtrip.com/flights";
+const MYREALTRIP_TIMEOUT_MS = 8000;
 
 const STATIC_DATA = {
   accommodation: "/data/myrealtrip-accommodations.json",
@@ -61,6 +62,13 @@ function isoDate(date) {
   return date.toISOString().slice(0, 10);
 }
 
+function parseIsoDate(value) {
+  const dateText = text(value);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(dateText)) return null;
+  const date = new Date(`${dateText}T00:00:00Z`);
+  return Number.isNaN(date.getTime()) ? null : date;
+}
+
 function formatWon(value) {
   const number = Number(value);
   if (!Number.isFinite(number) || number <= 0) return "";
@@ -100,6 +108,10 @@ function flightSlug(deal) {
     .replace(/^-+|-+$/g, "") || "flight-deal";
 }
 
+function flightDealPath(deal) {
+  return `/flight-deals/${flightSlug(deal)}/`;
+}
+
 function normalizeStaticProduct(item, type) {
   const title = text(item?.title);
   if (!title) return null;
@@ -134,14 +146,15 @@ async function readStaticData(context, type) {
   return Array.isArray(rows) ? rows : [];
 }
 
-async function staticSearch(context, type) {
+async function staticSearch(context, type, options = {}) {
   const url = new URL(context.request.url);
   const rows = await readStaticData(context, type);
   const keyword = text(url.searchParams.get(type === "flight" ? "departure" : "keyword"));
   const departure = keyword.toUpperCase();
   const departureName = AIRPORT_ALIASES[departure] || keyword;
+  const period = type === "flight" ? clampInt(url.searchParams.get("period"), 3, 7, 0) : 0;
 
-  const matched = rows.filter((item) => {
+  const matchedByKeyword = rows.filter((item) => {
     if (type === "flight") {
       if (!keyword) return true;
       return text(item?.fromCity).toUpperCase() === departure || includesKeyword(item, departureName);
@@ -149,6 +162,10 @@ async function staticSearch(context, type) {
     return includesKeyword(item, keyword);
   });
 
+  const periodMatched = type === "flight" && period
+    ? matchedByKeyword.filter((item) => Number(item?.period) === period)
+    : [];
+  const matched = periodMatched.length ? periodMatched : matchedByKeyword;
   const source = matched.length ? matched : rows;
   const items = source
     .map((item) => normalizeStaticProduct(item, type))
@@ -160,30 +177,42 @@ async function staticSearch(context, type) {
     ok: true,
     fallback: true,
     items,
-    message: items.length ? "" : "저장된 상품 데이터가 없습니다.",
+    message: items.length
+      ? (options.message || "현재 확인된 추천 데이터를 보여드립니다.")
+      : "저장된 상품 데이터가 없습니다.",
   });
 }
 
 async function postMyRealTrip(env, pathname, body) {
   const apiKey = getApiKey(env);
   if (!apiKey) throw new Error("API key is not configured.");
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), MYREALTRIP_TIMEOUT_MS);
 
-  const response = await fetch(`${API_BASE}${pathname}`, {
-    method: "POST",
-    headers: {
-      authorization: `Bearer ${apiKey}`,
-      "content-type": "application/json",
-      accept: "application/json",
-    },
-    body: JSON.stringify(body),
-  });
+  try {
+    const response = await fetch(`${API_BASE}${pathname}`, {
+      method: "POST",
+      headers: {
+        authorization: `Bearer ${apiKey}`,
+        "content-type": "application/json",
+        accept: "application/json",
+      },
+      body: JSON.stringify(body),
+      signal: controller.signal,
+    });
 
-  const payload = await response.json().catch(async () => ({ message: await response.text() }));
-  if (!response.ok) {
-    const message = text(payload?.result?.message || payload?.message || `request failed ${response.status}`);
-    throw new Error(message);
+    const payload = await response.json().catch(async () => ({ message: await response.text() }));
+    if (!response.ok) {
+      const message = text(payload?.result?.message || payload?.message || `request failed ${response.status}`);
+      throw new Error(message);
+    }
+    return payload;
+  } catch (error) {
+    if (error?.name === "AbortError") throw new Error("실시간 검색 응답이 지연되고 있습니다.");
+    throw error;
+  } finally {
+    clearTimeout(timeoutId);
   }
-  return payload;
 }
 
 function normalizeAccommodation(item, regionName) {
@@ -221,14 +250,19 @@ function normalizeFlight(item) {
   const to = text(item?.toCity);
   const price = formatWon(item?.totalPrice);
   if (!from || !to || !price) return null;
+  const departureDate = text(item?.departureDate);
+  const returnDate = text(item?.returnDate);
+  const slugSource = {
+    id: ["flight", from, to, departureDate, returnDate].filter(Boolean).join("-"),
+  };
 
   return {
     type: "flight",
     title: `${from}-${to} 항공권 최저가 ${price}`,
-    url: "/flight-deals/",
+    url: flightDealPath(slugSource) || PUBLIC_FLIGHT_URL,
     image: "",
     price: Number(item?.totalPrice) || 0,
-    meta: [price, item?.departureDate ? `출발 ${item.departureDate}` : "", item?.returnDate ? `귀국 ${item.returnDate}` : ""].filter(Boolean).join(" · "),
+    meta: [price, departureDate ? `출발 ${departureDate}` : "", returnDate ? `귀국 ${returnDate}` : ""].filter(Boolean).join(" · "),
   };
 }
 
@@ -236,8 +270,14 @@ async function searchAccommodation(request, env) {
   const url = new URL(request.url);
   const keyword = text(url.searchParams.get("keyword"), "서울").slice(0, 100);
   const today = new Date();
-  const checkIn = text(url.searchParams.get("checkIn"), isoDate(addDays(today, 14)));
-  const checkOut = text(url.searchParams.get("checkOut"), isoDate(addDays(new Date(`${checkIn}T00:00:00Z`), 2)));
+  const defaultCheckIn = isoDate(addDays(today, 14));
+  const checkInDate = parseIsoDate(url.searchParams.get("checkIn")) || parseIsoDate(defaultCheckIn);
+  const checkIn = isoDate(checkInDate);
+  const requestedCheckOut = parseIsoDate(url.searchParams.get("checkOut"));
+  const checkOutDate = requestedCheckOut && requestedCheckOut > checkInDate
+    ? requestedCheckOut
+    : addDays(checkInDate, 2);
+  const checkOut = isoDate(checkOutDate);
   const adultCount = clampInt(url.searchParams.get("adultCount"), 1, 9, 2);
   const childCount = clampInt(url.searchParams.get("childCount"), 0, 9, 0);
 
@@ -324,7 +364,9 @@ export async function onRequestGet(context) {
     }
 
     if (!hasApiKey(context.env)) {
-      return await staticSearch(context, type);
+      return await staticSearch(context, type, {
+        message: "현재 확인된 추천 데이터를 보여드립니다.",
+      });
     }
 
     if (type === "accommodation") return await searchAccommodation(context.request, context.env);
@@ -334,7 +376,10 @@ export async function onRequestGet(context) {
     const url = new URL(context.request.url);
     const type = text(url.searchParams.get("type"));
     if (["accommodation", "tna", "flight"].includes(type)) {
-      const fallback = await staticSearch(context, type).catch(() => null);
+      console.warn("myrealtrip search fallback", { type, message: error?.message || "unknown error" });
+      const fallback = await staticSearch(context, type, {
+        message: "실시간 검색이 지연되어 현재 확인된 추천 데이터를 보여드립니다.",
+      }).catch(() => null);
       if (fallback) return fallback;
     }
     return json({ ok: false, message: error.message || "검색 중 오류가 발생했습니다." }, 500);

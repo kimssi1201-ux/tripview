@@ -166,6 +166,13 @@
     markActive();
   }
 
+  function showTopicError(message) {
+    const grid = routeGrid();
+    if (!grid) return;
+    ensureStyle();
+    grid.innerHTML = `<p class="topic-empty">${esc(message)}</p>`;
+  }
+
   async function loadPosts() {
     if (state.posts.length) return state.posts;
     const response = await fetch(DATA_URL, { cache: 'no-store' });
@@ -261,7 +268,9 @@
     }
 
     event.preventDefault();
-    applyFilter(filter).catch(() => {});
+    applyFilter(filter).catch(() => {
+      showTopicError('글 목록을 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.');
+    });
   }, { capture: true });
 
   async function applyInitialFilter() {
@@ -278,5 +287,7 @@
     }
   }
 
-  applyInitialFilter().catch(() => {});
+  applyInitialFilter().catch(() => {
+    showTopicError('글 목록을 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.');
+  });
 })();

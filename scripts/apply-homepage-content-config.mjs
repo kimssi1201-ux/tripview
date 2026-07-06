@@ -894,7 +894,7 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
         });
       });
     </script>
-    <script src="/assets/homepage.js?v=booking-search-20260706-linkfix2" defer></script>
+    <script src="/assets/homepage.js?v=booking-search-20260706-hardening" defer></script>
   </body>
 </html>`;
 }
