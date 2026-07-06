@@ -76,7 +76,7 @@
       if (!bookingResults) return;
       const card = document.createElement("a");
       card.className = `check-card product-card${item.image ? "" : " no-thumb"}`;
-      const url = item.url || (item.type === "flight" ? "/flight-deals/" : "https://www.myrealtrip.com/");
+      const url = item.url || (item.type === "flight" ? "https://www.myrealtrip.com/flights" : "https://www.myrealtrip.com/");
       card.href = url;
       if (/^https?:\/\//.test(url)) card.rel = "sponsored noopener";
 
