@@ -112,6 +112,14 @@ jobs:
           MYREALTRIP_FLIGHT_LIMIT: ${{ vars.MYREALTRIP_FLIGHT_LIMIT || '8' }}
           MYREALTRIP_FLIGHT_URL_TEMPLATE: ${{ vars.MYREALTRIP_FLIGHT_URL_TEMPLATE || secrets.MYREALTRIP_FLIGHT_URL_TEMPLATE }}
 
+      - name: Fetch Coupang products
+        run: node scripts/fetch-coupang-products.mjs
+        env:
+          COUPANG_ACCESS_KEY: ${{ secrets.COUPANG_ACCESS_KEY }}
+          COUPANG_SECRET_KEY: ${{ secrets.COUPANG_SECRET_KEY }}
+          COUPANG_PARTNER_ID: ${{ secrets.COUPANG_PARTNER_ID }}
+          COUPANG_SUB_ID: ${{ secrets.COUPANG_SUB_ID }}
+
       - name: Build homepage
         run: node scripts/build-homepage.mjs
 

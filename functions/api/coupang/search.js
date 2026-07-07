@@ -1,6 +1,7 @@
 const API_HOST = "https://api-gateway.coupang.com";
 const SEARCH_PATH = "/v2/providers/affiliate_open_api/apis/openapi/products/search";
 const REQUEST_TIMEOUT_MS = 8000;
+const STATIC_DATA_PATH = "/data/coupang-products.json";
 
 const INTENT_KEYWORDS = {
   travel: "여행 준비물",
@@ -99,6 +100,42 @@ function normalizeProduct(item) {
   };
 }
 
+function staticMatch(item, keyword, intent) {
+  if (!item?.title || !item?.url) return false;
+  if (intent && item.intent === intent) return true;
+  const haystack = [item.title, item.keyword, item.intent, item.meta].filter(Boolean).join(" ").toLowerCase();
+  return haystack.includes(keyword.toLowerCase());
+}
+
+async function readStaticProducts(context) {
+  const url = new URL(context.request.url);
+  url.pathname = STATIC_DATA_PATH;
+  url.search = "";
+  const request = new Request(url.toString(), context.request);
+  const response = context.env?.ASSETS
+    ? await context.env.ASSETS.fetch(request)
+    : await fetch(request);
+  if (!response.ok) return [];
+  const rows = await response.json().catch(() => []);
+  return Array.isArray(rows) ? rows : [];
+}
+
+async function staticSearch(context, keyword, intent, limit, message = "") {
+  const rows = await readStaticProducts(context);
+  const matched = rows
+    .filter((item) => staticMatch(item, keyword, intent))
+    .slice(0, limit);
+  const fallback = matched.length ? matched : rows.slice(0, limit);
+  return json({
+    ok: Boolean(fallback.length),
+    fallback: true,
+    keyword,
+    items: fallback,
+    disclosure: "이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.",
+    message: message || (fallback.length ? "저장된 쿠팡 추천 상품을 보여드립니다." : "Coupang API key is not configured."),
+  });
+}
+
 async function fetchCoupangProducts({ credentials, keyword, limit }) {
   const endpoint = new URL(`${API_HOST}${SEARCH_PATH}`);
   endpoint.searchParams.set("keyword", keyword);
@@ -132,11 +169,12 @@ async function fetchCoupangProducts({ credentials, keyword, limit }) {
 export async function onRequestGet(context) {
   const url = new URL(context.request.url);
   const keyword = pickKeyword(url);
+  const intent = text(url.searchParams.get("intent"));
   const limit = clampInt(url.searchParams.get("limit"), 1, 10, 6);
   const credentials = getCredentials(context.env);
 
   if (!credentials.accessKey || !credentials.secretKey) {
-    return json({ ok: false, items: [], message: "Coupang API key is not configured." });
+    return staticSearch(context, keyword, intent, limit);
   }
 
   const cacheKey = new Request(`${url.origin}${url.pathname}?keyword=${encodeURIComponent(keyword)}&limit=${limit}`);
@@ -156,11 +194,12 @@ export async function onRequestGet(context) {
     if (cache && items.length) context.waitUntil(cache.put(cacheKey, response.clone()));
     return response;
   } catch (error) {
-    return json({
-      ok: false,
+    return staticSearch(
+      context,
       keyword,
-      items: [],
-      message: error?.name === "AbortError" ? "Coupang API request timed out." : text(error?.message, "Coupang API request failed."),
-    });
+      intent,
+      limit,
+      error?.name === "AbortError" ? "Coupang API request timed out. 저장된 추천 상품을 보여드립니다." : "Coupang API request failed. 저장된 추천 상품을 보여드립니다."
+    );
   }
 }
