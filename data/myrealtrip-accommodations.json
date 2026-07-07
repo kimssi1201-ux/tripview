@@ -5,8 +5,8 @@
     "title": "서울 숙소 토요코인 서울영등포",
     "url": "https://accommodation.myrealtrip.com/union/products/1485138?checkIn=2026-07-21&checkOut=2026-07-23&adultCount=2&childCount=0&childAges=",
     "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/05/11/JCvE/zULsJLFNww.jpg?width=720",
-    "price": 111312,
-    "priceText": "111,312원부터",
+    "price": 111022,
+    "priceText": "111,022원부터",
     "region": "서울",
     "city": "서울",
     "category": "숙소 예약",
@@ -27,7 +27,7 @@
     "starRating": 3,
     "reviewScore": "4.5",
     "reviewCount": 1763,
-    "originalPrice": 111312,
+    "originalPrice": 111022,
     "deepLink": "mrt://unionstay/detail/1485138?checkIn=2026-07-21&checkOut=2026-07-23&adultCount=2&childCount=0&childAges=",
     "source": "myrealtrip-accommodation"
   },
@@ -37,8 +37,8 @@
     "title": "서울 숙소 호텔 리베라",
     "url": "https://accommodation.myrealtrip.com/union/products/1142308?checkIn=2026-07-21&checkOut=2026-07-23&adultCount=2&childCount=0&childAges=",
     "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/03/24/p3Ts/AtltWji9Cm.jpg?width=720",
-    "price": 165832,
-    "priceText": "165,832원부터",
+    "price": 165453,
+    "priceText": "165,453원부터",
     "region": "서울",
     "city": "서울",
     "category": "숙소 예약",
@@ -59,7 +59,7 @@
     "starRating": 4,
     "reviewScore": "4.2",
     "reviewCount": 1036,
-    "originalPrice": 165832,
+    "originalPrice": 165453,
     "deepLink": "mrt://unionstay/detail/1142308?checkIn=2026-07-21&checkOut=2026-07-23&adultCount=2&childCount=0&childAges=",
     "source": "myrealtrip-accommodation"
   },
@@ -192,6 +192,38 @@
     "source": "myrealtrip-accommodation"
   },
   {
+    "id": "accommodation-3585788",
+    "type": "accommodation",
+    "title": "서울 숙소 나인트리 프리미어 로카우스 호텔 서울 용산",
+    "url": "https://accommodation.myrealtrip.com/union/products/3585788?checkIn=2026-07-21&checkOut=2026-07-23&adultCount=2&childCount=0&childAges=",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/10/01/wlvr/pIe8K9PXlQ.jpg?width=720",
+    "price": 277218,
+    "priceText": "277,218원부터",
+    "region": "서울",
+    "city": "서울",
+    "category": "숙소 예약",
+    "description": "2026년 7월 21일 체크인 · 2박 · 4성급 · 평점 4.6(517개)",
+    "tags": [
+      "숙소",
+      "호텔",
+      "예약",
+      "서울"
+    ],
+    "intents": [
+      "booking"
+    ],
+    "checkIn": "2026-07-21",
+    "checkOut": "2026-07-23",
+    "adultCount": 2,
+    "childCount": 0,
+    "starRating": 4,
+    "reviewScore": "4.6",
+    "reviewCount": 517,
+    "originalPrice": 277218,
+    "deepLink": "mrt://unionstay/detail/3585788?checkIn=2026-07-21&checkOut=2026-07-23&adultCount=2&childCount=0&childAges=",
+    "source": "myrealtrip-accommodation"
+  },
+  {
     "id": "accommodation-1105545",
     "type": "accommodation",
     "title": "서울 숙소 코리아나 호텔",
@@ -221,38 +253,6 @@
     "reviewCount": 1419,
     "originalPrice": 287644,
     "deepLink": "mrt://unionstay/detail/1105545?checkIn=2026-07-21&checkOut=2026-07-23&adultCount=2&childCount=0&childAges=",
-    "source": "myrealtrip-accommodation"
-  },
-  {
-    "id": "accommodation-3585788",
-    "type": "accommodation",
-    "title": "서울 숙소 나인트리 프리미어 로카우스 호텔 서울 용산",
-    "url": "https://accommodation.myrealtrip.com/union/products/3585788?checkIn=2026-07-21&checkOut=2026-07-23&adultCount=2&childCount=0&childAges=",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/10/01/wlvr/pIe8K9PXlQ.jpg?width=720",
-    "price": 290266,
-    "priceText": "290,266원부터",
-    "region": "서울",
-    "city": "서울",
-    "category": "숙소 예약",
-    "description": "2026년 7월 21일 체크인 · 2박 · 4성급 · 평점 4.6(516개)",
-    "tags": [
-      "숙소",
-      "호텔",
-      "예약",
-      "서울"
-    ],
-    "intents": [
-      "booking"
-    ],
-    "checkIn": "2026-07-21",
-    "checkOut": "2026-07-23",
-    "adultCount": 2,
-    "childCount": 0,
-    "starRating": 4,
-    "reviewScore": "4.6",
-    "reviewCount": 516,
-    "originalPrice": 290266,
-    "deepLink": "mrt://unionstay/detail/3585788?checkIn=2026-07-21&checkOut=2026-07-23&adultCount=2&childCount=0&childAges=",
     "source": "myrealtrip-accommodation"
   }
 ]

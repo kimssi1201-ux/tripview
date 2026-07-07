@@ -116,42 +116,13 @@
     "source": "myrealtrip-tna"
   },
   {
-    "id": "tna-6082912",
-    "type": "tna",
-    "title": "[즉시확정] 유니버설 스튜디오 재팬 식사&쇼핑 바우처",
-    "url": "https://experiences.myrealtrip.com/products/6082912",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/05/28/Nk5X/bTZUVOu4MX.jpg",
-    "price": 10014,
-    "priceText": "10,014원부터",
-    "region": "오사카",
-    "city": "오사카",
-    "category": "티켓·입장권",
-    "description": "오사카 ∙ 티켓·입장권 · 평점 4.6(5개) · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "오사카",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "transport"
-    ],
-    "gid": "6082912",
-    "reviewScore": 4.6,
-    "reviewCount": 5,
-    "deepLink": "mrt://experiences/detail/6082912",
-    "source": "myrealtrip-tna"
-  },
-  {
     "id": "tna-6082963",
     "type": "tna",
     "title": "고시엔 역사관 입장권 (오리지널 굿즈 포함)",
     "url": "https://experiences.myrealtrip.com/products/6082963",
     "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/05/28/0NwD/4DdYXRcEAq.jpg",
-    "price": 10102,
-    "priceText": "10,102원부터",
+    "price": 10015,
+    "priceText": "10,015원부터",
     "region": "오사카",
     "city": "오사카",
     "category": "티켓·입장권",
@@ -171,6 +142,35 @@
     "reviewScore": "",
     "reviewCount": "",
     "deepLink": "mrt://experiences/detail/6082963",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6082871",
+    "type": "tna",
+    "title": "고베 누노비키 허브원 로프웨이 입장권",
+    "url": "https://experiences.myrealtrip.com/products/6082871",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/05/28/UosE/SGZneuANQS.jpg",
+    "price": 10247,
+    "priceText": "10,247원부터",
+    "region": "오사카",
+    "city": "오사카",
+    "category": "티켓·입장권",
+    "description": "오사카 ∙ 티켓·입장권 · 평점 4.9(12개) · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "오사카",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport"
+    ],
+    "gid": "6082871",
+    "reviewScore": 4.9,
+    "reviewCount": 12,
+    "deepLink": "mrt://experiences/detail/6082871",
     "source": "myrealtrip-tna"
   },
   {
