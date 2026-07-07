@@ -14,12 +14,14 @@ const API_HOST = "https://api-gateway.coupang.com";
 const SEARCH_PATH = "/v2/providers/affiliate_open_api/apis/openapi/products/search";
 
 const SEARCHES = [
-  { intent: "travel", keyword: "여행 준비물", limit: 6 },
-  { intent: "water", keyword: "방수팩", limit: 6 },
-  { intent: "indoor", keyword: "접이식 우산", limit: 6 },
-  { intent: "festival", keyword: "보조배터리", limit: 6 },
-  { intent: "family", keyword: "아이 여행 준비물", limit: 6 },
-  { intent: "booking", keyword: "여행용 파우치", limit: 6 },
+  { intent: "travel", keyword: "\uC5EC\uD589 \uC900\uBE44\uBB3C", limit: 8 },
+  { intent: "water", keyword: "\uBB3C\uB180\uC774 \uC6A9\uD488", limit: 8 },
+  { intent: "water", keyword: "\uC544\uCFE0\uC544\uC288\uC988", limit: 8 },
+  { intent: "indoor", keyword: "\uC7A5\uB9C8 \uC6B0\uC0B0", limit: 8 },
+  { intent: "festival", keyword: "\uBCF4\uC870\uBC30\uD130\uB9AC", limit: 8 },
+  { intent: "family", keyword: "\uC544\uC774 \uC5EC\uD589 \uC900\uBE44\uBB3C", limit: 8 },
+  { intent: "booking", keyword: "\uC5EC\uD589\uC6A9 \uD30C\uC6B0\uCE58", limit: 8 },
+  { intent: "summer", keyword: "\uC120\uD06C\uB9BC", limit: 8 },
 ];
 
 function text(value, fallback = "") {
@@ -50,7 +52,8 @@ function authorizationHeader({ accessKey, secretKey }, method, uri) {
 function normalizeProduct(item, search) {
   const title = text(item?.productName);
   const url = text(item?.productUrl);
-  if (!title || !/^https?:\/\//.test(url)) return null;
+  const image = text(item?.productImage);
+  if (!title || !/^https?:\/\//.test(url) || !/^https?:\/\//.test(image)) return null;
 
   const price = Number(item?.productPrice || 0);
   return {
@@ -60,9 +63,9 @@ function normalizeProduct(item, search) {
     keyword: search.keyword,
     title,
     url,
-    image: text(item?.productImage),
+    image,
     price,
-    meta: [price > 0 ? `${price.toLocaleString("ko-KR")}원` : "", text(item?.categoryName)].filter(Boolean).join(" · "),
+    meta: [price > 0 ? `${price.toLocaleString("ko-KR")}\uC6D0` : "", text(item?.categoryName)].filter(Boolean).join(" \u00B7 "),
   };
 }
 
@@ -79,7 +82,14 @@ async function fetchProducts(auth, search) {
       accept: "application/json",
     },
   });
-  const payload = await response.json().catch(async () => ({ rMessage: await response.text() }));
+  const body = await response.text();
+  let payload = {};
+  try {
+    payload = body ? JSON.parse(body) : {};
+  } catch {
+    payload = { rMessage: body };
+  }
+
   if (!response.ok || String(payload?.rCode ?? "0") !== "0") {
     throw new Error(text(payload?.rMessage || payload?.message || `request failed ${response.status}`));
   }
@@ -95,15 +105,25 @@ async function writeJson(rows) {
   }
 }
 
+async function mirrorExistingData() {
+  try {
+    const payload = await fs.readFile(OUT_PATH, "utf8");
+    const rows = JSON.parse(payload);
+    if (Array.isArray(rows)) {
+      await writeJson(rows);
+      return rows.length;
+    }
+  } catch {
+    // Fall through and write an empty file set.
+  }
+  await writeJson([]);
+  return 0;
+}
+
 const auth = credentials();
 if (!auth.accessKey || !auth.secretKey) {
-  try {
-    await fs.access(OUT_PATH);
-    console.log("Coupang fetch skipped: API key is not configured. Keeping existing data/coupang-products.json.");
-  } catch {
-    await writeJson([]);
-    console.log("Coupang fetch skipped: API key is not configured. Wrote empty data/coupang-products.json.");
-  }
+  const count = await mirrorExistingData();
+  console.log(`Coupang fetch skipped: API key is not configured. Kept ${count} existing product(s).`);
   process.exit(0);
 }
 
