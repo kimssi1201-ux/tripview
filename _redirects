@@ -1,9 +1,9 @@
-/sitemap.xml /site/sitemap.xml 200!
-/travel-:id /site/travel-:id/index.html 200!
-/travel-:id/ /site/travel-:id/index.html 200!
-/festival-:id /site/festival-:id/index.html 200!
-/festival-:id/ /site/festival-:id/index.html 200!
-/flight-deals/:slug /site/flight-deals/:slug/index.html 200!
-/flight-deals/:slug/ /site/flight-deals/:slug/index.html 200!
+/sitemap.xml /site/sitemap.xml 200
+/travel-:id /site/travel-:id/index.html 200
+/travel-:id/ /site/travel-:id/index.html 200
+/festival-:id /site/festival-:id/index.html 200
+/festival-:id/ /site/festival-:id/index.html 200
+/flight-deals/:slug /site/flight-deals/:slug/index.html 200
+/flight-deals/:slug/ /site/flight-deals/:slug/index.html 200
 /sejong-culture-center-jochiwon /sejong-culture-center-jochiwon/ 301
 /post.html?slug=sejong-culture-center-jochiwon /sejong-culture-center-jochiwon/ 301
