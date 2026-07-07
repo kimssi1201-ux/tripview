@@ -16,7 +16,7 @@ const API_URL = process.env.MYREALTRIP_FLIGHT_API_URL
 const DEP_AIRPORT = process.env.MYREALTRIP_FLIGHT_DEP_AIRPORT || "ICN";
 const PERIOD = Math.max(3, Math.min(7, Number.parseInt(process.env.MYREALTRIP_FLIGHT_PERIOD || "5", 10) || 5));
 const LIMIT = Math.max(1, Math.min(30, Number.parseInt(process.env.MYREALTRIP_FLIGHT_LIMIT || "8", 10) || 8));
-const URL_TEMPLATE = process.env.MYREALTRIP_FLIGHT_URL_TEMPLATE || "https://www.myrealtrip.com/flights";
+const URL_TEMPLATE = process.env.MYREALTRIP_FLIGHT_URL_TEMPLATE || "https://www.myrealtrip.com/main/flights?routeType=oversea";
 
 const AIRPORT_NAMES = {
   ICN: "인천",

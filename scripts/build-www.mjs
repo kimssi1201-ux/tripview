@@ -65,7 +65,7 @@ function flightUrl(deal) {
 }
 
 function publicFlightUrl(deal) {
-  return html(deal?.url || "https://www.myrealtrip.com/flights");
+  return html(deal?.url || "https://www.myrealtrip.com/main/flights?routeType=oversea");
 }
 
 function postDate(post) {
@@ -303,7 +303,7 @@ function articleAdMeta(item) {
 }
 
 function articleAdUrl(item) {
-  if (item?.type === "flight" || item?.source === "myrealtrip-flight") return item?.url || "https://www.myrealtrip.com/flights";
+  if (item?.type === "flight" || item?.source === "myrealtrip-flight") return item?.url || "https://www.myrealtrip.com/main/flights?routeType=oversea";
   return item?.url || "https://www.myrealtrip.com/";
 }
 

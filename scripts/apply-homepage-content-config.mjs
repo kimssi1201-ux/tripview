@@ -282,7 +282,7 @@ function flightSlug(deal) {
 }
 
 function flightHref(deal) {
-  return deal?.url || "https://www.myrealtrip.com/flights";
+  return deal?.url || "https://www.myrealtrip.com/main/flights?routeType=oversea";
 }
 
 function flightMeta(deal) {
@@ -849,7 +849,7 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
       function appendBookingResult(item) {
         const card = document.createElement('a');
         card.className = 'check-card product-card' + (item.image ? '' : ' no-thumb');
-        const url = item.url || (item.type === 'flight' ? 'https://www.myrealtrip.com/flights' : 'https://www.myrealtrip.com/');
+        const url = item.url || (item.type === 'flight' ? 'https://www.myrealtrip.com/main/flights?routeType=oversea' : 'https://www.myrealtrip.com/');
         card.href = url;
         if (/^https?:\/\//.test(url)) card.rel = 'sponsored noopener';
         if (item.image) {
