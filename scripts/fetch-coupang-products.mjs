@@ -80,7 +80,8 @@ async function fetchProducts(auth, search) {
   endpoint.searchParams.set("limit", String(search.limit));
   if (auth.subId) endpoint.searchParams.set("subId", auth.subId);
 
-  const uri = `${endpoint.pathname}?${endpoint.searchParams.toString()}`;
+  const query = endpoint.searchParams.toString();
+  const uri = `${endpoint.pathname}${query}`;
   const response = await fetch(endpoint.toString(), {
     headers: {
       authorization: authorizationHeader(auth, "GET", uri),
