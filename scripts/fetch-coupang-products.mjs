@@ -4,7 +4,12 @@ import { fileURLToPath } from "node:url";
 import crypto from "node:crypto";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const OUT_PATH = path.join(ROOT, "data", "coupang-products.json");
+const OUT_PATHS = [
+  path.join(ROOT, "data", "coupang-products.json"),
+  path.join(ROOT, "site", "data", "coupang-products.json"),
+  path.join(ROOT, "www", "data", "coupang-products.json"),
+];
+const OUT_PATH = OUT_PATHS[0];
 const API_HOST = "https://api-gateway.coupang.com";
 const SEARCH_PATH = "/v2/providers/affiliate_open_api/apis/openapi/products/search";
 
@@ -83,8 +88,11 @@ async function fetchProducts(auth, search) {
 }
 
 async function writeJson(rows) {
-  await fs.mkdir(path.dirname(OUT_PATH), { recursive: true });
-  await fs.writeFile(OUT_PATH, `${JSON.stringify(rows, null, 2)}\n`, "utf8");
+  const payload = `${JSON.stringify(rows, null, 2)}\n`;
+  for (const outputPath of OUT_PATHS) {
+    await fs.mkdir(path.dirname(outputPath), { recursive: true });
+    await fs.writeFile(outputPath, payload, "utf8");
+  }
 }
 
 const auth = credentials();
@@ -117,4 +125,4 @@ for (const search of SEARCHES) {
 }
 
 await writeJson(products);
-console.log(`Saved ${products.length} Coupang product(s) to data/coupang-products.json.`);
+console.log(`Saved ${products.length} Coupang product(s) to ${OUT_PATHS.length} static data file(s).`);

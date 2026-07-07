@@ -115,10 +115,10 @@ jobs:
       - name: Fetch Coupang products
         run: node scripts/fetch-coupang-products.mjs
         env:
-          COUPANG_ACCESS_KEY: ${{ secrets.COUPANG_ACCESS_KEY }}
-          COUPANG_SECRET_KEY: ${{ secrets.COUPANG_SECRET_KEY }}
-          COUPANG_PARTNER_ID: ${{ secrets.COUPANG_PARTNER_ID }}
-          COUPANG_SUB_ID: ${{ secrets.COUPANG_SUB_ID }}
+          COUPANG_ACCESS_KEY: ${{ secrets.COUPANG_ACCESS_KEY || secrets.COUPANG_PARTNERS_ACCESS_KEY || secrets.COUPANG_PARTNER_ACCESS_KEY }}
+          COUPANG_SECRET_KEY: ${{ secrets.COUPANG_SECRET_KEY || secrets.COUPANG_PARTNERS_SECRET_KEY || secrets.COUPANG_PARTNER_SECRET_KEY }}
+          COUPANG_PARTNER_ID: ${{ secrets.COUPANG_PARTNER_ID || secrets.COUPANG_PARTNERS_ID }}
+          COUPANG_SUB_ID: ${{ secrets.COUPANG_SUB_ID || secrets.COUPANG_CHANNEL_ID }}
 
       - name: Build homepage
         run: node scripts/build-homepage.mjs
