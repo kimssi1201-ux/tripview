@@ -13,11 +13,11 @@ function assetRequest(context, pathname) {
 
 function articleAssetPath(parts) {
   if (parts.length === 1 && /^(travel|festival)-\d+$/.test(parts[0])) {
-    return `/site/${parts[0]}/index.html`;
+    return `/site/${parts[0]}/`;
   }
 
   if (parts[0] === "flight-deals" && parts.length >= 1) {
-    return `/site/${parts.join("/")}/index.html`;
+    return `/site/${parts.join("/")}/`;
   }
 
   return "";
