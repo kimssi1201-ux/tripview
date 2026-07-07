@@ -288,6 +288,10 @@ const TENPING_DISPLAY_TYPES = {
   small: "UD8Mia8gyIoT5Z2MT6VB3Q%3d%3d",
   list: "67%2be3LHzHbblsB9oLrOpWQ%3d%3d",
 };
+const COUPANG_AD_START = "<!-- COUPANG_AD_START";
+const COUPANG_AD_END = "COUPANG_AD_END -->";
+const COUPANG_STYLE_MARK = "/* tripview-coupang-native-ad */";
+const COUPANG_SCRIPT = '<script src="/assets/coupang.js?v=coupang-20260708" defer></script>';
 
 function articleAdCss() {
   return `${MRT_STYLE_MARK}.mrt-native-ad{margin:34px 0;padding:18px 0 20px;border-top:2px solid #111;border-bottom:1px solid var(--line)}.mrt-native-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:12px}.mrt-native-head strong{font-size:20px;line-height:1.25}.mrt-native-head span{color:var(--muted);font-size:13px}.mrt-native-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px;border-top:1px solid var(--line)}.mrt-card{display:grid;grid-template-columns:88px minmax(0,1fr);gap:12px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}.mrt-card.no-image{grid-template-columns:1fr}.mrt-thumb{grid-row:1/3;display:block;aspect-ratio:1.28/1;overflow:hidden;background:var(--soft)}.mrt-card strong{font-size:16px;line-height:1.35}.mrt-card em{display:block;color:var(--muted);font-size:12px;font-style:normal}.mrt-card.no-image strong,.mrt-card.no-image em{grid-column:1}@media(max-width:640px){.mrt-native-grid{grid-template-columns:1fr}.mrt-card{grid-template-columns:84px minmax(0,1fr)}}/* end-tripview-mrt-native-ad */`;
@@ -297,12 +301,19 @@ function articleTenpingCss() {
   return `${TENPING_STYLE_MARK}.tenping-native-ad{margin:26px 0;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.tenping-native-ad tenping{min-height:72px}/* end-tripview-tenping-ad */`;
 }
 
+function articleCoupangCss() {
+  return `${COUPANG_STYLE_MARK}.coupang-native-ad{margin:30px 0;padding:18px 0 20px;border-top:2px solid #111;border-bottom:1px solid var(--line)}.coupang-native-ad h2{margin:0 0 8px;font-size:22px}.coupang-native-ad .affiliate-disclosure{margin:0 0 13px;color:var(--muted);font-size:12px;line-height:1.55}.coupang-native-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px;border-top:1px solid var(--line)}.coupang-card strong{font-size:16px}@media(max-width:640px){.coupang-native-grid{grid-template-columns:1fr}}/* end-tripview-coupang-native-ad */`;
+}
+
 function stripExistingArticleAds(document) {
   return document
     .replace(new RegExp(`${MRT_AD_START}[\\s\\S]*?${MRT_AD_END}`, "g"), "")
     .replace(new RegExp(`${TENPING_AD_START}[\\s\\S]*?${TENPING_AD_END}`, "g"), "")
+    .replace(new RegExp(`${COUPANG_AD_START}[\\s\\S]*?${COUPANG_AD_END}`, "g"), "")
     .replace(/\/\* tripview-mrt-native-ad \*\/[\s\S]*?\/\* end-tripview-mrt-native-ad \*\//g, "")
     .replace(/\/\* tripview-tenping-ad \*\/[\s\S]*?\/\* end-tripview-tenping-ad \*\//g, "")
+    .replace(/\/\* tripview-coupang-native-ad \*\/[\s\S]*?\/\* end-tripview-coupang-native-ad \*\//g, "")
+    .replace(/\s*<script\s+src=["']\/assets\/coupang\.js\?v=[^"']+["']\s+defer><\/script>/g, "")
     .replace(/\s*<script\s+async\s+src=["']\/\/ads\.tenping\.kr\/scripts\/adsbytenping\.min\.js["']\s*><\/script>/g, "");
 }
 
@@ -310,6 +321,7 @@ function injectArticleAdCss(document) {
   let next = document;
   if (!next.includes(MRT_STYLE_MARK)) next = next.replace("</style>", `${articleAdCss()}</style>`);
   if (!next.includes(TENPING_STYLE_MARK)) next = next.replace("</style>", `${articleTenpingCss()}</style>`);
+  if (!next.includes(COUPANG_STYLE_MARK)) next = next.replace("</style>", `${articleCoupangCss()}</style>`);
   return next;
 }
 
@@ -421,9 +433,43 @@ function tenpingAdBlock(slot, type = "list") {
 <!-- ${TENPING_AD_END}`;
 }
 
+function coupangKeywordForPost(post) {
+  const text = [
+    post?.title,
+    post?.sourceTitle,
+    post?.category,
+    post?.region,
+    post?.excerpt,
+    post?.description,
+  ].filter(Boolean).join(" ");
+  if (/물놀이|계곡|해수욕장|해변|바다|워터파크|수영|폭포/.test(text)) return { intent: "water", keyword: "방수팩" };
+  if (/비 오는|실내|박물관|미술관|전시|도서관|과학관/.test(text)) return { intent: "indoor", keyword: "접이식 우산" };
+  if (/축제|행사|공연|페스티벌/.test(text)) return { intent: "festival", keyword: "보조배터리" };
+  if (/아이|가족|키즈|체험/.test(text)) return { intent: "family", keyword: "아이 여행 준비물" };
+  return { intent: "travel", keyword: "여행 준비물" };
+}
+
+function coupangAdBlock(post) {
+  const { intent, keyword } = coupangKeywordForPost(post);
+  return `${COUPANG_AD_START} bottom -->
+<section class="coupang-native-ad" aria-label="쿠팡 파트너스 추천" data-coupang-section>
+  <h2>이 여행에 챙기면 좋은 준비물</h2>
+  <p class="affiliate-disclosure" data-coupang-disclosure>이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
+  <div class="coupang-native-grid" data-coupang-products data-coupang-intent="${html(intent)}" data-coupang-keyword="${html(keyword)}" data-coupang-limit="4">
+    <p class="note">추천 상품을 불러오는 중입니다.</p>
+  </div>
+</section>
+<!-- ${COUPANG_AD_END}`;
+}
+
 function injectTenpingScript(document) {
   if (document.includes("adsbytenping.min.js")) return document;
   return document.replace("</body>", `  ${TENPING_SCRIPT}\n  </body>`);
+}
+
+function injectCoupangScript(document) {
+  if (document.includes("/assets/coupang.js")) return document;
+  return document.replace("</body>", `  ${COUPANG_SCRIPT}\n  </body>`);
 }
 
 async function injectMyRealTripAdsIntoArticles() {
@@ -443,9 +489,11 @@ async function injectMyRealTripAdsIntoArticles() {
     const bottom = articleAdBlock(post, "bottom", 3);
     const tenpingMid = tenpingAdBlock("mid", "small");
     const tenpingBottom = tenpingAdBlock("bottom", "list");
+    const coupangBottom = coupangAdBlock(post);
     if (mid && next.includes("</table>")) next = next.replace("</table>", `</table>${mid}${tenpingMid}`);
-    if (bottom) next = next.replace(/<\/article>(\s*<aside)/, `${tenpingBottom}${bottom}</article>$1`);
+    if (bottom) next = next.replace(/<\/article>(\s*<aside)/, `${coupangBottom}${tenpingBottom}${bottom}</article>$1`);
     next = injectTenpingScript(next);
+    next = injectCoupangScript(next);
     if (next !== document) await writeFile(file, next, "utf8");
   }
 }

@@ -28,7 +28,12 @@ export async function onRequest(context) {
     return context.env.ASSETS.fetch(context.request);
   }
 
-  const target = articleAssetPath(pathParts(context.params.path));
+  const parts = pathParts(context.params.path);
+  if (parts[0] === "api" && context.next) {
+    return context.next();
+  }
+
+  const target = articleAssetPath(parts);
   if (target) {
     return context.env.ASSETS.fetch(assetRequest(context, target));
   }
