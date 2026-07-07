@@ -119,7 +119,7 @@ function normalizeStaticProduct(item, type) {
   return {
     type: isFlight ? "flight" : (type === "tna" ? "tna" : "accommodation"),
     title,
-    url: isFlight ? `/flight-deals/${flightSlug(item)}/` : text(item?.url),
+    url: isFlight ? (text(item?.url) || PUBLIC_FLIGHT_URL) : text(item?.url),
     image: text(item?.image),
     price: Number(item?.price || 0),
     meta: isFlight

@@ -282,7 +282,7 @@ function flightSlug(deal) {
 }
 
 function flightHref(deal) {
-  return `/flight-deals/${flightSlug(deal)}/`;
+  return deal?.url || "https://www.myrealtrip.com/flights";
 }
 
 function flightMeta(deal) {
@@ -301,13 +301,13 @@ function flightDealSection(flights = []) {
   if (!deals.length) return "";
 
   const lead = deals[0];
-  const rows = deals.slice(1).map((deal) => `<a class="news-row flight-row" href="${esc(flightHref(deal))}">
+  const rows = deals.slice(1).map((deal) => `<a class="news-row flight-row" href="${esc(flightHref(deal))}" rel="sponsored noopener">
     <span><strong>${esc(deal.title)}</strong><em>${esc(flightMeta(deal))}</em></span>
   </a>`).join("");
 
   return `<section class="news-section flight-section" id="flight-deals" aria-labelledby="flight-deals-title" data-headline="${esc(TEXT.navFlight)}">
     <h2 id="flight-deals-title">${esc(TEXT.navFlight)}</h2>
-    <a class="news-lead flight-lead" href="${esc(flightHref(lead))}">
+    <a class="news-lead flight-lead" href="${esc(flightHref(lead))}" rel="sponsored noopener">
       <strong>${esc(lead.title)}</strong>
       <span>${esc(flightMeta(lead))}</span>
     </a>
