@@ -38,6 +38,7 @@ jobs:
         env:
           TRIPVIEW_API_KEY: ${{ secrets.TRIPVIEW_API_KEY }}
           POST_LIMIT: ${{ github.event.inputs.limit || '10' }}
+          MAX_IMAGES_PER_POST: "3"
 
       - name: Enrich generated posts
         run: node scripts/enrich-tour-posts.mjs
@@ -124,6 +125,9 @@ jobs:
 
       - name: Build RSS feed
         run: node scripts/build-feed.mjs
+
+      - name: Build static export
+        run: npm run build
 
       - name: Commit generated posts
         run: |
