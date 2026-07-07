@@ -9,6 +9,11 @@ const OUT_PATHS = [
   path.join(ROOT, "site", "data", "coupang-products.json"),
   path.join(ROOT, "www", "data", "coupang-products.json"),
 ];
+const STATUS_PATHS = [
+  path.join(ROOT, "data", "coupang-status.json"),
+  path.join(ROOT, "site", "data", "coupang-status.json"),
+  path.join(ROOT, "www", "data", "coupang-status.json"),
+];
 const OUT_PATH = OUT_PATHS[0];
 const API_HOST = "https://api-gateway.coupang.com";
 const SEARCH_PATH = "/v2/providers/affiliate_open_api/apis/openapi/products/search";
@@ -105,6 +110,21 @@ async function writeJson(rows) {
   }
 }
 
+async function writeStatus(status) {
+  const payload = `${JSON.stringify(
+    {
+      ...status,
+      updatedAt: new Date().toISOString(),
+    },
+    null,
+    2,
+  )}\n`;
+  for (const outputPath of STATUS_PATHS) {
+    await fs.mkdir(path.dirname(outputPath), { recursive: true });
+    await fs.writeFile(outputPath, payload, "utf8");
+  }
+}
+
 async function mirrorExistingData() {
   try {
     const payload = await fs.readFile(OUT_PATH, "utf8");
@@ -123,12 +143,20 @@ async function mirrorExistingData() {
 const auth = credentials();
 if (!auth.accessKey || !auth.secretKey) {
   const count = await mirrorExistingData();
+  await writeStatus({
+    ok: false,
+    configured: false,
+    productCount: count,
+    message: "Coupang API key is not configured in this runtime.",
+  });
   console.log(`Coupang fetch skipped: API key is not configured. Kept ${count} existing product(s).`);
   process.exit(0);
 }
 
 const seen = new Set();
 const products = [];
+const searches = [];
+const errors = [];
 for (const search of SEARCHES) {
   try {
     const rows = await fetchProducts(auth, search);
@@ -138,11 +166,21 @@ for (const search of SEARCHES) {
       seen.add(key);
       products.push(row);
     }
+    searches.push({ intent: search.intent, keyword: search.keyword, count: rows.length });
     console.log(`Coupang fetch: ${search.keyword} ${rows.length} product(s).`);
   } catch (error) {
+    errors.push({ intent: search.intent, keyword: search.keyword, message: error.message });
     console.log(`Coupang fetch skipped for "${search.keyword}": ${error.message}`);
   }
 }
 
 await writeJson(products);
+await writeStatus({
+  ok: products.length > 0,
+  configured: true,
+  productCount: products.length,
+  searchCount: SEARCHES.length,
+  searches,
+  errors,
+});
 console.log(`Saved ${products.length} Coupang product(s) to ${OUT_PATHS.length} static data file(s).`);
