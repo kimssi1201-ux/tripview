@@ -276,6 +276,140 @@ ${items}
   await writeFile(join(root, "rss.xml"), feed, "utf8");
 }
 
+const MRT_AD_START = "<!-- MRT_AD_START";
+const MRT_AD_END = "MRT_AD_END -->";
+const MRT_STYLE_MARK = "/* tripview-mrt-native-ad */";
+
+function articleAdCss() {
+  return `${MRT_STYLE_MARK}.mrt-native-ad{margin:34px 0;padding:18px 0 20px;border-top:2px solid #111;border-bottom:1px solid var(--line)}.mrt-native-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:12px}.mrt-native-head strong{font-size:20px;line-height:1.25}.mrt-native-head span{color:var(--muted);font-size:13px}.mrt-native-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px;border-top:1px solid var(--line)}.mrt-card{display:grid;grid-template-columns:88px minmax(0,1fr);gap:12px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}.mrt-card.no-image{grid-template-columns:1fr}.mrt-thumb{grid-row:1/3;display:block;aspect-ratio:1.28/1;overflow:hidden;background:var(--soft)}.mrt-card strong{font-size:16px;line-height:1.35}.mrt-card em{display:block;color:var(--muted);font-size:12px;font-style:normal}.mrt-card.no-image strong,.mrt-card.no-image em{grid-column:1}@media(max-width:640px){.mrt-native-grid{grid-template-columns:1fr}.mrt-card{grid-template-columns:84px minmax(0,1fr)}}/* end-tripview-mrt-native-ad */`;
+}
+
+function stripExistingArticleAds(document) {
+  return document
+    .replace(new RegExp(`${MRT_AD_START}[\\s\\S]*?${MRT_AD_END}`, "g"), "")
+    .replace(/\/\* tripview-mrt-native-ad \*\/[\s\S]*?\/\* end-tripview-mrt-native-ad \*\//g, "");
+}
+
+function injectArticleAdCss(document) {
+  if (document.includes(MRT_STYLE_MARK)) return document;
+  return document.replace("</style>", `${articleAdCss()}</style>`);
+}
+
+function articleAdMeta(item) {
+  if (item?.type === "flight" || item?.source === "myrealtrip-flight") return flightMeta(item);
+  return [item?.region || item?.city, item?.category || item?.type, item?.priceText || item?.price]
+    .filter(Boolean)
+    .join(" \u00B7 ");
+}
+
+function articleAdUrl(item) {
+  if (item?.type === "flight" || item?.source === "myrealtrip-flight") return item?.url || "https://www.myrealtrip.com/flights";
+  return item?.url || "https://www.myrealtrip.com/";
+}
+
+function articleAdCard(item) {
+  const title = html(item?.title || "");
+  if (!title) return "";
+  const image = item?.image
+    ? `<span class="mrt-thumb"><img src="${html(item.image)}" alt="${title}" loading="lazy"></span>`
+    : "";
+  return `<a class="mrt-card${image ? "" : " no-image"}" href="${html(articleAdUrl(item))}" rel="sponsored noopener">
+    ${image}
+    <strong>${title}</strong>
+    <em>${html(articleAdMeta(item) || "\uB9C8\uC774\uB9AC\uC5BC\uD2B8\uB9BD \uC608\uC57D \uC815\uBCF4")}</em>
+  </a>`;
+}
+
+function articleAdScore(item, post) {
+  const region = String(post?.region || "");
+  const sourceTitle = String(post?.sourceTitle || post?.title || "");
+  const haystack = [
+    item?.title,
+    item?.region,
+    item?.city,
+    item?.category,
+    item?.description,
+    ...(Array.isArray(item?.tags) ? item.tags : []),
+  ].filter(Boolean).join(" ");
+  let score = 0;
+  if (region && haystack.includes(region.split(/\s+/)[0])) score += 8;
+  if (post?.category === "\uACF5\uC5F0/\uCD95\uC81C" && item?.source === "myrealtrip-tna") score += 5;
+  if (item?.source === "myrealtrip-accommodation") score += 2;
+  if (item?.source === "myrealtrip-tna") score += 3;
+  if (sourceTitle && haystack.includes(sourceTitle.slice(0, 2))) score += 2;
+  return score;
+}
+
+function uniqueAdItems(items, count = 4) {
+  const seen = new Set();
+  const picked = [];
+  for (const item of items) {
+    if (!item?.title) continue;
+    const key = `${articleAdUrl(item)}:${item.title}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    picked.push(item);
+    if (picked.length >= count) break;
+  }
+  return picked;
+}
+
+function articleAdItems(post, offset = 0, count = 4) {
+  const products = [...tnaProducts, ...accommodationProducts]
+    .filter((item) => item?.title && item?.url)
+    .map((item) => ({ item, score: articleAdScore(item, post) }))
+    .sort((a, b) => b.score - a.score)
+    .map((entry) => entry.item);
+  const flights = [...flightDeals]
+    .filter((deal) => deal?.title && deal?.price)
+    .sort((a, b) => Number(a.price || 0) - Number(b.price || 0));
+  const mixed = [
+    products[offset],
+    products[offset + 1],
+    flights[offset % Math.max(flights.length, 1)],
+    products[offset + 2],
+    products[offset + 3],
+    flights[(offset + 1) % Math.max(flights.length, 1)],
+  ].filter(Boolean);
+  return uniqueAdItems(mixed, count);
+}
+
+function articleAdBlock(post, slot, offset) {
+  const items = articleAdItems(post, offset, 4);
+  if (!items.length) return "";
+  const title = slot === "bottom"
+    ? "\uC5EC\uD589 \uB05D\uB098\uAE30 \uC804 \uC608\uC57D \uCCB4\uD06C"
+    : "\uD568\uAED8 \uBCF4\uBA74 \uC88B\uC740 \uB9C8\uC774\uB9AC\uC5BC\uD2B8\uB9BD";
+  const label = "\uC219\uC18C\u00B7\uD22C\uC5B4\u00B7\uD56D\uACF5\uAD8C";
+  return `${MRT_AD_START} ${slot} -->
+<section class="mrt-native-ad" aria-label="${title}">
+  <div class="mrt-native-head"><strong>${title}</strong><span>${label}</span></div>
+  <div class="mrt-native-grid">${items.map(articleAdCard).join("")}</div>
+</section>
+<!-- ${MRT_AD_END}`;
+}
+
+async function injectMyRealTripAdsIntoArticles() {
+  for (const post of generatedPosts) {
+    if (!post?.slug) continue;
+    const file = join(root, post.slug, "index.html");
+    let document;
+    try {
+      document = await readFile(file, "utf8");
+    } catch {
+      continue;
+    }
+    if (!document.includes('<article class="content"')) continue;
+
+    let next = injectArticleAdCss(stripExistingArticleAds(document));
+    const mid = articleAdBlock(post, "mid", 0);
+    const bottom = articleAdBlock(post, "bottom", 3);
+    if (mid && next.includes("</table>")) next = next.replace("</table>", `</table>${mid}`);
+    if (bottom) next = next.replace(/<\/article>(\s*<aside)/, `${bottom}</article>$1`);
+    if (next !== document) await writeFile(file, next, "utf8");
+  }
+}
+
 async function copyIfExists(from, to) {
   try {
     await cp(from, to, { recursive: true });
@@ -303,6 +437,7 @@ async function copySite(targetDir) {
 await generateFlightDealPages();
 await generateSitemap();
 await generateFeed();
+await injectMyRealTripAdsIntoArticles();
 await copySite(outDir);
 await copySite(siteDir);
 

@@ -315,6 +315,42 @@ function flightDealSection(flights = []) {
   </section>`;
 }
 
+function flightAdCard(deal) {
+  return `<a class="check-card product-card no-thumb mrt-flight-card" href="${esc(flightHref(deal))}" rel="sponsored noopener">
+    <strong>${esc(deal.title)}</strong>
+    <span>${esc(flightMeta(deal) || TEXT.navFlight)}</span>
+  </a>`;
+}
+
+function myRealTripAdSection(products = [], flights = []) {
+  const accommodations = productsFromSource(products, "myrealtrip-accommodation", 4);
+  const tours = productsFromSource(products, "myrealtrip-tna", 4);
+  const flightDeals = [...flights]
+    .filter((deal) => deal?.title && deal?.price)
+    .sort((a, b) => Number(a.price || 0) - Number(b.price || 0))
+    .slice(0, 2);
+  const cards = [
+    accommodations[0],
+    tours[0],
+    flightDeals[0],
+    accommodations[1],
+    tours[1],
+    flightDeals[1],
+    accommodations[2],
+    tours[2],
+  ]
+    .filter(Boolean)
+    .map((item) => item?.source === "myrealtrip-flight" || item?.type === "flight" ? flightAdCard(item) : productCard(item))
+    .join("");
+
+  if (!cards) return "";
+  const title = "\uB9C8\uC774\uB9AC\uC5BC\uD2B8\uB9BD \uCD94\uCC9C";
+  return `<section class="news-section check-section mrt-ad-section" id="myrealtrip-deals" aria-labelledby="myrealtrip-deals-title" data-headline="${title}">
+    <h2 id="myrealtrip-deals-title">${title}</h2>
+    <div class="check-grid">${cards}</div>
+  </section>`;
+}
+
 function productsFromSource(products, source, count = 4) {
   return products
     .filter((product) => product?.title && product?.url && product?.source === source)
@@ -432,7 +468,7 @@ function bookingSearch() {
   </div>`;
 }
 
-function uniqueProducts(products, count = 2) {
+function uniqueProducts(products, count = 3) {
   const seen = new Set();
   const picked = [];
   for (const product of products) {
@@ -448,7 +484,7 @@ function uniqueProducts(products, count = 2) {
 
 function inlineProductsForSection(id, feeds) {
   const { accommodations = [], tnaProducts = [], products = [] } = feeds;
-  const fallback = rankedProducts([...accommodations, ...tnaProducts, ...products], [], 2);
+  const fallback = rankedProducts([...accommodations, ...tnaProducts, ...products], [], 3);
   const bySection = {
     popular: [accommodations[0], tnaProducts[0], accommodations[1]],
     weekend: [accommodations[1], tnaProducts[0], tnaProducts[1]],
@@ -457,7 +493,7 @@ function inlineProductsForSection(id, feeds) {
     indoor: [tnaProducts[2], accommodations[4], tnaProducts[3]],
     family: [tnaProducts[3], accommodations[5], accommodations[6]],
   };
-  return uniqueProducts(bySection[id] || fallback, 2);
+  return uniqueProducts(bySection[id] || fallback, 3);
 }
 
 function interleaveListItems(posts, products = []) {
@@ -466,6 +502,7 @@ function interleaveListItems(posts, products = []) {
     rows.push(listItem(post));
     if (index === 1 && products[0]) rows.push(productCard(products[0]));
     if (index === 3 && products[1]) rows.push(productCard(products[1]));
+    if (index === 5 && products[2]) rows.push(productCard(products[2]));
   });
   return rows.join("");
 }
@@ -555,19 +592,19 @@ function newsSection({ id, title, posts, inlineProducts = [] }) {
 }
 
 function bookingSection({ id, title, posts = [], products = [] }) {
-  const accommodationCards = productsFromSource(products, "myrealtrip-accommodation", 4);
-  const tnaCards = productsFromSource(products, "myrealtrip-tna", 4);
+  const accommodationCards = productsFromSource(products, "myrealtrip-accommodation", 6);
+  const tnaCards = productsFromSource(products, "myrealtrip-tna", 6);
   const extraCards = rankedProducts(
     products.filter((product) => product?.source !== "myrealtrip-flight").slice(4),
     posts,
-    4,
+    6,
   );
   const groupedProducts = [
     bookingGroup("\uC219\uC18C", accommodationCards),
     bookingGroup("\uD22C\uC5B4\uD2F0\uCF13", tnaCards),
     bookingGroup("\uC5EC\uD589 \uC0C1\uD488 \uCD94\uCC9C", extraCards),
   ].filter(Boolean).join("");
-  const productCards = groupedProducts || `<div class="check-grid">${rankedProducts(products, posts, 6).map(productCard).join("")}</div>`;
+  const productCards = groupedProducts || `<div class="check-grid">${rankedProducts(products, posts, 8).map(productCard).join("")}</div>`;
   return `<section class="news-section check-section" id="${esc(id)}" aria-labelledby="${esc(id)}-title" data-headline="${esc(title)}">
     <h2 id="${esc(id)}-title">${esc(title)}</h2>
     ${bookingSearch()}
@@ -668,15 +705,17 @@ async function readMyRealTripFlights() {
 function html(posts, products = [], accommodations = [], tnaProducts = [], flights = []) {
   const sections = buildSections(posts).filter((section) => section.kind === "booking" || section.posts.length);
   const flightNav = flights.length ? { id: "flight-deals", title: TEXT.navFlight, kind: "flight" } : null;
+  const mrtNav = { id: "myrealtrip-deals", title: "\uB9C8\uC774\uB9AC\uC5BC\uD2B8\uB9BD \uCD94\uCC9C", kind: "ad" };
   const navSections = flightNav
-    ? [sections[0], sections[1], flightNav, ...sections.slice(2)].filter(Boolean)
-    : sections;
+    ? [sections[0], sections[1], flightNav, ...sections.slice(2, -1), mrtNav, sections.at(-1)].filter(Boolean)
+    : [...sections.slice(0, -1), mrtNav, sections.at(-1)].filter(Boolean);
   const hero = posts[0];
   const ogImage = imageOf(hero);
   const defaultHeadline = "\uC8FC\uC81C\uBCC4 \uCD5C\uC2E0 \uC5EC\uD589 \uC815\uBCF4";
   const productFeeds = { accommodations, tnaProducts, products };
   const allProducts = [...accommodations, ...tnaProducts, ...products];
   const flightHtml = flightDealSection(flights);
+  const mrtHtml = myRealTripAdSection(allProducts, flights);
   const sectionHtml = sections
     .map((section) => {
       const html = section.kind === "booking"
@@ -684,7 +723,8 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
         : newsSection({ ...section, inlineProducts: inlineProductsForSection(section.id, productFeeds) });
       return section.id === "weekend" && flightHtml ? `${html}\n${flightHtml}` : html;
     })
-    .join("\n");
+    .join("\n")
+    .replace(/(<section class="news-section check-section" id="booking")/, `${mrtHtml}\n$1`);
 
   return `<!doctype html>
 <html lang="ko">
