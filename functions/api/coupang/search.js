@@ -142,7 +142,8 @@ async function fetchCoupangProducts({ credentials, keyword, limit }) {
   endpoint.searchParams.set("limit", String(limit));
   if (credentials.subId) endpoint.searchParams.set("subId", credentials.subId);
 
-  const uri = `${endpoint.pathname}?${endpoint.searchParams.toString()}`;
+  const query = endpoint.searchParams.toString();
+  const uri = `${endpoint.pathname}${query}`;
   const method = "GET";
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
