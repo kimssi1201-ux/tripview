@@ -1,7 +1,50 @@
 {
   "ok": false,
-  "configured": false,
+  "configured": true,
   "productCount": 0,
-  "message": "Coupang products have not been synced yet.",
-  "updatedAt": null
+  "searchCount": 8,
+  "searches": [],
+  "errors": [
+    {
+      "intent": "travel",
+      "keyword": "여행 준비물",
+      "message": "Invalid signature."
+    },
+    {
+      "intent": "water",
+      "keyword": "물놀이 용품",
+      "message": "Invalid signature."
+    },
+    {
+      "intent": "water",
+      "keyword": "아쿠아슈즈",
+      "message": "Invalid signature."
+    },
+    {
+      "intent": "indoor",
+      "keyword": "장마 우산",
+      "message": "Invalid signature."
+    },
+    {
+      "intent": "festival",
+      "keyword": "보조배터리",
+      "message": "Invalid signature."
+    },
+    {
+      "intent": "family",
+      "keyword": "아이 여행 준비물",
+      "message": "Invalid signature."
+    },
+    {
+      "intent": "booking",
+      "keyword": "여행용 파우치",
+      "message": "Invalid signature."
+    },
+    {
+      "intent": "summer",
+      "keyword": "선크림",
+      "message": "Invalid signature."
+    }
+  ],
+  "updatedAt": "2026-07-07T20:58:27.219Z"
 }
