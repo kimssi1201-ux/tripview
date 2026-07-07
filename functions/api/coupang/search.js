@@ -2,6 +2,7 @@ const API_HOST = "https://api-gateway.coupang.com";
 const SEARCH_PATH = "/v2/providers/affiliate_open_api/apis/openapi/products/search";
 const REQUEST_TIMEOUT_MS = 8000;
 const STATIC_DATA_PATH = "/data/coupang-products.json";
+const DISCLOSURE = "이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.";
 
 const INTENT_KEYWORDS = {
   travel: "여행 준비물",
@@ -10,6 +11,7 @@ const INTENT_KEYWORDS = {
   festival: "보조배터리",
   family: "아이 여행 준비물",
   booking: "여행용 파우치",
+  summer: "선크림",
 };
 
 function json(data, status = 200) {
@@ -38,6 +40,10 @@ function cleanKeyword(value) {
     .replace(/\s+/g, " ")
     .slice(0, 60)
     .trim();
+}
+
+function looksGarbledKeyword(value) {
+  return /[�\u0400-\u04ff\u3400-\u4dbf\u4e00-\u9fff]/.test(text(value));
 }
 
 function getCredentials(env = {}) {
@@ -78,14 +84,28 @@ async function authorizationHeader({ accessKey, secretKey }, method, uri) {
 
 function pickKeyword(url) {
   const explicit = cleanKeyword(url.searchParams.get("keyword"));
-  if (explicit) return explicit;
   const intent = text(url.searchParams.get("intent"), "travel");
+  if (intent && INTENT_KEYWORDS[intent] && (!explicit || looksGarbledKeyword(explicit))) {
+    return INTENT_KEYWORDS[intent];
+  }
+  if (explicit) return explicit;
   return INTENT_KEYWORDS[intent] || INTENT_KEYWORDS.travel;
+}
+
+function safeProductUrl(value) {
+  const url = text(value);
+  if (!/^https:\/\/(link\.coupang\.com|www\.coupang\.com)\//.test(url)) return "";
+  return url;
+}
+
+function safeImageUrl(value) {
+  const url = text(value);
+  return /^https?:\/\//.test(url) ? url : "";
 }
 
 function normalizeProduct(item) {
   const title = text(item?.productName);
-  const url = text(item?.productUrl);
+  const url = safeProductUrl(item?.productUrl);
   if (!title || !/^https?:\/\//.test(url)) return null;
 
   const price = Number(item?.productPrice || 0);
@@ -94,9 +114,25 @@ function normalizeProduct(item) {
     type: "coupang",
     title,
     url,
-    image: text(item?.productImage),
+    image: safeImageUrl(item?.productImage),
     price,
     meta: [priceText, text(item?.categoryName)].filter(Boolean).join(" · "),
+  };
+}
+
+function normalizeStoredProduct(item) {
+  const title = text(item?.title || item?.productName).slice(0, 140);
+  const url = safeProductUrl(item?.url || item?.productUrl);
+  if (!title || !url) return null;
+
+  return {
+    ...item,
+    type: "coupang",
+    title,
+    url,
+    image: safeImageUrl(item?.image || item?.productImage),
+    price: Number(item?.price || item?.productPrice || 0),
+    meta: text(item?.meta),
   };
 }
 
@@ -117,7 +153,7 @@ async function readStaticProducts(context) {
     : await fetch(request);
   if (!response.ok) return [];
   const rows = await response.json().catch(() => []);
-  return Array.isArray(rows) ? rows : [];
+  return Array.isArray(rows) ? rows.map(normalizeStoredProduct).filter(Boolean) : [];
 }
 
 async function staticSearch(context, keyword, intent, limit, message = "") {
@@ -131,7 +167,7 @@ async function staticSearch(context, keyword, intent, limit, message = "") {
     fallback: true,
     keyword,
     items: fallback,
-    disclosure: "이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.",
+    disclosure: DISCLOSURE,
     message: message || (fallback.length ? "저장된 쿠팡 추천 상품을 보여드립니다." : "Coupang API key is not configured."),
   });
 }
@@ -186,11 +222,14 @@ export async function onRequestGet(context) {
   try {
     const products = await fetchCoupangProducts({ credentials, keyword, limit });
     const items = products.map(normalizeProduct).filter(Boolean).slice(0, limit);
+    if (!items.length) {
+      return staticSearch(context, keyword, intent, limit, "Coupang API returned no products. 저장된 추천 상품을 보여드립니다.");
+    }
     const response = json({
       ok: true,
       keyword,
       items,
-      disclosure: "이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.",
+      disclosure: DISCLOSURE,
     });
     if (cache && items.length) context.waitUntil(cache.put(cacheKey, response.clone()));
     return response;

@@ -8,6 +8,7 @@
     const link = document.createElement("a");
     link.className = `check-card product-card coupang-card${item.image ? "" : " no-thumb"}`;
     link.href = item.url;
+    link.target = "_blank";
     link.rel = "sponsored noopener";
 
     if (item.image) {
@@ -17,6 +18,8 @@
       image.src = item.image;
       image.alt = item.title || "쿠팡 추천 상품";
       image.loading = "lazy";
+      image.referrerPolicy = "no-referrer";
+      image.addEventListener("error", () => thumb.remove(), { once: true });
       thumb.appendChild(image);
       link.appendChild(thumb);
     }
@@ -49,7 +52,9 @@
         headers: { accept: "application/json" },
       });
       const payload = await response.json();
-      const items = Array.isArray(payload.items) ? payload.items : [];
+      const items = Array.isArray(payload.items)
+        ? payload.items.filter((item) => item?.title && /^https?:\/\//.test(item?.url || ""))
+        : [];
       if (!response.ok || !payload.ok || !items.length) {
         hideSection(slot);
         return;

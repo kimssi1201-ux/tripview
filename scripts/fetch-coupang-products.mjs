@@ -17,6 +17,7 @@ const STATUS_PATHS = [
 const OUT_PATH = OUT_PATHS[0];
 const API_HOST = "https://api-gateway.coupang.com";
 const SEARCH_PATH = "/v2/providers/affiliate_open_api/apis/openapi/products/search";
+const REQUEST_TIMEOUT_MS = 8000;
 
 const SEARCHES = [
   { intent: "travel", keyword: "\uC5EC\uD589 \uC900\uBE44\uBB3C", limit: 8 },
@@ -82,20 +83,30 @@ async function fetchProducts(auth, search) {
 
   const query = endpoint.searchParams.toString();
   const uri = `${endpoint.pathname}${query}`;
-  const response = await fetch(endpoint.toString(), {
-    headers: {
-      authorization: authorizationHeader(auth, "GET", uri),
-      accept: "application/json",
-    },
-  });
-  const body = await response.text();
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+
+  let body = "";
+  let response;
+  try {
+    response = await fetch(endpoint.toString(), {
+      headers: {
+        authorization: authorizationHeader(auth, "GET", uri),
+        accept: "application/json",
+      },
+      signal: controller.signal,
+    });
+    body = await response.text();
+  } finally {
+    clearTimeout(timeoutId);
+  }
+
   let payload = {};
   try {
     payload = body ? JSON.parse(body) : {};
   } catch {
     payload = { rMessage: body };
   }
-
   if (!response.ok || String(payload?.rCode ?? "0") !== "0") {
     throw new Error(text(payload?.rMessage || payload?.message || `request failed ${response.status}`));
   }
