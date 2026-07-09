@@ -166,12 +166,18 @@ async function staticSearch(context, type, options = {}) {
     ? matchedByKeyword.filter((item) => Number(item?.period) === period)
     : [];
   const matched = type === "flight" && period ? periodMatched : matchedByKeyword;
-  const source = matched.length ? matched : (type === "flight" && period ? [] : rows);
+  const hasKeyword = Boolean(keyword);
+  const source = matched.length ? matched : (hasKeyword || (type === "flight" && period) ? [] : rows);
   const items = source
     .map((item) => normalizeStaticProduct(item, type))
     .filter((item) => item?.title && item?.url)
     .sort((a, b) => Number(a.price || 0) - Number(b.price || 0))
     .slice(0, 8);
+  const emptyMessage = type === "flight" && period
+    ? `${period}일 일정 항공권 추천 데이터가 아직 없습니다. 다른 기간으로 검색해 보세요.`
+    : (hasKeyword
+      ? `${keyword} 관련 추천 데이터가 아직 없습니다. 다른 검색어로 다시 확인해 보세요.`
+      : "저장된 상품 데이터가 없습니다.");
 
   return json({
     ok: true,
@@ -179,9 +185,7 @@ async function staticSearch(context, type, options = {}) {
     items,
     message: items.length
       ? (options.message || "현재 확인된 추천 데이터를 보여드립니다.")
-      : (type === "flight" && period
-        ? `${period}일 일정 항공권 추천 데이터가 아직 없습니다. 다른 기간으로 검색해 보세요.`
-        : "저장된 상품 데이터가 없습니다."),
+      : emptyMessage,
   });
 }
 
