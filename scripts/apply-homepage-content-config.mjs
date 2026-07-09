@@ -307,7 +307,7 @@ function flightSlug(deal) {
 }
 
 function flightHref(deal) {
-  return deal?.url || "https://www.myrealtrip.com/main/flights?routeType=oversea";
+  return `/flight-deals/${encodeURIComponent(flightSlug(deal))}/`;
 }
 
 function flightMeta(deal) {
@@ -326,13 +326,13 @@ function flightDealSection(flights = []) {
   if (!deals.length) return "";
 
   const lead = deals[0];
-  const rows = deals.slice(1).map((deal) => `<a class="news-row flight-row" href="${esc(flightHref(deal))}" rel="sponsored noopener">
+  const rows = deals.slice(1).map((deal) => `<a class="news-row flight-row" href="${esc(flightHref(deal))}">
     <span><strong>${esc(deal.title)}</strong><em>${esc(flightMeta(deal))}</em></span>
   </a>`).join("");
 
   return `<section class="news-section flight-section" id="flight-deals" aria-labelledby="flight-deals-title" data-headline="${esc(TEXT.navFlight)}">
     <h2 id="flight-deals-title">${esc(TEXT.navFlight)}</h2>
-    <a class="news-lead flight-lead" href="${esc(flightHref(lead))}" rel="sponsored noopener">
+    <a class="news-lead flight-lead" href="${esc(flightHref(lead))}">
       <strong>${esc(lead.title)}</strong>
       <span>${esc(flightMeta(lead))}</span>
     </a>
@@ -341,7 +341,7 @@ function flightDealSection(flights = []) {
 }
 
 function flightAdCard(deal) {
-  return `<a class="check-card product-card no-thumb mrt-flight-card" href="${esc(flightHref(deal))}" rel="sponsored noopener">
+  return `<a class="check-card product-card no-thumb mrt-flight-card" href="${esc(flightHref(deal))}">
     <strong>${esc(deal.title)}</strong>
     <span>${esc(flightMeta(deal) || TEXT.navFlight)}</span>
   </a>`;
@@ -878,9 +878,12 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
       function appendBookingResult(item) {
         const card = document.createElement('a');
         card.className = 'check-card product-card' + (item.image ? '' : ' no-thumb');
-        const url = item.url || (item.type === 'flight' ? 'https://www.myrealtrip.com/main/flights?routeType=oversea' : 'https://www.myrealtrip.com/');
+        const url = item.url || (item.type === 'flight' ? '/#flight-deals' : 'https://www.myrealtrip.com/');
         card.href = url;
-        if (/^https?:\/\//.test(url)) card.rel = 'sponsored noopener';
+        if (/^https?:\/\//.test(url)) {
+          card.target = '_blank';
+          card.rel = 'sponsored noopener';
+        }
         if (item.image) {
           const thumb = document.createElement('span');
           thumb.className = 'booking-thumb';

@@ -16,7 +16,7 @@ const API_URL = process.env.MYREALTRIP_FLIGHT_API_URL
 const DEP_AIRPORT = process.env.MYREALTRIP_FLIGHT_DEP_AIRPORT || "ICN";
 const PERIOD = Math.max(3, Math.min(7, Number.parseInt(process.env.MYREALTRIP_FLIGHT_PERIOD || "5", 10) || 5));
 const LIMIT = Math.max(1, Math.min(30, Number.parseInt(process.env.MYREALTRIP_FLIGHT_LIMIT || "8", 10) || 8));
-const URL_TEMPLATE = process.env.MYREALTRIP_FLIGHT_URL_TEMPLATE || "https://www.myrealtrip.com/main/flights?routeType=oversea";
+const URL_TEMPLATE = process.env.MYREALTRIP_FLIGHT_URL_TEMPLATE || "";
 
 const AIRPORT_NAMES = {
   ICN: "인천",
@@ -79,7 +79,19 @@ function formatDate(value) {
   return `${year}년 ${Number(month)}월 ${Number(day)}일`;
 }
 
+function flightSlug(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9가-힣]+/g, "-")
+    .replace(/^-+|-+$/g, "") || "flight-deal";
+}
+
+function defaultFlightPath(deal) {
+  return `/flight-deals/${flightSlug(`flight-${deal.fromCity}-${deal.toCity}-${deal.departureDate}-${deal.returnDate || "oneway"}`)}/`;
+}
+
 function buildUrl(deal) {
+  if (!URL_TEMPLATE) return defaultFlightPath(deal);
   return URL_TEMPLATE
     .replaceAll("{fromCity}", encodeURIComponent(deal.fromCity || ""))
     .replaceAll("{toCity}", encodeURIComponent(deal.toCity || ""))

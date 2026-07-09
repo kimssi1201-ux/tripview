@@ -1,5 +1,5 @@
 const API_BASE = "https://partner-ext-api.myrealtrip.com";
-const PUBLIC_FLIGHT_URL = "https://www.myrealtrip.com/flights";
+const PUBLIC_FLIGHT_URL = "https://www.myrealtrip.com/main/flights?routeType=oversea";
 const MYREALTRIP_TIMEOUT_MS = 8000;
 
 const STATIC_DATA = {
@@ -119,7 +119,7 @@ function normalizeStaticProduct(item, type) {
   return {
     type: isFlight ? "flight" : (type === "tna" ? "tna" : "accommodation"),
     title,
-    url: isFlight ? (text(item?.url) || PUBLIC_FLIGHT_URL) : text(item?.url),
+    url: isFlight ? flightDealPath(item) : text(item?.url),
     image: text(item?.image),
     price: Number(item?.price || 0),
     meta: isFlight

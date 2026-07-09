@@ -64,8 +64,12 @@ function flightUrl(deal) {
   return `${baseUrl}/flight-deals/${encodeURIComponent(flightSlug(deal))}/`;
 }
 
+function flightPath(deal) {
+  return `/flight-deals/${encodeURIComponent(flightSlug(deal))}/`;
+}
+
 function publicFlightUrl(deal) {
-  return html(deal?.url || "https://www.myrealtrip.com/main/flights?routeType=oversea");
+  return html(flightPath(deal));
 }
 
 function postDate(post) {
@@ -194,7 +198,7 @@ function flightIndexHtml(deals) {
   const rows = deals
     .filter((deal) => deal?.title)
     .sort((a, b) => Number(a.price || 0) - Number(b.price || 0))
-    .map((deal) => `<a class="product-card flight-card" href="${publicFlightUrl(deal)}" rel="sponsored noopener"><strong>${html(deal.title)}</strong><span>${html(flightMeta(deal))}</span></a>`)
+    .map((deal) => `<a class="product-card flight-card" href="${publicFlightUrl(deal)}"><strong>${html(deal.title)}</strong><span>${html(flightMeta(deal))}</span></a>`)
     .join("");
   return `<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>항공권 최저가 여행지 - 트립뷰</title><style>body{margin:0;font-family:Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:#111}.wrap{width:min(760px,calc(100% - 32px));margin:auto}a{color:inherit;text-decoration:none}.top{border-bottom:1px solid #e1e1e1}.brand{display:block;padding:22px 0;font-size:26px;font-weight:900}.hero{padding:30px 0}.hero h1{margin:0;font-size:38px;line-height:1.15}.products{border-top:1px solid #e1e1e1}.product-card{display:grid;gap:6px;align-items:center;padding:16px 0;border-bottom:1px solid #e1e1e1}strong{font-size:19px;line-height:1.35}span{color:#707070;font-size:13px}</style></head><body><header class="top"><div class="wrap"><a class="brand" href="/">트립뷰</a></div></header><main class="wrap"><section class="hero"><h1>항공권 최저가 여행지</h1><p>항공권 가격을 기준으로 여행지를 고르고, 상세 페이지에서 함께 볼 숙소와 투어 정보를 확인하세요.</p></section><section class="products">${rows}</section></main><script src="/assets/i18n.js?v=i18n-link-fix-20260706" defer></script></body></html>`;
 }
@@ -333,17 +337,19 @@ function articleAdMeta(item) {
 }
 
 function articleAdUrl(item) {
-  if (item?.type === "flight" || item?.source === "myrealtrip-flight") return item?.url || "https://www.myrealtrip.com/main/flights?routeType=oversea";
+  if (item?.type === "flight" || item?.source === "myrealtrip-flight") return flightPath(item);
   return item?.url || "https://www.myrealtrip.com/";
 }
 
 function articleAdCard(item) {
   const title = html(item?.title || "");
   if (!title) return "";
+  const url = articleAdUrl(item);
+  const rel = String(url).startsWith("/") ? "" : ' rel="sponsored noopener"';
   const image = item?.image
     ? `<span class="mrt-thumb"><img src="${html(item.image)}" alt="${title}" loading="lazy"></span>`
     : "";
-  return `<a class="mrt-card${image ? "" : " no-image"}" href="${html(articleAdUrl(item))}" rel="sponsored noopener">
+  return `<a class="mrt-card${image ? "" : " no-image"}" href="${html(url)}"${rel}>
     ${image}
     <strong>${title}</strong>
     <em>${html(articleAdMeta(item) || "\uB9C8\uC774\uB9AC\uC5BC\uD2B8\uB9BD \uC608\uC57D \uC815\uBCF4")}</em>
