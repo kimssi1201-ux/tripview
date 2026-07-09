@@ -1,16 +1,16 @@
 [
   {
-    "id": "tna-6082912",
+    "id": "tna-6082963",
     "type": "tna",
-    "title": "[즉시확정] 유니버설 스튜디오 재팬 식사&쇼핑 바우처",
-    "url": "https://experiences.myrealtrip.com/products/6082912",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/05/28/Nk5X/bTZUVOu4MX.jpg",
-    "price": 9927,
-    "priceText": "9,927원부터",
+    "title": "고시엔 역사관 입장권 (오리지널 굿즈 포함)",
+    "url": "https://experiences.myrealtrip.com/products/6082963",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/05/28/0NwD/4DdYXRcEAq.jpg",
+    "price": 9968,
+    "priceText": "9,968원부터",
     "region": "오사카",
     "city": "오사카",
     "category": "티켓·입장권",
-    "description": "오사카 ∙ 티켓·입장권 · 평점 4.6(5개) · 즉시 확정",
+    "description": "오사카 ∙ 티켓·입장권 · 즉시 확정",
     "tags": [
       "투어티켓",
       "액티비티",
@@ -22,10 +22,10 @@
       "booking",
       "transport"
     ],
-    "gid": "6082912",
-    "reviewScore": 4.6,
-    "reviewCount": 5,
-    "deepLink": "mrt://experiences/detail/6082912",
+    "gid": "6082963",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/6082963",
     "source": "myrealtrip-tna"
   },
   {
@@ -145,35 +145,6 @@
     "source": "myrealtrip-tna"
   },
   {
-    "id": "tna-6082963",
-    "type": "tna",
-    "title": "고시엔 역사관 입장권 (오리지널 굿즈 포함)",
-    "url": "https://experiences.myrealtrip.com/products/6082963",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/05/28/0NwD/4DdYXRcEAq.jpg",
-    "price": 10015,
-    "priceText": "10,015원부터",
-    "region": "오사카",
-    "city": "오사카",
-    "category": "티켓·입장권",
-    "description": "오사카 ∙ 티켓·입장권 · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "오사카",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "transport"
-    ],
-    "gid": "6082963",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/6082963",
-    "source": "myrealtrip-tna"
-  },
-  {
     "id": "tna-5869510",
     "type": "tna",
     "title": "츠텐카쿠 일반 전망대 입장권 (오사카)",
@@ -230,6 +201,35 @@
     "reviewScore": 1,
     "reviewCount": 1,
     "deepLink": "mrt://experiences/detail/5542727",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6176378",
+    "type": "tna",
+    "title": "[공방] 교토 기요마치야 공방 와라쿠 — 일본 전통 소품 핸드메이드 체험",
+    "url": "https://experiences.myrealtrip.com/products/6176378",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/07/07/H5mo/Aus6uw2Rxq.jpg",
+    "price": 10301,
+    "priceText": "10,301원부터",
+    "region": "오사카",
+    "city": "오사카",
+    "category": "체험·클래스",
+    "description": "오사카 ∙ 체험·클래스 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "오사카",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "activity"
+    ],
+    "gid": "6176378",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/6176378",
     "source": "myrealtrip-tna"
   }
 ]
