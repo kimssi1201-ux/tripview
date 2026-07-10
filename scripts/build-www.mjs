@@ -6,6 +6,12 @@ const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const outDir = join(root, "www");
 const siteDir = join(root, "site");
 const baseUrl = "https://tripview.kr";
+const NAVER_VERIFICATION_META = '<meta name="naver-site-verification" content="38616b4b4209994ed384d0d2439bddcbec2cc711" />';
+const ADSENSE_SCRIPT = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8468106244002167" crossorigin="anonymous"></script>';
+const LANGUAGE_SWITCH = '<div class="language-switch notranslate" translate="no" aria-label="Language selector"><a href="?lang=ko" data-lang="ko" lang="ko">KO</a><a href="?lang=en" data-lang="en" lang="en">EN</a><a href="?lang=ja" data-lang="ja" lang="ja">JA</a><a href="?lang=zh" data-lang="zh" lang="zh-CN">ZH</a></div>';
+const I18N_SCRIPT = '<script src="/assets/i18n.js?v=i18n-link-fix-20260706" defer></script>';
+const TOPIC_FILTER_SCRIPT = '<script src="/assets/topic-filter.js?v=topic-filter-20260706-hardening" defer></script>';
+const LANGUAGE_SWITCH_CSS = ".language-switch{display:flex;gap:8px;white-space:nowrap}.language-switch a{font-size:12px;font-weight:900;color:#555;border-bottom:1px solid transparent}.language-switch a.is-active{color:#111;border-bottom-color:#111}";
 
 async function readJson(relativePath, fallback = []) {
   try {
@@ -93,6 +99,10 @@ function html(value) {
     .replaceAll("'", "&#39;");
 }
 
+function cleanGeneratedHtml(value) {
+  return String(value ?? "").replace(/[ \t]+$/gm, "");
+}
+
 function formatDate(value = "") {
   const match = String(value).match(/^(\d{4})-(\d{2})-(\d{2})$/);
   if (!match) return String(value || "");
@@ -157,14 +167,16 @@ function flightPageHtml(deal) {
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    ${NAVER_VERIFICATION_META}
     <meta name="description" content="${html(description)}">
+    ${ADSENSE_SCRIPT}
     <title>${html(deal.title)} - 트립뷰</title>
     <style>
       :root{--ink:#111;--muted:#707070;--line:#e1e1e1;--paper:#fff;--soft:#f5f5f5}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;line-height:1.65}a{color:inherit;text-decoration:none}img{display:block;width:100%;height:100%;object-fit:cover}.wrap{width:min(760px,calc(100% - 32px));margin:auto}.top{position:sticky;top:0;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);z-index:10}.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:68px}.brand{font-size:22px;font-weight:900}.links{display:flex;gap:14px;overflow-x:auto;white-space:nowrap;font-size:13px;font-weight:800}.language-switch{display:flex;gap:8px;white-space:nowrap}.language-switch a{font-size:12px;font-weight:900;color:#555;border-bottom:1px solid transparent}.language-switch a.is-active{color:#111;border-bottom-color:#111}.hero{padding:34px 0 22px}.hero h1{margin:0 0 14px;font-size:clamp(30px,8vw,46px);line-height:1.18;letter-spacing:-.01em}.meta{color:var(--muted);font-size:14px;font-weight:800}.fare{margin:22px 0 0;padding:20px 0;border-top:2px solid var(--ink);border-bottom:1px solid var(--line)}.fare strong{display:block;font-size:30px;line-height:1.1}.fare span{display:block;margin-top:8px;color:var(--muted);font-size:14px}.block{padding:28px 0;border-bottom:1px solid var(--line)}.block h2{margin:0 0 12px;font-size:23px;line-height:1.25}.info{display:grid;grid-template-columns:110px 1fr;gap:10px 16px;margin:0}.info dt{font-weight:900}.info dd{margin:0;color:#333}.products{display:grid;gap:0;border-top:1px solid var(--line)}.product-card{display:grid;grid-template-columns:92px minmax(0,1fr);gap:12px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}.product-card .thumb{grid-row:1/3;display:block;aspect-ratio:1.28/1;background:var(--soft);overflow:hidden}.product-card .empty{background:linear-gradient(135deg,#f1f1f1,#dedede)}.product-card strong{font-size:17px;line-height:1.35;font-weight:900}.product-card span{display:block;color:var(--muted);font-size:12px}.note{color:var(--muted);font-size:14px}.footer{padding:28px 0 46px;color:var(--muted);font-size:13px}@media(max-width:520px){.nav{align-items:flex-start;flex-direction:column;padding:14px 0}.links{width:100%}.hero{padding-top:28px}.info{grid-template-columns:88px 1fr}.product-card{grid-template-columns:84px minmax(0,1fr)}}
     </style>
   </head>
   <body>
-    <header class="top"><div class="wrap nav"><a class="brand" href="/">트립뷰</a><nav class="links" aria-label="주요 메뉴"><a href="/">홈</a><a href="/#flight-deals">항공권 최저가 여행지</a><a href="/#booking">예약 전 체크</a></nav><div class="language-switch notranslate" translate="no" aria-label="Language selector"><a href="?lang=ko" data-lang="ko" lang="ko">KO</a><a href="?lang=en" data-lang="en" lang="en">EN</a><a href="?lang=ja" data-lang="ja" lang="ja">JA</a><a href="?lang=zh" data-lang="zh" lang="zh-CN">ZH</a></div></div></header>
+    <header class="top"><div class="wrap nav"><a class="brand" href="/">트립뷰</a><nav class="links" aria-label="주요 메뉴"><a href="/">홈</a><a href="/#flight-deals">항공권 최저가 여행지</a><a href="/#booking">예약 전 체크</a></nav>${LANGUAGE_SWITCH}</div></header>
     <main class="wrap">
       <article>
         <section class="hero">
@@ -193,7 +205,8 @@ function flightPageHtml(deal) {
       </article>
     </main>
     <footer class="wrap footer">트립뷰는 항공권 가격을 여행지 선택의 기준으로 정리하고, 함께 볼 만한 숙소와 투어 정보를 연결합니다.</footer>
-    <script src="/assets/i18n.js?v=i18n-link-fix-20260706" defer></script>
+    ${I18N_SCRIPT}
+    ${TOPIC_FILTER_SCRIPT}
   </body>
 </html>`;
 }
@@ -204,7 +217,7 @@ function flightIndexHtml(deals) {
     .sort((a, b) => Number(a.price || 0) - Number(b.price || 0))
     .map((deal) => `<a class="product-card flight-card" href="${publicFlightUrl(deal)}"><strong>${html(deal.title)}</strong><span>${html(flightMeta(deal))}</span></a>`)
     .join("");
-  return `<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>항공권 최저가 여행지 - 트립뷰</title><style>body{margin:0;font-family:Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:#111}.wrap{width:min(760px,calc(100% - 32px));margin:auto}a{color:inherit;text-decoration:none}.top{border-bottom:1px solid #e1e1e1}.brand{display:block;padding:22px 0;font-size:26px;font-weight:900}.hero{padding:30px 0}.hero h1{margin:0;font-size:38px;line-height:1.15}.products{border-top:1px solid #e1e1e1}.product-card{display:grid;gap:6px;align-items:center;padding:16px 0;border-bottom:1px solid #e1e1e1}strong{font-size:19px;line-height:1.35}span{color:#707070;font-size:13px}</style></head><body><header class="top"><div class="wrap"><a class="brand" href="/">트립뷰</a></div></header><main class="wrap"><section class="hero"><h1>항공권 최저가 여행지</h1><p>항공권 가격을 기준으로 여행지를 고르고, 상세 페이지에서 함께 볼 숙소와 투어 정보를 확인하세요.</p></section><section class="products">${rows}</section></main><script src="/assets/i18n.js?v=i18n-link-fix-20260706" defer></script></body></html>`;
+  return `<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">${NAVER_VERIFICATION_META}<meta name="description" content="항공권 가격을 기준으로 여행지를 비교하고 함께 볼 숙소와 투어 정보를 확인하세요.">${ADSENSE_SCRIPT}<title>항공권 최저가 여행지 - 트립뷰</title><style>body{margin:0;font-family:Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:#111}.wrap{width:min(760px,calc(100% - 32px));margin:auto}a{color:inherit;text-decoration:none}.top{border-bottom:1px solid #e1e1e1}.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{display:block;padding:22px 0;font-size:26px;font-weight:900}.hero{padding:30px 0}.hero h1{margin:0;font-size:38px;line-height:1.15}.products{border-top:1px solid #e1e1e1}.product-card{display:grid;gap:6px;align-items:center;padding:16px 0;border-bottom:1px solid #e1e1e1}strong{font-size:19px;line-height:1.35}span{color:#707070;font-size:13px}${LANGUAGE_SWITCH_CSS}@media(max-width:520px){.top .wrap{align-items:flex-start;flex-direction:column;padding:14px 0}.brand{padding:0}}</style></head><body><header class="top"><div class="wrap"><a class="brand" href="/">트립뷰</a>${LANGUAGE_SWITCH}</div></header><main class="wrap"><section class="hero"><h1>항공권 최저가 여행지</h1><p>항공권 가격을 기준으로 여행지를 고르고, 상세 페이지에서 함께 볼 숙소와 투어 정보를 확인하세요.</p></section><section class="products">${rows}</section></main>${I18N_SCRIPT}${TOPIC_FILTER_SCRIPT}</body></html>`;
 }
 
 async function generateFlightDealPages() {
@@ -212,11 +225,11 @@ async function generateFlightDealPages() {
   const dir = join(root, "flight-deals");
   await rm(dir, { recursive: true, force: true });
   await mkdir(dir, { recursive: true });
-  await writeFile(join(dir, "index.html"), flightIndexHtml(deals), "utf8");
+  await writeFile(join(dir, "index.html"), cleanGeneratedHtml(flightIndexHtml(deals)), "utf8");
   for (const deal of deals) {
     const pageDir = join(dir, flightSlug(deal));
     await mkdir(pageDir, { recursive: true });
-    await writeFile(join(pageDir, "index.html"), flightPageHtml(deal), "utf8");
+    await writeFile(join(pageDir, "index.html"), cleanGeneratedHtml(flightPageHtml(deal)), "utf8");
   }
 }
 
@@ -500,7 +513,7 @@ function coupangAdBlock(post) {
 
 function injectCoupangScript(document) {
   if (document.includes("/assets/coupang.js")) return document;
-  return document.replace("</body>", `  ${COUPANG_SCRIPT}\n  </body>`);
+  return document.replace("</body>", `\n    ${COUPANG_SCRIPT}\n  </body>`);
 }
 
 async function injectMyRealTripAdsIntoArticles() {
@@ -522,7 +535,7 @@ async function injectMyRealTripAdsIntoArticles() {
     const coupangBottom = coupangAdBlock(post);
     if (mid && next.includes("</table>")) next = next.replace("</table>", `</table>${mid}`);
     if (bottom) next = next.replace(/<\/article>(\s*<aside)/, `${coupangBottom}${bottom}</article>$1`);
-    next = injectCoupangScript(next);
+    next = cleanGeneratedHtml(injectCoupangScript(next));
     if (next !== document) await writeFile(file, next, "utf8");
   }
 }

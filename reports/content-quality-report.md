@@ -4,39 +4,39 @@
 - 전체 글: 371건
 
 ## 이슈 요약
-- short_body_under_1500_chars: 93건
+- short_body_under_1500_chars: 57건
 
 ## 우선 보강 대상
-- travel-2652634: short_body_under_1500_chars / 조견당, 방문 전 알아둘 위치와 여행 동선
-- travel-2470057: short_body_under_1500_chars / 대구 약령시 한의약박물관 비 오는 날 실내 코스, 전시와 약령시 골목 동선
-- travel-2435653: short_body_under_1500_chars / 호남정 한정식 방문 전 알아둘 위치와 여행 동선
-- travel-252545: short_body_under_1500_chars / 영덕대소산봉수대, 방문 전 알아둘 위치와 여행 동선
-- travel-2927544: short_body_under_1500_chars / 디오슬로 방문 전 알아둘 위치와 여행 동선
-- travel-2927413: short_body_under_1500_chars / 레이크지움 방문 전 알아둘 위치와 여행 동선
-- travel-231949: short_body_under_1500_chars / 합천 옥전 고분군, 방문 전 알아둘 위치와 여행 동선
-- travel-2729938: short_body_under_1500_chars / 어라운드빌리지 방문 전 알아둘 위치와 여행 동선
-- travel-1031690: short_body_under_1500_chars / 청천푸른내시장 방문 전 알아둘 위치와 여행 동선
-- travel-252587: short_body_under_1500_chars / 반야사(영동), 방문 전 알아둘 위치와 여행 동선
-- travel-2902635: short_body_under_1500_chars / 훈스파이 본점, 방문 전 알아둘 위치와 여행 동선
-- travel-2663341: short_body_under_1500_chars / 부산시민공원 방문 전 알아둘 위치와 여행 동선
-- travel-2565287: short_body_under_1500_chars / 동래할매파전 방문 전 알아두면 좋은 위치와 여행 동선
-- travel-2929858: short_body_under_1500_chars / 남해촌집 화소반 방문 전 알아둘 위치와 여행 동선
+- travel-3403857: short_body_under_1500_chars / 라마다프라자호텔&씨원리조트 자은도 방문 전 알아둘 위치와 여행 동선
+- travel-2011491: short_body_under_1500_chars / 광주하계유니버시아드 주경기장 중심으로 떠나는 가족·커플 여행 동선
+- travel-2666784: short_body_under_1500_chars / 광주 동구 지호로 여행, 활기와 산책을 함께 즐기는 방문 동선
+- travel-2589656: short_body_under_1500_chars / 파크로쉬 리조트앤웰니스(PARK ROCHE Resort&Wellness), 방문 전 알아둘 위치와 여행 동선
+- travel-3001887: short_body_under_1500_chars / 남매공원 방문 전 알아둘 위치와 여행 동선
+- travel-2792235: short_body_under_1500_chars / 옥전캠핑장 방문 전 알아둘 위치와 여행 동선
+- travel-2907883: short_body_under_1500_chars / 스타밸리캠핑장 방문 전 알아두면 좋은 위치와 여행 동선
+- travel-3038694: short_body_under_1500_chars / 이인 벽화마을 방문 전 알아둘 위치와 산책 동선
+- travel-2909627: short_body_under_1500_chars / 젠틀펫파라다이스 방문 전 알아둘 위치와 여행 동선
 - travel-2754483: short_body_under_1500_chars / 다리안 캠핑장 방문 전 알아둘 위치와 여행 동선
-- travel-1978824: short_body_under_1500_chars / 호남지역 유적지 돌아보기, 방문 전 확인할 운영 정보와 여행 동선
-- travel-2371458: short_body_under_1500_chars / 한방바이오 제천몰 방문 전 알아둘 위치와 여행 동선
-- travel-4080919: short_body_under_1500_chars / 감사의 정원 방문 전 알아둘 위치와 광화문 여행 동선
-- travel-995455: short_body_under_1500_chars / 해운대시장 방문 전 알아둘 위치와 여행 동선
-- travel-970138: short_body_under_1500_chars / 반포한강공원, 방문 전 알아둘 위치와 여행 동선
+- travel-129717: short_body_under_1500_chars / 영양문화원 방문 전 알아둘 위치와 여행 동선
+- travel-2729968: short_body_under_1500_chars / 엉클캠프, 방문 전 알아둘 위치와 여행 동선
+- travel-2730847: short_body_under_1500_chars / 현도오토캠핑장 방문 전 알아둘 위치와 여행 동선
+- travel-2734236: short_body_under_1500_chars / 클럽멤피스글램핑 방문 전 알아둘 위치와 여행 동선
+- travel-252545: short_body_under_1500_chars / 영덕대소산봉수대, 방문 전 알아둘 위치와 여행 동선
 - travel-4072509: short_body_under_1500_chars / 모전공원, 방문 전 알아둘 위치와 여행 동선
-- travel-2925448: short_body_under_1500_chars / 효원식당 본점 방문 전 알아둘 위치와 여행 동선
-- travel-2651450: short_body_under_1500_chars / 한옥혜윰 방문 전 알아둘 위치와 전주 여행 동선
-- travel-2802948: short_body_under_1500_chars / 남파랑길(해남, 강진 구간), 방문 전 알아둘 위치와 여행 동선
-- travel-2492108: short_body_under_1500_chars / 교동도 대룡시장 방문 전 알아두면 좋은 위치와 여행 동선
-- travel-2905238: short_body_under_1500_chars / 송도 화화쿵주마라탕 방문 전 알아둘 위치와 여행 동선
-- travel-2910942: short_body_under_1500_chars / 팜파스리조트 방문 전 알아두면 좋은 위치와 속초 여행 동선
-- travel-3345823: short_body_under_1500_chars / 남당항 해양분수공원 방문 전 알아둘 위치와 여행 동선
-- travel-741957: short_body_under_1500_chars / 대전솔로몬로파크 방문 전 알아두면 좋은 위치와 여행 동선
-- travel-3363678: short_body_under_1500_chars / 제부도 워터월드펜션 방문 전 알아둘 위치와 여행 동선
+- travel-348804: short_body_under_1500_chars / 인왕사(서울), 방문 전 알아둘 위치와 여행 동선
+- travel-2748289: short_body_under_1500_chars / 모드니애캠핑장펜션, 방문 전 알아둘 위치와 여행 동선
+- travel-4083105: short_body_under_1500_chars / 대소생활체육공원 방문 전 알아둘 위치와 여행 동선
+- travel-2728206: short_body_under_1500_chars / 소나무숲아래캠핑장 방문 전 알아둘 위치와 여행 동선
+- travel-2663341: short_body_under_1500_chars / 부산시민공원 방문 전 알아둘 위치와 여행 동선
+- travel-2712642: short_body_under_1500_chars / 운림산림욕장 방문 전 알아둘 위치와 산책 동선
+- travel-2795388: short_body_under_1500_chars / 신양선착장 방문 전 알아둘 위치와 여행 동선
+- travel-2746977: short_body_under_1500_chars / 문암생태공원캠핑장 방문 전 알아둘 위치와 여행 동선
+- travel-4082142: short_body_under_1500_chars / 금왕생활체육공원 방문 전 알아둘 위치와 여행 동선
+- travel-2763000: short_body_under_1500_chars / 정선애펜션&글램핑 방문 전 알아둘 위치와 여행 동선
+- travel-2787329: short_body_under_1500_chars / 섬진강은어마을, 방문 전 알아두면 좋은 위치와 여행 동선
+- travel-2729938: short_body_under_1500_chars / 어라운드빌리지 방문 전 알아둘 위치와 여행 동선
+- travel-3013448: short_body_under_1500_chars / 도곡온천단지 방문 전 알아둘 위치와 여행 동선
+- travel-231949: short_body_under_1500_chars / 합천 옥전 고분군, 방문 전 알아둘 위치와 여행 동선
 
 ## 운영 기준
 - missing_image, missing_info, short_body_under_1500_chars가 같이 있는 글은 먼저 보강합니다.
