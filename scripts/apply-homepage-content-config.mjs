@@ -18,34 +18,42 @@ const LANGUAGE_SWITCH = '<div class="language-switch notranslate" translate="no"
 const COUPANG_SCRIPT = '<script src="/assets/coupang.js?v=coupang-20260708" defer></script>';
 const DESKTOP_LAYOUT_CSS = `
       .product-card>.booking-thumb{grid-column:1}
+      .section-kicker{display:block;margin:0 0 2px;color:#f0445e;font-size:11px;font-weight:900;letter-spacing:.04em}.section-headline{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:0 0 16px;border-bottom:1px solid var(--line);padding-bottom:8px}.section-headline h2{margin:0;font-size:24px;line-height:1.12}.section-more{color:var(--muted);font-size:12px;font-weight:900;white-space:nowrap}.magazine-grid{display:grid;grid-template-columns:1fr;gap:22px}.magazine-card{display:block}.magazine-thumb{display:block;aspect-ratio:1.56/1;overflow:hidden;background:var(--soft)}.magazine-card strong{display:block;margin-top:8px;font-size:19px;line-height:1.28;font-weight:900}.magazine-card em{display:block;margin-top:7px;color:var(--muted);font-size:13px;line-height:1.55;font-style:normal}.magazine-meta{display:block;margin-top:10px;color:#f0445e;font-size:11px;font-weight:900}.magazine-hero{padding:14px 0 30px}.magazine-hero.is-hidden{display:none}.hero-grid{display:grid;grid-template-columns:1fr;gap:2px}.hero-card{position:relative;display:block;min-height:210px;overflow:hidden;background:#111;color:#fff}.hero-media{position:absolute;inset:0}.hero-card img{position:absolute;inset:0;filter:brightness(.68)}.hero-copy{position:absolute;left:18px;right:18px;bottom:18px;z-index:1}.hero-card strong{display:block;font-size:22px;line-height:1.16;font-weight:900}.hero-card em{display:block;margin-bottom:8px;color:#fff;font-size:12px;font-style:normal;font-weight:900}.hero-card span{display:block;margin-top:8px;color:rgba(255,255,255,.82);font-size:12px}.hero-side-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px}.hero-side-grid .hero-card{min-height:150px}.hero-side-grid .hero-card strong{font-size:15px;line-height:1.28}.hero-side-grid .hero-card span{font-size:11px}.today-bar{max-width:720px;margin:0 auto;padding:0 16px 10px;display:flex;gap:10px;overflow-x:auto;white-space:nowrap;border-top:1px solid #f1f1f1}.today-bar b{color:#f0445e;font-size:11px}.today-bar a{color:#555;font-size:12px;font-weight:800}.today-bar::-webkit-scrollbar{display:none}.site-footer>span{display:none}.footer-brand strong{display:block;color:var(--ink);font-size:20px;margin-bottom:8px}.footer-brand p,.footer-col a{display:block;margin:0 0 7px;color:var(--muted);font-size:13px}.footer-col b{display:block;margin-bottom:10px;color:var(--ink);font-size:13px}.footer-bottom{grid-column:1/-1;margin-top:10px;padding-top:16px;border-top:1px solid #eee;color:#aaa;font-size:12px}
       @media(min-width:900px){
-        html{scroll-padding-top:118px}
-        .header-inner,.page,.site-footer{max-width:1120px}
-        .header-inner{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:end;gap:14px 24px;padding:22px 24px 12px}
-        .brand{margin:0;font-size:30px}
-        .nav-scroll{min-width:0;gap:20px;padding-bottom:2px}
+        html{scroll-padding-top:122px}
+        body{background:#fff}
+        .site-header{position:sticky;background:rgba(255,255,255,.98);border-bottom:1px solid #ededed}
+        .header-inner,.today-bar,.page,.site-footer{max-width:1180px}
+        .header-inner{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:14px 38px;padding:18px 24px 12px}
+        .brand{margin:0;font-size:20px}
+        .nav-scroll{min-width:0;justify-content:center;gap:30px;padding-bottom:0;font-size:14px}
         .language-switch{justify-content:flex-end}
-        .page{display:block;padding:18px 24px 56px}
-        .top-line{padding:14px 0 22px}
-        .news-section{padding:36px 0 42px;border-bottom:1px solid var(--line)}
-        .news-section:not(.check-section){display:grid;grid-template-columns:minmax(0,1.14fr) minmax(360px,.86fr);gap:0 34px;align-items:start}
-        .news-section h2{grid-column:1/-1;margin-bottom:20px;font-size:36px}
-        .news-section:not(.check-section) .news-lead{grid-column:1;grid-row:2/span 2}
-        .news-section:not(.check-section) .pick-grid{grid-column:2;grid-row:2;margin-top:0;gap:10px}
-        .news-section:not(.check-section) .news-list{grid-column:2;grid-row:3;margin-top:20px}
-        .lead-thumb{aspect-ratio:1.58/1}
-        .news-lead strong{font-size:28px}
-        .pick-card strong{font-size:14px}
-        .news-row{grid-template-columns:96px minmax(0,1fr);gap:14px;padding:14px 0}
-        .page.is-filtered .news-section:not(.is-hidden){width:100%;max-width:none;justify-self:auto}
-        .check-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px}
+        .today-bar{padding:8px 24px 12px;gap:18px}
+        .page{display:block;padding:0 24px 64px}
+        .top-line{display:none}
+        .magazine-hero{padding:18px 0 32px}
+        .hero-grid{grid-template-columns:minmax(0,1.38fr) minmax(360px,.82fr);gap:3px}
+        .hero-main{min-height:410px}
+        .hero-main .hero-copy{left:28px;right:28px;bottom:30px}
+        .hero-main strong{max-width:760px;font-size:44px;line-height:1.08;letter-spacing:-.02em}
+        .hero-main span{max-width:760px;font-size:14px}
+        .hero-side-grid .hero-card{min-height:203px}
+        .hero-side-grid .hero-copy{left:17px;right:17px;bottom:16px}
+        .hero-side-grid .hero-card strong{font-size:18px}
+        .news-section{padding:24px 0 36px;border-bottom:0}
+        .news-section h2{font-size:26px}
+        .magazine-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:34px 20px}
+        .magazine-card strong{font-size:19px}
+        .magazine-card em{font-size:13px}
+        .check-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:0 20px}
+        .mrt-ad-section .check-grid,.coupang-ad-section .check-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
         .booking-search{grid-column:auto}
         .booking-launchers{gap:12px}
-        .flight-section .flight-lead{padding:18px 0;border-top:2px solid var(--ink)}
-      }
-      @media(min-width:1180px){
-        .header-inner,.page,.site-footer{max-width:1180px}
-        .news-section:not(.check-section){grid-template-columns:minmax(0,1.18fr) minmax(390px,.82fr);gap:0 42px}
+        .flight-section{display:block}
+        .flight-section .flight-lead{padding:16px 0;border-top:1px solid var(--line)}
+        .flight-section .news-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 20px}
+        .flight-section .flight-row{border-bottom:1px solid var(--line)}
+        .site-footer{display:grid;grid-template-columns:1.2fr repeat(3,minmax(0,.8fr));gap:28px;padding:44px 24px 64px;border-top:1px solid #eee}
       }`;
 
 const TEXT = {
@@ -572,6 +580,75 @@ function listItem(post) {
   </a>`;
 }
 
+function summaryOf(post) {
+  const value = normalize(post?.excerpt || post?.description || (Array.isArray(post?.memo) ? post.memo[0] : ""));
+  return value.length > 112 ? `${value.slice(0, 112)}...` : value;
+}
+
+function sectionKicker(id) {
+  return ({
+    popular: "PLACES",
+    weekend: "LATEST",
+    festival: "FESTIVAL",
+    water: "WATER",
+    indoor: "INDOOR",
+    family: "FAMILY",
+    booking: "BOOKING",
+    "flight-deals": "AIRFARE",
+    "myrealtrip-deals": "BOOKING",
+    "coupang-travel-items": "READY",
+  }[id] || "TRAVEL");
+}
+
+function magazineCard(post) {
+  if (!post) return "";
+  const summary = summaryOf(post);
+  return `<a class="magazine-card" href="${esc(hrefOf(post))}">
+    ${articleImage(post, "magazine-thumb")}
+    <span class="magazine-meta">${esc(categoryOf(post))}</span>
+    <strong>${esc(titleOf(post))}</strong>
+    ${summary ? `<em>${esc(summary)}</em>` : ""}
+  </a>`;
+}
+
+function heroCard(post, className = "") {
+  if (!post) return "";
+  const summary = summaryOf(post);
+  return `<a class="hero-card ${esc(className)}" href="${esc(hrefOf(post))}">
+    ${articleImage(post, "hero-media")}
+    <span class="hero-copy">
+      <em>${esc(categoryOf(post))}</em>
+      <strong>${esc(titleOf(post))}</strong>
+      ${summary ? `<span>${esc(summary)}</span>` : ""}
+    </span>
+  </a>`;
+}
+
+function magazineHero(posts) {
+  const items = uniquePosts(posts).filter(imageOf).slice(0, 5);
+  if (!items.length) return "";
+  const side = items.slice(1, 5).map((post) => heroCard(post)).join("");
+  return `<section class="magazine-hero" aria-label="\uC8FC\uC694 \uC5EC\uD589 \uAE30\uC0AC">
+    <div class="hero-grid">
+      ${heroCard(items[0], "hero-main")}
+      <div class="hero-side-grid">${side}</div>
+    </div>
+  </section>`;
+}
+
+function todayKeywordBar(sections) {
+  const items = [
+    ["#popular", "\uC9C0\uAE08 \uC5EC\uD589\uC9C0"],
+    ["#weekend", "\uC8FC\uB9D0 \uAC00\uBCFC\uB9CC\uD55C \uACF3"],
+    ["#festival", "7~8\uC6D4 \uCD95\uC81C"],
+    ["#water", "\uBB3C\uB180\uC774\u00B7\uACC4\uACE1"],
+    ["#indoor", "\uC2E4\uB0B4 \uC5EC\uD589"],
+    ["#family", "\uC544\uC774\uC640 \uC5EC\uD589"],
+    ["#booking", "\uC608\uC57D \uC804 \uCCB4\uD06C"],
+  ].filter(([href]) => href === "#popular" || sections.some((section) => `#${section.id}` === href));
+  return `<div class="today-bar" aria-label="TODAY \uD0A4\uC6CC\uB4DC"><b>TODAY</b>${items.map(([href, label]) => `<a href="${esc(href)}">${esc(label)}</a>`).join("")}</div>`;
+}
+
 function searchableText(post) {
   return [
     titleOf(post),
@@ -620,16 +697,15 @@ function takeFresh(posts, used, count = 10) {
 }
 
 function newsSection({ id, title, posts, inlineProducts = [] }) {
-  const items = uniquePosts(posts).slice(0, 10);
+  const count = id === "popular" ? 9 : 6;
+  const items = uniquePosts(posts).slice(0, count);
   if (!items.length) return "";
-  const lead = items[0];
-  const picks = items.slice(1, 4);
-  const list = items.slice(4, 10);
   return `<section class="news-section" id="${esc(id)}" aria-labelledby="${esc(id)}-title" data-headline="${esc(title)}">
-    <h2 id="${esc(id)}-title">${esc(title)}</h2>
-    ${leadArticle(lead)}
-    <div class="pick-grid">${picks.map(pickCard).join("")}</div>
-    <div class="news-list">${interleaveListItems(list, inlineProducts)}</div>
+    <div class="section-headline">
+      <div><span class="section-kicker">${esc(sectionKicker(id))}</span><h2 id="${esc(id)}-title">${esc(title)}</h2></div>
+      <a class="section-more" href="#${esc(id)}" data-filter="${esc(id)}">\uB354\uBCF4\uAE30 +</a>
+    </div>
+    <div class="magazine-grid">${items.map(magazineCard).join("")}</div>
   </section>`;
 }
 
@@ -755,6 +831,7 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
   const hero = posts[0];
   const ogImage = imageOf(hero);
   const defaultHeadline = "\uC8FC\uC81C\uBCC4 \uCD5C\uC2E0 \uC5EC\uD589 \uC815\uBCF4";
+  const heroPosts = uniquePosts(sections.flatMap((section) => section.posts || []));
   const productFeeds = { accommodations, tnaProducts, products };
   const allProducts = [...accommodations, ...tnaProducts, ...products];
   const flightHtml = flightDealSection(flights);
@@ -799,14 +876,40 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
         <nav class="nav-scroll" aria-label="${esc(TEXT.navLabel)}">${categoryNav(navSections)}</nav>
         ${LANGUAGE_SWITCH}
       </div>
+      ${todayKeywordBar(navSections)}
     </header>
     <main class="page">
       <div class="top-line"><span data-feed-label data-default-label="${esc(defaultHeadline)}">${esc(defaultHeadline)}</span><span>${esc(new Date().toISOString().slice(0, 10))}</span></div>
+      ${magazineHero(heroPosts)}
       ${sectionHtml}
     </main>
     <footer class="site-footer">
-      <strong>${esc(BRAND)}</strong>
-      <span>${esc(TEXT.footer)}</span>
+      <div class="footer-brand">
+        <strong>${esc(BRAND)}</strong>
+        <p>${esc(TEXT.footer)}</p>
+      </div>
+      <div class="footer-col">
+        <b>\uC5EC\uD589 \uC815\uBCF4</b>
+        <a href="#popular">\uC9C0\uAE08 \uB9CE\uC774 \uCC3E\uB294 \uC5EC\uD589\uC9C0</a>
+        <a href="#weekend">\uC774\uBC88 \uC8FC\uB9D0 \uAC00\uBCFC\uB9CC\uD55C \uACF3</a>
+        <a href="#water">\uBB3C\uB180\uC774\u00B7\uACC4\uACE1\u00B7\uD574\uC218\uC695\uC7A5</a>
+        <a href="#indoor">\uBE44 \uC624\uB294 \uB0A0 \uC2E4\uB0B4 \uC5EC\uD589</a>
+      </div>
+      <div class="footer-col">
+        <b>\uC608\uC57D\u00B7\uCCB4\uD06C</b>
+        <a href="#flight-deals">\uD56D\uACF5\uAD8C \uCD5C\uC800\uAC00</a>
+        <a href="#myrealtrip-deals">\uB9C8\uC774\uB9AC\uC5BC\uD2B8\uB9BD \uCD94\uCC9C</a>
+        <a href="#booking">\uC608\uC57D \uC804 \uCCB4\uD06C</a>
+        <a href="/affiliate-disclosure.html">\uC81C\uD734 \uC548\uB0B4</a>
+      </div>
+      <div class="footer-col">
+        <b>\uC0AC\uC774\uD2B8</b>
+        <a href="/about.html">\uC18C\uAC1C</a>
+        <a href="/editorial-policy.html">\uCF58\uD150\uCE20 \uC6B4\uC601 \uAE30\uC900</a>
+        <a href="/contact.html">\uBB38\uC758</a>
+        <a href="/privacy.html">\uAC1C\uC778\uC815\uBCF4\uCC98\uB9AC\uBC29\uCE68</a>
+      </div>
+      <div class="footer-bottom">Copyright 2026 ${esc(BRAND)}. All rights reserved.</div>
       <span><a href="/about.html">소개</a> · <a href="/editorial-policy.html">콘텐츠 운영 기준</a> · <a href="/affiliate-disclosure.html">제휴 안내</a> · <a href="/contact.html">문의</a> · <a href="/privacy.html">개인정보처리방침</a></span>
     </footer>
     <script type="application/json" data-disabled-homepage-inline>
@@ -964,6 +1067,7 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
       const sections = [...document.querySelectorAll('.news-section')];
       const label = document.querySelector('[data-feed-label]');
       const page = document.querySelector('.page');
+      const heroBlock = document.querySelector('.magazine-hero');
       links.forEach((link) => {
         link.addEventListener('click', (event) => {
           event.preventDefault();
@@ -975,6 +1079,7 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
           links.forEach((item) => item.classList.remove('is-active'));
           link.classList.add('is-active');
           page?.classList.toggle('is-filtered', !showAll);
+          heroBlock?.classList.toggle('is-hidden', !showAll);
           sections.forEach((section) => section.classList.toggle('is-hidden', !showAll && section.id !== id));
           if (label) label.textContent = headline;
           page?.scrollIntoView({ block: 'start' });
