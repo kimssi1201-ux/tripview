@@ -1,6 +1,9 @@
 name: Submit Search Console Sitemap
 
 on:
+  push:
+    branches:
+      - main
   workflow_run:
     workflows: ["Deploy Tripview Pages"]
     types: [completed]
@@ -11,7 +14,7 @@ permissions:
 
 jobs:
   submit:
-    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

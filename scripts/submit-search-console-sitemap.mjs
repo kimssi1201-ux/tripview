@@ -76,7 +76,11 @@ async function submitSitemap(accessToken, siteUrl, sitemapUrl) {
 
 const serviceAccount = await readServiceAccount();
 if (!serviceAccount) {
-  console.log("Search Console sitemap submit skipped: GOOGLE_SERVICE_ACCOUNT_JSON is not configured.");
+  const message = "Search Console sitemap submit skipped: GOOGLE_SERVICE_ACCOUNT_JSON is not configured.";
+  if (process.env.CI === "true") {
+    throw new Error(message);
+  }
+  console.log(message);
   process.exit(0);
 }
 
