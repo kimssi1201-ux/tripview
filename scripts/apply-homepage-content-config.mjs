@@ -778,9 +778,16 @@ function buildSections(posts) {
 }
 
 function categoryNav(sections) {
+  const sectionById = new Map(sections.map((section) => [section.id, section]));
+  const primaryItems = [
+    ["popular", TEXT.navTravel],
+    ["festival", "\uCD95\uC81C\uC815\uBCF4"],
+    ["flight-deals", "\uD56D\uACF5\uAD8C"],
+    ["booking", "\uC608\uC57D"],
+  ].filter(([id]) => sectionById.has(id));
   return [
-    `<a class="is-active" href="#all" data-filter="all">${esc(TEXT.navAll)}</a>`,
-    ...sections.map((section) => `<a href="#${esc(section.id)}" data-filter="${esc(section.id)}">${esc(section.title)}</a>`),
+    `<a class="is-active" href="#all" data-filter="all">\uD648</a>`,
+    ...primaryItems.map(([id, label]) => `<a href="#${esc(id)}" data-filter="${esc(id)}">${esc(label)}</a>`),
   ].join("");
 }
 
