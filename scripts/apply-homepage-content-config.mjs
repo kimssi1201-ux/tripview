@@ -775,6 +775,7 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
     <footer class="site-footer">
       <strong>${esc(BRAND)}</strong>
       <span>${esc(TEXT.footer)}</span>
+      <span><a href="/about.html">소개</a> · <a href="/editorial-policy.html">콘텐츠 운영 기준</a> · <a href="/affiliate-disclosure.html">제휴 안내</a> · <a href="/contact.html">문의</a> · <a href="/privacy.html">개인정보처리방침</a></span>
     </footer>
     <script type="application/json" data-disabled-homepage-inline>
       const bookingResults = document.querySelector('[data-booking-results]');

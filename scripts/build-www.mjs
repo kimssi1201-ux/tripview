@@ -24,6 +24,10 @@ const tnaProducts = await readJson("data/myrealtrip-tna-products.json");
 
 const files = [
   "index.html",
+  "about.html",
+  "contact.html",
+  "editorial-policy.html",
+  "affiliate-disclosure.html",
   "style.css",
   "main.js",
   "privacy.html",
@@ -220,6 +224,10 @@ async function generateSitemap() {
   const today = new Date().toISOString().slice(0, 10);
   const urls = [
     { loc: `${baseUrl}/`, lastmod: today },
+    { loc: `${baseUrl}/about.html`, lastmod: today },
+    { loc: `${baseUrl}/contact.html`, lastmod: today },
+    { loc: `${baseUrl}/editorial-policy.html`, lastmod: today },
+    { loc: `${baseUrl}/affiliate-disclosure.html`, lastmod: today },
     { loc: `${baseUrl}/privacy.html`, lastmod: today },
     { loc: `${baseUrl}/flight-deals/`, lastmod: today },
     ...(Array.isArray(flightDeals) ? flightDeals : [])
@@ -283,6 +291,9 @@ ${items}
 const MRT_AD_START = "<!-- MRT_AD_START";
 const MRT_AD_END = "MRT_AD_END -->";
 const MRT_STYLE_MARK = "/* tripview-mrt-native-ad */";
+const TRUST_NOTE_START = "<!-- TRUST_NOTE_START";
+const TRUST_NOTE_END = "TRUST_NOTE_END -->";
+const TRUST_STYLE_MARK = "/* tripview-trust-note */";
 const COUPANG_AD_START = "<!-- COUPANG_AD_START";
 const COUPANG_AD_END = "COUPANG_AD_END -->";
 const COUPANG_STYLE_MARK = "/* tripview-coupang-native-ad */";
@@ -296,11 +307,17 @@ function articleCoupangCss() {
   return `${COUPANG_STYLE_MARK}.coupang-native-ad{margin:30px 0;padding:18px 0 20px;border-top:2px solid #111;border-bottom:1px solid var(--line)}.coupang-native-ad h2{margin:0 0 8px;font-size:22px}.coupang-native-ad .affiliate-disclosure{margin:0 0 13px;color:var(--muted);font-size:12px;line-height:1.55}.coupang-native-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px;border-top:1px solid var(--line)}.coupang-card strong{font-size:16px}@media(max-width:640px){.coupang-native-grid{grid-template-columns:1fr}}/* end-tripview-coupang-native-ad */`;
 }
 
+function articleTrustCss() {
+  return `${TRUST_STYLE_MARK}.trust-note{margin:36px 0 10px;padding:18px 0 0;border-top:2px solid #111;color:#333}.trust-note h2{margin:0 0 12px;font-size:22px;line-height:1.25}.trust-note dl{display:grid;grid-template-columns:118px minmax(0,1fr);gap:8px 14px;margin:0 0 14px}.trust-note dt{font-weight:900;color:#111}.trust-note dd{margin:0}.trust-note p{margin:0 0 10px;color:var(--muted);font-size:14px;line-height:1.6}.trust-note a{font-weight:900;text-decoration:underline;text-underline-offset:3px}@media(max-width:520px){.trust-note dl{grid-template-columns:1fr;gap:4px}.trust-note dd{padding-bottom:8px;border-bottom:1px solid var(--line)}}/* end-tripview-trust-note */`;
+}
+
 function stripExistingArticleAds(document) {
   return document
     .replace(new RegExp(`${MRT_AD_START}[\\s\\S]*?${MRT_AD_END}`, "g"), "")
+    .replace(new RegExp(`${TRUST_NOTE_START}[\\s\\S]*?${TRUST_NOTE_END}`, "g"), "")
     .replace(new RegExp(`${COUPANG_AD_START}[\\s\\S]*?${COUPANG_AD_END}`, "g"), "")
     .replace(/\/\* tripview-mrt-native-ad \*\/[\s\S]*?\/\* end-tripview-mrt-native-ad \*\//g, "")
+    .replace(/\/\* tripview-trust-note \*\/[\s\S]*?\/\* end-tripview-trust-note \*\//g, "")
     .replace(/\/\* tripview-coupang-native-ad \*\/[\s\S]*?\/\* end-tripview-coupang-native-ad \*\//g, "")
     .replace(/\s*<script\s+src=["']\/assets\/coupang\.js\?v=[^"']+["']\s+defer><\/script>/g, "");
 }
@@ -308,8 +325,52 @@ function stripExistingArticleAds(document) {
 function injectArticleAdCss(document) {
   let next = document;
   if (!next.includes(MRT_STYLE_MARK)) next = next.replace("</style>", `${articleAdCss()}</style>`);
+  if (!next.includes(TRUST_STYLE_MARK)) next = next.replace("</style>", `${articleTrustCss()}</style>`);
   if (!next.includes(COUPANG_STYLE_MARK)) next = next.replace("</style>", `${articleCoupangCss()}</style>`);
   return next;
+}
+
+function formatKoreanDate(value) {
+  const match = String(value || "").match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!match) return String(value || "");
+  return `${match[1]}년 ${Number(match[2])}월 ${Number(match[3])}일`;
+}
+
+function articleImageSource(post) {
+  const images = [post?.image, ...(Array.isArray(post?.images) ? post.images : [])].filter(Boolean);
+  if (!images.length) return "이미지 없음";
+  if (images.some((src) => /visitkorea\.or\.kr|tong\.visitkorea/i.test(String(src)))) return "한국관광공사";
+  return "본문 표기 이미지 또는 공개 자료";
+}
+
+function articleContentSource(post) {
+  if (post?.contentid) return "한국관광공사 공개 여행 정보와 트립뷰 편집 기준";
+  return "트립뷰 편집 기준";
+}
+
+function articleTrustBlock(post) {
+  const checkedAt = formatKoreanDate(new Date().toISOString().slice(0, 10));
+  const source = articleContentSource(post);
+  const imageSource = articleImageSource(post);
+  const updateBase = formatKoreanDate(postDate(post));
+  return `${TRUST_NOTE_START} -->
+<aside class="trust-note" aria-label="콘텐츠 신뢰 정보">
+  <h2>콘텐츠 확인 기준</h2>
+  <dl>
+    <dt>최종 확인일</dt><dd>${html(checkedAt)}</dd>
+    <dt>정보 기준</dt><dd>${html(source)}</dd>
+    <dt>사진 출처</dt><dd>${html(imageSource)}</dd>
+    <dt>발행 기준일</dt><dd>${html(updateBase)}</dd>
+  </dl>
+  <p>운영 시간, 요금, 프로그램, 주차 가능 여부는 현장 사정에 따라 바뀔 수 있습니다. 출발 전 공식 안내나 현장 문의처를 한 번 더 확인하는 것을 권장합니다.</p>
+  <p>글 안의 예약, 숙소, 투어, 상품 링크는 제휴 링크일 수 있으며 예약 또는 구매가 발생할 경우 트립뷰가 일정 수수료를 받을 수 있습니다. 콘텐츠 판단 기준과 정정 요청은 <a href="/editorial-policy.html">콘텐츠 운영 기준</a>, <a href="/affiliate-disclosure.html">제휴 안내</a>, <a href="/contact.html">문의</a>에서 확인할 수 있습니다.</p>
+</aside>
+<!-- ${TRUST_NOTE_END}`;
+}
+
+function injectArticleTrust(document, post) {
+  if (!document.includes("</article>")) return document;
+  return document.replace("</article>", `${articleTrustBlock(post)}</article>`);
 }
 
 function articleAdMeta(item) {
@@ -455,6 +516,7 @@ async function injectMyRealTripAdsIntoArticles() {
     if (!document.includes('<article class="content"')) continue;
 
     let next = injectArticleAdCss(stripExistingArticleAds(document));
+    next = injectArticleTrust(next, post);
     const mid = articleAdBlock(post, "mid", 0);
     const bottom = articleAdBlock(post, "bottom", 3);
     const coupangBottom = coupangAdBlock(post);
