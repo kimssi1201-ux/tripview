@@ -4,39 +4,39 @@
 - 전체 글: 371건
 
 ## 이슈 요약
-- short_body_under_1500_chars: 123건
+- short_body_under_1500_chars: 93건
 
 ## 우선 보강 대상
-- travel-125838: short_body_under_1500_chars / 영동 옥계폭포 여름 산책 코스, 시원한 폭포 보러 갈 때 체크할 것
-- travel-125677: short_body_under_1500_chars / 동해 무릉계곡 여름 산책과 물놀이, 오래 걷기 전 알아둘 코스 팁
-- travel-647272: short_body_under_1500_chars / 영월 연하계곡 물놀이 준비, 비 온 뒤 수량과 미끄럼 안전 체크
-- travel-126265: short_body_under_1500_chars / 구례 피아골계곡 지리산 여름 물길, 깊은 계곡 가기 전 안전 체크
-- travel-129256: short_body_under_1500_chars / 왕산해수욕장 여름 바다 코스, 을왕리 혼잡 피하고 싶을 때 보는 곳
-- travel-130028: short_body_under_1500_chars / 안동문화원 비 오는 날 도심 실내 코스, 안동 여행 중 쉬어가기 좋은 곳
-- travel-2469139: short_body_under_1500_chars / 영주 콩세계과학관 실내 여행 코스, 아이와 비 오는 날 보기 좋은 전시
-- travel-125652: short_body_under_1500_chars / 철원 삼부연폭포 여름 물길 여행, 물놀이보다 전망과 안전이 먼저
-- travel-127698: short_body_under_1500_chars / 포항 영일대해수욕장 여름 여행, 낮 물놀이와 밤 산책을 나누는 법
-- travel-1627305: short_body_under_1500_chars / 단양 수양개선사유물전시관 비 오는 날 관람 코스, 실내 전시와 주변 동선
-- travel-129400: short_body_under_1500_chars / 제주 김녕해수욕장 물빛 보러 가는 날, 바람·주차·입수 가능 여부 체크
-- travel-128344: short_body_under_1500_chars / 대전시민천문대 비 오는 날에도 갈 수 있을까, 관측 가능 여부와 실내 관람 체크
-- travel-792208: short_body_under_1500_chars / 괴산 한지체험박물관 비 오는 날 체험 코스, 예약과 만들기 시간 체크
-- travel-128767: short_body_under_1500_chars / 을왕리해수욕장 당일치기 코스, 서울·인천에서 갈 때 주차와 귀가 팁
-- travel-126098: short_body_under_1500_chars / 부산 일광해수욕장 7월 가족 바다 코스, 주차·샤워장·입수 체크
-- travel-1992621: short_body_under_1500_chars / 제천한방자연치유센터 비 오는 날 코스, 청풍권 여행 중 쉬어가기 좋은 곳
-- travel-129255: short_body_under_1500_chars / 선녀바위 해수욕장 조용한 영종도 바다 산책, 물놀이보다 쉬어가기 좋은 곳
-- travel-4058104: short_body_under_1500_chars / 태안해양치유센터 비 오는 날 방문 가이드, 예약과 체험 시간 먼저 체크
-- travel-127934: short_body_under_1500_chars / 대구 스파밸리 워터파크 7월 방문 가이드, 입장권·락커·주차 체크
-- travel-2623585: short_body_under_1500_chars / 태안 별궁 방문 전 알아둘 위치와 여행 동선
-- travel-2031668: short_body_under_1500_chars / 초안산, 방문 전 알아둘 위치와 여행 동선
-- travel-2903643: short_body_under_1500_chars / 커피맥아더 방문 전 알아두면 좋은 위치와 여행 동선
-- travel-2915002: short_body_under_1500_chars / 현래장 방문 전 알아두면 좋은 위치와 여행 동선
-- travel-2903002: short_body_under_1500_chars / 불로촌식당 방문 전 알아둘 위치와 청송 여행 동선
-- travel-2804863: short_body_under_1500_chars / 남파랑길 여수 구간 방문 전 알아둘 위치와 여행 동선
-- travel-1303709: short_body_under_1500_chars / 애플아울렛 방문 전 알아두면 좋은 위치와 여행 동선
-- travel-2838922: short_body_under_1500_chars / 오르디 방문 전 알아두면 좋은 위치와 여행 동선
-- travel-775394: short_body_under_1500_chars / 광화문광장, 방문 전 알아둘 위치와 여행 동선
-- travel-2735607: short_body_under_1500_chars / 금란정, 방문 전 알아둘 위치와 여행 동선
-- travel-2859320: short_body_under_1500_chars / 오창화짬뽕 방문 전 알아두면 좋은 위치와 동선 안내
+- travel-2652634: short_body_under_1500_chars / 조견당, 방문 전 알아둘 위치와 여행 동선
+- travel-2470057: short_body_under_1500_chars / 대구 약령시 한의약박물관 비 오는 날 실내 코스, 전시와 약령시 골목 동선
+- travel-2435653: short_body_under_1500_chars / 호남정 한정식 방문 전 알아둘 위치와 여행 동선
+- travel-252545: short_body_under_1500_chars / 영덕대소산봉수대, 방문 전 알아둘 위치와 여행 동선
+- travel-2927544: short_body_under_1500_chars / 디오슬로 방문 전 알아둘 위치와 여행 동선
+- travel-2927413: short_body_under_1500_chars / 레이크지움 방문 전 알아둘 위치와 여행 동선
+- travel-231949: short_body_under_1500_chars / 합천 옥전 고분군, 방문 전 알아둘 위치와 여행 동선
+- travel-2729938: short_body_under_1500_chars / 어라운드빌리지 방문 전 알아둘 위치와 여행 동선
+- travel-1031690: short_body_under_1500_chars / 청천푸른내시장 방문 전 알아둘 위치와 여행 동선
+- travel-252587: short_body_under_1500_chars / 반야사(영동), 방문 전 알아둘 위치와 여행 동선
+- travel-2902635: short_body_under_1500_chars / 훈스파이 본점, 방문 전 알아둘 위치와 여행 동선
+- travel-2663341: short_body_under_1500_chars / 부산시민공원 방문 전 알아둘 위치와 여행 동선
+- travel-2565287: short_body_under_1500_chars / 동래할매파전 방문 전 알아두면 좋은 위치와 여행 동선
+- travel-2929858: short_body_under_1500_chars / 남해촌집 화소반 방문 전 알아둘 위치와 여행 동선
+- travel-2754483: short_body_under_1500_chars / 다리안 캠핑장 방문 전 알아둘 위치와 여행 동선
+- travel-1978824: short_body_under_1500_chars / 호남지역 유적지 돌아보기, 방문 전 확인할 운영 정보와 여행 동선
+- travel-2371458: short_body_under_1500_chars / 한방바이오 제천몰 방문 전 알아둘 위치와 여행 동선
+- travel-4080919: short_body_under_1500_chars / 감사의 정원 방문 전 알아둘 위치와 광화문 여행 동선
+- travel-995455: short_body_under_1500_chars / 해운대시장 방문 전 알아둘 위치와 여행 동선
+- travel-970138: short_body_under_1500_chars / 반포한강공원, 방문 전 알아둘 위치와 여행 동선
+- travel-4072509: short_body_under_1500_chars / 모전공원, 방문 전 알아둘 위치와 여행 동선
+- travel-2925448: short_body_under_1500_chars / 효원식당 본점 방문 전 알아둘 위치와 여행 동선
+- travel-2651450: short_body_under_1500_chars / 한옥혜윰 방문 전 알아둘 위치와 전주 여행 동선
+- travel-2802948: short_body_under_1500_chars / 남파랑길(해남, 강진 구간), 방문 전 알아둘 위치와 여행 동선
+- travel-2492108: short_body_under_1500_chars / 교동도 대룡시장 방문 전 알아두면 좋은 위치와 여행 동선
+- travel-2905238: short_body_under_1500_chars / 송도 화화쿵주마라탕 방문 전 알아둘 위치와 여행 동선
+- travel-2910942: short_body_under_1500_chars / 팜파스리조트 방문 전 알아두면 좋은 위치와 속초 여행 동선
+- travel-3345823: short_body_under_1500_chars / 남당항 해양분수공원 방문 전 알아둘 위치와 여행 동선
+- travel-741957: short_body_under_1500_chars / 대전솔로몬로파크 방문 전 알아두면 좋은 위치와 여행 동선
+- travel-3363678: short_body_under_1500_chars / 제부도 워터월드펜션 방문 전 알아둘 위치와 여행 동선
 
 ## 운영 기준
 - missing_image, missing_info, short_body_under_1500_chars가 같이 있는 글은 먼저 보강합니다.

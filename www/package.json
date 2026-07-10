@@ -6,6 +6,7 @@
   "scripts": {
     "build": "node scripts/build-www.mjs",
     "audit:content": "node scripts/audit-content-quality.mjs",
+    "enrich:short": "node scripts/enrich-short-posts.mjs",
     "refresh": "node scripts/update-posts.mjs"
   }
 }
