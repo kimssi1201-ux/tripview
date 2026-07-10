@@ -4,8 +4,14 @@
 - 전체 글: 371건
 
 ## 이슈 요약
+- short_body_under_1500_chars: 5건
 
 ## 우선 보강 대상
+- travel-1953198: short_body_under_1500_chars / 원주중원전통시장, 방문 전 알아둘 위치와 여행 동선
+- travel-2849981: short_body_under_1500_chars / 넘버25 수원화성행궁점, 방문 전 알아둘 위치와 여행 동선
+- travel-4073368: short_body_under_1500_chars / 향사당, 방문 전 알아둘 위치와 여행 동선
+- travel-4073447: short_body_under_1500_chars / 소리체험관, 방문 전 알아둘 위치와 여행 동선
+- travel-2589656: short_body_under_1500_chars / 파크로쉬 리조트앤웰니스(PARK ROCHE Resort&Wellness), 방문 전 알아둘 위치와 여행 동선
 
 ## 운영 기준
 - missing_image, missing_info, short_body_under_1500_chars가 같이 있는 글은 먼저 보강합니다.

@@ -8,7 +8,7 @@ const reportPath = join(root, "reports", "content-quality-report.json");
 const reportsDir = join(root, "reports");
 const logPath = join(reportsDir, "short-post-enrichment-log.json");
 
-const VERSION = "short-post-top30-20260710";
+const VERSION = "short-post-top20-check-20260711";
 const DEFAULT_LIMIT = Number(process.env.SHORT_POST_LIMIT || 30);
 const GENERATED_SECTION_HEADINGS = new Set([
   "방문 전 확인 순서",
@@ -67,8 +67,8 @@ function infoValue(post, labels) {
 
 function placeName(post) {
   return (
-    infoValue(post, ["장소", "행사명", "이름"]) ||
     clean(post.sourceTitle) ||
+    infoValue(post, ["장소", "행사명", "이름"]) ||
     clean(post.title).split(",")[0].replace(/ 방문 전.*$/, "").trim()
   );
 }
@@ -122,6 +122,57 @@ function baseContext(post) {
   const contact = infoValue(post, ["문의", "전화"]);
 
   return { place, region, address, operation, price, point, contact };
+}
+
+function titleRegion(post) {
+  return broadRegion(post)
+    .replace("서울특별시", "서울")
+    .replace("부산광역시", "부산")
+    .replace("인천광역시", "인천")
+    .replace("대구광역시", "대구")
+    .replace("광주광역시", "광주")
+    .replace("대전광역시", "대전")
+    .replace("울산광역시", "울산")
+    .replace("강원특별자치도", "강원")
+    .replace("전북특별자치도", "전북")
+    .replace("제주특별자치도", "제주")
+    .replace("충청북도", "충북")
+    .replace("충청남도", "충남")
+    .replace("전라남도", "전남")
+    .replace("경상북도", "경북")
+    .replace("경상남도", "경남")
+    .trim();
+}
+
+function practicalTitle(post) {
+  const { place } = baseContext(post);
+  const region = titleRegion(post);
+  const type = placeType(post);
+  const prefix = region && region !== "국내" ? `${region} ` : "";
+
+  if (type === "festival") return `${prefix}${place} 일정·주차·운영정보 체크`;
+  if (type === "beach") return `${prefix}${place} 물놀이 전 주차와 편의시설 체크`;
+  if (type === "water") return `${prefix}${place} 방문 전 물놀이·동선 체크`;
+  if (type === "indoor") return `${prefix}${place} 비 오는 날 운영정보와 관람 동선`;
+  if (/숙소|예약/.test(clean(post.category))) return `${prefix}${place} 예약 전 위치와 이동 동선 체크`;
+  return `${prefix}${place} 방문 전 주차와 여행 동선 체크`;
+}
+
+function practicalDescription(post) {
+  const { place, region, operation, price } = baseContext(post);
+  const checks = [
+    operation ? "운영시간" : "운영 여부",
+    price ? "요금" : "입장료",
+    "주차",
+    "대중교통",
+    "주변 동선",
+  ];
+  return `${place} 방문 전에 ${checks.join(", ")}을 먼저 확인할 수 있도록 ${region} 기준 이동 동선과 현장 체크 포인트를 정리했습니다.`;
+}
+
+function practicalExcerpt(post) {
+  const { place } = baseContext(post);
+  return `${place}에 가기 전 운영 여부, 주차, 요금, 날씨 변수와 주변 코스를 한 번에 확인해보세요.`;
 }
 
 function sharedSections(post) {
@@ -293,6 +344,9 @@ const nextPosts = posts.map((post) => {
   ]).flatMap(([, lines]) => lines);
   const nextPost = {
     ...post,
+    title: practicalTitle(post),
+    description: practicalDescription(post),
+    excerpt: practicalExcerpt(post),
     read: "약 8분",
     sections,
     faq,
@@ -302,7 +356,8 @@ const nextPosts = posts.map((post) => {
   };
   updated.push({
     slug: post.slug,
-    title: post.title,
+    beforeTitle: post.title,
+    afterTitle: nextPost.title,
     beforeLength,
     afterLength: bodyLength(nextPost),
   });

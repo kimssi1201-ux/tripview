@@ -458,13 +458,24 @@ function renderArticle(post, counts, allPosts) {
 `;
 }
 
-const posts = (await readJson("data/generated-posts.json", [])).map(polishPost);
+const targetSlugs = String(process.env.POST_RENDER_TARGETS || "")
+  .split(",")
+  .map((slug) => slug.trim())
+  .filter(Boolean);
+const targetSet = new Set(targetSlugs);
+const sourcePosts = await readJson("data/generated-posts.json", []);
+const posts = targetSlugs.length ? sourcePosts : sourcePosts.map(polishPost);
 const counts = countCategories(posts);
+const renderTargets = targetSlugs.length ? posts.filter((post) => targetSet.has(post.slug)) : posts;
 
-for (const post of posts) {
+for (const post of renderTargets) {
   await fs.mkdir(path.join(ROOT, post.slug), { recursive: true });
   await fs.writeFile(path.join(ROOT, post.slug, "index.html"), renderArticle(post, counts, posts), "utf8");
 }
 
-await writeJson("data/generated-posts.json", posts);
-console.log(`Polished contextual copy for ${posts.length} post(s).`);
+if (!targetSlugs.length) {
+  await writeJson("data/generated-posts.json", posts);
+  console.log(`Polished contextual copy for ${posts.length} post(s).`);
+} else {
+  console.log(`Rendered contextual copy for ${renderTargets.length} target post(s).`);
+}

@@ -1,8 +1,66 @@
 {
   "checkedAt": "2026-07-10",
   "totalPosts": 371,
-  "issueCounts": {},
+  "issueCounts": {
+    "short_body_under_1500_chars": 5
+  },
   "duplicateTitleGroups": [],
   "duplicateImageGroups": [],
-  "highPriority": []
+  "highPriority": [
+    {
+      "slug": "travel-1953198",
+      "title": "원주중원전통시장, 방문 전 알아둘 위치와 여행 동선",
+      "category": "생활정보",
+      "region": "강원특별자치도 원주시",
+      "bodyLength": 1236,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2849981",
+      "title": "넘버25 수원화성행궁점, 방문 전 알아둘 위치와 여행 동선",
+      "category": "숙소/예약",
+      "region": "경기도 수원시",
+      "bodyLength": 1238,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-4073368",
+      "title": "향사당, 방문 전 알아둘 위치와 여행 동선",
+      "category": "국내여행",
+      "region": "제주특별자치도 제주시",
+      "bodyLength": 1241,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-4073447",
+      "title": "소리체험관, 방문 전 알아둘 위치와 여행 동선",
+      "category": "국내여행",
+      "region": "경상북도 고령군",
+      "bodyLength": 1261,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2589656",
+      "title": "파크로쉬 리조트앤웰니스(PARK ROCHE Resort&Wellness), 방문 전 알아둘 위치와 여행 동선",
+      "category": "숙소/예약",
+      "region": "강원특별자치도 정선군",
+      "bodyLength": 1329,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    }
+  ]
 }
