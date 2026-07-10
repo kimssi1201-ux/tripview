@@ -638,13 +638,14 @@ function magazineHero(posts) {
 
 function todayKeywordBar(sections) {
   const items = [
-    ["#popular", "\uC9C0\uAE08 \uC5EC\uD589\uC9C0"],
-    ["#weekend", "\uC8FC\uB9D0 \uAC00\uBCFC\uB9CC\uD55C \uACF3"],
-    ["#festival", "7~8\uC6D4 \uCD95\uC81C"],
-    ["#water", "\uBB3C\uB180\uC774\u00B7\uACC4\uACE1"],
-    ["#indoor", "\uC2E4\uB0B4 \uC5EC\uD589"],
-    ["#family", "\uC544\uC774\uC640 \uC5EC\uD589"],
-    ["#booking", "\uC608\uC57D \uC804 \uCCB4\uD06C"],
+    ["#water", "7\uC6D4 \uBB3C\uB180\uC774"],
+    ["#indoor", "\uC11C\uC6B8 \uC2E4\uB0B4 \uCF54\uC2A4"],
+    ["#water", "\uAC15\uC6D0 \uACC4\uACE1"],
+    ["#popular", "\uBD80\uC0B0 \uBC14\uB2E4"],
+    ["#festival", "\uC8FC\uB9D0 \uCD95\uC81C"],
+    ["#family", "\uC544\uC774\uC640 \uCCB4\uD5D8"],
+    ["#flight-deals", "\uD56D\uACF5\uAD8C \uD2B9\uAC00"],
+    ["#booking", "\uC219\uC18C \uCCB4\uD06C"],
   ].filter(([href]) => href === "#popular" || sections.some((section) => `#${section.id}` === href));
   return `<div class="today-bar" aria-label="TODAY \uD0A4\uC6CC\uB4DC"><b>TODAY</b>${items.map(([href, label]) => `<a href="${esc(href)}">${esc(label)}</a>`).join("")}</div>`;
 }
