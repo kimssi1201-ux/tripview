@@ -361,7 +361,57 @@ function categoryCountLinks(counts, href = "../#routes") {
     .join("");
 }
 
-function renderArticle(post, counts) {
+function regionTokens(value = "") {
+  return strip(value)
+    .replace(/[()]/g, " ")
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 3);
+}
+
+function titleKeywords(value = "") {
+  return strip(value)
+    .replace(/[^\p{Letter}\p{Number}\s]/gu, " ")
+    .split(/\s+/)
+    .filter((word) => word.length >= 2)
+    .slice(0, 8);
+}
+
+function relatedPostsFor(post, posts, limit = 4) {
+  const currentRegion = regionTokens(post.region);
+  const currentKeywords = new Set(titleKeywords(`${sourceTitle(post)} ${post.category || ""}`));
+  const currentCategory = strip(post.category);
+
+  return posts
+    .filter((candidate) => candidate?.slug && candidate.slug !== post.slug)
+    .map((candidate) => {
+      const candidateRegion = regionTokens(candidate.region);
+      const candidateKeywords = titleKeywords(`${sourceTitle(candidate)} ${candidate.category || ""}`);
+      let score = 0;
+      if (strip(candidate.category) === currentCategory) score += 8;
+      if (currentRegion[0] && candidateRegion[0] === currentRegion[0]) score += 7;
+      if (currentRegion[1] && candidateRegion[1] === currentRegion[1]) score += 4;
+      score += candidateKeywords.filter((word) => currentKeywords.has(word)).length * 2;
+      return { candidate, score };
+    })
+    .filter((item) => item.score > 0)
+    .sort((a, b) => b.score - a.score || String(b.candidate.sortDate || b.candidate.date || "").localeCompare(String(a.candidate.sortDate || a.candidate.date || "")))
+    .slice(0, limit)
+    .map((item) => item.candidate);
+}
+
+function renderRelatedPosts(post, posts) {
+  const related = relatedPostsFor(post, posts);
+  if (!related.length) return "";
+  return `<section class="related-posts" aria-labelledby="related-posts-title">
+    <h2 id="related-posts-title">함께 보면 좋은 글</h2>
+    <div class="related-list">
+      ${related.map((item) => `<a class="related-card" href="../${esc(item.slug)}/"><strong>${esc(item.title)}</strong><span>${esc([item.category, item.date, item.region].filter(Boolean).join(" · "))}</span></a>`).join("")}
+    </div>
+  </section>`;
+}
+
+function renderArticle(post, counts, allPosts) {
   const rows = (post.info || []).map(([k, v]) => `<tr><th>${esc(k)}</th><td>${esc(v)}</td></tr>`).join("");
   const gallery = (post.images || [post.image])
     .filter(Boolean)
@@ -373,6 +423,7 @@ function renderArticle(post, counts) {
   const sectionBlocks = (post.sections || []).map(([heading, paragraphs]) => `<h2>${esc(heading)}</h2>${paragraphs.map((p) => `<p>${esc(p)}</p>`).join("")}`);
   const sections = sectionBlocks.join("");
   const faqs = (post.faq || []).map(([q, a]) => `<details open><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join("");
+  const related = renderRelatedPosts(post, allPosts);
   const memo = (post.memo || []).map((m) => `<span>${esc(m)}</span>`).join("");
   const articleNav = `<nav class="links" aria-label="주요 메뉴"><a href="../">홈</a><a href="../#popular">지금 많이 찾는 여행지</a><a href="../#weekend">이번 주말 가볼만한 곳</a><a href="../#festival">7~8월 축제/행사</a><a href="../#water">물놀이·계곡·해수욕장</a><a href="../#indoor">비 오는 날 실내 여행</a><a href="../#family">아이와 가기 좋은 곳</a><a href="../#booking">예약 전 체크</a></nav>`;
   return `<!doctype html>
@@ -389,7 +440,7 @@ function renderArticle(post, counts) {
     <meta property="og:image" content="${esc(post.image)}" />
     <title>${esc(post.title)} | 트립뷰</title>
     <style>
-      :root{--ink:#111;--muted:#666;--line:#ddd;--soft:#f5f5f5;--paper:#fff}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);font-family:Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;line-height:1.72;background:var(--paper)}a{color:inherit;text-decoration:none}img{display:block;max-width:100%;object-fit:cover}.wrap{width:min(1100px,calc(100% - 32px));margin:auto}.top{position:fixed;top:0;left:0;right:0;z-index:20;background:transparent;transition:background .2s ease,box-shadow .2s ease,backdrop-filter .2s ease}.top.is-scrolled{background:rgba(255,255,255,.86);backdrop-filter:blur(16px);box-shadow:0 1px 18px rgba(0,0,0,.08)}.nav{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-size:22px;font-weight:900}.links{display:flex;flex-wrap:wrap;gap:18px;color:#222;font-size:14px;font-weight:800}.links span{font-size:12px;color:var(--muted);font-weight:900}.hero{padding:112px 0 28px}.hero h1{max-width:920px;margin:0 0 12px;font-size:clamp(32px,5vw,50px);line-height:1.18;letter-spacing:0}.meta{display:flex;flex-wrap:wrap;gap:12px;color:var(--muted);font-size:14px;font-weight:700}.cover-figure{margin:0 auto;width:min(1100px,calc(100% - 32px))}.cover{width:100%;max-height:540px}.layout{display:grid;grid-template-columns:minmax(0,1fr)290px;gap:46px;align-items:start;padding:36px 0 60px}.content{max-width:760px;font-size:18px}.content p{margin:0 0 20px}.content h2{margin:42px 0 14px;font-size:26px;letter-spacing:0}.info-table{width:100%;margin:0 0 34px;border-collapse:collapse;font-size:16px}.info-table th,.info-table td{padding:12px 0;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}.info-table th{width:140px;background:transparent;font-weight:900}.info-table tr:last-child th,.info-table tr:last-child td{border-bottom:0}.cover-figure figcaption,.inline-figure figcaption{margin-top:9px;color:var(--muted);font-size:14px}.inline-figure{margin:26px 0}.inline-figure img{width:100%;max-height:520px}.note{padding:0;margin-top:22px;color:var(--muted);font-size:15px}.aside{position:sticky;top:90px;display:grid;gap:12px;padding:0 0 0 20px;border-left:1px solid var(--line);color:var(--muted);font-size:15px}.aside strong{color:var(--ink)}details{border-top:1px solid var(--line)}details:last-child{border-bottom:1px solid var(--line)}summary{cursor:pointer;padding:16px 0;font-weight:900}details p{color:var(--muted)}footer{border-top:1px solid var(--line);padding:28px 0 42px;color:var(--muted)}.language-switch{display:flex;align-items:center;gap:8px;white-space:nowrap}.language-switch a{font-size:12px;font-weight:900;color:#555;border-bottom:1px solid transparent;padding:2px 0}.language-switch a.is-active{color:#111;border-bottom-color:#111}@media(max-width:820px){.top{background:rgba(255,255,255,.96);backdrop-filter:blur(14px)}.layout{grid-template-columns:1fr}.aside{position:static;padding:18px 0 0;border-left:0;border-top:1px solid var(--line)}.nav{align-items:flex-start;flex-direction:column;justify-content:center;gap:8px;min-height:96px;padding:14px 0}.links{display:flex;flex-wrap:nowrap;gap:16px;width:100%;max-width:100%;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none}.links::-webkit-scrollbar{display:none}.links a{flex:0 0 auto}.hero{padding-top:138px}.content{font-size:17px}.info-table th{width:108px}.language-switch{gap:10px}.language-switch a{font-size:12px}}
+      :root{--ink:#111;--muted:#666;--line:#ddd;--soft:#f5f5f5;--paper:#fff}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);font-family:Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;line-height:1.72;background:var(--paper)}a{color:inherit;text-decoration:none}img{display:block;max-width:100%;object-fit:cover}.wrap{width:min(1100px,calc(100% - 32px));margin:auto}.top{position:fixed;top:0;left:0;right:0;z-index:20;background:transparent;transition:background .2s ease,box-shadow .2s ease,backdrop-filter .2s ease}.top.is-scrolled{background:rgba(255,255,255,.86);backdrop-filter:blur(16px);box-shadow:0 1px 18px rgba(0,0,0,.08)}.nav{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-size:22px;font-weight:900}.links{display:flex;flex-wrap:wrap;gap:18px;color:#222;font-size:14px;font-weight:800}.links span{font-size:12px;color:var(--muted);font-weight:900}.hero{padding:112px 0 28px}.hero h1{max-width:920px;margin:0 0 12px;font-size:clamp(32px,5vw,50px);line-height:1.18;letter-spacing:0}.meta{display:flex;flex-wrap:wrap;gap:12px;color:var(--muted);font-size:14px;font-weight:700}.cover-figure{margin:0 auto;width:min(1100px,calc(100% - 32px))}.cover{width:100%;max-height:540px}.layout{display:grid;grid-template-columns:minmax(0,1fr)290px;gap:46px;align-items:start;padding:36px 0 60px}.content{max-width:760px;font-size:18px}.content p{margin:0 0 20px}.content h2{margin:42px 0 14px;font-size:26px;letter-spacing:0}.info-table{width:100%;margin:0 0 34px;border-collapse:collapse;font-size:16px}.info-table th,.info-table td{padding:12px 0;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}.info-table th{width:140px;background:transparent;font-weight:900}.info-table tr:last-child th,.info-table tr:last-child td{border-bottom:0}.cover-figure figcaption,.inline-figure figcaption{margin-top:9px;color:var(--muted);font-size:14px}.inline-figure{margin:26px 0}.inline-figure img{width:100%;max-height:520px}.related-posts{margin:42px 0 0;padding-top:18px;border-top:2px solid var(--ink)}.related-posts h2{margin-top:0}.related-list{display:grid;gap:0;border-top:1px solid var(--line)}.related-card{display:block;padding:14px 0;border-bottom:1px solid var(--line)}.related-card strong{display:block;font-size:18px;line-height:1.36}.related-card span{display:block;margin-top:5px;color:var(--muted);font-size:13px;line-height:1.5}.note{padding:0;margin-top:22px;color:var(--muted);font-size:15px}.aside{position:sticky;top:90px;display:grid;gap:12px;padding:0 0 0 20px;border-left:1px solid var(--line);color:var(--muted);font-size:15px}.aside strong{color:var(--ink)}details{border-top:1px solid var(--line)}details:last-child{border-bottom:1px solid var(--line)}summary{cursor:pointer;padding:16px 0;font-weight:900}details p{color:var(--muted)}footer{border-top:1px solid var(--line);padding:28px 0 42px;color:var(--muted)}.language-switch{display:flex;align-items:center;gap:8px;white-space:nowrap}.language-switch a{font-size:12px;font-weight:900;color:#555;border-bottom:1px solid transparent;padding:2px 0}.language-switch a.is-active{color:#111;border-bottom-color:#111}@media(max-width:820px){.top{background:rgba(255,255,255,.96);backdrop-filter:blur(14px)}.layout{grid-template-columns:1fr}.aside{position:static;padding:18px 0 0;border-left:0;border-top:1px solid var(--line)}.nav{align-items:flex-start;flex-direction:column;justify-content:center;gap:8px;min-height:96px;padding:14px 0}.links{display:flex;flex-wrap:nowrap;gap:16px;width:100%;max-width:100%;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none}.links::-webkit-scrollbar{display:none}.links a{flex:0 0 auto}.hero{padding-top:138px}.content{font-size:17px}.info-table th{width:108px}.language-switch{gap:10px}.language-switch a{font-size:12px}}
     </style>
   </head>
   <body>
@@ -397,7 +448,7 @@ function renderArticle(post, counts) {
     <main>
       <section class="wrap hero"><h1>${esc(post.title)}</h1><div class="meta"><span>트립뷰 편집팀</span><span>${esc(post.date)}</span><span>${esc(post.read)}</span><span>${esc(post.region)}</span></div></section>
       ${gallery}
-      <section class="wrap layout"><article class="content"><table class="info-table"><tbody>${rows}</tbody></table>${sections}<h2>자주 묻는 질문</h2>${faqs}<p class="note">일정과 세부 운영은 현장 사정에 따라 달라질 수 있습니다. 출발 전 당일 공지를 한 번 더 확인하면 불필요한 이동을 줄일 수 있습니다.</p></article><aside class="aside"><strong>운영 메모</strong>${memo}<a href="../">목록으로 돌아가기</a></aside></section>
+      <section class="wrap layout"><article class="content"><table class="info-table"><tbody>${rows}</tbody></table>${sections}<h2>자주 묻는 질문</h2>${faqs}${related}<p class="note">일정과 세부 운영은 현장 사정에 따라 달라질 수 있습니다. 출발 전 당일 공지를 한 번 더 확인하면 불필요한 이동을 줄일 수 있습니다.</p></article><aside class="aside"><strong>운영 메모</strong>${memo}<a href="../">목록으로 돌아가기</a></aside></section>
     </main>
     <footer><div class="wrap"><strong>트립뷰</strong><p>오늘 바로 움직일 수 있는 여행 큐레이션.</p></div></footer>
     <script>const header=document.querySelector('.top');const syncHeader=()=>header.classList.toggle('is-scrolled',window.scrollY>24);syncHeader();window.addEventListener('scroll',syncHeader,{passive:true});</script>
@@ -412,7 +463,7 @@ const counts = countCategories(posts);
 
 for (const post of posts) {
   await fs.mkdir(path.join(ROOT, post.slug), { recursive: true });
-  await fs.writeFile(path.join(ROOT, post.slug, "index.html"), renderArticle(post, counts), "utf8");
+  await fs.writeFile(path.join(ROOT, post.slug, "index.html"), renderArticle(post, counts, posts), "utf8");
 }
 
 await writeJson("data/generated-posts.json", posts);
