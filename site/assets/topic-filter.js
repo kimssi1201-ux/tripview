@@ -95,6 +95,77 @@
     return routeSection()?.querySelector('.section-head h2, h2');
   }
 
+  function initHomepageFilters() {
+    const page = document.querySelector('.page');
+    const links = [...document.querySelectorAll('[data-filter]')];
+    const sections = [...document.querySelectorAll('.page > .news-section[id]')];
+    if (!page || !links.length || !sections.length) return;
+
+    const label = document.querySelector('[data-feed-label]');
+    const defaultLabel = label?.dataset.defaultLabel || label?.textContent || '';
+    const heroSlot = document.querySelector('[data-hero-slot]');
+    const heroTemplates = new Map(
+      [...document.querySelectorAll('template[data-hero-template]')].map((template) => [
+        template.dataset.heroTemplate,
+        template.innerHTML,
+      ]),
+    );
+
+    function filterLabel(id) {
+      if (id === 'all') return defaultLabel;
+      const link = links.find((item) => item.dataset.filter === id);
+      const text = (link?.textContent || '').replace(/\s+/g, ' ').trim();
+      return text ? `${text} 최신 정보` : defaultLabel;
+    }
+
+    function setHero(id) {
+      if (!heroSlot) return;
+      const html = heroTemplates.get(id) || (id === 'all' ? heroTemplates.get('all') : '');
+      heroSlot.innerHTML = html || '';
+      heroSlot.hidden = !html;
+    }
+
+    function setFilter(id, pushState) {
+      const filterId = id || 'all';
+      const showAll = filterId === 'all';
+      const hasSection = sections.some((section) => section.id === filterId);
+      if (!showAll && !hasSection) return false;
+
+      page.classList.toggle('is-filtered', !showAll);
+      sections.forEach((section) => {
+        section.classList.toggle('is-hidden', !showAll && section.id !== filterId);
+      });
+      links.forEach((link) => {
+        link.classList.toggle('is-active', (link.dataset.filter || 'all') === filterId);
+      });
+      if (label) label.textContent = filterLabel(filterId);
+      setHero(filterId);
+
+      if (pushState) {
+        const nextUrl = `${window.location.pathname}${window.location.search}${showAll ? '' : `#${filterId}`}`;
+        window.history.replaceState({}, '', nextUrl);
+      }
+      return true;
+    }
+
+    document.addEventListener('click', (event) => {
+      const link = event.target.closest('[data-filter]');
+      if (!link) return;
+      const id = link.dataset.filter || 'all';
+      if (!setFilter(id, true)) return;
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      page.scrollIntoView({ block: 'start' });
+    }, { capture: true });
+
+    const initialId = window.location.hash.replace('#', '');
+    if (initialId && initialId !== ROUTES_ID) {
+      setFilter(initialId, false);
+    } else {
+      setFilter('all', false);
+    }
+  }
+
   function filteredPosts() {
     if (state.filter.type === 'category') {
       return state.posts.filter((post) => normalizeCategory(post.category) === state.filter.value);
@@ -244,6 +315,8 @@
     window.location.assign(link.href);
     return true;
   }
+
+  initHomepageFilters();
 
   document.addEventListener('click', (event) => {
     const externalLink = event.target.closest('a[href]');

@@ -1109,7 +1109,7 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
     ${COUPANG_SCRIPT}
     <script src="/assets/homepage.js?v=booking-search-20260706-hardening" defer></script>
     <script src="/assets/i18n.js?v=i18n-link-fix-20260706" defer></script>
-    <script src="/assets/topic-filter.js?v=topic-filter-20260706-hardening" defer></script>
+    <script src="/assets/topic-filter.js?v=topic-filter-20260712-hero-category" defer></script>
   </body>
 </html>`;
 }
