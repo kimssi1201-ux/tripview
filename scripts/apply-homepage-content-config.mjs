@@ -18,17 +18,16 @@ const LANGUAGE_SWITCH = '<div class="language-switch notranslate" translate="no"
 const COUPANG_SCRIPT = '<script src="/assets/coupang.js?v=coupang-20260708" defer></script>';
 const DESKTOP_LAYOUT_CSS = `
       .product-card>.booking-thumb{grid-column:1}
-      .section-kicker{display:block;margin:0 0 2px;color:#f0445e;font-size:11px;font-weight:900;letter-spacing:.04em}.section-headline{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:0 0 16px;border-bottom:1px solid var(--line);padding-bottom:8px}.section-headline h2{margin:0;font-size:24px;line-height:1.12}.section-more{color:var(--muted);font-size:12px;font-weight:900;white-space:nowrap}.magazine-grid{display:grid;grid-template-columns:1fr;gap:22px}.magazine-card{display:block}.magazine-thumb{display:block;aspect-ratio:1.56/1;overflow:hidden;background:var(--soft)}.magazine-card strong{display:block;margin-top:8px;font-size:19px;line-height:1.28;font-weight:900}.magazine-card em{display:block;margin-top:7px;color:var(--muted);font-size:13px;line-height:1.55;font-style:normal}.magazine-meta{display:block;margin-top:10px;color:#f0445e;font-size:11px;font-weight:900}.magazine-hero{padding:14px 0 30px}.magazine-hero.is-hidden{display:none}.hero-grid{display:grid;grid-template-columns:1fr;gap:2px}.hero-card{position:relative;display:block;min-height:210px;overflow:hidden;background:#111;color:#fff}.hero-media{position:absolute;inset:0}.hero-card img{position:absolute;inset:0;filter:brightness(.68)}.hero-copy{position:absolute;left:18px;right:18px;bottom:18px;z-index:1}.hero-card strong{display:block;font-size:22px;line-height:1.16;font-weight:900}.hero-card em{display:block;margin-bottom:8px;color:#fff;font-size:12px;font-style:normal;font-weight:900}.hero-card span{display:block;margin-top:8px;color:rgba(255,255,255,.82);font-size:12px}.hero-side-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px}.hero-side-grid .hero-card{min-height:150px}.hero-side-grid .hero-card strong{font-size:15px;line-height:1.28}.hero-side-grid .hero-card span{font-size:11px}.today-bar{max-width:720px;margin:0 auto;padding:0 16px 10px;display:flex;gap:10px;overflow-x:auto;white-space:nowrap;border-top:1px solid #f1f1f1}.today-bar b{color:#f0445e;font-size:11px}.today-bar a{color:#555;font-size:12px;font-weight:800}.today-bar::-webkit-scrollbar{display:none}.site-footer>span{display:none}.footer-brand strong{display:block;color:var(--ink);font-size:20px;margin-bottom:8px}.footer-brand p,.footer-col a{display:block;margin:0 0 7px;color:var(--muted);font-size:13px}.footer-col b{display:block;margin-bottom:10px;color:var(--ink);font-size:13px}.footer-bottom{grid-column:1/-1;margin-top:10px;padding-top:16px;border-top:1px solid #eee;color:#aaa;font-size:12px}
+      .section-kicker{display:block;margin:0 0 2px;color:#f0445e;font-size:11px;font-weight:900;letter-spacing:.04em}.section-headline{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:0 0 16px;border-bottom:1px solid var(--line);padding-bottom:8px}.section-headline h2{margin:0;font-size:24px;line-height:1.12}.section-more{color:var(--muted);font-size:12px;font-weight:900;white-space:nowrap}.magazine-grid{display:grid;grid-template-columns:1fr;gap:22px}.magazine-card{display:block}.magazine-thumb{display:block;aspect-ratio:1.56/1;overflow:hidden;background:var(--soft)}.magazine-card strong{display:block;margin-top:8px;font-size:19px;line-height:1.28;font-weight:900}.magazine-card em{display:block;margin-top:7px;color:var(--muted);font-size:13px;line-height:1.55;font-style:normal}.magazine-meta{display:block;margin-top:10px;color:#f0445e;font-size:11px;font-weight:900}.magazine-hero{padding:14px 0 30px}.magazine-hero.is-hidden{display:none}.hero-grid{display:grid;grid-template-columns:1fr;gap:2px}.hero-card{position:relative;display:block;min-height:210px;overflow:hidden;background:#111;color:#fff}.hero-media{position:absolute;inset:0}.hero-card img{position:absolute;inset:0;filter:brightness(.68)}.hero-copy{position:absolute;left:18px;right:18px;bottom:18px;z-index:1}.hero-card strong{display:block;font-size:22px;line-height:1.16;font-weight:900}.hero-card em{display:block;margin-bottom:8px;color:#fff;font-size:12px;font-style:normal;font-weight:900}.hero-card span{display:block;margin-top:8px;color:rgba(255,255,255,.82);font-size:12px}.hero-side-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px}.hero-side-grid .hero-card{min-height:150px}.hero-side-grid .hero-card strong{font-size:15px;line-height:1.28}.hero-side-grid .hero-card span{font-size:11px}.site-footer>span{display:none}.footer-brand strong{display:block;color:var(--ink);font-size:20px;margin-bottom:8px}.footer-brand p,.footer-col a{display:block;margin:0 0 7px;color:var(--muted);font-size:13px}.footer-col b{display:block;margin-bottom:10px;color:var(--ink);font-size:13px}.footer-bottom{grid-column:1/-1;margin-top:10px;padding-top:16px;border-top:1px solid #eee;color:#aaa;font-size:12px}
       @media(min-width:900px){
         html{scroll-padding-top:122px}
         body{background:#fff}
         .site-header{position:sticky;background:rgba(255,255,255,.98);border-bottom:1px solid #ededed}
-        .header-inner,.today-bar,.page,.site-footer{max-width:1180px}
+        .header-inner,.page,.site-footer{max-width:1180px}
         .header-inner{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:14px 38px;padding:18px 24px 12px}
         .brand{margin:0;font-size:20px}
         .nav-scroll{min-width:0;justify-content:center;gap:30px;padding-bottom:0;font-size:14px}
         .language-switch{justify-content:flex-end}
-        .today-bar{padding:8px 24px 12px;gap:18px}
         .page{display:block;padding:0 24px 64px}
         .top-line{display:none}
         .magazine-hero{padding:18px 0 32px}
@@ -636,20 +635,6 @@ function magazineHero(posts) {
   </section>`;
 }
 
-function todayKeywordBar(sections) {
-  const items = [
-    ["#water", "7\uC6D4 \uBB3C\uB180\uC774"],
-    ["#indoor", "\uC11C\uC6B8 \uC2E4\uB0B4 \uCF54\uC2A4"],
-    ["#water", "\uAC15\uC6D0 \uACC4\uACE1"],
-    ["#popular", "\uBD80\uC0B0 \uBC14\uB2E4"],
-    ["#festival", "\uC8FC\uB9D0 \uCD95\uC81C"],
-    ["#family", "\uC544\uC774\uC640 \uCCB4\uD5D8"],
-    ["#flight-deals", "\uD56D\uACF5\uAD8C \uD2B9\uAC00"],
-    ["#booking", "\uC219\uC18C \uCCB4\uD06C"],
-  ].filter(([href]) => href === "#popular" || sections.some((section) => `#${section.id}` === href));
-  return `<div class="today-bar" aria-label="TODAY \uD0A4\uC6CC\uB4DC"><b>TODAY</b>${items.map(([href, label]) => `<a href="${esc(href)}">${esc(label)}</a>`).join("")}</div>`;
-}
-
 function searchableText(post) {
   return [
     titleOf(post),
@@ -884,7 +869,6 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
         <nav class="nav-scroll" aria-label="${esc(TEXT.navLabel)}">${categoryNav(navSections)}</nav>
         ${LANGUAGE_SWITCH}
       </div>
-      ${todayKeywordBar(navSections)}
     </header>
     <main class="page">
       <div class="top-line"><span data-feed-label data-default-label="${esc(defaultHeadline)}">${esc(defaultHeadline)}</span><span>${esc(new Date().toISOString().slice(0, 10))}</span></div>
