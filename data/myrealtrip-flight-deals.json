@@ -27,7 +27,7 @@
     "returnDate": "2026-07-23",
     "airline": "",
     "transfer": "",
-    "averagePrice": 421631,
+    "averagePrice": 413083,
     "source": "myrealtrip-flight"
   },
   {
@@ -58,21 +58,21 @@
     "returnDate": "2026-07-23",
     "airline": "",
     "transfer": "",
-    "averagePrice": 553246,
+    "averagePrice": 553240,
     "source": "myrealtrip-flight"
   },
   {
-    "id": "flight-ICN-TAK-2026-08-22-2026-08-26",
+    "id": "flight-ICN-TAK-2026-07-18-2026-07-22",
     "type": "flight",
     "title": "인천-다카마쓰 왕복 5일 최저가 169,400원",
-    "url": "/flight-deals/flight-icn-tak-2026-08-22-2026-08-26/",
+    "url": "/flight-deals/flight-icn-tak-2026-07-18-2026-07-22/",
     "image": "",
     "price": 169400,
     "priceText": "169,400원",
     "region": "다카마쓰",
     "city": "다카마쓰",
     "category": "항공권 최저가",
-    "description": "출발 2026년 8월 22일 · 귀국 2026년 8월 26일",
+    "description": "출발 2026년 7월 18일 · 귀국 2026년 7월 22일",
     "tags": [
       "항공권",
       "최저가",
@@ -85,11 +85,11 @@
     "fromCity": "ICN",
     "toCity": "TAK",
     "period": 5,
-    "departureDate": "2026-08-22",
-    "returnDate": "2026-08-26",
+    "departureDate": "2026-07-18",
+    "returnDate": "2026-07-22",
     "airline": "",
     "transfer": "",
-    "averagePrice": 357356,
+    "averagePrice": 364079,
     "source": "myrealtrip-flight"
   },
   {
@@ -120,7 +120,7 @@
     "returnDate": "2026-11-14",
     "airline": "",
     "transfer": "",
-    "averagePrice": 327537,
+    "averagePrice": 327884,
     "source": "myrealtrip-flight"
   },
   {
@@ -151,7 +151,7 @@
     "returnDate": "2026-09-22",
     "airline": "",
     "transfer": "",
-    "averagePrice": 492254,
+    "averagePrice": 492235,
     "source": "myrealtrip-flight"
   },
   {
@@ -182,7 +182,7 @@
     "returnDate": "2026-07-22",
     "airline": "",
     "transfer": "",
-    "averagePrice": 325160,
+    "averagePrice": 321764,
     "source": "myrealtrip-flight"
   },
   {
@@ -213,7 +213,7 @@
     "returnDate": "2026-08-24",
     "airline": "",
     "transfer": "",
-    "averagePrice": 535917,
+    "averagePrice": 538371,
     "source": "myrealtrip-flight"
   },
   {
@@ -244,7 +244,7 @@
     "returnDate": "2026-07-22",
     "airline": "",
     "transfer": "",
-    "averagePrice": 344664,
+    "averagePrice": 344647,
     "source": "myrealtrip-flight"
   }
 ]

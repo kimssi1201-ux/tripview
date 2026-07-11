@@ -116,6 +116,35 @@
     "source": "myrealtrip-tna"
   },
   {
+    "id": "tna-6082871",
+    "type": "tna",
+    "title": "고베 누노비키 허브원 로프웨이 입장권",
+    "url": "https://experiences.myrealtrip.com/products/6082871",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/05/28/UosE/SGZneuANQS.jpg",
+    "price": 10043,
+    "priceText": "10,043원부터",
+    "region": "오사카",
+    "city": "오사카",
+    "category": "티켓·입장권",
+    "description": "오사카 ∙ 티켓·입장권 · 평점 4.9(12개) · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "오사카",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport"
+    ],
+    "gid": "6082871",
+    "reviewScore": 4.9,
+    "reviewCount": 12,
+    "deepLink": "mrt://experiences/detail/6082871",
+    "source": "myrealtrip-tna"
+  },
+  {
     "id": "tna-6176378",
     "type": "tna",
     "title": "[공방] 교토 쿄마치야 공방 와라쿠 — 일본 소품 핸드메이드 체험",
@@ -196,35 +225,6 @@
     "reviewScore": "",
     "reviewCount": "",
     "deepLink": "mrt://experiences/detail/3887253",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-5869510",
-    "type": "tna",
-    "title": "츠텐카쿠 일반 전망대 입장권 (오사카)",
-    "url": "https://experiences.myrealtrip.com/products/5869510",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/03/16/jLgm/IouK0w9V1n.jpg",
-    "price": 10255,
-    "priceText": "10,255원부터",
-    "region": "오사카",
-    "city": "오사카",
-    "category": "티켓·입장권",
-    "description": "오사카 ∙ 티켓·입장권 · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "오사카",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "transport"
-    ],
-    "gid": "5869510",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/5869510",
     "source": "myrealtrip-tna"
   }
 ]
