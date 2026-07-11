@@ -18,7 +18,7 @@ const LANGUAGE_SWITCH = '<div class="language-switch notranslate" translate="no"
 const COUPANG_SCRIPT = '<script src="/assets/coupang.js?v=coupang-20260708" defer></script>';
 const DESKTOP_LAYOUT_CSS = `
       .product-card>.booking-thumb{grid-column:1}
-      .section-kicker{display:block;margin:0 0 2px;color:#f0445e;font-size:11px;font-weight:900;letter-spacing:.04em}.section-headline{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:0 0 16px;border-bottom:1px solid var(--line);padding-bottom:8px}.section-headline h2{margin:0;font-size:24px;line-height:1.12}.section-more{color:var(--muted);font-size:12px;font-weight:900;white-space:nowrap}.magazine-grid{display:grid;grid-template-columns:1fr;gap:22px}.magazine-card{display:block}.magazine-thumb{display:block;aspect-ratio:1.56/1;overflow:hidden;background:var(--soft)}.magazine-card strong{display:block;margin-top:8px;font-size:19px;line-height:1.28;font-weight:900}.magazine-card em{display:block;margin-top:7px;color:var(--muted);font-size:13px;line-height:1.55;font-style:normal}.magazine-meta{display:block;margin-top:10px;color:#f0445e;font-size:11px;font-weight:900}.magazine-hero{padding:14px 0 30px}.magazine-hero.is-hidden{display:none}.hero-grid{display:grid;grid-template-columns:1fr;gap:2px}.hero-card{position:relative;display:block;min-height:210px;overflow:hidden;background:#111;color:#fff}.hero-media{position:absolute;inset:0}.hero-card img{position:absolute;inset:0;filter:brightness(.68)}.hero-copy{position:absolute;left:18px;right:18px;bottom:18px;z-index:1}.hero-card strong{display:block;font-size:22px;line-height:1.16;font-weight:900}.hero-card em{display:block;margin-bottom:8px;color:#fff;font-size:12px;font-style:normal;font-weight:900}.hero-card span{display:block;margin-top:8px;color:rgba(255,255,255,.82);font-size:12px}.hero-side-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px}.hero-side-grid .hero-card{min-height:150px}.hero-side-grid .hero-card strong{font-size:15px;line-height:1.28}.hero-side-grid .hero-card span{font-size:11px}.site-footer>span{display:none}.footer-brand strong{display:block;color:var(--ink);font-size:20px;margin-bottom:8px}.footer-brand p,.footer-col a{display:block;margin:0 0 7px;color:var(--muted);font-size:13px}.footer-col b{display:block;margin-bottom:10px;color:var(--ink);font-size:13px}.footer-bottom{grid-column:1/-1;margin-top:10px;padding-top:16px;border-top:1px solid #eee;color:#aaa;font-size:12px}
+      .section-kicker{display:block;margin:0 0 2px;color:#f0445e;font-size:11px;font-weight:900;letter-spacing:.04em}.section-headline{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:0 0 16px;border-bottom:1px solid var(--line);padding-bottom:8px}.section-headline h2{margin:0;font-size:24px;line-height:1.12}.section-more{color:var(--muted);font-size:12px;font-weight:900;white-space:nowrap}.magazine-grid{display:grid;grid-template-columns:1fr;gap:22px}.magazine-card{display:block}.magazine-thumb{display:block;aspect-ratio:1.56/1;overflow:hidden;background:var(--soft)}.magazine-card strong{display:block;margin-top:8px;font-size:19px;line-height:1.28;font-weight:900}.magazine-card em{display:block;margin-top:7px;color:var(--muted);font-size:13px;line-height:1.55;font-style:normal}.magazine-meta{display:block;margin-top:10px;color:#f0445e;font-size:11px;font-weight:900}.section-booking-links{margin-top:22px}.section-booking-head{padding:0 0 8px;color:var(--muted);font-size:12px;font-weight:900}.magazine-hero{padding:14px 0 30px}.magazine-hero.is-hidden{display:none}.hero-grid{display:grid;grid-template-columns:1fr;gap:2px}.hero-card{position:relative;display:block;min-height:210px;overflow:hidden;background:#111;color:#fff}.hero-media{position:absolute;inset:0}.hero-card img{position:absolute;inset:0;filter:brightness(.68)}.hero-copy{position:absolute;left:18px;right:18px;bottom:18px;z-index:1}.hero-card strong{display:block;font-size:22px;line-height:1.16;font-weight:900}.hero-card em{display:block;margin-bottom:8px;color:#fff;font-size:12px;font-style:normal;font-weight:900}.hero-card span{display:block;margin-top:8px;color:rgba(255,255,255,.82);font-size:12px}.hero-side-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px}.hero-side-grid .hero-card{min-height:150px}.hero-side-grid .hero-card strong{font-size:15px;line-height:1.28}.hero-side-grid .hero-card span{font-size:11px}.site-footer>span{display:none}.footer-brand strong{display:block;color:var(--ink);font-size:20px;margin-bottom:8px}.footer-brand p,.footer-col a{display:block;margin:0 0 7px;color:var(--muted);font-size:13px}.footer-col b{display:block;margin-bottom:10px;color:var(--ink);font-size:13px}.footer-bottom{grid-column:1/-1;margin-top:10px;padding-top:16px;border-top:1px solid #eee;color:#aaa;font-size:12px}
       @media(min-width:900px){
         html{scroll-padding-top:122px}
         body{background:#fff}
@@ -248,6 +248,17 @@ function productText(product) {
   ].filter(Boolean).join(" ");
 }
 
+function sectionIntent(id = "") {
+  const map = {
+    festival: "festival",
+    water: "water",
+    indoor: "indoor",
+    family: "family",
+    booking: "booking",
+  };
+  return map[id] || "";
+}
+
 function productMatchesIntent(product, intent) {
   const text = productText(product);
   const intents = Array.isArray(product?.intents) ? product.intents : [];
@@ -262,23 +273,27 @@ function productMatchesIntent(product, intent) {
   return (intentKeywords[intent] || []).some((keyword) => text.includes(keyword));
 }
 
-function scoreProduct(product, posts) {
+function scoreProduct(product, posts, intent = "") {
   const postRegions = new Set(posts.map((post) => compactRegion(regionOf(post))).filter(Boolean));
   const productRegion = productRegionOf(product);
   let score = 0;
-  if (productRegion && postRegions.has(productRegion)) score += 6;
-  if (productMatchesIntent(product, "booking")) score += 3;
-  if (posts.some((post) => isFestival(post)) && productMatchesIntent(product, "festival")) score += 4;
-  if (posts.some((post) => hasAnyKeyword(post, ["\uBB3C\uB180\uC774", "\uD574\uC218\uC695\uC7A5", "\uBC14\uB2E4", "\uC6CC\uD130\uD30C\uD06C"])) && productMatchesIntent(product, "water")) score += 4;
-  if (posts.some((post) => hasAnyKeyword(post, ["\uC2E4\uB0B4", "\uBC15\uBB3C\uAD00", "\uBBF8\uC220\uAD00", "\uC804\uC2DC"])) && productMatchesIntent(product, "indoor")) score += 4;
-  if (posts.some((post) => hasAnyKeyword(post, ["\uC544\uC774", "\uAC00\uC871", "\uCCB4\uD5D8"])) && productMatchesIntent(product, "family")) score += 4;
+  const regionMatched = Boolean(productRegion && postRegions.has(productRegion));
+  const textMatched = Boolean(productRegion && posts.some((post) => searchableText(post).includes(productRegion)));
+  if (regionMatched) score += 12;
+  if (textMatched) score += 4;
+  if ((regionMatched || textMatched || intent === "booking") && intent && productMatchesIntent(product, intent)) score += 5;
+  if (productMatchesIntent(product, "booking")) score += intent === "booking" ? 3 : (score > 0 ? 1 : 0);
+  if (score > 0 && posts.some((post) => isFestival(post)) && productMatchesIntent(product, "festival")) score += 4;
+  if (score > 0 && posts.some((post) => hasAnyKeyword(post, ["\uBB3C\uB180\uC774", "\uD574\uC218\uC695\uC7A5", "\uBC14\uB2E4", "\uC6CC\uD130\uD30C\uD06C"])) && productMatchesIntent(product, "water")) score += 4;
+  if (score > 0 && posts.some((post) => hasAnyKeyword(post, ["\uC2E4\uB0B4", "\uBC15\uBB3C\uAD00", "\uBBF8\uC220\uAD00", "\uC804\uC2DC"])) && productMatchesIntent(product, "indoor")) score += 4;
+  if (score > 0 && posts.some((post) => hasAnyKeyword(post, ["\uC544\uC774", "\uAC00\uC871", "\uCCB4\uD5D8"])) && productMatchesIntent(product, "family")) score += 4;
   return score;
 }
 
-function rankedProducts(products, posts, count = 3) {
+function rankedProducts(products, posts, count = 3, intent = "") {
   const ranked = products
     .filter((product) => product?.title && product?.url)
-    .map((product) => ({ product, score: scoreProduct(product, posts) }))
+    .map((product) => ({ product, score: scoreProduct(product, posts, intent) }))
     .filter((item) => item.score > 0)
     .sort((a, b) => b.score - a.score);
   const picked = [];
@@ -371,13 +386,26 @@ function flightAdCard(deal) {
   </a>`;
 }
 
-function myRealTripAdSection(products = [], flights = []) {
-  const accommodations = productsFromSource(products, "myrealtrip-accommodation", 4);
-  const tours = productsFromSource(products, "myrealtrip-tna", 4);
-  const flightDeals = [...flights]
+function scoreFlightDeal(deal, posts = []) {
+  const dealRegion = compactRegion(deal?.region || deal?.city || deal?.toCity || "");
+  if (!dealRegion || dealRegion === REGION_OTHER) return 0;
+  return posts.some((post) => searchableText(post).includes(dealRegion)) ? 12 : 0;
+}
+
+function rankedFlightDeals(flights = [], posts = [], count = 2) {
+  return [...flights]
     .filter((deal) => deal?.title && deal?.price)
-    .sort((a, b) => Number(a.price || 0) - Number(b.price || 0))
-    .slice(0, 2);
+    .map((deal) => ({ deal, score: scoreFlightDeal(deal, posts) }))
+    .filter((entry) => entry.score > 0)
+    .sort((a, b) => b.score - a.score || Number(a.deal.price || 0) - Number(b.deal.price || 0))
+    .slice(0, count)
+    .map((entry) => entry.deal);
+}
+
+function myRealTripAdSection(products = [], flights = [], posts = []) {
+  const accommodations = rankedProducts(productsFromSource(products, "myrealtrip-accommodation", 20), posts, 4);
+  const tours = rankedProducts(productsFromSource(products, "myrealtrip-tna", 20), posts, 4);
+  const flightDeals = rankedFlightDeals(flights, posts, 2);
   const cards = [
     accommodations[0],
     tours[0],
@@ -393,7 +421,7 @@ function myRealTripAdSection(products = [], flights = []) {
     .join("");
 
   if (!cards) return "";
-  const title = "\uB9C8\uC774\uB9AC\uC5BC\uD2B8\uB9BD \uCD94\uCC9C";
+  const title = "\uC5EC\uD589\uC9C0\uBCC4 \uC608\uC57D \uCD94\uCC9C";
   return `<section class="news-section check-section mrt-ad-section" id="myrealtrip-deals" aria-labelledby="myrealtrip-deals-title" data-headline="${title}">
     <h2 id="myrealtrip-deals-title">${title}</h2>
     <div class="check-grid">${cards}</div>
@@ -531,18 +559,12 @@ function uniqueProducts(products, count = 3) {
   return picked;
 }
 
-function inlineProductsForSection(id, feeds) {
+function inlineProductsForSection(section, feeds) {
   const { accommodations = [], tnaProducts = [], products = [] } = feeds;
-  const fallback = rankedProducts([...accommodations, ...tnaProducts, ...products], [], 3);
-  const bySection = {
-    popular: [accommodations[0], tnaProducts[0], accommodations[1]],
-    weekend: [accommodations[1], tnaProducts[0], tnaProducts[1]],
-    festival: [tnaProducts[1], accommodations[2], tnaProducts[2]],
-    water: [accommodations[3], tnaProducts[2], accommodations[4]],
-    indoor: [tnaProducts[2], accommodations[4], tnaProducts[3]],
-    family: [tnaProducts[3], accommodations[5], accommodations[6]],
-  };
-  return uniqueProducts(bySection[id] || fallback, 3);
+  const pool = [...accommodations, ...tnaProducts, ...products];
+  const intent = sectionIntent(section?.id);
+  const ranked = rankedProducts(pool, section?.posts || [], 3, intent);
+  return uniqueProducts(ranked, 3);
 }
 
 function interleaveListItems(posts, products = []) {
@@ -686,12 +708,20 @@ function newsSection({ id, title, posts, inlineProducts = [] }) {
   const count = id === "popular" ? 9 : 6;
   const items = uniquePosts(posts).slice(0, count);
   if (!items.length) return "";
+  const relatedProducts = uniqueProducts(inlineProducts, 3);
+  const related = relatedProducts.length
+    ? `<div class="section-booking-links" aria-label="\uC5EC\uD589\uC9C0\uC5D0 \uB9DE\uB294 \uC608\uC57D \uC815\uBCF4">
+      <div class="section-booking-head">\uC774 \uC5EC\uD589\uC9C0\uC640 \uAC19\uC774 \uBCF4\uBA74 \uC88B\uC740 \uC608\uC57D \uC815\uBCF4</div>
+      <div class="check-grid">${relatedProducts.map(productCard).join("")}</div>
+    </div>`
+    : "";
   return `<section class="news-section" id="${esc(id)}" aria-labelledby="${esc(id)}-title" data-headline="${esc(title)}">
     <div class="section-headline">
       <div><span class="section-kicker">${esc(sectionKicker(id))}</span><h2 id="${esc(id)}-title">${esc(title)}</h2></div>
       <a class="section-more" href="#${esc(id)}" data-filter="${esc(id)}">\uB354\uBCF4\uAE30 +</a>
     </div>
     <div class="magazine-grid">${items.map(magazineCard).join("")}</div>
+    ${related}
   </section>`;
 }
 
@@ -828,13 +858,13 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
   const productFeeds = { accommodations, tnaProducts, products };
   const allProducts = [...accommodations, ...tnaProducts, ...products];
   const flightHtml = flightDealSection(flights);
-  const mrtHtml = myRealTripAdSection(allProducts, flights);
+  const mrtHtml = myRealTripAdSection(allProducts, flights, heroPosts);
   const coupangHtml = coupangHomeSection();
   const sectionHtml = sections
     .map((section) => {
       const html = section.kind === "booking"
         ? bookingSection({ ...section, products: allProducts })
-        : newsSection({ ...section, inlineProducts: inlineProductsForSection(section.id, productFeeds) });
+        : newsSection({ ...section, inlineProducts: inlineProductsForSection(section, productFeeds) });
       return section.id === "weekend" && flightHtml ? `${html}\n${flightHtml}` : html;
     })
     .join("\n")
@@ -858,7 +888,7 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
     <title>${esc(TEXT.ogTitle)}</title>
     <style>
       :root{--ink:#111;--muted:#777;--line:#e2e2e2;--paper:#fff;--soft:#f5f5f5}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:128px}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;letter-spacing:0;line-height:1.45}a{color:inherit;text-decoration:none}img{display:block;width:100%;height:100%;object-fit:cover;background:var(--soft)}.site-header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}.header-inner{max-width:720px;margin:0 auto;padding:15px 16px 10px}.brand{display:block;margin-bottom:12px;font-size:28px;font-weight:900;line-height:1}.nav-scroll{display:flex;gap:18px;overflow-x:auto;padding-bottom:4px;white-space:nowrap;font-size:15px;font-weight:800}.nav-scroll a{display:block;padding:2px 0;border-bottom:2px solid transparent}.nav-scroll a.is-active{border-bottom-color:#111}.nav-scroll::-webkit-scrollbar,.pick-grid::-webkit-scrollbar{display:none}.page{max-width:720px;margin:0 auto;padding:10px 16px 40px}.top-line{display:flex;align-items:center;justify-content:space-between;padding:10px 0 18px;color:var(--muted);font-size:13px;border-bottom:1px solid var(--line)}.top-line b{color:var(--ink)}.news-section{padding:28px 0 34px;border-bottom:8px solid #f2f2f2;scroll-margin-top:128px}.news-section.is-hidden{display:none}.news-section h2{margin:0 0 16px;font-size:31px;line-height:1.05;font-weight:900;letter-spacing:-.01em}.news-lead{display:block}.lead-thumb{display:block;width:100%;aspect-ratio:1.78/1;overflow:hidden;background:var(--soft)}.news-lead strong{display:block;margin-top:12px;font-size:24px;line-height:1.22;font-weight:900}.news-lead span{display:block;margin-top:7px;color:var(--muted);font-size:13px}.pick-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:20px}.pick-card{min-width:0}.pick-thumb{display:block;aspect-ratio:1.2/1;overflow:hidden;background:var(--soft)}.pick-card strong{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:7px;font-size:13px;line-height:1.34;font-weight:800}.news-list{margin-top:22px;border-top:1px solid var(--line)}.news-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}.row-thumb{display:block;aspect-ratio:1.28/1;overflow:hidden;background:var(--soft)}.news-row strong{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:17px;line-height:1.35;font-weight:900}.news-row em{display:block;margin-top:5px;color:var(--muted);font-size:12px;font-style:normal}.check-grid{display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid var(--line)}.booking-group{margin-top:22px}.booking-group h3{margin:0 0 8px;font-size:20px;line-height:1.2;font-weight:900}.booking-group:first-of-type{margin-top:0}.check-card{display:block;padding:15px 0;border-bottom:1px solid var(--line)}.check-card strong{display:block;font-size:18px;line-height:1.32;font-weight:900}.check-card span{display:block;margin-top:6px;color:var(--muted);font-size:13px;line-height:1.55}.product-card{display:grid;grid-template-columns:84px minmax(0,1fr);gap:12px;align-items:center}.product-card strong,.product-card span{grid-column:2}.product-card.no-thumb{grid-template-columns:1fr}.product-card.no-thumb strong,.product-card.no-thumb span{grid-column:1}.booking-thumb{grid-row:1/3;display:block;aspect-ratio:1.28/1;overflow:hidden;background:var(--soft)}.no-image{background:linear-gradient(135deg,#f1f1f1,#dedede)}.affiliate-disclosure{margin:-6px 0 14px;color:var(--muted);font-size:12px;line-height:1.55}.coupang-ad-section .booking-status{grid-column:1/-1}.coupang-card strong{font-size:16px}.booking-search{margin:0 0 24px;border-top:2px solid var(--ink);border-bottom:1px solid var(--line)}.booking-search-card{display:grid;gap:9px;padding:14px 0;border-bottom:1px solid var(--line)}.booking-search-card strong{font-size:18px;font-weight:900}.booking-search-card label{display:grid;gap:5px;color:var(--muted);font-size:12px;font-weight:800}.booking-search-card input,.booking-search-card select{width:100%;border:1px solid var(--line);border-radius:0;background:#fff;color:var(--ink);padding:10px 11px;font:inherit;font-size:14px}.booking-search-card button{border:0;background:var(--ink);color:#fff;padding:11px 12px;font:inherit;font-weight:900;cursor:pointer}.booking-fields{display:grid;grid-template-columns:1fr 1fr;gap:8px}.booking-results{display:grid;grid-template-columns:1fr;gap:0}.booking-results[hidden]{display:none}.booking-status{padding:13px 0;color:var(--muted);font-size:13px;border-bottom:1px solid var(--line)}.site-footer{max-width:720px;margin:0 auto;padding:28px 16px 44px;color:var(--muted);font-size:13px}.site-footer strong{display:block;color:var(--ink);font-size:20px;margin-bottom:6px}@media(min-width:760px){.header-inner,.page,.site-footer{max-width:1040px}.page{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 36px}.page.is-filtered .news-section:not(.is-hidden){grid-column:1/-1;width:100%;max-width:720px;justify-self:center}.top-line{grid-column:1/-1}.news-section{border-bottom:1px solid var(--line)}.news-section h2{font-size:34px}.check-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 18px}.booking-search{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 18px}.booking-search-card{border-bottom:0}.booking-results{grid-column:1/-1;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 18px;border-top:1px solid var(--line)}}@media(max-width:360px){.news-section h2{font-size:28px}.news-lead strong{font-size:21px}.news-row{grid-template-columns:82px minmax(0,1fr)}.pick-grid{gap:7px}.pick-card strong{font-size:12px}.product-card{grid-template-columns:76px minmax(0,1fr)}.product-card.no-thumb{grid-template-columns:1fr}.booking-fields{grid-template-columns:1fr}}
-      .booking-search{position:relative;display:block;margin:0 0 24px;padding:16px 0 22px;border-top:2px solid var(--ink);border-bottom:1px solid var(--line)}.booking-launchers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.booking-launcher{min-width:0;border:1px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);padding:13px 10px;text-align:left;font:inherit;cursor:pointer}.booking-launcher span{display:block;color:var(--muted);font-size:11px;font-weight:900}.booking-launcher strong{display:block;margin-top:5px;font-size:15px;line-height:1.25;font-weight:900}.booking-launcher em{display:block;margin-top:5px;color:var(--muted);font-size:11px;line-height:1.35;font-style:normal}.booking-launcher:focus-visible,.booking-chip:focus-visible,.sheet-head button:focus-visible{outline:2px solid #111;outline-offset:2px}.booking-sheet-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.42);z-index:40}.booking-sheet-backdrop[hidden],.booking-sheet[hidden]{display:none}.booking-sheet{position:fixed;left:50%;bottom:0;z-index:41;width:min(100%,620px);max-height:88vh;overflow:auto;transform:translateX(-50%);border-radius:18px 18px 0 0;background:#fff;padding:10px 24px 26px;box-shadow:0 -18px 50px rgba(0,0,0,.2)}body.booking-sheet-open{overflow:hidden}.sheet-handle{width:58px;height:4px;border-radius:999px;background:#d5d5d5;margin:0 auto 18px}.sheet-head{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:18px}.sheet-head h3{margin:0;font-size:24px;line-height:1.2;font-weight:900}.sheet-head button{border:0;background:transparent;color:#222;font-size:34px;line-height:1;cursor:pointer}.booking-search-card{display:grid;gap:12px;padding:0;border:0}.booking-search-card label{display:grid;gap:7px;color:var(--muted);font-size:12px;font-weight:900}.booking-search-card input,.booking-search-card select{width:100%;border:1px solid var(--line);border-radius:14px;background:#f7f7f7;color:var(--ink);padding:14px 15px;font:inherit;font-size:16px}.booking-search-card input:focus,.booking-search-card select:focus{outline:2px solid #111;background:#fff}.booking-search-card button[type="submit"]{border:0;border-radius:12px;background:#111;color:#fff;padding:15px;font:inherit;font-weight:900;cursor:pointer}.booking-fields{display:grid;grid-template-columns:1fr 1fr;gap:8px}.booking-chip-group{display:grid;gap:10px;margin:7px 0}.booking-chip-group b{font-size:16px}.booking-chip-row{display:flex;flex-wrap:wrap;gap:9px}.booking-chip{border:1px solid var(--line);border-radius:999px;background:#fff;color:#222;padding:10px 16px;font:inherit;font-size:14px;font-weight:800;cursor:pointer}.booking-chip.is-selected{border-color:#111;background:#111;color:#fff}.booking-results{display:grid;grid-template-columns:1fr;gap:0;margin-top:18px;border-top:1px solid var(--line)}.booking-results[hidden]{display:none}.booking-results-title{grid-column:1/-1;margin:0;padding:16px 0 4px;font-size:20px;font-weight:900}.booking-status{grid-column:1/-1;padding:13px 0;color:var(--muted);font-size:13px;border-bottom:1px solid var(--line)}.language-switch{display:flex;align-items:center;gap:8px;white-space:nowrap}.language-switch a{font-size:12px;font-weight:900;color:#555;border-bottom:1px solid transparent;padding:2px 0}.language-switch a.is-active{color:#111;border-bottom-color:#111}.flight-section .flight-lead{padding:0 0 18px;border-bottom:1px solid var(--line)}.flight-section .flight-lead strong{margin-top:0;font-size:22px}.flight-section .news-list{margin-top:0}.flight-section .flight-row{grid-template-columns:1fr;padding:15px 0}.flight-section .flight-row span{min-width:0}.news-lead img,.pick-card img,.news-row img{transition:transform .42s ease,filter .28s ease}.news-lead:hover img,.news-lead:focus-visible img,.pick-card:hover img,.pick-card:focus-visible img,.news-row:hover img,.news-row:focus-visible img{transform:scale(1.04)}.news-lead.is-opening img,.pick-card.is-opening img,.news-row.is-opening img{transform:scale(1.12);filter:brightness(.92)}.news-lead.is-opening,.pick-card.is-opening,.news-row.is-opening{pointer-events:none}@media(prefers-reduced-motion:reduce){.news-lead img,.pick-card img,.news-row img{transition:none}.news-lead:hover img,.news-lead:focus-visible img,.pick-card:hover img,.pick-card:focus-visible img,.news-row:hover img,.news-row:focus-visible img,.news-lead.is-opening img,.pick-card.is-opening img,.news-row.is-opening img{transform:none;filter:none}}@media(min-width:760px){.booking-search{grid-column:1/-1;display:block}.booking-launchers{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.booking-launcher{padding:16px}.booking-launcher strong{font-size:18px}.booking-results{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 18px}.booking-sheet{top:50%;bottom:auto;max-height:min(720px,86vh);transform:translate(-50%,-50%);border-radius:18px;padding:12px 28px 28px}.booking-sheet-backdrop{backdrop-filter:blur(2px)}}@media(max-width:920px){.language-switch{gap:10px}.language-switch a{font-size:12px}}@media(max-width:430px){.booking-launchers{gap:7px}.booking-launcher{padding:11px 8px;border-radius:12px}.booking-launcher strong{font-size:13px}.booking-launcher em{display:none}.booking-sheet{padding:10px 20px 24px}.sheet-head h3{font-size:22px}.booking-fields{grid-template-columns:1fr}}
+      .booking-search{position:relative;display:block;margin:0 0 24px;padding:16px 0 22px;border-top:2px solid var(--ink);border-bottom:1px solid var(--line)}.booking-launchers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.booking-launcher{min-width:0;border:1px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);padding:13px 10px;text-align:left;font:inherit;cursor:pointer}.booking-launcher span{display:block;color:var(--muted);font-size:11px;font-weight:900}.booking-launcher strong{display:block;margin-top:5px;font-size:15px;line-height:1.25;font-weight:900}.booking-launcher em{display:block;margin-top:5px;color:var(--muted);font-size:11px;line-height:1.35;font-style:normal}.booking-launcher:focus-visible,.booking-chip:focus-visible,.sheet-head button:focus-visible{outline:2px solid #111;outline-offset:2px}.booking-sheet-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.42);z-index:40}.booking-sheet-backdrop[hidden],.booking-sheet[hidden]{display:none}.booking-sheet{position:fixed;left:50%;bottom:0;z-index:41;width:min(100%,620px);max-height:88vh;overflow:auto;transform:translateX(-50%);border-radius:18px 18px 0 0;background:#fff;padding:10px 24px 26px;box-shadow:0 -18px 50px rgba(0,0,0,.2)}body.booking-sheet-open{overflow:hidden}.sheet-handle{width:58px;height:4px;border-radius:999px;background:#d5d5d5;margin:0 auto 18px}.sheet-head{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:18px}.sheet-head h3{margin:0;font-size:24px;line-height:1.2;font-weight:900}.sheet-head button{border:0;background:transparent;color:#222;font-size:34px;line-height:1;cursor:pointer}.booking-search-card{display:grid;gap:12px;padding:0;border:0}.booking-search-card label{display:grid;gap:7px;color:var(--muted);font-size:12px;font-weight:900}.booking-search-card input,.booking-search-card select{width:100%;border:1px solid var(--line);border-radius:14px;background:#f7f7f7;color:var(--ink);padding:14px 15px;font:inherit;font-size:16px}.booking-search-card input:focus,.booking-search-card select:focus{outline:2px solid #111;background:#fff}.booking-search-card button[type="submit"]{border:0;border-radius:12px;background:#111;color:#fff;padding:15px;font:inherit;font-weight:900;cursor:pointer}.booking-fields{display:grid;grid-template-columns:1fr 1fr;gap:8px}.booking-chip-group{display:grid;gap:10px;margin:7px 0}.booking-chip-group b{font-size:16px}.booking-chip-row{display:flex;flex-wrap:wrap;gap:9px}.booking-chip{border:1px solid var(--line);border-radius:999px;background:#fff;color:#222;padding:10px 16px;font:inherit;font-size:14px;font-weight:800;cursor:pointer}.booking-chip.is-selected{border-color:#111;background:#111;color:#fff}.booking-results{display:grid;grid-template-columns:1fr;gap:0;margin-top:18px;border-top:1px solid var(--line)}.booking-results[hidden]{display:none}.booking-results-title{grid-column:1/-1;margin:0;padding:16px 0 4px;font-size:20px;font-weight:900}.booking-status{grid-column:1/-1;padding:13px 0;color:var(--muted);font-size:13px;border-bottom:1px solid var(--line)}.language-switch{display:flex;align-items:center;gap:8px;white-space:nowrap}.language-switch a{font-size:12px;font-weight:900;color:#555;border-bottom:1px solid transparent;padding:2px 0}.language-switch a.is-active{color:#111;border-bottom-color:#111}.flight-section .flight-lead{padding:0 0 18px;border-bottom:1px solid var(--line)}.flight-section .flight-lead strong{margin-top:0;font-size:22px}.flight-section .news-list{margin-top:0}.flight-section .flight-row{grid-template-columns:1fr;padding:15px 0}.flight-section .flight-row span{min-width:0}.news-lead img,.pick-card img,.news-row img,.magazine-card img{transition:transform .42s ease,filter .28s ease}.news-lead:hover img,.news-lead:focus-visible img,.pick-card:hover img,.pick-card:focus-visible img,.news-row:hover img,.news-row:focus-visible img,.magazine-card:hover img,.magazine-card:focus-visible img{transform:scale(1.04)}.news-lead.is-opening img,.pick-card.is-opening img,.news-row.is-opening img,.magazine-card.is-opening img{transform:scale(1.12);filter:brightness(.92)}.news-lead.is-opening,.pick-card.is-opening,.news-row.is-opening,.magazine-card.is-opening{pointer-events:none}@media(prefers-reduced-motion:reduce){.news-lead img,.pick-card img,.news-row img,.magazine-card img{transition:none}.news-lead:hover img,.news-lead:focus-visible img,.pick-card:hover img,.pick-card:focus-visible img,.news-row:hover img,.news-row:focus-visible img,.magazine-card:hover img,.magazine-card:focus-visible img,.news-lead.is-opening img,.pick-card.is-opening img,.news-row.is-opening img,.magazine-card.is-opening img{transform:none;filter:none}}@media(min-width:760px){.booking-search{grid-column:1/-1;display:block}.booking-launchers{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.booking-launcher{padding:16px}.booking-launcher strong{font-size:18px}.booking-results{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 18px}.booking-sheet{top:50%;bottom:auto;max-height:min(720px,86vh);transform:translate(-50%,-50%);border-radius:18px;padding:12px 28px 28px}.booking-sheet-backdrop{backdrop-filter:blur(2px)}}@media(max-width:920px){.language-switch{gap:10px}.language-switch a{font-size:12px}}@media(max-width:430px){.booking-launchers{gap:7px}.booking-launcher{padding:11px 8px;border-radius:12px}.booking-launcher strong{font-size:13px}.booking-launcher em{display:none}.booking-sheet{padding:10px 20px 24px}.sheet-head h3{font-size:22px}.booking-fields{grid-template-columns:1fr}}
       ${DESKTOP_LAYOUT_CSS}
     </style>
   </head>
@@ -1079,7 +1109,7 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
         });
       });
     </script>
-    <script id="post-card-transition">(() => { const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; const selector = 'a.news-lead, a.pick-card, a.news-row, a.latest-primary, a.side-card, a.card'; document.addEventListener('click', (event) => { const card = event.target.closest(selector); if (!card || !card.href || card.target || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.defaultPrevented) return; const url = new URL(card.href, window.location.href); if (url.origin !== window.location.origin) return; if (reduce) return; event.preventDefault(); card.classList.add('is-opening'); window.setTimeout(() => { window.location.href = card.href; }, 180); }, { capture: true }); })();</script>
+    <script id="post-card-transition">(() => { const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; const selector = 'a.news-lead, a.pick-card, a.news-row, a.magazine-card, a.latest-primary, a.side-card, a.card'; document.addEventListener('click', (event) => { const card = event.target.closest(selector); if (!card || !card.href || card.target || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.defaultPrevented) return; const url = new URL(card.href, window.location.href); if (url.origin !== window.location.origin) return; if (reduce) return; event.preventDefault(); card.classList.add('is-opening'); window.setTimeout(() => { window.location.href = card.href; }, 180); }, { capture: true }); })();</script>
     ${COUPANG_SCRIPT}
     <script src="/assets/homepage.js?v=booking-search-20260706-hardening" defer></script>
     <script src="/assets/i18n.js?v=i18n-link-fix-20260706" defer></script>
