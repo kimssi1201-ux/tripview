@@ -635,6 +635,20 @@ function magazineHero(posts) {
   </section>`;
 }
 
+function heroTemplate(id, posts) {
+  const hero = magazineHero(posts);
+  return hero ? `<template data-hero-template="${esc(id)}">${hero}</template>` : "";
+}
+
+function heroTemplates(sections, defaultPosts) {
+  const templates = [heroTemplate("all", defaultPosts)];
+  for (const section of sections) {
+    if (!section?.id || section.kind === "booking" || section.kind === "ad" || section.kind === "flight") continue;
+    templates.push(heroTemplate(section.id, section.posts || []));
+  }
+  return templates.filter(Boolean).join("\n");
+}
+
 function searchableText(post) {
   return [
     titleOf(post),
@@ -876,7 +890,8 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
     </header>
     <main class="page">
       <div class="top-line"><span data-feed-label data-default-label="${esc(defaultHeadline)}">${esc(defaultHeadline)}</span><span>${esc(new Date().toISOString().slice(0, 10))}</span></div>
-      ${magazineHero(heroPosts)}
+      <div data-hero-slot>${magazineHero(heroPosts)}</div>
+      ${heroTemplates(sections, heroPosts)}
       ${sectionHtml}
     </main>
     <footer class="site-footer">
@@ -1064,7 +1079,14 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
       const sections = [...document.querySelectorAll('.news-section')];
       const label = document.querySelector('[data-feed-label]');
       const page = document.querySelector('.page');
-      const heroBlock = document.querySelector('.magazine-hero');
+      const heroSlot = document.querySelector('[data-hero-slot]');
+      const heroTemplates = new Map([...document.querySelectorAll('template[data-hero-template]')].map((template) => [template.dataset.heroTemplate, template.innerHTML]));
+      const setHero = (id) => {
+        if (!heroSlot) return;
+        const html = heroTemplates.get(id) || (id === 'all' ? '' : heroTemplates.get('all')) || '';
+        heroSlot.innerHTML = html;
+        heroSlot.hidden = !html;
+      };
       links.forEach((link) => {
         link.addEventListener('click', (event) => {
           event.preventDefault();
@@ -1076,7 +1098,7 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
           links.forEach((item) => item.classList.remove('is-active'));
           link.classList.add('is-active');
           page?.classList.toggle('is-filtered', !showAll);
-          heroBlock?.classList.toggle('is-hidden', !showAll);
+          setHero(showAll ? 'all' : id);
           sections.forEach((section) => section.classList.toggle('is-hidden', !showAll && section.id !== id));
           if (label) label.textContent = headline;
           page?.scrollIntoView({ block: 'start' });
