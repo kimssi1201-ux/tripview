@@ -126,41 +126,18 @@ function savingsText(deal) {
   return `평균가 대비 약 ${saved.toLocaleString("ko-KR")}원 낮게 확인된 일정입니다.`;
 }
 
-function compactRegion(value = "") {
-  const text = String(value || "").trim().replace(/\([^)]*\)/g, "");
-  if (!text) return "";
-  if (text.includes("서울")) return "서울";
-  if (text.includes("경기")) return "경기";
-  if (text.includes("인천")) return "인천";
-  if (text.includes("강원")) return "강원";
-  if (text.includes("대전")) return "대전";
-  if (text.includes("세종")) return "세종";
-  if (text.includes("충북") || text.includes("충청북")) return "충북";
-  if (text.includes("충남") || text.includes("충청남")) return "충남";
-  if (text.includes("광주")) return "광주";
-  if (text.includes("전북") || text.includes("전라북")) return "전북";
-  if (text.includes("전남") || text.includes("전라남")) return "전남";
-  if (text.includes("대구")) return "대구";
-  if (text.includes("부산")) return "부산";
-  if (text.includes("울산")) return "울산";
-  if (text.includes("경북") || text.includes("경상북")) return "경북";
-  if (text.includes("경남") || text.includes("경상남")) return "경남";
-  if (text.includes("제주")) return "제주";
-  return text.split(/\s+/).filter(Boolean)[0] || "";
-}
-
 function productRegion(product) {
-  return compactRegion(product?.region || product?.city || product?.toCity || "");
+  return String(product?.region || product?.city || "").trim();
 }
 
 function relatedProducts(deal, count = 4) {
-  const region = compactRegion(deal?.region || deal?.city || deal?.toCity || "");
+  const region = String(deal?.region || deal?.city || "").trim();
   const products = [...tnaProducts, ...accommodationProducts].filter((item) => item?.title && item?.url);
   const scored = products
     .map((product) => ({
       product,
       score:
-        (region && productRegion(product) === region ? 10 : 0) +
+        (region && productRegion(product).includes(region) ? 10 : 0) +
         (String(product?.title || "").includes(region) ? 5 : 0) +
         (product?.source === "myrealtrip-tna" ? 2 : 1),
     }))
@@ -437,31 +414,22 @@ function articleAdCard(item) {
 }
 
 function articleAdScore(item, post) {
-  const region = compactRegion(post?.region || "");
-  const itemRegion = productRegion(item);
+  const region = String(post?.region || "");
   const sourceTitle = String(post?.sourceTitle || post?.title || "");
-  const isFlight = item?.type === "flight" || item?.source === "myrealtrip-flight";
-  if (isFlight) {
-    if (region && itemRegion && itemRegion === region) return 18;
-    if (sourceTitle && itemRegion && sourceTitle.includes(itemRegion)) return 10;
-    return 0;
-  }
   const haystack = [
     item?.title,
     item?.region,
     item?.city,
-    item?.toCity,
     item?.category,
     item?.description,
     ...(Array.isArray(item?.tags) ? item.tags : []),
   ].filter(Boolean).join(" ");
   let score = 0;
-  if (region && itemRegion && itemRegion === region) score += 16;
-  if (region && haystack.includes(region)) score += 6;
-  if (sourceTitle && itemRegion && sourceTitle.includes(itemRegion)) score += 4;
-  if (score > 0 && post?.category === "\uACF5\uC5F0/\uCD95\uC81C" && item?.source === "myrealtrip-tna") score += 2;
-  if (score > 0 && item?.source === "myrealtrip-accommodation") score += 2;
-  if (score > 0 && item?.source === "myrealtrip-tna") score += 3;
+  if (region && haystack.includes(region.split(/\s+/)[0])) score += 8;
+  if (post?.category === "\uACF5\uC5F0/\uCD95\uC81C" && item?.source === "myrealtrip-tna") score += 5;
+  if (item?.source === "myrealtrip-accommodation") score += 2;
+  if (item?.source === "myrealtrip-tna") score += 3;
+  if (sourceTitle && haystack.includes(sourceTitle.slice(0, 2))) score += 2;
   return score;
 }
 
@@ -483,22 +451,18 @@ function articleAdItems(post, offset = 0, count = 4) {
   const products = [...tnaProducts, ...accommodationProducts]
     .filter((item) => item?.title && item?.url)
     .map((item) => ({ item, score: articleAdScore(item, post) }))
-    .filter((entry) => entry.score > 0)
     .sort((a, b) => b.score - a.score)
     .map((entry) => entry.item);
   const flights = [...flightDeals]
     .filter((deal) => deal?.title && deal?.price)
-    .map((deal) => ({ deal, score: articleAdScore(deal, post) }))
-    .filter((entry) => entry.score > 0)
-    .sort((a, b) => b.score - a.score || Number(a.deal.price || 0) - Number(b.deal.price || 0))
-    .map((entry) => entry.deal);
+    .sort((a, b) => Number(a.price || 0) - Number(b.price || 0));
   const mixed = [
     products[offset],
     products[offset + 1],
-    flights.length ? flights[offset % flights.length] : null,
+    flights[offset % Math.max(flights.length, 1)],
     products[offset + 2],
     products[offset + 3],
-    flights.length ? flights[(offset + 1) % flights.length] : null,
+    flights[(offset + 1) % Math.max(flights.length, 1)],
   ].filter(Boolean);
   return uniqueAdItems(mixed, count);
 }
