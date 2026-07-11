@@ -52,7 +52,7 @@ const DESKTOP_LAYOUT_CSS = `
         .flight-section .flight-lead{padding:16px 0;border-top:1px solid var(--line)}
         .flight-section .news-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 20px}
         .flight-section .flight-row{border-bottom:1px solid var(--line)}
-        .site-footer{display:grid;grid-template-columns:1.2fr repeat(3,minmax(0,.8fr));gap:28px;padding:44px 24px 64px;border-top:1px solid #eee}
+        .site-footer{display:grid;grid-template-columns:1.1fr repeat(4,minmax(0,.75fr));gap:28px;padding:44px 24px 64px;border-top:1px solid #eee}
       }`;
 
 const TEXT = {
@@ -881,28 +881,29 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
         <p>${esc(TEXT.footer)}</p>
       </div>
       <div class="footer-col">
-        <b>\uC5EC\uD589 \uC815\uBCF4</b>
+        <b>\uAC00\uBCFC\uB9CC\uD55C \uACF3</b>
         <a href="#popular">\uC9C0\uAE08 \uB9CE\uC774 \uCC3E\uB294 \uC5EC\uD589\uC9C0</a>
         <a href="#weekend">\uC774\uBC88 \uC8FC\uB9D0 \uAC00\uBCFC\uB9CC\uD55C \uACF3</a>
         <a href="#water">\uBB3C\uB180\uC774\u00B7\uACC4\uACE1\u00B7\uD574\uC218\uC695\uC7A5</a>
         <a href="#indoor">\uBE44 \uC624\uB294 \uB0A0 \uC2E4\uB0B4 \uC5EC\uD589</a>
       </div>
       <div class="footer-col">
-        <b>\uC608\uC57D\u00B7\uCCB4\uD06C</b>
-        <a href="#flight-deals">\uD56D\uACF5\uAD8C \uCD5C\uC800\uAC00</a>
-        <a href="#myrealtrip-deals">\uB9C8\uC774\uB9AC\uC5BC\uD2B8\uB9BD \uCD94\uCC9C</a>
-        <a href="#booking">\uC608\uC57D \uC804 \uCCB4\uD06C</a>
-        <a href="/affiliate-disclosure.html">\uC81C\uD734 \uC548\uB0B4</a>
+        <b>\uCD95\uC81C\uC815\uBCF4</b>
+        <a href="#festival">7~8\uC6D4 \uCD95\uC81C/\uD589\uC0AC</a>
+        <a href="#weekend">\uC774\uBC88 \uC8FC\uB9D0 \uCD95\uC81C \uCCB4\uD06C</a>
       </div>
       <div class="footer-col">
-        <b>\uC0AC\uC774\uD2B8</b>
-        <a href="/about.html">\uC18C\uAC1C</a>
-        <a href="/editorial-policy.html">\uCF58\uD150\uCE20 \uC6B4\uC601 \uAE30\uC900</a>
-        <a href="/contact.html">\uBB38\uC758</a>
-        <a href="/privacy.html">\uAC1C\uC778\uC815\uBCF4\uCC98\uB9AC\uBC29\uCE68</a>
+        <b>\uD56D\uACF5\uAD8C</b>
+        <a href="#flight-deals">\uD56D\uACF5\uAD8C \uCD5C\uC800\uAC00</a>
+        <a href="#myrealtrip-deals">\uD56D\uACF5\u00B7\uC219\uC18C \uCD94\uCC9C</a>
       </div>
-      <div class="footer-bottom">Copyright 2026 ${esc(BRAND)}. All rights reserved.</div>
-      <span><a href="/about.html">소개</a> · <a href="/editorial-policy.html">콘텐츠 운영 기준</a> · <a href="/affiliate-disclosure.html">제휴 안내</a> · <a href="/contact.html">문의</a> · <a href="/privacy.html">개인정보처리방침</a></span>
+      <div class="footer-col">
+        <b>\uC608\uC57D</b>
+        <a href="#booking">\uC219\uC18C\u00B7\uD22C\uC5B4 \uAC80\uC0C9</a>
+        <a href="#myrealtrip-deals">\uD22C\uC5B4\u00B7\uD2F0\uCF13 \uCD94\uCC9C</a>
+        <a href="/affiliate-disclosure.html">\uC81C\uD734 \uC548\uB0B4</a>
+      </div>
+      <div class="footer-bottom">Copyright 2026 ${esc(BRAND)}. All rights reserved. · <a href="/about.html">\uC18C\uAC1C</a> · <a href="/editorial-policy.html">\uCF58\uD150\uCE20 \uC6B4\uC601 \uAE30\uC900</a> · <a href="/contact.html">\uBB38\uC758</a> · <a href="/privacy.html">\uAC1C\uC778\uC815\uBCF4\uCC98\uB9AC\uBC29\uCE68</a></div>
     </footer>
     <script type="application/json" data-disabled-homepage-inline>
       const bookingResults = document.querySelector('[data-booking-results]');
