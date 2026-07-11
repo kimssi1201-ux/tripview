@@ -76,7 +76,10 @@
       if (!bookingResults) return;
       const card = document.createElement("a");
       card.className = `check-card product-card${item.image ? "" : " no-thumb"}`;
-      const url = item.url || (item.type === "flight" ? "/#flight-deals" : "https://www.myrealtrip.com/");
+      const fallbackFlightUrl = "https://flights.myrealtrip.com/";
+      const url = item.type === "flight"
+        ? (item.bookingUrl || (/^https?:\/\//.test(item.url || "") ? item.url : fallbackFlightUrl))
+        : (item.url || "https://www.myrealtrip.com/");
       card.href = url;
       if (/^https?:\/\//.test(url)) {
         card.target = "_blank";

@@ -17,6 +17,7 @@ const DEP_AIRPORT = process.env.MYREALTRIP_FLIGHT_DEP_AIRPORT || "ICN";
 const PERIOD = Math.max(3, Math.min(7, Number.parseInt(process.env.MYREALTRIP_FLIGHT_PERIOD || "5", 10) || 5));
 const LIMIT = Math.max(1, Math.min(30, Number.parseInt(process.env.MYREALTRIP_FLIGHT_LIMIT || "8", 10) || 8));
 const URL_TEMPLATE = process.env.MYREALTRIP_FLIGHT_URL_TEMPLATE || "";
+const PUBLIC_FLIGHT_URL = process.env.MYREALTRIP_FLIGHT_BOOKING_URL || "https://flights.myrealtrip.com/";
 
 const AIRPORT_NAMES = {
   ICN: "인천",
@@ -90,8 +91,8 @@ function defaultFlightPath(deal) {
   return `/flight-deals/${flightSlug(`flight-${deal.fromCity}-${deal.toCity}-${deal.departureDate}-${deal.returnDate || "oneway"}`)}/`;
 }
 
-function buildUrl(deal) {
-  if (!URL_TEMPLATE) return defaultFlightPath(deal);
+function buildBookingUrl(deal) {
+  if (!URL_TEMPLATE) return PUBLIC_FLIGHT_URL;
   return URL_TEMPLATE
     .replaceAll("{fromCity}", encodeURIComponent(deal.fromCity || ""))
     .replaceAll("{toCity}", encodeURIComponent(deal.toCity || ""))
@@ -117,11 +118,13 @@ function normalizeDeal(item) {
     item.airline ? `항공사 ${item.airline}` : "",
   ].filter(Boolean).join(" · ");
 
+  const dealInput = { ...item, fromCity, toCity, period };
   return {
     id: `flight-${fromCity}-${toCity}-${item.departureDate}-${item.returnDate || "oneway"}`,
     type: "flight",
     title,
-    url: buildUrl({ ...item, fromCity, toCity, period }),
+    url: defaultFlightPath(dealInput),
+    bookingUrl: buildBookingUrl(dealInput),
     image: "",
     price: item.totalPrice,
     priceText,

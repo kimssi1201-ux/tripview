@@ -27,8 +27,9 @@
     "returnDate": "2026-07-23",
     "airline": "",
     "transfer": "",
-    "averagePrice": 451092,
-    "source": "myrealtrip-flight"
+    "averagePrice": 413083,
+    "source": "myrealtrip-flight",
+    "bookingUrl": "https://flights.myrealtrip.com/"
   },
   {
     "id": "flight-ICN-YGJ-2026-07-19-2026-07-23",
@@ -58,8 +59,9 @@
     "returnDate": "2026-07-23",
     "airline": "",
     "transfer": "",
-    "averagePrice": 554910,
-    "source": "myrealtrip-flight"
+    "averagePrice": 553240,
+    "source": "myrealtrip-flight",
+    "bookingUrl": "https://flights.myrealtrip.com/"
   },
   {
     "id": "flight-ICN-TAK-2026-07-18-2026-07-22",
@@ -89,8 +91,9 @@
     "returnDate": "2026-07-22",
     "airline": "",
     "transfer": "",
-    "averagePrice": 357817,
-    "source": "myrealtrip-flight"
+    "averagePrice": 364079,
+    "source": "myrealtrip-flight",
+    "bookingUrl": "https://flights.myrealtrip.com/"
   },
   {
     "id": "flight-ICN-YNT-2026-11-10-2026-11-14",
@@ -120,8 +123,9 @@
     "returnDate": "2026-11-14",
     "airline": "",
     "transfer": "",
-    "averagePrice": 325425,
-    "source": "myrealtrip-flight"
+    "averagePrice": 327884,
+    "source": "myrealtrip-flight",
+    "bookingUrl": "https://flights.myrealtrip.com/"
   },
   {
     "id": "flight-ICN-KIX-2026-09-18-2026-09-22",
@@ -151,8 +155,9 @@
     "returnDate": "2026-09-22",
     "airline": "",
     "transfer": "",
-    "averagePrice": 488473,
-    "source": "myrealtrip-flight"
+    "averagePrice": 492235,
+    "source": "myrealtrip-flight",
+    "bookingUrl": "https://flights.myrealtrip.com/"
   },
   {
     "id": "flight-ICN-OSA-2026-07-18-2026-07-22",
@@ -182,8 +187,9 @@
     "returnDate": "2026-07-22",
     "airline": "",
     "transfer": "",
-    "averagePrice": 325106,
-    "source": "myrealtrip-flight"
+    "averagePrice": 321764,
+    "source": "myrealtrip-flight",
+    "bookingUrl": "https://flights.myrealtrip.com/"
   },
   {
     "id": "flight-ICN-FUK-2026-08-20-2026-08-24",
@@ -213,8 +219,9 @@
     "returnDate": "2026-08-24",
     "airline": "",
     "transfer": "",
-    "averagePrice": 536425,
-    "source": "myrealtrip-flight"
+    "averagePrice": 538371,
+    "source": "myrealtrip-flight",
+    "bookingUrl": "https://flights.myrealtrip.com/"
   },
   {
     "id": "flight-ICN-KKJ-2026-07-18-2026-07-22",
@@ -244,7 +251,8 @@
     "returnDate": "2026-07-22",
     "airline": "",
     "transfer": "",
-    "averagePrice": 344008,
-    "source": "myrealtrip-flight"
+    "averagePrice": 344647,
+    "source": "myrealtrip-flight",
+    "bookingUrl": "https://flights.myrealtrip.com/"
   }
 ]

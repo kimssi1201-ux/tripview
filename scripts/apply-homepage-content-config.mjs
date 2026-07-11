@@ -325,6 +325,10 @@ function flightHref(deal) {
   return `/flight-deals/${encodeURIComponent(flightSlug(deal))}/`;
 }
 
+function flightBookingHref(deal) {
+  return deal?.bookingUrl || "https://flights.myrealtrip.com/";
+}
+
 function flightMeta(deal) {
   return [
     deal?.priceText ? `최저가 ${deal.priceText}` : "",
@@ -356,7 +360,7 @@ function flightDealSection(flights = []) {
 }
 
 function flightAdCard(deal) {
-  return `<a class="check-card product-card no-thumb mrt-flight-card" href="${esc(flightHref(deal))}">
+  return `<a class="check-card product-card no-thumb mrt-flight-card" href="${esc(flightBookingHref(deal))}" rel="sponsored noopener">
     <strong>${esc(deal.title)}</strong>
     <span>${esc(flightMeta(deal) || TEXT.navFlight)}</span>
   </a>`;
@@ -959,7 +963,10 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
       function appendBookingResult(item) {
         const card = document.createElement('a');
         card.className = 'check-card product-card' + (item.image ? '' : ' no-thumb');
-        const url = item.url || (item.type === 'flight' ? '/#flight-deals' : 'https://www.myrealtrip.com/');
+        const fallbackFlightUrl = 'https://flights.myrealtrip.com/';
+        const url = item.type === 'flight'
+          ? (item.bookingUrl || (/^https?:\/\//.test(item.url || '') ? item.url : fallbackFlightUrl))
+          : (item.url || 'https://www.myrealtrip.com/');
         card.href = url;
         if (/^https?:\/\//.test(url)) {
           card.target = '_blank';
@@ -1047,7 +1054,7 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
     </script>
     <script id="post-card-transition">(() => { const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; const selector = 'a.news-lead, a.pick-card, a.news-row, a.latest-primary, a.side-card, a.card'; document.addEventListener('click', (event) => { const card = event.target.closest(selector); if (!card || !card.href || card.target || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.defaultPrevented) return; const url = new URL(card.href, window.location.href); if (url.origin !== window.location.origin) return; if (reduce) return; event.preventDefault(); card.classList.add('is-opening'); window.setTimeout(() => { window.location.href = card.href; }, 180); }, { capture: true }); })();</script>
     ${COUPANG_SCRIPT}
-    <script src="/assets/homepage.js?v=booking-search-20260706-hardening" defer></script>
+    <script src="/assets/homepage.js?v=booking-search-20260712-flight-links" defer></script>
     <script src="/assets/i18n.js?v=i18n-link-fix-20260706" defer></script>
     <script src="/assets/topic-filter.js?v=topic-filter-20260712-no-hero" defer></script>
   </body>

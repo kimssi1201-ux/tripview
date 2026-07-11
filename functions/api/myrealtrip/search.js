@@ -1,5 +1,5 @@
 const API_BASE = "https://partner-ext-api.myrealtrip.com";
-const PUBLIC_FLIGHT_URL = "https://www.myrealtrip.com/main/flights?routeType=oversea";
+const PUBLIC_FLIGHT_URL = "https://flights.myrealtrip.com/";
 const MYREALTRIP_TIMEOUT_MS = 8000;
 
 const STATIC_DATA = {
@@ -116,10 +116,13 @@ function normalizeStaticProduct(item, type) {
   const title = text(item?.title);
   if (!title) return null;
   const isFlight = type === "flight" || item?.source === "myrealtrip-flight";
+  const bookingUrl = text(item?.bookingUrl) || PUBLIC_FLIGHT_URL;
   return {
     type: isFlight ? "flight" : (type === "tna" ? "tna" : "accommodation"),
     title,
-    url: isFlight ? flightDealPath(item) : text(item?.url),
+    url: isFlight ? bookingUrl : text(item?.url),
+    detailUrl: isFlight ? flightDealPath(item) : "",
+    bookingUrl: isFlight ? bookingUrl : "",
     image: text(item?.image),
     price: Number(item?.price || 0),
     meta: isFlight
@@ -263,6 +266,7 @@ function normalizeFlight(item) {
     type: "flight",
     title: `${from}-${to} 항공권 최저가 ${price}`,
     url: PUBLIC_FLIGHT_URL,
+    bookingUrl: PUBLIC_FLIGHT_URL,
     image: "",
     price: Number(item?.totalPrice) || 0,
     meta: [price, departureDate ? `출발 ${departureDate}` : "", returnDate ? `귀국 ${returnDate}` : ""].filter(Boolean).join(" · "),

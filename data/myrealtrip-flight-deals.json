@@ -28,7 +28,8 @@
     "airline": "",
     "transfer": "",
     "averagePrice": 413083,
-    "source": "myrealtrip-flight"
+    "source": "myrealtrip-flight",
+    "bookingUrl": "https://flights.myrealtrip.com/"
   },
   {
     "id": "flight-ICN-YGJ-2026-07-19-2026-07-23",
@@ -59,7 +60,8 @@
     "airline": "",
     "transfer": "",
     "averagePrice": 553240,
-    "source": "myrealtrip-flight"
+    "source": "myrealtrip-flight",
+    "bookingUrl": "https://flights.myrealtrip.com/"
   },
   {
     "id": "flight-ICN-TAK-2026-07-18-2026-07-22",
@@ -90,7 +92,8 @@
     "airline": "",
     "transfer": "",
     "averagePrice": 364079,
-    "source": "myrealtrip-flight"
+    "source": "myrealtrip-flight",
+    "bookingUrl": "https://flights.myrealtrip.com/"
   },
   {
     "id": "flight-ICN-YNT-2026-11-10-2026-11-14",
@@ -121,7 +124,8 @@
     "airline": "",
     "transfer": "",
     "averagePrice": 327884,
-    "source": "myrealtrip-flight"
+    "source": "myrealtrip-flight",
+    "bookingUrl": "https://flights.myrealtrip.com/"
   },
   {
     "id": "flight-ICN-KIX-2026-09-18-2026-09-22",
@@ -152,7 +156,8 @@
     "airline": "",
     "transfer": "",
     "averagePrice": 492235,
-    "source": "myrealtrip-flight"
+    "source": "myrealtrip-flight",
+    "bookingUrl": "https://flights.myrealtrip.com/"
   },
   {
     "id": "flight-ICN-OSA-2026-07-18-2026-07-22",
@@ -183,7 +188,8 @@
     "airline": "",
     "transfer": "",
     "averagePrice": 321764,
-    "source": "myrealtrip-flight"
+    "source": "myrealtrip-flight",
+    "bookingUrl": "https://flights.myrealtrip.com/"
   },
   {
     "id": "flight-ICN-FUK-2026-08-20-2026-08-24",
@@ -214,7 +220,8 @@
     "airline": "",
     "transfer": "",
     "averagePrice": 538371,
-    "source": "myrealtrip-flight"
+    "source": "myrealtrip-flight",
+    "bookingUrl": "https://flights.myrealtrip.com/"
   },
   {
     "id": "flight-ICN-KKJ-2026-07-18-2026-07-22",
@@ -245,6 +252,7 @@
     "airline": "",
     "transfer": "",
     "averagePrice": 344647,
-    "source": "myrealtrip-flight"
+    "source": "myrealtrip-flight",
+    "bookingUrl": "https://flights.myrealtrip.com/"
   }
 ]

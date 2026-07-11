@@ -327,7 +327,7 @@
     <span class="booking-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/12/30/Z5Kd/Z0n9QeOOww.jpg" alt="가족끼리 떠나는  오사카  밴 투어." loading="lazy"></span>
     <strong>가족끼리 떠나는  오사카  밴 투어.</strong>
     <span>오사카 · 시내투어 · 10,000원부터</span>
-  </a><a class="check-card product-card no-thumb mrt-flight-card" href="/flight-deals/flight-icn-hij-2026-07-19-2026-07-23/">
+  </a><a class="check-card product-card no-thumb mrt-flight-card" href="https://flights.myrealtrip.com/" rel="sponsored noopener">
     <strong>인천-히로시마 왕복 5일 최저가 156,300원</strong>
     <span>최저가 156,300원 · 출발 2026년 7월 19일 · 5일 일정</span>
   </a><a class="check-card product-card" href="https://accommodation.myrealtrip.com/union/products/1376328?checkIn=2026-07-25&amp;checkOut=2026-07-27&amp;adultCount=2&amp;childCount=0&amp;childAges=" rel="sponsored noopener">
@@ -338,7 +338,7 @@
     <span class="booking-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/12/17/UclA/malIif2IX2.jpg" alt="[단독차량] 픽업/샌딩 간사이 공항 ↔ 오사카 시내 숙소 이동 서비스 정식등록업체" loading="lazy"></span>
     <strong>[단독차량] 픽업/샌딩 간사이 공항 ↔ 오사카 시내 숙소 이동 서비스 정식등록업체</strong>
     <span>오사카 · 이동·교통 · 10,000원부터</span>
-  </a><a class="check-card product-card no-thumb mrt-flight-card" href="/flight-deals/flight-icn-ygj-2026-07-19-2026-07-23/">
+  </a><a class="check-card product-card no-thumb mrt-flight-card" href="https://flights.myrealtrip.com/" rel="sponsored noopener">
     <strong>인천-요나고 왕복 5일 최저가 164,100원</strong>
     <span>최저가 164,100원 · 출발 2026년 7월 19일 · 5일 일정</span>
   </a><a class="check-card product-card" href="https://accommodation.myrealtrip.com/union/products/1142308?checkIn=2026-07-25&amp;checkOut=2026-07-27&amp;adultCount=2&amp;childCount=0&amp;childAges=" rel="sponsored noopener">
@@ -654,7 +654,10 @@
       function appendBookingResult(item) {
         const card = document.createElement('a');
         card.className = 'check-card product-card' + (item.image ? '' : ' no-thumb');
-        const url = item.url || (item.type === 'flight' ? '/#flight-deals' : 'https://www.myrealtrip.com/');
+        const fallbackFlightUrl = 'https://flights.myrealtrip.com/';
+        const url = item.type === 'flight'
+          ? (item.bookingUrl || (/^https?:///.test(item.url || '') ? item.url : fallbackFlightUrl))
+          : (item.url || 'https://www.myrealtrip.com/');
         card.href = url;
         if (/^https?:///.test(url)) {
           card.target = '_blank';
@@ -742,7 +745,7 @@
     </script>
     <script id="post-card-transition">(() => { const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; const selector = 'a.news-lead, a.pick-card, a.news-row, a.latest-primary, a.side-card, a.card'; document.addEventListener('click', (event) => { const card = event.target.closest(selector); if (!card || !card.href || card.target || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.defaultPrevented) return; const url = new URL(card.href, window.location.href); if (url.origin !== window.location.origin) return; if (reduce) return; event.preventDefault(); card.classList.add('is-opening'); window.setTimeout(() => { window.location.href = card.href; }, 180); }, { capture: true }); })();</script>
     <script src="/assets/coupang.js?v=coupang-20260708" defer></script>
-    <script src="/assets/homepage.js?v=booking-search-20260706-hardening" defer></script>
+    <script src="/assets/homepage.js?v=booking-search-20260712-flight-links" defer></script>
     <script src="/assets/i18n.js?v=i18n-link-fix-20260706" defer></script>
     <script src="/assets/topic-filter.js?v=topic-filter-20260712-no-hero" defer></script>
   </body>
