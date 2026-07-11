@@ -18,7 +18,7 @@ const LANGUAGE_SWITCH = '<div class="language-switch notranslate" translate="no"
 const COUPANG_SCRIPT = '<script src="/assets/coupang.js?v=coupang-20260708" defer></script>';
 const DESKTOP_LAYOUT_CSS = `
       .product-card>.booking-thumb{grid-column:1}
-      .section-kicker{display:block;margin:0 0 2px;color:#f0445e;font-size:11px;font-weight:900;letter-spacing:.04em}.section-headline{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:0 0 16px;border-bottom:1px solid var(--line);padding-bottom:8px}.section-headline h2{margin:0;font-size:24px;line-height:1.12}.section-more{color:var(--muted);font-size:12px;font-weight:900;white-space:nowrap}.magazine-grid{display:grid;grid-template-columns:1fr;gap:22px}.magazine-card{display:block}.magazine-thumb{display:block;aspect-ratio:1.56/1;overflow:hidden;background:var(--soft)}.magazine-card strong{display:block;margin-top:8px;font-size:19px;line-height:1.28;font-weight:900}.magazine-card em{display:block;margin-top:7px;color:var(--muted);font-size:13px;line-height:1.55;font-style:normal}.magazine-meta{display:block;margin-top:10px;color:#f0445e;font-size:11px;font-weight:900}.magazine-hero{padding:14px 0 30px}.magazine-hero.is-hidden{display:none}.hero-grid{display:grid;grid-template-columns:1fr;gap:2px}.hero-card{position:relative;display:block;min-height:210px;overflow:hidden;background:#111;color:#fff}.hero-media{position:absolute;inset:0}.hero-card img{position:absolute;inset:0;filter:brightness(.68)}.hero-copy{position:absolute;left:18px;right:18px;bottom:18px;z-index:1}.hero-card strong{display:block;font-size:22px;line-height:1.16;font-weight:900}.hero-card em{display:block;margin-bottom:8px;color:#fff;font-size:12px;font-style:normal;font-weight:900}.hero-card span{display:block;margin-top:8px;color:rgba(255,255,255,.82);font-size:12px}.hero-side-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px}.hero-side-grid .hero-card{min-height:150px}.hero-side-grid .hero-card strong{font-size:15px;line-height:1.28}.hero-side-grid .hero-card span{font-size:11px}.site-footer>span{display:none}.footer-brand strong{display:block;color:var(--ink);font-size:20px;margin-bottom:8px}.footer-brand p,.footer-col a{display:block;margin:0 0 7px;color:var(--muted);font-size:13px}.footer-col b{display:block;margin-bottom:10px;color:var(--ink);font-size:13px}.footer-bottom{grid-column:1/-1;margin-top:10px;padding-top:16px;border-top:1px solid #eee;color:#aaa;font-size:12px}
+      .section-kicker{display:block;margin:0 0 2px;color:#f0445e;font-size:11px;font-weight:900;letter-spacing:.04em}.section-headline{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:0 0 16px;border-bottom:1px solid var(--line);padding-bottom:8px}.section-headline h2{margin:0;font-size:24px;line-height:1.12}.section-more{color:var(--muted);font-size:12px;font-weight:900;white-space:nowrap}.magazine-grid{display:grid;grid-template-columns:1fr;gap:22px}.magazine-card{display:block}.magazine-thumb{display:block;aspect-ratio:1.56/1;overflow:hidden;background:var(--soft)}.magazine-card strong{display:block;margin-top:8px;font-size:19px;line-height:1.28;font-weight:900}.magazine-card em{display:block;margin-top:7px;color:var(--muted);font-size:13px;line-height:1.55;font-style:normal}.magazine-meta{display:block;margin-top:10px;color:#f0445e;font-size:11px;font-weight:900}.site-footer>span{display:none}.footer-brand strong{display:block;color:var(--ink);font-size:20px;margin-bottom:8px}.footer-brand p,.footer-col a{display:block;margin:0 0 7px;color:var(--muted);font-size:13px}.footer-col b{display:block;margin-bottom:10px;color:var(--ink);font-size:13px}.footer-bottom{grid-column:1/-1;margin-top:10px;padding-top:16px;border-top:1px solid #eee;color:#aaa;font-size:12px}
       @media(min-width:900px){
         html{scroll-padding-top:122px}
         body{background:#fff}
@@ -30,15 +30,6 @@ const DESKTOP_LAYOUT_CSS = `
         .language-switch{justify-content:flex-end}
         .page{display:block;padding:0 24px 64px}
         .top-line{display:none}
-        .magazine-hero{padding:18px 0 32px}
-        .hero-grid{grid-template-columns:minmax(0,1.38fr) minmax(360px,.82fr);gap:3px}
-        .hero-main{min-height:410px}
-        .hero-main .hero-copy{left:28px;right:28px;bottom:30px}
-        .hero-main strong{max-width:760px;font-size:44px;line-height:1.08;letter-spacing:-.02em}
-        .hero-main span{max-width:760px;font-size:14px}
-        .hero-side-grid .hero-card{min-height:203px}
-        .hero-side-grid .hero-copy{left:17px;right:17px;bottom:16px}
-        .hero-side-grid .hero-card strong{font-size:18px}
         .news-section{padding:24px 0 36px;border-bottom:0}
         .news-section h2{font-size:26px}
         .magazine-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:34px 20px}
@@ -610,45 +601,6 @@ function magazineCard(post) {
   </a>`;
 }
 
-function heroCard(post, className = "") {
-  if (!post) return "";
-  const summary = summaryOf(post);
-  return `<a class="hero-card ${esc(className)}" href="${esc(hrefOf(post))}">
-    ${articleImage(post, "hero-media")}
-    <span class="hero-copy">
-      <em>${esc(categoryOf(post))}</em>
-      <strong>${esc(titleOf(post))}</strong>
-      ${summary ? `<span>${esc(summary)}</span>` : ""}
-    </span>
-  </a>`;
-}
-
-function magazineHero(posts) {
-  const items = uniquePosts(posts).filter(imageOf).slice(0, 5);
-  if (!items.length) return "";
-  const side = items.slice(1, 5).map((post) => heroCard(post)).join("");
-  return `<section class="magazine-hero" aria-label="\uC8FC\uC694 \uC5EC\uD589 \uAE30\uC0AC">
-    <div class="hero-grid">
-      ${heroCard(items[0], "hero-main")}
-      <div class="hero-side-grid">${side}</div>
-    </div>
-  </section>`;
-}
-
-function heroTemplate(id, posts) {
-  const hero = magazineHero(posts);
-  return hero ? `<template data-hero-template="${esc(id)}">${hero}</template>` : "";
-}
-
-function heroTemplates(sections, defaultPosts) {
-  const templates = [heroTemplate("all", defaultPosts)];
-  for (const section of sections) {
-    if (!section?.id || section.kind === "booking" || section.kind === "ad" || section.kind === "flight") continue;
-    templates.push(heroTemplate(section.id, section.posts || []));
-  }
-  return templates.filter(Boolean).join("\n");
-}
-
 function searchableText(post) {
   return [
     titleOf(post),
@@ -842,7 +794,6 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
   const hero = posts[0];
   const ogImage = imageOf(hero);
   const defaultHeadline = "\uC8FC\uC81C\uBCC4 \uCD5C\uC2E0 \uC5EC\uD589 \uC815\uBCF4";
-  const heroPosts = uniquePosts(sections.flatMap((section) => section.posts || []));
   const productFeeds = { accommodations, tnaProducts, products };
   const allProducts = [...accommodations, ...tnaProducts, ...products];
   const flightHtml = flightDealSection(flights);
@@ -890,8 +841,6 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
     </header>
     <main class="page">
       <div class="top-line"><span data-feed-label data-default-label="${esc(defaultHeadline)}">${esc(defaultHeadline)}</span><span>${esc(new Date().toISOString().slice(0, 10))}</span></div>
-      <div data-hero-slot>${magazineHero(heroPosts)}</div>
-      ${heroTemplates(sections, heroPosts)}
       ${sectionHtml}
     </main>
     <footer class="site-footer">
@@ -1079,14 +1028,6 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
       const sections = [...document.querySelectorAll('.news-section')];
       const label = document.querySelector('[data-feed-label]');
       const page = document.querySelector('.page');
-      const heroSlot = document.querySelector('[data-hero-slot]');
-      const heroTemplates = new Map([...document.querySelectorAll('template[data-hero-template]')].map((template) => [template.dataset.heroTemplate, template.innerHTML]));
-      const setHero = (id) => {
-        if (!heroSlot) return;
-        const html = heroTemplates.get(id) || (id === 'all' ? '' : heroTemplates.get('all')) || '';
-        heroSlot.innerHTML = html;
-        heroSlot.hidden = !html;
-      };
       links.forEach((link) => {
         link.addEventListener('click', (event) => {
           event.preventDefault();
@@ -1098,7 +1039,6 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
           links.forEach((item) => item.classList.remove('is-active'));
           link.classList.add('is-active');
           page?.classList.toggle('is-filtered', !showAll);
-          setHero(showAll ? 'all' : id);
           sections.forEach((section) => section.classList.toggle('is-hidden', !showAll && section.id !== id));
           if (label) label.textContent = headline;
           page?.scrollIntoView({ block: 'start' });
@@ -1109,7 +1049,7 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
     ${COUPANG_SCRIPT}
     <script src="/assets/homepage.js?v=booking-search-20260706-hardening" defer></script>
     <script src="/assets/i18n.js?v=i18n-link-fix-20260706" defer></script>
-    <script src="/assets/topic-filter.js?v=topic-filter-20260712-hero-category" defer></script>
+    <script src="/assets/topic-filter.js?v=topic-filter-20260712-no-hero" defer></script>
   </body>
 </html>`;
 }

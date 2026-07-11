@@ -103,26 +103,11 @@
 
     const label = document.querySelector('[data-feed-label]');
     const defaultLabel = label?.dataset.defaultLabel || label?.textContent || '';
-    const heroSlot = document.querySelector('[data-hero-slot]');
-    const heroTemplates = new Map(
-      [...document.querySelectorAll('template[data-hero-template]')].map((template) => [
-        template.dataset.heroTemplate,
-        template.innerHTML,
-      ]),
-    );
-
     function filterLabel(id) {
       if (id === 'all') return defaultLabel;
       const link = links.find((item) => item.dataset.filter === id);
       const text = (link?.textContent || '').replace(/\s+/g, ' ').trim();
       return text ? `${text} 최신 정보` : defaultLabel;
-    }
-
-    function setHero(id) {
-      if (!heroSlot) return;
-      const html = heroTemplates.get(id) || (id === 'all' ? heroTemplates.get('all') : '');
-      heroSlot.innerHTML = html || '';
-      heroSlot.hidden = !html;
     }
 
     function setFilter(id, pushState) {
@@ -139,8 +124,6 @@
         link.classList.toggle('is-active', (link.dataset.filter || 'all') === filterId);
       });
       if (label) label.textContent = filterLabel(filterId);
-      setHero(filterId);
-
       if (pushState) {
         const nextUrl = `${window.location.pathname}${window.location.search}${showAll ? '' : `#${filterId}`}`;
         window.history.replaceState({}, '', nextUrl);
