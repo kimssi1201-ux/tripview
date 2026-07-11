@@ -1,45 +1,14 @@
 [
   {
-    "id": "flight-ICN-YGJ-2026-08-17-2026-08-21",
+    "id": "flight-ICN-YGJ-2026-07-19-2026-07-23",
     "type": "flight",
     "title": "인천-요나고 왕복 5일 최저가 164,100원",
-    "url": "/flight-deals/flight-icn-ygj-2026-08-17-2026-08-21/",
+    "url": "/flight-deals/flight-icn-ygj-2026-07-19-2026-07-23/",
     "image": "",
     "price": 164100,
     "priceText": "164,100원",
     "region": "요나고",
     "city": "요나고",
-    "category": "항공권 최저가",
-    "description": "출발 2026년 8월 17일 · 귀국 2026년 8월 21일",
-    "tags": [
-      "항공권",
-      "최저가",
-      "예약",
-      "해외여행"
-    ],
-    "intents": [
-      "booking"
-    ],
-    "fromCity": "ICN",
-    "toCity": "YGJ",
-    "period": 5,
-    "departureDate": "2026-08-17",
-    "returnDate": "2026-08-21",
-    "airline": "",
-    "transfer": "",
-    "averagePrice": 554232,
-    "source": "myrealtrip-flight"
-  },
-  {
-    "id": "flight-ICN-HIJ-2026-07-19-2026-07-23",
-    "type": "flight",
-    "title": "인천-히로시마 왕복 5일 최저가 165,300원",
-    "url": "/flight-deals/flight-icn-hij-2026-07-19-2026-07-23/",
-    "image": "",
-    "price": 165300,
-    "priceText": "165,300원",
-    "region": "히로시마",
-    "city": "히로시마",
     "category": "항공권 최저가",
     "description": "출발 2026년 7월 19일 · 귀국 2026년 7월 23일",
     "tags": [
@@ -52,13 +21,13 @@
       "booking"
     ],
     "fromCity": "ICN",
-    "toCity": "HIJ",
+    "toCity": "YGJ",
     "period": 5,
     "departureDate": "2026-07-19",
     "returnDate": "2026-07-23",
     "airline": "",
     "transfer": "",
-    "averagePrice": 445545,
+    "averagePrice": 554701,
     "source": "myrealtrip-flight"
   },
   {
@@ -89,7 +58,7 @@
     "returnDate": "2026-07-22",
     "airline": "",
     "transfer": "",
-    "averagePrice": 355121,
+    "averagePrice": 356046,
     "source": "myrealtrip-flight"
   },
   {
@@ -120,7 +89,7 @@
     "returnDate": "2026-11-14",
     "airline": "",
     "transfer": "",
-    "averagePrice": 325476,
+    "averagePrice": 323380,
     "source": "myrealtrip-flight"
   },
   {
@@ -151,7 +120,7 @@
     "returnDate": "2026-09-22",
     "airline": "",
     "transfer": "",
-    "averagePrice": 494008,
+    "averagePrice": 494402,
     "source": "myrealtrip-flight"
   },
   {
@@ -182,7 +151,38 @@
     "returnDate": "2026-07-22",
     "airline": "",
     "transfer": "",
-    "averagePrice": 321999,
+    "averagePrice": 324250,
+    "source": "myrealtrip-flight"
+  },
+  {
+    "id": "flight-ICN-HIJ-2026-08-20-2026-08-24",
+    "type": "flight",
+    "title": "인천-히로시마 왕복 5일 최저가 191,300원",
+    "url": "/flight-deals/flight-icn-hij-2026-08-20-2026-08-24/",
+    "image": "",
+    "price": 191300,
+    "priceText": "191,300원",
+    "region": "히로시마",
+    "city": "히로시마",
+    "category": "항공권 최저가",
+    "description": "출발 2026년 8월 20일 · 귀국 2026년 8월 24일",
+    "tags": [
+      "항공권",
+      "최저가",
+      "예약",
+      "해외여행"
+    ],
+    "intents": [
+      "booking"
+    ],
+    "fromCity": "ICN",
+    "toCity": "HIJ",
+    "period": 5,
+    "departureDate": "2026-08-20",
+    "returnDate": "2026-08-24",
+    "airline": "",
+    "transfer": "",
+    "averagePrice": 452232,
     "source": "myrealtrip-flight"
   },
   {
@@ -213,7 +213,7 @@
     "returnDate": "2026-07-22",
     "airline": "",
     "transfer": "",
-    "averagePrice": 344672,
+    "averagePrice": 344873,
     "source": "myrealtrip-flight"
   },
   {
@@ -244,7 +244,7 @@
     "returnDate": "2026-11-27",
     "airline": "",
     "transfer": "",
-    "averagePrice": 359269,
+    "averagePrice": 359381,
     "source": "myrealtrip-flight"
   }
 ]
