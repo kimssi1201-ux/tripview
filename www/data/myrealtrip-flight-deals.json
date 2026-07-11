@@ -4,6 +4,7 @@
     "type": "flight",
     "title": "인천-히로시마 왕복 5일 최저가 156,300원",
     "url": "/flight-deals/flight-icn-hij-2026-07-19-2026-07-23/",
+    "bookingUrl": "https://flights.myrealtrip.com/",
     "image": "",
     "price": 156300,
     "priceText": "156,300원",
@@ -28,14 +29,14 @@
     "airline": "",
     "transfer": "",
     "averagePrice": 413083,
-    "source": "myrealtrip-flight",
-    "bookingUrl": "https://flights.myrealtrip.com/"
+    "source": "myrealtrip-flight"
   },
   {
     "id": "flight-ICN-YGJ-2026-07-19-2026-07-23",
     "type": "flight",
     "title": "인천-요나고 왕복 5일 최저가 164,100원",
     "url": "/flight-deals/flight-icn-ygj-2026-07-19-2026-07-23/",
+    "bookingUrl": "https://flights.myrealtrip.com/",
     "image": "",
     "price": 164100,
     "priceText": "164,100원",
@@ -60,14 +61,14 @@
     "airline": "",
     "transfer": "",
     "averagePrice": 553240,
-    "source": "myrealtrip-flight",
-    "bookingUrl": "https://flights.myrealtrip.com/"
+    "source": "myrealtrip-flight"
   },
   {
     "id": "flight-ICN-TAK-2026-07-18-2026-07-22",
     "type": "flight",
     "title": "인천-다카마쓰 왕복 5일 최저가 169,400원",
     "url": "/flight-deals/flight-icn-tak-2026-07-18-2026-07-22/",
+    "bookingUrl": "https://flights.myrealtrip.com/",
     "image": "",
     "price": 169400,
     "priceText": "169,400원",
@@ -92,14 +93,14 @@
     "airline": "",
     "transfer": "",
     "averagePrice": 364079,
-    "source": "myrealtrip-flight",
-    "bookingUrl": "https://flights.myrealtrip.com/"
+    "source": "myrealtrip-flight"
   },
   {
     "id": "flight-ICN-YNT-2026-11-10-2026-11-14",
     "type": "flight",
     "title": "인천-YNT 왕복 5일 최저가 177,300원",
     "url": "/flight-deals/flight-icn-ynt-2026-11-10-2026-11-14/",
+    "bookingUrl": "https://flights.myrealtrip.com/",
     "image": "",
     "price": 177300,
     "priceText": "177,300원",
@@ -124,14 +125,14 @@
     "airline": "",
     "transfer": "",
     "averagePrice": 327884,
-    "source": "myrealtrip-flight",
-    "bookingUrl": "https://flights.myrealtrip.com/"
+    "source": "myrealtrip-flight"
   },
   {
     "id": "flight-ICN-KIX-2026-09-18-2026-09-22",
     "type": "flight",
     "title": "인천-오사카 왕복 5일 최저가 179,900원",
     "url": "/flight-deals/flight-icn-kix-2026-09-18-2026-09-22/",
+    "bookingUrl": "https://flights.myrealtrip.com/",
     "image": "",
     "price": 179900,
     "priceText": "179,900원",
@@ -156,14 +157,14 @@
     "airline": "",
     "transfer": "",
     "averagePrice": 492235,
-    "source": "myrealtrip-flight",
-    "bookingUrl": "https://flights.myrealtrip.com/"
+    "source": "myrealtrip-flight"
   },
   {
     "id": "flight-ICN-OSA-2026-07-18-2026-07-22",
     "type": "flight",
     "title": "인천-오사카 왕복 5일 최저가 179,900원",
     "url": "/flight-deals/flight-icn-osa-2026-07-18-2026-07-22/",
+    "bookingUrl": "https://flights.myrealtrip.com/",
     "image": "",
     "price": 179900,
     "priceText": "179,900원",
@@ -188,14 +189,14 @@
     "airline": "",
     "transfer": "",
     "averagePrice": 321764,
-    "source": "myrealtrip-flight",
-    "bookingUrl": "https://flights.myrealtrip.com/"
+    "source": "myrealtrip-flight"
   },
   {
     "id": "flight-ICN-FUK-2026-08-20-2026-08-24",
     "type": "flight",
     "title": "인천-후쿠오카 왕복 5일 최저가 193,600원",
     "url": "/flight-deals/flight-icn-fuk-2026-08-20-2026-08-24/",
+    "bookingUrl": "https://flights.myrealtrip.com/",
     "image": "",
     "price": 193600,
     "priceText": "193,600원",
@@ -220,14 +221,14 @@
     "airline": "",
     "transfer": "",
     "averagePrice": 538371,
-    "source": "myrealtrip-flight",
-    "bookingUrl": "https://flights.myrealtrip.com/"
+    "source": "myrealtrip-flight"
   },
   {
     "id": "flight-ICN-KKJ-2026-07-18-2026-07-22",
     "type": "flight",
     "title": "인천-기타큐슈 왕복 5일 최저가 193,700원",
     "url": "/flight-deals/flight-icn-kkj-2026-07-18-2026-07-22/",
+    "bookingUrl": "https://flights.myrealtrip.com/",
     "image": "",
     "price": 193700,
     "priceText": "193,700원",
@@ -252,7 +253,6 @@
     "airline": "",
     "transfer": "",
     "averagePrice": 344647,
-    "source": "myrealtrip-flight",
-    "bookingUrl": "https://flights.myrealtrip.com/"
+    "source": "myrealtrip-flight"
   }
 ]

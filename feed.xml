@@ -1,549 +1,409 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+<rss version="2.0">
   <channel>
     <title>트립뷰</title>
     <link>https://tripview.kr/</link>
-    <atom:link href="https://tripview.kr/feed.xml" rel="self" type="application/rss+xml" />
-    <description>국내여행과 공연/축제 방문 정보를 정리하는 트립뷰 최신 글 RSS입니다.</description>
-    <language>ko</language>
-    <lastBuildDate>Sat, 11 Jul 2026 18:58:46 GMT</lastBuildDate>
+    <description>국내여행과 공연/축제 여행 정보</description>
+    <lastBuildDate>Fri, 12 Jun 2026 00:00:00 GMT</lastBuildDate>
     <item>
       <title>반야사(영동), 방문 전 알아둘 위치와 여행 동선</title>
       <link>https://tripview.kr/travel-252587/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-252587/</guid>
-      <description>반야사(영동) 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
+      <guid>https://tripview.kr/travel-252587/</guid>
+      <description>반야사(영동) 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
       <category>국내여행</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/42/4061142_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/42/4061142_image2_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/42/4061142_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <pubDate>Fri, 12 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>영덕대소산봉수대, 방문 전 알아둘 위치와 여행 동선</title>
       <link>https://tripview.kr/travel-252545/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-252545/</guid>
-      <description>영덕대소산봉수대 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
+      <guid>https://tripview.kr/travel-252545/</guid>
+      <description>영덕대소산봉수대 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
       <category>국내여행</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/09/4061509_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/09/4061509_image2_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/09/4061509_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <pubDate>Fri, 12 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>반포한강공원, 방문 전 알아둘 위치와 여행 동선</title>
       <link>https://tripview.kr/travel-970138/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-970138/</guid>
-      <description>반포한강공원 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
+      <guid>https://tripview.kr/travel-970138/</guid>
+      <description>반포한강공원 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
       <category>국내여행</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/07/4061307_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/07/4061307_image2_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/07/4061307_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <pubDate>Fri, 12 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>장수 쿨밸리 페스티벌 2026, 방문 전 알아둘 일정과 운영정보</title>
       <link>https://tripview.kr/festival-2989580/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-2989580/</guid>
-      <description>장수 쿨밸리 페스티벌 방문 전 필요한 일정, 운영 시간, 프로그램 고르는 법, 비용, 준비물과 귀가 동선을 자연스럽게 정리했습니다.</description>
+      <guid>https://tripview.kr/festival-2989580/</guid>
+      <description>장수 쿨밸리 페스티벌을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.</description>
       <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/12/4073812_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/12/4073812_image2_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/12/4073812_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <pubDate>Fri, 12 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>2026 고흥 녹동항 드론쇼, 방문 전 알아둘 일정과 운영정보</title>
       <link>https://tripview.kr/festival-2987489/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-2987489/</guid>
-      <description>2026 고흥 녹동항 드론쇼 방문 전 필요한 일정, 운영 시간, 프로그램 고르는 법, 비용, 준비물과 귀가 동선을 자연스럽게 정리했습니다.</description>
+      <guid>https://tripview.kr/festival-2987489/</guid>
+      <description>2026 고흥 녹동항 드론쇼을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.</description>
       <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/97/4054497_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/97/4054497_image2_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/97/4054497_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <pubDate>Fri, 12 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>2026 용골 댄스 페스타, 방문 전 알아둘 일정과 운영정보</title>
       <link>https://tripview.kr/festival-2952109/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-2952109/</guid>
-      <description>2026 용골 댄스 페스타 방문 전 필요한 일정, 운영 시간, 프로그램 고르는 법, 비용, 준비물과 귀가 동선을 자연스럽게 정리했습니다.</description>
+      <guid>https://tripview.kr/festival-2952109/</guid>
+      <description>2026 용골 댄스 페스타을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.</description>
       <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/73/4067473_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/73/4067473_image2_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/73/4067473_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <pubDate>Fri, 12 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>소리체험관, 방문 전 알아둘 위치와 여행 동선</title>
       <link>https://tripview.kr/travel-4073447/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-4073447/</guid>
-      <description>소리체험관 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
+      <guid>https://tripview.kr/travel-4073447/</guid>
+      <description>소리체험관 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
       <category>국내여행</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/65/4073465_image3_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/65/4073465_image3_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/65/4073465_image3_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <pubDate>Thu, 11 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>향사당, 방문 전 알아둘 위치와 여행 동선</title>
       <link>https://tripview.kr/travel-4073368/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-4073368/</guid>
-      <description>향사당 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/77/4072177_image3_1.jpeg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/77/4072177_image3_1.jpeg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/77/4072177_image3_1.jpeg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <guid>https://tripview.kr/travel-4073368/</guid>
+      <description>향사당 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
+      <category>국내여행</category>
+      <pubDate>Thu, 11 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>모전공원, 방문 전 알아둘 위치와 여행 동선</title>
       <link>https://tripview.kr/travel-4072509/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-4072509/</guid>
-      <description>모전공원 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
+      <guid>https://tripview.kr/travel-4072509/</guid>
+      <description>모전공원 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
       <category>국내여행</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/31/4072531_image3_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/31/4072531_image3_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/31/4072531_image3_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <pubDate>Thu, 11 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>남해 마늘한우축제 2026, 방문 전 알아둘 일정과 운영정보</title>
       <link>https://tripview.kr/festival-141578/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-141578/</guid>
-      <description>남해 마늘한우축제 방문 전 필요한 일정, 운영 시간, 프로그램 고르는 법, 비용, 준비물과 귀가 동선을 자연스럽게 정리했습니다.</description>
+      <guid>https://tripview.kr/festival-141578/</guid>
+      <description>남해 마늘한우축제을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.</description>
       <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/63/4071963_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/63/4071963_image2_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/63/4071963_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <pubDate>Thu, 11 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>군산 수제맥주&amp;amp;블루스 페스티벌 2026, 방문 전 알아둘 일정과 운영정보</title>
+      <title>군산 수제맥주&amp;블루스 페스티벌 2026, 방문 전 알아둘 일정과 운영정보</title>
       <link>https://tripview.kr/festival-2853719/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-2853719/</guid>
-      <description>군산 수제맥주&amp;amp;블루스 페스티벌 방문 전 필요한 일정, 운영 시간, 프로그램 고르는 법, 비용, 준비물과 귀가 동선을 자연스럽게 정리했습니다.</description>
+      <guid>https://tripview.kr/festival-2853719/</guid>
+      <description>군산 수제맥주&amp;블루스 페스티벌을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.</description>
       <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/51/4062851_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/51/4062851_image2_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/51/4062851_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <pubDate>Thu, 11 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>초안산, 방문 전 알아둘 위치와 여행 동선</title>
       <link>https://tripview.kr/travel-2031668/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-2031668/</guid>
-      <description>초안산 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
+      <guid>https://tripview.kr/travel-2031668/</guid>
+      <description>초안산 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
       <category>국내여행</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/46/3466146_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/46/3466146_image2_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/46/3466146_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>국청사(부산), 방문 전 알아둘 위치와 여행 동선</title>
       <link>https://tripview.kr/travel-298099/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-298099/</guid>
-      <description>국청사(부산) 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
+      <guid>https://tripview.kr/travel-298099/</guid>
+      <description>국청사(부산) 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
       <category>국내여행</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/82/3552382_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/82/3552382_image2_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/82/3552382_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>금란정, 방문 전 알아둘 위치와 여행 동선</title>
       <link>https://tripview.kr/travel-2735607/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-2735607/</guid>
-      <description>금란정 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
+      <guid>https://tripview.kr/travel-2735607/</guid>
+      <description>금란정 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
       <category>국내여행</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/25/3589225_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/25/3589225_image2_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/25/3589225_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>제14회 도농교류의 날 기념 2026 농촌여행 페스티벌, 방문 전 알아둘 일정과 운영정보</title>
       <link>https://tripview.kr/festival-4071535/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-4071535/</guid>
-      <description>제14회 도농교류의 날 기념 2026 농촌여행 페스티벌 방문 전 필요한 일정, 운영 시간, 프로그램 고르는 법, 비용, 준비물과 귀가 동선을 자연스럽게 정리했습니다.</description>
+      <guid>https://tripview.kr/festival-4071535/</guid>
+      <description>제14회 도농교류의 날 기념 2026 농촌여행 페스티벌을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.</description>
       <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/19/4071619_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/19/4071619_image2_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/19/4071619_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>세종단오제 2026, 방문 전 알아둘 일정과 운영정보</title>
       <link>https://tripview.kr/festival-3305155/</link>
-      <guid isPermaLink="true">https://tripview.kr/festival-3305155/</guid>
-      <description>세종단오제 방문 전 필요한 일정, 운영 시간, 프로그램 고르는 법, 비용, 준비물과 귀가 동선을 자연스럽게 정리했습니다.</description>
+      <guid>https://tripview.kr/festival-3305155/</guid>
+      <description>세종단오제을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.</description>
       <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/62/4066962_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/62/4066962_image2_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/62/4066962_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>속초 닭전 골목 방문 전 알아둘 위치와 여행 동선</title>
       <link>https://tripview.kr/travel-3041338/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-3041338/</guid>
-      <description>닭전 골목 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
+      <guid>https://tripview.kr/travel-3041338/</guid>
+      <description>닭전 골목 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
       <category>국내여행</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/14/3041314_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/14/3041314_image2_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/14/3041314_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <pubDate>Sat, 11 Jul 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>동그란책 방문 전 알아두면 좋은 위치와 여행 동선</title>
       <link>https://tripview.kr/travel-3041240/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-3041240/</guid>
-      <description>동그란책 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
+      <guid>https://tripview.kr/travel-3041240/</guid>
+      <description>동그란책 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
       <category>국내여행</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/21/3041221_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/21/3041221_image2_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/21/3041221_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <pubDate>Sat, 11 Jul 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>상우농장야영장 방문 전 알아둘 위치와 여행 동선</title>
       <link>https://tripview.kr/travel-2734022/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-2734022/</guid>
-      <description>상우농장야영장 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
+      <guid>https://tripview.kr/travel-2734022/</guid>
+      <description>상우농장야영장 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
       <category>국내여행</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/31/2734131_image2_1.JPG" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/31/2734131_image2_1.JPG" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/31/2734131_image2_1.JPG" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <pubDate>Sat, 11 Jul 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>리조트 스파밸리 방문 전 확인할 위치와 여행 동선</title>
       <link>https://tripview.kr/travel-2661074/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-2661074/</guid>
-      <description>리조트 스파밸리 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
-      <category>국내여행</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/69/3374569_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/69/3374569_image2_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/69/3374569_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <guid>https://tripview.kr/travel-2661074/</guid>
+      <description>리조트 스파밸리 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
+      <category>숙소/예약</category>
+      <pubDate>Sat, 11 Jul 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>다낭, 청주 오송에서 방문 전 확인할 위치와 동선</title>
       <link>https://tripview.kr/travel-2859678/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-2859678/</guid>
-      <description>다낭 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/73/4085973_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/73/4085973_image2_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/73/4085973_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <guid>https://tripview.kr/travel-2859678/</guid>
+      <description>다낭 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
+      <category>생활정보</category>
+      <pubDate>Sat, 11 Jul 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>밤고개자연시장 방문 전 알아둘 위치와 여행 동선</title>
       <link>https://tripview.kr/travel-2769553/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-2769553/</guid>
-      <description>밤고개자연시장 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/12/4085812_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/12/4085812_image2_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/12/4085812_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <guid>https://tripview.kr/travel-2769553/</guid>
+      <description>밤고개자연시장 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
+      <category>생활정보</category>
+      <pubDate>Sat, 11 Jul 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>뚜라조각공원 방문 전 알아두면 좋은 위치와 여행 동선</title>
       <link>https://tripview.kr/travel-3041339/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-3041339/</guid>
-      <description>뚜라조각공원 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/33/3041333_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/33/3041333_image2_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/33/3041333_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <guid>https://tripview.kr/travel-3041339/</guid>
+      <description>뚜라조각공원 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
+      <category>국내여행</category>
+      <pubDate>Sat, 11 Jul 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>쉬어가삼［례:］ 방문 전 알아둘 위치와 여행 동선</title>
       <link>https://tripview.kr/travel-3041434/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-3041434/</guid>
-      <description>쉬어가삼［례:］ 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/03/3041403_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/03/3041403_image2_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/03/3041403_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <guid>https://tripview.kr/travel-3041434/</guid>
+      <description>쉬어가삼［례:］ 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
+      <category>국내여행</category>
+      <pubDate>Sat, 11 Jul 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>티피캠핑장 방문 전 알아두면 좋은 위치와 여행 동선</title>
       <link>https://tripview.kr/travel-2734062/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-2734062/</guid>
-      <description>티피캠핑장 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
+      <guid>https://tripview.kr/travel-2734062/</guid>
+      <description>티피캠핑장 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
       <category>국내여행</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/68/2734168_image2_1.JPG" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/68/2734168_image2_1.JPG" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/68/2734168_image2_1.JPG" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <pubDate>Sat, 11 Jul 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>모나용평 방문 전 알아두면 좋은 위치와 여행 동선</title>
       <link>https://tripview.kr/travel-126715/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-126715/</guid>
-      <description>모나용평 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/90/2872990_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/90/2872990_image2_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/90/2872990_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <guid>https://tripview.kr/travel-126715/</guid>
+      <description>모나용평 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
+      <category>숙소/예약</category>
+      <pubDate>Sat, 11 Jul 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>동명항 포장마차 거리 방문 전 알아두면 좋은 위치와 여행 동선</title>
       <link>https://tripview.kr/travel-3041283/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-3041283/</guid>
-      <description>동명항 포장마차 거리 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
+      <guid>https://tripview.kr/travel-3041283/</guid>
+      <description>동명항 포장마차 거리 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
       <category>국내여행</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/55/3041255_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/55/3041255_image2_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/55/3041255_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <pubDate>Fri, 10 Jul 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>여행책방 잔잔하게, 동해 발한동에서 천천히 들르는 여행 동선</title>
       <link>https://tripview.kr/travel-4084819/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-4084819/</guid>
-      <description>여행책방 잔잔하게 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
+      <guid>https://tripview.kr/travel-4084819/</guid>
+      <description>여행책방 잔잔하게 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
       <category>국내여행</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/62/4083762_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/62/4083762_image2_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/62/4083762_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <pubDate>Fri, 10 Jul 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>정선애펜션&amp;amp;글램핑 방문 전 알아둘 위치와 여행 동선</title>
+      <title>정선애펜션&amp;글램핑 방문 전 알아둘 위치와 여행 동선</title>
       <link>https://tripview.kr/travel-2763000/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-2763000/</guid>
-      <description>정선애펜션&amp;amp;글램핑 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
+      <guid>https://tripview.kr/travel-2763000/</guid>
+      <description>정선애펜션&amp;글램핑 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
       <category>국내여행</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/71/2763171_image2_1.JPG" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/71/2763171_image2_1.JPG" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/71/2763171_image2_1.JPG" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <pubDate>Fri, 10 Jul 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>제부도 워터월드펜션 방문 전 알아둘 위치와 여행 동선</title>
       <link>https://tripview.kr/travel-3363678/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-3363678/</guid>
-      <description>제부도 워터월드펜션 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/25/3363625_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/25/3363625_image2_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/25/3363625_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <guid>https://tripview.kr/travel-3363678/</guid>
+      <description>제부도 워터월드펜션 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
+      <category>숙소/예약</category>
+      <pubDate>Fri, 10 Jul 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>호남정 한정식 방문 전 알아둘 위치와 여행 동선</title>
       <link>https://tripview.kr/travel-2435653/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-2435653/</guid>
-      <description>호남정 한정식 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/40/4085040_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/40/4085040_image2_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/40/4085040_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <guid>https://tripview.kr/travel-2435653/</guid>
+      <description>호남정 한정식 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
+      <category>생활정보</category>
+      <pubDate>Fri, 10 Jul 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>청천푸른내시장 방문 전 알아둘 위치와 여행 동선</title>
       <link>https://tripview.kr/travel-1031690/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-1031690/</guid>
-      <description>청천푸른내시장 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/73/4084973_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/73/4084973_image2_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/73/4084973_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <guid>https://tripview.kr/travel-1031690/</guid>
+      <description>청천푸른내시장 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
+      <category>생활정보</category>
+      <pubDate>Fri, 10 Jul 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>간이해수욕장(아바이마을 해변) 방문 전 알아둘 위치와 여행 동선</title>
       <link>https://tripview.kr/travel-3041720/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-3041720/</guid>
-      <description>간이해수욕장(아바이마을 해변) 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
+      <guid>https://tripview.kr/travel-3041720/</guid>
+      <description>간이해수욕장(아바이마을 해변) 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
       <category>국내여행</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/07/3041707_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/07/3041707_image2_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/07/3041707_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <pubDate>Fri, 10 Jul 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>태백석탄박물관 방문 전 알아둘 위치와 여행 동선</title>
       <link>https://tripview.kr/travel-2610078/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-2610078/</guid>
-      <description>태백석탄박물관 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
+      <guid>https://tripview.kr/travel-2610078/</guid>
+      <description>태백석탄박물관 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
       <category>국내여행</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/67/3514067_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/67/3514067_image2_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/67/3514067_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <pubDate>Fri, 10 Jul 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>평창 자연속쉼표캠핑장 방문 전 알아둘 위치와 여행 동선</title>
       <link>https://tripview.kr/travel-2909236/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-2909236/</guid>
-      <description>평창 자연속쉼표캠핑장 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
+      <guid>https://tripview.kr/travel-2909236/</guid>
+      <description>평창 자연속쉼표캠핑장 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
       <category>국내여행</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/19/2909219_image2_1.JPG" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/19/2909219_image2_1.JPG" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/19/2909219_image2_1.JPG" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <pubDate>Fri, 10 Jul 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>컨피네스 오션 스위트 호텔 방문 전 알아둘 위치와 여행 동선</title>
       <link>https://tripview.kr/travel-3372157/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-3372157/</guid>
-      <description>컨피네스 오션 스위트 호텔 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/29/3372129_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/29/3372129_image2_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/29/3372129_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <guid>https://tripview.kr/travel-3372157/</guid>
+      <description>컨피네스 오션 스위트 호텔 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
+      <category>숙소/예약</category>
+      <pubDate>Fri, 10 Jul 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>영양문화원 방문 전 알아둘 위치와 여행 동선</title>
       <link>https://tripview.kr/travel-129717/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-129717/</guid>
-      <description>영양문화원 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
+      <guid>https://tripview.kr/travel-129717/</guid>
+      <description>영양문화원 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
       <category>국내여행</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/55/2534055_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/55/2534055_image2_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/55/2534055_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>젠틀펫파라다이스 방문 전 알아둘 위치와 여행 동선</title>
       <link>https://tripview.kr/travel-2909627/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-2909627/</guid>
-      <description>젠틀펫파라다이스 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
+      <guid>https://tripview.kr/travel-2909627/</guid>
+      <description>젠틀펫파라다이스 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
       <category>국내여행</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/10/2909610_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/10/2909610_image2_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/10/2909610_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>라마다프라자호텔&amp;amp;씨원리조트 자은도 방문 전 알아둘 위치와 여행 동선</title>
+      <title>라마다프라자호텔&amp;씨원리조트 자은도 방문 전 알아둘 위치와 여행 동선</title>
       <link>https://tripview.kr/travel-3403857/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-3403857/</guid>
-      <description>라마다프라자호텔&amp;amp;씨원리조트 자은도 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/13/3403813_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/13/3403813_image2_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/13/3403813_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <guid>https://tripview.kr/travel-3403857/</guid>
+      <description>라마다프라자호텔&amp;씨원리조트 자은도 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
+      <category>숙소/예약</category>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>동래할매파전 방문 전 알아두면 좋은 위치와 여행 동선</title>
       <link>https://tripview.kr/travel-2565287/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-2565287/</guid>
-      <description>동래할매파전 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/02/4083702_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/02/4083702_image2_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/02/4083702_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <guid>https://tripview.kr/travel-2565287/</guid>
+      <description>동래할매파전 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
+      <category>생활정보</category>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>전주 신중앙시장 방문 전 알아두면 좋은 위치와 여행 동선</title>
       <link>https://tripview.kr/travel-1003205/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-1003205/</guid>
-      <description>전주 신중앙시장 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/74/4084274_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/74/4084274_image2_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/74/4084274_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <guid>https://tripview.kr/travel-1003205/</guid>
+      <description>전주 신중앙시장 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
+      <category>생활정보</category>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>금강공원, 방문 전 알아두면 좋은 위치와 여행 동선</title>
       <link>https://tripview.kr/travel-127445/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-127445/</guid>
-      <description>금강공원 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
+      <guid>https://tripview.kr/travel-127445/</guid>
+      <description>금강공원 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
       <category>국내여행</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/87/4083687_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/87/4083687_image2_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/87/4083687_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>6·25월남전흔적전시관 방문 전 알아둘 위치와 여행 동선</title>
       <link>https://tripview.kr/travel-4084102/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-4084102/</guid>
-      <description>6·25월남전흔적전시관 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
+      <guid>https://tripview.kr/travel-4084102/</guid>
+      <description>6·25월남전흔적전시관 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
       <category>국내여행</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/18/4084118_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/18/4084118_image2_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/18/4084118_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>DMZ 평화의 길 제3땅굴·도라전망대 코스, 방문 전 확인할 동선과 준비 팁</title>
       <link>https://tripview.kr/travel-3443859/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-3443859/</guid>
-      <description>[DMZ 평화의 길] 제3땅굴/도라전망대 코스 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
-      <category>공연/축제</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/58/3446158_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/58/3446158_image2_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/58/3446158_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <guid>https://tripview.kr/travel-3443859/</guid>
+      <description>[DMZ 평화의 길] 제3땅굴/도라전망대 코스 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
+      <category>국내여행</category>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>엘도라도리조트 방문 전 알아두면 좋은 위치와 여행 동선</title>
       <link>https://tripview.kr/travel-2399540/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-2399540/</guid>
-      <description>엘도라도리조트 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/39/3473939_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/39/3473939_image2_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/39/3473939_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <guid>https://tripview.kr/travel-2399540/</guid>
+      <description>엘도라도리조트 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
+      <category>숙소/예약</category>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>오창화짬뽕 방문 전 알아두면 좋은 위치와 동선 안내</title>
       <link>https://tripview.kr/travel-2859320/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-2859320/</guid>
-      <description>오창화짬뽕 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/05/4084205_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/05/4084205_image2_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/05/4084205_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <guid>https://tripview.kr/travel-2859320/</guid>
+      <description>오창화짬뽕 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
+      <category>생활정보</category>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>문재필 옻칠 갤러리 방문 전 알아둘 위치와 여행 동선</title>
       <link>https://tripview.kr/travel-4083051/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-4083051/</guid>
-      <description>문재필 옻칠 갤러리 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
+      <guid>https://tripview.kr/travel-4083051/</guid>
+      <description>문재필 옻칠 갤러리 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
       <category>국내여행</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/79/4083079_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/79/4083079_image2_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/79/4083079_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>호남지역 유적지 돌아보기, 방문 전 확인할 운영 정보와 여행 동선</title>
       <link>https://tripview.kr/travel-1978824/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-1978824/</guid>
-      <description>호남지역의 유적지 돌아보기 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
+      <guid>https://tripview.kr/travel-1978824/</guid>
+      <description>호남지역의 유적지 돌아보기 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
       <category>국내여행</category>
-      <enclosure url="http://tong.visitkorea.or.kr/cms/resource/74/824574_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="http://tong.visitkorea.or.kr/cms/resource/74/824574_image2_1.jpg" />
-      <media:content url="http://tong.visitkorea.or.kr/cms/resource/74/824574_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>자연촌 여주 참숯마을 캠핑장 방문 전 확인할 위치와 여행 동선</title>
       <link>https://tripview.kr/travel-2762576/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-2762576/</guid>
-      <description>자연촌 여주 참숯마을 캠핑장 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
+      <guid>https://tripview.kr/travel-2762576/</guid>
+      <description>자연촌 여주 참숯마을 캠핑장 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
       <category>국내여행</category>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/33/4083133_image2_1.JPG" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/33/4083133_image2_1.JPG" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/33/4083133_image2_1.JPG" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>강릉씨티호텔 방문 전 알아둘 위치와 여행 동선</title>
       <link>https://tripview.kr/travel-2651624/</link>
-      <guid isPermaLink="true">https://tripview.kr/travel-2651624/</guid>
-      <description>(주)강릉씨티호텔 방문 전 필요한 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자연스럽게 정리했습니다.</description>
-      <enclosure url="https://tong.visitkorea.or.kr/cms/resource/22/4081622_image2_1.jpg" type="image/jpeg" />
-      <media:thumbnail url="https://tong.visitkorea.or.kr/cms/resource/22/4081622_image2_1.jpg" />
-      <media:content url="https://tong.visitkorea.or.kr/cms/resource/22/4081622_image2_1.jpg" medium="image" type="image/jpeg" />
-      <pubDate>Sat, 11 Jul 2026 18:58:46 GMT</pubDate>
+      <guid>https://tripview.kr/travel-2651624/</guid>
+      <description>(주)강릉씨티호텔 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.</description>
+      <category>숙소/예약</category>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
