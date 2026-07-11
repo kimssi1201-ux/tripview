@@ -766,10 +766,14 @@ function buildSections(posts) {
 function categoryNav(sections) {
   const sectionById = new Map(sections.map((section) => [section.id, section]));
   const primaryItems = [
-    ["popular", TEXT.navTravel],
-    ["festival", "\uCD95\uC81C\uC815\uBCF4"],
+    ["popular", "\uC9C0\uAE08 \uB9CE\uC774 \uCC3E\uB294 \uC5EC\uD589\uC9C0"],
+    ["water", "\uBB3C\uB180\uC774\u00B7\uACC4\uACE1"],
+    ["weekend", "\uC774\uBC88 \uC8FC\uB9D0"],
+    ["festival", "7~8\uC6D4 \uCD95\uC81C"],
+    ["indoor", "\uC2E4\uB0B4\uC5EC\uD589"],
+    ["family", "\uC544\uC774\uC640"],
+    ["booking", "\uC608\uC57D \uC804 \uCCB4\uD06C"],
     ["flight-deals", "\uD56D\uACF5\uAD8C"],
-    ["booking", "\uC608\uC57D"],
   ].filter(([id]) => sectionById.has(id));
   return [
     `<a class="is-active" href="#all" data-filter="all">\uD648</a>`,
