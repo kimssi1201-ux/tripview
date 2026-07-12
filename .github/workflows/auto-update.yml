@@ -1,8 +1,6 @@
 name: Tripview auto update
 
 on:
-  schedule:
-    - cron: "15 21 * * *"
   workflow_dispatch:
 
 permissions:

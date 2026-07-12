@@ -18,6 +18,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: daily-tour-posts
+  cancel-in-progress: false
+
 jobs:
   post:
     runs-on: ubuntu-latest
@@ -111,6 +115,7 @@ jobs:
           MYREALTRIP_FLIGHT_PERIOD: ${{ vars.MYREALTRIP_FLIGHT_PERIOD || '5' }}
           MYREALTRIP_FLIGHT_LIMIT: ${{ vars.MYREALTRIP_FLIGHT_LIMIT || '8' }}
           MYREALTRIP_FLIGHT_URL_TEMPLATE: ${{ vars.MYREALTRIP_FLIGHT_URL_TEMPLATE || secrets.MYREALTRIP_FLIGHT_URL_TEMPLATE }}
+          MYREALTRIP_FLIGHT_BOOKING_URL: ${{ vars.MYREALTRIP_FLIGHT_BOOKING_URL || 'https://flights.myrealtrip.com/' }}
 
       - name: Fetch Coupang products
         run: node scripts/fetch-coupang-products.mjs

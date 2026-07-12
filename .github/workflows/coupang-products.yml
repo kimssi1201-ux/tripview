@@ -1,8 +1,6 @@
 name: Coupang Products
 
 on:
-  schedule:
-    - cron: "10 21 * * *"
   workflow_dispatch:
   push:
     branches: ["main"]

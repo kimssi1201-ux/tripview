@@ -1,33 +1,6 @@
 name: Build Homepage
 
 on:
-  push:
-    paths:
-      - '.github/workflows/build-homepage.yml'
-      - 'data/homepage-content.json'
-      - 'data/myrealtrip-products.json'
-      - 'data/myrealtrip-accommodations.json'
-      - 'data/myrealtrip-tna-products.json'
-      - 'data/myrealtrip-flight-deals.json'
-      - 'scripts/add-adsense.mjs'
-      - 'scripts/add-helpful-article-sections.mjs'
-      - 'scripts/add-image-zoom.mjs'
-      - 'scripts/add-i18n.mjs'
-      - 'scripts/add-map-preview.mjs'
-      - 'scripts/apply-homepage-content-config.mjs'
-      - 'scripts/build-homepage.mjs'
-      - 'scripts/enrich-tour-posts.mjs'
-      - 'scripts/fix-reference-homepage-categories.mjs'
-      - 'scripts/format-program-sections.mjs'
-      - 'scripts/fetch-myrealtrip-products.mjs'
-      - 'scripts/fetch-myrealtrip-accommodations.mjs'
-      - 'scripts/fetch-myrealtrip-tna-products.mjs'
-      - 'scripts/fetch-myrealtrip-flight-deals.mjs'
-      - 'scripts/merge-manual-posts.mjs'
-      - 'scripts/polish-adsense-readiness.mjs'
-      - 'scripts/restructure-homepage-reference.mjs'
-      - 'assets/i18n.js'
-      - 'data/manual-posts-*.json'
   workflow_dispatch:
 
 permissions:
