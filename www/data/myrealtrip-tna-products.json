@@ -116,13 +116,42 @@
     "source": "myrealtrip-tna"
   },
   {
+    "id": "tna-6176378",
+    "type": "tna",
+    "title": "[공방] 교토 쿄마치야 공방 와라쿠 — 일본 소품 핸드메이드 체험",
+    "url": "https://experiences.myrealtrip.com/products/6176378",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/07/09/pJKO/9YgUXgwdo1.jpg",
+    "price": 10141,
+    "priceText": "10,141원부터",
+    "region": "오사카",
+    "city": "오사카",
+    "category": "체험·클래스",
+    "description": "오사카 ∙ 체험·클래스 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "오사카",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "activity"
+    ],
+    "gid": "6176378",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/6176378",
+    "source": "myrealtrip-tna"
+  },
+  {
     "id": "tna-3887447",
     "type": "tna",
     "title": "[Yakiniku Watami Namba] 야키니쿠 와규 무한리필 (난바점)",
     "url": "https://experiences.myrealtrip.com/products/3887447",
     "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/27/Cf8q/xnNsyYVnkn.jpg",
-    "price": 10231,
-    "priceText": "10,231원부터",
+    "price": 10192,
+    "priceText": "10,192원부터",
     "region": "오사카",
     "city": "오사카",
     "category": "미식",
@@ -148,8 +177,8 @@
     "title": "[Yakiniku Watami Umeda Chayamachi] 야키니쿠 와규 무한리필",
     "url": "https://experiences.myrealtrip.com/products/3887253",
     "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/27/TnLb/o55Gk1Cgfu.jpg",
-    "price": 10231,
-    "priceText": "10,231원부터",
+    "price": 10192,
+    "priceText": "10,192원부터",
     "region": "오사카",
     "city": "오사카",
     "category": "미식",
@@ -196,36 +225,6 @@
     "reviewScore": "",
     "reviewCount": "",
     "deepLink": "mrt://experiences/detail/5869510",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-5542727",
-    "type": "tna",
-    "title": "한신 고시엔 스타디움 박물관 입장권",
-    "url": "https://experiences.myrealtrip.com/products/5542727",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/12/11/1RPu/eja1RJgI7b.jpg",
-    "price": 10293,
-    "priceText": "10,293원부터",
-    "region": "오사카",
-    "city": "오사카",
-    "category": "티켓·입장권",
-    "description": "오사카 ∙ 티켓·입장권 · 평점 1(1개) · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "오사카",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "transport",
-      "indoor"
-    ],
-    "gid": "5542727",
-    "reviewScore": 1,
-    "reviewCount": 1,
-    "deepLink": "mrt://experiences/detail/5542727",
     "source": "myrealtrip-tna"
   }
 ]
