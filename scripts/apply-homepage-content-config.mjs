@@ -18,7 +18,7 @@ const LANGUAGE_SWITCH = '<div class="language-switch notranslate" translate="no"
 const COUPANG_SCRIPT = '<script src="/assets/coupang.js?v=coupang-20260708" defer></script>';
 const DESKTOP_LAYOUT_CSS = `
       .product-card>.booking-thumb{grid-column:1}
-      .section-kicker{display:block;margin:0 0 2px;color:#f0445e;font-size:11px;font-weight:900;letter-spacing:.04em}.section-headline{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:0 0 16px;border-bottom:1px solid var(--line);padding-bottom:8px}.section-headline h2{margin:0;font-size:24px;line-height:1.12}.section-more{color:var(--muted);font-size:12px;font-weight:900;white-space:nowrap}.magazine-grid{display:grid;grid-template-columns:1fr;gap:22px}.magazine-card{display:block}.magazine-thumb{display:block;aspect-ratio:1.56/1;overflow:hidden;background:var(--soft)}.magazine-card strong{display:block;margin-top:8px;font-size:19px;line-height:1.28;font-weight:900}.magazine-card em{display:block;margin-top:7px;color:var(--muted);font-size:13px;line-height:1.55;font-style:normal}.magazine-meta{display:block;margin-top:10px;color:#f0445e;font-size:11px;font-weight:900}.site-footer>span{display:none}.footer-brand strong{display:block;color:var(--ink);font-size:20px;margin-bottom:8px}.footer-brand p,.footer-col a{display:block;margin:0 0 7px;color:var(--muted);font-size:13px}.footer-col b{display:block;margin-bottom:10px;color:var(--ink);font-size:13px}.footer-bottom{grid-column:1/-1;margin-top:10px;padding-top:16px;border-top:1px solid #eee;color:#aaa;font-size:12px}
+      .section-kicker{display:block;margin:0 0 2px;color:#f0445e;font-size:11px;font-weight:900;letter-spacing:.04em}.section-headline{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:0 0 16px;border-bottom:1px solid var(--line);padding-bottom:8px}.section-headline h2{margin:0;font-size:24px;line-height:1.12}.section-more{color:var(--muted);font-size:12px;font-weight:900;white-space:nowrap}.magazine-grid{display:grid;grid-template-columns:1fr;gap:22px}.magazine-card{display:block}.magazine-thumb{display:block;aspect-ratio:1.56/1;overflow:hidden;background:var(--soft)}.magazine-card strong{display:block;margin-top:8px;font-size:19px;line-height:1.28;font-weight:900}.magazine-card em{display:block;margin-top:7px;color:var(--muted);font-size:13px;line-height:1.55;font-style:normal}.magazine-meta{display:block;margin-top:10px;color:#f0445e;font-size:11px;font-weight:900}.coupang-widget-scroll{width:100%;max-width:100%;overflow-x:auto;overflow-y:hidden;padding-bottom:2px}.coupang-widget-inner{width:680px;max-width:680px;min-height:140px}.site-footer>span{display:none}.footer-brand strong{display:block;color:var(--ink);font-size:20px;margin-bottom:8px}.footer-brand p,.footer-col a{display:block;margin:0 0 7px;color:var(--muted);font-size:13px}.footer-col b{display:block;margin-bottom:10px;color:var(--ink);font-size:13px}.footer-bottom{grid-column:1/-1;margin-top:10px;padding-top:16px;border-top:1px solid #eee;color:#aaa;font-size:12px}
       @media(min-width:900px){
         html{scroll-padding-top:122px}
         body{background:#fff}
@@ -310,6 +310,21 @@ function coupangHomeSection() {
     <p class="affiliate-disclosure" data-coupang-disclosure>이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
     <div class="check-grid coupang-grid" data-coupang-products data-coupang-intent="travel" data-coupang-keyword="여행 준비물" data-coupang-limit="6">
       <p class="booking-status">여행 준비물 상품을 불러오는 중입니다.</p>
+    </div>
+  </section>`;
+}
+
+function coupangWidgetHomeSection() {
+  return `<section class="news-section check-section coupang-widget-ad" id="coupang-partners-widget" aria-labelledby="coupang-partners-widget-title" data-headline="여행 준비 특가">
+    <h2 id="coupang-partners-widget-title">여행 준비 특가</h2>
+    <p class="affiliate-disclosure">이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
+    <div class="coupang-widget-scroll">
+      <div class="coupang-widget-inner">
+        <script src="https://ads-partners.coupang.com/g.js"></script>
+        <script>
+          new PartnersCoupang.G({"id":1003200,"trackingCode":"AF1488183","subId":null,"template":"carousel","width":"680","height":"140"});
+        </script>
+      </div>
     </div>
   </section>`;
 }
@@ -803,6 +818,7 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
   const flightHtml = flightDealSection(flights);
   const mrtHtml = myRealTripAdSection(allProducts, flights);
   const coupangHtml = coupangHomeSection();
+  const coupangWidgetHtml = coupangWidgetHomeSection();
   const sectionHtml = sections
     .map((section) => {
       const html = section.kind === "booking"
@@ -811,7 +827,7 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
       return section.id === "weekend" && flightHtml ? `${html}\n${flightHtml}` : html;
     })
     .join("\n")
-    .replace(/(<section class="news-section check-section" id="booking")/, `${mrtHtml}\n${coupangHtml}\n$1`);
+    .replace(/(<section class="news-section check-section" id="booking")/, `${mrtHtml}\n${coupangHtml}\n${coupangWidgetHtml}\n$1`);
 
   return `<!doctype html>
 <html lang="ko">

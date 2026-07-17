@@ -315,6 +315,8 @@ const TRUST_NOTE_END = "TRUST_NOTE_END -->";
 const TRUST_STYLE_MARK = "/* tripview-trust-note */";
 const COUPANG_AD_START = "<!-- COUPANG_AD_START";
 const COUPANG_AD_END = "COUPANG_AD_END -->";
+const COUPANG_WIDGET_START = "<!-- COUPANG_WIDGET_START";
+const COUPANG_WIDGET_END = "COUPANG_WIDGET_END -->";
 const COUPANG_STYLE_MARK = "/* tripview-coupang-native-ad */";
 const COUPANG_SCRIPT = '<script src="/assets/coupang.js?v=coupang-20260708" defer></script>';
 
@@ -323,7 +325,7 @@ function articleAdCss() {
 }
 
 function articleCoupangCss() {
-  return `${COUPANG_STYLE_MARK}.coupang-native-ad{margin:30px 0;padding:18px 0 20px;border-top:2px solid #111;border-bottom:1px solid var(--line)}.coupang-native-ad h2{margin:0 0 8px;font-size:22px}.coupang-native-ad .affiliate-disclosure{margin:0 0 13px;color:var(--muted);font-size:12px;line-height:1.55}.coupang-native-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px;border-top:1px solid var(--line)}.coupang-card strong{font-size:16px}@media(max-width:640px){.coupang-native-grid{grid-template-columns:1fr}}/* end-tripview-coupang-native-ad */`;
+  return `${COUPANG_STYLE_MARK}.coupang-native-ad,.coupang-widget-ad{margin:30px 0;padding:18px 0 20px;border-top:2px solid #111;border-bottom:1px solid var(--line)}.coupang-native-ad h2,.coupang-widget-ad h2{margin:0 0 8px;font-size:22px}.coupang-native-ad .affiliate-disclosure,.coupang-widget-ad .affiliate-disclosure{margin:0 0 13px;color:var(--muted);font-size:12px;line-height:1.55}.coupang-native-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px;border-top:1px solid var(--line)}.coupang-card strong{font-size:16px}.coupang-widget-scroll{width:100%;max-width:100%;overflow-x:auto;overflow-y:hidden;padding-bottom:2px}.coupang-widget-inner{width:680px;max-width:680px;min-height:140px}@media(max-width:640px){.coupang-native-grid{grid-template-columns:1fr}}/* end-tripview-coupang-native-ad */`;
 }
 
 function articleTrustCss() {
@@ -335,10 +337,12 @@ function stripExistingArticleAds(document) {
     .replace(new RegExp(`${MRT_AD_START}[\\s\\S]*?${MRT_AD_END}`, "g"), "")
     .replace(new RegExp(`${TRUST_NOTE_START}[\\s\\S]*?${TRUST_NOTE_END}`, "g"), "")
     .replace(new RegExp(`${COUPANG_AD_START}[\\s\\S]*?${COUPANG_AD_END}`, "g"), "")
+    .replace(new RegExp(`${COUPANG_WIDGET_START}[\\s\\S]*?${COUPANG_WIDGET_END}`, "g"), "")
     .replace(/\/\* tripview-mrt-native-ad \*\/[\s\S]*?\/\* end-tripview-mrt-native-ad \*\//g, "")
     .replace(/\/\* tripview-trust-note \*\/[\s\S]*?\/\* end-tripview-trust-note \*\//g, "")
     .replace(/\/\* tripview-coupang-native-ad \*\/[\s\S]*?\/\* end-tripview-coupang-native-ad \*\//g, "")
-    .replace(/\s*<script\s+src=["']\/assets\/coupang\.js\?v=[^"']+["']\s+defer><\/script>/g, "");
+    .replace(/\s*<script\s+src=["']\/assets\/coupang\.js\?v=[^"']+["']\s+defer><\/script>/g, "")
+    .replace(/\s*<script\s+src=["']https:\/\/ads-partners\.coupang\.com\/g\.js["']><\/script>/g, "");
 }
 
 function injectArticleAdCss(document) {
@@ -517,6 +521,23 @@ function coupangAdBlock(post) {
 <!-- ${COUPANG_AD_END}`;
 }
 
+function coupangWidgetBlock(slot = "bottom") {
+  return `${COUPANG_WIDGET_START} ${slot} -->
+<section class="coupang-widget-ad" aria-label="쿠팡 파트너스 광고">
+  <h2>여행 준비 특가</h2>
+  <p class="affiliate-disclosure">이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
+  <div class="coupang-widget-scroll">
+    <div class="coupang-widget-inner">
+      <script src="https://ads-partners.coupang.com/g.js"></script>
+      <script>
+        new PartnersCoupang.G({"id":1003200,"trackingCode":"AF1488183","subId":null,"template":"carousel","width":"680","height":"140"});
+      </script>
+    </div>
+  </div>
+</section>
+<!-- ${COUPANG_WIDGET_END}`;
+}
+
 function injectCoupangScript(document) {
   if (document.includes("/assets/coupang.js")) return document;
   return document.replace("</body>", `\n    ${COUPANG_SCRIPT}\n  </body>`);
@@ -539,8 +560,9 @@ async function injectMyRealTripAdsIntoArticles() {
     const mid = articleAdBlock(post, "mid", 0);
     const bottom = articleAdBlock(post, "bottom", 3);
     const coupangBottom = coupangAdBlock(post);
+    const coupangWidget = coupangWidgetBlock("bottom");
     if (mid && next.includes("</table>")) next = next.replace("</table>", `</table>${mid}`);
-    if (bottom) next = next.replace(/<\/article>(\s*<aside)/, `${coupangBottom}${bottom}</article>$1`);
+    if (bottom) next = next.replace(/<\/article>(\s*<aside)/, `${coupangBottom}${coupangWidget}${bottom}</article>$1`);
     next = cleanGeneratedHtml(injectCoupangScript(next));
     if (next !== document) await writeFile(file, next, "utf8");
   }
