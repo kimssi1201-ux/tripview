@@ -1,7 +1,7 @@
 {
   "ok": true,
   "configured": true,
-  "productCount": 64,
+  "productCount": 58,
   "searchCount": 8,
   "searches": [
     {
@@ -32,7 +32,7 @@
     {
       "intent": "family",
       "keyword": "아이 여행 준비물",
-      "count": 8
+      "count": 2
     },
     {
       "intent": "booking",
@@ -46,5 +46,5 @@
     }
   ],
   "errors": [],
-  "updatedAt": "2026-07-17T02:42:41.724Z"
+  "updatedAt": "2026-07-18T02:34:19.509Z"
 }
