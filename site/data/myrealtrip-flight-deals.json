@@ -1,5 +1,37 @@
 [
   {
+    "id": "flight-ICN-MYJ-2026-08-10-2026-08-14",
+    "type": "flight",
+    "title": "인천-마쓰야마 왕복 5일 최저가 152,100원",
+    "url": "/flight-deals/flight-icn-myj-2026-08-10-2026-08-14/",
+    "bookingUrl": "https://flights.myrealtrip.com/",
+    "image": "",
+    "price": 152100,
+    "priceText": "152,100원",
+    "region": "마쓰야마",
+    "city": "마쓰야마",
+    "category": "항공권 최저가",
+    "description": "출발 2026년 8월 10일 · 귀국 2026년 8월 14일",
+    "tags": [
+      "항공권",
+      "최저가",
+      "예약",
+      "해외여행"
+    ],
+    "intents": [
+      "booking"
+    ],
+    "fromCity": "ICN",
+    "toCity": "MYJ",
+    "period": 5,
+    "departureDate": "2026-08-10",
+    "returnDate": "2026-08-14",
+    "airline": "",
+    "transfer": "",
+    "averagePrice": 450522,
+    "source": "myrealtrip-flight"
+  },
+  {
     "id": "flight-ICN-HIJ-2026-09-20-2026-09-24",
     "type": "flight",
     "title": "인천-히로시마 왕복 5일 최저가 164,700원",
@@ -28,14 +60,14 @@
     "returnDate": "2026-09-24",
     "airline": "",
     "transfer": "",
-    "averagePrice": 426731,
+    "averagePrice": 451877,
     "source": "myrealtrip-flight"
   },
   {
-    "id": "flight-ICN-YNT-2026-10-25-2026-10-29",
+    "id": "flight-ICN-YNT-2026-10-27-2026-10-31",
     "type": "flight",
     "title": "인천-YNT 왕복 5일 최저가 172,800원",
-    "url": "/flight-deals/flight-icn-ynt-2026-10-25-2026-10-29/",
+    "url": "/flight-deals/flight-icn-ynt-2026-10-27-2026-10-31/",
     "bookingUrl": "https://flights.myrealtrip.com/",
     "image": "",
     "price": 172800,
@@ -43,7 +75,7 @@
     "region": "YNT",
     "city": "YNT",
     "category": "항공권 최저가",
-    "description": "출발 2026년 10월 25일 · 귀국 2026년 10월 29일",
+    "description": "출발 2026년 10월 27일 · 귀국 2026년 10월 31일",
     "tags": [
       "항공권",
       "최저가",
@@ -56,11 +88,11 @@
     "fromCity": "ICN",
     "toCity": "YNT",
     "period": 5,
-    "departureDate": "2026-10-25",
-    "returnDate": "2026-10-29",
+    "departureDate": "2026-10-27",
+    "returnDate": "2026-10-31",
     "airline": "",
     "transfer": "",
-    "averagePrice": 295524,
+    "averagePrice": 294370,
     "source": "myrealtrip-flight"
   },
   {
@@ -92,7 +124,7 @@
     "returnDate": "2026-09-05",
     "airline": "",
     "transfer": "",
-    "averagePrice": 325012,
+    "averagePrice": 329310,
     "source": "myrealtrip-flight"
   },
   {
@@ -124,39 +156,7 @@
     "returnDate": "2026-09-03",
     "airline": "",
     "transfer": "",
-    "averagePrice": 527156,
-    "source": "myrealtrip-flight"
-  },
-  {
-    "id": "flight-ICN-MYJ-2026-08-31-2026-09-04",
-    "type": "flight",
-    "title": "인천-마쓰야마 왕복 5일 최저가 191,100원",
-    "url": "/flight-deals/flight-icn-myj-2026-08-31-2026-09-04/",
-    "bookingUrl": "https://flights.myrealtrip.com/",
-    "image": "",
-    "price": 191100,
-    "priceText": "191,100원",
-    "region": "마쓰야마",
-    "city": "마쓰야마",
-    "category": "항공권 최저가",
-    "description": "출발 2026년 8월 31일 · 귀국 2026년 9월 4일",
-    "tags": [
-      "항공권",
-      "최저가",
-      "예약",
-      "해외여행"
-    ],
-    "intents": [
-      "booking"
-    ],
-    "fromCity": "ICN",
-    "toCity": "MYJ",
-    "period": 5,
-    "departureDate": "2026-08-31",
-    "returnDate": "2026-09-04",
-    "airline": "",
-    "transfer": "",
-    "averagePrice": 422968,
+    "averagePrice": 522298,
     "source": "myrealtrip-flight"
   },
   {
@@ -188,39 +188,7 @@
     "returnDate": "2026-08-23",
     "airline": "",
     "transfer": "",
-    "averagePrice": 564526,
-    "source": "myrealtrip-flight"
-  },
-  {
-    "id": "flight-ICN-WEH-2026-11-30-2026-12-04",
-    "type": "flight",
-    "title": "인천-WEH 왕복 5일 최저가 194,200원",
-    "url": "/flight-deals/flight-icn-weh-2026-11-30-2026-12-04/",
-    "bookingUrl": "https://flights.myrealtrip.com/",
-    "image": "",
-    "price": 194200,
-    "priceText": "194,200원",
-    "region": "WEH",
-    "city": "WEH",
-    "category": "항공권 최저가",
-    "description": "출발 2026년 11월 30일 · 귀국 2026년 12월 4일",
-    "tags": [
-      "항공권",
-      "최저가",
-      "예약",
-      "해외여행"
-    ],
-    "intents": [
-      "booking"
-    ],
-    "fromCity": "ICN",
-    "toCity": "WEH",
-    "period": 5,
-    "departureDate": "2026-11-30",
-    "returnDate": "2026-12-04",
-    "airline": "",
-    "transfer": "",
-    "averagePrice": 337222,
+    "averagePrice": 569753,
     "source": "myrealtrip-flight"
   },
   {
@@ -252,7 +220,39 @@
     "returnDate": "2026-12-30",
     "airline": "",
     "transfer": "",
-    "averagePrice": 417713,
+    "averagePrice": 423803,
+    "source": "myrealtrip-flight"
+  },
+  {
+    "id": "flight-ICN-KIX-2026-09-02-2026-09-06",
+    "type": "flight",
+    "title": "인천-오사카 왕복 5일 최저가 200,080원",
+    "url": "/flight-deals/flight-icn-kix-2026-09-02-2026-09-06/",
+    "bookingUrl": "https://flights.myrealtrip.com/",
+    "image": "",
+    "price": 200080,
+    "priceText": "200,080원",
+    "region": "오사카",
+    "city": "오사카",
+    "category": "항공권 최저가",
+    "description": "출발 2026년 9월 2일 · 귀국 2026년 9월 6일",
+    "tags": [
+      "항공권",
+      "최저가",
+      "예약",
+      "해외여행"
+    ],
+    "intents": [
+      "booking"
+    ],
+    "fromCity": "ICN",
+    "toCity": "KIX",
+    "period": 5,
+    "departureDate": "2026-09-02",
+    "returnDate": "2026-09-06",
+    "airline": "",
+    "transfer": "",
+    "averagePrice": 468672,
     "source": "myrealtrip-flight"
   }
 ]
