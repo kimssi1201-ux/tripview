@@ -135,7 +135,7 @@ function html(posts) {
 <html lang="ko">
   <head>
     <meta name="naver-site-verification" content="38616b4b4209994ed384d0d2439bddcbec2cc711" />
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8468106244002167" crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5751319666030430" crossorigin="anonymous"></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="트립뷰는 국내여행과 공연/축제 정보를 위치, 일정, 운영 체크 중심으로 정리하는 여행 매거진입니다." />

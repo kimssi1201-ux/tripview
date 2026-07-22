@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 const scriptDir = dirname(fileURLToPath(import.meta.url));
 const root = join(scriptDir, "..");
 
-const ADSENSE_PUBLISHER_ID = "ca-pub-8468106244002167";
+const ADSENSE_PUBLISHER_ID = "ca-pub-5751319666030430";
 const NAVER_VERIFICATION_ID = "38616b4b4209994ed384d0d2439bddcbec2cc711";
 const ADSENSE_PUBLISHER_RE = /ca-pub-\d+/g;
 const ADSENSE_SCRIPT_RE = /\s*<script\s+async\s+src=["']https:\/\/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=ca-pub-\d+["'][^>]*crossorigin=["']anonymous["'][^>]*><\/script>/gi;

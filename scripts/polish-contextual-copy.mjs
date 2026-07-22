@@ -430,7 +430,7 @@ function renderArticle(post, counts, allPosts) {
 <html lang="ko">
   <head>
     <meta name="naver-site-verification" content="38616b4b4209994ed384d0d2439bddcbec2cc711" />
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8468106244002167"
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5751319666030430"
      crossorigin="anonymous"></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
