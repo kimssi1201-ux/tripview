@@ -11,7 +11,7 @@ Use this when scheduled jobs or post generation scripts need an API key.
 3. Click `New repository secret`.
 4. Add these names as needed:
    - `TRIPVIEW_API_KEY`: Korea TourAPI service key.
-   - `KMA_BEACH_API_KEY`: KMA nationwide beach weather service key.
+   - `KMA_BEACH_API_KEY`: KMA beach weather key. The same key is used for the Ministry of Oceans and Fisheries beach information lookup.
    - `OPENAI_API_KEY`: OpenAI API key for AI-assisted content generation.
    - `OPENAI_MODEL`: optional repository variable. Defaults to `gpt-5.5`.
    - `OPENAI_ENRICH_LIMIT`: optional repository variable. Defaults to `10`.

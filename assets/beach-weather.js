@@ -50,6 +50,39 @@
     return item;
   }
 
+  function beachInfoBlock(info) {
+    if (!info) return null;
+    const section = node("section", "beach-info");
+    section.append(node("h3", "beach-weather-subtitle", "\uD574\uC218\uC695\uC7A5 \uAE30\uBCF8\uC815\uBCF4"));
+    if (info.image) {
+      const image = node("img", "beach-info-image");
+      image.src = info.image;
+      image.alt = info.name ? `${info.name} \uD574\uC218\uC695\uC7A5` : "\uD574\uC218\uC695\uC7A5 \uC774\uBBF8\uC9C0";
+      image.loading = "lazy";
+      section.append(image);
+    }
+    const details = node("dl", "beach-info-grid");
+    const location = [info.province, info.county].filter(Boolean).join(" ");
+    const size = [
+      info.width !== null && info.width !== undefined ? `\uD574\uBCC0\uD3ED ${info.width}m` : "",
+      info.length !== null && info.length !== undefined ? `\uCD1D\uC5F0\uC7A5 ${info.length}m` : "",
+    ].filter(Boolean).join(" \u00B7 ");
+    [["\uC704\uCE58", location], ["\uD574\uBCC0 \uD2B9\uC9D5", info.feature], ["\uD574\uBCC0 \uD06C\uAE30", size], ["\uBE44\uC0C1\uC5F0\uB77D\uCC98", info.emergencyPhone]].forEach(([label, value]) => {
+      if (!value) return;
+      details.append(node("dt", "beach-info-label", label));
+      details.append(node("dd", "beach-info-value", value));
+    });
+    section.append(details);
+    if (info.link) {
+      const link = node("a", "beach-info-link", info.linkName || "\uAD00\uB828 \uC548\uB0B4 \uBCF4\uAE30");
+      link.href = info.link;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      section.append(link);
+    }
+    return section;
+  }
+
   function render(payload) {
     if (!output) return;
     if (!payload?.ok) {
@@ -68,6 +101,8 @@
 
     const wrapper = node("div", "beach-weather-result");
     wrapper.append(grid);
+    const info = beachInfoBlock(payload.info);
+    if (info) wrapper.append(info);
     if (Array.isArray(payload.tide) && payload.tide.length) {
       const tide = node("div", "beach-weather-tide");
       tide.append(node("strong", "beach-weather-subtitle", "\uC870\uC11D \uC815\uBCF4"));

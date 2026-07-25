@@ -1,4 +1,5 @@
 const API_BASE = "https://apis.data.go.kr/1360000/BeachInfoservice";
+const INFO_API_BASE = "https://apis.data.go.kr/1192000/service/OceansBeachInfoService1/getOceansBeachInfo1";
 const REQUEST_TIMEOUT_MS = 8000;
 const CACHE_SECONDS = 600;
 const MAX_BEACH_NUMBER = 330;
@@ -22,6 +23,8 @@ const BEACH_NAMES = new Map([
   [16, "\uC7A5\uACE8"],
   [17, "\uBC8C\uC548"],
 ]);
+
+const BEACH_SIDO = new Map([...BEACH_NAMES.keys()].map((id) => [id, "\uC778\uCC9C"]));
 
 function json(data, status = 200, cacheSeconds = 0) {
   return new Response(JSON.stringify(data), {
@@ -153,6 +156,49 @@ async function fetchOperation(apiKey, operation, beachNumber, now) {
   }
 }
 
+function normalizedPlaceName(value) {
+  return text(value).replace(/\s+/g, "").replace(/\uD574\uC218\uC695\uC7A5/g, "").toLowerCase();
+}
+
+function safeHttpUrl(value) {
+  const url = text(value);
+  return /^https?:\/\//i.test(url) ? url : "";
+}
+
+async function fetchBeachInfo(apiKey, beachNumber) {
+  const beachName = BEACH_NAMES.get(beachNumber);
+  const sido = BEACH_SIDO.get(beachNumber);
+  if (!beachName || !sido) return { operation: "info", items: [] };
+
+  const url = new URL(INFO_API_BASE);
+  Object.entries({
+    ServiceKey: apiKey,
+    pageNo: "1",
+    numOfRows: "100",
+    SIDO_NM: sido,
+    resultType: "JSON",
+  }).forEach(([key, value]) => url.searchParams.set(key, value));
+
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+  try {
+    const response = await fetch(url, {
+      headers: { accept: "application/json" },
+      signal: controller.signal,
+    });
+    const payload = await response.json().catch(() => null);
+    if (!response.ok || !payload || !isSuccessful(payload)) throw new Error("Beach info API returned an unsuccessful response.");
+    const items = Array.isArray(responseItems(payload)) ? responseItems(payload) : [];
+    const target = normalizedPlaceName(beachName);
+    return { operation: "info", items: items.filter((item) => normalizedPlaceName(item?.staNm) === target) };
+  } catch (error) {
+    if (error?.name === "AbortError") throw new Error("Beach info API request timed out.");
+    throw error;
+  } finally {
+    clearTimeout(timeoutId);
+  }
+}
+
 function forecastValue(items, category) {
   return items.find((item) => text(item?.category).toUpperCase() === category)?.fcstValue ?? null;
 }
@@ -231,6 +277,25 @@ function normalizeTide(items) {
     .slice(0, 8);
 }
 
+function normalizeBeachInfo(items) {
+  const item = items[0];
+  if (!item) return null;
+  return {
+    province: text(item.sidoNm),
+    county: text(item.gugunNm),
+    name: text(item.staNm),
+    width: numberOrNull(item.beachWid),
+    length: numberOrNull(item.beachLen),
+    feature: text(item.beachKnd),
+    image: safeHttpUrl(item.beachImg),
+    emergencyPhone: text(item.linkTel),
+    link: safeHttpUrl(item.linkAddr),
+    linkName: text(item.linkNm),
+    latitude: numberOrNull(item.lat),
+    longitude: numberOrNull(item.lon),
+  };
+}
+
 function publicErrorMessage(issues) {
   if (!issues.length) return "";
   return "\uC77C\uBD80 \uD574\uC591 \uC815\uBCF4\uB294 \uC9C0\uAE08 \uC81C\uACF5\uB418\uC9C0 \uC54A\uC744 \uC218 \uC788\uC2B5\uB2C8\uB2E4.";
@@ -239,13 +304,20 @@ function publicErrorMessage(issues) {
 async function loadSummary(apiKey, beachNumber) {
   const now = new Date();
   const operations = Object.keys(OPERATION_PATHS);
-  const results = await Promise.all(operations.map(async (operation) => {
+  const weatherResults = await Promise.all(operations.map(async (operation) => {
     try {
       return await fetchOperation(apiKey, operation, beachNumber, now);
     } catch {
       return { operation, items: [], failed: true };
     }
   }));
+  let infoResult;
+  try {
+    infoResult = await fetchBeachInfo(apiKey, beachNumber);
+  } catch {
+    infoResult = { operation: "info", items: [], failed: true };
+  }
+  const results = [...weatherResults, infoResult];
   const issues = results.filter((result) => result.failed || !result.items.length).map((result) => result.operation);
   const byOperation = new Map(results.map((result) => [result.operation, result.items]));
   const forecastItems = byOperation.get("forecast") || [];
@@ -253,6 +325,7 @@ async function loadSummary(apiKey, beachNumber) {
   const waterItems = byOperation.get("waterTemperature") || [];
   const sunItems = byOperation.get("sun") || [];
   const tideItems = byOperation.get("tide") || [];
+  const infoItems = byOperation.get("info") || [];
   const data = {
     ok: true,
     beach: { id: beachNumber, name: BEACH_NAMES.get(beachNumber) || `\uD574\uC218\uC695\uC7A5 ${beachNumber}` },
@@ -262,11 +335,12 @@ async function loadSummary(apiKey, beachNumber) {
     waterTemperature: normalizeWaterTemperature(waterItems),
     sun: normalizeSun(sunItems),
     tide: normalizeTide(tideItems),
+    info: normalizeBeachInfo(infoItems),
     partial: issues.length > 0,
     message: publicErrorMessage(issues),
     sourceUrl: "https://www.data.go.kr/data/15102239/openapi.do",
   };
-  if (!data.forecast && !data.wave && !data.waterTemperature && !data.sun && !data.tide.length) {
+  if (!data.forecast && !data.wave && !data.waterTemperature && !data.sun && !data.tide.length && !data.info) {
     throw new Error("KMA API returned no usable beach data.");
   }
   return data;
