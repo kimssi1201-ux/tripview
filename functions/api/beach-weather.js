@@ -352,7 +352,11 @@ export async function onRequestGet(context) {
   const resolved = resolveBeach(url);
   if (!resolved) return json({ ok: false, available: false, message: "\uB9E4\uD551\uB41C \uD574\uC218\uC695\uC7A5 \uC815\uBCF4\uAC00 \uC5C6\uC2B5\uB2C8\uB2E4." }, 404);
 
-  const apiKey = apiKeyText(context.env?.KMA_BEACH_API_KEY || context.env?.BEACH_API_KEY);
+  const apiKey = apiKeyText(
+    context.env?.KMA_BEACH_API_KEY
+      || context.env?.BEACH_API_KEY
+      || context.env?.TRIPVIEW_API_KEY,
+  );
   if (!apiKey) return json({ ok: false, configured: false, message: "\uD574\uC218\uC695\uC7A5 API \uC778\uC99D\uD0A4\uAC00 \uC124\uC815\uB418\uC9C0 \uC54A\uC558\uC2B5\uB2C8\uB2E4." }, 503);
 
   const cacheKey = new Request(`${url.origin}${url.pathname}?beach=${encodeURIComponent(resolved.slug)}`);
