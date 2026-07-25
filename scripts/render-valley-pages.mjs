@@ -5,7 +5,19 @@ import { fileURLToPath } from "node:url";
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DATA_PATH = path.join(ROOT, "data", "generated-posts.json");
 const STYLE_SOURCE = path.join(ROOT, "travel-125652", "index.html");
-const TARGET_SLUGS = ["travel-125837", "travel-2787329", "travel-3042140"];
+const TARGET_SLUGS = [
+  "travel-125837",
+  "travel-2787329",
+  "travel-3042140",
+  "travel-126078",
+  "travel-126302",
+  "travel-128199",
+  "travel-125711",
+  "travel-125713",
+  "travel-3000205",
+  "travel-127722",
+  "travel-127764",
+];
 
 const esc = (value = "") => String(value).replace(/[&<>"']/g, (match) => ({
   "&": "&amp;",
@@ -110,4 +122,4 @@ for (const slug of TARGET_SLUGS) {
   rendered += 1;
 }
 
-console.log(`Rendered ${rendered} valley article page(s).`);
+console.log(`Rendered ${rendered} article page(s).`);
