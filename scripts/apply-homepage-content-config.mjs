@@ -668,7 +668,7 @@ function takeFresh(posts, used, count = 10) {
 }
 
 function newsSection({ id, title, posts, inlineProducts = [] }) {
-  const count = id === "popular" ? 9 : 6;
+  const count = id === "popular" ? 9 : id === "water" ? 10 : 6;
   const items = uniquePosts(posts).slice(0, count);
   if (!items.length) return "";
   return `<section class="news-section" id="${esc(id)}" aria-labelledby="${esc(id)}-title" data-headline="${esc(title)}">
@@ -714,6 +714,7 @@ function buildSections(posts) {
   const byType = (typeId) => posts.filter((post) => contentTypeOf(post) === typeId);
   const used = new Set();
   const waterPool = domestic.filter((post) => hasAnyKeyword(post, waterKeywords));
+  const valleyPool = waterPool.filter((post) => hasAnyKeyword(post, ["계곡", "폭포"]));
   const indoorPool = sortLatest([...byType("14"), ...domestic.filter((post) => hasAnyKeyword(post, indoorKeywords))]);
   const familyPool = sortLatest(posts.filter((post) => !isFestival(post) && hasAnyKeyword(post, familyKeywords)));
   const bookingPool = sortLatest([
@@ -733,7 +734,7 @@ function buildSections(posts) {
     { id: "popular", title: TEXT.navPopular, posts: sortCurrentPlaces(generalTravel.length ? generalTravel : domestic) },
     { id: "weekend", title: TEXT.navWeekend, posts: sortLatest(weekendPool.length ? weekendPool : domestic) },
     { id: "festival", title: "7~8\uC6D4 \uCD95\uC81C/\uD589\uC0AC", posts: festivals },
-    { id: "water", title: TEXT.navWater, posts: sortCurrentPlaces(waterPool) },
+    { id: "water", title: TEXT.navWater, posts: [...sortCurrentPlaces(valleyPool), ...sortCurrentPlaces(waterPool)] },
     { id: "indoor", title: TEXT.navIndoor, posts: indoorPool.length ? indoorPool : sortLatest(domestic), fallbackPosts: sortLatest(domestic) },
     { id: "family", title: TEXT.navFamily, posts: familyPool.length ? familyPool : sortLatest(domestic), fallbackPosts: sortLatest(domestic) },
     { id: "booking", title: TEXT.navBooking, kind: "booking", posts: bookingPool },
