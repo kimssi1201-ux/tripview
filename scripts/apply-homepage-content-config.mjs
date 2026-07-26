@@ -614,7 +614,6 @@ function sectionKicker(id) {
     weekend: "LATEST",
     festival: "FESTIVAL",
     water: "WATER",
-    beach: "BEACH",
     indoor: "INDOOR",
     family: "FAMILY",
     booking: "BOOKING",
@@ -683,7 +682,7 @@ function takeFresh(posts, used, count = 10) {
 }
 
 function newsSection({ id, title, posts, inlineProducts = [] }) {
-  const count = id === "popular" ? 9 : id === "water" ? 10 : id === "beach" ? 12 : 6;
+  const count = id === "popular" ? 9 : id === "water" ? 12 : 6;
   const items = uniquePosts(posts).slice(0, count);
   if (!items.length) return "";
   return `<section class="news-section" id="${esc(id)}" aria-labelledby="${esc(id)}-title" data-headline="${esc(title)}">
@@ -741,6 +740,13 @@ function buildSections(posts) {
   ]);
   const weekendPool = [...byType("12"), ...byType("25"), ...byType("28"), ...domestic]
     .filter((post) => !hasAnyKeyword(post, waterKeywords));
+  const nonBeachWaterPool = uniquePosts([...valleyPool, ...waterPool]);
+  const waterPosts = [
+    ...sortCurrentPlaces(beachPool).slice(0, 6),
+    ...sortCurrentPlaces(nonBeachWaterPool).slice(0, 6),
+    ...sortCurrentPlaces(beachPool).slice(6),
+    ...sortCurrentPlaces(nonBeachWaterPool).slice(6),
+  ];
   const generalTravel = domestic.filter((post) => (
     !hasAnyKeyword(post, waterKeywords) &&
     !hasAnyKeyword(post, indoorKeywords) &&
@@ -750,8 +756,7 @@ function buildSections(posts) {
     { id: "popular", title: TEXT.navPopular, posts: sortCurrentPlaces(generalTravel.length ? generalTravel : domestic) },
     { id: "weekend", title: TEXT.navWeekend, posts: sortLatest(weekendPool.length ? weekendPool : domestic) },
     { id: "festival", title: "7~8\uC6D4 \uCD95\uC81C/\uD589\uC0AC", posts: festivals },
-    { id: "water", title: TEXT.navWater, posts: [...sortCurrentPlaces(valleyPool), ...sortCurrentPlaces(waterPool)] },
-    { id: "beach", title: "\uD574\uC218\uC695\uC7A5", posts: sortCurrentPlaces(beachPool) },
+    { id: "water", title: TEXT.navWater, posts: waterPosts },
     { id: "indoor", title: TEXT.navIndoor, posts: indoorPool.length ? indoorPool : sortLatest(domestic), fallbackPosts: sortLatest(domestic) },
     { id: "family", title: TEXT.navFamily, posts: familyPool.length ? familyPool : sortLatest(domestic), fallbackPosts: sortLatest(domestic) },
     { id: "booking", title: TEXT.navBooking, kind: "booking", posts: bookingPool },
@@ -760,8 +765,7 @@ function buildSections(posts) {
   return sectionDefs
     .map((section) => {
       if (section.kind === "booking") return { ...section, posts: takePosts(section.posts, 4) };
-      if (section.id === "beach") return { ...section, posts: takePosts(section.posts, 12) };
-      const freshPosts = takeFresh(section.posts, used);
+      const freshPosts = takeFresh(section.posts, used, section.id === "water" ? 12 : 10);
       return freshPosts.length ? { ...section, posts: freshPosts } : { ...section, posts: takePosts(section.fallbackPosts || [], 10) };
     })
     .filter((section) => section.kind === "booking" || section.posts.length);
@@ -772,7 +776,6 @@ function categoryNav(sections) {
   const primaryItems = [
     ["popular", "\uC9C0\uAE08 \uB9CE\uC774 \uCC3E\uB294 \uC5EC\uD589\uC9C0"],
     ["water", "\uBB3C\uB180\uC774\u00B7\uACC4\uACE1"],
-    ["beach", "\uD574\uC218\uC695\uC7A5"],
     ["weekend", "\uC774\uBC88 \uC8FC\uB9D0"],
     ["festival", "7~8\uC6D4 \uCD95\uC81C"],
     ["indoor", "\uC2E4\uB0B4\uC5EC\uD589"],
@@ -893,7 +896,6 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
         <a href="#popular">\uC9C0\uAE08 \uB9CE\uC774 \uCC3E\uB294 \uC5EC\uD589\uC9C0</a>
         <a href="#weekend">\uC774\uBC88 \uC8FC\uB9D0 \uAC00\uBCFC\uB9CC\uD55C \uACF3</a>
         <a href="#water">\uBB3C\uB180\uC774\u00B7\uACC4\uACE1\u00B7\uD574\uC218\uC695\uC7A5</a>
-        <a href="#beach">\uD574\uC218\uC695\uC7A5</a>
         <a href="#indoor">\uBE44 \uC624\uB294 \uB0A0 \uC2E4\uB0B4 \uC5EC\uD589</a>
       </div>
       <div class="footer-col">
