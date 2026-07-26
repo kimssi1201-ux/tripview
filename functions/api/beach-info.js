@@ -224,7 +224,7 @@ export async function onRequestGet(context) {
   );
   if (!apiKey) return json({ ok: false, configured: false, message: "\uD574\uC218\uC695\uC7A5 \uC815\uBCF4 API \uC778\uC99D\uD0A4\uAC00 \uC124\uC815\uB418\uC9C0 \uC54A\uC558\uC2B5\uB2C8\uB2E4." }, 503);
 
-  const cacheKey = new Request(`${url.origin}${url.pathname}?beach=${encodeURIComponent(resolved.slug)}`);
+  const cacheKey = new Request(`${url.origin}${url.pathname}?beach=${encodeURIComponent(resolved.slug)}&schema=info-v1`);
   const cache = globalThis.caches?.default;
   if (cache) {
     const cached = await cache.match(cacheKey);
