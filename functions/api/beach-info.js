@@ -55,6 +55,10 @@ function responseItems(payload) {
     || payload?.body?.items?.item
     || payload?.data?.items?.item
     || payload?.items?.item
+    || payload?.response?.body?.items
+    || payload?.body?.items
+    || payload?.data?.items
+    || payload?.items
     || [];
   return Array.isArray(items) ? items : items ? [items] : [];
 }
@@ -148,7 +152,9 @@ async function fetchBeachInfo(apiKey, beach) {
       const payload = await fetchJson(url);
       if (!isSuccessful(payload)) continue;
       successfulResponse = true;
-      const item = responseItems(payload).find((candidate) => targetNames.has(normalizeName(candidate?.staNm)));
+      const item = responseItems(payload).find((candidate) => targetNames.has(
+        normalizeName(candidate?.staNm || candidate?.beachNm || candidate?.name),
+      ));
       if (item) return normalizeBeachInfo(item);
     } catch (error) {
       lastError = error;
@@ -189,8 +195,8 @@ export async function onRequestGet(context) {
 
   const apiKey = apiKeyText(
     context.env?.BEACH_INFO_API_KEY
-      || context.env?.TRIPVIEW_API_KEY
-      || context.env?.KMA_BEACH_API_KEY,
+      || context.env?.KMA_BEACH_API_KEY
+      || context.env?.TRIPVIEW_API_KEY,
   );
   if (!apiKey) return json({ ok: false, configured: false, message: "\uD574\uC218\uC695\uC7A5 \uC815\uBCF4 API \uC778\uC99D\uD0A4\uAC00 \uC124\uC815\uB418\uC9C0 \uC54A\uC558\uC2B5\uB2C8\uB2E4." }, 503);
 
