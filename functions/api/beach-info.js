@@ -51,7 +51,8 @@ function apiKeyText(value) {
 }
 
 function responseItems(payload) {
-  const items = payload?.response?.body?.items?.item
+  const items = payload?.getOceansBeachInfo?.item
+    || payload?.response?.body?.items?.item
     || payload?.body?.items?.item
     || payload?.data?.items?.item
     || payload?.items?.item
@@ -64,15 +65,25 @@ function responseItems(payload) {
 }
 
 function responseHeader(payload) {
-  return payload?.response?.header || payload?.header || payload?.result || {};
+  return payload?.getOceansBeachInfo?.header
+    || payload?.response?.header
+    || payload?.header
+    || payload?.result
+    || {};
 }
 
 function responseBody(payload) {
-  return payload?.response?.body || payload?.body || payload?.data || payload || {};
+  return payload?.getOceansBeachInfo
+    || payload?.response?.body
+    || payload?.body
+    || payload?.data
+    || payload
+    || {};
 }
 
 function isSuccessful(payload) {
-  const code = text(responseHeader(payload)?.resultCode, "00");
+  const header = responseHeader(payload);
+  const code = text(header?.resultCode || header?.code, "00");
   return ["00", "0", "200", "NORMAL_SERVICE"].includes(code);
 }
 
@@ -124,16 +135,16 @@ function numberOrNull(value) {
 
 function normalizeBeachInfo(item) {
   return {
-    province: text(item?.sidoNm),
-    county: text(item?.gugunNm),
-    name: text(item?.staNm),
-    width: numberOrNull(item?.beachWid),
-    length: numberOrNull(item?.beachLen),
-    feature: text(item?.beachKnd),
-    link: safeHttpUrl(item?.linkAddr),
-    linkName: text(item?.linkNm),
-    image: safeHttpUrl(item?.beachImg),
-    emergencyPhone: text(item?.linkTel),
+    province: text(item?.sidoNm || item?.sido_nm),
+    county: text(item?.gugunNm || item?.gugun_nm),
+    name: text(item?.staNm || item?.sta_nm || item?.beachNm || item?.beach_nm),
+    width: numberOrNull(item?.beachWid ?? item?.beach_wid),
+    length: numberOrNull(item?.beachLen ?? item?.beach_len),
+    feature: text(item?.beachKnd || item?.beach_knd),
+    link: safeHttpUrl(item?.linkAddr || item?.link_addr),
+    linkName: text(item?.linkNm || item?.link_nm),
+    image: safeHttpUrl(item?.beachImg || item?.beach_img),
+    emergencyPhone: text(item?.linkTel || item?.link_tel),
     latitude: numberOrNull(item?.lat),
     longitude: numberOrNull(item?.lon),
   };
@@ -169,7 +180,7 @@ async function fetchBeachInfo(apiKey, beach) {
         pages.push(responseItems(nextPayload));
       }
       const item = pages.flat().find((candidate) => targetNames.has(
-        normalizeName(candidate?.staNm || candidate?.beachNm || candidate?.name),
+        normalizeName(candidate?.staNm || candidate?.sta_nm || candidate?.beachNm || candidate?.beach_nm || candidate?.name),
       ));
       if (item) return normalizeBeachInfo(item);
     } catch (error) {
