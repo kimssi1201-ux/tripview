@@ -67,6 +67,10 @@ function responseHeader(payload) {
   return payload?.response?.header || payload?.header || payload?.result || {};
 }
 
+function responseBody(payload) {
+  return payload?.response?.body || payload?.body || payload?.data || payload || {};
+}
+
 function isSuccessful(payload) {
   const code = text(responseHeader(payload)?.resultCode, "00");
   return ["00", "0", "200", "NORMAL_SERVICE"].includes(code);
@@ -152,7 +156,19 @@ async function fetchBeachInfo(apiKey, beach) {
       const payload = await fetchJson(url);
       if (!isSuccessful(payload)) continue;
       successfulResponse = true;
-      const item = responseItems(payload).find((candidate) => targetNames.has(
+      const firstBody = responseBody(payload);
+      const firstItems = responseItems(payload);
+      const pageSize = Math.max(1, Number.parseInt(firstBody.numOfRows, 10) || firstItems.length || 10);
+      const totalCount = Math.max(firstItems.length, Number.parseInt(firstBody.totalCount, 10) || firstItems.length);
+      const maxPage = Math.min(100, Math.ceil(totalCount / pageSize));
+      const pages = [firstItems];
+      for (let pageNo = 2; pageNo <= maxPage; pageNo += 1) {
+        url.searchParams.set("pageNo", String(pageNo));
+        const nextPayload = await fetchJson(url);
+        if (!isSuccessful(nextPayload)) continue;
+        pages.push(responseItems(nextPayload));
+      }
+      const item = pages.flat().find((candidate) => targetNames.has(
         normalizeName(candidate?.staNm || candidate?.beachNm || candidate?.name),
       ));
       if (item) return normalizeBeachInfo(item);
