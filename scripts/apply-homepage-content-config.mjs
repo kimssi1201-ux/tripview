@@ -49,9 +49,9 @@ const DESKTOP_LAYOUT_CSS = `
 const TEXT = {
   articleFallback: "\uC5EC\uD589 \uAE30\uC0AC",
   infoFallback: "\uC5EC\uD589 \uC815\uBCF4",
-  description: `${BRAND}\uB294 \uC9C0\uAE08 \uB9CE\uC774 \uCC3E\uB294 \uC5EC\uD589\uC9C0, \uC8FC\uB9D0 \uC5EC\uD589, 7~8\uC6D4 \uCD95\uC81C, \uBB3C\uB180\uC774, \uC2E4\uB0B4\uC5EC\uD589, \uC544\uC774\uC640 \uAC00\uAE30 \uC88B\uC740 \uACF3, \uC608\uC57D \uC804 \uCCB4\uD06C\uB97C \uC815\uB9AC\uD55C \uC5EC\uD589 \uC815\uBCF4 \uB9E4\uAC70\uC9C4\uC785\uB2C8\uB2E4.`,
+  description: `${BRAND}\uB294 \uC9C0\uAE08 \uB9CE\uC774 \uCC3E\uB294 \uC5EC\uD589\uC9C0, \uC8FC\uB9D0 \uC5EC\uD589, 7~8\uC6D4 \uCD95\uC81C, \uBB3C\uB180\uC774, \uD574\uC218\uC695\uC7A5, \uC2E4\uB0B4\uC5EC\uD589, \uC544\uC774\uC640 \uAC00\uAE30 \uC88B\uC740 \uACF3, \uC608\uC57D \uC804 \uCCB4\uD06C\uB97C \uC815\uB9AC\uD55C \uC5EC\uD589 \uC815\uBCF4 \uB9E4\uAC70\uC9C4\uC785\uB2C8\uB2E4.`,
   ogTitle: `${BRAND} - \uC5EC\uD589 \uB274\uC2A4 \uD53C\uB4DC`,
-  ogDescription: "\uC9C0\uAE08 \uB9CE\uC774 \uCC3E\uB294 \uC5EC\uD589\uC9C0, \uC8FC\uB9D0 \uC5EC\uD589, \uCD95\uC81C, \uBB3C\uB180\uC774, \uC2E4\uB0B4\uC5EC\uD589, \uC608\uC57D \uC804 \uCCB4\uD06C\uB97C \uB274\uC2A4 \uC139\uC158\uC73C\uB85C \uC815\uB9AC\uD569\uB2C8\uB2E4.",
+  ogDescription: "\uC9C0\uAE08 \uB9CE\uC774 \uCC3E\uB294 \uC5EC\uD589\uC9C0, \uC8FC\uB9D0 \uC5EC\uD589, \uCD95\uC81C, \uBB3C\uB180\uC774, \uD574\uC218\uC695\uC7A5, \uC2E4\uB0B4\uC5EC\uD589, \uC608\uC57D \uC804 \uCCB4\uD06C\uB97C \uB274\uC2A4 \uC139\uC158\uC73C\uB85C \uC815\uB9AC\uD569\uB2C8\uB2E4.",
   rssTitle: `${BRAND} RSS`,
   navLabel: "\uCE74\uD14C\uACE0\uB9AC",
   navAll: "\uC804\uCCB4",
@@ -84,6 +84,20 @@ const esc = (value = "") =>
   }[match]));
 
 const normalize = (value = "") => String(value).trim();
+const BEACH_POST_SLUGS = new Set([
+  "travel-126078",
+  "travel-126302",
+  "travel-125711",
+  "travel-125713",
+  "travel-127722",
+  "travel-127764",
+  "travel-126098",
+  "travel-128767",
+  "travel-129255",
+  "travel-129256",
+  "travel-127698",
+  "travel-129400",
+]);
 const CURRENT_TRAVEL_KEYWORDS = [
   "\uC218\uC601\uC7A5",
   "\uACC4\uACE1",
@@ -600,6 +614,7 @@ function sectionKicker(id) {
     weekend: "LATEST",
     festival: "FESTIVAL",
     water: "WATER",
+    beach: "BEACH",
     indoor: "INDOOR",
     family: "FAMILY",
     booking: "BOOKING",
@@ -668,7 +683,7 @@ function takeFresh(posts, used, count = 10) {
 }
 
 function newsSection({ id, title, posts, inlineProducts = [] }) {
-  const count = id === "popular" ? 9 : id === "water" ? 10 : 6;
+  const count = id === "popular" ? 9 : id === "water" ? 10 : id === "beach" ? 12 : 6;
   const items = uniquePosts(posts).slice(0, count);
   if (!items.length) return "";
   return `<section class="news-section" id="${esc(id)}" aria-labelledby="${esc(id)}-title" data-headline="${esc(title)}">
@@ -713,7 +728,8 @@ function buildSections(posts) {
 
   const byType = (typeId) => posts.filter((post) => contentTypeOf(post) === typeId);
   const used = new Set();
-  const waterPool = domestic.filter((post) => hasAnyKeyword(post, waterKeywords));
+  const beachPool = domestic.filter((post) => BEACH_POST_SLUGS.has(post.slug));
+  const waterPool = domestic.filter((post) => !BEACH_POST_SLUGS.has(post.slug) && hasAnyKeyword(post, waterKeywords));
   const valleyPool = waterPool.filter((post) => hasAnyKeyword(post, ["계곡", "폭포"]));
   const indoorPool = sortLatest([...byType("14"), ...domestic.filter((post) => hasAnyKeyword(post, indoorKeywords))]);
   const familyPool = sortLatest(posts.filter((post) => !isFestival(post) && hasAnyKeyword(post, familyKeywords)));
@@ -735,6 +751,7 @@ function buildSections(posts) {
     { id: "weekend", title: TEXT.navWeekend, posts: sortLatest(weekendPool.length ? weekendPool : domestic) },
     { id: "festival", title: "7~8\uC6D4 \uCD95\uC81C/\uD589\uC0AC", posts: festivals },
     { id: "water", title: TEXT.navWater, posts: [...sortCurrentPlaces(valleyPool), ...sortCurrentPlaces(waterPool)] },
+    { id: "beach", title: "\uD574\uC218\uC695\uC7A5", posts: sortCurrentPlaces(beachPool) },
     { id: "indoor", title: TEXT.navIndoor, posts: indoorPool.length ? indoorPool : sortLatest(domestic), fallbackPosts: sortLatest(domestic) },
     { id: "family", title: TEXT.navFamily, posts: familyPool.length ? familyPool : sortLatest(domestic), fallbackPosts: sortLatest(domestic) },
     { id: "booking", title: TEXT.navBooking, kind: "booking", posts: bookingPool },
@@ -743,6 +760,7 @@ function buildSections(posts) {
   return sectionDefs
     .map((section) => {
       if (section.kind === "booking") return { ...section, posts: takePosts(section.posts, 4) };
+      if (section.id === "beach") return { ...section, posts: takePosts(section.posts, 12) };
       const freshPosts = takeFresh(section.posts, used);
       return freshPosts.length ? { ...section, posts: freshPosts } : { ...section, posts: takePosts(section.fallbackPosts || [], 10) };
     })
@@ -754,6 +772,7 @@ function categoryNav(sections) {
   const primaryItems = [
     ["popular", "\uC9C0\uAE08 \uB9CE\uC774 \uCC3E\uB294 \uC5EC\uD589\uC9C0"],
     ["water", "\uBB3C\uB180\uC774\u00B7\uACC4\uACE1"],
+    ["beach", "\uD574\uC218\uC695\uC7A5"],
     ["weekend", "\uC774\uBC88 \uC8FC\uB9D0"],
     ["festival", "7~8\uC6D4 \uCD95\uC81C"],
     ["indoor", "\uC2E4\uB0B4\uC5EC\uD589"],
@@ -874,6 +893,7 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
         <a href="#popular">\uC9C0\uAE08 \uB9CE\uC774 \uCC3E\uB294 \uC5EC\uD589\uC9C0</a>
         <a href="#weekend">\uC774\uBC88 \uC8FC\uB9D0 \uAC00\uBCFC\uB9CC\uD55C \uACF3</a>
         <a href="#water">\uBB3C\uB180\uC774\u00B7\uACC4\uACE1\u00B7\uD574\uC218\uC695\uC7A5</a>
+        <a href="#beach">\uD574\uC218\uC695\uC7A5</a>
         <a href="#indoor">\uBE44 \uC624\uB294 \uB0A0 \uC2E4\uB0B4 \uC5EC\uD589</a>
       </div>
       <div class="footer-col">
