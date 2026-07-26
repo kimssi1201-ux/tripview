@@ -319,7 +319,6 @@ const COUPANG_WIDGET_START = "<!-- COUPANG_WIDGET_START";
 const COUPANG_WIDGET_END = "COUPANG_WIDGET_END -->";
 const COUPANG_STYLE_MARK = "/* tripview-coupang-native-ad */";
 const COUPANG_SCRIPT = '<script src="/assets/coupang.js?v=coupang-20260708" defer></script>';
-const BEACH_INFO_SCRIPT = '<script src="/assets/beach-info.js?v=beach-info-20260726" defer></script>';
 
 function articleAdCss() {
   return `${MRT_STYLE_MARK}.mrt-native-ad{margin:34px 0;padding:18px 0 20px;border-top:2px solid #111;border-bottom:1px solid var(--line)}.mrt-native-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:12px}.mrt-native-head strong{font-size:20px;line-height:1.25}.mrt-native-head span{color:var(--muted);font-size:13px}.mrt-native-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px;border-top:1px solid var(--line)}.mrt-card{display:grid;grid-template-columns:88px minmax(0,1fr);gap:12px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}.mrt-card.no-image{grid-template-columns:1fr}.mrt-thumb{grid-row:1/3;display:block;aspect-ratio:1.28/1;overflow:hidden;background:var(--soft)}.mrt-card strong{font-size:16px;line-height:1.35}.mrt-card em{display:block;color:var(--muted);font-size:12px;font-style:normal}.mrt-card.no-image strong,.mrt-card.no-image em{grid-column:1}@media(max-width:640px){.mrt-native-grid{grid-template-columns:1fr}.mrt-card{grid-template-columns:84px minmax(0,1fr)}}/* end-tripview-mrt-native-ad */`;
@@ -343,7 +342,8 @@ function stripExistingArticleAds(document) {
     .replace(/\/\* tripview-trust-note \*\/[\s\S]*?\/\* end-tripview-trust-note \*\//g, "")
     .replace(/\/\* tripview-coupang-native-ad \*\/[\s\S]*?\/\* end-tripview-coupang-native-ad \*\//g, "")
     .replace(/\s*<script\s+src=["']\/assets\/coupang\.js\?v=[^"']+["']\s+defer><\/script>/g, "")
-    .replace(/\s*<script\s+src=["']https:\/\/ads-partners\.coupang\.com\/g\.js["']><\/script>/g, "");
+    .replace(/\s*<script\s+src=["']https:\/\/ads-partners\.coupang\.com\/g\.js["']><\/script>/g, "")
+    .replace(/\s*<script\s+src=["']\/assets\/beach-(?:info|weather)\.js\?v=[^"']+["']\s+defer><\/script>/g, "");
 }
 
 function injectArticleAdCss(document) {
@@ -542,8 +542,7 @@ function coupangWidgetBlock(slot = "bottom") {
 function injectCoupangScript(document) {
   let next = document;
   if (!next.includes("/assets/coupang.js")) next = next.replace("</body>", `\n    ${COUPANG_SCRIPT}\n  </body>`);
-  next = next.replace(/\s*<script\s+src=["']\/assets\/beach-weather\.js\?v=[^"']+["']\s+defer><\/script>/g, "");
-  if (!next.includes("/assets/beach-info.js")) next = next.replace("</body>", `\n    ${BEACH_INFO_SCRIPT}\n  </body>`);
+  next = next.replace(/\s*<script\s+src=["']\/assets\/beach-(?:info|weather)\.js\?v=[^"']+["']\s+defer><\/script>/g, "");
   return next;
 }
 
