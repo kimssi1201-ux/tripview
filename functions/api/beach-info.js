@@ -7,10 +7,8 @@ const CACHE_SECONDS = 600;
 const BEACHES = new Map([
   ["travel-126078", { name: "\uAD11\uC548\uB9AC", sido: "\uBD80\uC0B0", aliases: ["\uAD11\uC548\uB9AC"] }],
   ["travel-126302", { name: "\uC1A1\uD638\uB545\uB05D", sido: "\uC804\uB0A8", aliases: ["\uC1A1\uD638\uB545\uB05D", "\uB545\uB05D\uC1A1\uD638"] }],
-  ["travel-128199", { name: "\uAC15\uB3D9\uBAA8\uB3CC\uD574\uBCC0", sido: "\uC6B8\uC0B0", aliases: ["\uAC15\uB3D9\uBAA8\uB3CC", "\uC815\uC790"] }],
   ["travel-125711", { name: "\uC7A5\uD638", sido: "\uAC15\uC6D0", aliases: ["\uC7A5\uD638"] }],
   ["travel-125713", { name: "\uB9DD\uC0C1", sido: "\uAC15\uC6D0", aliases: ["\uB9DD\uC0C1"] }],
-  ["travel-3000205", { name: "\uC6B0\uB450", sido: "\uC804\uB0A8", aliases: ["\uC6B0\uB450"] }],
   ["travel-127722", { name: "\uC548\uBAA9", sido: "\uAC15\uC6D0", aliases: ["\uC548\uBAA9"] }],
   ["travel-127764", { name: "\uB3C8\uBAA9", sido: "\uC804\uB0A8", aliases: ["\uB3C8\uBAA9"] }],
   ["travel-126098", { name: "\uC77C\uAD11", sido: "\uBD80\uC0B0", aliases: ["\uC77C\uAD11"] }],
@@ -18,8 +16,7 @@ const BEACHES = new Map([
   ["travel-129255", { name: "\uC120\uB140\uBC14\uC704", sido: "\uC778\uCC9C", aliases: ["\uC120\uB140\uBC14\uC704"] }],
   ["travel-129256", { name: "\uC655\uC0B0", sido: "\uC778\uCC9C", aliases: ["\uC655\uC0B0"] }],
   ["travel-127698", { name: "\uC601\uC77C\uB300", sido: "\uACBD\uBD81", aliases: ["\uC601\uC77C\uB300"] }],
-  ["travel-129400", { name: "\uAE40\uB155", sido: "\uC81C\uC8FC", aliases: ["\uAE40\uB155"] }],
-  ["travel-3041720", { name: "\uCCAD\uD638", sido: "\uAC15\uC6D0", aliases: ["\uCCAD\uD638"] }],
+  ["travel-129400", { name: "\uAE40\uB155", sido: "\uC81C\uC8FC", aliases: ["\uAE40\uB155", "\uAE40\uB155\uC131\uC138\uAE30"] }],
 ]);
 
 function json(data, status = 200, cacheSeconds = 0) {
