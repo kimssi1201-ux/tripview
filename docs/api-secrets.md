@@ -11,7 +11,7 @@ Use this when scheduled jobs or post generation scripts need an API key.
 3. Click `New repository secret`.
 4. Add these names as needed:
    - `TRIPVIEW_API_KEY`: Korea TourAPI service key.
-   - `KMA_BEACH_API_KEY`: shared data.go.kr key for the KMA beach weather and Ministry of Oceans beach information APIs.
+   - `BEACH_INFO_API_KEY`: data.go.kr key for the Ministry of Oceans beach information API. `TRIPVIEW_API_KEY` is used as a fallback.
    - `OPENAI_API_KEY`: OpenAI API key for AI-assisted content generation.
    - `OPENAI_MODEL`: optional repository variable. Defaults to `gpt-5.5`.
    - `OPENAI_ENRICH_LIMIT`: optional repository variable. Defaults to `10`.
@@ -28,7 +28,7 @@ Use this when Cloudflare Pages Functions or Workers need an API key at runtime.
 2. Go to `Workers & Pages` -> `tripview` -> `Settings`.
 3. Open `Environment variables`.
 4. Add `OPENAI_API_KEY` as a secret variable.
-5. Add `KMA_BEACH_API_KEY` as a secret variable.
+5. Add `BEACH_INFO_API_KEY` as a secret variable, or reuse the existing `TRIPVIEW_API_KEY`.
 6. Redeploy the site after saving.
 
 Do not expose `OPENAI_API_KEY` in browser JavaScript. OpenAI requests must run from GitHub Actions, Cloudflare Pages Functions, or another server-side environment.
