@@ -116,36 +116,6 @@
     "source": "myrealtrip-tna"
   },
   {
-    "id": "tna-5542725",
-    "type": "tna",
-    "title": "고베 미노타니 그린 스포츠 호텔 긴가 온천 체험",
-    "url": "https://experiences.myrealtrip.com/products/5542725",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/12/11/B6SK/CGEaV3Qjru.jpg",
-    "price": 10026,
-    "priceText": "10,026원부터",
-    "region": "오사카",
-    "city": "오사카",
-    "category": "티켓·입장권",
-    "description": "오사카 ∙ 티켓·입장권 · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "오사카",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "transport",
-      "activity"
-    ],
-    "gid": "5542725",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/5542725",
-    "source": "myrealtrip-tna"
-  },
-  {
     "id": "tna-5808716",
     "type": "tna",
     "title": "[즉시확정] 고베 누노비키 허브원 및 케이블카 (일본 최대 허브 정원)",
@@ -231,6 +201,35 @@
     "reviewScore": 1,
     "reviewCount": 1,
     "deepLink": "mrt://experiences/detail/5542727",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-5808681",
+    "type": "tna",
+    "title": "[즉시발권 | 케이한 패스] 교토 - 오사카 관광패스 (게이한 패스)",
+    "url": "https://experiences.myrealtrip.com/products/5808681",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/07/13/xfMD/HKmJ0ZUeJr.jpg",
+    "price": 10311,
+    "priceText": "10,311원부터",
+    "region": "오사카",
+    "city": "오사카",
+    "category": "이동·교통",
+    "description": "오사카 ∙ 이동·교통 · 평점 5(1개) · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "오사카",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport"
+    ],
+    "gid": "5808681",
+    "reviewScore": 5,
+    "reviewCount": 1,
+    "deepLink": "mrt://experiences/detail/5808681",
     "source": "myrealtrip-tna"
   }
 ]
