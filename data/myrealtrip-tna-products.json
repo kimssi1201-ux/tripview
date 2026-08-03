@@ -204,17 +204,17 @@
     "source": "myrealtrip-tna"
   },
   {
-    "id": "tna-5542727",
+    "id": "tna-5542725",
     "type": "tna",
-    "title": "한신 고시엔 스타디움 박물관 입장권",
-    "url": "https://experiences.myrealtrip.com/products/5542727",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/12/11/1RPu/eja1RJgI7b.jpg",
-    "price": 10293,
-    "priceText": "10,293원부터",
+    "title": "고베 미노타니 그린 스포츠 호텔 긴가 온천 체험",
+    "url": "https://experiences.myrealtrip.com/products/5542725",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/12/11/B6SK/CGEaV3Qjru.jpg",
+    "price": 10282,
+    "priceText": "10,282원부터",
     "region": "오사카",
     "city": "오사카",
     "category": "티켓·입장권",
-    "description": "오사카 ∙ 티켓·입장권 · 평점 1(1개) · 즉시 확정",
+    "description": "오사카 ∙ 티켓·입장권 · 즉시 확정",
     "tags": [
       "투어티켓",
       "액티비티",
@@ -225,12 +225,12 @@
     "intents": [
       "booking",
       "transport",
-      "indoor"
+      "activity"
     ],
-    "gid": "5542727",
-    "reviewScore": 1,
-    "reviewCount": 1,
-    "deepLink": "mrt://experiences/detail/5542727",
+    "gid": "5542725",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/5542725",
     "source": "myrealtrip-tna"
   }
 ]
