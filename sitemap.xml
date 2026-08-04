@@ -2,63 +2,103 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://tripview.kr/</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-04</lastmod>
   </url>
   <url>
     <loc>https://tripview.kr/about.html</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-04</lastmod>
   </url>
   <url>
     <loc>https://tripview.kr/contact.html</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-04</lastmod>
   </url>
   <url>
     <loc>https://tripview.kr/editorial-policy.html</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-04</lastmod>
   </url>
   <url>
     <loc>https://tripview.kr/affiliate-disclosure.html</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-04</lastmod>
   </url>
   <url>
     <loc>https://tripview.kr/privacy.html</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-04</lastmod>
   </url>
   <url>
     <loc>https://tripview.kr/flight-deals/</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-04</lastmod>
   </url>
   <url>
-    <loc>https://tripview.kr/flight-deals/flight-icn-myj-2026-08-10-2026-08-14/</loc>
-    <lastmod>2026-08-10</lastmod>
+    <loc>https://tripview.kr/flight-deals/flight-icn-myj-2026-08-09-2026-08-13/</loc>
+    <lastmod>2026-08-09</lastmod>
+  </url>
+  <url>
+    <loc>https://tripview.kr/flight-deals/flight-icn-ygj-2026-08-09-2026-08-13/</loc>
+    <lastmod>2026-08-09</lastmod>
   </url>
   <url>
     <loc>https://tripview.kr/flight-deals/flight-icn-hij-2026-08-10-2026-08-14/</loc>
     <lastmod>2026-08-10</lastmod>
   </url>
   <url>
-    <loc>https://tripview.kr/flight-deals/flight-icn-fuk-2026-08-11-2026-08-15/</loc>
-    <lastmod>2026-08-11</lastmod>
+    <loc>https://tripview.kr/flight-deals/flight-icn-fuk-2026-09-04-2026-09-08/</loc>
+    <lastmod>2026-09-04</lastmod>
   </url>
   <url>
     <loc>https://tripview.kr/flight-deals/flight-icn-osa-2026-09-01-2026-09-05/</loc>
     <lastmod>2026-09-01</lastmod>
   </url>
   <url>
-    <loc>https://tripview.kr/flight-deals/flight-icn-ynt-2026-09-15-2026-09-19/</loc>
-    <lastmod>2026-09-15</lastmod>
+    <loc>https://tripview.kr/flight-deals/flight-icn-ynt-2026-10-23-2026-10-27/</loc>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
-    <loc>https://tripview.kr/flight-deals/flight-icn-kix-2026-09-01-2026-09-05/</loc>
-    <lastmod>2026-09-01</lastmod>
+    <loc>https://tripview.kr/flight-deals/flight-icn-kix-2026-08-20-2026-08-24/</loc>
+    <lastmod>2026-08-20</lastmod>
   </url>
   <url>
-    <loc>https://tripview.kr/flight-deals/flight-icn-kkj-2026-08-18-2026-08-22/</loc>
-    <lastmod>2026-08-18</lastmod>
+    <loc>https://tripview.kr/flight-deals/flight-icn-kkj-2026-08-29-2026-09-02/</loc>
+    <lastmod>2026-08-29</lastmod>
   </url>
   <url>
-    <loc>https://tripview.kr/flight-deals/flight-icn-ygj-2026-08-09-2026-08-13/</loc>
-    <lastmod>2026-08-09</lastmod>
+    <loc>https://tripview.kr/travel-2995966/</loc>
+    <lastmod>2026-08-04</lastmod>
+  </url>
+  <url>
+    <loc>https://tripview.kr/travel-2997641/</loc>
+    <lastmod>2026-08-04</lastmod>
+  </url>
+  <url>
+    <loc>https://tripview.kr/festival-4095478/</loc>
+    <lastmod>2026-08-04</lastmod>
+  </url>
+  <url>
+    <loc>https://tripview.kr/travel-2741542/</loc>
+    <lastmod>2026-08-04</lastmod>
+  </url>
+  <url>
+    <loc>https://tripview.kr/travel-2875503/</loc>
+    <lastmod>2026-08-04</lastmod>
+  </url>
+  <url>
+    <loc>https://tripview.kr/travel-2996477/</loc>
+    <lastmod>2026-08-04</lastmod>
+  </url>
+  <url>
+    <loc>https://tripview.kr/travel-2996472/</loc>
+    <lastmod>2026-08-04</lastmod>
+  </url>
+  <url>
+    <loc>https://tripview.kr/travel-2996098/</loc>
+    <lastmod>2026-08-04</lastmod>
+  </url>
+  <url>
+    <loc>https://tripview.kr/travel-2997651/</loc>
+    <lastmod>2026-08-04</lastmod>
+  </url>
+  <url>
+    <loc>https://tripview.kr/festival-4095402/</loc>
+    <lastmod>2026-08-04</lastmod>
   </url>
   <url>
     <loc>https://tripview.kr/travel-2927441/</loc>
