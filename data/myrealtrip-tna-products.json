@@ -116,60 +116,6 @@
     "source": "myrealtrip-tna"
   },
   {
-    "id": "tna-3887447",
-    "type": "tna",
-    "title": "[Yakiniku Watami Namba] 야키니쿠 와규 무한리필 (난바점)",
-    "url": "https://experiences.myrealtrip.com/products/3887447",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/27/Cf8q/xnNsyYVnkn.jpg",
-    "price": 10017,
-    "priceText": "10,017원부터",
-    "region": "오사카",
-    "city": "오사카",
-    "category": "미식",
-    "description": "오사카 ∙ 미식 · 평점 5(1개)",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "오사카"
-    ],
-    "intents": [
-      "booking"
-    ],
-    "gid": "3887447",
-    "reviewScore": 5,
-    "reviewCount": 1,
-    "deepLink": "mrt://experiences/detail/3887447",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-3887253",
-    "type": "tna",
-    "title": "[Yakiniku Watami Umeda Chayamachi] 야키니쿠 와규 무한리필",
-    "url": "https://experiences.myrealtrip.com/products/3887253",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/27/TnLb/o55Gk1Cgfu.jpg",
-    "price": 10017,
-    "priceText": "10,017원부터",
-    "region": "오사카",
-    "city": "오사카",
-    "category": "미식",
-    "description": "오사카 ∙ 미식",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "오사카"
-    ],
-    "intents": [
-      "booking"
-    ],
-    "gid": "3887253",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/3887253",
-    "source": "myrealtrip-tna"
-  },
-  {
     "id": "tna-5808716",
     "type": "tna",
     "title": "[즉시확정] 고베 누노비키 허브원 및 케이블카 (일본 최대 허브 정원)",
@@ -204,8 +150,8 @@
     "title": "오사카 지라이언 뮤지엄 클래식카 박물관 성인 입장권",
     "url": "https://experiences.myrealtrip.com/products/6083009",
     "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/05/28/MZs4/dNm5o8AfUY.jpg",
-    "price": 10114,
-    "priceText": "10,114원부터",
+    "price": 10073,
+    "priceText": "10,073원부터",
     "region": "오사카",
     "city": "오사카",
     "category": "티켓·입장권",
@@ -226,6 +172,65 @@
     "reviewScore": "",
     "reviewCount": "",
     "deepLink": "mrt://experiences/detail/6083009",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-5869510",
+    "type": "tna",
+    "title": "츠텐카쿠 일반 전망대 입장권 (오사카)",
+    "url": "https://experiences.myrealtrip.com/products/5869510",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/03/16/jLgm/IouK0w9V1n.jpg",
+    "price": 10255,
+    "priceText": "10,255원부터",
+    "region": "오사카",
+    "city": "오사카",
+    "category": "티켓·입장권",
+    "description": "오사카 ∙ 티켓·입장권 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "오사카",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport"
+    ],
+    "gid": "5869510",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/5869510",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-5542727",
+    "type": "tna",
+    "title": "한신 고시엔 스타디움 박물관 입장권",
+    "url": "https://experiences.myrealtrip.com/products/5542727",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/12/11/1RPu/eja1RJgI7b.jpg",
+    "price": 10293,
+    "priceText": "10,293원부터",
+    "region": "오사카",
+    "city": "오사카",
+    "category": "티켓·입장권",
+    "description": "오사카 ∙ 티켓·입장권 · 평점 1(1개) · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "오사카",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport",
+      "indoor"
+    ],
+    "gid": "5542727",
+    "reviewScore": 1,
+    "reviewCount": 1,
+    "deepLink": "mrt://experiences/detail/5542727",
     "source": "myrealtrip-tna"
   }
 ]
