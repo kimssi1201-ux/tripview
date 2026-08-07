@@ -16,31 +16,30 @@ jobs:
   submit:
     if: github.event_name == 'push' || github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
+    env:
+      GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
     steps:
+      - name: Skip when Search Console credentials are unavailable
+        if: env.GOOGLE_SERVICE_ACCOUNT_JSON == ''
+        run: echo "GOOGLE_SERVICE_ACCOUNT_JSON is not configured; sitemap submission is skipped."
+
       - name: Checkout
+        if: env.GOOGLE_SERVICE_ACCOUNT_JSON != ''
         uses: actions/checkout@v4
 
       - name: Setup Node.js
+        if: env.GOOGLE_SERVICE_ACCOUNT_JSON != ''
         uses: actions/setup-node@v4
         with:
           node-version: "20"
 
       - name: Wait for public deployment
+        if: env.GOOGLE_SERVICE_ACCOUNT_JSON != ''
         run: sleep 90
 
-      - name: Check Search Console credentials
-        run: |
-          if [ -z "$GOOGLE_SERVICE_ACCOUNT_JSON" ]; then
-            echo "GOOGLE_SERVICE_ACCOUNT_JSON is not configured."
-            exit 1
-          fi
-          echo "GOOGLE_SERVICE_ACCOUNT_JSON is configured."
-        env:
-          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
-
       - name: Submit sitemap to Google Search Console
+        if: env.GOOGLE_SERVICE_ACCOUNT_JSON != ''
         run: node scripts/submit-search-console-sitemap.mjs
         env:
-          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
           SEARCH_CONSOLE_SITE_URL: ${{ vars.SEARCH_CONSOLE_SITE_URL || 'sc-domain:tripview.kr' }}
           SEARCH_CONSOLE_SITEMAP_URL: ${{ vars.SEARCH_CONSOLE_SITEMAP_URL || 'https://tripview.kr/sitemap.xml' }}

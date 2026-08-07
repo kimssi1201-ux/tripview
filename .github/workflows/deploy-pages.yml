@@ -1,8 +1,6 @@
 name: Deploy Tripview Pages
 
 on:
-  push:
-    branches: ["main"]
   workflow_dispatch:
 
 permissions:
