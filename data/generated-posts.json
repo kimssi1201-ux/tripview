@@ -40,6 +40,14 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -52,15 +60,16 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "129.1235660000",
-      "mapy": "35.1154490000",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "가능",
         "restdate": "연중무휴",
         "usetime": "상시 개방",
         "infocenter": "부산 남구청 공원녹지과 051-607-4544"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:11.283Z"
     },
     "sections": [
       [
@@ -171,6 +180,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -183,15 +196,16 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "129.0455469327",
-      "mapy": "35.1828346325",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "연중무휴",
         "usetimeculture": "09:00~17:00",
         "usefee": "무료",
         "infocenterculture": "051-808-7960"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:11.749Z"
     },
     "sections": [
       [
@@ -314,13 +328,14 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "128.0670138618",
-      "mapy": "37.5455564008",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "[11월~2월]- 09:00~17:00- 매표 마감 16:00[3월~10월]- 09:00~18:00- 매표 마감 17:00",
         "infocenterleports": "횡성호수길 관광안내소 033-343-3432횡성호수길 매표소 033-343-3431"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:12.214Z"
     },
     "sections": [
       [
@@ -443,10 +458,11 @@
       "contentTypeId": "32",
       "overview": "",
       "homepage": "",
-      "mapx": "128.3516437611",
-      "mapy": "37.6268479005",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:12.697Z"
     },
     "sections": [
       [
@@ -562,10 +578,11 @@
       "contentTypeId": "39",
       "overview": "",
       "homepage": "",
-      "mapx": "127.0410915749",
-      "mapy": "37.5606485084",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:13.161Z"
     },
     "sections": [
       [
@@ -681,10 +698,11 @@
       "contentTypeId": "38",
       "overview": "",
       "homepage": "",
-      "mapx": "126.9816989643",
-      "mapy": "37.5646833187",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:13.644Z"
     },
     "sections": [
       [
@@ -788,6 +806,14 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -800,15 +826,16 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "129.0323310732",
-      "mapy": "35.1011573440",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "가능",
         "restdate": "연중무휴",
         "usetime": "10:00~22:00 (발권 마감 21:30)",
         "infocenter": "051-601-1800"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:14.109Z"
     },
     "sections": [
       [
@@ -919,6 +946,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "매주 월요일"
       ]
     ],
     "memo": [
@@ -931,15 +962,16 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "127.8234091043",
-      "mapy": "37.4153325754",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "매주 월요일",
         "usetimeculture": "10:00~18:00 (매표 마감 17:00)",
         "usefee": "[시그니처권] - 대인 59,000원 - 소인 47,000원 [스페셜 패스권] - 스페셜 패스권3·스페셜 패스권2 대인 49,000원 - 스페셜 패스권3·스페셜 패스권2 소인 37,000원 - 스페셜 패스권1 대인 46,000원 - 스페셜 패스권1 소인 34,000원 [단일 패스권] - 그라운드 패스권·제임스 터렐 패스권·명상 패스권 대인 39,000원 - 그라운드 패스권·제임스 터렐 패스권·명상 패스권 소인 29,000원 - 그라운드 패스권·제임스 터렐 패스권 어린이 5,000원 [기본 패스권] - 대인 23,000원 - 소인(초·중·고) 15,000원 - 어린이 5,000원 - 유아 무료 ※ 자세한 사항은 홈페이지 참조",
         "infocenterculture": "033-730-9000~1"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:14.576Z"
     },
     "sections": [
       [
@@ -1062,13 +1094,14 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "126.6243823266",
-      "mapy": "37.2332234323",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "상시 개방",
         "infocenterleports": "031-481-3408"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:15.041Z"
     },
     "sections": [
       [
@@ -1191,10 +1224,11 @@
       "contentTypeId": "39",
       "overview": "",
       "homepage": "",
-      "mapx": "126.3084871383",
-      "mapy": "33.4515152155",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:15.510Z"
     },
     "sections": [
       [
@@ -1298,6 +1332,14 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -1310,15 +1352,16 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "129.0204027392",
-      "mapy": "35.0613530661",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "가능",
         "restdate": "연중무휴",
         "usetime": "[1월~2월] 09:00~20:00 (매표 마감 19:30)[3월~6월] 09:00~21:00 (매표 마감 20:30)[7월~8월] 09:00~22:00 (매표 마감 21:30)[9월~11월] 09:00~21:00 (매표 마감 20:30)[12월] 09:00~20:00 (매표 마감 19:30)",
         "infocenter": "051-247-9900"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:15.977Z"
     },
     "sections": [
       [
@@ -1429,6 +1472,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "매주 월요일(공휴일인 경우 다음 날) / 1월 1일 / 설·추석 당일"
       ]
     ],
     "memo": [
@@ -1441,15 +1488,16 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "126.9257275343",
-      "mapy": "35.4770839705",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "매주 월요일(공휴일인 경우 다음 날) / 1월 1일 / 설·추석 당일",
         "usetimeculture": "- 하절기(3월~10월) 09:00~18:00 (입장 마감 17:00) - 동절기(11월~2월) 09:00~17:00 (입장 마감 16:00)",
         "usefee": "무료",
         "infocenterculture": "063-290-5517"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:16.451Z"
     },
     "sections": [
       [
@@ -1572,13 +1620,14 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "127.1099602999",
-      "mapy": "37.6049529576",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "- 입실 13:00- 퇴실 11:00",
         "infocenterleports": "0507-1348-8138"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:16.913Z"
     },
     "sections": [
       [
@@ -1701,10 +1750,11 @@
       "contentTypeId": "32",
       "overview": "",
       "homepage": "",
-      "mapx": "127.9859268808",
-      "mapy": "37.3265492053",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:17.380Z"
     },
     "sections": [
       [
@@ -1820,10 +1870,11 @@
       "contentTypeId": "39",
       "overview": "",
       "homepage": "",
-      "mapx": "126.5947138953",
-      "mapy": "35.5038723558",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:17.845Z"
     },
     "sections": [
       [
@@ -1939,10 +1990,11 @@
       "contentTypeId": "38",
       "overview": "",
       "homepage": "",
-      "mapx": "126.9213755946",
-      "mapy": "37.6191605751",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:18.315Z"
     },
     "sections": [
       [
@@ -2046,6 +2098,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "매주 월요일 / 1월1일 / 설·추석 당일"
       ]
     ],
     "memo": [
@@ -2058,15 +2114,16 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "126.7027165387",
-      "mapy": "35.4323743777",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "매주 월요일 / 1월1일 / 설·추석 당일",
         "usetimeculture": "- 하절기 09:00~18:00- 동절기 09:00~17:00※ 입장마감 30분전",
         "usefee": "무료",
         "infocenterculture": "063-560-8061"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:18.780Z"
     },
     "sections": [
       [
@@ -2189,13 +2246,14 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "126.6510771142",
-      "mapy": "37.1854499778",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "프로그램별로 상이함",
         "infocenterleports": "031-357-5249"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:19.242Z"
     },
     "sections": [
       [
@@ -2318,10 +2376,11 @@
       "contentTypeId": "39",
       "overview": "",
       "homepage": "",
-      "mapx": "128.6018787711",
-      "mapy": "37.7166563623",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:19.707Z"
     },
     "sections": [
       [
@@ -2437,10 +2496,11 @@
       "contentTypeId": "38",
       "overview": "",
       "homepage": "",
-      "mapx": "126.5186569134",
-      "mapy": "33.5120353174",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:20.177Z"
     },
     "sections": [
       [
@@ -2544,6 +2604,18 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능 (약 소형 20~30대)"
+      ],
+      [
+        "쉬는 날",
+        "매월 첫 번째 월요일"
+      ],
+      [
+        "체험 안내",
+        "숲 한 빛깔 / 마실 숲 / 건강숲 테라피 등"
       ]
     ],
     "memo": [
@@ -2556,8 +2628,8 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "126.7041974395",
-      "mapy": "35.0474544080",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "가능 (약 소형 20~30대)",
@@ -2566,7 +2638,8 @@
         "expguide": "숲 한 빛깔 / 마실 숲 / 건강숲 테라피 등",
         "expagerange": "프로그램마다 연령 상이",
         "infocenter": "061-338-8400"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:20.639Z"
     },
     "sections": [
       [
@@ -2677,6 +2750,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -2689,15 +2766,16 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "129.2923000000",
-      "mapy": "35.8330000000",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "연중무휴",
         "usetimeculture": "10:00~18:00※ 계절별 상이하므로 전화문의 요망",
         "usefee": "[경주엑스포대공원 통합 입장권]- 성인 12,000원- 소인 10,000원",
         "infocenterculture": "054-748-3011"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:21.100Z"
     },
     "sections": [
       [
@@ -2821,8 +2899,8 @@
       "contentTypeId": "15",
       "overview": "",
       "homepage": "",
-      "mapx": "129.1360182683",
-      "mapy": "35.1690637155",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "eventstartdate": "20261206",
@@ -2834,7 +2912,8 @@
         "sponsor1": "부산광역시, 대한육상연맹, KNN",
         "sponsor1tel": "070-4111-5620",
         "sponsor2": "부산육상연맹"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:21.562Z"
     },
     "sections": [
       [
@@ -2964,13 +3043,14 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "129.2824172476",
-      "mapy": "35.5777162988",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "[오토캠핑]- 입실 14:00- 퇴실 13:00[카라반]- 입실 14:00- 퇴실 11:00",
         "infocenterleports": "052-211-2832"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:22.023Z"
     },
     "sections": [
       [
@@ -3093,10 +3173,11 @@
       "contentTypeId": "32",
       "overview": "",
       "homepage": "",
-      "mapx": "126.8422872426",
-      "mapy": "36.9770942376",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:22.490Z"
     },
     "sections": [
       [
@@ -3212,10 +3293,11 @@
       "contentTypeId": "39",
       "overview": "",
       "homepage": "",
-      "mapx": "126.9370197988",
-      "mapy": "37.5812948440",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:22.959Z"
     },
     "sections": [
       [
@@ -3331,10 +3413,11 @@
       "contentTypeId": "38",
       "overview": "",
       "homepage": "",
-      "mapx": "127.0437386006",
-      "mapy": "37.5467167071",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:23.428Z"
     },
     "sections": [
       [
@@ -3438,6 +3521,14 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -3450,15 +3541,16 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "127.7983000000",
-      "mapy": "36.3431000000",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "가능",
         "restdate": "연중무휴",
         "usetime": "상시 개방",
         "infocenter": "옥천군 관광안내소 043-730-3430"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:23.901Z"
     },
     "sections": [
       [
@@ -3569,6 +3661,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -3581,15 +3677,16 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "129.2916000000",
-      "mapy": "35.8320000000",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "연중무휴",
         "usetimeculture": "10:00~18:00※ 계절별 상이하므로 전화문의 요망",
         "usefee": "[경주엑스포대공원 통합 입장권] - 성인 12,000원- 소인 10,000원※ 자세한 사항은 전화문의 요망",
         "infocenterculture": "054-748-3011"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:24.365Z"
     },
     "sections": [
       [
@@ -3713,8 +3810,8 @@
       "contentTypeId": "15",
       "overview": "",
       "homepage": "",
-      "mapx": "127.0375696865",
-      "mapy": "37.2615833280",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "eventstartdate": "20260908",
@@ -3726,7 +3823,8 @@
         "sponsor1": "(재)경기아트센터",
         "sponsor1tel": "031-230-3268",
         "sponsor2": "(재)경기아트센터"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:24.838Z"
     },
     "sections": [
       [
@@ -3856,13 +3954,14 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "128.6215583501",
-      "mapy": "38.0543618117",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "10:00~17:30 (휴게시간 12:00~13:00)",
         "infocenterleports": "033-673-2468"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:25.310Z"
     },
     "sections": [
       [
@@ -3985,10 +4084,11 @@
       "contentTypeId": "32",
       "overview": "",
       "homepage": "",
-      "mapx": "126.2897663186",
-      "mapy": "33.4418269217",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:25.775Z"
     },
     "sections": [
       [
@@ -4104,10 +4204,11 @@
       "contentTypeId": "39",
       "overview": "",
       "homepage": "",
-      "mapx": "126.9949000000",
-      "mapy": "37.5116000000",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:26.239Z"
     },
     "sections": [
       [
@@ -4211,6 +4312,18 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
+      ],
+      [
+        "반려동물",
+        "불가"
       ]
     ],
     "memo": [
@@ -4223,8 +4336,8 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "127.5555948172",
-      "mapy": "36.2464299760",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "가능",
@@ -4232,7 +4345,8 @@
         "usetime": "- 입실 14:00- 퇴실 11:00",
         "chkpet": "불가",
         "infocenter": "043-733-9615"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:26.700Z"
     },
     "sections": [
       [
@@ -4343,6 +4457,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "법정 공휴일"
       ]
     ],
     "memo": [
@@ -4355,15 +4473,16 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "127.0315460624",
-      "mapy": "37.7863238345",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "법정 공휴일",
         "usetimeculture": "09:00~20:30",
         "usefee": "무료",
         "infocenterculture": "031-840-9986"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:27.170Z"
     },
     "sections": [
       [
@@ -4486,10 +4605,11 @@
       "contentTypeId": "25",
       "overview": "",
       "homepage": "",
-      "mapx": "0",
-      "mapy": "0",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:27.632Z"
     },
     "sections": [
       [
@@ -4605,12 +4725,13 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "126.8000101899",
-      "mapy": "34.5351462303",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "- 입실 15:00- 퇴실 11:00"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:28.098Z"
     },
     "sections": [
       [
@@ -4733,10 +4854,11 @@
       "contentTypeId": "39",
       "overview": "",
       "homepage": "",
-      "mapx": "128.7012829923",
-      "mapy": "34.8335887894",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:28.561Z"
     },
     "sections": [
       [
@@ -4852,10 +4974,11 @@
       "contentTypeId": "38",
       "overview": "",
       "homepage": "",
-      "mapx": "126.4240090737",
-      "mapy": "33.2502965427",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:29.046Z"
     },
     "sections": [
       [
@@ -4959,6 +5082,14 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -4971,15 +5102,16 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "126.6833732950",
-      "mapy": "37.1161625656",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "가능",
         "restdate": "연중무휴",
         "usetime": "상시 개방",
         "infocenter": "화성시 해양수산과 031-5189-3812"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:29.513Z"
     },
     "sections": [
       [
@@ -5102,10 +5234,11 @@
       "contentTypeId": "39",
       "overview": "",
       "homepage": "",
-      "mapx": "128.0724257976",
-      "mapy": "37.4879517361",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:29.976Z"
     },
     "sections": [
       [
@@ -5221,10 +5354,11 @@
       "contentTypeId": "38",
       "overview": "",
       "homepage": "",
-      "mapx": "127.8532860000",
-      "mapy": "36.8724900000",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:30.451Z"
     },
     "sections": [
       [
@@ -5328,6 +5462,18 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능요금 (무료)"
+      ],
+      [
+        "쉬는 날",
+        "1월 1일 / 설·추석날 / 법정 공휴일 다음날 / 매주 월요일(단, 법정 공휴일 다음날이 토요일·일요일일 경우 정상 운영)"
+      ],
+      [
+        "체험 안내",
+        "자이로 VR 가상현실 체험 ※ 체험비 2,000원 별도 ※ 신장 140cm 이상 / 몸무게 40kg이상만 이용 가능"
       ]
     ],
     "memo": [
@@ -5340,8 +5486,8 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "127.3691013837",
-      "mapy": "35.2266366865",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "가능요금 (무료)",
@@ -5349,7 +5495,8 @@
         "usetime": "14:00~22:00 (입장 마감 21:00)",
         "expguide": "자이로 VR 가상현실 체험 ※ 체험비 2,000원 별도 ※ 신장 140cm 이상 / 몸무게 40kg이상만 이용 가능",
         "infocenter": "061-363-8528"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:30.916Z"
     },
     "sections": [
       [
@@ -5460,6 +5607,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -5472,14 +5623,15 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "127.0832000000",
-      "mapy": "37.2383000000",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "연중무휴",
         "usetimeculture": "상시 개방",
         "infocenterculture": "031-201-2114"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:31.386Z"
     },
     "sections": [
       [
@@ -5602,10 +5754,11 @@
       "contentTypeId": "25",
       "overview": "",
       "homepage": "",
-      "mapx": "126.3821193361",
-      "mapy": "34.7873731725",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:31.848Z"
     },
     "sections": [
       [
@@ -5721,13 +5874,14 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "127.4151410370",
-      "mapy": "36.7516397839",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "- 입실 15:00- 퇴실 11:00",
         "infocenterleports": "0507-1386-8058"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:32.310Z"
     },
     "sections": [
       [
@@ -5850,10 +6004,11 @@
       "contentTypeId": "39",
       "overview": "",
       "homepage": "",
-      "mapx": "127.7141895174",
-      "mapy": "36.4810044449",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:32.778Z"
     },
     "sections": [
       [
@@ -5957,6 +6112,18 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능 (약 소형 40대 / 대형 3대)"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
+      ],
+      [
+        "체험 안내",
+        "클립앤클라임 / 액티브 카트 / 플레이방 등"
       ]
     ],
     "memo": [
@@ -5969,8 +6136,8 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "126.2360784858",
-      "mapy": "33.3811423978",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "가능 (약 소형 40대 / 대형 3대)",
@@ -5979,7 +6146,8 @@
         "expguide": "클립앤클라임 / 액티브 카트 / 플레이방 등",
         "expagerange": "6세 이상",
         "infocenter": "064-796-0880"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:33.242Z"
     },
     "sections": [
       [
@@ -6090,6 +6258,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -6102,14 +6274,15 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "126.9693253000",
-      "mapy": "37.5797346201",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "연중무휴",
         "usetimeculture": "12:00~21:00",
         "infocenterculture": "02-735-1349"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:33.712Z"
     },
     "sections": [
       [
@@ -6232,10 +6405,11 @@
       "contentTypeId": "25",
       "overview": "",
       "homepage": "",
-      "mapx": "128.3969565090",
-      "mapy": "36.9967294703",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:34.184Z"
     },
     "sections": [
       [
@@ -6339,6 +6513,14 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "전화 문의"
+      ],
+      [
+        "반려동물",
+        "없음"
       ]
     ],
     "memo": [
@@ -6351,15 +6533,16 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "127.2817540209",
-      "mapy": "35.2851703075",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdate": "전화 문의",
         "usetime": "전화 문의",
         "chkpet": "없음",
         "infocenter": "곡성군청 문화체육과 061-360-8481"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:34.650Z"
     },
     "sections": [
       [
@@ -6470,6 +6653,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -6482,15 +6669,16 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "126.8996000000",
-      "mapy": "33.4399000000",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "연중무휴",
         "usetimeculture": "10:00~18:20 (입장 마감 17:30)",
         "usefee": "- 성인 19,000원 - 청소년 14,000원 - 어린이 11,000원 ※ 무료 : 36개월 미만 영유아 ※ 자세한 사항은 홈페이지 참조",
         "infocenterculture": "1522-2653"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:35.120Z"
     },
     "sections": [
       [
@@ -6613,12 +6801,13 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "126.4867465954",
-      "mapy": "37.2796822338",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "- 입실 14:00- 퇴실 11:00"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:35.589Z"
     },
     "sections": [
       [
@@ -6741,10 +6930,11 @@
       "contentTypeId": "32",
       "overview": "",
       "homepage": "",
-      "mapx": "128.5877142465",
-      "mapy": "38.1374409734",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:36.053Z"
     },
     "sections": [
       [
@@ -6860,10 +7050,11 @@
       "contentTypeId": "39",
       "overview": "",
       "homepage": "",
-      "mapx": "127.2778370042",
-      "mapy": "37.7478358215",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:36.517Z"
     },
     "sections": [
       [
@@ -6979,10 +7170,11 @@
       "contentTypeId": "38",
       "overview": "",
       "homepage": "",
-      "mapx": "126.6835861506",
-      "mapy": "37.8003987021",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:36.983Z"
     },
     "sections": [
       [
@@ -7086,6 +7278,14 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -7098,15 +7298,16 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "127.7475313066",
-      "mapy": "36.6534854456",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "가능",
         "restdate": "연중무휴",
         "usetime": "상시 개방",
         "infocenter": "괴산군청 043-830-3114"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:37.456Z"
     },
     "sections": [
       [
@@ -7217,6 +7418,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "매주 월요일 / 설·추석"
       ]
     ],
     "memo": [
@@ -7229,15 +7434,16 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "126.5589831172",
-      "mapy": "35.6966321210",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "매주 월요일 / 설·추석",
         "usetimeculture": "10:00~17:30 (입장 마감 17:00)",
         "usefee": "무료",
         "infocenterculture": "063-584-6822"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:37.921Z"
     },
     "sections": [
       [
@@ -7360,13 +7566,14 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "127.2620066743",
-      "mapy": "38.1166557317",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "- 입실 12:00- 퇴실 11:00",
         "infocenterleports": "031-531-0575"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:38.384Z"
     },
     "sections": [
       [
@@ -7489,10 +7696,11 @@
       "contentTypeId": "32",
       "overview": "",
       "homepage": "",
-      "mapx": "127.3932786707",
-      "mapy": "36.4258588852",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:38.848Z"
     },
     "sections": [
       [
@@ -7596,6 +7804,14 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -7608,15 +7824,16 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "126.9222258860",
-      "mapy": "36.9214415737",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "가능",
         "restdate": "연중무휴",
         "usetime": "상시 개방",
         "infocenter": "평택호 관광안내소 031-8024-8687"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:39.319Z"
     },
     "sections": [
       [
@@ -7727,6 +7944,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "매주 월요일 / 1월 1일 / 설·추석 연휴 휴무"
       ]
     ],
     "memo": [
@@ -7739,15 +7960,16 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "126.8773230000",
-      "mapy": "34.9176100000",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "매주 월요일 / 1월 1일 / 설·추석 연휴 휴무",
         "usetimeculture": "- 하절기 (3월~10월) 10:00~18:00- 동절기 (11월~2월) 10:00~17:00",
         "usefee": "무료",
         "infocenterculture": "061-379-5893"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:39.787Z"
     },
     "sections": [
       [
@@ -7871,8 +8093,8 @@
       "contentTypeId": "15",
       "overview": "",
       "homepage": "",
-      "mapx": "127.0142152392",
-      "mapy": "37.4802401962",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "eventstartdate": "20260717",
@@ -7884,7 +8106,8 @@
         "sponsor1": "예술의전당",
         "sponsor1tel": "02-580-1655",
         "sponsor2": "예술의전당"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:40.276Z"
     },
     "sections": [
       [
@@ -8014,13 +8237,14 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "128.3352671065",
-      "mapy": "38.1943599785",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "- 입실 12:00- 퇴실 12:00",
         "infocenterleports": "010-6606-9322"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:40.738Z"
     },
     "sections": [
       [
@@ -8143,10 +8367,11 @@
       "contentTypeId": "32",
       "overview": "",
       "homepage": "",
-      "mapx": "127.5899960340",
-      "mapy": "35.2309636480",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:41.206Z"
     },
     "sections": [
       [
@@ -8262,10 +8487,11 @@
       "contentTypeId": "39",
       "overview": "",
       "homepage": "",
-      "mapx": "127.0115661960",
-      "mapy": "37.5721168142",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:41.682Z"
     },
     "sections": [
       [
@@ -8381,10 +8607,11 @@
       "contentTypeId": "38",
       "overview": "",
       "homepage": "",
-      "mapx": "129.0587133754",
-      "mapy": "35.1541638979",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:42.147Z"
     },
     "sections": [
       [
@@ -8488,6 +8715,18 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "설·추석 연휴"
+      ],
+      [
+        "체험 안내",
+        "무드등 만들기 체험 / VR활쏘기 / 불피우기 체험 등"
       ]
     ],
     "memo": [
@@ -8500,8 +8739,8 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "126.9164000000",
-      "mapy": "34.9871000000",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "가능",
@@ -8509,7 +8748,8 @@
         "usetime": "10:00~17:00 ※ 휴게 시간 12:00~13:00",
         "expguide": "무드등 만들기 체험 / VR활쏘기 / 불피우기 체험 등",
         "infocenter": "0507-1434-8848"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:42.617Z"
     },
     "sections": [
       [
@@ -8620,6 +8860,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -8632,14 +8876,15 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "128.4154172221",
-      "mapy": "34.8263331641",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "연중무휴",
         "usetimeculture": "10:30~18:30 (휴게시간 12:00~13:00)※ 주말에는 휴게시간 없이 영업함",
         "infocenterculture": "055-646-0511"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:43.088Z"
     },
     "sections": [
       [
@@ -8762,13 +9007,14 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "128.5484687393",
-      "mapy": "38.2146783052",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "- 입실 15:00- 퇴실 11:00",
         "infocenterleports": "033-633-5055"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:43.564Z"
     },
     "sections": [
       [
@@ -8879,6 +9125,18 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "매주 월요일, 일요일"
+      ],
+      [
+        "체험 안내",
+        "체험교실 / 탐구교실 / 테마교실 / 관측교실 / 일일천문교실"
       ]
     ],
     "memo": [
@@ -8891,8 +9149,8 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "127.1550556298",
-      "mapy": "37.3232575141",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "가능",
@@ -8900,7 +9158,8 @@
         "usetime": "14:00~23:00 (휴게시간 17:30~18:30)",
         "expguide": "체험교실 / 탐구교실 / 테마교실 / 관측교실 / 일일천문교실",
         "infocenter": "031-322-3245"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:44.034Z"
     },
     "sections": [
       [
@@ -9011,6 +9270,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "매주 월요일 (단, 월요일이 공휴일인 경우 그 다음날 휴관)"
       ]
     ],
     "memo": [
@@ -9023,15 +9286,16 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "128.7509353039",
-      "mapy": "35.4936063342",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "매주 월요일 (단, 월요일이 공휴일인 경우 그 다음날 휴관)",
         "usetimeculture": "- 09:00~17:30- 휴게시간 12:00~13:00- 입장 마감 16:45",
         "usefee": "무료",
         "infocenterculture": "055-351-0815"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:44.499Z"
     },
     "sections": [
       [
@@ -9154,13 +9418,14 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "129.0953694957",
-      "mapy": "36.2026458382",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "- 입실 14:00- 퇴실 11:00",
         "infocenterleports": "010-3561-1103"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:44.965Z"
     },
     "sections": [
       [
@@ -9283,10 +9548,11 @@
       "contentTypeId": "32",
       "overview": "",
       "homepage": "",
-      "mapx": "128.0646395193",
-      "mapy": "36.6427649410",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:45.435Z"
     },
     "sections": [
       [
@@ -9402,10 +9668,11 @@
       "contentTypeId": "39",
       "overview": "",
       "homepage": "",
-      "mapx": "128.9080579344",
-      "mapy": "37.7872242822",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:45.905Z"
     },
     "sections": [
       [
@@ -9521,10 +9788,11 @@
       "contentTypeId": "38",
       "overview": "",
       "homepage": "",
-      "mapx": "127.5970025404",
-      "mapy": "36.9918194094",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:46.382Z"
     },
     "sections": [
       [
@@ -9628,6 +9896,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능"
       ]
     ],
     "memo": [
@@ -9640,14 +9912,15 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "127.3031451131",
-      "mapy": "37.3366117815",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "가능",
         "usetime": "11:00~20:00 (입장 마감 18:30 / 수영장 마감 19:30)",
         "infocenter": "031-8026-5600"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:46.855Z"
     },
     "sections": [
       [
@@ -9758,6 +10031,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "매주 월요일 / 1월1일 / 명절 휴무"
       ]
     ],
     "memo": [
@@ -9770,15 +10047,16 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "127.3770060874",
-      "mapy": "35.4037116346",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "매주 월요일 / 1월1일 / 명절 휴무",
         "usetimeculture": "10:00~18:00 [인력거 체험] 10:00~11:30, 14:00~18:00 [메타버스] 10:00~11:30, 14:00~16:00 [야외 어드벤처] 10:00~17:00",
         "usefee": "무료",
         "infocenterculture": "063-620-5671"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:47.321Z"
     },
     "sections": [
       [
@@ -9901,10 +10179,11 @@
       "contentTypeId": "25",
       "overview": "",
       "homepage": "",
-      "mapx": "0",
-      "mapy": "0",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:47.791Z"
     },
     "sections": [
       [
@@ -10020,13 +10299,14 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "127.9049846433",
-      "mapy": "34.7671049967",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "※ 자세한 이용시간은 전화 문의 요망",
         "infocenterleports": "055-862-8287"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:48.250Z"
     },
     "sections": [
       [
@@ -10137,6 +10417,14 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -10149,15 +10437,16 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "127.2872700000",
-      "mapy": "36.4816570000",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "가능",
         "restdate": "연중무휴",
         "usetime": "06:00~23:00",
         "infocenter": "관리사무소 044-868-9127"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:48.714Z"
     },
     "sections": [
       [
@@ -10268,6 +10557,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "매주 월요일 (단 ,월요일이 공휴일인 경우 그 다음 첫 번째 평일) / 1월 1일 / 설·추석 전날 및 당일"
       ]
     ],
     "memo": [
@@ -10280,15 +10573,16 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "127.2733773286",
-      "mapy": "36.4898056769",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "매주 월요일 (단 ,월요일이 공휴일인 경우 그 다음 첫 번째 평일) / 1월 1일 / 설·추석 전날 및 당일",
         "usetimeculture": "[1회차]- 09:30~13:00 (입장 마감 12:30) [2회차]- 14:00~17:30 (입장 마감 17:00) ※ 사전 온라인 예약 필수 (잔여석에 한해 현장 발권)",
         "usefee": "[상설전시] - 무료 [기획전시] - 개인 2,000원 - 단체(20인 이상) 1,000원",
         "infocenterculture": "044-251-3000"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:49.183Z"
     },
     "sections": [
       [
@@ -10412,8 +10706,8 @@
       "contentTypeId": "15",
       "overview": "",
       "homepage": "",
-      "mapx": "126.6613891711",
-      "mapy": "36.6017210412",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "eventstartdate": "20260814",
@@ -10425,7 +10719,8 @@
         "sponsor1": "홍성군",
         "sponsor1tel": "041-634-8707",
         "sponsor2": "(재)홍주문화관광재단"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:49.651Z"
     },
     "sections": [
       [
@@ -10555,13 +10850,14 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "128.8875840612",
-      "mapy": "35.6748679756",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "- 입실 14:00- 퇴실 13:00",
         "infocenterleports": "0507-1432-4424"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:50.119Z"
     },
     "sections": [
       [
@@ -10684,10 +10980,11 @@
       "contentTypeId": "32",
       "overview": "",
       "homepage": "",
-      "mapx": "127.1784617643",
-      "mapy": "35.7997970778",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:50.590Z"
     },
     "sections": [
       [
@@ -10803,10 +11100,11 @@
       "contentTypeId": "39",
       "overview": "",
       "homepage": "",
-      "mapx": "127.7193574050",
-      "mapy": "36.4828767059",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:51.051Z"
     },
     "sections": [
       [
@@ -10922,10 +11220,11 @@
       "contentTypeId": "38",
       "overview": "",
       "homepage": "",
-      "mapx": "127.2653804881",
-      "mapy": "36.4872910329",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:51.513Z"
     },
     "sections": [
       [
@@ -11029,6 +11328,14 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "불가능"
+      ],
+      [
+        "쉬는 날",
+        "매주 월요일"
       ]
     ],
     "memo": [
@@ -11041,15 +11348,16 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "129.0700317237",
-      "mapy": "35.1257165536",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "불가능",
         "restdate": "매주 월요일",
         "usetime": "09:00~18:00",
         "infocenter": "070-8830-0010"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:51.973Z"
     },
     "sections": [
       [
@@ -11160,6 +11468,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "매주 월요일 / 법정공휴일"
       ]
     ],
     "memo": [
@@ -11172,15 +11484,16 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "129.1820608548",
-      "mapy": "35.1751608447",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "매주 월요일 / 법정공휴일",
         "usetimeculture": "10:00~18:00",
         "usefee": "[전시 관람] - 무료 [교육·체험·공연] - 프로그램별 상이 ※ 유료 프로그램은 홈페이지에서 참가비 확인",
         "infocenterculture": "051-775-2000"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:52.445Z"
     },
     "sections": [
       [
@@ -11304,8 +11617,8 @@
       "contentTypeId": "15",
       "overview": "",
       "homepage": "",
-      "mapx": "126.9783328596",
-      "mapy": "37.5655671650",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "eventstartdate": "20260909",
@@ -11317,7 +11630,8 @@
         "sponsor1": "구미시",
         "sponsor1tel": "054-480-6762",
         "sponsor2": "구미코"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:52.911Z"
     },
     "sections": [
       [
@@ -11435,6 +11749,14 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -11447,15 +11769,16 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "128.7955953108",
-      "mapy": "37.2266818467",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "가능",
         "restdate": "연중무휴",
         "usetime": "[숲속의집]- 입실 15:00- 퇴실 11:00[야영장]- 입실 14:00- 퇴실 12:00",
         "infocenter": "033-560-3456"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:53.386Z"
     },
     "sections": [
       [
@@ -11566,6 +11889,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -11578,15 +11905,16 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "128.5908913109",
-      "mapy": "36.5523985250",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "연중무휴",
         "usetimeculture": "09:00~18:00",
         "usefee": "무료",
         "infocenterculture": "054-850-4615"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:53.846Z"
     },
     "sections": [
       [
@@ -11709,12 +12037,13 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "128.5770639972",
-      "mapy": "37.2778618254",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "infocenterleports": "평창군 문화예술과 033-330-2140"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:54.312Z"
     },
     "sections": [
       [
@@ -11830,10 +12159,11 @@
       "contentTypeId": "32",
       "overview": "",
       "homepage": "",
-      "mapx": "126.6407911149",
-      "mapy": "37.3881282479",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:54.778Z"
     },
     "sections": [
       [
@@ -11949,10 +12279,11 @@
       "contentTypeId": "39",
       "overview": "",
       "homepage": "",
-      "mapx": "128.8772000000",
-      "mapy": "35.2484000000",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:55.246Z"
     },
     "sections": [
       [
@@ -12068,10 +12399,11 @@
       "contentTypeId": "38",
       "overview": "",
       "homepage": "",
-      "mapx": "129.3690000000",
-      "mapy": "36.0467000000",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:55.712Z"
     },
     "sections": [
       [
@@ -12175,6 +12507,18 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "매주 주말"
+      ],
+      [
+        "체험 안내",
+        "옥수수 따기 / 머루와인 담그기 / 농촌체험 등"
       ]
     ],
     "memo": [
@@ -12187,8 +12531,8 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "128.2174848797",
-      "mapy": "37.7049032914",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "가능",
@@ -12196,7 +12540,8 @@
         "usetime": "09:00~18:00",
         "expguide": "옥수수 따기 / 머루와인 담그기 / 농촌체험 등",
         "infocenter": "033-436-0101"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:56.180Z"
     },
     "sections": [
       [
@@ -12307,6 +12652,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "매주 월요일 (단, 월요일이 공휴일인 경우 그 다음날 휴관) / 1월 1일 / 설·추석"
       ]
     ],
     "memo": [
@@ -12319,15 +12668,16 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "128.2405250433",
-      "mapy": "36.4580693410",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "매주 월요일 (단, 월요일이 공휴일인 경우 그 다음날 휴관) / 1월 1일 / 설·추석",
         "usetimeculture": "09:30~17:30 (매표 마감 17:00)",
         "usefee": "무료",
         "infocenterculture": "054-536-6160"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:56.641Z"
     },
     "sections": [
       [
@@ -12450,13 +12800,14 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "128.1367782422",
-      "mapy": "36.6228546549",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "- 하절기 09:00~18:00- 동절기 09:00~17:00",
         "infocenterleports": "054-553-1788"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:57.109Z"
     },
     "sections": [
       [
@@ -12579,10 +12930,11 @@
       "contentTypeId": "32",
       "overview": "",
       "homepage": "",
-      "mapx": "129.014819855277",
-      "mapy": "37.7044076275466",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:57.573Z"
     },
     "sections": [
       [
@@ -12686,6 +13038,14 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -12698,15 +13058,16 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "128.8403536468",
-      "mapy": "36.7278936598",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "가능",
         "restdate": "연중무휴",
         "usetime": "- 2월~10월 09:00~18:00 (입장 마감 17:30)- 11월~1월 09:00~17:00 (입장 마감 16:30)",
         "infocenter": "054-856-1073"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:58.041Z"
     },
     "sections": [
       [
@@ -12830,8 +13191,8 @@
       "contentTypeId": "15",
       "overview": "",
       "homepage": "",
-      "mapx": "126.8839435426",
-      "mapy": "35.1896608044",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "eventstartdate": "20260729",
@@ -12843,7 +13204,8 @@
         "sponsor1": "국립광주박물관",
         "sponsor1tel": "062-570-7809",
         "sponsor2": "국립광주박물관"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:58.514Z"
     },
     "sections": [
       [
@@ -12973,13 +13335,14 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "127.8289966692",
-      "mapy": "35.2170387844",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "상시 개방",
         "infocenterleports": "하동센터 055-884-0854"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:16:58.977Z"
     },
     "sections": [
       [
@@ -13102,10 +13465,11 @@
       "contentTypeId": "32",
       "overview": "",
       "homepage": "",
-      "mapx": "126.1382913650",
-      "mapy": "36.6785150829",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:59.454Z"
     },
     "sections": [
       [
@@ -13221,10 +13585,11 @@
       "contentTypeId": "39",
       "overview": "",
       "homepage": "",
-      "mapx": "127.1573283487",
-      "mapy": "36.8183886068",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:16:59.921Z"
     },
     "sections": [
       [
@@ -13340,10 +13705,11 @@
       "contentTypeId": "38",
       "overview": "",
       "homepage": "",
-      "mapx": "128.6443281807",
-      "mapy": "35.8647661224",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:00.429Z"
     },
     "sections": [
       [
@@ -13447,6 +13813,18 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "불가능"
+      ],
+      [
+        "쉬는 날",
+        "매주 일요일, 월요일※ 휴무 시 투어 신청은 별도 문의"
+      ],
+      [
+        "체험 안내",
+        "양조장 투어"
       ]
     ],
     "memo": [
@@ -13459,8 +13837,8 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "127.0091884066",
-      "mapy": "37.5532675020",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "불가능",
@@ -13469,7 +13847,8 @@
         "expguide": "양조장 투어",
         "expagerange": "만19세 이상",
         "infocenter": "1899-8876"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:00.893Z"
     },
     "sections": [
       [
@@ -13580,6 +13959,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "매주 월요일 ※ 단, 월요일이 공휴일인 경우 정상 개관"
       ]
     ],
     "memo": [
@@ -13592,15 +13975,16 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "129.2057745204",
-      "mapy": "35.8616689641",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "매주 월요일 ※ 단, 월요일이 공휴일인 경우 정상 개관",
         "usetimeculture": "10:00~18:00",
         "usefee": "공연에 따라 상이",
         "infocenterculture": "1588-4925"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:01.365Z"
     },
     "sections": [
       [
@@ -13723,13 +14107,14 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "127.6594632094",
-      "mapy": "35.1806920581",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "상시 개방",
         "infocenterleports": "하동센터 055-884-0854"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:01.836Z"
     },
     "sections": [
       [
@@ -13852,10 +14237,11 @@
       "contentTypeId": "39",
       "overview": "",
       "homepage": "",
-      "mapx": "126.8579867987",
-      "mapy": "35.5834479055",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:02.307Z"
     },
     "sections": [
       [
@@ -13971,10 +14357,11 @@
       "contentTypeId": "32",
       "overview": "",
       "homepage": "",
-      "mapx": "127.1432151800",
-      "mapy": "36.8257787119",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:02.778Z"
     },
     "sections": [
       [
@@ -14090,10 +14477,11 @@
       "contentTypeId": "39",
       "overview": "",
       "homepage": "",
-      "mapx": "126.9508117377",
-      "mapy": "37.5421160248",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:03.261Z"
     },
     "sections": [
       [
@@ -14209,10 +14597,11 @@
       "contentTypeId": "38",
       "overview": "",
       "homepage": "",
-      "mapx": "127.0216180364",
-      "mapy": "37.6028299114",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:03.731Z"
     },
     "sections": [
       [
@@ -14316,6 +14705,14 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "매월 18일※ 18일이 휴일·연휴일 경우 그 다음 평일"
       ]
     ],
     "memo": [
@@ -14328,15 +14725,16 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "129.0212226612",
-      "mapy": "37.3263562755",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "가능",
         "restdate": "매월 18일※ 18일이 휴일·연휴일 경우 그 다음 평일",
         "usetime": "- 하절기(3월~10월) 09:00~17:00- 동절기(11월~2월) 09:00~16:00",
         "infocenter": "1533-8362"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:04.206Z"
     },
     "sections": [
       [
@@ -14459,13 +14857,14 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "127.4633352392",
-      "mapy": "35.2611648051",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "상시 개방",
         "infocenterleports": "구례센터 061-781-0850"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:04.681Z"
     },
     "sections": [
       [
@@ -14588,10 +14987,11 @@
       "contentTypeId": "39",
       "overview": "",
       "homepage": "",
-      "mapx": "127.4167564474",
-      "mapy": "35.7738793657",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:05.152Z"
     },
     "sections": [
       [
@@ -14695,6 +15095,18 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
+      ],
+      [
+        "체험 안내",
+        "소방관 체험 / 경찰관 체험 / 승무원 체험 등"
       ]
     ],
     "memo": [
@@ -14707,16 +15119,17 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "127.0981417512",
-      "mapy": "37.5113096112",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "가능",
         "restdate": "연중무휴",
-        "usetime": "- 평일 10:00~18:00- 주말 10:00~19:30",
-        "expguide": "관세청 / 브라이빙 트랙 / 라디오 스튜디오 / 라면 연구 센터 등",
+        "usetime": "- 평일 10:00~18:00 - 주말/공휴일/성수기 10:00~19:30 ※ 자세한 사항은 홈페이지 참조",
+        "expguide": "소방관 체험 / 경찰관 체험 / 승무원 체험 등",
         "infocenter": "02-1544-5110"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:05.619Z"
     },
     "sections": [
       [
@@ -14736,7 +15149,7 @@
       [
         "운영 정보에서 놓치기 쉬운 부분",
         [
-          "키자니아 서울 방문 전 확인할 만한 세부 정보는 주차: 가능 / 쉬는 날: 연중무휴 / 이용 시간: - 평일 10:00~18:00- 주말 10:00~19:30 / 체험 안내: 관세청 / 브라이빙 트랙 / 라디오 스튜디오 / 라면 연구 센터 등입니다. 이 정보는 제목이나 대표 이미지보다 실제 일정에 더 직접적으로 영향을 줍니다.",
+          "키자니아 서울 방문 전 확인할 만한 세부 정보는 주차: 가능 / 쉬는 날: 연중무휴 / 이용 시간: - 평일 10:00~18:00 - 주말/공휴일/성수기 10:00~19:30 ※ 자세한 사항은 홈페이지 참조 / 체험 안내: 소방관 체험 / 경찰관 체험 / 승무원 체험 등입니다. 이 정보는 제목이나 대표 이미지보다 실제 일정에 더 직접적으로 영향을 줍니다.",
           "특히 주차, 쉬는 날, 이용 시간, 체험 접수처럼 현장에서 바로 막히는 항목은 출발 전에 다시 확인하는 편이 좋습니다. 같은 지역 안에서도 입구와 주차 위치가 다르면 이동 시간이 크게 달라질 수 있습니다."
         ]
       ],
@@ -14839,13 +15252,14 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "127.4394214930",
-      "mapy": "35.3158555969",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "상시 개방",
         "infocenterleports": "구례센터 061-781-0850 남원주천센터 063-930-0800"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:06.087Z"
     },
     "sections": [
       [
@@ -14968,10 +15382,11 @@
       "contentTypeId": "39",
       "overview": "",
       "homepage": "",
-      "mapx": "126.5639754324",
-      "mapy": "33.2498913802",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:06.555Z"
     },
     "sections": [
       [
@@ -15087,10 +15502,11 @@
       "contentTypeId": "38",
       "overview": "",
       "homepage": "",
-      "mapx": "128.6199575052",
-      "mapy": "35.8484016785",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:07.025Z"
     },
     "sections": [
       [
@@ -15200,6 +15616,14 @@
       [
         "방문 포인트",
         "도심에서 접근하기 쉽고 해변 산책과 야경을 한 일정에 넣기 좋은 곳"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -15209,20 +15633,20 @@
     ],
     "tourApi": {
       "contentTypeId": "12",
-      "overview": "부산광역시 광안리해수욕장 부산광역시 수영구 광안해변로 219 (광안동) 방문 정보를 정리했습니다.",
+      "overview": "",
       "homepage": "",
       "mapx": "",
       "mapy": "",
-      "intro": {}
+      "mlevel": "",
+      "intro": {
+        "parking": "가능",
+        "restdate": "연중무휴",
+        "usetime": "상시 개방",
+        "infocenter": "051-622-4251"
+      },
+      "backfilledAt": "2026-08-07T02:17:07.495Z"
     },
     "sections": [
-      [
-        "장소 개요를 먼저 보면",
-        [
-          "광안리해수욕장은 공식 관광 정보에 등록된 소개 내용을 기준으로 보면 다음처럼 이해하면 좋습니다. 부산광역시 광안리해수욕장 부산광역시 수영구 광안해변로 219 (광안동) 방문 정보를 정리했습니다.",
-          "장소 소개만 보고 바로 이동하기보다 실제 입구, 운영 여부, 주차 또는 대중교통 동선, 주변 식사 동선을 함께 잡아야 방문 만족도가 높아집니다."
-        ]
-      ],
       [
         "어떤 일정에 어울릴까",
         [
@@ -15235,6 +15659,13 @@
         [
           "위치는 광안리해수욕장 기준입니다. 운영 관련 안내는 개장 기간·입수 가능 구역·편의시설 확인, 요금은 운영 시설별 상이로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
           "문의처는 방문 전 공식 안내 확인입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
+        ]
+      ],
+      [
+        "운영 정보에서 놓치기 쉬운 부분",
+        [
+          "광안리해수욕장 방문 전 확인할 만한 세부 정보는 주차: 가능 / 쉬는 날: 연중무휴 / 이용 시간: 상시 개방입니다. 이 정보는 제목이나 대표 이미지보다 실제 일정에 더 직접적으로 영향을 줍니다.",
+          "특히 주차, 쉬는 날, 이용 시간, 체험 접수처럼 현장에서 바로 막히는 항목은 출발 전에 다시 확인하는 편이 좋습니다. 같은 지역 안에서도 입구와 주차 위치가 다르면 이동 시간이 크게 달라질 수 있습니다."
         ]
       ],
       [
@@ -15331,6 +15762,14 @@
       [
         "방문 포인트",
         "해변만 보고 돌아오기보다 땅끝권역의 바닷길과 함께 묶기 좋은 남쪽 여행지"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -15340,20 +15779,20 @@
     ],
     "tourApi": {
       "contentTypeId": "12",
-      "overview": "전라남도 땅끝송호해수욕장 전라남도 해남군 송지면 땅끝해안로 1827 방문 정보를 정리했습니다.",
+      "overview": "",
       "homepage": "",
       "mapx": "",
       "mapy": "",
-      "intro": {}
+      "mlevel": "",
+      "intro": {
+        "parking": "가능",
+        "restdate": "연중무휴",
+        "usetime": "상시 개방",
+        "infocenter": "061-530-5917"
+      },
+      "backfilledAt": "2026-08-07T02:17:07.972Z"
     },
     "sections": [
-      [
-        "장소 개요를 먼저 보면",
-        [
-          "땅끝송호해수욕장은 공식 관광 정보에 등록된 소개 내용을 기준으로 보면 다음처럼 이해하면 좋습니다. 전라남도 땅끝송호해수욕장 전라남도 해남군 송지면 땅끝해안로 1827 방문 정보를 정리했습니다.",
-          "장소 소개만 보고 바로 이동하기보다 실제 입구, 운영 여부, 주차 또는 대중교통 동선, 주변 식사 동선을 함께 잡아야 방문 만족도가 높아집니다."
-        ]
-      ],
       [
         "어떤 일정에 어울릴까",
         [
@@ -15366,6 +15805,13 @@
         [
           "위치는 땅끝송호해수욕장 기준입니다. 운영 관련 안내는 개장 기간·입수 가능 구역·편의시설 확인, 요금은 운영 시설별 상이로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
           "문의처는 방문 전 공식 안내 확인입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
+        ]
+      ],
+      [
+        "운영 정보에서 놓치기 쉬운 부분",
+        [
+          "땅끝송호해수욕장 방문 전 확인할 만한 세부 정보는 주차: 가능 / 쉬는 날: 연중무휴 / 이용 시간: 상시 개방입니다. 이 정보는 제목이나 대표 이미지보다 실제 일정에 더 직접적으로 영향을 줍니다.",
+          "특히 주차, 쉬는 날, 이용 시간, 체험 접수처럼 현장에서 바로 막히는 항목은 출발 전에 다시 확인하는 편이 좋습니다. 같은 지역 안에서도 입구와 주차 위치가 다르면 이동 시간이 크게 달라질 수 있습니다."
         ]
       ],
       [
@@ -15462,6 +15908,14 @@
       [
         "방문 포인트",
         "모래 해변과 다른 몽돌 풍경을 보고 해안도로까지 이어가기 좋은 울산 북구 코스"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -15471,20 +15925,20 @@
     ],
     "tourApi": {
       "contentTypeId": "12",
-      "overview": "울산광역시 강동몽돌해변 (정자해변) 울산광역시 북구 동해안로 1650 (산하동) 방문 정보를 정리했습니다.",
+      "overview": "",
       "homepage": "",
       "mapx": "",
       "mapy": "",
-      "intro": {}
+      "mlevel": "",
+      "intro": {
+        "parking": "가능",
+        "restdate": "연중무휴",
+        "usetime": "상시 개방",
+        "infocenter": "052-241-7733"
+      },
+      "backfilledAt": "2026-08-07T02:17:08.446Z"
     },
     "sections": [
-      [
-        "장소 개요를 먼저 보면",
-        [
-          "강동몽돌해변 (정자해변)은 공식 관광 정보에 등록된 소개 내용을 기준으로 보면 다음처럼 이해하면 좋습니다. 울산광역시 강동몽돌해변 (정자해변) 울산광역시 북구 동해안로 1650 (산하동) 방문 정보를 정리했습니다.",
-          "장소 소개만 보고 바로 이동하기보다 실제 입구, 운영 여부, 주차 또는 대중교통 동선, 주변 식사 동선을 함께 잡아야 방문 만족도가 높아집니다."
-        ]
-      ],
       [
         "어떤 일정에 어울릴까",
         [
@@ -15497,6 +15951,13 @@
         [
           "위치는 강동몽돌해변 (정자해변) 기준입니다. 운영 관련 안내는 개장 기간·입수 가능 구역·편의시설 확인, 요금은 운영 시설별 상이로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
           "문의처는 방문 전 공식 안내 확인입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
+        ]
+      ],
+      [
+        "운영 정보에서 놓치기 쉬운 부분",
+        [
+          "강동몽돌해변 (정자해변) 방문 전 확인할 만한 세부 정보는 주차: 가능 / 쉬는 날: 연중무휴 / 이용 시간: 상시 개방입니다. 이 정보는 제목이나 대표 이미지보다 실제 일정에 더 직접적으로 영향을 줍니다.",
+          "특히 주차, 쉬는 날, 이용 시간, 체험 접수처럼 현장에서 바로 막히는 항목은 출발 전에 다시 확인하는 편이 좋습니다. 같은 지역 안에서도 입구와 주차 위치가 다르면 이동 시간이 크게 달라질 수 있습니다."
         ]
       ],
       [
@@ -15593,6 +16054,14 @@
       [
         "방문 포인트",
         "작은 항구와 해변을 함께 볼 수 있어 물놀이 중심 일정과 산책 중심 일정을 나누기 좋은 곳"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -15602,20 +16071,20 @@
     ],
     "tourApi": {
       "contentTypeId": "12",
-      "overview": "강원특별자치도 장호해변·장호항 강원특별자치도 삼척시 근덕면 장호리 방문 정보를 정리했습니다.",
+      "overview": "",
       "homepage": "",
       "mapx": "",
       "mapy": "",
-      "intro": {}
+      "mlevel": "",
+      "intro": {
+        "parking": "가능",
+        "restdate": "연중무휴",
+        "usetime": "상시 개방",
+        "infocenter": "삼척관광안내소 033-575-1330 근덕면행정복지센터 033-570-4806"
+      },
+      "backfilledAt": "2026-08-07T02:17:08.917Z"
     },
     "sections": [
-      [
-        "장소 개요를 먼저 보면",
-        [
-          "장호해변·장호항은 공식 관광 정보에 등록된 소개 내용을 기준으로 보면 다음처럼 이해하면 좋습니다. 강원특별자치도 장호해변·장호항 강원특별자치도 삼척시 근덕면 장호리 방문 정보를 정리했습니다.",
-          "장소 소개만 보고 바로 이동하기보다 실제 입구, 운영 여부, 주차 또는 대중교통 동선, 주변 식사 동선을 함께 잡아야 방문 만족도가 높아집니다."
-        ]
-      ],
       [
         "어떤 일정에 어울릴까",
         [
@@ -15628,6 +16097,13 @@
         [
           "위치는 장호해변·장호항 기준입니다. 운영 관련 안내는 개장 기간·입수 가능 구역·편의시설 확인, 요금은 운영 시설별 상이로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
           "문의처는 방문 전 공식 안내 확인입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
+        ]
+      ],
+      [
+        "운영 정보에서 놓치기 쉬운 부분",
+        [
+          "장호해변·장호항 방문 전 확인할 만한 세부 정보는 주차: 가능 / 쉬는 날: 연중무휴 / 이용 시간: 상시 개방입니다. 이 정보는 제목이나 대표 이미지보다 실제 일정에 더 직접적으로 영향을 줍니다.",
+          "특히 주차, 쉬는 날, 이용 시간, 체험 접수처럼 현장에서 바로 막히는 항목은 출발 전에 다시 확인하는 편이 좋습니다. 같은 지역 안에서도 입구와 주차 위치가 다르면 이동 시간이 크게 달라질 수 있습니다."
         ]
       ],
       [
@@ -15724,6 +16200,14 @@
       [
         "방문 포인트",
         "해변 체류 시간을 넉넉하게 잡고 숙박이나 캠핑과 함께 구성하기 좋은 동해안 여행지"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -15733,20 +16217,20 @@
     ],
     "tourApi": {
       "contentTypeId": "12",
-      "overview": "강원특별자치도 망상해변 강원특별자치도 동해시 동해대로 6270-10 (망상동) 방문 정보를 정리했습니다.",
+      "overview": "",
       "homepage": "",
       "mapx": "",
       "mapy": "",
-      "intro": {}
+      "mlevel": "",
+      "intro": {
+        "parking": "가능",
+        "restdate": "연중무휴",
+        "usetime": "상시 개방",
+        "infocenter": "망상관광안내소 033-530-2800"
+      },
+      "backfilledAt": "2026-08-07T02:17:09.379Z"
     },
     "sections": [
-      [
-        "장소 개요를 먼저 보면",
-        [
-          "망상해변은 공식 관광 정보에 등록된 소개 내용을 기준으로 보면 다음처럼 이해하면 좋습니다. 강원특별자치도 망상해변 강원특별자치도 동해시 동해대로 6270-10 (망상동) 방문 정보를 정리했습니다.",
-          "장소 소개만 보고 바로 이동하기보다 실제 입구, 운영 여부, 주차 또는 대중교통 동선, 주변 식사 동선을 함께 잡아야 방문 만족도가 높아집니다."
-        ]
-      ],
       [
         "어떤 일정에 어울릴까",
         [
@@ -15759,6 +16243,13 @@
         [
           "위치는 망상해변 기준입니다. 운영 관련 안내는 개장 기간·입수 가능 구역·편의시설 확인, 요금은 운영 시설별 상이로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
           "문의처는 방문 전 공식 안내 확인입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
+        ]
+      ],
+      [
+        "운영 정보에서 놓치기 쉬운 부분",
+        [
+          "망상해변 방문 전 확인할 만한 세부 정보는 주차: 가능 / 쉬는 날: 연중무휴 / 이용 시간: 상시 개방입니다. 이 정보는 제목이나 대표 이미지보다 실제 일정에 더 직접적으로 영향을 줍니다.",
+          "특히 주차, 쉬는 날, 이용 시간, 체험 접수처럼 현장에서 바로 막히는 항목은 출발 전에 다시 확인하는 편이 좋습니다. 같은 지역 안에서도 입구와 주차 위치가 다르면 이동 시간이 크게 달라질 수 있습니다."
         ]
       ],
       [
@@ -15855,6 +16346,14 @@
       [
         "방문 포인트",
         "북적이는 관광지보다 해안 풍경과 느린 산책을 중심으로 하루를 보내고 싶은 여행지"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -15864,20 +16363,20 @@
     ],
     "tourApi": {
       "contentTypeId": "12",
-      "overview": "전라남도 우두해변 전라남도 고흥군 영남면 우천리 방문 정보를 정리했습니다.",
+      "overview": "",
       "homepage": "",
       "mapx": "",
       "mapy": "",
-      "intro": {}
+      "mlevel": "",
+      "intro": {
+        "parking": "가능",
+        "restdate": "연중무휴",
+        "usetime": "상시 개방",
+        "infocenter": "고흥군청 관광정책실 061-830-5696"
+      },
+      "backfilledAt": "2026-08-07T02:17:09.847Z"
     },
     "sections": [
-      [
-        "장소 개요를 먼저 보면",
-        [
-          "우두해변은 공식 관광 정보에 등록된 소개 내용을 기준으로 보면 다음처럼 이해하면 좋습니다. 전라남도 우두해변 전라남도 고흥군 영남면 우천리 방문 정보를 정리했습니다.",
-          "장소 소개만 보고 바로 이동하기보다 실제 입구, 운영 여부, 주차 또는 대중교통 동선, 주변 식사 동선을 함께 잡아야 방문 만족도가 높아집니다."
-        ]
-      ],
       [
         "어떤 일정에 어울릴까",
         [
@@ -15890,6 +16389,13 @@
         [
           "위치는 우두해변 기준입니다. 운영 관련 안내는 개장 기간·입수 가능 구역·편의시설 확인, 요금은 운영 시설별 상이로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
           "문의처는 방문 전 공식 안내 확인입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
+        ]
+      ],
+      [
+        "운영 정보에서 놓치기 쉬운 부분",
+        [
+          "우두해변 방문 전 확인할 만한 세부 정보는 주차: 가능 / 쉬는 날: 연중무휴 / 이용 시간: 상시 개방입니다. 이 정보는 제목이나 대표 이미지보다 실제 일정에 더 직접적으로 영향을 줍니다.",
+          "특히 주차, 쉬는 날, 이용 시간, 체험 접수처럼 현장에서 바로 막히는 항목은 출발 전에 다시 확인하는 편이 좋습니다. 같은 지역 안에서도 입구와 주차 위치가 다르면 이동 시간이 크게 달라질 수 있습니다."
         ]
       ],
       [
@@ -15986,6 +16492,14 @@
       [
         "방문 포인트",
         "바다를 본 뒤 카페와 식사로 자연스럽게 이어갈 수 있어 짧은 강릉 일정에도 넣기 좋은 코스"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -15995,20 +16509,20 @@
     ],
     "tourApi": {
       "contentTypeId": "12",
-      "overview": "강원특별자치도 안목해변 강원특별자치도 강릉시 창해로14번길 20-1 방문 정보를 정리했습니다.",
+      "overview": "",
       "homepage": "",
       "mapx": "",
       "mapy": "",
-      "intro": {}
+      "mlevel": "",
+      "intro": {
+        "parking": "가능",
+        "restdate": "연중무휴",
+        "usetime": "상시 개방",
+        "infocenter": "033-660-3887"
+      },
+      "backfilledAt": "2026-08-07T02:17:10.311Z"
     },
     "sections": [
-      [
-        "장소 개요를 먼저 보면",
-        [
-          "안목해변은 공식 관광 정보에 등록된 소개 내용을 기준으로 보면 다음처럼 이해하면 좋습니다. 강원특별자치도 안목해변 강원특별자치도 강릉시 창해로14번길 20-1 방문 정보를 정리했습니다.",
-          "장소 소개만 보고 바로 이동하기보다 실제 입구, 운영 여부, 주차 또는 대중교통 동선, 주변 식사 동선을 함께 잡아야 방문 만족도가 높아집니다."
-        ]
-      ],
       [
         "어떤 일정에 어울릴까",
         [
@@ -16021,6 +16535,13 @@
         [
           "위치는 안목해변 기준입니다. 운영 관련 안내는 개장 기간·입수 가능 구역·편의시설 확인, 요금은 운영 시설별 상이로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
           "문의처는 방문 전 공식 안내 확인입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
+        ]
+      ],
+      [
+        "운영 정보에서 놓치기 쉬운 부분",
+        [
+          "안목해변 방문 전 확인할 만한 세부 정보는 주차: 가능 / 쉬는 날: 연중무휴 / 이용 시간: 상시 개방입니다. 이 정보는 제목이나 대표 이미지보다 실제 일정에 더 직접적으로 영향을 줍니다.",
+          "특히 주차, 쉬는 날, 이용 시간, 체험 접수처럼 현장에서 바로 막히는 항목은 출발 전에 다시 확인하는 편이 좋습니다. 같은 지역 안에서도 입구와 주차 위치가 다르면 이동 시간이 크게 달라질 수 있습니다."
         ]
       ],
       [
@@ -16117,6 +16638,18 @@
       [
         "방문 포인트",
         "해변만 빠르게 다녀오기보다 배편과 섬의 시간을 함께 존중해야 하는 느린 바다 여행지"
+      ],
+      [
+        "주차",
+        "불가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
+      ],
+      [
+        "반려동물",
+        "없음"
       ]
     ],
     "memo": [
@@ -16126,20 +16659,21 @@
     ],
     "tourApi": {
       "contentTypeId": "12",
-      "overview": "전라남도 돈목해변 전라남도 신안군 도초면 우이도리 방문 정보를 정리했습니다.",
+      "overview": "",
       "homepage": "",
       "mapx": "",
       "mapy": "",
-      "intro": {}
+      "mlevel": "",
+      "intro": {
+        "parking": "불가능",
+        "restdate": "연중무휴",
+        "usetime": "상시 개방※ 19:00 이후 물놀이 금지",
+        "chkpet": "없음",
+        "infocenter": "도초면사무소 061-240-3754"
+      },
+      "backfilledAt": "2026-08-07T02:17:10.780Z"
     },
     "sections": [
-      [
-        "장소 개요를 먼저 보면",
-        [
-          "돈목해변은 공식 관광 정보에 등록된 소개 내용을 기준으로 보면 다음처럼 이해하면 좋습니다. 전라남도 돈목해변 전라남도 신안군 도초면 우이도리 방문 정보를 정리했습니다.",
-          "장소 소개만 보고 바로 이동하기보다 실제 입구, 운영 여부, 주차 또는 대중교통 동선, 주변 식사 동선을 함께 잡아야 방문 만족도가 높아집니다."
-        ]
-      ],
       [
         "어떤 일정에 어울릴까",
         [
@@ -16152,6 +16686,13 @@
         [
           "위치는 돈목해변 기준입니다. 운영 관련 안내는 개장 기간·입수 가능 구역·편의시설 확인, 요금은 운영 시설별 상이로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
           "문의처는 방문 전 공식 안내 확인입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
+        ]
+      ],
+      [
+        "운영 정보에서 놓치기 쉬운 부분",
+        [
+          "돈목해변 방문 전 확인할 만한 세부 정보는 주차: 불가능 / 쉬는 날: 연중무휴 / 이용 시간: 상시 개방※ 19:00 이후 물놀이 금지입니다. 이 정보는 제목이나 대표 이미지보다 실제 일정에 더 직접적으로 영향을 줍니다.",
+          "특히 주차, 쉬는 날, 이용 시간, 체험 접수처럼 현장에서 바로 막히는 항목은 출발 전에 다시 확인하는 편이 좋습니다. 같은 지역 안에서도 입구와 주차 위치가 다르면 이동 시간이 크게 달라질 수 있습니다."
         ]
       ],
       [
@@ -16242,6 +16783,14 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능 (약 160대)"
+      ],
+      [
+        "쉬는 날",
+        "[칠곡호수공원] 연중무휴 [음악분수] 매주 월요일 (단, 공휴일은 정상 운영)※ 음악분수는 기상 악화시 휴무"
       ]
     ],
     "memo": [
@@ -16254,15 +16803,16 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "127.1571421810",
-      "mapy": "37.0481401771",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "가능 (약 160대)",
         "restdate": "[칠곡호수공원] 연중무휴 [음악분수] 매주 월요일 (단, 공휴일은 정상 운영)※ 음악분수는 기상 악화시 휴무",
-        "usetime": "[칠곡호수공원] - 상시 개방 [음악분수 (3월~5월/9월~11월)] - 화요일~금요일 20:00~20:40 - 주말/공휴일 1부 20:00~20:40 - 주말/공휴일 2부 21:00~21:40 [음악분수 (6월~8월)] - 화요일~금요일 20:30~21:10 - 주말/공휴일 1부 20:30~21:10 - 주말/공휴일 2부 21:20~22:00",
+        "usetime": "[칠곡호수공원] - 상시 개방 [음악분수 (3월~5월/9월~11월)] - 화요일~금요일 20:00~20:40 - 주말/공휴일 1부 20:00~20:40 - 주말/공휴일 2부 21:00~21:40 [음악분수 (6월~8월)] - 화요일~금요일 20:30~21:10 - 주말/공휴일 1부 20:30~21:10 - 주말/공휴일 2부 21:20~22:00※ 2026년 8월 4일(화)부터 호수 수위 저하에 따른 음악분수 ‘기억의 빛’ 잠정 운영 중지 (문의 031-677-1330)",
         "infocenter": "안성시 관광지원센터 031-677-1330"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:11.247Z"
     },
     "sections": [
       [
@@ -16282,7 +16832,7 @@
       [
         "운영 정보에서 놓치기 쉬운 부분",
         [
-          "칠곡호수공원 방문 전 확인할 만한 세부 정보는 주차: 가능 (약 160대) / 쉬는 날: [칠곡호수공원] 연중무휴 [음악분수] 매주 월요일 (단, 공휴일은 정상 운영)※ 음악분수는 기상 악화시 휴무 / 이용 시간: [칠곡호수공원] - 상시 개방 [음악분수 (3월~5월/9월~11월)] - 화요일~금요일 20:00~20:40 - 주말/공휴일 1부 20:00~20:40 - 주말/공휴일 2부 21:00~21:40 [음악분수 (6월~8월)] - 화요일~금요일 20:30~21:10 - 주말/공휴일 1부 20:30~21:10 - 주말/공휴일 2부 21:20~22:00입니다. 이 정보는 제목이나 대표 이미지보다 실제 일정에 더 직접적으로 영향을 줍니다.",
+          "칠곡호수공원 방문 전 확인할 만한 세부 정보는 주차: 가능 (약 160대) / 쉬는 날: [칠곡호수공원] 연중무휴 [음악분수] 매주 월요일 (단, 공휴일은 정상 운영)※ 음악분수는 기상 악화시 휴무 / 이용 시간: [칠곡호수공원] - 상시 개방 [음악분수 (3월~5월/9월~11월)] - 화요일~금요일 20:00~20:40 - 주말/공휴일 1부 20:00~20:40 - 주말/공휴일 2부 21:00~21:40 [음악분수 (6월~8월)] - 화요일~금요일 20:30~21:10 - 주말/공휴일 1부 20:30~21:10 - 주말/공휴일 2부 21:20~22:00※ 2026년 8월 4일(화)부터 호수 수위 저하에 따른 음악분수 ‘기억의 빛’ 잠정 운영 중지 (문의 031-677-1입니다. 이 정보는 제목이나 대표 이미지보다 실제 일정에 더 직접적으로 영향을 줍니다.",
           "특히 주차, 쉬는 날, 이용 시간, 체험 접수처럼 현장에서 바로 막히는 항목은 출발 전에 다시 확인하는 편이 좋습니다. 같은 지역 안에서도 입구와 주차 위치가 다르면 이동 시간이 크게 달라질 수 있습니다."
         ]
       ],
@@ -16373,6 +16923,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "매주 월요일(단, 월요일이 공휴일인 경우 그 다음날) / 설날·추석 당일 / 1월 1일 등 ※ 자세한 사항은 홈페이지 참조"
       ]
     ],
     "memo": [
@@ -16385,15 +16939,16 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "128.5911637241",
-      "mapy": "35.8717966606",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "매주 월요일(단, 월요일이 공휴일인 경우 그 다음날) / 설날·추석 당일 / 1월 1일 등 ※ 자세한 사항은 홈페이지 참조",
         "usetimeculture": "09:00~18:00 (입장 마감 17:30)",
         "usefee": "무료",
         "infocenterculture": "053-430-7910"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:11.719Z"
     },
     "sections": [
       [
@@ -16517,8 +17072,8 @@
       "contentTypeId": "15",
       "overview": "",
       "homepage": "",
-      "mapx": "128.2605623000",
-      "mapy": "35.7192916000",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "eventstartdate": "20260904",
@@ -16530,7 +17085,8 @@
         "sponsor1": "고령군",
         "sponsor1tel": "054-955-0808",
         "sponsor2": "(재)고령문화관광재단"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:12.189Z"
     },
     "sections": [
       [
@@ -16660,13 +17216,14 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "127.5142106888",
-      "mapy": "35.2061882384",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "상시 개방",
         "infocenterleports": "구례센터 061-781-0850"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:12.660Z"
     },
     "sections": [
       [
@@ -16789,10 +17346,11 @@
       "contentTypeId": "32",
       "overview": "",
       "homepage": "",
-      "mapx": "127.0587155150",
-      "mapy": "37.5084527136",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:13.138Z"
     },
     "sections": [
       [
@@ -16908,10 +17466,11 @@
       "contentTypeId": "39",
       "overview": "",
       "homepage": "",
-      "mapx": "127.2287942227",
-      "mapy": "37.2761668686",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:13.611Z"
     },
     "sections": [
       [
@@ -17027,10 +17586,11 @@
       "contentTypeId": "38",
       "overview": "",
       "homepage": "",
-      "mapx": "127.0306901783",
-      "mapy": "37.2543572556",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:14.083Z"
     },
     "sections": [
       [
@@ -17134,6 +17694,14 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "매월 18일※ 18일이 휴일·연휴일 경우 그 다음 평일"
       ]
     ],
     "memo": [
@@ -17146,15 +17714,16 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "129.0205421849",
-      "mapy": "37.3259007616",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "가능",
         "restdate": "매월 18일※ 18일이 휴일·연휴일 경우 그 다음 평일",
         "usetime": "- 하절기(3월~10월) 9:00~17:00- 동절기(11월~2월) 9:30~16:00※ 자세한 사항은 홈페이지 참조",
         "infocenter": "1533-8362"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:14.562Z"
     },
     "sections": [
       [
@@ -17265,6 +17834,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "매주 일요일~월요일 / 법정공휴일"
       ]
     ],
     "memo": [
@@ -17277,15 +17850,16 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "127.0476510178",
-      "mapy": "37.5227374123",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "매주 일요일~월요일 / 법정공휴일",
         "usetimeculture": "11:00~18:00",
         "usefee": "무료",
         "infocenterculture": "02-543-1663"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:15.028Z"
     },
     "sections": [
       [
@@ -17408,13 +17982,14 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "127.5142106888",
-      "mapy": "35.2061882384",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "상시 개방",
         "infocenterleports": "구례센터 061-781-0850"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:15.493Z"
     },
     "sections": [
       [
@@ -17525,6 +18100,14 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "불가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -17537,15 +18120,16 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "128.5927208954",
-      "mapy": "35.8689350631",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "불가능",
         "restdate": "연중무휴",
         "usetime": "상시 개방",
         "infocenter": "대구 중구청 관광과 053-661-2623"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:15.964Z"
     },
     "sections": [
       [
@@ -17668,14 +18252,15 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "126.9211625918",
-      "mapy": "37.5532161579",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeculture": "[공연시간]- 월요일~금요일 17:00- 토요일 14:00 / 17:00- 일요일 14:00※ 단, 공연 스케줄은 기획사 사정에 의해 변경 가능성 있음",
         "usefee": "- VIP석 70,000원- S석 60,000원- A석 50,000원",
         "infocenterculture": "02-739-8288"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:16.427Z"
     },
     "sections": [
       [
@@ -17798,13 +18383,14 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "128.8983703857",
-      "mapy": "36.4549270104",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "-입실 15:00- 퇴실 11:00",
         "infocenterleports": "0507-1371-6710"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:16.897Z"
     },
     "sections": [
       [
@@ -17927,10 +18513,11 @@
       "contentTypeId": "32",
       "overview": "",
       "homepage": "",
-      "mapx": "128.9260793926",
-      "mapy": "37.7859717489",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:17.369Z"
     },
     "sections": [
       [
@@ -18046,10 +18633,11 @@
       "contentTypeId": "39",
       "overview": "",
       "homepage": "",
-      "mapx": "128.6251793900",
-      "mapy": "35.8299113219",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:17.838Z"
     },
     "sections": [
       [
@@ -18165,10 +18753,11 @@
       "contentTypeId": "38",
       "overview": "",
       "homepage": "",
-      "mapx": "127.5092833426",
-      "mapy": "34.8857970101",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:18.298Z"
     },
     "sections": [
       [
@@ -18284,13 +18873,14 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "126.9397161701",
-      "mapy": "34.5489108357",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetime": "상시 개방",
         "infocenter": "장흥군청 문화지원팀 061-860-5792"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:18.769Z"
     },
     "sections": [
       [
@@ -18401,6 +18991,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "매월 둘째, 넷째 토요일 / 일요일을 제외한 공휴일 (단, 공휴일과 겹친 토요일·일요일 휴관)"
       ]
     ],
     "memo": [
@@ -18413,15 +19007,16 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "126.9166173251",
-      "mapy": "37.5293706796",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "매월 둘째, 넷째 토요일 / 일요일을 제외한 공휴일 (단, 공휴일과 겹친 토요일·일요일 휴관)",
         "usetimeculture": "- 평일 09:00~21:00 - 주말 09:00~17:00 ※ 시설별로 상이하므로 홈페이지 참조",
         "usefee": "무료",
         "infocenterculture": "02-6788-4211"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:19.237Z"
     },
     "sections": [
       [
@@ -18544,12 +19139,13 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "126.6557307627",
-      "mapy": "37.5336049320",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "- 평일 13:00~21:00- 주말 11:00~21:00※ 단체 예약 시 시간 조정 가능 (전화 문의)"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:19.701Z"
     },
     "sections": [
       [
@@ -18672,10 +19268,11 @@
       "contentTypeId": "32",
       "overview": "",
       "homepage": "",
-      "mapx": "126.4509341451",
-      "mapy": "33.2434191225",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:20.171Z"
     },
     "sections": [
       [
@@ -18779,6 +19376,14 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -18791,15 +19396,16 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "126.9199036215",
-      "mapy": "34.6830641287",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "가능",
         "restdate": "연중무휴",
         "usetime": "상시 개방",
         "infocenter": "061-862-7539"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:20.637Z"
     },
     "sections": [
       [
@@ -18912,6 +19518,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "매주 월요일/1월 1일/설날·추석 당일"
       ]
     ],
     "memo": [
@@ -18924,15 +19534,16 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "126.9399093381",
-      "mapy": "37.5196641553",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "매주 월요일/1월 1일/설날·추석 당일",
         "usetimeculture": "[화요일·목요일·금요일·일요일]- 10:00~18:00 (입장 마감 17:30) [수요일·토요일]- 10:00~21:00 (입장 마감 20:30)",
         "usefee": "[큐비스트: 시각의 혁신가들] - 성인(만 19세~64세) 28,000원 - 청소년(만 13세~18세) 19,600원 - 어린이(만 4세~12세) 16,800원 - 시니어(만 65세 이상) 19,600원 - 예술인패스 소지자 19,600원 - 문화가 있는 날 14,000원 - 영유아(48개월 미만) 무료 ※ 단체 20인 이상 및 자세한 이용요금은 홈페이지 참조",
         "infocenterculture": "02-789-5550"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:21.098Z"
     },
     "sections": [
       [
@@ -19058,8 +19669,8 @@
       "contentTypeId": "15",
       "overview": "",
       "homepage": "",
-      "mapx": "127.2722214092",
-      "mapy": "36.4711413718",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "eventstartdate": "20260806",
@@ -19071,7 +19682,8 @@
         "sponsor1": "LH한국토지주택공사",
         "sponsor1tel": "070-4266-7078",
         "sponsor2": "㈜무브컬쳐"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:21.561Z"
     },
     "sections": [
       [
@@ -19203,13 +19815,14 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "127.7732648087",
-      "mapy": "35.8970726738",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "10:00~18:00 ※ 사전 문의 및 예약 필수",
         "infocenterleports": "0507-1355-7519"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:22.033Z"
     },
     "sections": [
       [
@@ -19334,10 +19947,11 @@
       "contentTypeId": "32",
       "overview": "",
       "homepage": "",
-      "mapx": "126.5278475592",
-      "mapy": "33.2704426473",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:22.496Z"
     },
     "sections": [
       [
@@ -19455,10 +20069,11 @@
       "contentTypeId": "39",
       "overview": "",
       "homepage": "",
-      "mapx": "127.9560102369",
-      "mapy": "37.3512720124",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:22.963Z"
     },
     "sections": [
       [
@@ -19576,10 +20191,11 @@
       "contentTypeId": "38",
       "overview": "",
       "homepage": "",
-      "mapx": "127.0346403000",
-      "mapy": "37.5033217000",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:23.430Z"
     },
     "sections": [
       [
@@ -19685,6 +20301,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능"
       ]
     ],
     "memo": [
@@ -19697,13 +20317,14 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "126.9051052312",
-      "mapy": "34.6742510308",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "가능",
         "infocenter": "061-860-0224"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:23.906Z"
     },
     "sections": [
       [
@@ -19816,6 +20437,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "매주 월요일 / 1월 1일 / 설·추석 연휴"
       ]
     ],
     "memo": [
@@ -19828,15 +20453,16 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "127.4205656141",
-      "mapy": "36.8472394516",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "매주 월요일 / 1월 1일 / 설·추석 연휴",
         "usetimeculture": "[하절기]- 10:00~18:00[동절기]- 10:00~17:00",
         "usefee": "무료",
         "infocenterculture": "043-539-3543"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:24.383Z"
     },
     "sections": [
       [
@@ -19962,20 +20588,21 @@
       "contentTypeId": "15",
       "overview": "",
       "homepage": "",
-      "mapx": "126.8685769631",
-      "mapy": "37.3009563527",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "eventstartdate": "20260829",
         "eventenddate": "20260829",
         "eventplace": "상록수김연경체육관",
         "playtime": "10:00~18:30",
-        "program": "- 주요 프로그램 : 게임대회(리그오브레전드 / 테일즈런너) / 코스프레 퍼포먼스 / 인플루언서 및 코스어 초청 - 부대 행사 및 프로그램 : 부스 프로그램 / 랜파티 / 코스프레 존 / 레트로 게임 존 / 보드 게임 존 등",
+        "program": "- 주요 프로그램 : 게임대회(리그오브레전드 / 테일즈런너) / 코스프레 퍼포먼스 / 인플루언서 및 코스어 초청 - 부대 행사 및 프로그램 : 브롤스타즈 랜파티 / 코스프레 존 / 레트로 게임 존 / 보드 게임 존 등",
         "usetimefestival": "무료",
         "sponsor1": "안산시",
         "sponsor1tel": "031-369-1787",
         "sponsor2": "안산시"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:24.842Z"
     },
     "sections": [
       [
@@ -19995,7 +20622,7 @@
       [
         "운영 정보에서 놓치기 쉬운 부분",
         [
-          "2026 안산 e스포츠 페스티벌 방문 전 확인할 만한 세부 정보는 이용 시간: 10:00~18:30 / 행사 장소: 상록수김연경체육관 / 행사 기간: 20260829~20260829 / 프로그램: - 주요 프로그램 : 게임대회(리그오브레전드 / 테일즈런너) / 코스프레 퍼포먼스 / 인플루언서 및 코스어 초청 - 부대 행사 및 프로그램 : 부스 프로그램 / 랜파티 / 코스프레 존 / 레트로 게임 존 / 보드 게임 존 등 / 이용 요금: 무료입니다. 이 정보는 제목이나 대표 이미지보다 실제 일정에 더 직접적으로 영향을 줍니다.",
+          "2026 안산 e스포츠 페스티벌 방문 전 확인할 만한 세부 정보는 이용 시간: 10:00~18:30 / 행사 장소: 상록수김연경체육관 / 행사 기간: 20260829~20260829 / 프로그램: - 주요 프로그램 : 게임대회(리그오브레전드 / 테일즈런너) / 코스프레 퍼포먼스 / 인플루언서 및 코스어 초청 - 부대 행사 및 프로그램 : 브롤스타즈 랜파티 / 코스프레 존 / 레트로 게임 존 / 보드 게임 존 등 / 이용 요금: 무료입니다. 이 정보는 제목이나 대표 이미지보다 실제 일정에 더 직접적으로 영향을 줍니다.",
           "특히 주차, 쉬는 날, 이용 시간, 체험 접수처럼 현장에서 바로 막히는 항목은 출발 전에 다시 확인하는 편이 좋습니다. 같은 지역 안에서도 입구와 주차 위치가 다르면 이동 시간이 크게 달라질 수 있습니다."
         ]
       ],
@@ -20095,6 +20722,14 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -20107,15 +20742,16 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "127.9273944301",
-      "mapy": "35.5570087429",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "가능",
         "restdate": "연중무휴",
         "usetime": "[공원] 상시 개방[위패봉안각]- 하절기 09:30~17:00- 동절기 09:30~16:30[역사교육관]- 하절기 09:30~17:00- 동절기 09:30~16:30[영상실(세미나실)]09:30~17:00[고령토 맨발길]09:00~18:00",
         "infocenter": "055-940-8510"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:25.308Z"
     },
     "sections": [
       [
@@ -20228,6 +20864,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "매주 월요일 / 1월 1일 / 설·추석 당일 및 전일※ 단, 월요일이나 연속된 평일이 공휴일인 경우 그 다음날 평일에 휴관"
       ]
     ],
     "memo": [
@@ -20240,15 +20880,16 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "127.7786573524",
-      "mapy": "36.0093077233",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "매주 월요일 / 1월 1일 / 설·추석 당일 및 전일※ 단, 월요일이나 연속된 평일이 공휴일인 경우 그 다음날 평일에 휴관",
         "usetimeculture": "[태권도원]10:00~18:00 (입장 마감 17:00)[모노레일]10:00~17:00 (탑승 마감 16:30)",
         "usefee": "[태권도원 입장료]무료[체험관Yap!]- 태권도 체험권 4,000원- VR·AR 체험권 6,000원- 통합권 8,000원[모노레일]- 일반(만 19세 이상) 4,000원- 소인, 청소년(만 3세~만 18세) 2,000원※ 자세한 사항은 홈페이지 참조",
         "infocenterculture": "063-320-0114"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:25.769Z"
     },
     "sections": [
       [
@@ -20374,8 +21015,8 @@
       "contentTypeId": "15",
       "overview": "",
       "homepage": "",
-      "mapx": "129.2938457635",
-      "mapy": "35.5310582726",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "eventstartdate": "20260729",
@@ -20387,7 +21028,8 @@
         "sponsor1": "울산문화관광재단",
         "sponsor1tel": "052-255-1823",
         "sponsor2": "울산문화관광재단"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:26.236Z"
     },
     "sections": [
       [
@@ -20519,12 +21161,13 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "129.0734320989",
-      "mapy": "37.2181814646",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "infocenterleports": "033-540-5300"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:26.699Z"
     },
     "sections": [
       [
@@ -20642,10 +21285,11 @@
       "contentTypeId": "32",
       "overview": "",
       "homepage": "",
-      "mapx": "127.1734419856",
-      "mapy": "35.8305738680",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:27.173Z"
     },
     "sections": [
       [
@@ -20763,10 +21407,11 @@
       "contentTypeId": "39",
       "overview": "",
       "homepage": "",
-      "mapx": "127.0412229633",
-      "mapy": "37.6876416190",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:27.640Z"
     },
     "sections": [
       [
@@ -20884,10 +21529,11 @@
       "contentTypeId": "38",
       "overview": "",
       "homepage": "",
-      "mapx": "128.6101347871",
-      "mapy": "38.1560597611",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:28.100Z"
     },
     "sections": [
       [
@@ -20993,6 +21639,14 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "※ 철원역사문화공원 주차장에 주차 후 태봉열차를 타고 진입이 가능함"
+      ],
+      [
+        "쉬는 날",
+        "매주 화요일~수요일"
       ]
     ],
     "memo": [
@@ -21005,15 +21659,16 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "127.2280413362",
-      "mapy": "38.3074276895",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "※ 철원역사문화공원 주차장에 주차 후 태봉열차를 타고 진입이 가능함",
         "restdate": "매주 화요일~수요일",
         "usetime": "09:00~17:00",
         "infocenter": "033-458-5246"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:28.568Z"
     },
     "sections": [
       [
@@ -21126,6 +21781,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "매주 월요일 / 1월 1일 / 설·추석 당일"
       ]
     ],
     "memo": [
@@ -21138,15 +21797,16 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "127.7603726621",
-      "mapy": "36.0128821871",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "매주 월요일 / 1월 1일 / 설·추석 당일",
         "usetimeculture": "- 동절기(11월~2월) 13:00~21:00- 하절기(3월~10월) 13:00~22:00※ 종료 1시간 전 입장 마감",
         "usefee": "[개인]- 성인 3,000원- 청소년 2,000원- 어린이 1,000원[단체]- 성인 2,400원- 청소년 1,600원- 어린이 800원※ 자세한 사항은 홈페이지 참조",
         "infocenterculture": "063-320-5680"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:29.032Z"
     },
     "sections": [
       [
@@ -21271,13 +21931,14 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "129.2663631552",
-      "mapy": "37.3236447768",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "09:00~16:00",
         "infocenterleports": "033-576-0656~8"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:29.500Z"
     },
     "sections": [
       [
@@ -21390,6 +22051,14 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -21402,15 +22071,16 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "127.8311174238",
-      "mapy": "35.7627047601",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "가능",
         "restdate": "연중무휴",
         "usetime": "상시 개방",
         "infocenter": "거창군청 관광진흥과 055-940-8531"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:29.994Z"
     },
     "sections": [
       [
@@ -21523,6 +22193,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "매주 월요일 / 1월 1일 / 설날·추석"
       ]
     ],
     "memo": [
@@ -21535,15 +22209,16 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "128.3643035087",
-      "mapy": "36.0834349146",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "매주 월요일 / 1월 1일 / 설날·추석",
         "usetimeculture": "- 하절기(3월~10월) 09:00~18:00 - 동절기(11월~2월) 09:00~17:00",
         "usefee": "무료",
         "infocenterculture": "054-465-6622"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:30.457Z"
     },
     "sections": [
       [
@@ -21668,13 +22343,14 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "126.8817000000",
-      "mapy": "35.4334000000",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "[카라반]- 입실 15:00- 퇴실 11:00[자동차 야영지]- 입실 14:00- 퇴실 12:00",
         "infocenterleports": "061-393-3088"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:30.927Z"
     },
     "sections": [
       [
@@ -21799,10 +22475,11 @@
       "contentTypeId": "32",
       "overview": "",
       "homepage": "",
-      "mapx": "127.0574802107",
-      "mapy": "37.2845728552",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:31.393Z"
     },
     "sections": [
       [
@@ -21920,10 +22597,11 @@
       "contentTypeId": "39",
       "overview": "",
       "homepage": "",
-      "mapx": "128.6246014641",
-      "mapy": "35.8371104553",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:31.865Z"
     },
     "sections": [
       [
@@ -22041,10 +22719,11 @@
       "contentTypeId": "38",
       "overview": "",
       "homepage": "",
-      "mapx": "128.6317928946",
-      "mapy": "35.8207693612",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:32.332Z"
     },
     "sections": [
       [
@@ -22150,6 +22829,14 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -22162,15 +22849,16 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "126.6791341933",
-      "mapy": "36.6146411781",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "가능",
         "restdate": "연중무휴",
         "usetime": "상시 개방",
         "infocenter": "용주사 041-632-4178 홍성군청 문화관광과 041-630-1689"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:32.800Z"
     },
     "sections": [
       [
@@ -22283,6 +22971,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -22295,14 +22987,15 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "127.0156763488",
-      "mapy": "36.1620538326",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "연중무휴",
         "usetimeculture": "- 커피인터뷰 강경 09:00~18:00",
         "infocenterculture": "논산시청 관광과 041-746-5743"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:33.267Z"
     },
     "sections": [
       [
@@ -22427,13 +23120,14 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "126.5109148704",
-      "mapy": "35.6627180172",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "[하우스]- 입실 15:00- 퇴실 11:00[자동차 야영지]- 입실 14:00- 퇴실 12:00",
         "infocenterleports": "063-582-7835"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:33.736Z"
     },
     "sections": [
       [
@@ -22558,10 +23252,11 @@
       "contentTypeId": "32",
       "overview": "",
       "homepage": "",
-      "mapx": "129.4120376002",
-      "mapy": "36.6150675589",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:34.206Z"
     },
     "sections": [
       [
@@ -22679,12 +23374,13 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "128.3232121488",
-      "mapy": "37.6500314484",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "- 입실 14:00- 퇴실 12:00"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:34.668Z"
     },
     "sections": [
       [
@@ -22809,10 +23505,11 @@
       "contentTypeId": "32",
       "overview": "",
       "homepage": "",
-      "mapx": "128.1782957392",
-      "mapy": "37.0320033722",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:35.145Z"
     },
     "sections": [
       [
@@ -22930,10 +23627,11 @@
       "contentTypeId": "39",
       "overview": "",
       "homepage": "",
-      "mapx": "128.6252349220",
-      "mapy": "35.8305612457",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:35.604Z"
     },
     "sections": [
       [
@@ -23051,10 +23749,11 @@
       "contentTypeId": "38",
       "overview": "",
       "homepage": "",
-      "mapx": "126.5440785094",
-      "mapy": "33.5258373782",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:36.071Z"
     },
     "sections": [
       [
@@ -23158,6 +23857,14 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -23170,15 +23877,16 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "127.9333290770",
-      "mapy": "35.5905076469",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "가능",
         "restdate": "연중무휴",
         "usetime": "상시 개방",
         "infocenter": "055-940-3430"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:36.540Z"
     },
     "sections": [
       [
@@ -23291,6 +23999,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -23303,15 +24015,16 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "129.3224588050",
-      "mapy": "35.5755579560",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "연중무휴",
         "usetimeculture": "10:00~22:00※ 카페 포함",
         "usefee": "공연별로 상이함",
         "infocenterculture": "052-269-8034"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:37.007Z"
     },
     "sections": [
       [
@@ -23436,10 +24149,11 @@
       "contentTypeId": "25",
       "overview": "",
       "homepage": "",
-      "mapx": "127.6497769643",
-      "mapy": "35.2330832887",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:37.477Z"
     },
     "sections": [
       [
@@ -23557,12 +24271,13 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "128.5652028263",
-      "mapy": "37.5548467940",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "- 입실 14:00- 퇴실 12:00"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:37.934Z"
     },
     "sections": [
       [
@@ -23687,10 +24402,11 @@
       "contentTypeId": "39",
       "overview": "",
       "homepage": "",
-      "mapx": "128.6179134026",
-      "mapy": "35.8301222724",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:38.400Z"
     },
     "sections": [
       [
@@ -23808,10 +24524,11 @@
       "contentTypeId": "38",
       "overview": "",
       "homepage": "",
-      "mapx": "126.3099194957",
-      "mapy": "33.4632794332",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:38.872Z"
     },
     "sections": [
       [
@@ -23929,10 +24646,11 @@
       "contentTypeId": "39",
       "overview": "",
       "homepage": "",
-      "mapx": "126.6037103181",
-      "mapy": "36.3449712205",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:39.336Z"
     },
     "sections": [
       [
@@ -24050,10 +24768,11 @@
       "contentTypeId": "38",
       "overview": "",
       "homepage": "",
-      "mapx": "127.4574942715",
-      "mapy": "36.6350118048",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:39.798Z"
     },
     "sections": [
       [
@@ -24159,6 +24878,14 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -24171,15 +24898,16 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "127.8214515434",
-      "mapy": "35.7674901271",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "가능",
         "restdate": "연중무휴",
         "usetime": "상시 개방",
         "infocenter": "거창군청 문화예술과 055-940-3431"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:40.271Z"
     },
     "sections": [
       [
@@ -24292,6 +25020,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "매주 월요일"
       ]
     ],
     "memo": [
@@ -24304,15 +25036,16 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "126.9697036474",
-      "mapy": "37.5735105142",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "매주 월요일",
         "usetimeculture": "10:00~18:00 (입장 마감 17:30)",
         "usefee": "전시 별로 상이함",
         "infocenterculture": "02-737-7650"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:40.735Z"
     },
     "sections": [
       [
@@ -24437,13 +25170,14 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "127.5232574636",
-      "mapy": "35.6410780040",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "[캠핑장]- 입실 14:00- 퇴실 12:00[카라반]- 입실 15:00- 퇴실 11:00",
         "infocenterleports": "010-4229-1919"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:41.201Z"
     },
     "sections": [
       [
@@ -24568,10 +25302,11 @@
       "contentTypeId": "32",
       "overview": "",
       "homepage": "",
-      "mapx": "127.3287551051",
-      "mapy": "36.6314086378",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:41.667Z"
     },
     "sections": [
       [
@@ -24689,10 +25424,11 @@
       "contentTypeId": "39",
       "overview": "",
       "homepage": "",
-      "mapx": "126.5688855805",
-      "mapy": "34.7253165223",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:42.142Z"
     },
     "sections": [
       [
@@ -24810,10 +25546,11 @@
       "contentTypeId": "38",
       "overview": "",
       "homepage": "",
-      "mapx": "127.4878425621",
-      "mapy": "36.6370260822",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:42.604Z"
     },
     "sections": [
       [
@@ -24919,6 +25656,14 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -24931,15 +25676,16 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "127.9172969836",
-      "mapy": "35.8054845522",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "가능",
         "restdate": "연중무휴",
         "usetime": "상시 개방",
         "infocenter": "거창군청 문화예술과 055-940-3431"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:43.069Z"
     },
     "sections": [
       [
@@ -25052,6 +25798,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "매주 월요일 / 1월 1일 / 설·추석 당일 / 법정공휴일 다음날 (단, 월요일이 공휴일 경우 그 다음날 휴관)"
       ]
     ],
     "memo": [
@@ -25064,15 +25814,16 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "129.1123365939",
-      "mapy": "35.5705431258",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "매주 월요일 / 1월 1일 / 설·추석 당일 / 법정공휴일 다음날 (단, 월요일이 공휴일 경우 그 다음날 휴관)",
         "usetimeculture": "09:00~18:00",
         "usefee": "무료",
         "infocenterculture": "052-980-2250"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:43.533Z"
     },
     "sections": [
       [
@@ -25197,10 +25948,11 @@
       "contentTypeId": "39",
       "overview": "",
       "homepage": "",
-      "mapx": "128.6161688811",
-      "mapy": "35.8387101077",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:44.004Z"
     },
     "sections": [
       [
@@ -25318,10 +26070,11 @@
       "contentTypeId": "38",
       "overview": "",
       "homepage": "",
-      "mapx": "127.4558680000",
-      "mapy": "36.7415490000",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:44.479Z"
     },
     "sections": [
       [
@@ -25427,6 +26180,14 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -25439,15 +26200,16 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "127.9455508954",
-      "mapy": "35.6654045176",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "가능",
         "restdate": "연중무휴",
         "usetime": "상시 개방",
         "infocenter": "거창군청 문화예술과 055-940-3430"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:44.946Z"
     },
     "sections": [
       [
@@ -25560,6 +26322,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "매주 월요일"
       ]
     ],
     "memo": [
@@ -25572,15 +26338,16 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "129.2794270651",
-      "mapy": "35.5500407791",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "매주 월요일",
         "usetimeculture": "- 하절기(4월~10월) 09:00~18:00 - 동절기(11월~3월) 10:00~19:00",
         "usefee": "무료",
         "infocenterculture": "052-226-1963"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:45.413Z"
     },
     "sections": [
       [
@@ -25705,13 +26472,14 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "128.1703398943",
-      "mapy": "37.3081954429",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "- 입실 13:00- 퇴실 12:00",
         "infocenterleports": "0507-1364-9288"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:45.879Z"
     },
     "sections": [
       [
@@ -25836,10 +26604,11 @@
       "contentTypeId": "32",
       "overview": "",
       "homepage": "",
-      "mapx": "127.1551125625",
-      "mapy": "35.8162885485",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:46.345Z"
     },
     "sections": [
       [
@@ -25957,10 +26726,11 @@
       "contentTypeId": "39",
       "overview": "",
       "homepage": "",
-      "mapx": "128.6223786072",
-      "mapy": "35.8255950595",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:46.809Z"
     },
     "sections": [
       [
@@ -26066,6 +26836,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -26078,14 +26852,15 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "127.9391018253",
-      "mapy": "35.7558825218",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdate": "연중무휴",
         "usetime": "상시 개방",
         "infocenter": "거창군청 문화예술과 055-940-3430"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:47.279Z"
     },
     "sections": [
       [
@@ -26198,6 +26973,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "공연 별로 상이함"
       ]
     ],
     "memo": [
@@ -26210,15 +26989,16 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "127.1195772170",
-      "mapy": "35.8478986323",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "공연 별로 상이함",
         "usetimeculture": "공연 별로 상이함",
         "usefee": "공연 별로 상이함",
         "infocenterculture": "063-281-6651"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:47.742Z"
     },
     "sections": [
       [
@@ -26343,13 +27123,14 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "126.9180744071",
-      "mapy": "38.0542861898",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "- 입실 15:00- 퇴실 11:00",
         "infocenterleports": "0507-1379-2085"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:48.211Z"
     },
     "sections": [
       [
@@ -26462,6 +27243,14 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -26474,15 +27263,16 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "127.8186653443",
-      "mapy": "35.7804774183",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "가능",
         "restdate": "연중무휴",
         "usetime": "상시 개방",
         "infocenter": "거창군청 문화예술과 055-940-3430"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:48.670Z"
     },
     "sections": [
       [
@@ -26595,6 +27385,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -26607,15 +27401,16 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "126.9340266551",
-      "mapy": "37.5127577073",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "연중무휴",
-        "usetimeculture": "09:00~18:00",
-        "usefee": "[입장료] - 무료 [마음진단 체험 프로그램] - 5,000원 ※ 이용요금은 변동될 수 있으므로 홈페이지 참조 또는 전화 문의",
+        "usetimeculture": "- 09:00~18:00 - 입장 마감 17:30 - 체험 마지막 회차 17:00",
+        "usefee": "[입장료] - 무료 [마음진단 체험 프로그램] - 15,000원 ※ 이용요금은 변동될 수 있으므로 홈페이지 참조 또는 전화 문의",
         "infocenterculture": "0507-1459-6500"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:49.143Z"
     },
     "sections": [
       [
@@ -26635,7 +27430,7 @@
       [
         "운영 정보에서 놓치기 쉬운 부분",
         [
-          "윌로우하우스 방문 전 확인할 만한 세부 정보는 쉬는 날: 연중무휴 / 이용 시간: 09:00~18:00 / 이용 요금: [입장료] - 무료 [마음진단 체험 프로그램] - 5,000원 ※ 이용요금은 변동될 수 있으므로 홈페이지 참조 또는 전화 문의입니다. 이 정보는 제목이나 대표 이미지보다 실제 일정에 더 직접적으로 영향을 줍니다.",
+          "윌로우하우스 방문 전 확인할 만한 세부 정보는 쉬는 날: 연중무휴 / 이용 시간: - 09:00~18:00 - 입장 마감 17:30 - 체험 마지막 회차 17:00 / 이용 요금: [입장료] - 무료 [마음진단 체험 프로그램] - 15,000원 ※ 이용요금은 변동될 수 있으므로 홈페이지 참조 또는 전화 문의입니다. 이 정보는 제목이나 대표 이미지보다 실제 일정에 더 직접적으로 영향을 줍니다.",
           "특히 주차, 쉬는 날, 이용 시간, 체험 접수처럼 현장에서 바로 막히는 항목은 출발 전에 다시 확인하는 편이 좋습니다. 같은 지역 안에서도 입구와 주차 위치가 다르면 이동 시간이 크게 달라질 수 있습니다."
         ]
       ],
@@ -26741,8 +27536,8 @@
       "contentTypeId": "15",
       "overview": "",
       "homepage": "",
-      "mapx": "127.1481603005",
-      "mapy": "35.8117509206",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "eventstartdate": "20260717",
@@ -26754,7 +27549,8 @@
         "sponsor1": "문화체육관광부, 한국출판문화산업진흥원",
         "sponsor1tel": "02-927-1438",
         "sponsor2": "(사)한국서점조합연합회"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:49.603Z"
     },
     "sections": [
       [
@@ -26886,13 +27682,14 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "127.7257009945",
-      "mapy": "36.6205612314",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "- 입실 13:00- 퇴실 12:00",
         "infocenterleports": "010-9417-9115"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:50.077Z"
     },
     "sections": [
       [
@@ -27017,10 +27814,11 @@
       "contentTypeId": "39",
       "overview": "",
       "homepage": "",
-      "mapx": "128.6200776645",
-      "mapy": "35.8303155370",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:50.542Z"
     },
     "sections": [
       [
@@ -27138,10 +27936,11 @@
       "contentTypeId": "38",
       "overview": "",
       "homepage": "",
-      "mapx": "128.6644509149",
-      "mapy": "35.8812899506",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:51.012Z"
     },
     "sections": [
       [
@@ -27247,6 +28046,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -27259,14 +28062,15 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "127.8187000000",
-      "mapy": "35.7802000000",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdate": "연중무휴",
         "usetime": "상시 개방",
         "infocenter": "거창군청 문화예술과 055-940-3431"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:51.473Z"
     },
     "sections": [
       [
@@ -27379,6 +28183,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "매주 월요일 / 1월 1일 / 설·추석"
       ]
     ],
     "memo": [
@@ -27391,15 +28199,16 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "127.8027053650",
-      "mapy": "36.4992077898",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "매주 월요일 / 1월 1일 / 설·추석",
         "usetimeculture": "09:00~18:00",
         "usefee": "무료",
         "infocenterculture": "솔향공원 043-540-3774"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:51.942Z"
     },
     "sections": [
       [
@@ -27524,13 +28333,14 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "127.0442686829",
-      "mapy": "35.7151954740",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "[하절기]- 10:00~18:00[동절기]- 10:00~17:00",
         "infocenterleports": "0507-1406-3039"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:52.410Z"
     },
     "sections": [
       [
@@ -27655,10 +28465,11 @@
       "contentTypeId": "32",
       "overview": "",
       "homepage": "",
-      "mapx": "127.1553024325",
-      "mapy": "35.8159669626",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:52.873Z"
     },
     "sections": [
       [
@@ -27764,6 +28575,14 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "매주 월요일 / 설·추석 당일※ 기상 악화 시 통제함으로 홈페이지 참조 및 전화 문의 요망"
       ]
     ],
     "memo": [
@@ -27776,15 +28595,16 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "127.5961000000",
-      "mapy": "36.1148000000",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "가능",
         "restdate": "매주 월요일 / 설·추석 당일※ 기상 악화 시 통제함으로 홈페이지 참조 및 전화 문의 요망",
         "usetime": "- 하절기(3월~10월) 09:00~18:00 (입장 마감 17:30)- 동절기(11월~2월) 09:00~17:00 (입장 마감 16:30)",
         "infocenter": "금산군청 관광정책팀 041-754-3837"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:53.351Z"
     },
     "sections": [
       [
@@ -27897,6 +28717,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "매주 월요일"
       ]
     ],
     "memo": [
@@ -27909,15 +28733,16 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "127.7153683848",
-      "mapy": "37.8864623318",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "매주 월요일",
         "usetimeculture": "11:00~22:00",
         "usefee": "무료※식당과 카페의 경우 입점 매장 별로 상이함",
         "infocenterculture": "0507-1367-8826"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:53.812Z"
     },
     "sections": [
       [
@@ -28043,8 +28868,8 @@
       "contentTypeId": "15",
       "overview": "",
       "homepage": "",
-      "mapx": "129.0327114585",
-      "mapy": "35.0985979131",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "eventstartdate": "20260725",
@@ -28056,7 +28881,8 @@
         "sponsor1": "부산광역시",
         "sponsor1tel": "070-4006-6849",
         "sponsor2": "부산관광공사, 부산시 중구청"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:54.274Z"
     },
     "sections": [
       [
@@ -28188,13 +29014,14 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "127.3698696635",
-      "mapy": "35.2278990473",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "- 입실 14:00- 퇴실 11:00",
         "infocenterleports": "061-362-4186"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:54.740Z"
     },
     "sections": [
       [
@@ -28319,10 +29146,11 @@
       "contentTypeId": "39",
       "overview": "",
       "homepage": "",
-      "mapx": "127.4870298938",
-      "mapy": "36.6046254743",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:55.220Z"
     },
     "sections": [
       [
@@ -28440,10 +29268,11 @@
       "contentTypeId": "38",
       "overview": "",
       "homepage": "",
-      "mapx": "127.3265392390",
-      "mapy": "36.6230204794",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:55.685Z"
     },
     "sections": [
       [
@@ -28549,6 +29378,14 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -28561,15 +29398,16 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "128.2954026000",
-      "mapy": "35.3145889000",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "가능",
         "restdate": "연중무휴",
         "usetime": "상시 개방",
         "infocenter": "의령군 문화관광과 055-570-2510"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:56.157Z"
     },
     "sections": [
       [
@@ -28680,6 +29518,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "매주 토요일, 일요일 / 공휴일 / 설날·추석 연휴※ 임시휴무일은 홈페이지 참조"
       ]
     ],
     "memo": [
@@ -28692,15 +29534,16 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "126.6851337236",
-      "mapy": "35.9455160220",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "매주 토요일, 일요일 / 공휴일 / 설날·추석 연휴※ 임시휴무일은 홈페이지 참조",
         "usetimeculture": "10:00~17:00",
         "usefee": "무료",
         "infocenterculture": "063-469-4191~3"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:56.624Z"
     },
     "sections": [
       [
@@ -28825,13 +29668,14 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "128.3691096476",
-      "mapy": "38.0761969513",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "- 입실 13:00- 퇴실 12:00",
         "infocenterleports": "033-463-0901"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:57.092Z"
     },
     "sections": [
       [
@@ -28956,10 +29800,11 @@
       "contentTypeId": "32",
       "overview": "",
       "homepage": "",
-      "mapx": "127.4941301981",
-      "mapy": "36.6647458235",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:57.561Z"
     },
     "sections": [
       [
@@ -29065,6 +29910,14 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "불가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -29077,15 +29930,16 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "126.3674672945",
-      "mapy": "35.0068249232",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "불가능",
         "restdate": "연중무휴",
         "usetime": "상시 개방",
         "infocenter": "무안군 관광안내소 061-454-5224"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:58.038Z"
     },
     "sections": [
       [
@@ -29196,6 +30050,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "매주 월요일 / 1월1일 / 설·추석 당일"
       ]
     ],
     "memo": [
@@ -29208,15 +30066,16 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "126.4152431660",
-      "mapy": "34.8525919200",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "매주 월요일 / 1월1일 / 설·추석 당일",
         "usetimeculture": "09:00~17:30 (입장 마감 17:00) (휴게 시간 12:00~13:00)",
         "usefee": "무료",
         "infocenterculture": "061-450-5482"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:58.495Z"
     },
     "sections": [
       [
@@ -29342,8 +30201,8 @@
       "contentTypeId": "15",
       "overview": "",
       "homepage": "",
-      "mapx": "129.2090805222",
-      "mapy": "35.8606451724",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "eventstartdate": "20260815",
@@ -29354,7 +30213,8 @@
         "usetimefestival": "무료",
         "sponsor1": "경주시, (재)경주문화재단, (사)한국이스포츠협회, 대한장애인체육회",
         "sponsor1tel": "054-776-5956"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:58.960Z"
     },
     "sections": [
       [
@@ -29486,13 +30346,14 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "127.4944782352",
-      "mapy": "34.4306286126",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "- 입실 14:00- 퇴실 12:00",
         "infocenterleports": "061-834-7829"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:17:59.417Z"
     },
     "sections": [
       [
@@ -29617,10 +30478,11 @@
       "contentTypeId": "32",
       "overview": "",
       "homepage": "",
-      "mapx": "126.4560857160",
-      "mapy": "37.4397814788",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:17:59.884Z"
     },
     "sections": [
       [
@@ -29738,10 +30600,11 @@
       "contentTypeId": "39",
       "overview": "",
       "homepage": "",
-      "mapx": "128.6247577584",
-      "mapy": "35.8257401095",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:18:00.350Z"
     },
     "sections": [
       [
@@ -29859,10 +30722,11 @@
       "contentTypeId": "38",
       "overview": "",
       "homepage": "",
-      "mapx": "126.7209643000",
-      "mapy": "35.9807238000",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:18:00.823Z"
     },
     "sections": [
       [
@@ -29968,6 +30832,14 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "매주 월요일 / 1월 1일 / 설·추석"
       ]
     ],
     "memo": [
@@ -29980,15 +30852,16 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "126.4161080710",
-      "mapy": "34.8543188114",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "가능",
         "restdate": "매주 월요일 / 1월 1일 / 설·추석",
         "usetime": "09:00~18:00 (입장 마감 17:00)※ 자세한 사항은 전화문의 요망",
         "infocenter": "061-285-0300"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:18:01.292Z"
     },
     "sections": [
       [
@@ -30101,6 +30974,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "매주 월요일 / 1월 1일 / 설· 추석 연휴"
       ]
     ],
     "memo": [
@@ -30113,15 +30990,16 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "127.4649245014",
-      "mapy": "36.9714335807",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "매주 월요일 / 1월 1일 / 설· 추석 연휴",
         "usetimeculture": "09:00~17:00 (입장 마감 16:30)",
         "usefee": "무료",
         "infocenterculture": "043-530-1004"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:18:01.759Z"
     },
     "sections": [
       [
@@ -30247,8 +31125,8 @@
       "contentTypeId": "15",
       "overview": "",
       "homepage": "",
-      "mapx": "126.7447928585",
-      "mapy": "37.8920434573",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "eventstartdate": "20261009",
@@ -30260,7 +31138,8 @@
         "sponsor1": "경기관광공사",
         "sponsor1tel": "070-7733-0390",
         "sponsor2": "경기관광공사, ㈜경기일보"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:18:02.234Z"
     },
     "sections": [
       [
@@ -30380,6 +31259,14 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -30392,15 +31279,16 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "127.7855646504",
-      "mapy": "36.0001834232",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "가능",
         "restdate": "연중무휴",
         "usetime": "상시 개방",
         "infocenter": "관음사 종무소 063-324-7083"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:18:02.717Z"
     },
     "sections": [
       [
@@ -30513,6 +31401,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "매주 월요일 / 1월 1일 / 설·추석 당일"
       ]
     ],
     "memo": [
@@ -30525,15 +31417,16 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "126.9931667385",
-      "mapy": "35.3233284256",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "매주 월요일 / 1월 1일 / 설·추석 당일",
         "usetimeculture": "10:00~18:00",
         "usefee": "무료※ 전시에 따라 유료 (일반 2,000원 / 19세이하 1,000원) ※ 이용요금은 변동될 수 있으므로 홈페이지 참조 또는 전화 문의 요망",
         "infocenterculture": "061-381-7433"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:18:03.196Z"
     },
     "sections": [
       [
@@ -30659,8 +31552,8 @@
       "contentTypeId": "15",
       "overview": "",
       "homepage": "",
-      "mapx": "127.7002608000",
-      "mapy": "37.8724857000",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "eventstartdate": "20260717",
@@ -30670,8 +31563,9 @@
         "program": "1. 대표 프로그램 : 물놀이 2. 부대 행사 및 프로그램 : 메인풀, 유수풀, 유아풀, 대형슬라이드, 챌린지 바운스 등",
         "usetimefestival": "입장료 유료 (8,000원 / 춘천시민 6,000원)",
         "sponsor1": "춘천시, 강원일보",
-        "sponsor1tel": "033-250-0920"
-      }
+        "sponsor1tel": "033-255-0920"
+      },
+      "backfilledAt": "2026-08-07T02:18:03.673Z"
     },
     "sections": [
       [
@@ -30803,13 +31697,14 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "127.4377431404",
-      "mapy": "37.0945778784",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "- 입실 13:00- 퇴실 12:00",
         "infocenterleports": "010-9299-7784"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:18:04.138Z"
     },
     "sections": [
       [
@@ -30934,10 +31829,11 @@
       "contentTypeId": "32",
       "overview": "",
       "homepage": "",
-      "mapx": "127.1738947033",
-      "mapy": "35.8303390823",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:18:04.609Z"
     },
     "sections": [
       [
@@ -31055,10 +31951,11 @@
       "contentTypeId": "39",
       "overview": "",
       "homepage": "",
-      "mapx": "127.0259390016",
-      "mapy": "37.5778675145",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:18:05.077Z"
     },
     "sections": [
       [
@@ -31176,10 +32073,11 @@
       "contentTypeId": "38",
       "overview": "",
       "homepage": "",
-      "mapx": "127.0017015389",
-      "mapy": "37.5843092893",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:18:05.546Z"
     },
     "sections": [
       [
@@ -31285,6 +32183,14 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -31297,15 +32203,16 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "127.6946000000",
-      "mapy": "35.9575000000",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "가능",
         "restdate": "연중무휴",
         "usetime": "상시 개방※ 자세한 사항은 전화문의 요망",
         "infocenter": "무주군 관광안내소 063-324-2114"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:18:06.014Z"
     },
     "sections": [
       [
@@ -31418,6 +32325,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "매주 월요일 / 1월 1일 / 설날 및 추석 당일"
       ]
     ],
     "memo": [
@@ -31430,14 +32341,15 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "126.9838927639",
-      "mapy": "35.3175983921",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "매주 월요일 / 1월 1일 / 설날 및 추석 당일",
         "usetimeculture": "10:00~18:00",
         "infocenterculture": "061-381-7431"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:18:06.477Z"
     },
     "sections": [
       [
@@ -31562,13 +32474,14 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "127.6662540763",
-      "mapy": "36.8118454266",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "- 입실 14:00- 퇴실 12:00",
         "infocenterleports": "0507-1341-7781"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:18:06.946Z"
     },
     "sections": [
       [
@@ -31693,13 +32606,14 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "129.2111069434",
-      "mapy": "36.1470351004",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "- 입실 15:00- 퇴실 12:00",
         "infocenterleports": "054-252-3275"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:18:07.417Z"
     },
     "sections": [
       [
@@ -31824,10 +32738,11 @@
       "contentTypeId": "39",
       "overview": "",
       "homepage": "",
-      "mapx": "128.1708987318",
-      "mapy": "37.0489234123",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:18:07.887Z"
     },
     "sections": [
       [
@@ -31933,6 +32848,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "매주 월요일 / 1월 1일 / 설·추석 당일"
       ]
     ],
     "memo": [
@@ -31945,15 +32864,16 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "126.7489229543",
-      "mapy": "34.3206845147",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "매주 월요일 / 1월 1일 / 설·추석 당일",
         "usetimeculture": "09:00~18:00",
         "usefee": "무료",
         "infocenterculture": "061-550-5871"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:18:08.351Z"
     },
     "sections": [
       [
@@ -32078,13 +32998,14 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "128.1745089209",
-      "mapy": "35.7991011035",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "- 입실 14:00- 퇴실 12:00",
         "infocenterleports": "010-3821-9241"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:18:08.811Z"
     },
     "sections": [
       [
@@ -32209,10 +33130,11 @@
       "contentTypeId": "39",
       "overview": "",
       "homepage": "",
-      "mapx": "128.1683262374",
-      "mapy": "37.0666351139",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:18:09.275Z"
     },
     "sections": [
       [
@@ -32330,10 +33252,11 @@
       "contentTypeId": "38",
       "overview": "",
       "homepage": "",
-      "mapx": "127.0181628127",
-      "mapy": "37.5660058204",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:18:09.738Z"
     },
     "sections": [
       [
@@ -32408,7 +33331,7 @@
     "region": "강원특별자치도 양양군",
     "date": "2026년 7월 25일",
     "sortDate": "2026-07-25",
-    "read": "약 7분",
+    "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/32/3042132_image2_1.jpg",
     "images": [
       "https://tong.visitkorea.or.kr/cms/resource/32/3042132_image2_1.jpg"
@@ -32446,6 +33369,14 @@
       [
         "방문 포인트",
         "물길 산책, 여름 풍경, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "연중 무휴"
       ]
     ],
     "memo": [
@@ -32460,7 +33391,14 @@
       "homepage": "",
       "mapx": "",
       "mapy": "",
-      "intro": {}
+      "mlevel": "",
+      "intro": {
+        "parking": "가능",
+        "restdate": "연중 무휴",
+        "usetime": "상시 개방",
+        "infocenter": "양양군 종합관광안내소033-670-2003"
+      },
+      "backfilledAt": "2026-08-07T02:18:10.207Z"
     },
     "sections": [
       [
@@ -32475,6 +33413,13 @@
         [
           "위치는 양양남대천체육공원 기준입니다. 운영 관련 안내는 날씨·통제·이용 가능 여부는 방문 전 확인, 요금은 무료 또는 현장 안내 기준로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
           "문의처는 방문 전 확인 필요입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
+        ]
+      ],
+      [
+        "운영 정보에서 놓치기 쉬운 부분",
+        [
+          "양양남대천체육공원 방문 전 확인할 만한 세부 정보는 주차: 가능 / 쉬는 날: 연중 무휴 / 이용 시간: 상시 개방입니다. 이 정보는 제목이나 대표 이미지보다 실제 일정에 더 직접적으로 영향을 줍니다.",
+          "특히 주차, 쉬는 날, 이용 시간, 체험 접수처럼 현장에서 바로 막히는 항목은 출발 전에 다시 확인하는 편이 좋습니다. 같은 지역 안에서도 입구와 주차 위치가 다르면 이동 시간이 크게 달라질 수 있습니다."
         ]
       ],
       [
@@ -32565,6 +33510,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "매주 월요일 / 법정(대체)공휴일"
       ]
     ],
     "memo": [
@@ -32577,15 +33526,16 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "126.7132300115",
-      "mapy": "35.4346159544",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "매주 월요일 / 법정(대체)공휴일",
         "usetimeculture": "- 평일 09:00~22:00 - 주말 09:00~18:00",
         "usefee": "무료",
         "infocenterculture": "063-560-2420"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:18:10.670Z"
     },
     "sections": [
       [
@@ -32710,12 +33660,13 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "127.7758211436",
-      "mapy": "35.8943853387",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "- 입실 15:00- 퇴실 11:00"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:18:11.135Z"
     },
     "sections": [
       [
@@ -32840,10 +33791,11 @@
       "contentTypeId": "32",
       "overview": "",
       "homepage": "",
-      "mapx": "127.0087223766",
-      "mapy": "37.5641228222",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:18:11.597Z"
     },
     "sections": [
       [
@@ -32961,10 +33913,11 @@
       "contentTypeId": "39",
       "overview": "",
       "homepage": "",
-      "mapx": "127.4513846180",
-      "mapy": "36.8560944971",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:18:12.059Z"
     },
     "sections": [
       [
@@ -33082,10 +34035,11 @@
       "contentTypeId": "38",
       "overview": "",
       "homepage": "",
-      "mapx": "127.4964114403",
-      "mapy": "36.6090335387",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:18:12.522Z"
     },
     "sections": [
       [
@@ -33192,6 +34146,14 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -33204,15 +34166,16 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "126.8602627016",
-      "mapy": "36.4176245870",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "가능",
         "restdate": "연중무휴",
         "usetime": "10:00~17:00",
         "infocenter": "041-942-6769"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:18:12.988Z"
     },
     "sections": [
       [
@@ -33325,6 +34288,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "매주 일요일~월요일"
       ]
     ],
     "memo": [
@@ -33337,15 +34304,16 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "127.1309852050",
-      "mapy": "35.0679916480",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "매주 일요일~월요일",
         "usetimeculture": "[하절기(3~10월)]- 09:00~18:00[동절기(11~2월)]- 09:00~17:00",
         "usefee": "무료",
         "infocenterculture": "061-379-3917"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:18:13.451Z"
     },
     "sections": [
       [
@@ -33470,13 +34438,14 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "127.5966175467",
-      "mapy": "37.5949799876",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "- 입실 13:00- 퇴실 12:00",
         "infocenterleports": "0507-1400-6871"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:18:13.915Z"
     },
     "sections": [
       [
@@ -33601,10 +34570,11 @@
       "contentTypeId": "32",
       "overview": "",
       "homepage": "",
-      "mapx": "128.2250778803",
-      "mapy": "37.8042825086",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:18:14.386Z"
     },
     "sections": [
       [
@@ -33722,10 +34692,11 @@
       "contentTypeId": "39",
       "overview": "",
       "homepage": "",
-      "mapx": "127.7874687209",
-      "mapy": "36.1556324048",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:18:14.851Z"
     },
     "sections": [
       [
@@ -33843,10 +34814,11 @@
       "contentTypeId": "38",
       "overview": "",
       "homepage": "",
-      "mapx": "127.4631031764",
-      "mapy": "36.6490669096",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:18:15.318Z"
     },
     "sections": [
       [
@@ -33952,6 +34924,18 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능 (약 소형 10대 / 대형 4대)"
+      ],
+      [
+        "쉬는 날",
+        "매주 화요일"
+      ],
+      [
+        "체험 안내",
+        "포도나무 키우기 / 포도 수확 체험 / 도슨트 투어 등"
       ]
     ],
     "memo": [
@@ -33964,8 +34948,8 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "128.9230898324",
-      "mapy": "35.1790829571",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "가능 (약 소형 10대 / 대형 4대)",
@@ -33973,7 +34957,8 @@
         "usetime": "10:00~16:00",
         "expguide": "포도나무 키우기 / 포도 수확 체험 / 도슨트 투어 등",
         "infocenter": "010-4355-2580"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:18:15.784Z"
     },
     "sections": [
       [
@@ -34086,6 +35071,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "매주 월요일 / 법정공휴일"
       ]
     ],
     "memo": [
@@ -34098,14 +35087,15 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "126.6226316905",
-      "mapy": "37.4863880165",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "매주 월요일 / 법정공휴일",
         "usetimeculture": "- 화요일~수요일/금요일~일요일 10:00~18:00 - 목요일 14:00~18:00",
         "infocenterculture": "032-745-3206~7"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:18:16.251Z"
     },
     "sections": [
       [
@@ -34187,7 +35177,7 @@
     "region": "충청북도 영동군",
     "date": "2026년 6월 12일",
     "sortDate": "2026-06-12",
-    "read": "약 7분",
+    "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/42/4061142_image2_1.jpg",
     "images": [
       "https://tong.visitkorea.or.kr/cms/resource/42/4061142_image2_1.jpg"
@@ -34218,6 +35208,18 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
+      ],
+      [
+        "체험 안내",
+        "템플스테이 (체험형, 휴식형)"
       ]
     ],
     "memo": [
@@ -34239,6 +35241,13 @@
         [
           "위치는 충청북도 영동군 황간면 백화산로 652 기준입니다. 운영 관련 안내는 방문 전 확인 필요, 요금은 시설별 상이로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
           "문의처는 방문 전 확인 필요입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
+        ]
+      ],
+      [
+        "운영 정보에서 놓치기 쉬운 부분",
+        [
+          "반야사(영동) 방문 전 확인할 만한 세부 정보는 주차: 가능 / 쉬는 날: 연중무휴 / 이용 시간: 09:00~18:00 / 체험 안내: 템플스테이 (체험형, 휴식형)입니다. 이 정보는 제목이나 대표 이미지보다 실제 일정에 더 직접적으로 영향을 줍니다.",
+          "특히 주차, 쉬는 날, 이용 시간, 체험 접수처럼 현장에서 바로 막히는 항목은 출발 전에 다시 확인하는 편이 좋습니다. 같은 지역 안에서도 입구와 주차 위치가 다르면 이동 시간이 크게 달라질 수 있습니다."
         ]
       ],
       [
@@ -34285,7 +35294,23 @@
         "반야사(영동) 관련 문의는 방문 전 확인 필요로 확인하세요."
       ]
     ],
-    "copyPolishedVersion": 2
+    "copyPolishedVersion": 2,
+    "tourApi": {
+      "contentTypeId": "12",
+      "overview": "",
+      "homepage": "",
+      "mapx": "",
+      "mapy": "",
+      "mlevel": "",
+      "intro": {
+        "parking": "가능",
+        "restdate": "연중무휴",
+        "usetime": "09:00~18:00",
+        "expguide": "템플스테이 (체험형, 휴식형)",
+        "infocenter": "종무소 043-742-4199 템플스테이 043-742-7722"
+      },
+      "backfilledAt": "2026-08-07T02:18:16.726Z"
+    }
   },
   {
     "contentid": "252545",
@@ -34297,7 +35322,7 @@
     "region": "경상북도 영덕군",
     "date": "2026년 6월 12일",
     "sortDate": "2026-06-12",
-    "read": "약 7분",
+    "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/09/4061509_image2_1.jpg",
     "images": [
       "https://tong.visitkorea.or.kr/cms/resource/09/4061509_image2_1.jpg"
@@ -34328,6 +35353,14 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -34349,6 +35382,13 @@
         [
           "위치는 경상북도 영덕군 축산면 도곡리 기준입니다. 운영 관련 안내는 방문 전 확인 필요, 요금은 시설별 상이로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
           "문의처는 방문 전 확인 필요입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
+        ]
+      ],
+      [
+        "운영 정보에서 놓치기 쉬운 부분",
+        [
+          "영덕대소산봉수대 방문 전 확인할 만한 세부 정보는 주차: 가능 / 쉬는 날: 연중무휴 / 이용 시간: 상시 개방입니다. 이 정보는 제목이나 대표 이미지보다 실제 일정에 더 직접적으로 영향을 줍니다.",
+          "특히 주차, 쉬는 날, 이용 시간, 체험 접수처럼 현장에서 바로 막히는 항목은 출발 전에 다시 확인하는 편이 좋습니다. 같은 지역 안에서도 입구와 주차 위치가 다르면 이동 시간이 크게 달라질 수 있습니다."
         ]
       ],
       [
@@ -34395,7 +35435,22 @@
         "영덕대소산봉수대 관련 문의는 방문 전 확인 필요로 확인하세요."
       ]
     ],
-    "copyPolishedVersion": 2
+    "copyPolishedVersion": 2,
+    "tourApi": {
+      "contentTypeId": "12",
+      "overview": "",
+      "homepage": "",
+      "mapx": "",
+      "mapy": "",
+      "mlevel": "",
+      "intro": {
+        "parking": "가능",
+        "restdate": "연중무휴",
+        "usetime": "상시 개방",
+        "infocenter": "영덕군청 문화관광과 054-730-6297~8"
+      },
+      "backfilledAt": "2026-08-07T02:18:17.196Z"
+    }
   },
   {
     "contentid": "970138",
@@ -34407,7 +35462,7 @@
     "region": "서울특별시 서초구",
     "date": "2026년 6월 12일",
     "sortDate": "2026-06-12",
-    "read": "약 7분",
+    "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/07/4061307_image2_1.jpg",
     "images": [
       "https://tong.visitkorea.or.kr/cms/resource/07/4061307_image2_1.jpg"
@@ -34438,6 +35493,18 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능 (669대)"
+      ],
+      [
+        "쉬는 날",
+        "연중 무휴"
+      ],
+      [
+        "체험 안내",
+        "달빛 무지개 분수 ※ 운영시간은 홈페이지 참조"
       ]
     ],
     "memo": [
@@ -34459,6 +35526,13 @@
         [
           "위치는 서울특별시 서초구 신반포로11길 40 (반포동) 기준입니다. 운영 관련 안내는 방문 전 확인 필요, 요금은 시설별 상이로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
           "문의처는 방문 전 확인 필요입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
+        ]
+      ],
+      [
+        "운영 정보에서 놓치기 쉬운 부분",
+        [
+          "반포한강공원 방문 전 확인할 만한 세부 정보는 주차: 가능 (669대) / 쉬는 날: 연중 무휴 / 이용 시간: 상시 개방 / 체험 안내: 달빛 무지개 분수 ※ 운영시간은 홈페이지 참조입니다. 이 정보는 제목이나 대표 이미지보다 실제 일정에 더 직접적으로 영향을 줍니다.",
+          "특히 주차, 쉬는 날, 이용 시간, 체험 접수처럼 현장에서 바로 막히는 항목은 출발 전에 다시 확인하는 편이 좋습니다. 같은 지역 안에서도 입구와 주차 위치가 다르면 이동 시간이 크게 달라질 수 있습니다."
         ]
       ],
       [
@@ -34505,7 +35579,23 @@
         "반포한강공원 관련 문의는 방문 전 확인 필요로 확인하세요."
       ]
     ],
-    "copyPolishedVersion": 2
+    "copyPolishedVersion": 2,
+    "tourApi": {
+      "contentTypeId": "12",
+      "overview": "",
+      "homepage": "",
+      "mapx": "",
+      "mapy": "",
+      "mlevel": "",
+      "intro": {
+        "parking": "가능 (669대)",
+        "restdate": "연중 무휴",
+        "usetime": "상시 개방",
+        "expguide": "달빛 무지개 분수 ※ 운영시간은 홈페이지 참조",
+        "infocenter": "02-3780-0541~4"
+      },
+      "backfilledAt": "2026-08-07T02:18:17.658Z"
+    }
   },
   {
     "contentid": "2989580",
@@ -34573,6 +35663,13 @@
         ]
       ],
       [
+        "운영 정보에서 놓치기 쉬운 부분",
+        [
+          "장수 쿨밸리 페스티벌 방문 전 확인할 만한 세부 정보는 이용 시간: 10:00 ~ 20:00 / 행사 장소: 방화동 자연휴양림 / 행사 기간: 20260717~20260719 / 프로그램: 1. 메인프로그램 : 쿨밸리 워터파크 운영(물놀이장), 송어잡기 체험(계곡에서 맨손으로 송어잡기 체험) 2. 부대프로그램 : 체험프로그램(만들기 체험 등) 3. 소비자 참여 이벤트 : 쿨밸리 워터챌린지(물을 활용한 게임), 수중가족대항전(물놀이장에서 징검다리 건너기 등 게임) 등 4. 기타 먹거리 : 간식거리, 안주거리 등 / 이용 요금: 무료입니다. 이 정보는 제목이나 대표 이미지보다 실제 일정에 더 직접적으로 영향을 줍니다.",
+          "특히 주차, 쉬는 날, 이용 시간, 체험 접수처럼 현장에서 바로 막히는 항목은 출발 전에 다시 확인하는 편이 좋습니다. 같은 지역 안에서도 입구와 주차 위치가 다르면 이동 시간이 크게 달라질 수 있습니다."
+        ]
+      ],
+      [
         "프로그램 고르는 법",
         [
           "프로그램은 쿨밸리 워터파크 운영(물놀이장), 송어잡기 체험(계곡에서 맨손으로 송어잡기 체험) 체험프로그램(만들기 체험, ) 소비자 참여 이벤트 : 쿨밸리 워터챌린지(물을 활용한 게임), 수중가족대항전(물놀이장에서 징검다리 건너기, 게임), 먹거리 : 간식거리와 안주거리 중심으로 볼 수 있습니다. 먹거리 축제는 인기 부스에 사람이 몰리기 쉬우니, 먼저 전체 판매·체험 위치를 확인하고 줄이 긴 곳은 식사 시간대를 살짝 비켜 다시 찾는 방식이 편합니다.",
@@ -34623,7 +35720,26 @@
         "장수 쿨밸리 페스티벌 관련 문의는 063-350-2357로 확인하는 것이 가장 빠릅니다."
       ]
     ],
-    "copyPolishedVersion": 2
+    "copyPolishedVersion": 2,
+    "tourApi": {
+      "contentTypeId": "15",
+      "overview": "",
+      "homepage": "",
+      "mapx": "",
+      "mapy": "",
+      "mlevel": "",
+      "intro": {
+        "eventstartdate": "20260717",
+        "eventenddate": "20260719",
+        "eventplace": "방화동 자연휴양림",
+        "playtime": "10:00 ~ 20:00",
+        "program": "1. 메인프로그램 : 쿨밸리 워터파크 운영(물놀이장), 송어잡기 체험(계곡에서 맨손으로 송어잡기 체험) 2. 부대프로그램 : 체험프로그램(만들기 체험 등) 3. 소비자 참여 이벤트 : 쿨밸리 워터챌린지(물을 활용한 게임), 수중가족대항전(물놀이장에서 징검다리 건너기 등 게임) 등 4. 기타 먹거리 : 간식거리, 안주거리 등",
+        "usetimefestival": "무료",
+        "sponsor1": "장수계곡축제추진위원회",
+        "sponsor1tel": "063-350-2357"
+      },
+      "backfilledAt": "2026-08-07T02:18:18.122Z"
+    }
   },
   {
     "contentid": "2987489",
@@ -34691,6 +35807,13 @@
         ]
       ],
       [
+        "운영 정보에서 놓치기 쉬운 부분",
+        [
+          "2026 고흥 녹동항 드론쇼 방문 전 확인할 만한 세부 정보는 이용 시간: 매주 토요일 21:00 (녹동항 바다정원)※ 매월 마지막주 금요일 21:00 (군청 앞 고흥군민광장) / 행사 장소: 녹동항 일원 / 행사 기간: 20260404~20261031 / 프로그램: - 주요 프로그램 : 드론쇼 상설공연 · 녹동항 : 매주 토요일 21시 ※ 월 1회 해상 불꽃쇼 추진 · 고흥읍 : 매월 마지막주 금요일 21시 - 부대 행사 및 프로그램 : 개·폐막식 / 녹동바다불꽃·고흥유자축제 특별공연 / 명절 특별공연 / 유해조류 퇴치 드론 시연 / 버스킹 공연 / 레이저 쇼 등 / 이용 요금: 무료입니다. 이 정보는 제목이나 대표 이미지보다 실제 일정에 더 직접적으로 영향을 줍니다.",
+          "특히 주차, 쉬는 날, 이용 시간, 체험 접수처럼 현장에서 바로 막히는 항목은 출발 전에 다시 확인하는 편이 좋습니다. 같은 지역 안에서도 입구와 주차 위치가 다르면 이동 시간이 크게 달라질 수 있습니다."
+        ]
+      ],
+      [
         "프로그램 고르는 법",
         [
           "주요 볼거리는 주요 프로그램 : 드론쇼 상설공연, 녹동항 : 매주 토요일 21시 ※ 월 1회 해상 불꽃쇼 추진, 고흥읍 : 매월 마지막주 금요일 21시 - 부대 행사, 프로그램 : 개, 폐막식 / 녹동바다불꽃와 고흥유자축제 특별공연 / 명절 특별공연 / 유해조류 퇴치 드론 시연 / 버스킹 공연 / 레이저 쇼 쪽에 맞춰져 있습니다. 야외 구간이 많다면 한 번에 전부 보려고 하기보다 빛이 좋은 시간대와 휴식 지점을 함께 생각해 코스를 나누는 편이 좋습니다.",
@@ -34741,7 +35864,27 @@
         "2026 고흥 녹동항 드론쇼 관련 문의는 061-830-5902로 확인하는 것이 가장 빠릅니다."
       ]
     ],
-    "copyPolishedVersion": 2
+    "copyPolishedVersion": 2,
+    "tourApi": {
+      "contentTypeId": "15",
+      "overview": "",
+      "homepage": "",
+      "mapx": "",
+      "mapy": "",
+      "mlevel": "",
+      "intro": {
+        "eventstartdate": "20260404",
+        "eventenddate": "20261031",
+        "eventplace": "녹동항 일원",
+        "playtime": "매주 토요일 21:00 (녹동항 바다정원)※ 매월 마지막주 금요일 21:00 (군청 앞 고흥군민광장)",
+        "program": "- 주요 프로그램 : 드론쇼 상설공연 · 녹동항 : 매주 토요일 21시 ※ 월 1회 해상 불꽃쇼 추진 · 고흥읍 : 매월 마지막주 금요일 21시 - 부대 행사 및 프로그램 : 개·폐막식 / 녹동바다불꽃·고흥유자축제 특별공연 / 명절 특별공연 / 유해조류 퇴치 드론 시연 / 버스킹 공연 / 레이저 쇼 등",
+        "usetimefestival": "무료",
+        "sponsor1": "고흥군",
+        "sponsor1tel": "061-830-5902",
+        "sponsor2": "㈜다온아이엔씨"
+      },
+      "backfilledAt": "2026-08-07T02:18:18.591Z"
+    }
   },
   {
     "contentid": "2952109",
@@ -34809,6 +35952,13 @@
         ]
       ],
       [
+        "운영 정보에서 놓치기 쉬운 부분",
+        [
+          "2026 용골 댄스 페스타 방문 전 확인할 만한 세부 정보는 이용 시간: 13:00~18:00 / 행사 장소: 용두산공원 일원 / 행사 기간: 20260620~20260620 / 프로그램: - 주요 프로그램 : 청소년 댄스 경연대회 - 부대 행사 및 프로그램 : 랜덤플레이댄스 / 댄스 배틀 / 푸드트럭 운영 등 / 이용 요금: 무료입니다. 이 정보는 제목이나 대표 이미지보다 실제 일정에 더 직접적으로 영향을 줍니다.",
+          "특히 주차, 쉬는 날, 이용 시간, 체험 접수처럼 현장에서 바로 막히는 항목은 출발 전에 다시 확인하는 편이 좋습니다. 같은 지역 안에서도 입구와 주차 위치가 다르면 이동 시간이 크게 달라질 수 있습니다."
+        ]
+      ],
+      [
         "프로그램 고르는 법",
         [
           "프로그램은 주요 프로그램 : 청소년 댄스 경연대회 - 부대 행사와 프로그램 : 랜덤플레이댄스 / 댄스 배틀 / 푸드트럭 운영 중심으로 볼 수 있습니다. 먹거리 축제는 인기 부스에 사람이 몰리기 쉬우니, 먼저 전체 판매·체험 위치를 확인하고 줄이 긴 곳은 식사 시간대를 살짝 비켜 다시 찾는 방식이 편합니다.",
@@ -34859,7 +36009,26 @@
         "2026 용골 댄스 페스타 관련 문의는 051-714-4674로 확인하는 것이 가장 빠릅니다."
       ]
     ],
-    "copyPolishedVersion": 2
+    "copyPolishedVersion": 2,
+    "tourApi": {
+      "contentTypeId": "15",
+      "overview": "",
+      "homepage": "",
+      "mapx": "",
+      "mapy": "",
+      "mlevel": "",
+      "intro": {
+        "eventstartdate": "20260620",
+        "eventenddate": "20260620",
+        "eventplace": "용두산공원 일원",
+        "playtime": "13:00~18:00",
+        "program": "- 주요 프로그램 : 청소년 댄스 경연대회 - 부대 행사 및 프로그램 : 랜덤플레이댄스 / 댄스 배틀 / 푸드트럭 운영 등",
+        "usetimefestival": "무료",
+        "sponsor1": "부산광역시 중구",
+        "sponsor1tel": "051-714-4674"
+      },
+      "backfilledAt": "2026-08-07T02:18:19.055Z"
+    }
   },
   {
     "contentid": "4073447",
@@ -34871,7 +36040,7 @@
     "region": "경상북도 고령군",
     "date": "2026년 6월 11일",
     "sortDate": "2026-06-11",
-    "read": "약 7분",
+    "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/65/4073465_image3_1.jpg",
     "images": [
       "https://tong.visitkorea.or.kr/cms/resource/65/4073465_image3_1.jpg"
@@ -34902,6 +36071,18 @@
       [
         "방문 포인트",
         "소리체험, 악기놀이터, 실감영상실, 대가야 문화권 주변 산책 동선"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "매주 월요일(단, 월요일이 휴일인 경우 그 다음날 휴관)"
+      ],
+      [
+        "체험 안내",
+        "소리체험 / 악기놀이터 / 실감영상실 등"
       ]
     ],
     "memo": [
@@ -34923,6 +36104,13 @@
         [
           "위치는 경상북도 고령군 대가야읍 가야금길 98 기준입니다. 운영 관련 안내는 하절기 09:00~18:00, 동절기 09:00~17:00, 매주 월요일 휴관, 요금은 시설별 상이로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
           "문의처는 054-950-7136입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
+        ]
+      ],
+      [
+        "운영 정보에서 놓치기 쉬운 부분",
+        [
+          "소리체험관 방문 전 확인할 만한 세부 정보는 주차: 가능 / 쉬는 날: 매주 월요일(단, 월요일이 휴일인 경우 그 다음날 휴관) / 이용 시간: [하절기(3월~10월)]- 09:00~18:00- 휴게시간 12:00~13:00- 입장 마감 17:00[동절기(11월~2월)]- 09:00~17:00- 휴게시간 12:00~13:00- 입장 마감 16:00 / 체험 안내: 소리체험 / 악기놀이터 / 실감영상실 등입니다. 이 정보는 제목이나 대표 이미지보다 실제 일정에 더 직접적으로 영향을 줍니다.",
+          "특히 주차, 쉬는 날, 이용 시간, 체험 접수처럼 현장에서 바로 막히는 항목은 출발 전에 다시 확인하는 편이 좋습니다. 같은 지역 안에서도 입구와 주차 위치가 다르면 이동 시간이 크게 달라질 수 있습니다."
         ]
       ],
       [
@@ -34969,7 +36157,23 @@
         "소리체험관 관련 문의는 054-950-7136로 확인하세요."
       ]
     ],
-    "copyPolishedVersion": 2
+    "copyPolishedVersion": 2,
+    "tourApi": {
+      "contentTypeId": "12",
+      "overview": "",
+      "homepage": "",
+      "mapx": "",
+      "mapy": "",
+      "mlevel": "",
+      "intro": {
+        "parking": "가능",
+        "restdate": "매주 월요일(단, 월요일이 휴일인 경우 그 다음날 휴관)",
+        "usetime": "[하절기(3월~10월)]- 09:00~18:00- 휴게시간 12:00~13:00- 입장 마감 17:00[동절기(11월~2월)]- 09:00~17:00- 휴게시간 12:00~13:00- 입장 마감 16:00",
+        "expguide": "소리체험 / 악기놀이터 / 실감영상실 등",
+        "infocenter": "054-950-7136"
+      },
+      "backfilledAt": "2026-08-07T02:18:19.525Z"
+    }
   },
   {
     "contentid": "4073368",
@@ -34981,7 +36185,7 @@
     "region": "제주특별자치도 제주시",
     "date": "2026년 6월 11일",
     "sortDate": "2026-06-11",
-    "read": "약 7분",
+    "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/77/4072177_image3_1.jpeg",
     "images": [
       "https://tong.visitkorea.or.kr/cms/resource/77/4072177_image3_1.jpeg"
@@ -35012,6 +36216,14 @@
       [
         "방문 포인트",
         "제주 원도심 역사 건축 관람, 중앙로 주변 도보 이동, 인근 카페와 식사 동선"
+      ],
+      [
+        "주차",
+        "불가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -35033,6 +36245,13 @@
         [
           "위치는 제주특별자치도 제주시 중앙로12길 29 기준입니다. 운영 관련 안내는 09:00~18:00, 연중무휴 안내, 요금은 시설별 상이로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
           "문의처는 제주특별자치도 세계유산본부 064-710-6703입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
+        ]
+      ],
+      [
+        "운영 정보에서 놓치기 쉬운 부분",
+        [
+          "향사당 방문 전 확인할 만한 세부 정보는 주차: 불가능 / 쉬는 날: 연중무휴 / 이용 시간: 09:00~18:00입니다. 이 정보는 제목이나 대표 이미지보다 실제 일정에 더 직접적으로 영향을 줍니다.",
+          "특히 주차, 쉬는 날, 이용 시간, 체험 접수처럼 현장에서 바로 막히는 항목은 출발 전에 다시 확인하는 편이 좋습니다. 같은 지역 안에서도 입구와 주차 위치가 다르면 이동 시간이 크게 달라질 수 있습니다."
         ]
       ],
       [
@@ -35079,7 +36298,22 @@
         "향사당 관련 문의는 제주특별자치도 세계유산본부 064-710-6703로 확인하세요."
       ]
     ],
-    "copyPolishedVersion": 2
+    "copyPolishedVersion": 2,
+    "tourApi": {
+      "contentTypeId": "12",
+      "overview": "",
+      "homepage": "",
+      "mapx": "",
+      "mapy": "",
+      "mlevel": "",
+      "intro": {
+        "parking": "불가능",
+        "restdate": "연중무휴",
+        "usetime": "09:00~18:00",
+        "infocenter": "제주특별자치도 세계유산본부 064-710-6703"
+      },
+      "backfilledAt": "2026-08-07T02:18:19.993Z"
+    }
   },
   {
     "contentid": "4072509",
@@ -35091,7 +36325,7 @@
     "region": "경상북도 문경시",
     "date": "2026년 6월 11일",
     "sortDate": "2026-06-11",
-    "read": "약 7분",
+    "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/31/4072531_image3_1.jpg",
     "images": [
       "https://tong.visitkorea.or.kr/cms/resource/31/4072531_image3_1.jpg"
@@ -35122,6 +36356,14 @@
       [
         "방문 포인트",
         "공원 산책, 가족 나들이, 사진 촬영, 문경 시내 식사 동선"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -35143,6 +36385,13 @@
         [
           "위치는 경상북도 문경시 모전동 산30-2 기준입니다. 운영 관련 안내는 상시 개방, 요금은 시설별 상이로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
           "문의처는 054-550-6363입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
+        ]
+      ],
+      [
+        "운영 정보에서 놓치기 쉬운 부분",
+        [
+          "모전공원 방문 전 확인할 만한 세부 정보는 주차: 가능 / 쉬는 날: 연중무휴 / 이용 시간: 상시 개방입니다. 이 정보는 제목이나 대표 이미지보다 실제 일정에 더 직접적으로 영향을 줍니다.",
+          "특히 주차, 쉬는 날, 이용 시간, 체험 접수처럼 현장에서 바로 막히는 항목은 출발 전에 다시 확인하는 편이 좋습니다. 같은 지역 안에서도 입구와 주차 위치가 다르면 이동 시간이 크게 달라질 수 있습니다."
         ]
       ],
       [
@@ -35189,7 +36438,22 @@
         "모전공원 관련 문의는 054-550-6363로 확인하세요."
       ]
     ],
-    "copyPolishedVersion": 2
+    "copyPolishedVersion": 2,
+    "tourApi": {
+      "contentTypeId": "12",
+      "overview": "",
+      "homepage": "",
+      "mapx": "",
+      "mapy": "",
+      "mlevel": "",
+      "intro": {
+        "parking": "가능",
+        "restdate": "연중무휴",
+        "usetime": "상시 개방",
+        "infocenter": "054-550-6363"
+      },
+      "backfilledAt": "2026-08-07T02:18:20.714Z"
+    }
   },
   {
     "contentid": "141578",
@@ -35257,6 +36521,13 @@
         ]
       ],
       [
+        "운영 정보에서 놓치기 쉬운 부분",
+        [
+          "남해 마늘한우축제 방문 전 확인할 만한 세부 정보는 이용 시간: 10:00~21:30 / 행사 장소: 남해유배문학관 일원 / 행사 기간: 20260611~20260614 / 프로그램: 1. 메인프로그램 : 무대행사, 마늘판매존, 한우구이존 2. 부대프로그램 : 피크닉존운영, 유배문학관 관람 3. 소비자 참여 프로그램 : 특별경매쇼 등 4. 기타 내용 : 남해군 대표 농특산물 부스 참여 / 이용 요금: 무료입니다. 이 정보는 제목이나 대표 이미지보다 실제 일정에 더 직접적으로 영향을 줍니다.",
+          "특히 주차, 쉬는 날, 이용 시간, 체험 접수처럼 현장에서 바로 막히는 항목은 출발 전에 다시 확인하는 편이 좋습니다. 같은 지역 안에서도 입구와 주차 위치가 다르면 이동 시간이 크게 달라질 수 있습니다."
+        ]
+      ],
+      [
         "프로그램 고르는 법",
         [
           "프로그램은 무대행사, 마늘판매존, 한우구이존, 피크닉존, 유배문학관 관람, 특별경매쇼와 남해군 농특산물 부스 중심으로 볼 수 있습니다. 먹거리 축제는 인기 부스에 사람이 몰리기 쉬우니, 먼저 전체 판매·체험 위치를 확인하고 줄이 긴 곳은 식사 시간대를 살짝 비켜 다시 찾는 방식이 편합니다.",
@@ -35307,7 +36578,27 @@
         "남해 마늘한우축제 관련 문의는 055-860-3908로 확인하는 것이 가장 빠릅니다."
       ]
     ],
-    "copyPolishedVersion": 2
+    "copyPolishedVersion": 2,
+    "tourApi": {
+      "contentTypeId": "15",
+      "overview": "",
+      "homepage": "",
+      "mapx": "",
+      "mapy": "",
+      "mlevel": "",
+      "intro": {
+        "eventstartdate": "20260611",
+        "eventenddate": "20260614",
+        "eventplace": "남해유배문학관 일원",
+        "playtime": "10:00~21:30",
+        "program": "1. 메인프로그램 : 무대행사, 마늘판매존, 한우구이존 2. 부대프로그램 : 피크닉존운영, 유배문학관 관람 3. 소비자 참여 프로그램 : 특별경매쇼 등 4. 기타 내용 : 남해군 대표 농특산물 부스 참여",
+        "usetimefestival": "무료",
+        "sponsor1": "남해군",
+        "sponsor1tel": "055-860-3908",
+        "sponsor2": "남해마늘한우축제추진위원회"
+      },
+      "backfilledAt": "2026-08-07T02:18:21.182Z"
+    }
   },
   {
     "contentid": "2853719",
@@ -35375,6 +36666,13 @@
         ]
       ],
       [
+        "운영 정보에서 놓치기 쉬운 부분",
+        [
+          "군산 수제맥주&블루스 페스티벌 방문 전 확인할 만한 세부 정보는 이용 시간: 12:00~22:00 / 행사 장소: 군산근대역사박물관 주차장 / 행사 기간: 20260612~20260614 / 프로그램: 1. 군산맥주 라인업 : 메인쿤브루잉, 운룡양조, 크래프트월명, 해적브루잉 2. 군산맥아 로컬맥주 라인업 : 화수브루어리, 아리랑브루어리, 대천맥주, 더랜치브루잉, 이히브루, 히든트랙 3. 국외 교류도시맥주 라인업 : 중국 연태시(GISBELLE), 중국 청도시(TSINGTAO), 일본 다카마쓰시(SETOUCHI BEER), 일본 가고시마시(HIFUYOMI BREWING), 대만 신북시(TAIWAN HEAD BREWERS), 미국 타코마시(SEVEN SEAS B / 이용 요금: 유료(6,000원-지역상품권 5천원 지급)입니다. 이 정보는 제목이나 대표 이미지보다 실제 일정에 더 직접적으로 영향을 줍니다.",
+          "특히 주차, 쉬는 날, 이용 시간, 체험 접수처럼 현장에서 바로 막히는 항목은 출발 전에 다시 확인하는 편이 좋습니다. 같은 지역 안에서도 입구와 주차 위치가 다르면 이동 시간이 크게 달라질 수 있습니다."
+        ]
+      ],
+      [
         "프로그램 고르는 법",
         [
           "주요 볼거리는 군산맥주 라인업, 로컬맥주 라인업, 국외 교류도시 맥주, 블루스밴드 공연와 군산맛집 30개 부스 쪽에 맞춰져 있습니다. 야외 구간이 많다면 한 번에 전부 보려고 하기보다 빛이 좋은 시간대와 휴식 지점을 함께 생각해 코스를 나누는 편이 좋습니다.",
@@ -35425,7 +36723,26 @@
         "군산 수제맥주&블루스 페스티벌 관련 문의는 063-454-5252로 확인하는 것이 가장 빠릅니다."
       ]
     ],
-    "copyPolishedVersion": 2
+    "copyPolishedVersion": 2,
+    "tourApi": {
+      "contentTypeId": "15",
+      "overview": "",
+      "homepage": "",
+      "mapx": "",
+      "mapy": "",
+      "mlevel": "",
+      "intro": {
+        "eventstartdate": "20260612",
+        "eventenddate": "20260614",
+        "eventplace": "군산근대역사박물관 주차장",
+        "playtime": "12:00~22:00",
+        "program": "1. 군산맥주 라인업 : 메인쿤브루잉, 운룡양조, 크래프트월명, 해적브루잉 2. 군산맥아 로컬맥주 라인업 : 화수브루어리, 아리랑브루어리, 대천맥주, 더랜치브루잉, 이히브루, 히든트랙 3. 국외 교류도시맥주 라인업 : 중국 연태시(GISBELLE), 중국 청도시(TSINGTAO), 일본 다카마쓰시(SETOUCHI BEER), 일본 가고시마시(HIFUYOMI BREWING), 대만 신북시(TAIWAN HEAD BREWERS), 미국 타코마시(SEVEN SEAS BREWING) 4. 블루스밴드 라인업 : 강산에밴드, 김종서밴드, 김경호밴드, 신촌블루스, Hurricane Yukawa & Kazuhiko Ohnogi, Dave Spector, Sonny King 등 5. 군산맛집 30개 부스",
+        "usetimefestival": "유료(6,000원-지역상품권 5천원 지급)",
+        "sponsor1": "군산시",
+        "sponsor1tel": "063-454-5252"
+      },
+      "backfilledAt": "2026-08-07T02:18:21.657Z"
+    }
   },
   {
     "contentid": "2031668",
@@ -35437,7 +36754,7 @@
     "region": "서울특별시 노원구",
     "date": "2026년 6월 9일",
     "sortDate": "2026-06-09",
-    "read": "약 7분",
+    "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/46/3466146_image2_1.jpg",
     "images": [
       "https://tong.visitkorea.or.kr/cms/resource/46/3466146_image2_1.jpg"
@@ -35468,6 +36785,14 @@
       [
         "방문 포인트",
         "초안산 산책길, 초안산근린공원, 주변 식사 동선"
+      ],
+      [
+        "주차",
+        "불가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -35489,6 +36814,13 @@
         [
           "위치는 서울특별시 노원구 월계동 기준입니다. 운영 관련 안내는 상시 개방, 요금은 시설별 상이로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
           "문의처는 방문 전 확인 필요입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
+        ]
+      ],
+      [
+        "운영 정보에서 놓치기 쉬운 부분",
+        [
+          "초안산 방문 전 확인할 만한 세부 정보는 주차: 불가능 / 쉬는 날: 연중무휴 / 이용 시간: 상시 개방입니다. 이 정보는 제목이나 대표 이미지보다 실제 일정에 더 직접적으로 영향을 줍니다.",
+          "특히 주차, 쉬는 날, 이용 시간, 체험 접수처럼 현장에서 바로 막히는 항목은 출발 전에 다시 확인하는 편이 좋습니다. 같은 지역 안에서도 입구와 주차 위치가 다르면 이동 시간이 크게 달라질 수 있습니다."
         ]
       ],
       [
@@ -35535,7 +36867,22 @@
         "초안산 관련 문의는 방문 전 확인 필요로 확인하세요."
       ]
     ],
-    "copyPolishedVersion": 2
+    "copyPolishedVersion": 2,
+    "tourApi": {
+      "contentTypeId": "12",
+      "overview": "",
+      "homepage": "",
+      "mapx": "",
+      "mapy": "",
+      "mlevel": "",
+      "intro": {
+        "parking": "불가능",
+        "restdate": "연중무휴",
+        "usetime": "상시 개방",
+        "infocenter": "노원구청 푸른도시과 02-2116-3943"
+      },
+      "backfilledAt": "2026-08-07T02:18:22.116Z"
+    }
   },
   {
     "contentid": "298099",
@@ -35547,7 +36894,7 @@
     "region": "부산광역시 금정구",
     "date": "2026년 6월 9일",
     "sortDate": "2026-06-09",
-    "read": "약 7분",
+    "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/82/3552382_image2_1.jpg",
     "images": [
       "https://tong.visitkorea.or.kr/cms/resource/82/3552382_image2_1.jpg"
@@ -35578,6 +36925,14 @@
       [
         "방문 포인트",
         "금정산 산책 동선, 사찰 관람, 주변 카페와 식사 코스"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -35599,6 +36954,13 @@
         [
           "위치는 부산광역시 금정구 북문로 42 기준입니다. 운영 관련 안내는 상시 개방, 자세한 사항은 방문 전 확인 권장, 요금은 시설별 상이로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
           "문의처는 방문 전 확인 필요입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
+        ]
+      ],
+      [
+        "운영 정보에서 놓치기 쉬운 부분",
+        [
+          "국청사(부산) 방문 전 확인할 만한 세부 정보는 주차: 가능 / 쉬는 날: 연중무휴 / 이용 시간: 상시 개방 ※ 자세한 사항은 전화문의 요망입니다. 이 정보는 제목이나 대표 이미지보다 실제 일정에 더 직접적으로 영향을 줍니다.",
+          "특히 주차, 쉬는 날, 이용 시간, 체험 접수처럼 현장에서 바로 막히는 항목은 출발 전에 다시 확인하는 편이 좋습니다. 같은 지역 안에서도 입구와 주차 위치가 다르면 이동 시간이 크게 달라질 수 있습니다."
         ]
       ],
       [
@@ -35645,7 +37007,22 @@
         "국청사(부산) 관련 문의는 방문 전 확인 필요로 확인하세요."
       ]
     ],
-    "copyPolishedVersion": 2
+    "copyPolishedVersion": 2,
+    "tourApi": {
+      "contentTypeId": "12",
+      "overview": "",
+      "homepage": "",
+      "mapx": "",
+      "mapy": "",
+      "mlevel": "",
+      "intro": {
+        "parking": "가능",
+        "restdate": "연중무휴",
+        "usetime": "상시 개방 ※ 자세한 사항은 전화문의 요망",
+        "infocenter": "051-517-5003"
+      },
+      "backfilledAt": "2026-08-07T02:18:22.578Z"
+    }
   },
   {
     "contentid": "2735607",
@@ -35657,7 +37034,7 @@
     "region": "강원특별자치도 동해시",
     "date": "2026년 6월 9일",
     "sortDate": "2026-06-09",
-    "read": "약 7분",
+    "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/25/3589225_image2_1.jpg",
     "images": [
       "https://tong.visitkorea.or.kr/cms/resource/25/3589225_image2_1.jpg"
@@ -35688,6 +37065,14 @@
       [
         "방문 포인트",
         "정자 주변 산책, 무릉계곡권 동선, 사진 촬영 포인트"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -35709,6 +37094,13 @@
         [
           "위치는 강원특별자치도 동해시 삼화동 기준입니다. 운영 관련 안내는 상시 개방, 요금은 시설별 상이로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
           "문의처는 방문 전 확인 필요입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
+        ]
+      ],
+      [
+        "운영 정보에서 놓치기 쉬운 부분",
+        [
+          "금란정 방문 전 확인할 만한 세부 정보는 주차: 가능 / 쉬는 날: 연중무휴 / 이용 시간: 상시 개방입니다. 이 정보는 제목이나 대표 이미지보다 실제 일정에 더 직접적으로 영향을 줍니다.",
+          "특히 주차, 쉬는 날, 이용 시간, 체험 접수처럼 현장에서 바로 막히는 항목은 출발 전에 다시 확인하는 편이 좋습니다. 같은 지역 안에서도 입구와 주차 위치가 다르면 이동 시간이 크게 달라질 수 있습니다."
         ]
       ],
       [
@@ -35755,7 +37147,22 @@
         "금란정 관련 문의는 방문 전 확인 필요로 확인하세요."
       ]
     ],
-    "copyPolishedVersion": 2
+    "copyPolishedVersion": 2,
+    "tourApi": {
+      "contentTypeId": "12",
+      "overview": "",
+      "homepage": "",
+      "mapx": "",
+      "mapy": "",
+      "mlevel": "",
+      "intro": {
+        "parking": "가능",
+        "restdate": "연중무휴",
+        "usetime": "상시 개방",
+        "infocenter": "무릉계곡관광안내소 033-530-2802"
+      },
+      "backfilledAt": "2026-08-07T02:18:23.044Z"
+    }
   },
   {
     "contentid": "4071535",
@@ -35823,6 +37230,13 @@
         ]
       ],
       [
+        "운영 정보에서 놓치기 쉬운 부분",
+        [
+          "제14회 도농교류의 날 기념 2026 농촌여행 페스티벌 방문 전 확인할 만한 세부 정보는 이용 시간: 10:00~20:00 / 행사 장소: 서울광장 / 행사 기간: 20260616~20260616 / 프로그램: 1. 농촌관광 정책·사업 홍보관 - DIY 키캡 키링 만들기 / 즉석 사진 부스 - 웰촌·농진청·산림청 체험 홍보 부스 2. 전국 9개도 농촌체험휴양마을 홍보부스 - 농촌자원을 활용한 다양한 만들기 체험 3. 이벤트존 - 9개도 스탬프 투어 룰렛 이벤트 - 우수 홍보관 투표 및 행사 만족도조사 4. 무대 이벤트 - 농촌 OX퀴즈· 초성퀴즈 5. 무대공연 - 전통문화공연(충남 아산 외암마을 다듬이난타 / 전남 곡성 가정마을 호남여성농악판굿) - 기념행사 식전공연( / 이용 요금: 무료입니다. 이 정보는 제목이나 대표 이미지보다 실제 일정에 더 직접적으로 영향을 줍니다.",
+          "특히 주차, 쉬는 날, 이용 시간, 체험 접수처럼 현장에서 바로 막히는 항목은 출발 전에 다시 확인하는 편이 좋습니다. 같은 지역 안에서도 입구와 주차 위치가 다르면 이동 시간이 크게 달라질 수 있습니다."
+        ]
+      ],
+      [
         "프로그램 고르는 법",
         [
           "프로그램은 전통문화공연, 퓨전국악공연, 관람객 참여 이벤트, 기념행사, 스탬프 투어, 룰렛 이벤트와 농촌마을 부스 체험 흐름으로 이어집니다. 역사문화형 행사는 눈으로만 보는 것보다 해설, 재현, 공연 시간을 맞춰 보면 이해가 쉬워지므로 입장 직후 시간표를 먼저 확인하는 것이 좋습니다.",
@@ -35873,7 +37287,27 @@
         "제14회 도농교류의 날 기념 2026 농촌여행 페스티벌 관련 문의는 02-550-2557로 확인하는 것이 가장 빠릅니다."
       ]
     ],
-    "copyPolishedVersion": 2
+    "copyPolishedVersion": 2,
+    "tourApi": {
+      "contentTypeId": "15",
+      "overview": "",
+      "homepage": "",
+      "mapx": "",
+      "mapy": "",
+      "mlevel": "",
+      "intro": {
+        "eventstartdate": "20260616",
+        "eventenddate": "20260616",
+        "eventplace": "서울광장",
+        "playtime": "10:00~20:00",
+        "program": "1. 농촌관광 정책·사업 홍보관 - DIY 키캡 키링 만들기 / 즉석 사진 부스 - 웰촌·농진청·산림청 체험 홍보 부스 2. 전국 9개도 농촌체험휴양마을 홍보부스 - 농촌자원을 활용한 다양한 만들기 체험 3. 이벤트존 - 9개도 스탬프 투어 룰렛 이벤트 - 우수 홍보관 투표 및 행사 만족도조사 4. 무대 이벤트 - 농촌 OX퀴즈· 초성퀴즈 5. 무대공연 - 전통문화공연(충남 아산 외암마을 다듬이난타 / 전남 곡성 가정마을 호남여성농악판굿) - 기념행사 식전공연(퓨전국악팀 소유) - 여름밤 라이브 공연(가수 황가람 / 가수 경서)",
+        "usetimefestival": "무료",
+        "sponsor1": "농림축산식품부",
+        "sponsor1tel": "1577-1417",
+        "sponsor2": "한국농어촌공사"
+      },
+      "backfilledAt": "2026-08-07T02:18:23.512Z"
+    }
   },
   {
     "contentid": "3305155",
@@ -35941,6 +37375,13 @@
         ]
       ],
       [
+        "운영 정보에서 놓치기 쉬운 부분",
+        [
+          "세종단오제 방문 전 확인할 만한 세부 정보는 이용 시간: 15:00 ~ 20:00 / 행사 장소: 세종호수공원 푸른들판 / 행사 기간: 20260613~20260613 / 프로그램: 1. 메인프로그램 : 체험마당(체험 및 먹거리부스), 씨름마당(민속씨름 체험 및 대회) 2. 부대프로그램 : 공연마당(버블쇼 버블그라제, 남사당놀이 노리엔, 유튜브 콘텐츠크리에이터 이승빈 등) 3. 소비자 참여 프로그램 : 참여마당(딱지치기, 공기놀이, 물병세우기, 제기차기 등) 4. 기타 내용 : 푸드트럭 9대 / 이용 요금: 무료입니다. 이 정보는 제목이나 대표 이미지보다 실제 일정에 더 직접적으로 영향을 줍니다.",
+          "특히 주차, 쉬는 날, 이용 시간, 체험 접수처럼 현장에서 바로 막히는 항목은 출발 전에 다시 확인하는 편이 좋습니다. 같은 지역 안에서도 입구와 주차 위치가 다르면 이동 시간이 크게 달라질 수 있습니다."
+        ]
+      ],
+      [
         "프로그램 고르는 법",
         [
           "프로그램은 체험마당, 먹거리부스, 민속씨름 체험과 대회, 버블쇼, 남사당놀이, 참여마당와 푸드트럭 중심으로 볼 수 있습니다. 먹거리 축제는 인기 부스에 사람이 몰리기 쉬우니, 먼저 전체 판매·체험 위치를 확인하고 줄이 긴 곳은 식사 시간대를 살짝 비켜 다시 찾는 방식이 편합니다.",
@@ -35991,7 +37432,26 @@
         "세종단오제 관련 문의는 044-865-2411로 확인하는 것이 가장 빠릅니다."
       ]
     ],
-    "copyPolishedVersion": 2
+    "copyPolishedVersion": 2,
+    "tourApi": {
+      "contentTypeId": "15",
+      "overview": "",
+      "homepage": "",
+      "mapx": "",
+      "mapy": "",
+      "mlevel": "",
+      "intro": {
+        "eventstartdate": "20260613",
+        "eventenddate": "20260613",
+        "eventplace": "세종호수공원 푸른들판",
+        "playtime": "15:00 ~ 20:00",
+        "program": "1. 메인프로그램 : 체험마당(체험 및 먹거리부스), 씨름마당(민속씨름 체험 및 대회) 2. 부대프로그램 : 공연마당(버블쇼 버블그라제, 남사당놀이 노리엔, 유튜브 콘텐츠크리에이터 이승빈 등) 3. 소비자 참여 프로그램 : 참여마당(딱지치기, 공기놀이, 물병세우기, 제기차기 등) 4. 기타 내용 : 푸드트럭 9대",
+        "usetimefestival": "무료",
+        "sponsor1": "세종문화원",
+        "sponsor1tel": "044-865-2411"
+      },
+      "backfilledAt": "2026-08-07T02:18:23.976Z"
+    }
   },
   {
     "contentid": "3041338",
@@ -36034,6 +37494,14 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "점포 별로 상이함"
       ]
     ],
     "memo": [
@@ -36046,15 +37514,16 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "128.5901909793",
-      "mapy": "38.2045159183",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "가능",
         "restdate": "점포 별로 상이함",
         "usetime": "점포 별로 상이함",
         "infocenter": "속초관광수산시장 033-633-3501"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:18:24.444Z"
     },
     "sections": [
       [
@@ -36167,6 +37636,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -36179,14 +37652,15 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "128.5832996810",
-      "mapy": "38.1984814819",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "연중무휴",
         "usetimeculture": "일~금 11:00~17:00 토요일 11:00~18:00",
         "infocenterculture": "033-673-2309"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:18:24.905Z"
     },
     "sections": [
       [
@@ -36311,13 +37785,14 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "128.2791266937",
-      "mapy": "37.3476226766",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "- 입실 13:00- 퇴실 12:00",
         "infocenterleports": "033-374-9142"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:18:25.367Z"
     },
     "sections": [
       [
@@ -36442,10 +37917,11 @@
       "contentTypeId": "32",
       "overview": "",
       "homepage": "",
-      "mapx": "128.6354665641",
-      "mapy": "35.7888868054",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:18:25.843Z"
     },
     "sections": [
       [
@@ -36563,10 +38039,11 @@
       "contentTypeId": "39",
       "overview": "",
       "homepage": "",
-      "mapx": "127.3283340885",
-      "mapy": "36.6311847972",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:18:26.307Z"
     },
     "sections": [
       [
@@ -36684,10 +38161,11 @@
       "contentTypeId": "38",
       "overview": "",
       "homepage": "",
-      "mapx": "127.4892130050",
-      "mapy": "36.6623687787",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:18:26.772Z"
     },
     "sections": [
       [
@@ -36793,6 +38271,14 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "매주 월요일"
       ]
     ],
     "memo": [
@@ -36805,15 +38291,16 @@
       "contentTypeId": "12",
       "overview": "",
       "homepage": "",
-      "mapx": "126.6684660239",
-      "mapy": "35.4478396461",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "parking": "가능",
         "restdate": "매주 월요일",
         "usetime": "10:00~18:00 (전화문의)",
         "infocenter": "063-561-2264"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:18:27.236Z"
     },
     "sections": [
       [
@@ -36926,6 +38413,10 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "쉬는 날",
+        "매주 월요일"
       ]
     ],
     "memo": [
@@ -36938,15 +38429,16 @@
       "contentTypeId": "14",
       "overview": "",
       "homepage": "",
-      "mapx": "127.0644683163",
-      "mapy": "35.9065788704",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "restdateculture": "매주 월요일",
         "usetimeculture": "10:00 ~ 18:00",
         "usefee": "무료",
         "infocenterculture": "063-290-3852"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:18:27.700Z"
     },
     "sections": [
       [
@@ -37071,13 +38563,14 @@
       "contentTypeId": "28",
       "overview": "",
       "homepage": "",
-      "mapx": "128.5488046945",
-      "mapy": "38.2958903020",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
       "intro": {
         "usetimeleports": "- 입실 13:00- 퇴실 11:00",
         "infocenterleports": "010-4097-0803"
-      }
+      },
+      "backfilledAt": "2026-08-07T02:18:28.164Z"
     },
     "sections": [
       [
@@ -37202,10 +38695,11 @@
       "contentTypeId": "32",
       "overview": "",
       "homepage": "",
-      "mapx": "128.7055568430",
-      "mapy": "37.6509444675",
+      "mapx": "",
+      "mapy": "",
       "mlevel": "",
-      "intro": {}
+      "intro": {},
+      "backfilledAt": "2026-08-07T02:18:28.640Z"
     },
     "sections": [
       [
@@ -37341,7 +38835,7 @@
         "usetime": "16:00~01:00 (점포 별 상이)",
         "infocenter": "해맞이 관광안내소 033-635-2003"
       },
-      "backfilledAt": "2026-07-10T10:48:57.356Z"
+      "backfilledAt": "2026-08-07T02:18:29.106Z"
     },
     "sections": [
       [
@@ -37518,7 +39012,7 @@
         "usefee": "무료",
         "infocenterculture": "0507-1352-3514"
       },
-      "backfilledAt": "2026-07-10T10:48:58.348Z"
+      "backfilledAt": "2026-08-07T02:18:29.578Z"
     },
     "sections": [
       [
@@ -37689,7 +39183,7 @@
         "usetimeleports": "- 입실 15:00- 퇴실 11:00",
         "infocenterleports": "0507-1314-7896"
       },
-      "backfilledAt": "2026-07-10T10:48:58.930Z"
+      "backfilledAt": "2026-08-07T02:18:30.038Z"
     },
     "sections": [
       [
@@ -37857,7 +39351,7 @@
       "mapy": "",
       "mlevel": "",
       "intro": {},
-      "backfilledAt": "2026-07-10T10:48:59.939Z"
+      "backfilledAt": "2026-08-07T02:18:30.504Z"
     },
     "sections": [
       [
@@ -38018,7 +39512,7 @@
       "mapy": "",
       "mlevel": "",
       "intro": {},
-      "backfilledAt": "2026-07-10T10:49:00.505Z"
+      "backfilledAt": "2026-08-07T02:18:30.967Z"
     },
     "sections": [
       [
@@ -38179,7 +39673,7 @@
       "mapy": "",
       "mlevel": "",
       "intro": {},
-      "backfilledAt": "2026-07-10T10:49:02.104Z"
+      "backfilledAt": "2026-08-07T02:18:31.432Z"
     },
     "sections": [
       [
