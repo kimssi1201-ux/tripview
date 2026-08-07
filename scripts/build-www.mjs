@@ -1,6 +1,7 @@
 import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { isIndexablePost } from "./lib/content-quality.mjs";
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const outDir = join(root, "www");
@@ -13,6 +14,7 @@ const I18N_SCRIPT = '<script src="/assets/i18n.js?v=i18n-link-fix-20260706" defe
 const TOPIC_FILTER_SCRIPT = '<script src="/assets/topic-filter.js?v=topic-filter-20260712-no-hero" defer></script>';
 const LANGUAGE_SWITCH_CSS = ".language-switch{display:flex;gap:8px;white-space:nowrap}.language-switch a{font-size:12px;font-weight:900;color:#555;border-bottom:1px solid transparent}.language-switch a.is-active{color:#111;border-bottom-color:#111}";
 const FLIGHT_BOOKING_URL = "https://flights.myrealtrip.com/";
+const ARTICLE_NAVIGATION = '<nav class="links" aria-label="주요 메뉴"><a href="/">홈</a><a href="/#popular">8월 가볼만한 곳</a><a href="/#water">물놀이·계곡</a><a href="/#weekend">이번 주말</a><a href="/#festival">8월 축제</a><a href="/#indoor">실내여행</a><a href="/#family">아이와</a><a href="/#booking">예약 전 체크</a><a href="/#flight-deals">항공권</a></nav>';
 
 async function readJson(relativePath, fallback = []) {
   try {
@@ -25,6 +27,7 @@ async function readJson(relativePath, fallback = []) {
 const generatedPosts = await readJson("data/generated-posts.json");
 const legacyPosts = await readJson("data/posts.json");
 const posts = generatedPosts.length ? generatedPosts : legacyPosts;
+const indexablePosts = posts.filter(isIndexablePost);
 const flightDeals = await readJson("data/myrealtrip-flight-deals.json");
 const accommodationProducts = await readJson("data/myrealtrip-accommodations.json");
 const tnaProducts = await readJson("data/myrealtrip-tna-products.json");
@@ -110,7 +113,10 @@ function cleanGeneratedHtml(value) {
 
 function canonicalUrl(pathname = "/") {
   const normalized = `/${String(pathname).replace(/^\/+|\/+$/g, "")}`;
-  return normalized === "/" ? `${baseUrl}/` : `${baseUrl}${normalized}/`;
+  if (normalized === "/") return `${baseUrl}/`;
+  return /\/[^/]+\.[a-z0-9]+$/i.test(normalized)
+    ? `${baseUrl}${normalized}`
+    : `${baseUrl}${normalized}/`;
 }
 
 function ensureCanonical(document, pathname = "/") {
@@ -119,6 +125,22 @@ function ensureCanonical(document, pathname = "/") {
   return withoutExisting.includes("</head>")
     ? withoutExisting.replace("</head>", `    ${canonical}\n  </head>`)
     : withoutExisting;
+}
+
+function ensureRobotsMeta(document, indexable) {
+  const content = indexable ? "index, follow, max-image-preview:large" : "noindex, follow";
+  const meta = `<meta name="robots" content="${content}">`;
+  const withoutExisting = String(document).replace(/\s*<meta\s+name=["']robots["'][^>]*>/gi, "");
+  return withoutExisting.includes("</head>")
+    ? withoutExisting.replace("</head>", `    ${meta}\n  </head>`)
+    : withoutExisting;
+}
+
+function alignArticleNavigation(document) {
+  return String(document).replace(
+    /<nav class=["']links["'] aria-label=["']주요 메뉴["']>[\s\S]*?<\/nav>/i,
+    ARTICLE_NAVIGATION,
+  );
 }
 
 function formatDate(value = "") {
@@ -266,7 +288,7 @@ async function generateSitemap() {
     ...(Array.isArray(flightDeals) ? flightDeals : [])
       .filter((deal) => deal?.title)
       .map((deal) => ({ loc: flightUrl(deal), lastmod: deal.departureDate || today })),
-    ...posts.map((post) => ({ loc: postUrl(post), lastmod: postDate(post) }))
+    ...indexablePosts.map((post) => ({ loc: postUrl(post), lastmod: postDate(post) }))
   ];
 
   const body = urls
@@ -290,8 +312,8 @@ ${body}
 }
 
 async function generateFeed() {
-  const latest = postDate(posts[0] || {});
-  const items = posts
+  const latest = postDate(indexablePosts[0] || {});
+  const items = indexablePosts
     .slice(0, 50)
     .map(
       (post) => `    <item>
@@ -571,8 +593,10 @@ async function polishGeneratedArticles() {
     if (!document.includes('<article class="content"')) continue;
 
     let next = injectArticleAdCss(stripExistingArticleAds(document));
+    next = alignArticleNavigation(next);
     next = injectArticleTrust(next, post);
     next = ensureCanonical(next, `/${post.slug}/`);
+    next = ensureRobotsMeta(next, isIndexablePost(post));
     next = cleanGeneratedHtml(next);
     if (next !== document) await writeFile(file, next, "utf8");
   }
@@ -600,7 +624,10 @@ async function polishStaticPages() {
     const file = join(root, fileName);
     try {
       const document = await readFile(file, "utf8");
-      const next = cleanGeneratedHtml(ensureCanonical(document, pathname));
+      const alignedNavigation = document
+        .replaceAll('<a href="/#latest">최신글</a>', '<a href="/#popular">8월 가볼만한 곳</a>')
+        .replaceAll('<a href="/#routes">전체글</a>', '<a href="/#festival">8월 축제/행사</a>');
+      const next = cleanGeneratedHtml(ensureCanonical(alignedNavigation, pathname));
       if (next !== document) await writeFile(file, next, "utf8");
     } catch (error) {
       if (error.code !== "ENOENT") throw error;

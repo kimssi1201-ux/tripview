@@ -29,6 +29,7 @@ const GENERATED_BLOCKS = [
   ["<!-- COUPANG_AD_START", "COUPANG_AD_END -->"],
   ["<!-- COUPANG_WIDGET_START", "COUPANG_WIDGET_END -->"],
 ];
+const ARTICLE_NAVIGATION = '<nav class="links" aria-label="주요 메뉴"><a href="/">홈</a><a href="/#popular">8월 가볼만한 곳</a><a href="/#water">물놀이·계곡</a><a href="/#weekend">이번 주말</a><a href="/#festival">8월 축제</a><a href="/#indoor">실내여행</a><a href="/#family">아이와</a><a href="/#booking">예약 전 체크</a><a href="/#flight-deals">항공권</a></nav>';
 
 function escapeRegExp(value) {
   return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -48,7 +49,8 @@ export function transformArticleHtml(document, parts) {
     .replace(/\/\* tripview-mrt-native-ad \*\/[\s\S]*?\/\* end-tripview-mrt-native-ad \*\//g, "")
     .replace(/\/\* tripview-coupang-native-ad \*\/[\s\S]*?\/\* end-tripview-coupang-native-ad \*\//g, "")
     .replace(/\s*<script\s+src=["']\/assets\/coupang\.js\?v=[^"']+["']\s+defer><\/script>/gi, "")
-    .replace(/\s*<link\s+rel=["']canonical["'][^>]*>/gi, "");
+    .replace(/\s*<link\s+rel=["']canonical["'][^>]*>/gi, "")
+    .replace(/<nav class=["']links["'] aria-label=["']주요 메뉴["']>[\s\S]*?<\/nav>/i, ARTICLE_NAVIGATION);
 
   if (next.includes("</head>")) {
     next = next.replace("</head>", `    <link rel="canonical" href="${canonicalFor(parts)}">\n  </head>`);

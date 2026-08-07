@@ -1,62 +1,887 @@
 {
-  "checkedAt": "2026-07-10",
-  "totalPosts": 371,
+  "checkedAt": "2026-08-07",
+  "totalPosts": 650,
   "issueCounts": {
-    "short_body_under_1500_chars": 5
+    "short_body_under_1500_chars": 254
   },
   "duplicateTitleGroups": [],
   "duplicateImageGroups": [],
   "highPriority": [
     {
-      "slug": "travel-1953198",
-      "title": "원주중원전통시장, 방문 전 알아둘 위치와 여행 동선",
+      "slug": "travel-2849648",
+      "title": "커피라끄 방문 전 알아두면 좋은 위치와 제천 여행 동선",
       "category": "생활정보",
-      "region": "강원특별자치도 원주시",
-      "bodyLength": 1236,
+      "region": "충청북도 제천시",
+      "bodyLength": 1180,
       "imageCount": 2,
       "issues": [
         "short_body_under_1500_chars"
       ]
     },
     {
-      "slug": "travel-2849981",
-      "title": "넘버25 수원화성행궁점, 방문 전 알아둘 위치와 여행 동선",
+      "slug": "travel-3113740",
+      "title": "고결, 방문 전 알아둘 위치와 여행 동선",
       "category": "숙소/예약",
-      "region": "경기도 수원시",
-      "bodyLength": 1238,
+      "region": "경상북도 문경시",
+      "bodyLength": 1181,
       "imageCount": 2,
       "issues": [
         "short_body_under_1500_chars"
       ]
     },
     {
-      "slug": "travel-4073368",
-      "title": "향사당, 방문 전 알아둘 위치와 여행 동선",
+      "slug": "travel-859530",
+      "title": "대구 수성구 해덕한우 방문 전 위치와 여행 동선 가이드",
+      "category": "생활정보",
+      "region": "대구광역시 수성구",
+      "bodyLength": 1182,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-839617",
+      "title": "내안에 방문 전 확인할 위치와 수성구 여행 동선",
+      "category": "생활정보",
+      "region": "대구광역시 수성구",
+      "bodyLength": 1183,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2940879",
+      "title": "더에이, 방문 전 알아둘 위치와 여행 동선",
+      "category": "생활정보",
+      "region": "경기도 남양주시",
+      "bodyLength": 1184,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-864429",
+      "title": "산정, 방문 전 알아둘 위치와 여행 동선",
+      "category": "생활정보",
+      "region": "경상남도 김해시",
+      "bodyLength": 1185,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-3082668",
+      "title": "영덕 로오우 방문 전 확인할 위치와 여행 동선",
+      "category": "숙소/예약",
+      "region": "경상북도 영덕군",
+      "bodyLength": 1185,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2858098",
+      "title": "더그라스 방문 전 알아두면 좋은 위치와 여행 동선",
+      "category": "생활정보",
+      "region": "충청북도 진천군",
+      "bodyLength": 1185,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2031668",
+      "title": "초안산, 방문 전 알아둘 위치와 여행 동선",
       "category": "국내여행",
+      "region": "서울특별시 노원구",
+      "bodyLength": 1185,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-3391733",
+      "title": "길등재 방문 전 알아두면 좋은 위치와 여행 동선",
+      "category": "생활정보",
+      "region": "충청북도 영동군",
+      "bodyLength": 1186,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-4088394",
+      "title": "우미장 방문 전 알아둘 위치와 보령 여행 동선",
+      "category": "생활정보",
+      "region": "충청남도 보령시",
+      "bodyLength": 1188,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2859583",
+      "title": "에이커 방문 전 알아두면 좋은 위치와 청주 여행 동선",
+      "category": "생활정보",
+      "region": "충청북도 청주시",
+      "bodyLength": 1188,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2856546",
+      "title": "금성제면소 방문 전 알아둘 위치와 제천 여행 동선",
+      "category": "생활정보",
+      "region": "충청북도 제천시",
+      "bodyLength": 1189,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2859678",
+      "title": "다낭, 청주 오송에서 방문 전 확인할 위치와 동선",
+      "category": "생활정보",
+      "region": "충청북도 청주시",
+      "bodyLength": 1189,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-132011",
+      "title": "목도시장, 방문 전 알아둘 위치와 여행 동선",
+      "category": "생활정보",
+      "region": "충청북도 괴산군",
+      "bodyLength": 1190,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-132018",
+      "title": "무극시장, 방문 전 알아둘 위치와 여행 동선",
+      "category": "생활정보",
+      "region": "충청북도 음성군",
+      "bodyLength": 1190,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2850672",
+      "title": "대구 수성구 면장수 방문 전 알아둘 위치와 동선 팁",
+      "category": "생활정보",
+      "region": "대구광역시 수성구",
+      "bodyLength": 1190,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-1578248",
+      "title": "아재왔소 방문 전 알아둘 위치와 도봉구 여행 동선",
+      "category": "생활정보",
+      "region": "서울특별시 도봉구",
+      "bodyLength": 1191,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-842794",
+      "title": "대륙회초밥 방문 전 알아두면 좋은 위치와 여행 동선",
+      "category": "생활정보",
+      "region": "대구광역시 수성구",
+      "bodyLength": 1191,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2745614",
+      "title": "방촌시장 방문 전 알아두면 좋은 위치와 여행 동선",
+      "category": "생활정보",
+      "region": "대구광역시 동구",
+      "bodyLength": 1191,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-4091777",
+      "title": "제스트, 방문 전 알아둘 위치와 여행 동선",
+      "category": "생활정보",
+      "region": "충청남도 천안시",
+      "bodyLength": 1192,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2907472",
+      "title": "희락보리, 방문 전 알아둘 위치와 여행 동선",
+      "category": "생활정보",
+      "region": "경기도 용인시",
+      "bodyLength": 1192,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2732598",
+      "title": "청구시장, 방문 전 알아둘 위치와 여행 동선",
+      "category": "생활정보",
+      "region": "대구광역시 수성구",
+      "bodyLength": 1193,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2780263",
+      "title": "꽃밥, 방문 전 알아둘 위치와 여행 동선",
+      "category": "생활정보",
       "region": "제주특별자치도 제주시",
-      "bodyLength": 1241,
+      "bodyLength": 1194,
       "imageCount": 2,
       "issues": [
         "short_body_under_1500_chars"
       ]
     },
     {
-      "slug": "travel-4073447",
-      "title": "소리체험관, 방문 전 알아둘 위치와 여행 동선",
-      "category": "국내여행",
-      "region": "경상북도 고령군",
-      "bodyLength": 1261,
+      "slug": "travel-2745622",
+      "title": "연서시장, 방문 전 알아둘 위치와 여행 동선",
+      "category": "생활정보",
+      "region": "서울특별시 은평구",
+      "bodyLength": 1194,
       "imageCount": 2,
       "issues": [
         "short_body_under_1500_chars"
       ]
     },
     {
-      "slug": "travel-2589656",
-      "title": "파크로쉬 리조트앤웰니스(PARK ROCHE Resort&Wellness), 방문 전 알아둘 위치와 여행 동선",
+      "slug": "travel-2779456",
+      "title": "길음시장, 방문 전 알아둘 위치와 여행 동선",
+      "category": "생활정보",
+      "region": "서울특별시 성북구",
+      "bodyLength": 1195,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2924857",
+      "title": "독천낙지마당 방문 전 알아두면 좋은 위치와 여행 동선",
+      "category": "생활정보",
+      "region": "전라남도 영암군",
+      "bodyLength": 1195,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2789442",
+      "title": "옛날집, 방문 전 알아둘 위치와 여행 동선",
+      "category": "생활정보",
+      "region": "전북특별자치도 고창군",
+      "bodyLength": 1196,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-1998207",
+      "title": "비치콘도모텔, 방문 전 알아둘 위치와 여행 동선",
       "category": "숙소/예약",
-      "region": "강원특별자치도 정선군",
-      "bodyLength": 1329,
+      "region": "충청남도 태안군",
+      "bodyLength": 1196,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2766515",
+      "title": "부바스 본점, 방문 전 알아둘 위치와 여행 동선",
+      "category": "생활정보",
+      "region": "대구광역시 수성구",
+      "bodyLength": 1196,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-839752",
+      "title": "대구 수성구 라벨라쿠치나 방문 전 확인할 위치와 동선 팁",
+      "category": "생활정보",
+      "region": "대구광역시 수성구",
+      "bodyLength": 1196,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2735607",
+      "title": "금란정, 방문 전 알아둘 위치와 여행 동선",
+      "category": "국내여행",
+      "region": "강원특별자치도 동해시",
+      "bodyLength": 1196,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2769553",
+      "title": "밤고개자연시장 방문 전 알아둘 위치와 여행 동선",
+      "category": "생활정보",
+      "region": "충청북도 청주시",
+      "bodyLength": 1196,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2779132",
+      "title": "악어떡볶이, 방문 전 알아둘 위치와 여행 동선",
+      "category": "생활정보",
+      "region": "서울특별시 성동구",
+      "bodyLength": 1197,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2914768",
+      "title": "굴다리식당, 방문 전 알아둘 위치와 여행 동선",
+      "category": "생활정보",
+      "region": "서울특별시 마포구",
+      "bodyLength": 1198,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-3110744",
+      "title": "조은가 제빵소, 방문 전 알아둘 위치와 여행 동선",
+      "category": "생활정보",
+      "region": "충청북도 보은군",
+      "bodyLength": 1199,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-132668",
+      "title": "롯데백화점 본점, 방문 전 알아둘 위치와 여행 동선",
+      "category": "생활정보",
+      "region": "서울특별시 중구",
+      "bodyLength": 1200,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-132028",
+      "title": "오창전통시장 방문 전 알아둘 위치와 여행 동선",
+      "category": "생활정보",
+      "region": "충청북도 청주시",
+      "bodyLength": 1200,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-252545",
+      "title": "영덕대소산봉수대, 방문 전 알아둘 위치와 여행 동선",
+      "category": "국내여행",
+      "region": "경상북도 영덕군",
+      "bodyLength": 1200,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2814518",
+      "title": "DMZ 라운지, 방문 전 알아둘 위치와 여행 동선",
+      "category": "생활정보",
+      "region": "경기도 파주시",
+      "bodyLength": 1201,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2769736",
+      "title": "원마루시장 방문 전 알아둘 위치와 여행 동선",
+      "category": "생활정보",
+      "region": "충청북도 청주시",
+      "bodyLength": 1201,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-252587",
+      "title": "반야사(영동), 방문 전 알아둘 위치와 여행 동선",
+      "category": "국내여행",
+      "region": "충청북도 영동군",
+      "bodyLength": 1201,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2384015",
+      "title": "피아골단풍펜션, 방문 전 알아둘 위치와 여행 동선",
+      "category": "숙소/예약",
+      "region": "전라남도 구례군",
+      "bodyLength": 1202,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2804720",
+      "title": "서해랑길(진도, 목포구간), 방문 전 알아둘 위치와 여행 동선",
+      "category": "국내여행",
+      "region": "국내",
+      "bodyLength": 1203,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2732572",
+      "title": "지산목련시장 방문 전 알아둘 위치와 여행 동선",
+      "category": "생활정보",
+      "region": "대구광역시 수성구",
+      "bodyLength": 1203,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-126715",
+      "title": "모나용평 방문 전 알아두면 좋은 위치와 여행 동선",
+      "category": "숙소/예약",
+      "region": "강원특별자치도 평창군",
+      "bodyLength": 1203,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2706568",
+      "title": "왕의지밀, 방문 전 알아둘 위치와 여행 동선",
+      "category": "숙소/예약",
+      "region": "전북특별자치도 전주시",
+      "bodyLength": 1204,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-1187045",
+      "title": "포항 북부시장, 방문 전 알아둘 위치와 여행 동선",
+      "category": "생활정보",
+      "region": "경상북도 포항시",
+      "bodyLength": 1204,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2778418",
+      "title": "아리조나막창 방문 전 체크할 위치와 수성구 여행 동선",
+      "category": "생활정보",
+      "region": "대구광역시 수성구",
+      "bodyLength": 1204,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2996477",
+      "title": "카페 폭포, 방문 전 알아둘 위치와 여행 동선",
+      "category": "생활정보",
+      "region": "서울특별시 서대문구",
+      "bodyLength": 1205,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2774536",
+      "title": "광암막국수, 방문 전 알아둘 위치와 여행 동선",
+      "category": "생활정보",
+      "region": "강원특별자치도 횡성군",
+      "bodyLength": 1205,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-4093821",
+      "title": "한글상점, 방문 전 알아둘 위치와 여행 동선",
+      "category": "생활정보",
+      "region": "세종특별자치시 어울누리로",
+      "bodyLength": 1205,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2651536",
+      "title": "투나잇호텔 방문 전 알아두면 좋은 위치와 전주 여행 동선",
+      "category": "숙소/예약",
+      "region": "전북특별자치도 전주시",
+      "bodyLength": 1205,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2839360",
+      "title": "한상차림밥상 방문 전 알아둘 위치와 동대문구 여행 동선",
+      "category": "생활정보",
+      "region": "서울특별시 동대문구",
+      "bodyLength": 1205,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-970138",
+      "title": "반포한강공원, 방문 전 알아둘 위치와 여행 동선",
+      "category": "국내여행",
+      "region": "서울특별시 서초구",
+      "bodyLength": 1205,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-4072509",
+      "title": "모전공원, 방문 전 알아둘 위치와 여행 동선",
+      "category": "국내여행",
+      "region": "경상북도 문경시",
+      "bodyLength": 1205,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2858749",
+      "title": "초정명가횟집 물회, 방문 전 알아둘 위치와 여행 동선",
+      "category": "생활정보",
+      "region": "경상남도 거제시",
+      "bodyLength": 1206,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-1037300",
+      "title": "다우리조텔, 방문 전 알아둘 위치와 여행 동선",
+      "category": "숙소/예약",
+      "region": "강원특별자치도 강릉시",
+      "bodyLength": 1206,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2717354",
+      "title": "신라스테이 천안, 방문 전 알아둘 위치와 여행 동선",
+      "category": "숙소/예약",
+      "region": "충청남도 천안시",
+      "bodyLength": 1206,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2987927",
+      "title": "에베레스트커리월드, 방문 전 알아둘 위치와 여행 동선",
+      "category": "생활정보",
+      "region": "서울특별시 종로구",
+      "bodyLength": 1207,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2753134",
+      "title": "갤러리밥스, 방문 전 알아둘 위치와 여행 동선",
+      "category": "생활정보",
+      "region": "강원특별자치도 강릉시",
+      "bodyLength": 1207,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-138352",
+      "title": "블루밍데이즈펜션 방문 전 알아두면 좋은 위치와 여행 동선",
+      "category": "숙소/예약",
+      "region": "충청북도 제천시",
+      "bodyLength": 1207,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-4013296",
+      "title": "CU 오송연화점 방문 전 알아둘 위치와 여행 동선",
+      "category": "생활정보",
+      "region": "충청북도 청주시",
+      "bodyLength": 1208,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2917201",
+      "title": "부티크호텔 지 방문 전 알아둘 위치와 청주 여행 동선",
+      "category": "숙소/예약",
+      "region": "충청북도 청주시",
+      "bodyLength": 1208,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2738682",
+      "title": "역전종합시장 방문 전 알아두면 좋은 위치와 여행 동선",
+      "category": "생활정보",
+      "region": "전북특별자치도 군산시",
+      "bodyLength": 1208,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-3045062",
+      "title": "혜화필리핀마켓 방문 전 알아두면 좋은 위치와 동선",
+      "category": "생활정보",
+      "region": "서울특별시 종로구",
+      "bodyLength": 1208,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2729968",
+      "title": "엉클캠프, 방문 전 알아둘 위치와 여행 동선",
+      "category": "국내여행",
+      "region": "충청북도 제천시",
+      "bodyLength": 1208,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2930309",
+      "title": "S& 나봄호텔, 방문 전 알아둘 위치와 여행 동선",
+      "category": "숙소/예약",
+      "region": "대전광역시 유성구",
+      "bodyLength": 1209,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2905754",
+      "title": "진안고원한국관, 방문 전 알아둘 위치와 여행 동선",
+      "category": "생활정보",
+      "region": "전북특별자치도 진안군",
+      "bodyLength": 1209,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2766823",
+      "title": "황금시장(대구), 방문 전 알아둘 위치와 여행 동선",
+      "category": "생활정보",
+      "region": "대구광역시 수성구",
+      "bodyLength": 1209,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-3379704",
+      "title": "맹그로브 동대문 방문 전 알아둘 위치와 여행 동선",
+      "category": "숙소/예약",
+      "region": "서울특별시 중구",
+      "bodyLength": 1209,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2661074",
+      "title": "리조트 스파밸리 방문 전 확인할 위치와 여행 동선",
+      "category": "숙소/예약",
+      "region": "대구광역시 달성군",
+      "bodyLength": 1209,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2856707",
+      "title": "이솔라 레스토랑, 방문 전 알아둘 위치와 여행 동선",
+      "category": "생활정보",
+      "region": "서울특별시 서초구",
+      "bodyLength": 1210,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2737987",
+      "title": "마루막창 수성점 방문 전 알아두면 좋은 위치와 동선",
+      "category": "생활정보",
+      "region": "대구광역시 수성구",
+      "bodyLength": 1210,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2804869",
+      "title": "서해랑길 (고창, 군산 구간), 방문 전 알아둘 위치와 여행 동선",
+      "category": "국내여행",
+      "region": "국내",
+      "bodyLength": 1211,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-138340",
+      "title": "초록바다펜션, 방문 전 알아둘 위치와 여행 동선",
+      "category": "숙소/예약",
+      "region": "강원특별자치도 양양군",
+      "bodyLength": 1211,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-789760",
+      "title": "칠족령 트레킹, 방문 전 알아둘 위치와 여행 동선",
+      "category": "국내여행",
+      "region": "강원특별자치도 평창군",
+      "bodyLength": 1211,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-2594218",
+      "title": "정가한옥 방문 전 확인할 위치와 전주 여행 동선",
+      "category": "숙소/예약",
+      "region": "전북특별자치도 전주시",
+      "bodyLength": 1211,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-775394",
+      "title": "광화문광장, 방문 전 알아둘 위치와 여행 동선",
+      "category": "국내여행",
+      "region": "서울특별시 종로구",
+      "bodyLength": 1211,
+      "imageCount": 2,
+      "issues": [
+        "short_body_under_1500_chars"
+      ]
+    },
+    {
+      "slug": "travel-4093832",
+      "title": "김세복 대추 밀냉면, 방문 전 알아둘 위치와 여행 동선",
+      "category": "생활정보",
+      "region": "충청북도 보은군",
+      "bodyLength": 1213,
       "imageCount": 2,
       "issues": [
         "short_body_under_1500_chars"

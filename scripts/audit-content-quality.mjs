@@ -1,6 +1,7 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { MIN_INDEXABLE_BODY_LENGTH, postBodyLength } from "./lib/content-quality.mjs";
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const postsPath = join(root, "data", "generated-posts.json");
@@ -18,28 +19,6 @@ function normalize(value) {
     .replace(/\s+/g, " ")
     .replace(/[^\p{Letter}\p{Number}\s]/gu, "")
     .trim();
-}
-
-function flattenSections(sections) {
-  if (!Array.isArray(sections)) return "";
-  return sections
-    .flatMap((section) => {
-      if (!Array.isArray(section)) return [];
-      const [, body] = section;
-      if (Array.isArray(body)) return body;
-      return body ? [body] : [];
-    })
-    .map(text)
-    .join(" ");
-}
-
-function bodyLength(post) {
-  return [
-    post.description,
-    post.excerpt,
-    flattenSections(post.sections),
-    Array.isArray(post.memo) ? post.memo.join(" ") : "",
-  ].map(text).join(" ").length;
 }
 
 function imagesOf(post) {
@@ -78,14 +57,14 @@ const duplicateImageSlugs = new Set(imageGroups.flatMap(([, group]) => group.map
 
 const audited = posts.map((post) => {
   const issues = [];
-  const length = bodyLength(post);
+  const length = postBodyLength(post);
   const images = imagesOf(post);
 
   if (!text(post.title)) issues.push("missing_title");
   if (!images.length) issues.push("missing_image");
   if (!hasInfo(post)) issues.push("missing_info");
   if (!text(post.region)) issues.push("missing_region");
-  if (length < 1500) issues.push("short_body_under_1500_chars");
+  if (length < MIN_INDEXABLE_BODY_LENGTH) issues.push("short_body_under_1500_chars");
   if (duplicateTitleSlugs.has(post.slug)) issues.push("duplicate_title");
   if (duplicateImageSlugs.has(post.slug)) issues.push("duplicate_primary_image");
   if (!hasFaqAnswers(post)) issues.push("empty_faq_answer");

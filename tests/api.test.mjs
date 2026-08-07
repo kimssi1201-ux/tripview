@@ -253,7 +253,7 @@ test("article response removes review-paused affiliate blocks and adds one canon
   const source = `<!doctype html><html><head>
     <link rel="canonical" href="https://old.example/article">
     <style>/* tripview-mrt-native-ad */.mrt-native-ad{}/* end-tripview-mrt-native-ad */</style>
-  </head><body>
+  </head><body><nav class="links" aria-label="주요 메뉴"><a href="/#festival">7~8월 축제/행사</a></nav>
     <!-- MRT_AD_START mid --><section>unrelated booking</section><!-- MRT_AD_END -->
     <!-- COUPANG_AD_START bottom --><section>shopping</section><!-- COUPANG_AD_END -->
     <!-- COUPANG_WIDGET_START bottom --><section>carousel</section><!-- COUPANG_WIDGET_END -->
@@ -264,6 +264,8 @@ test("article response removes review-paused affiliate blocks and adds one canon
   const transformed = transformArticleHtml(source, ["travel-129256"]);
   assert.match(transformed, /editorial content/);
   assert.doesNotMatch(transformed, /unrelated booking|shopping|carousel|coupang\.js|tripview-mrt-native-ad/);
+  assert.doesNotMatch(transformed, /7~8월/);
+  assert.match(transformed, />8월 가볼만한 곳</);
   assert.equal((transformed.match(/rel="canonical"/g) || []).length, 1);
   assert.match(transformed, /href="https:\/\/tripview\.kr\/travel-129256\/"/);
 });

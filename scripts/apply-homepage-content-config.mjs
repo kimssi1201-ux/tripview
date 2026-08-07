@@ -1,6 +1,7 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { isIndexablePost } from "./lib/content-quality.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const POSTS_PATH = path.join(ROOT, "data", "generated-posts.json");
@@ -745,7 +746,7 @@ function buildSections(posts) {
 function categoryNav(sections) {
   const sectionById = new Map(sections.map((section) => [section.id, section]));
   const primaryItems = [
-    ["popular", "\uC9C0\uAE08 \uB9CE\uC774 \uCC3E\uB294 \uC5EC\uD589\uC9C0"],
+    ["popular", TEXT.navPopular],
     ["water", "\uBB3C\uB180\uC774\u00B7\uACC4\uACE1"],
     ["weekend", "\uC774\uBC88 \uC8FC\uB9D0"],
     ["festival", `${FEATURE_MONTH_LABEL} \uCD95\uC81C`],
@@ -1070,8 +1071,9 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
 </html>`;
 }
 
-const posts = JSON.parse(await fs.readFile(POSTS_PATH, "utf8"))
-  .filter((post) => post?.slug && post?.title)
+const allPosts = JSON.parse(await fs.readFile(POSTS_PATH, "utf8"));
+const posts = allPosts
+  .filter(isIndexablePost)
   .sort((a, b) => String(b.sortDate || "").localeCompare(String(a.sortDate || "")));
 
 const myrealtripProducts = await readMyRealTripProducts();
@@ -1080,4 +1082,4 @@ const myrealtripTnaProducts = await readMyRealTripTnaProducts();
 const myrealtripFlights = await readMyRealTripFlights();
 
 await fs.writeFile(INDEX_PATH, html(posts, myrealtripProducts, myrealtripAccommodations, myrealtripTnaProducts, myrealtripFlights), "utf8");
-console.log(`Homepage rebuilt as topic-based travel news feed with ${posts.length} post(s), ${myrealtripProducts.length} MyRealTrip product(s), ${myrealtripAccommodations.length} accommodation(s), ${myrealtripTnaProducts.length} TNA product(s), ${myrealtripFlights.length} flight deal(s).`);
+console.log(`Homepage rebuilt with ${posts.length} indexable post(s) from ${allPosts.length} total, ${myrealtripProducts.length} MyRealTrip product(s), ${myrealtripAccommodations.length} accommodation(s), ${myrealtripTnaProducts.length} TNA product(s), ${myrealtripFlights.length} flight deal(s).`);
