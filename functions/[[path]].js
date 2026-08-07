@@ -16,11 +16,59 @@ function articleAssetPath(parts) {
     return `/site/${parts[0]}/`;
   }
 
-  if (parts[0] === "flight-deals" && parts.length >= 1) {
+  if (parts[0] === "flight-deals" && parts.length >= 1 && parts.every((part) => /^[a-z0-9-]+$/.test(part))) {
     return `/site/${parts.join("/")}/`;
   }
 
   return "";
+}
+
+const CANONICAL_ORIGIN = "https://tripview.kr";
+const GENERATED_BLOCKS = [
+  ["<!-- MRT_AD_START", "MRT_AD_END -->"],
+  ["<!-- COUPANG_AD_START", "COUPANG_AD_END -->"],
+  ["<!-- COUPANG_WIDGET_START", "COUPANG_WIDGET_END -->"],
+];
+
+function escapeRegExp(value) {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function canonicalFor(parts) {
+  const pathname = parts.map((part) => encodeURIComponent(part)).join("/");
+  return `${CANONICAL_ORIGIN}/${pathname}/`;
+}
+
+export function transformArticleHtml(document, parts) {
+  let next = String(document || "");
+  for (const [start, end] of GENERATED_BLOCKS) {
+    next = next.replace(new RegExp(`${escapeRegExp(start)}[\\s\\S]*?${escapeRegExp(end)}`, "g"), "");
+  }
+  next = next
+    .replace(/\/\* tripview-mrt-native-ad \*\/[\s\S]*?\/\* end-tripview-mrt-native-ad \*\//g, "")
+    .replace(/\/\* tripview-coupang-native-ad \*\/[\s\S]*?\/\* end-tripview-coupang-native-ad \*\//g, "")
+    .replace(/\s*<script\s+src=["']\/assets\/coupang\.js\?v=[^"']+["']\s+defer><\/script>/gi, "")
+    .replace(/\s*<link\s+rel=["']canonical["'][^>]*>/gi, "");
+
+  if (next.includes("</head>")) {
+    next = next.replace("</head>", `    <link rel="canonical" href="${canonicalFor(parts)}">\n  </head>`);
+  }
+  return next;
+}
+
+async function articleResponse(response, parts, method) {
+  if (method === "HEAD" || !response.ok) return response;
+  const contentType = response.headers.get("content-type") || "";
+  if (!contentType.toLowerCase().includes("text/html")) return response;
+
+  const headers = new Headers(response.headers);
+  headers.delete("content-length");
+  headers.set("content-type", "text/html; charset=utf-8");
+  return new Response(transformArticleHtml(await response.text(), parts), {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
 }
 
 export async function onRequest(context) {
@@ -35,7 +83,8 @@ export async function onRequest(context) {
 
   const target = articleAssetPath(parts);
   if (target) {
-    return context.env.ASSETS.fetch(assetRequest(context, target));
+    const response = await context.env.ASSETS.fetch(assetRequest(context, target));
+    return articleResponse(response, parts, context.request.method);
   }
 
   return context.env.ASSETS.fetch(context.request);

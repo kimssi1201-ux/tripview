@@ -6,6 +6,7 @@ const scriptDir = dirname(fileURLToPath(import.meta.url));
 const root = join(scriptDir, "..");
 
 const ADSENSE_PUBLISHER_ID = "ca-pub-5751319666030430";
+const ADS_TXT_LINE = `google.com, ${ADSENSE_PUBLISHER_ID.replace("ca-", "")}, DIRECT, f08c47fec0942fa0\n`;
 const NAVER_VERIFICATION_ID = "38616b4b4209994ed384d0d2439bddcbec2cc711";
 const ADSENSE_PUBLISHER_RE = /ca-pub-\d+/g;
 const ADSENSE_SCRIPT_RE = /\s*<script\s+async\s+src=["']https:\/\/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=ca-pub-\d+["'][^>]*crossorigin=["']anonymous["'][^>]*><\/script>/gi;
@@ -134,6 +135,8 @@ for (const file of htmlFiles) {
   }
 }
 
+const adsTextUpdated = await writeIfChanged(join(root, "ads.txt"), ADS_TXT_LINE);
+
 const missingGenerators = [];
 for (const file of generatorFiles) {
   const missing = missingHeadSnippets(await readText(file));
@@ -149,5 +152,5 @@ if (missingPages.length || missingGenerators.length) {
 }
 
 console.log(
-  `Head tags verified. generators patched: ${patchedGenerators}, pages patched: ${patchedPages}, pages checked: ${htmlFiles.length}`,
+  `Head tags verified. generators patched: ${patchedGenerators}, pages patched: ${patchedPages}, pages checked: ${htmlFiles.length}, ads.txt updated: ${adsTextUpdated}`,
 );

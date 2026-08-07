@@ -4,7 +4,7 @@ import test from "node:test";
 import { onRequestGet as beachInfoGet } from "../functions/api/beach-info.js";
 import { onRequestGet as coupangGet } from "../functions/api/coupang/search.js";
 import { onRequestGet as myrealtripGet } from "../functions/api/myrealtrip/search.js";
-import { onRequest as routeRequest } from "../functions/[[path]].js";
+import { onRequest as routeRequest, transformArticleHtml } from "../functions/[[path]].js";
 import { assetStore, jsonResponse, request, responseJson, withMockFetch } from "./helpers.mjs";
 
 test("beach API rejects an unknown mapping and a missing key", async () => {
@@ -247,4 +247,51 @@ test("Cloudflare route maps article paths to the site asset and delegates other 
   await routeRequest({ request: request("/travel-129256/"), params: { path: "travel-129256" }, env: { ASSETS: assets } });
   await routeRequest({ request: request("/unknown"), params: { path: "unknown" }, env: { ASSETS: assets } });
   assert.deepEqual(calls, ["/site/travel-129256/", "/unknown"]);
+});
+
+test("article response removes review-paused affiliate blocks and adds one canonical URL", async () => {
+  const source = `<!doctype html><html><head>
+    <link rel="canonical" href="https://old.example/article">
+    <style>/* tripview-mrt-native-ad */.mrt-native-ad{}/* end-tripview-mrt-native-ad */</style>
+  </head><body>
+    <!-- MRT_AD_START mid --><section>unrelated booking</section><!-- MRT_AD_END -->
+    <!-- COUPANG_AD_START bottom --><section>shopping</section><!-- COUPANG_AD_END -->
+    <!-- COUPANG_WIDGET_START bottom --><section>carousel</section><!-- COUPANG_WIDGET_END -->
+    <article>editorial content</article>
+    <script src="/assets/coupang.js?v=test" defer></script>
+  </body></html>`;
+
+  const transformed = transformArticleHtml(source, ["travel-129256"]);
+  assert.match(transformed, /editorial content/);
+  assert.doesNotMatch(transformed, /unrelated booking|shopping|carousel|coupang\.js|tripview-mrt-native-ad/);
+  assert.equal((transformed.match(/rel="canonical"/g) || []).length, 1);
+  assert.match(transformed, /href="https:\/\/tripview\.kr\/travel-129256\/"/);
+});
+
+test("Cloudflare route transforms successful HTML articles but leaves failed assets untouched", async () => {
+  const htmlAssets = {
+    async fetch() {
+      return new Response("<html><head></head><body><!-- MRT_AD_START mid -->ad<!-- MRT_AD_END --><article>body</article></body></html>", {
+        headers: { "content-type": "text/html" },
+      });
+    },
+  };
+  const response = await routeRequest({
+    request: request("/festival-4091116/"),
+    params: { path: "festival-4091116" },
+    env: { ASSETS: htmlAssets },
+  });
+  const body = await response.text();
+  assert.equal(response.headers.get("content-type"), "text/html; charset=utf-8");
+  assert.doesNotMatch(body, />ad</);
+  assert.match(body, /https:\/\/tripview\.kr\/festival-4091116\//);
+
+  const failedAssets = { async fetch() { return new Response("missing", { status: 404 }); } };
+  const failed = await routeRequest({
+    request: request("/travel-9999999/"),
+    params: { path: "travel-9999999" },
+    env: { ASSETS: failedAssets },
+  });
+  assert.equal(failed.status, 404);
+  assert.equal(await failed.text(), "missing");
 });

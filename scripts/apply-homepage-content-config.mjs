@@ -15,7 +15,12 @@ const CAT_DOMESTIC = "\uAD6D\uB0B4\uC5EC\uD589";
 const CAT_FESTIVAL = "\uACF5\uC5F0/\uCD95\uC81C";
 const REGION_OTHER = "\uAE30\uD0C0";
 const LANGUAGE_SWITCH = '<div class="language-switch notranslate" translate="no" aria-label="Language selector"><a href="?lang=ko" data-lang="ko" lang="ko">KO</a><a href="?lang=en" data-lang="en" lang="en">EN</a><a href="?lang=ja" data-lang="ja" lang="ja">JA</a><a href="?lang=zh" data-lang="zh" lang="zh-CN">ZH</a></div>';
-const COUPANG_SCRIPT = '<script src="/assets/coupang.js?v=coupang-20260708" defer></script>';
+const CONTENT_TODAY = formatDateInKorea();
+const FEATURE_YEAR = Number(CONTENT_TODAY.slice(0, 4));
+const FEATURE_MONTH = 8;
+const FEATURE_MONTH_START = isoDate(FEATURE_YEAR, FEATURE_MONTH, 1);
+const FEATURE_MONTH_END = isoDate(FEATURE_YEAR, FEATURE_MONTH, 31);
+const FEATURE_MONTH_LABEL = `${FEATURE_MONTH}\uC6D4`;
 const DESKTOP_LAYOUT_CSS = `
       .product-card>.booking-thumb{grid-column:1}
       .section-kicker{display:block;margin:0 0 2px;color:#f0445e;font-size:11px;font-weight:900;letter-spacing:.04em}.section-headline{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:0 0 16px;border-bottom:1px solid var(--line);padding-bottom:8px}.section-headline h2{margin:0;font-size:24px;line-height:1.12}.section-more{color:var(--muted);font-size:12px;font-weight:900;white-space:nowrap}.magazine-grid{display:grid;grid-template-columns:1fr;gap:22px}.magazine-card{display:block}.magazine-thumb{display:block;aspect-ratio:1.56/1;overflow:hidden;background:var(--soft)}.magazine-card strong{display:block;margin-top:8px;font-size:19px;line-height:1.28;font-weight:900}.magazine-card em{display:block;margin-top:7px;color:var(--muted);font-size:13px;line-height:1.55;font-style:normal}.magazine-meta{display:block;margin-top:10px;color:#f0445e;font-size:11px;font-weight:900}.coupang-widget-scroll{width:100%;max-width:100%;overflow-x:auto;overflow-y:hidden;padding-bottom:2px}.coupang-widget-inner{width:680px;max-width:680px;min-height:140px}.site-footer>span{display:none}.footer-brand strong{display:block;color:var(--ink);font-size:20px;margin-bottom:8px}.footer-brand p,.footer-col a{display:block;margin:0 0 7px;color:var(--muted);font-size:13px}.footer-col b{display:block;margin-bottom:10px;color:var(--ink);font-size:13px}.footer-bottom{grid-column:1/-1;margin-top:10px;padding-top:16px;border-top:1px solid #eee;color:#aaa;font-size:12px}
@@ -49,13 +54,13 @@ const DESKTOP_LAYOUT_CSS = `
 const TEXT = {
   articleFallback: "\uC5EC\uD589 \uAE30\uC0AC",
   infoFallback: "\uC5EC\uD589 \uC815\uBCF4",
-  description: `${BRAND}\uB294 \uC9C0\uAE08 \uB9CE\uC774 \uCC3E\uB294 \uC5EC\uD589\uC9C0, \uC8FC\uB9D0 \uC5EC\uD589, 7~8\uC6D4 \uCD95\uC81C, \uBB3C\uB180\uC774, \uD574\uC218\uC695\uC7A5, \uC2E4\uB0B4\uC5EC\uD589, \uC544\uC774\uC640 \uAC00\uAE30 \uC88B\uC740 \uACF3, \uC608\uC57D \uC804 \uCCB4\uD06C\uB97C \uC815\uB9AC\uD55C \uC5EC\uD589 \uC815\uBCF4 \uB9E4\uAC70\uC9C4\uC785\uB2C8\uB2E4.`,
+  description: `${BRAND}\uB294 8\uC6D4 \uAC00\uBCFC\uB9CC\uD55C \uACF3, \uC774\uBC88 \uC8FC\uB9D0 \uC5EC\uD589, 8\uC6D4 \uCD95\uC81C, \uBB3C\uB180\uC774, \uD574\uC218\uC695\uC7A5, \uC2E4\uB0B4\uC5EC\uD589, \uC544\uC774\uC640 \uAC00\uAE30 \uC88B\uC740 \uACF3, \uC608\uC57D \uC804 \uCCB4\uD06C\uB97C \uC815\uB9AC\uD55C \uC5EC\uD589 \uC815\uBCF4 \uB9E4\uAC70\uC9C4\uC785\uB2C8\uB2E4.`,
   ogTitle: `${BRAND} - \uC5EC\uD589 \uB274\uC2A4 \uD53C\uB4DC`,
-  ogDescription: "\uC9C0\uAE08 \uB9CE\uC774 \uCC3E\uB294 \uC5EC\uD589\uC9C0, \uC8FC\uB9D0 \uC5EC\uD589, \uCD95\uC81C, \uBB3C\uB180\uC774, \uD574\uC218\uC695\uC7A5, \uC2E4\uB0B4\uC5EC\uD589, \uC608\uC57D \uC804 \uCCB4\uD06C\uB97C \uB274\uC2A4 \uC139\uC158\uC73C\uB85C \uC815\uB9AC\uD569\uB2C8\uB2E4.",
+  ogDescription: "8\uC6D4 \uAC00\uBCFC\uB9CC\uD55C \uACF3, \uC8FC\uB9D0 \uC5EC\uD589, 8\uC6D4 \uCD95\uC81C, \uBB3C\uB180\uC774, \uD574\uC218\uC695\uC7A5, \uC2E4\uB0B4\uC5EC\uD589, \uC608\uC57D \uC804 \uCCB4\uD06C\uB97C \uB274\uC2A4 \uC139\uC158\uC73C\uB85C \uC815\uB9AC\uD569\uB2C8\uB2E4.",
   rssTitle: `${BRAND} RSS`,
   navLabel: "\uCE74\uD14C\uACE0\uB9AC",
   navAll: "\uC804\uCCB4",
-  navPopular: "\uC9C0\uAE08 \uB9CE\uC774 \uCC3E\uB294 \uC5EC\uD589\uC9C0",
+  navPopular: "8\uC6D4 \uAC00\uBCFC\uB9CC\uD55C \uACF3",
   navWeekend: "\uC774\uBC88 \uC8FC\uB9D0 \uAC00\uBCFC\uB9CC\uD55C \uACF3",
   navTravel: "\uAC00\uBCFC\uB9CC\uD55C \uACF3",
   navFestival: "\uCD95\uC81C/\uD589\uC0AC",
@@ -84,6 +89,17 @@ const esc = (value = "") =>
   }[match]));
 
 const normalize = (value = "") => String(value).trim();
+
+function formatDateInKorea(date = new Date()) {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "Asia/Seoul",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(date);
+  const values = Object.fromEntries(parts.map((part) => [part.type, part.value]));
+  return `${values.year}-${values.month}-${values.day}`;
+}
 const BEACH_POST_SLUGS = new Set([
   "travel-126078",
   "travel-126302",
@@ -173,16 +189,19 @@ function dateOf(post) {
   return normalize(post?.date || post?.sortDate || "");
 }
 
-function festivalInJulyAugust(post) {
+function festivalInFeaturedAugust(post) {
   if (!isFestival(post)) return false;
   const { start, end } = festivalSchedule(post);
   if (!start) return false;
-  const month = Number(start.slice(5, 7));
-  return month === 7 || month === 8;
+  const lastDay = end || start;
+  return start <= FEATURE_MONTH_END && lastDay >= FEATURE_MONTH_START && lastDay >= CONTENT_TODAY;
 }
 
-function festivalStart(post) {
-  return festivalSchedule(post).start || post?.sortDate || "";
+function festivalOrder(post) {
+  const { start, end } = festivalSchedule(post);
+  const lastDay = end || start;
+  const ongoingRank = start <= CONTENT_TODAY && lastDay >= CONTENT_TODAY ? "0" : "1";
+  return `${ongoingRank}:${ongoingRank === "0" ? lastDay : start}`;
 }
 
 function compactRegion(value = "") {
@@ -270,6 +289,7 @@ function productMatchesIntent(product, intent) {
 function scoreProduct(product, posts) {
   const postRegions = new Set(posts.map((post) => compactRegion(regionOf(post))).filter(Boolean));
   const productRegion = productRegionOf(product);
+  if (postRegions.size && productRegion && !postRegions.has(productRegion)) return 0;
   let score = 0;
   if (productRegion && postRegions.has(productRegion)) score += 6;
   if (productMatchesIntent(product, "booking")) score += 3;
@@ -316,31 +336,6 @@ function productCard(product) {
     <strong>${esc(product.title)}</strong>
     <span>${esc(productMeta(product) || "\uC5EC\uD589 \uC804 \uC608\uC57D \uC815\uBCF4")}</span>
   </a>`;
-}
-
-function coupangHomeSection() {
-  return `<section class="news-section check-section coupang-ad-section" id="coupang-travel-items" aria-labelledby="coupang-travel-items-title" data-headline="여행 준비물 추천">
-    <h2 id="coupang-travel-items-title">여행 준비물 추천</h2>
-    <p class="affiliate-disclosure" data-coupang-disclosure>이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
-    <div class="check-grid coupang-grid" data-coupang-products data-coupang-intent="travel" data-coupang-keyword="여행 준비물" data-coupang-limit="6">
-      <p class="booking-status">여행 준비물 상품을 불러오는 중입니다.</p>
-    </div>
-  </section>`;
-}
-
-function coupangWidgetHomeSection() {
-  return `<section class="news-section check-section coupang-widget-ad" id="coupang-partners-widget" aria-labelledby="coupang-partners-widget-title" data-headline="여행 준비 특가">
-    <h2 id="coupang-partners-widget-title">여행 준비 특가</h2>
-    <p class="affiliate-disclosure">이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
-    <div class="coupang-widget-scroll">
-      <div class="coupang-widget-inner">
-        <script src="https://ads-partners.coupang.com/g.js"></script>
-        <script>
-          new PartnersCoupang.G({"id":1003200,"trackingCode":"AF1488183","subId":null,"template":"carousel","width":"680","height":"140"});
-        </script>
-      </div>
-    </div>
-  </section>`;
 }
 
 function flightSlug(deal) {
@@ -395,31 +390,19 @@ function flightAdCard(deal) {
   </a>`;
 }
 
-function myRealTripAdSection(products = [], flights = []) {
+function myRealTripAdSection(products = [], posts = []) {
   const accommodations = productsFromSource(products, "myrealtrip-accommodation", 4);
   const tours = productsFromSource(products, "myrealtrip-tna", 4);
-  const flightDeals = [...flights]
-    .filter((deal) => deal?.title && deal?.price)
-    .sort((a, b) => Number(a.price || 0) - Number(b.price || 0))
-    .slice(0, 2);
-  const cards = [
-    accommodations[0],
-    tours[0],
-    flightDeals[0],
-    accommodations[1],
-    tours[1],
-    flightDeals[1],
-    accommodations[2],
-    tours[2],
-  ]
+  const cards = rankedProducts([...accommodations, ...tours], posts, 3)
     .filter(Boolean)
-    .map((item) => item?.source === "myrealtrip-flight" || item?.type === "flight" ? flightAdCard(item) : productCard(item))
+    .map(productCard)
     .join("");
 
   if (!cards) return "";
-  const title = "\uB9C8\uC774\uB9AC\uC5BC\uD2B8\uB9BD \uCD94\uCC9C";
+  const title = "\uC5EC\uD589 \uC608\uC57D \uCC38\uACE0";
   return `<section class="news-section check-section mrt-ad-section" id="myrealtrip-deals" aria-labelledby="myrealtrip-deals-title" data-headline="${title}">
     <h2 id="myrealtrip-deals-title">${title}</h2>
+    <p class="affiliate-disclosure">\uC77C\uBD80 \uB9C1\uD06C\uB97C \uD1B5\uD574 \uC608\uC57D\uD558\uBA74 \uC0AC\uC774\uD2B8 \uC6B4\uC601\uC790\uAC00 \uC218\uC218\uB8CC\uB97C \uC81C\uACF5\uBC1B\uC744 \uC218 \uC788\uC2B5\uB2C8\uB2E4. \uAC00\uACA9\uACFC \uC608\uC57D \uC870\uAC74\uC740 \uC608\uC57D\uCC98\uC5D0\uC11C \uCD5C\uC885 \uD655\uC778\uD558\uC138\uC694.</p>
     <div class="check-grid">${cards}</div>
   </section>`;
 }
@@ -695,31 +678,19 @@ function newsSection({ id, title, posts, inlineProducts = [] }) {
 }
 
 function bookingSection({ id, title, posts = [], products = [] }) {
-  const accommodationCards = productsFromSource(products, "myrealtrip-accommodation", 6);
-  const tnaCards = productsFromSource(products, "myrealtrip-tna", 6);
-  const extraCards = rankedProducts(
-    products.filter((product) => product?.source !== "myrealtrip-flight").slice(4),
-    posts,
-    6,
-  );
-  const groupedProducts = [
-    bookingGroup("\uC219\uC18C", accommodationCards),
-    bookingGroup("\uD22C\uC5B4\uD2F0\uCF13", tnaCards),
-    bookingGroup("\uC5EC\uD589 \uC0C1\uD488 \uCD94\uCC9C", extraCards),
-  ].filter(Boolean).join("");
-  const productCards = groupedProducts || `<div class="check-grid">${rankedProducts(products, posts, 8).map(productCard).join("")}</div>`;
+  const productCards = rankedProducts(products, posts, 3).map(productCard).join("");
   return `<section class="news-section check-section" id="${esc(id)}" aria-labelledby="${esc(id)}-title" data-headline="${esc(title)}">
     <h2 id="${esc(id)}-title">${esc(title)}</h2>
     ${bookingSearch()}
-    ${productCards}
+    ${productCards ? `<div class="check-grid">${productCards}</div>` : ""}
   </section>`;
 }
 
 function buildSections(posts) {
   const domestic = posts.filter((post) => categoryOf(post) === CAT_DOMESTIC && !isFestival(post));
   const festivals = posts
-    .filter(festivalInJulyAugust)
-    .sort((a, b) => festivalStart(a).localeCompare(festivalStart(b)));
+    .filter(festivalInFeaturedAugust)
+    .sort((a, b) => festivalOrder(a).localeCompare(festivalOrder(b)));
   const waterKeywords = ["\uC218\uC601\uC7A5", "\uACC4\uACE1", "\uD574\uC218\uC695\uC7A5", "\uD574\uBCC0", "\uBC14\uB2E4", "\uBB3C\uB180\uC774", "\uC6CC\uD130\uD30C\uD06C", "\uD3ED\uD3EC", "\uC218\uBCC0"];
   const indoorKeywords = ["\uBC15\uBB3C\uAD00", "\uBBF8\uC220\uAD00", "\uC804\uC2DC", "\uBB38\uD654", "\uC13C\uD130", "\uC544\uD2B8", "\uACF5\uC5F0\uC7A5"];
   const familyKeywords = ["\uC544\uC774", "\uAC00\uC871", "\uC5B4\uB9B0\uC774", "\uCCB4\uD5D8", "\uACF5\uC6D0", "\uC0DD\uD0DC", "\uB3D9\uBB3C", "\uB18D\uCD0C", "\uC790\uC5F0\uD559\uC2B5"];
@@ -755,7 +726,7 @@ function buildSections(posts) {
   const sectionDefs = [
     { id: "popular", title: TEXT.navPopular, posts: sortCurrentPlaces(generalTravel.length ? generalTravel : domestic) },
     { id: "weekend", title: TEXT.navWeekend, posts: sortLatest(weekendPool.length ? weekendPool : domestic) },
-    { id: "festival", title: "7~8\uC6D4 \uCD95\uC81C/\uD589\uC0AC", posts: festivals },
+    { id: "festival", title: `${FEATURE_MONTH_LABEL} \uCD95\uC81C/\uD589\uC0AC`, posts: festivals },
     { id: "water", title: TEXT.navWater, posts: waterPosts },
     { id: "indoor", title: TEXT.navIndoor, posts: indoorPool.length ? indoorPool : sortLatest(domestic), fallbackPosts: sortLatest(domestic) },
     { id: "family", title: TEXT.navFamily, posts: familyPool.length ? familyPool : sortLatest(domestic), fallbackPosts: sortLatest(domestic) },
@@ -777,7 +748,7 @@ function categoryNav(sections) {
     ["popular", "\uC9C0\uAE08 \uB9CE\uC774 \uCC3E\uB294 \uC5EC\uD589\uC9C0"],
     ["water", "\uBB3C\uB180\uC774\u00B7\uACC4\uACE1"],
     ["weekend", "\uC774\uBC88 \uC8FC\uB9D0"],
-    ["festival", "7~8\uC6D4 \uCD95\uC81C"],
+    ["festival", `${FEATURE_MONTH_LABEL} \uCD95\uC81C`],
     ["indoor", "\uC2E4\uB0B4\uC5EC\uD589"],
     ["family", "\uC544\uC774\uC640"],
     ["booking", "\uC608\uC57D \uC804 \uCCB4\uD06C"],
@@ -828,20 +799,18 @@ async function readMyRealTripFlights() {
 function html(posts, products = [], accommodations = [], tnaProducts = [], flights = []) {
   const sections = buildSections(posts).filter((section) => section.kind === "booking" || section.posts.length);
   const flightNav = flights.length ? { id: "flight-deals", title: TEXT.navFlight, kind: "flight" } : null;
-  const mrtNav = { id: "myrealtrip-deals", title: "\uB9C8\uC774\uB9AC\uC5BC\uD2B8\uB9BD \uCD94\uCC9C", kind: "ad" };
-  const coupangNav = { id: "coupang-travel-items", title: "여행 준비물 추천", kind: "ad" };
+  const mrtNav = { id: "myrealtrip-deals", title: "\uC5EC\uD589 \uC608\uC57D \uCC38\uACE0", kind: "ad" };
   const navSections = flightNav
-    ? [sections[0], sections[1], flightNav, ...sections.slice(2, -1), mrtNav, coupangNav, sections.at(-1)].filter(Boolean)
-    : [...sections.slice(0, -1), mrtNav, coupangNav, sections.at(-1)].filter(Boolean);
+    ? [sections[0], sections[1], flightNav, ...sections.slice(2, -1), mrtNav, sections.at(-1)].filter(Boolean)
+    : [...sections.slice(0, -1), mrtNav, sections.at(-1)].filter(Boolean);
   const hero = posts[0];
   const ogImage = imageOf(hero);
   const defaultHeadline = "\uC8FC\uC81C\uBCC4 \uCD5C\uC2E0 \uC5EC\uD589 \uC815\uBCF4";
   const productFeeds = { accommodations, tnaProducts, products };
   const allProducts = [...accommodations, ...tnaProducts, ...products];
   const flightHtml = flightDealSection(flights);
-  const mrtHtml = myRealTripAdSection(allProducts, flights);
-  const coupangHtml = coupangHomeSection();
-  const coupangWidgetHtml = coupangWidgetHomeSection();
+  const editorialPosts = sections.flatMap((section) => section.posts || []);
+  const mrtHtml = myRealTripAdSection(allProducts, editorialPosts);
   const sectionHtml = sections
     .map((section) => {
       const html = section.kind === "booking"
@@ -850,7 +819,7 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
       return section.id === "weekend" && flightHtml ? `${html}\n${flightHtml}` : html;
     })
     .join("\n")
-    .replace(/(<section class="news-section check-section" id="booking")/, `${mrtHtml}\n${coupangHtml}\n${coupangWidgetHtml}\n$1`);
+    .replace(/(<section class="news-section check-section" id="booking")/, `${mrtHtml}\n$1`);
 
   return `<!doctype html>
 <html lang="ko">
@@ -864,8 +833,10 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
     <meta property="og:title" content="${esc(TEXT.ogTitle)}">
     <meta property="og:description" content="${esc(TEXT.ogDescription)}">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tripview.kr/">
     ${ogImage ? `<meta property="og:image" content="${esc(ogImage)}">` : ""}
     <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://tripview.kr/">
     <link rel="alternate" type="application/rss+xml" title="${esc(TEXT.rssTitle)}" href="https://tripview.kr/rss.xml">
     <title>${esc(TEXT.ogTitle)}</title>
     <style>
@@ -883,7 +854,7 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
       </div>
     </header>
     <main class="page">
-      <div class="top-line"><span data-feed-label data-default-label="${esc(defaultHeadline)}">${esc(defaultHeadline)}</span><span>${esc(new Date().toISOString().slice(0, 10))}</span></div>
+      <div class="top-line"><span data-feed-label data-default-label="${esc(defaultHeadline)}">${esc(defaultHeadline)}</span><span>${esc(CONTENT_TODAY)}</span></div>
       ${sectionHtml}
     </main>
     <footer class="site-footer">
@@ -893,14 +864,14 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
       </div>
       <div class="footer-col">
         <b>\uAC00\uBCFC\uB9CC\uD55C \uACF3</b>
-        <a href="#popular">\uC9C0\uAE08 \uB9CE\uC774 \uCC3E\uB294 \uC5EC\uD589\uC9C0</a>
+        <a href="#popular">8\uC6D4 \uAC00\uBCFC\uB9CC\uD55C \uACF3</a>
         <a href="#weekend">\uC774\uBC88 \uC8FC\uB9D0 \uAC00\uBCFC\uB9CC\uD55C \uACF3</a>
         <a href="#water">\uBB3C\uB180\uC774\u00B7\uACC4\uACE1\u00B7\uD574\uC218\uC695\uC7A5</a>
         <a href="#indoor">\uBE44 \uC624\uB294 \uB0A0 \uC2E4\uB0B4 \uC5EC\uD589</a>
       </div>
       <div class="footer-col">
         <b>\uCD95\uC81C\uC815\uBCF4</b>
-        <a href="#festival">7~8\uC6D4 \uCD95\uC81C/\uD589\uC0AC</a>
+        <a href="#festival">${FEATURE_MONTH_LABEL} \uCD95\uC81C/\uD589\uC0AC</a>
         <a href="#weekend">\uC774\uBC88 \uC8FC\uB9D0 \uCD95\uC81C \uCCB4\uD06C</a>
       </div>
       <div class="footer-col">
@@ -1092,7 +1063,6 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
       });
     </script>
     <script id="post-card-transition">(() => { const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; const selector = 'a.news-lead, a.pick-card, a.news-row, a.latest-primary, a.side-card, a.card'; document.addEventListener('click', (event) => { const card = event.target.closest(selector); if (!card || !card.href || card.target || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.defaultPrevented) return; const url = new URL(card.href, window.location.href); if (url.origin !== window.location.origin) return; if (reduce) return; event.preventDefault(); card.classList.add('is-opening'); window.setTimeout(() => { window.location.href = card.href; }, 180); }, { capture: true }); })();</script>
-    ${COUPANG_SCRIPT}
     <script src="/assets/homepage.js?v=booking-search-20260712-flight-links" defer></script>
     <script src="/assets/i18n.js?v=i18n-link-fix-20260706" defer></script>
     <script src="/assets/topic-filter.js?v=topic-filter-20260712-no-hero" defer></script>
