@@ -18,6 +18,7 @@ const REGION_RULES = [
   ["제주", /^(?:제주특별자치도|제주)(?:\s|$)/],
 ];
 
+const DOMESTIC_REGIONS = new Set(REGION_RULES.map(([region]) => region));
 const METRO_SEARCH_REGIONS = new Set(["서울", "인천", "대전", "세종", "광주", "대구", "부산", "울산", "제주"]);
 const FOCUSED_INTENTS = new Set(["festival", "water", "indoor", "family"]);
 const SECTION_INTENTS = {
@@ -64,6 +65,10 @@ export function normalizeRegion(value = "") {
     if (pattern.test(text)) return region;
   }
   return text.split(/\s+/)[0] || "";
+}
+
+export function isDomesticRegion(value = "") {
+  return DOMESTIC_REGIONS.has(normalizeRegion(value));
 }
 
 function localityTokens(value = "") {
@@ -144,7 +149,9 @@ export function selectAffiliateProducts({ sectionId = "article", posts = [], pro
   const safeLimit = Math.max(0, Math.min(12, Number.parseInt(limit, 10) || 0));
   if (!safeLimit || !Array.isArray(posts) || !posts.length || !Array.isArray(products) || !products.length) return [];
 
-  const postRegions = posts.map((post) => clean(post?.region || post?.city || "")).filter(Boolean);
+  const postRegions = posts
+    .map((post) => clean(post?.region || post?.city || ""))
+    .filter((region) => isDomesticRegion(region));
   if (!postRegions.length) return [];
 
   const contextIntents = new Set(SECTION_INTENTS[sectionId] || SECTION_INTENTS.article);
@@ -195,7 +202,7 @@ export function selectAffiliateProducts({ sectionId = "article", posts = [], pro
 
 export function affiliateRegionKeyword(value = "") {
   const region = normalizeRegion(value);
-  if (!region) return "";
+  if (!DOMESTIC_REGIONS.has(region)) return "";
   if (METRO_SEARCH_REGIONS.has(region)) return region;
   const locality = localityTokens(value)[0];
   return locality || region;

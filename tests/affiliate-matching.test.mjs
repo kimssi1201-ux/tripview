@@ -5,6 +5,7 @@ import {
   affiliateRegionKeyword,
   deriveAffiliateRegionKeywords,
   deriveTourSearchQueries,
+  isDomesticRegion,
   isSafeMyRealTripUrl,
   normalizeRegion,
   selectAffiliateProducts,
@@ -26,6 +27,9 @@ test("normalizes Korean regions and derives useful API search keywords", () => {
   assert.equal(normalizeRegion("경기도 광주시"), "경기");
   assert.equal(affiliateRegionKeyword("전라남도 고흥군"), "고흥");
   assert.equal(affiliateRegionKeyword("서울특별시 용산구"), "서울");
+  assert.equal(affiliateRegionKeyword("오사카"), "");
+  assert.equal(isDomesticRegion("제주특별자치도 제주시"), true);
+  assert.equal(isDomesticRegion("오사카"), false);
   assert.equal(normalizeRegion(""), "");
 });
 
@@ -61,6 +65,32 @@ test("does not fall back to unrelated regions or invalid and empty input", () =>
   assert.deepEqual(selectAffiliateProducts({ sectionId: "water", posts, products: [product()], limit: 2 }), []);
   assert.deepEqual(selectAffiliateProducts({ sectionId: "water", posts: [], products: [product()], limit: 2 }), []);
   assert.deepEqual(selectAffiliateProducts({ sectionId: "water", posts, products: [product()], limit: 0 }), []);
+});
+
+test("matches a domestic county product through its domestic article context", () => {
+  const selected = selectAffiliateProducts({
+    sectionId: "article",
+    posts: [{ title: "고흥 당일 여행", region: "전라남도 고흥군" }],
+    products: [product({ title: "고흥 여행 체험", region: "고흥", intents: ["booking", "tour"] })],
+    limit: 1,
+  });
+
+  assert.equal(selected.length, 1);
+  assert.match(selected[0].matchReason, /고흥/);
+});
+
+test("rejects overseas products and does not derive overseas search queries", () => {
+  const overseasPosts = [{ title: "오사카 여름 액티비티", region: "오사카" }];
+  const overseasProducts = [product({ title: "오사카 투어", region: "오사카" })];
+
+  assert.deepEqual(selectAffiliateProducts({
+    sectionId: "water",
+    posts: overseasPosts,
+    products: overseasProducts,
+    limit: 2,
+  }), []);
+  assert.deepEqual(deriveAffiliateRegionKeywords(overseasPosts, 8), []);
+  assert.deepEqual(deriveTourSearchQueries(overseasPosts, 8), []);
 });
 
 test("accepts only HTTPS MyRealTrip destinations", () => {

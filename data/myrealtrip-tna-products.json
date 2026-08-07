@@ -30,35 +30,6 @@
     "source": "myrealtrip-tna"
   },
   {
-    "id": "tna-4901482",
-    "type": "tna",
-    "title": "나트랑 스카이라이트 입장권 (웰컴 드링크/하바나 호텔 루프탑)",
-    "url": "https://experiences.myrealtrip.com/products/4901482",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/09/25/inL1/vWlCKJ58TH.jpg",
-    "price": 10000,
-    "priceText": "10,000원부터",
-    "region": "나트랑",
-    "city": "나트랑",
-    "category": "입장권",
-    "description": "나트랑 ∙ 입장권 · 평점 5(3개) · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "나트랑",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "transport"
-    ],
-    "gid": "4901482",
-    "reviewScore": 5,
-    "reviewCount": 3,
-    "deepLink": "mrt://experiences/detail/4901482",
-    "source": "myrealtrip-tna"
-  },
-  {
     "id": "tna-6114869",
     "type": "tna",
     "title": "파주 DMZ곤돌라 + 캠프 그리브스 통합권",

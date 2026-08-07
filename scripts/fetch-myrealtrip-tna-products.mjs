@@ -1,7 +1,11 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { deriveTourSearchQueries } from "./lib/affiliate-matching.mjs";
+import {
+  deriveAffiliateRegionKeywords,
+  deriveTourSearchQueries,
+  isDomesticRegion,
+} from "./lib/affiliate-matching.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const OUT_PATH = path.join(ROOT, "data", "myrealtrip-tna-products.json");
@@ -68,11 +72,21 @@ function inferIntents(item) {
   return [...intents];
 }
 
+function keywordRegion(value = "") {
+  return normalizeText(value).split(/\s+/)[0] || "";
+}
+
 function cityFromText(item, keyword) {
   const text = normalizeText(item.description);
   const city = text.split(/[∙·]/)[0]?.trim();
-  if (city && city.length <= 20) return city;
-  return normalizeText(process.env.MYREALTRIP_TNA_CITY || keyword.split(/\s+/)[0]);
+  const expected = keywordRegion(keyword);
+  if (city && city.length <= 20) {
+    if (isDomesticRegion(city) || (expected.length >= 2 && city.includes(expected))) return city;
+    return "";
+  }
+  const configuredCity = normalizeText(process.env.MYREALTRIP_TNA_CITY);
+  if (isDomesticRegion(configuredCity) || configuredCity === expected) return configuredCity;
+  return expected;
 }
 
 function normalizeProduct(item, keyword) {
@@ -82,6 +96,7 @@ function normalizeProduct(item, keyword) {
 
   const priceText = normalizeText(item?.priceDisplay) || formatWon(item?.salePrice);
   const city = cityFromText(item, keyword);
+  if (!city) return null;
   const review = item?.reviewScore
     ? `평점 ${item.reviewScore}${item?.reviewCount ? `(${Number(item.reviewCount).toLocaleString("ko-KR")}개)` : ""}`
     : "";
@@ -123,8 +138,11 @@ async function readPosts() {
   }
 }
 
-function configuredKeywords() {
-  return CONFIGURED_KEYWORDS.split(/[,\n]/).map((value) => value.trim()).filter(Boolean);
+function configuredKeywords(posts) {
+  const knownRegions = new Set(deriveAffiliateRegionKeywords(posts, 20));
+  return CONFIGURED_KEYWORDS.split(/[,\n]/)
+    .map((value) => value.trim())
+    .filter((value) => isDomesticRegion(value) || knownRegions.has(keywordRegion(value)));
 }
 
 if (!API_KEY.trim()) {
@@ -134,7 +152,7 @@ if (!API_KEY.trim()) {
 
 try {
   const posts = await readPosts();
-  const explicit = configuredKeywords();
+  const explicit = configuredKeywords(posts);
   const keywords = explicit.length
     ? explicit.slice(0, QUERY_LIMIT)
     : deriveTourSearchQueries(posts, QUERY_LIMIT);

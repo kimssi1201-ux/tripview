@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { readFile, readdir } from "node:fs/promises";
 import test from "node:test";
 
 import { isIndexablePost } from "../scripts/lib/content-quality.mjs";
@@ -85,6 +85,13 @@ test("affiliate cards are contextual, unique, safely linked, and absent from unm
   assert.doesNotMatch(unmatchedArticle, /<!-- MRT_AD_START context -->/);
   assert.match(thinSeoulArticle, /<meta name="robots" content="noindex, follow">/);
   assert.doesNotMatch(thinSeoulArticle, /<!-- MRT_AD_START context -->/);
+
+  const flightDirectories = await readdir("flight-deals", { withFileTypes: true });
+  const overseasFlightDirectory = flightDirectories.find((entry) => entry.isDirectory() && entry.name.includes("-osa-"));
+  assert.ok(overseasFlightDirectory, "an Osaka flight article should exist for the overseas-product guard");
+  const overseasFlightArticle = await readFile(`flight-deals/${overseasFlightDirectory.name}/index.html`, "utf8");
+  assert.doesNotMatch(overseasFlightArticle, /같이 보면 좋은 예약 정보/);
+  assert.doesNotMatch(overseasFlightArticle, /experiences\.myrealtrip\.com\/products\//);
 });
 
 test("AdSense script and ads.txt use the same publisher ID", async () => {

@@ -1,7 +1,7 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { deriveAffiliateRegionKeywords } from "./lib/affiliate-matching.mjs";
+import { deriveAffiliateRegionKeywords, isDomesticRegion } from "./lib/affiliate-matching.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const OUT_PATH = path.join(ROOT, "data", "myrealtrip-accommodations.json");
@@ -18,7 +18,7 @@ const SEARCH_URL = process.env.MYREALTRIP_ACCOMMODATION_SEARCH_URL
 const CONFIGURED_KEYWORDS = process.env.MYREALTRIP_ACCOMMODATION_KEYWORDS
   || process.env.MYREALTRIP_ACCOMMODATION_KEYWORD
   || "";
-const IS_DOMESTIC = String(process.env.MYREALTRIP_ACCOMMODATION_IS_DOMESTIC || "true").toLowerCase() !== "false";
+const IS_DOMESTIC = true;
 const NIGHTS = Math.max(1, Math.min(14, Number.parseInt(process.env.MYREALTRIP_ACCOMMODATION_NIGHTS || "2", 10) || 2));
 const ADULT_COUNT = Math.max(1, Math.min(9, Number.parseInt(process.env.MYREALTRIP_ACCOMMODATION_ADULT_COUNT || "2", 10) || 2));
 const CHILD_COUNT = Math.max(0, Math.min(9, Number.parseInt(process.env.MYREALTRIP_ACCOMMODATION_CHILD_COUNT || "0", 10) || 0));
@@ -73,11 +73,21 @@ async function postJson(url, body) {
   return response.json();
 }
 
-function normalizeAccommodation(item, region) {
+function keywordRegion(value = "") {
+  return String(value || "").trim().split(/\s+/)[0] || "";
+}
+
+function isExpectedDomesticRegion(regionName, keyword) {
+  const name = String(regionName || "").trim();
+  const expected = keywordRegion(keyword);
+  return isDomesticRegion(name) || (expected.length >= 2 && name.includes(expected));
+}
+
+function normalizeAccommodation(item, region, keyword) {
   const title = String(item?.itemName || "").trim();
   const url = String(item?.productUrl || "").trim();
   const priceText = formatWon(item?.salePrice);
-  if (!title || !url || !priceText) return null;
+  if (!title || !url || !priceText || !isExpectedDomesticRegion(region?.name, keyword)) return null;
 
   const review = item?.reviewScore
     ? `평점 ${item.reviewScore}${item?.reviewCount ? `(${Number(item.reviewCount).toLocaleString("ko-KR")}개)` : ""}`
@@ -126,8 +136,11 @@ async function readPosts() {
   }
 }
 
-function configuredKeywords() {
-  return CONFIGURED_KEYWORDS.split(/[,\n]/).map((value) => value.trim()).filter(Boolean);
+function configuredKeywords(posts) {
+  const knownRegions = new Set(deriveAffiliateRegionKeywords(posts, 20));
+  return CONFIGURED_KEYWORDS.split(/[,\n]/)
+    .map((value) => value.trim())
+    .filter((value) => isDomesticRegion(value) || knownRegions.has(keywordRegion(value)));
 }
 
 if (!API_KEY.trim()) {
@@ -137,8 +150,9 @@ if (!API_KEY.trim()) {
 
 try {
   const posts = await readPosts();
-  const keywords = configuredKeywords().length
-    ? configuredKeywords().slice(0, REGION_LIMIT)
+  const explicitKeywords = configuredKeywords(posts);
+  const keywords = explicitKeywords.length
+    ? explicitKeywords.slice(0, REGION_LIMIT)
     : deriveAffiliateRegionKeywords(posts, REGION_LIMIT);
   if (!keywords.length) keywords.push("서울", "부산", "제주");
 
@@ -167,7 +181,7 @@ try {
       const searchPayload = await postJson(SEARCH_URL, request);
       const items = Array.isArray(searchPayload?.data?.items) ? searchPayload.data.items : [];
       collected.push(...items
-        .map((item) => normalizeAccommodation(item, region))
+        .map((item) => normalizeAccommodation(item, region, keyword))
         .filter(Boolean)
         .sort((a, b) => Number(a.price || 0) - Number(b.price || 0))
         .slice(0, PER_REGION_LIMIT));

@@ -1,6 +1,7 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { isDomesticRegion } from "./lib/affiliate-matching.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const OUT_PATH = path.join(ROOT, "data", "myrealtrip-products.json");
@@ -161,6 +162,7 @@ const payload = await response.json();
 const products = firstArray(payload)
   .map(normalizeProduct)
   .filter(Boolean)
+  .filter((product) => isDomesticRegion(product.region))
   .slice(0, LIMIT);
 
 await fs.mkdir(path.dirname(OUT_PATH), { recursive: true });
