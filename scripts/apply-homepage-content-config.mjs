@@ -24,23 +24,21 @@ const FEATURE_MONTH_END = isoDate(FEATURE_YEAR, FEATURE_MONTH, 31);
 const FEATURE_MONTH_LABEL = `${FEATURE_MONTH}\uC6D4`;
 const DESKTOP_LAYOUT_CSS = `
       .product-card>.booking-thumb{grid-column:1}
-      .section-kicker{display:block;margin:0 0 2px;color:#f0445e;font-size:11px;font-weight:900;letter-spacing:.04em}.section-headline{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:0 0 16px;border-bottom:1px solid var(--line);padding-bottom:8px}.section-headline h2{margin:0;font-size:24px;line-height:1.12}.section-more{color:var(--muted);font-size:12px;font-weight:900;white-space:nowrap}.magazine-grid{display:grid;grid-template-columns:1fr;gap:22px}.magazine-card{display:block}.magazine-thumb{display:block;aspect-ratio:1.56/1;overflow:hidden;background:var(--soft)}.magazine-card strong{display:block;margin-top:8px;font-size:19px;line-height:1.28;font-weight:900}.magazine-card em{display:block;margin-top:7px;color:var(--muted);font-size:13px;line-height:1.55;font-style:normal}.magazine-meta{display:block;margin-top:10px;color:#f0445e;font-size:11px;font-weight:900}.coupang-widget-scroll{width:100%;max-width:100%;overflow-x:auto;overflow-y:hidden;padding-bottom:2px}.coupang-widget-inner{width:680px;max-width:680px;min-height:140px}.site-footer>span{display:none}.footer-brand strong{display:block;color:var(--ink);font-size:20px;margin-bottom:8px}.footer-brand p,.footer-col a{display:block;margin:0 0 7px;color:var(--muted);font-size:13px}.footer-col b{display:block;margin-bottom:10px;color:var(--ink);font-size:13px}.footer-bottom{grid-column:1/-1;margin-top:10px;padding-top:16px;border-top:1px solid #eee;color:#aaa;font-size:12px}
+      .masthead-row{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:14px}.masthead-row .brand{margin:0}.brand-note{display:none;color:var(--muted);font-size:10px;font-weight:900;letter-spacing:.16em}.section-kicker{display:block;margin:0 0 3px;color:var(--ink);font-size:10px;font-weight:900;letter-spacing:.12em}.section-headline{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:0 0 18px;padding-top:11px;border-top:2px solid var(--ink)}.section-headline h2{margin:0;font-size:28px;line-height:1.12}.section-more{color:var(--muted);font-size:12px;font-weight:900;white-space:nowrap}.magazine-card{display:block;min-width:0}.editorial-hero{padding-top:24px}.editorial-hero-grid{display:grid;grid-template-columns:1fr;gap:3px;background:#fff}.hero-main,.hero-rail-card{position:relative;display:block;overflow:hidden;background:var(--soft);color:#fff}.hero-main:after,.hero-rail-card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.02) 25%,rgba(0,0,0,.78) 100%);pointer-events:none}.hero-thumb{display:block;width:100%;height:100%;aspect-ratio:1.28/1;overflow:hidden}.hero-content,.hero-rail-content{position:absolute;z-index:1;right:0;bottom:0;left:0;padding:22px}.hero-label{display:block;margin-bottom:7px;font-size:11px;font-weight:900;letter-spacing:.08em}.hero-main h2{max-width:780px;margin:0;font-size:30px;line-height:1.14;font-weight:900}.hero-main p{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;max-width:700px;overflow:hidden;margin:10px 0 0;color:rgba(255,255,255,.84);font-size:13px;line-height:1.55}.hero-rail{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3px}.hero-rail-card{aspect-ratio:1/1}.hero-rail-content{padding:14px}.category-top{display:grid;grid-template-columns:1fr;gap:18px}.news-lead .lead-thumb{aspect-ratio:1.55/1}.story-label{display:block!important;margin:11px 0 0!important;color:var(--ink)!important;font-size:10px!important;font-weight:900!important;letter-spacing:.04em}.news-lead .story-summary{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:8px;color:var(--muted);font-size:13px;line-height:1.55;font-style:normal}.category-picks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.category-picks .pick-card{min-width:0}.category-picks .pick-thumb{aspect-ratio:1/1}.category-picks .pick-card strong{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;margin-top:7px;font-size:13px;line-height:1.35}.category-list{margin-top:22px;border-top:1px solid var(--line)}.category-list .news-row{margin:0}.magazine-thumb{display:block;aspect-ratio:1.56/1;overflow:hidden;background:var(--soft)}.magazine-card strong{display:block;margin-top:8px;font-size:19px;line-height:1.28;font-weight:900}.magazine-card em{display:block;margin-top:7px;color:var(--muted);font-size:13px;line-height:1.55;font-style:normal}.magazine-meta{display:block;margin-top:10px;color:var(--ink);font-size:10px;font-weight:900;letter-spacing:.04em}.hero-rail-card.magazine-card strong{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;margin:0;color:#fff;font-size:15px;line-height:1.3}.news-lead.magazine-card strong{margin-top:5px;font-size:24px}.coupang-widget-scroll{width:100%;max-width:100%;overflow-x:auto;overflow-y:hidden;padding-bottom:2px}.coupang-widget-inner{width:680px;max-width:680px;min-height:140px}.site-footer>span{display:none}.footer-brand strong{display:block;color:var(--ink);font-size:20px;margin-bottom:8px}.footer-brand p,.footer-col a{display:block;margin:0 0 7px;color:var(--muted);font-size:13px}.footer-col b{display:block;margin-bottom:10px;color:var(--ink);font-size:13px}.footer-bottom{grid-column:1/-1;margin-top:10px;padding-top:16px;border-top:1px solid #eee;color:#aaa;font-size:12px}
+      .brand-heading{margin:0;font:inherit;line-height:1}
       @media(min-width:900px){
-        html{scroll-padding-top:122px}
+        html{scroll-padding-top:132px}
         body{background:#fff}
         .site-header{position:sticky;background:rgba(255,255,255,.98);border-bottom:1px solid #ededed}
         .header-inner,.page,.site-footer{max-width:1180px}
-        .header-inner{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:14px 38px;padding:18px 24px 12px}
-        .brand{margin:0;font-size:20px}
-        .nav-scroll{min-width:0;justify-content:center;gap:30px;padding-bottom:0;font-size:14px}
-        .language-switch{justify-content:flex-end}
+        .header-inner{padding:20px 24px 12px}.masthead-row{position:relative;justify-content:center;margin-bottom:18px}.brand{font-size:34px}.brand-note{display:block;position:absolute;left:0}.language-switch{position:absolute;right:0}.nav-scroll{justify-content:center;gap:32px;padding:12px 0 0;border-top:1px solid #eee;font-size:14px}
         .page{display:block;padding:0 24px 64px}
+        .page.is-filtered .news-section:not(.is-hidden){width:100%;max-width:none}
         .top-line{display:none}
-        .news-section{padding:24px 0 36px;border-bottom:0}
-        .news-section h2{font-size:26px}
-        .magazine-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:34px 20px}
-        .magazine-card strong{font-size:19px}
-        .magazine-card em{font-size:13px}
+        .news-section{padding:42px 0 54px;border-bottom:0}.editorial-hero{padding-top:28px}
+        .news-section h2{font-size:28px}
+        .editorial-hero-grid{grid-template-columns:minmax(0,1.92fr) minmax(330px,1fr);height:520px}.hero-main,.hero-thumb{height:520px}.hero-main h2{font-size:44px}.hero-main p{font-size:15px}.hero-content{padding:38px}.hero-rail{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr))}.hero-rail-card{height:auto;aspect-ratio:auto}.hero-rail-card.magazine-card strong{font-size:17px}.hero-rail-content{padding:18px}
+        .category-top{grid-template-columns:minmax(0,1.8fr) minmax(310px,1fr);gap:24px}.news-lead .lead-thumb{aspect-ratio:1.58/1}.news-lead.magazine-card strong{font-size:28px}.category-picks{grid-template-columns:1fr;gap:0;border-top:1px solid var(--line)}.category-picks .pick-card{display:grid;grid-template-columns:116px minmax(0,1fr);gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}.category-picks .pick-thumb{aspect-ratio:1.34/1}.category-picks .pick-card strong{margin:0;font-size:15px;-webkit-line-clamp:2}.category-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px 20px;margin-top:28px;padding-top:28px}.category-list .news-row{display:block;padding:0;border:0}.category-list .row-thumb{aspect-ratio:1.5/1}.category-list .news-row strong{margin-top:9px;font-size:18px}.category-list .news-row em{margin-top:7px}
         .check-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:0 20px}
         .mrt-ad-section .check-grid,.coupang-ad-section .check-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
         .booking-search{grid-column:auto}
@@ -50,7 +48,10 @@ const DESKTOP_LAYOUT_CSS = `
         .flight-section .news-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 20px}
         .flight-section .flight-row{border-bottom:1px solid var(--line)}
         .site-footer{display:grid;grid-template-columns:1.1fr repeat(4,minmax(0,.75fr));gap:28px;padding:44px 24px 64px;border-top:1px solid #eee}
-      }`;
+      }
+      @media(max-width:899px){.site-header{position:relative}.nav-scroll{margin:0 -16px;padding:2px 16px 5px}.editorial-hero{margin-right:-16px;margin-left:-16px;padding-top:18px}.hero-main h2{font-size:28px}.hero-main p{display:none}.hero-rail{padding-top:3px}.news-section{border-bottom:1px solid var(--line)}.section-headline{padding-top:10px}.section-headline h2{font-size:28px}}
+      @media(max-width:899px){.site-header{position:sticky}.hero-main .hero-thumb{aspect-ratio:1.5/1}.hero-rail-card{aspect-ratio:1.24/1}}
+      @media(max-width:430px){.hero-content{padding:18px}.hero-main h2{font-size:25px}.hero-rail-content{padding:11px}.hero-rail-card strong{font-size:13px}.category-picks{gap:7px}.category-picks .pick-card strong{font-size:12px}.section-headline h2{font-size:26px}}`;
 
 const TEXT = {
   articleFallback: "\uC5EC\uD589 \uAE30\uC0AC",
@@ -566,22 +567,25 @@ function interleaveListItems(posts, products = []) {
 
 function leadArticle(post) {
   if (!post) return "";
-  return `<a class="news-lead" href="${esc(hrefOf(post))}">
+  const summary = summaryOf(post);
+  const region = compactRegion(regionOf(post));
+  return `<a class="news-lead magazine-card" href="${esc(hrefOf(post))}">
     ${articleImage(post, "lead-thumb")}
+    <span class="story-label">${esc([categoryOf(post), region].filter(Boolean).join(" · "))}</span>
     <strong>${esc(titleOf(post))}</strong>
-    <span>${esc(metaLine(post))}</span>
+    ${summary ? `<em class="story-summary">${esc(summary)}</em>` : ""}
   </a>`;
 }
 
 function pickCard(post) {
-  return `<a class="pick-card" href="${esc(hrefOf(post))}">
+  return `<a class="pick-card magazine-card" href="${esc(hrefOf(post))}">
     ${articleImage(post, "pick-thumb")}
     <strong>${esc(titleOf(post))}</strong>
   </a>`;
 }
 
 function listItem(post) {
-  return `<a class="news-row" href="${esc(hrefOf(post))}">
+  return `<a class="news-row magazine-card" href="${esc(hrefOf(post))}">
     ${articleImage(post, "row-thumb")}
     <span><strong>${esc(titleOf(post))}</strong><em>${esc(metaLine(post))}</em></span>
   </a>`;
@@ -605,17 +609,6 @@ function sectionKicker(id) {
     "myrealtrip-deals": "BOOKING",
     "coupang-travel-items": "READY",
   }[id] || "TRAVEL");
-}
-
-function magazineCard(post) {
-  if (!post) return "";
-  const summary = summaryOf(post);
-  return `<a class="magazine-card" href="${esc(hrefOf(post))}">
-    ${articleImage(post, "magazine-thumb")}
-    <span class="magazine-meta">${esc(categoryOf(post))}</span>
-    <strong>${esc(titleOf(post))}</strong>
-    ${summary ? `<em>${esc(summary)}</em>` : ""}
-  </a>`;
 }
 
 function searchableText(post) {
@@ -674,7 +667,37 @@ function newsSection({ id, title, posts, inlineProducts = [] }) {
       <div><span class="section-kicker">${esc(sectionKicker(id))}</span><h2 id="${esc(id)}-title">${esc(title)}</h2></div>
       <a class="section-more" href="#${esc(id)}" data-filter="${esc(id)}">\uB354\uBCF4\uAE30 +</a>
     </div>
-    <div class="magazine-grid">${items.map(magazineCard).join("")}</div>
+    <div class="category-top">
+      ${leadArticle(items[0])}
+      <div class="category-picks">${items.slice(1, 4).map(pickCard).join("")}</div>
+    </div>
+    ${items.length > 4 ? `<div class="news-list category-list">${interleaveListItems(items.slice(4), inlineProducts)}</div>` : ""}
+  </section>`;
+}
+
+function heroSection({ id, title, posts }) {
+  const items = uniquePosts(posts).slice(0, 5);
+  const lead = items[0];
+  if (!lead) return "";
+  const summary = summaryOf(lead);
+  const leadRegion = compactRegion(regionOf(lead));
+  return `<section class="news-section editorial-hero" id="${esc(id)}" aria-labelledby="${esc(id)}-title" data-headline="${esc(title)}">
+    <div class="editorial-hero-grid">
+      <a class="hero-main magazine-card" href="${esc(hrefOf(lead))}">
+        ${articleImage(lead, "hero-thumb")}
+        <span class="hero-content">
+          <span class="hero-label">${esc([FEATURE_MONTH_LABEL, leadRegion || categoryOf(lead)].filter(Boolean).join(" · "))}</span>
+          <h2 id="${esc(id)}-title">${esc(titleOf(lead))}</h2>
+          ${summary ? `<p>${esc(summary)}</p>` : ""}
+        </span>
+      </a>
+      <div class="hero-rail" aria-label="${esc(title)} \uCD94\uCC9C \uAE00">
+        ${items.slice(1).map((post) => `<a class="hero-rail-card magazine-card" href="${esc(hrefOf(post))}">
+          ${articleImage(post, "hero-thumb")}
+          <span class="hero-rail-content"><span class="hero-label">${esc(compactRegion(regionOf(post)) || categoryOf(post))}</span><strong>${esc(titleOf(post))}</strong></span>
+        </a>`).join("")}
+      </div>
+    </div>
   </section>`;
 }
 
@@ -806,7 +829,6 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
     : [...sections.slice(0, -1), mrtNav, sections.at(-1)].filter(Boolean);
   const hero = posts[0];
   const ogImage = imageOf(hero);
-  const defaultHeadline = "\uC8FC\uC81C\uBCC4 \uCD5C\uC2E0 \uC5EC\uD589 \uC815\uBCF4";
   const productFeeds = { accommodations, tnaProducts, products };
   const allProducts = [...accommodations, ...tnaProducts, ...products];
   const flightHtml = flightDealSection(flights);
@@ -816,6 +838,8 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
     .map((section) => {
       const html = section.kind === "booking"
         ? bookingSection({ ...section, products: allProducts })
+        : section.id === "popular"
+          ? heroSection(section)
         : newsSection({ ...section, inlineProducts: inlineProductsForSection(section.id, productFeeds) });
       return section.id === "weekend" && flightHtml ? `${html}\n${flightHtml}` : html;
     })
@@ -849,13 +873,15 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
   <body>
     <header class="site-header">
       <div class="header-inner">
-        <a class="brand" href="/">${esc(BRAND)}</a>
+        <div class="masthead-row">
+          <span class="brand-note">KOREA TRAVEL MAGAZINE</span>
+          <h1 class="brand-heading"><a class="brand" href="/">${esc(BRAND)}</a></h1>
+          ${LANGUAGE_SWITCH}
+        </div>
         <nav class="nav-scroll" aria-label="${esc(TEXT.navLabel)}">${categoryNav(navSections)}</nav>
-        ${LANGUAGE_SWITCH}
       </div>
     </header>
     <main class="page">
-      <div class="top-line"><span data-feed-label data-default-label="${esc(defaultHeadline)}">${esc(defaultHeadline)}</span><span>${esc(CONTENT_TODAY)}</span></div>
       ${sectionHtml}
     </main>
     <footer class="site-footer">
@@ -1044,21 +1070,16 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
       });
       const links = [...document.querySelectorAll('[data-filter]')];
       const sections = [...document.querySelectorAll('.news-section')];
-      const label = document.querySelector('[data-feed-label]');
       const page = document.querySelector('.page');
       links.forEach((link) => {
         link.addEventListener('click', (event) => {
           event.preventDefault();
           const id = link.dataset.filter || link.getAttribute('href').replace('#', '');
-          const title = link.textContent.trim();
           const showAll = id === 'all';
-          const selectedSection = document.getElementById(id);
-          const headline = showAll ? '${esc(defaultHeadline)}' : (selectedSection?.dataset.headline || title);
           links.forEach((item) => item.classList.remove('is-active'));
           link.classList.add('is-active');
           page?.classList.toggle('is-filtered', !showAll);
           sections.forEach((section) => section.classList.toggle('is-hidden', !showAll && section.id !== id));
-          if (label) label.textContent = headline;
           page?.scrollIntoView({ block: 'start' });
         });
       });

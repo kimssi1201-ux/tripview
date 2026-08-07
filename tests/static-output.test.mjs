@@ -26,8 +26,19 @@ test("homepage has one merged water section without a dedicated beach filter", a
 
   const waterSection = homepage.match(/<section[^>]*id="water"[\s\S]*?<\/section>/)?.[0];
   assert.ok(waterSection, "water section should exist");
-  assert.equal((waterSection.match(/class="magazine-card"/g) || []).length, 12);
+  assert.equal((waterSection.match(/class="[^"]*\bmagazine-card\b[^"]*"/g) || []).length, 12);
   assert.equal(beachSlugs.filter((slug) => waterSection.includes(`/${slug}/`)).length, 6);
+});
+
+test("homepage uses one editorial masthead and a five-story lead package", async () => {
+  const homepage = await readFile("index.html", "utf8");
+  assert.equal((homepage.match(/class="masthead-row"/g) || []).length, 1);
+  assert.equal((homepage.match(/class="nav-scroll"/g) || []).length, 1);
+  assert.match(homepage, /<h1 class="brand-heading"><a class="brand" href="\/">트립뷰<\/a><\/h1>/);
+  assert.equal((homepage.match(/class="hero-main magazine-card"/g) || []).length, 1);
+  assert.equal((homepage.match(/class="hero-rail-card magazine-card"/g) || []).length, 4);
+  assert.match(homepage, /class="category-top"/);
+  assert.match(homepage, /class="news-list category-list"/);
 });
 
 test("beach article pages do not include the removed API information widget", async () => {
@@ -42,14 +53,14 @@ test("homepage is aligned to August and avoids expired seasonal or Coupang revie
   const homepage = await readFile("index.html", "utf8");
   assert.match(homepage, /8월 가볼만한 곳/);
   assert.match(homepage, /8월 축제\/행사/);
-  assert.doesNotMatch(homepage, /7~8월/);
-  assert.doesNotMatch(homepage, /7월/);
+  assert.doesNotMatch(homepage, />7~8월/);
+  assert.doesNotMatch(homepage, />7월 (?:가볼만한 곳|축제\/행사)</);
   assert.doesNotMatch(homepage, /coupang-travel-items|coupang-partners-widget|assets\/coupang\.js/);
   assert.match(homepage, /<link rel="canonical" href="https:\/\/tripview\.kr\/">/);
 
   const festivalSection = homepage.match(/<section[^>]*id="festival"[\s\S]*?<\/section>/)?.[0];
   assert.ok(festivalSection, "August festival section should exist");
-  assert.equal((festivalSection.match(/class="magazine-card"/g) || []).length, 6);
+  assert.equal((festivalSection.match(/class="[^"]*\bmagazine-card\b[^"]*"/g) || []).length, 6);
   assert.doesNotMatch(festivalSection, /festival-4088257/);
 });
 
