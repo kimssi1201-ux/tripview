@@ -64,6 +64,29 @@ test("homepage is aligned to August and avoids expired seasonal or Coupang revie
   assert.doesNotMatch(festivalSection, /festival-4088257/);
 });
 
+test("affiliate cards are contextual, unique, safely linked, and absent from unmatched articles", async () => {
+  const homepage = await readFile("index.html", "utf8");
+  const cards = [...homepage.matchAll(/<a[^>]*data-affiliate-match="context"[^>]*>/g)].map((match) => match[0]);
+  assert.ok(cards.length > 0, "at least one contextual affiliate card should be rendered");
+
+  const urls = cards.map((card) => card.match(/href="([^"]+)"/)?.[1]).filter(Boolean);
+  assert.equal(new Set(urls).size, urls.length, "homepage affiliate products should not repeat");
+  assert.ok(urls.every((url) => /^https:\/\/(?:[^/]+\.)?myrealtrip\.com\//.test(url)));
+  assert.ok(cards.every((card) => /rel="sponsored noopener"/.test(card)));
+  assert.doesNotMatch(homepage, /data-affiliate-match="context"[\s\S]{0,500}오사카/);
+
+  const [seoulArticle, unmatchedArticle, thinSeoulArticle] = await Promise.all([
+    readFile("festival-4094595/index.html", "utf8"),
+    readFile("festival-4008618/index.html", "utf8"),
+    readFile("travel-142733/index.html", "utf8"),
+  ]);
+  assert.match(seoulArticle, /<!-- MRT_AD_START context -->/);
+  assert.match(seoulArticle, /서울 일정에 맞춘 인근 숙소/);
+  assert.doesNotMatch(unmatchedArticle, /<!-- MRT_AD_START context -->/);
+  assert.match(thinSeoulArticle, /<meta name="robots" content="noindex, follow">/);
+  assert.doesNotMatch(thinSeoulArticle, /<!-- MRT_AD_START context -->/);
+});
+
 test("AdSense script and ads.txt use the same publisher ID", async () => {
   const [homepage, adsText] = await Promise.all([
     readFile("index.html", "utf8"),

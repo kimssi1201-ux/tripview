@@ -249,7 +249,7 @@ test("Cloudflare route maps article paths to the site asset and delegates other 
   assert.deepEqual(calls, ["/site/travel-129256/", "/unknown"]);
 });
 
-test("article response removes review-paused affiliate blocks and adds one canonical URL", async () => {
+test("article response preserves contextual MyRealTrip blocks, removes paused Coupang blocks, and adds one canonical URL", async () => {
   const source = `<!doctype html><html><head>
     <link rel="canonical" href="https://old.example/article">
     <style>/* tripview-mrt-native-ad */.mrt-native-ad{}/* end-tripview-mrt-native-ad */</style>
@@ -263,7 +263,8 @@ test("article response removes review-paused affiliate blocks and adds one canon
 
   const transformed = transformArticleHtml(source, ["travel-129256"]);
   assert.match(transformed, /editorial content/);
-  assert.doesNotMatch(transformed, /unrelated booking|shopping|carousel|coupang\.js|tripview-mrt-native-ad/);
+  assert.match(transformed, /unrelated booking|tripview-mrt-native-ad/);
+  assert.doesNotMatch(transformed, /shopping|carousel|coupang\.js/);
   assert.doesNotMatch(transformed, /7~8월/);
   assert.match(transformed, />8월 가볼만한 곳</);
   assert.equal((transformed.match(/rel="canonical"/g) || []).length, 1);
@@ -285,7 +286,7 @@ test("Cloudflare route transforms successful HTML articles but leaves failed ass
   });
   const body = await response.text();
   assert.equal(response.headers.get("content-type"), "text/html; charset=utf-8");
-  assert.doesNotMatch(body, />ad</);
+  assert.match(body, />ad</);
   assert.match(body, /https:\/\/tripview\.kr\/festival-4091116\//);
 
   const failedAssets = { async fetch() { return new Response("missing", { status: 404 }); } };

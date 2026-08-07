@@ -98,6 +98,7 @@ function normalizeProduct(item) {
 
   const product = {
     id: normalizeText(pick(item, ["id", "productId", "contentId", "uuid"])) || url,
+    source: "myrealtrip-product",
     title,
     url,
     image,

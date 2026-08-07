@@ -25,7 +25,6 @@ function articleAssetPath(parts) {
 
 const CANONICAL_ORIGIN = "https://tripview.kr";
 const GENERATED_BLOCKS = [
-  ["<!-- MRT_AD_START", "MRT_AD_END -->"],
   ["<!-- COUPANG_AD_START", "COUPANG_AD_END -->"],
   ["<!-- COUPANG_WIDGET_START", "COUPANG_WIDGET_END -->"],
 ];
@@ -46,7 +45,6 @@ export function transformArticleHtml(document, parts) {
     next = next.replace(new RegExp(`${escapeRegExp(start)}[\\s\\S]*?${escapeRegExp(end)}`, "g"), "");
   }
   next = next
-    .replace(/\/\* tripview-mrt-native-ad \*\/[\s\S]*?\/\* end-tripview-mrt-native-ad \*\//g, "")
     .replace(/\/\* tripview-coupang-native-ad \*\/[\s\S]*?\/\* end-tripview-coupang-native-ad \*\//g, "")
     .replace(/\s*<script\s+src=["']\/assets\/coupang\.js\?v=[^"']+["']\s+defer><\/script>/gi, "")
     .replace(/\s*<link\s+rel=["']canonical["'][^>]*>/gi, "")

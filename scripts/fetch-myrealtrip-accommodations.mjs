@@ -1,9 +1,11 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { deriveAffiliateRegionKeywords } from "./lib/affiliate-matching.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const OUT_PATH = path.join(ROOT, "data", "myrealtrip-accommodations.json");
+const POSTS_PATH = path.join(ROOT, "data", "generated-posts.json");
 
 const API_KEY = process.env.MYREALTRIP_API_KEY
   || process.env.PARTNER_API_KEY
@@ -13,14 +15,18 @@ const REGION_URL = process.env.MYREALTRIP_ACCOMMODATION_REGION_URL
   || "https://partner-ext-api.myrealtrip.com/v1/products/accommodation/region-autocomplete";
 const SEARCH_URL = process.env.MYREALTRIP_ACCOMMODATION_SEARCH_URL
   || "https://partner-ext-api.myrealtrip.com/v1/products/accommodation/search";
-const KEYWORD = process.env.MYREALTRIP_ACCOMMODATION_KEYWORD || "서울";
+const CONFIGURED_KEYWORDS = process.env.MYREALTRIP_ACCOMMODATION_KEYWORDS
+  || process.env.MYREALTRIP_ACCOMMODATION_KEYWORD
+  || "";
 const IS_DOMESTIC = String(process.env.MYREALTRIP_ACCOMMODATION_IS_DOMESTIC || "true").toLowerCase() !== "false";
 const NIGHTS = Math.max(1, Math.min(14, Number.parseInt(process.env.MYREALTRIP_ACCOMMODATION_NIGHTS || "2", 10) || 2));
 const ADULT_COUNT = Math.max(1, Math.min(9, Number.parseInt(process.env.MYREALTRIP_ACCOMMODATION_ADULT_COUNT || "2", 10) || 2));
 const CHILD_COUNT = Math.max(0, Math.min(9, Number.parseInt(process.env.MYREALTRIP_ACCOMMODATION_CHILD_COUNT || "0", 10) || 0));
 const STAR_RATING = process.env.MYREALTRIP_ACCOMMODATION_STAR_RATING || "";
 const SIZE = Math.max(1, Math.min(50, Number.parseInt(process.env.MYREALTRIP_ACCOMMODATION_SIZE || "20", 10) || 20));
-const LIMIT = Math.max(1, Math.min(20, Number.parseInt(process.env.MYREALTRIP_ACCOMMODATION_LIMIT || "8", 10) || 8));
+const REGION_LIMIT = Math.max(1, Math.min(12, Number.parseInt(process.env.MYREALTRIP_ACCOMMODATION_REGION_LIMIT || "8", 10) || 8));
+const PER_REGION_LIMIT = Math.max(1, Math.min(8, Number.parseInt(process.env.MYREALTRIP_ACCOMMODATION_PER_REGION_LIMIT || "3", 10) || 3));
+const LIMIT = Math.max(1, Math.min(60, Number.parseInt(process.env.MYREALTRIP_ACCOMMODATION_LIMIT || "24", 10) || 24));
 
 function addDays(date, days) {
   const next = new Date(date);
@@ -111,39 +117,76 @@ async function writeItems(items) {
   await fs.writeFile(OUT_PATH, `${JSON.stringify(items, null, 2)}\n`, "utf8");
 }
 
+async function readPosts() {
+  try {
+    const posts = JSON.parse(await fs.readFile(POSTS_PATH, "utf8"));
+    return Array.isArray(posts) ? posts : [];
+  } catch {
+    return [];
+  }
+}
+
+function configuredKeywords() {
+  return CONFIGURED_KEYWORDS.split(/[,\n]/).map((value) => value.trim()).filter(Boolean);
+}
+
 if (!API_KEY.trim()) {
   console.log("MyRealTrip accommodation fetch skipped: API key is not configured. Set MYREALTRIP_API_KEY or PARTNER_API_KEY.");
   process.exit(0);
 }
 
 try {
-  const regionPayload = await postJson(REGION_URL, { keyword: KEYWORD, isDomestic: IS_DOMESTIC });
-  const regions = Array.isArray(regionPayload?.data?.regions) ? regionPayload.data.regions : [];
-  const region = regions.find((item) => item?.type === "CITY") || regions[0];
-  if (!region?.regionId) {
-    console.log(`MyRealTrip accommodation fetch skipped: no region found for "${KEYWORD}".`);
-    process.exit(0);
+  const posts = await readPosts();
+  const keywords = configuredKeywords().length
+    ? configuredKeywords().slice(0, REGION_LIMIT)
+    : deriveAffiliateRegionKeywords(posts, REGION_LIMIT);
+  if (!keywords.length) keywords.push("서울", "부산", "제주");
+
+  const collected = [];
+  for (const keyword of keywords) {
+    try {
+      const regionPayload = await postJson(REGION_URL, { keyword, isDomestic: IS_DOMESTIC });
+      const regions = Array.isArray(regionPayload?.data?.regions) ? regionPayload.data.regions : [];
+      const region = regions.find((item) => item?.type === "CITY") || regions[0];
+      if (!region?.regionId) {
+        console.log(`MyRealTrip accommodation region skipped: no region found for "${keyword}".`);
+        continue;
+      }
+
+      const request = {
+        regionId: region.regionId,
+        checkIn: CHECK_IN,
+        checkOut: CHECK_OUT,
+        adultCount: ADULT_COUNT,
+        childCount: CHILD_COUNT,
+        page: 0,
+        size: SIZE,
+      };
+      if (STAR_RATING) request.starRating = STAR_RATING;
+
+      const searchPayload = await postJson(SEARCH_URL, request);
+      const items = Array.isArray(searchPayload?.data?.items) ? searchPayload.data.items : [];
+      collected.push(...items
+        .map((item) => normalizeAccommodation(item, region))
+        .filter(Boolean)
+        .sort((a, b) => Number(a.price || 0) - Number(b.price || 0))
+        .slice(0, PER_REGION_LIMIT));
+    } catch (error) {
+      console.log(`MyRealTrip accommodation region skipped for "${keyword}": ${error.message}`);
+    }
   }
 
-  const request = {
-    regionId: region.regionId,
-    checkIn: CHECK_IN,
-    checkOut: CHECK_OUT,
-    adultCount: ADULT_COUNT,
-    childCount: CHILD_COUNT,
-    page: 0,
-    size: SIZE,
-  };
-  if (STAR_RATING) request.starRating = STAR_RATING;
+  const seen = new Set();
+  const accommodations = collected.filter((item) => {
+    if (seen.has(item.url)) return false;
+    seen.add(item.url);
+    return true;
+  }).slice(0, LIMIT);
 
-  const searchPayload = await postJson(SEARCH_URL, request);
-  const items = Array.isArray(searchPayload?.data?.items) ? searchPayload.data.items : [];
-  const accommodations = items
-    .map((item) => normalizeAccommodation(item, region))
-    .filter(Boolean)
-    .sort((a, b) => Number(a.price || 0) - Number(b.price || 0))
-    .slice(0, LIMIT);
-
+  if (!accommodations.length) {
+    console.log("MyRealTrip accommodation fetch kept the existing file: no matched products were returned.");
+    process.exit(0);
+  }
   await writeItems(accommodations);
   console.log(`Saved ${accommodations.length} MyRealTrip accommodation(s) to data/myrealtrip-accommodations.json.`);
 } catch (error) {
