@@ -1,10 +1,10 @@
 # 트립뷰 콘텐츠 품질 점검 리포트
 
 - 점검일: 2026-08-07
-- 전체 글: 650건
+- 전체 글: 660건
 
 ## 이슈 요약
-- short_body_under_1500_chars: 254건
+- short_body_under_1500_chars: 260건
 
 ## 우선 보강 대상
 - travel-2849648: short_body_under_1500_chars / 커피라끄 방문 전 알아두면 좋은 위치와 제천 여행 동선
@@ -15,7 +15,7 @@
 - travel-864429: short_body_under_1500_chars / 산정, 방문 전 알아둘 위치와 여행 동선
 - travel-3082668: short_body_under_1500_chars / 영덕 로오우 방문 전 확인할 위치와 여행 동선
 - travel-2858098: short_body_under_1500_chars / 더그라스 방문 전 알아두면 좋은 위치와 여행 동선
-- travel-2031668: short_body_under_1500_chars / 초안산, 방문 전 알아둘 위치와 여행 동선
+- travel-4096621: short_body_under_1500_chars / 몽과, 방문 전 알아둘 위치와 여행 동선
 - travel-3391733: short_body_under_1500_chars / 길등재 방문 전 알아두면 좋은 위치와 여행 동선
 - travel-4088394: short_body_under_1500_chars / 우미장 방문 전 알아둘 위치와 보령 여행 동선
 - travel-2859583: short_body_under_1500_chars / 에이커 방문 전 알아두면 좋은 위치와 청주 여행 동선

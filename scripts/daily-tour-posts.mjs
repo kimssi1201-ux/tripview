@@ -1,6 +1,7 @@
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isIndexablePost, postBodyLength } from './lib/content-quality.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -510,6 +511,7 @@ async function buildPosts() {
     console.warn(`TourAPI candidate fetch skipped; existing content will be rebuilt: ${message}`);
   }
   const newPosts = [];
+  const rejectedPosts = [];
 
   for (const candidate of candidates) {
     if (newPosts.length >= POST_LIMIT) break;
@@ -522,6 +524,16 @@ async function buildPosts() {
     if (!images.length) continue;
     const post = makeArticle(candidate, common, intro, images, candidate.category, today);
     if (hasExistingTitle(titles, post.sourceTitle) || hasExistingTitle(titles, post.title)) continue;
+    if (!isIndexablePost(post)) {
+      rejectedPosts.push({
+        contentid,
+        title: post.sourceTitle,
+        rejectedAt: new Date().toISOString(),
+        reason: `body_under_1500_chars:${postBodyLength(post)}`
+      });
+      postedIds.add(contentid);
+      continue;
+    }
     await fs.mkdir(path.join(ROOT, post.slug), { recursive: true });
     await fs.writeFile(path.join(ROOT, post.slug, 'index.html'), renderArticle(post), 'utf8');
     newPosts.push(post);
@@ -536,10 +548,15 @@ async function buildPosts() {
   await writeJson('data/generated-posts.json', generatedPosts);
   await writeJson('data/tour-posted.json', {
     updatedAt: new Date().toISOString(),
-    items: [...(posted.items || []), ...newPosts.map((post) => ({ contentid: post.contentid, slug: post.slug, title: post.sourceTitle, createdAt: new Date().toISOString() }))]
+    items: [
+      ...(posted.items || []),
+      ...newPosts.map((post) => ({ contentid: post.contentid, slug: post.slug, title: post.sourceTitle, createdAt: new Date().toISOString() })),
+      ...rejectedPosts
+    ]
   });
 
   console.log(`Generated ${newPosts.length} post(s).`);
+  if (rejectedPosts.length) console.log(`Skipped ${rejectedPosts.length} post(s) below the content quality threshold.`);
   for (const post of newPosts) console.log(`- ${post.title} (${post.images.length} image(s))`);
 }
 
