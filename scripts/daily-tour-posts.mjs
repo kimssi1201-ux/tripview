@@ -10,6 +10,8 @@ const API_BASE = 'https://apis.data.go.kr/B551011/KorService2';
 const POST_LIMIT = Math.max(1, Number.parseInt(process.env.POST_LIMIT || '10', 10) || 10);
 const MAX_IMAGES_PER_POST = Math.max(1, Math.min(3, Number.parseInt(process.env.MAX_IMAGES_PER_POST || '3', 10) || 3));
 const SERVICE_KEY = process.env.TRIPVIEW_API_KEY || process.env.TRIPVIEW_API_KEY_PARAM || '';
+const REQUEST_ATTEMPTS = Math.max(1, Math.min(5, Number.parseInt(process.env.TOUR_API_RETRIES || '3', 10) || 3));
+const REQUEST_TIMEOUT_MS = Math.max(5000, Math.min(60000, Number.parseInt(process.env.TOUR_API_TIMEOUT_MS || '20000', 10) || 20000));
 
 if (!SERVICE_KEY) {
   throw new Error('TRIPVIEW_API_KEY is required. Add it as a GitHub Actions secret.');
@@ -93,10 +95,17 @@ function buildUrl(endpoint, extra, encodedKey) {
 
 async function tourGet(endpoint, extra = {}) {
   let lastError = '';
-  for (const encodedKey of [false, true]) {
-    const res = await fetch(buildUrl(endpoint, extra, encodedKey));
-    const text = await res.text();
+  for (let attempt = 0; attempt < REQUEST_ATTEMPTS; attempt += 1) {
+    const encodedKey = attempt % 2 === 1;
     try {
+      const res = await fetch(buildUrl(endpoint, extra, encodedKey), {
+        signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS)
+      });
+      const text = await res.text();
+      if (!res.ok) {
+        lastError = `HTTP ${res.status}: ${text.slice(0, 120)}`;
+        continue;
+      }
       const json = JSON.parse(text);
       const header = json.response?.header;
       if (header && header.resultCode && header.resultCode !== '0000') {
@@ -105,8 +114,11 @@ async function tourGet(endpoint, extra = {}) {
       }
       const item = json.response?.body?.items?.item;
       return Array.isArray(item) ? item : item ? [item] : [];
-    } catch {
-      lastError = text.slice(0, 120);
+    } catch (error) {
+      lastError = error instanceof Error ? error.message : String(error);
+    }
+    if (attempt + 1 < REQUEST_ATTEMPTS) {
+      await new Promise((resolve) => setTimeout(resolve, 750 * 2 ** attempt));
     }
   }
   throw new Error(`Tour data request failed: ${lastError}`);
@@ -490,7 +502,13 @@ async function buildPosts() {
   const generated = await readJson('data/generated-posts.json', []);
   const postedIds = new Set((posted.items || []).map((item) => String(item.contentid)).filter(Boolean));
   const titles = await existingTitles();
-  const candidates = await fetchCandidates(today);
+  let candidates = [];
+  try {
+    candidates = await fetchCandidates(today);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    console.warn(`TourAPI candidate fetch skipped; existing content will be rebuilt: ${message}`);
+  }
   const newPosts = [];
 
   for (const candidate of candidates) {
