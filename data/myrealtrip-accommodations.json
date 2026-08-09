@@ -5,8 +5,8 @@
     "title": "서울 숙소 토요코인 서울영등포",
     "url": "https://accommodation.myrealtrip.com/union/products/1485138?checkIn=2026-08-23&checkOut=2026-08-25&adultCount=2&childCount=0&childAges=",
     "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/05/11/JCvE/zULsJLFNww.jpg?width=720",
-    "price": 107750,
-    "priceText": "107,750원부터",
+    "price": 118525,
+    "priceText": "118,525원부터",
     "region": "서울",
     "city": "서울",
     "category": "숙소 예약",
@@ -27,8 +27,40 @@
     "starRating": 3,
     "reviewScore": "4.5",
     "reviewCount": 1755,
-    "originalPrice": 107750,
+    "originalPrice": 118525,
     "deepLink": "mrt://unionstay/detail/1485138?checkIn=2026-08-23&checkOut=2026-08-25&adultCount=2&childCount=0&childAges=",
+    "source": "myrealtrip-accommodation"
+  },
+  {
+    "id": "accommodation-1134667",
+    "type": "accommodation",
+    "title": "서울 숙소 스위스 그랜드 호텔",
+    "url": "https://accommodation.myrealtrip.com/union/products/1134667?checkIn=2026-08-23&checkOut=2026-08-25&adultCount=2&childCount=0&childAges=",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/05/26/XVOB/pM4KIVlXDR.jpg?width=720",
+    "price": 204822,
+    "priceText": "204,822원부터",
+    "region": "서울",
+    "city": "서울",
+    "category": "숙소 예약",
+    "description": "2026년 8월 23일 체크인 · 2박 · 5성급 · 평점 4.1(900개)",
+    "tags": [
+      "숙소",
+      "호텔",
+      "예약",
+      "서울"
+    ],
+    "intents": [
+      "booking"
+    ],
+    "checkIn": "2026-08-23",
+    "checkOut": "2026-08-25",
+    "adultCount": 2,
+    "childCount": 0,
+    "starRating": 5,
+    "reviewScore": "4.1",
+    "reviewCount": 900,
+    "originalPrice": 204822,
+    "deepLink": "mrt://unionstay/detail/1134667?checkIn=2026-08-23&checkOut=2026-08-25&adultCount=2&childCount=0&childAges=",
     "source": "myrealtrip-accommodation"
   },
   {
@@ -61,38 +93,6 @@
     "reviewCount": 2142,
     "originalPrice": 219000,
     "deepLink": "mrt://unionstay/detail/2680706?checkIn=2026-08-23&checkOut=2026-08-25&adultCount=2&childCount=0&childAges=",
-    "source": "myrealtrip-accommodation"
-  },
-  {
-    "id": "accommodation-2680056",
-    "type": "accommodation",
-    "title": "서울 숙소 메이필드 호텔",
-    "url": "https://accommodation.myrealtrip.com/union/products/2680056?checkIn=2026-08-23&checkOut=2026-08-25&adultCount=2&childCount=0&childAges=",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/02/oA9Z/j9d6H12ANh.jpg?width=720",
-    "price": 214830,
-    "priceText": "214,830원부터",
-    "region": "서울",
-    "city": "서울",
-    "category": "숙소 예약",
-    "description": "2026년 8월 23일 체크인 · 2박 · 5성급 · 평점 4.5(1,187개)",
-    "tags": [
-      "숙소",
-      "호텔",
-      "예약",
-      "서울"
-    ],
-    "intents": [
-      "booking"
-    ],
-    "checkIn": "2026-08-23",
-    "checkOut": "2026-08-25",
-    "adultCount": 2,
-    "childCount": 0,
-    "starRating": 5,
-    "reviewScore": "4.5",
-    "reviewCount": 1187,
-    "originalPrice": 231000,
-    "deepLink": "mrt://unionstay/detail/2680056?checkIn=2026-08-23&checkOut=2026-08-25&adultCount=2&childCount=0&childAges=",
     "source": "myrealtrip-accommodation"
   },
   {
@@ -133,8 +133,8 @@
     "title": "부산 숙소 토요코인 부산역1",
     "url": "https://accommodation.myrealtrip.com/union/products/1189384?checkIn=2026-08-23&checkOut=2026-08-25&adultCount=2&childCount=0&childAges=",
     "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/09/16/ont6/jwJQzLmTqj.jpg?width=720",
-    "price": 83642,
-    "priceText": "83,642원부터",
+    "price": 88449,
+    "priceText": "88,449원부터",
     "region": "부산",
     "city": "부산",
     "category": "숙소 예약",
@@ -155,7 +155,7 @@
     "starRating": 3,
     "reviewScore": "4.4",
     "reviewCount": 1427,
-    "originalPrice": 94082,
+    "originalPrice": 99489,
     "deepLink": "mrt://unionstay/detail/1189384?checkIn=2026-08-23&checkOut=2026-08-25&adultCount=2&childCount=0&childAges=",
     "source": "myrealtrip-accommodation"
   },
@@ -224,38 +224,6 @@
     "source": "myrealtrip-accommodation"
   },
   {
-    "id": "accommodation-1584429",
-    "type": "accommodation",
-    "title": "제주시 숙소 아루미호텔 협재점",
-    "url": "https://accommodation.myrealtrip.com/union/products/1584429?checkIn=2026-08-23&checkOut=2026-08-25&adultCount=2&childCount=0&childAges=",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/12/12/Rcm5/yEJ7xi9SM9.jpg?width=720",
-    "price": 74800,
-    "priceText": "74,800원부터",
-    "region": "제주시",
-    "city": "제주시",
-    "category": "숙소 예약",
-    "description": "2026년 8월 23일 체크인 · 2박 · 3성급 · 평점 4.3(51개)",
-    "tags": [
-      "숙소",
-      "호텔",
-      "예약",
-      "제주시"
-    ],
-    "intents": [
-      "booking"
-    ],
-    "checkIn": "2026-08-23",
-    "checkOut": "2026-08-25",
-    "adultCount": 2,
-    "childCount": 0,
-    "starRating": 3,
-    "reviewScore": "4.3",
-    "reviewCount": 51,
-    "originalPrice": 200000,
-    "deepLink": "mrt://unionstay/detail/1584429?checkIn=2026-08-23&checkOut=2026-08-25&adultCount=2&childCount=0&childAges=",
-    "source": "myrealtrip-accommodation"
-  },
-  {
     "id": "accommodation-1235385",
     "type": "accommodation",
     "title": "제주시 숙소 제주팔레스관광호텔",
@@ -285,6 +253,38 @@
     "reviewCount": 384,
     "originalPrice": 110000,
     "deepLink": "mrt://unionstay/detail/1235385?checkIn=2026-08-23&checkOut=2026-08-25&adultCount=2&childCount=0&childAges=",
+    "source": "myrealtrip-accommodation"
+  },
+  {
+    "id": "accommodation-1584429",
+    "type": "accommodation",
+    "title": "제주시 숙소 아루미호텔 협재점",
+    "url": "https://accommodation.myrealtrip.com/union/products/1584429?checkIn=2026-08-23&checkOut=2026-08-25&adultCount=2&childCount=0&childAges=",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/12/12/Rcm5/yEJ7xi9SM9.jpg?width=720",
+    "price": 79475,
+    "priceText": "79,475원부터",
+    "region": "제주시",
+    "city": "제주시",
+    "category": "숙소 예약",
+    "description": "2026년 8월 23일 체크인 · 2박 · 3성급 · 평점 4.3(51개)",
+    "tags": [
+      "숙소",
+      "호텔",
+      "예약",
+      "제주시"
+    ],
+    "intents": [
+      "booking"
+    ],
+    "checkIn": "2026-08-23",
+    "checkOut": "2026-08-25",
+    "adultCount": 2,
+    "childCount": 0,
+    "starRating": 3,
+    "reviewScore": "4.3",
+    "reviewCount": 51,
+    "originalPrice": 200000,
+    "deepLink": "mrt://unionstay/detail/1584429?checkIn=2026-08-23&checkOut=2026-08-25&adultCount=2&childCount=0&childAges=",
     "source": "myrealtrip-accommodation"
   },
   {
