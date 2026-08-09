@@ -195,7 +195,7 @@ function productCard(product) {
 function flightPageHtml(deal) {
   const products = relatedProducts(deal);
   const related = products.length
-    ? `<section class="block"><h2>같이 보면 좋은 예약 정보</h2><div class="products">${products.map(productCard).join("")}</div></section>`
+    ? `<section class="block"><h2>여행 준비에 필요한 예약</h2><div class="products">${products.map(productCard).join("")}</div></section>`
     : "";
   const description = `${deal.region || deal.city || "해외"} 여행을 검토할 때 참고할 항공권 가격, 출발일, 여행 기간을 한 번에 정리했습니다.`;
   return `<!doctype html>
@@ -452,7 +452,7 @@ function articleAdCard(item) {
   return `<a class="mrt-card${image ? "" : " no-image"}" href="${html(url)}"${rel}>
     ${image}
     <strong>${title}</strong>
-    <em>${html(articleAdMeta(item) || "\uB9C8\uC774\uB9AC\uC5BC\uD2B8\uB9BD \uC608\uC57D \uC815\uBCF4")}</em>
+    <em>${html(articleAdMeta(item) || "상품 정보")}</em>
   </a>`;
 }
 
@@ -479,11 +479,11 @@ function articleAdItems(post, count = 2) {
 function articleAdBlock(post) {
   const items = articleAdItems(post, 2);
   if (!items.length) return "";
-  const title = "이 여행지 예약 정보";
+  const title = "주변 숙소·투어";
   return `${MRT_AD_START} context -->
 <section class="mrt-native-ad" aria-label="${title}">
   <div class="mrt-native-head"><strong>${title}</strong><span>숙소·투어·티켓</span></div>
-  <p class="mrt-affiliate-note">현재 글의 지역과 여행 목적이 일치하는 상품만 표시합니다. 제휴 링크를 통해 예약하면 트립뷰가 수수료를 받을 수 있습니다.</p>
+  <p class="mrt-affiliate-note">여행지 주변의 숙소와 이용 가능한 투어·티켓을 모았습니다. 제휴 링크를 통해 예약하면 트립뷰가 수수료를 받을 수 있습니다.</p>
   <div class="mrt-native-grid">${items.map(articleAdCard).join("")}</div>
 </section>
 <!-- ${MRT_AD_END}`;

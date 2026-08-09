@@ -73,6 +73,8 @@ test("affiliate cards are contextual, unique, safely linked, and absent from unm
   assert.equal(new Set(urls).size, urls.length, "homepage affiliate products should not repeat");
   assert.ok(urls.every((url) => /^https:\/\/(?:[^/]+\.)?myrealtrip\.com\//.test(url)));
   assert.ok(cards.every((card) => /rel="sponsored noopener"/.test(card)));
+  assert.match(homepage, /여행지별 숙소·투어/);
+  assert.doesNotMatch(homepage, /콘텐츠와 맞는 예약 정보|맞춤 예약 정보/);
   const productCards = [...homepage.matchAll(/<a class="check-card product-card"[^>]*data-affiliate-match="context"[^>]*>[\s\S]*?<\/a>/g)]
     .map((match) => match[0]);
   assert.equal(productCards.length, cards.length);
@@ -87,7 +89,8 @@ test("affiliate cards are contextual, unique, safely linked, and absent from unm
   ]);
   assert.match(seoulArticle, /<!-- MRT_AD_START context -->/);
   assert.match(seoulArticle, /class="mrt-thumb"><img src="https:\/\/[^\"]+"[^>]*loading="lazy"/);
-  assert.match(seoulArticle, /서울 일정에 맞춘 인근 숙소/);
+  assert.match(seoulArticle, /주변 숙소·투어/);
+  assert.match(seoulArticle, /서울 숙소/);
   assert.doesNotMatch(unmatchedArticle, /<!-- MRT_AD_START context -->/);
   assert.match(thinSeoulArticle, /<meta name="robots" content="noindex, follow">/);
   assert.doesNotMatch(thinSeoulArticle, /<!-- MRT_AD_START context -->/);

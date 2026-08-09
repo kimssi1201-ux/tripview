@@ -276,7 +276,7 @@ function productCard(product) {
   const className = `check-card product-card${image ? "" : " no-thumb"}`;
   return `<a class="${className}" href="${esc(product.url)}" data-affiliate-match="context"${externalAttrs(product.url)}>
     ${image}
-    <small class="affiliate-match">제휴 · ${esc(product.matchReason || "여행 일정에 맞춘 예약 정보")}</small>
+    <small class="affiliate-match">제휴 · ${esc(product.matchReason || "숙소·투어 상품")}</small>
     <strong>${esc(product.title)}</strong>
     <span>${esc(productMeta(product) || "\uC5EC\uD589 \uC804 \uC608\uC57D \uC815\uBCF4")}</span>
   </a>`;
@@ -338,7 +338,7 @@ function myRealTripAdSection(products = []) {
   const cards = products.filter(Boolean).map(productCard).join("");
 
   if (!cards) return "";
-  const title = "콘텐츠와 맞는 예약 정보";
+  const title = "여행지별 숙소·투어";
   return `<section class="news-section check-section mrt-ad-section" id="myrealtrip-deals" aria-labelledby="myrealtrip-deals-title" data-headline="${title}">
     <h2 id="myrealtrip-deals-title">${title}</h2>
     <p class="affiliate-disclosure">\uC77C\uBD80 \uB9C1\uD06C\uB97C \uD1B5\uD574 \uC608\uC57D\uD558\uBA74 \uC0AC\uC774\uD2B8 \uC6B4\uC601\uC790\uAC00 \uC218\uC218\uB8CC\uB97C \uC81C\uACF5\uBC1B\uC744 \uC218 \uC788\uC2B5\uB2C8\uB2E4. \uAC00\uACA9\uACFC \uC608\uC57D \uC870\uAC74\uC740 \uC608\uC57D\uCC98\uC5D0\uC11C \uCD5C\uC885 \uD655\uC778\uD558\uC138\uC694.</p>
@@ -768,7 +768,7 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
     limit: 3,
   });
   const mrtHtml = myRealTripAdSection(mrtProducts);
-  const mrtNav = mrtHtml ? { id: "myrealtrip-deals", title: "맞춤 예약 정보", kind: "ad" } : null;
+  const mrtNav = mrtHtml ? { id: "myrealtrip-deals", title: "숙소·투어", kind: "ad" } : null;
   const navSections = flightNav
     ? [sections[0], sections[1], flightNav, ...sections.slice(2, -1), mrtNav, sections.at(-1)].filter(Boolean)
     : [...sections.slice(0, -1), mrtNav, sections.at(-1)].filter(Boolean);

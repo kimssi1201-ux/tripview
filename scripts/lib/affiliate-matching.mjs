@@ -179,12 +179,12 @@ function productSource(product = {}) {
 function matchReason(product) {
   const region = productRegion(product) || "여행지";
   if (productSource(product) === "myrealtrip-accommodation" || product.type === "accommodation") {
-    return `${region} 일정에 맞춘 인근 숙소`;
+    return `${region} 숙소`;
   }
   if (productSource(product) === "myrealtrip-flight" || product.type === "flight") {
-    return `${region} 일정에 맞춘 항공권`;
+    return `${region} 항공권`;
   }
-  return `${region} 일정에 맞춘 투어·티켓`;
+  return `${region} 투어·티켓`;
 }
 
 function productKey(product = {}) {
