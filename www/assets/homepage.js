@@ -93,6 +93,13 @@
         image.src = item.image;
         image.alt = item.title || "예약 상품";
         image.loading = "lazy";
+        image.decoding = "async";
+        image.width = 160;
+        image.height = 125;
+        image.addEventListener("error", () => {
+          thumb.remove();
+          card.classList.add("no-thumb");
+        }, { once: true });
         thumb.appendChild(image);
         card.appendChild(thumb);
       }

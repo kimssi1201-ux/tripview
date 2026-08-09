@@ -92,7 +92,7 @@ function flightBookingUrl(deal) {
 }
 
 function postDate(post) {
-  return post.sortDate || post.date || new Date().toISOString().slice(0, 10);
+  return post.updatedAt || post.sortDate || post.date || new Date().toISOString().slice(0, 10);
 }
 
 function postExcerpt(post) {

@@ -518,7 +518,7 @@ async function buildPosts() {
     const contentid = String(candidate.contentid || '');
     if (!contentid || postedIds.has(contentid)) continue;
     if (hasExistingTitle(titles, candidate.title || '')) continue;
-    const common = (await tourGet('detailCommon2', { contentId: contentid, contentTypeId: candidate.contentTypeId, defaultYN: 'Y', firstImageYN: 'Y', addrinfoYN: 'Y', overviewYN: 'Y', mapinfoYN: 'Y', areacodeYN: 'Y' }).catch(() => []))[0] || {};
+    const common = (await tourGet('detailCommon2', { contentId: contentid }).catch(() => []))[0] || {};
     const intro = (await tourGet('detailIntro2', { contentId: contentid, contentTypeId: candidate.contentTypeId }).catch(() => []))[0] || {};
     const images = await collectImages(contentid, [candidate.firstimage, candidate.firstimage2, common.firstimage, common.firstimage2]);
     if (!images.length) continue;

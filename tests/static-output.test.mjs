@@ -87,7 +87,7 @@ test("affiliate cards are contextual, unique, safely linked, and absent from unm
   assert.ok(productCards.every((card) => /<img /.test(card) || /\bno-thumb\b/.test(card)));
   assert.doesNotMatch(homepage, /data-affiliate-match="context"[\s\S]{0,500}오사카/);
 
-  const [seoulArticle, unmatchedArticle, thinSeoulArticle] = await Promise.all([
+  const [seoulArticle, unmatchedArticle, enrichedSeoulArticle] = await Promise.all([
     readFile("festival-4094595/index.html", "utf8"),
     readFile("festival-4008618/index.html", "utf8"),
     readFile("travel-142733/index.html", "utf8"),
@@ -95,8 +95,8 @@ test("affiliate cards are contextual, unique, safely linked, and absent from unm
   assert.match(seoulArticle, /<!-- MRT_AD_START context -->/);
   assert.match(seoulArticle, /class="mrt-thumb"><img src="https:\/\/[^\"]+"[^>]*loading="lazy"/);
   assert.doesNotMatch(unmatchedArticle, /<!-- MRT_AD_START context -->/);
-  assert.match(thinSeoulArticle, /<meta name="robots" content="noindex, follow">/);
-  assert.doesNotMatch(thinSeoulArticle, /<!-- MRT_AD_START context -->/);
+  assert.match(enrichedSeoulArticle, /<meta name="robots" content="index, follow, max-image-preview:large">/);
+  assert.match(enrichedSeoulArticle, /<!-- MRT_AD_START context -->/);
 
   const flightDirectories = await readdir("flight-deals", { withFileTypes: true });
   const overseasFlightDirectory = flightDirectories.find((entry) => entry.isDirectory() && entry.name.includes("-osa-"));
@@ -125,7 +125,7 @@ test("trust pages use canonical URLs and current homepage anchors", async () => 
   }
 });
 
-test("sitemap includes only indexable articles and thin pages use noindex", async () => {
+test("sitemap includes only indexable articles and article robots match content quality", async () => {
   const [sitemap, postsText] = await Promise.all([
     readFile("sitemap.xml", "utf8"),
     readFile("data/generated-posts.json", "utf8"),
@@ -138,9 +138,13 @@ test("sitemap includes only indexable articles and thin pages use noindex", asyn
   assert.equal(articleUrls.length, indexable.length);
   assert.ok(articleUrls.every((slug) => indexable.some((post) => post.slug === slug)));
 
-  const thinPost = posts.find((post) => !isIndexablePost(post));
   const strongPost = indexable[0];
-  assert.ok(thinPost && strongPost);
-  assert.match(await readFile(`${thinPost.slug}/index.html`, "utf8"), /<meta name="robots" content="noindex, follow">/);
+  const thinPost = posts.find((post) => !isIndexablePost(post));
+  assert.ok(strongPost);
   assert.match(await readFile(`${strongPost.slug}/index.html`, "utf8"), /<meta name="robots" content="index, follow, max-image-preview:large">/);
+  if (thinPost) {
+    assert.match(await readFile(`${thinPost.slug}/index.html`, "utf8"), /<meta name="robots" content="noindex, follow">/);
+  } else {
+    assert.equal(indexable.length, posts.length);
+  }
 });

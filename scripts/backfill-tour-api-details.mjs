@@ -1,6 +1,7 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { MIN_INDEXABLE_BODY_LENGTH, postBodyLength } from "./lib/content-quality.mjs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -8,6 +9,8 @@ const ROOT = path.resolve(__dirname, "..");
 const API_BASE = "https://apis.data.go.kr/B551011/KorService2";
 const SERVICE_KEY = process.env.TRIPVIEW_API_KEY || process.env.TRIPVIEW_API_KEY_PARAM || "";
 const LIMIT = Math.max(0, Number.parseInt(process.env.BACKFILL_LIMIT || "300", 10) || 300);
+const ONLY_SHORT = process.env.BACKFILL_ONLY_SHORT === "1";
+const TARGETS = new Set(String(process.env.BACKFILL_TARGETS || "").split(",").map((value) => value.trim()).filter(Boolean));
 
 if (!SERVICE_KEY) {
   throw new Error("TRIPVIEW_API_KEY is required for TourAPI detail backfill.");
@@ -51,6 +54,10 @@ async function tourGet(endpoint, extra = {}) {
     const text = await res.text();
     try {
       const json = JSON.parse(text);
+      if (json.resultCode && json.resultCode !== "0000") {
+        lastError = `${json.resultCode} ${json.resultMsg || ""}`.trim();
+        continue;
+      }
       const header = json.response?.header;
       if (header && header.resultCode && header.resultCode !== "0000") {
         lastError = `${header.resultCode} ${header.resultMsg || ""}`.trim();
@@ -93,27 +100,79 @@ function pickIntroFields(intro = {}) {
     "chkpet",
     "infocenter",
     "infocenterculture",
-    "infocenterleports"
+    "infocenterleports",
+    "infocentertourcourse",
+    "infocenterlodging",
+    "infocentershopping",
+    "infocenterfood",
+    "restdateleports",
+    "restdateshopping",
+    "restdatefood",
+    "usefeeleports",
+    "reservation",
+    "expagerangeleports",
+    "checkintime",
+    "checkouttime",
+    "chkcooking",
+    "foodplace",
+    "parkinglodging",
+    "pickup",
+    "roomcount",
+    "reservationlodging",
+    "reservationurl",
+    "roomtype",
+    "subfacility",
+    "opentime",
+    "parkingshopping",
+    "saleitem",
+    "saleitemcost",
+    "shopguide",
+    "distance",
+    "schedule",
+    "taketime",
+    "theme",
+    "firstmenu",
+    "opentimefood",
+    "packing",
+    "parkingfood",
+    "reservationfood",
+    "treatmenu"
   ];
   return Object.fromEntries(keys.map((key) => [key, strip(intro[key])]).filter(([, value]) => value));
 }
 
 function mergeInfo(post, common, intro) {
   const rows = [...(post.info || [])];
-  const existing = new Set(rows.map(([key]) => key));
-  const add = (key, value) => {
+  const indexByKey = new Map(rows.map(([key], index) => [key, index]));
+  const placeholder = /^(방문 전 (확인|문의) 필요|시설별 상이|정보 없음|-|없음)$/;
+  const set = (key, value) => {
     const clean = strip(value);
-    if (!clean || existing.has(key)) return;
-    existing.add(key);
-    rows.push([key, clean]);
+    if (!clean) return;
+    const index = indexByKey.get(key);
+    if (index === undefined) {
+      indexByKey.set(key, rows.length);
+      rows.push([key, clean]);
+      return;
+    }
+    if (!strip(rows[index][1]) || placeholder.test(strip(rows[index][1]))) rows[index][1] = clean;
   };
 
-  add("홈페이지", common.homepage);
-  add("좌표", common.mapx && common.mapy ? `${common.mapy}, ${common.mapx}` : "");
-  add("주차", intro.parking || intro.parkingculture || intro.parkingfestival || intro.parkingleports);
-  add("쉬는 날", intro.restdate || intro.restdateculture);
-  add("체험 안내", intro.expguide || intro.expagerange);
-  add("반려동물", intro.chkpet);
+  set("문의", intro.infocenter || intro.infocenterculture || intro.infocenterleports || intro.infocentertourcourse || intro.infocenterlodging || intro.infocentershopping || intro.infocenterfood);
+  set("운영 확인", intro.usetime || intro.usetimeculture || intro.usetimeleports || intro.opentime || intro.opentimefood);
+  set("요금", intro.usefee || intro.usefeeleports || intro.usetimefestival || intro.saleitemcost);
+  set("홈페이지", common.homepage);
+  set("좌표", common.mapx && common.mapy ? `${common.mapy}, ${common.mapx}` : "");
+  set("주차", intro.parking || intro.parkingculture || intro.parkingfestival || intro.parkingleports || intro.parkinglodging || intro.parkingshopping || intro.parkingfood);
+  set("쉬는 날", intro.restdate || intro.restdateculture || intro.restdateleports || intro.restdateshopping || intro.restdatefood);
+  set("체험 안내", intro.expguide || intro.expagerange || intro.expagerangeleports);
+  set("반려동물", intro.chkpet || intro.chkpetculture || intro.chkpetleports || intro.chkpetshopping);
+  set("체크인", intro.checkintime);
+  set("체크아웃", intro.checkouttime);
+  set("객실 안내", intro.roomtype || intro.roomcount);
+  set("대표 메뉴", intro.firstmenu || intro.treatmenu);
+  set("판매 품목", intro.saleitem || intro.shopguide);
+  set("예상 시간", intro.taketime);
+  set("코스 안내", intro.schedule || intro.theme);
   return rows;
 }
 
@@ -123,7 +182,9 @@ let updated = 0;
 const next = [];
 
 for (const post of posts) {
-  if (!post.contentid || checked >= LIMIT) {
+  const selected = (!TARGETS.size || TARGETS.has(post.slug))
+    && (!ONLY_SHORT || postBodyLength(post) < MIN_INDEXABLE_BODY_LENGTH);
+  if (!selected || !post.contentid || checked >= LIMIT) {
     next.push(post);
     continue;
   }
@@ -131,28 +192,21 @@ for (const post of posts) {
   checked += 1;
   const typeId = contentTypeId(post);
   try {
-    const common = (await tourGet("detailCommon2", {
-      contentId: post.contentid,
-      contentTypeId: typeId,
-      defaultYN: "Y",
-      firstImageYN: "Y",
-      addrinfoYN: "Y",
-      overviewYN: "Y",
-      mapinfoYN: "Y",
-      areacodeYN: "Y"
-    }))[0] || {};
+    const common = (await tourGet("detailCommon2", { contentId: post.contentid }))[0] || {};
     const intro = (await tourGet("detailIntro2", { contentId: post.contentid, contentTypeId: typeId }))[0] || {};
+    const pickedIntro = pickIntroFields(intro);
     const tourApi = {
+      ...(post.tourApi || {}),
       contentTypeId: typeId,
-      overview: strip(common.overview),
-      homepage: strip(common.homepage),
-      mapx: common.mapx || "",
-      mapy: common.mapy || "",
-      mlevel: common.mlevel || "",
-      intro: pickIntroFields(intro),
+      overview: strip(common.overview) || strip(post.tourApi?.overview),
+      homepage: strip(common.homepage) || strip(post.tourApi?.homepage),
+      mapx: common.mapx || post.tourApi?.mapx || "",
+      mapy: common.mapy || post.tourApi?.mapy || "",
+      mlevel: common.mlevel || post.tourApi?.mlevel || "",
+      intro: { ...(post.tourApi?.intro || {}), ...pickedIntro },
       backfilledAt: new Date().toISOString()
     };
-    next.push({ ...post, info: mergeInfo(post, common, intro), tourApi });
+    next.push({ ...post, info: mergeInfo(post, common, tourApi.intro), tourApi });
     updated += 1;
     console.log(`Backfilled ${post.slug}`);
   } catch (error) {
