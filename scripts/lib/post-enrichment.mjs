@@ -461,6 +461,11 @@ export function enrichPost(post = {}, updatedAt = new Date().toISOString().slice
   return base;
 }
 
+export function repairEnrichedPost(post = {}, updatedAt = new Date().toISOString().slice(0, 10)) {
+  if (!post.contentDepthVersion || postBodyLength(post) >= MIN_ENRICHED_BODY_LENGTH) return post;
+  return enrichPost(post, updatedAt);
+}
+
 export function hasInternalProductionCopy(post = {}) {
   const values = [
     post.title,

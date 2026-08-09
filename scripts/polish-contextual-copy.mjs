@@ -2,6 +2,8 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
+import { repairEnrichedPost } from "./lib/post-enrichment.mjs";
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, "..");
@@ -327,7 +329,10 @@ function buildFaq(post) {
 }
 
 function polishPost(post) {
-  if (post.manualWaterPostVersion || post.manualIndoorPostVersion || post.contentDepthVersion) {
+  if (post.contentDepthVersion) {
+    return { ...repairEnrichedPost(post), copyPolishedVersion: VERSION };
+  }
+  if (post.manualWaterPostVersion || post.manualIndoorPostVersion) {
     return { ...post, copyPolishedVersion: VERSION };
   }
 

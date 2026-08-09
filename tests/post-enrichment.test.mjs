@@ -7,6 +7,7 @@ import {
   enrichPost,
   hasInternalProductionCopy,
   postType,
+  repairEnrichedPost,
   verifiedFacts,
 } from "../scripts/lib/post-enrichment.mjs";
 
@@ -115,4 +116,14 @@ test("empty API details omit placeholder rows and use natural fallback copy", ()
   assert.deepEqual(enriched.info, [["방문 포인트", "산책과 휴식"]]);
   assert.doesNotMatch(JSON.stringify(enriched.sections), /국내 안/);
   assert.doesNotMatch(JSON.stringify(enriched.info), /방문 전 (?:위치 )?확인 필요/);
+});
+
+test("automated publishing preserves valid enrichment and repairs truncated copy", () => {
+  const enriched = enrichPost(samplePost(), "2026-08-09");
+  assert.strictEqual(repairEnrichedPost(enriched, "2026-08-10"), enriched);
+
+  const truncated = { ...enriched, sections: enriched.sections.slice(0, 2) };
+  const repaired = repairEnrichedPost(truncated, "2026-08-10");
+  assert.ok(postBodyLength(repaired) >= MIN_ENRICHED_BODY_LENGTH);
+  assert.equal(repaired.contentDepthUpdatedAt, "2026-08-10");
 });

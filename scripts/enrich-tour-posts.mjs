@@ -2,6 +2,8 @@ import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { repairEnrichedPost } from './lib/post-enrichment.mjs';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, '..');
@@ -190,6 +192,7 @@ function buildFaq(post) {
 }
 
 function enrichPost(post) {
+  if (post.contentDepthVersion) return repairEnrichedPost(post);
   if ((post.manualWaterPostVersion || post.manualIndoorPostVersion) && Array.isArray(post.sections) && post.sections.length >= 4) {
     return post;
   }
@@ -404,7 +407,7 @@ async function applyOpenAiEnrichment(posts) {
   let attempted = 0;
   const next = [];
   for (const post of posts) {
-    if (post.manualWaterPostVersion || post.manualIndoorPostVersion || attempted >= limit || post.aiEnrichedVersion === AI_PROMPT_VERSION) {
+    if (post.manualWaterPostVersion || post.manualIndoorPostVersion || post.contentDepthVersion || attempted >= limit || post.aiEnrichedVersion === AI_PROMPT_VERSION) {
       next.push(post);
       continue;
     }
