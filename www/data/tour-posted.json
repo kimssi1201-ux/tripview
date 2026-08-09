@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-08T01:37:47.434Z",
+  "updatedAt": "2026-08-09T01:43:41.879Z",
   "items": [
     {
       "contentid": "4070865",
@@ -4734,6 +4734,444 @@
       "title": "바이제주",
       "rejectedAt": "2026-08-07T02:27:09.795Z",
       "reason": "body_under_1500_chars:743"
+    },
+    {
+      "contentid": "893948",
+      "title": "황산마을",
+      "rejectedAt": "2026-08-09T01:42:57.045Z",
+      "reason": "body_under_1500_chars:727"
+    },
+    {
+      "contentid": "4096904",
+      "title": "국립새만금간척박물관",
+      "rejectedAt": "2026-08-09T01:42:57.653Z",
+      "reason": "body_under_1500_chars:765"
+    },
+    {
+      "contentid": "143033",
+      "title": "JW 메리어트 호텔 서울",
+      "rejectedAt": "2026-08-09T01:42:58.283Z",
+      "reason": "body_under_1500_chars:765"
+    },
+    {
+      "contentid": "2830572",
+      "title": "헬로오드리",
+      "rejectedAt": "2026-08-09T01:42:58.903Z",
+      "reason": "body_under_1500_chars:737"
+    },
+    {
+      "contentid": "4011377",
+      "title": "요넥스 강남점",
+      "rejectedAt": "2026-08-09T01:42:59.514Z",
+      "reason": "body_under_1500_chars:744"
+    },
+    {
+      "contentid": "2773530",
+      "title": "공립인제내설악미술관",
+      "rejectedAt": "2026-08-09T01:43:00.136Z",
+      "reason": "body_under_1500_chars:766"
+    },
+    {
+      "contentid": "1028875",
+      "title": "[강화 나들길 제6코스] 화남생가 가는 길",
+      "rejectedAt": "2026-08-09T01:43:00.757Z",
+      "reason": "body_under_1500_chars:806"
+    },
+    {
+      "contentid": "970481",
+      "title": "디오션리조트",
+      "rejectedAt": "2026-08-09T01:43:01.443Z",
+      "reason": "body_under_1500_chars:752"
+    },
+    {
+      "contentid": "4096905",
+      "title": "지베르니정원",
+      "rejectedAt": "2026-08-09T01:43:02.074Z",
+      "reason": "body_under_1500_chars:754"
+    },
+    {
+      "contentid": "1577238",
+      "title": "갈계숲",
+      "rejectedAt": "2026-08-09T01:43:02.692Z",
+      "reason": "body_under_1500_chars:726"
+    },
+    {
+      "contentid": "2773766",
+      "title": "한강뮤지엄",
+      "rejectedAt": "2026-08-09T01:43:03.325Z",
+      "reason": "body_under_1500_chars:735"
+    },
+    {
+      "contentid": "1028726",
+      "title": "[강화 나들길 제5코스] 고비고개길",
+      "rejectedAt": "2026-08-09T01:43:03.957Z",
+      "reason": "body_under_1500_chars:790"
+    },
+    {
+      "contentid": "4096903",
+      "title": "카페 해담은 베리",
+      "rejectedAt": "2026-08-09T01:43:04.585Z",
+      "reason": "body_under_1500_chars:759"
+    },
+    {
+      "contentid": "127865",
+      "title": "고사포해수욕장",
+      "rejectedAt": "2026-08-09T01:43:05.221Z",
+      "reason": "body_under_1500_chars:752"
+    },
+    {
+      "contentid": "2758152",
+      "title": "송파책박물관",
+      "rejectedAt": "2026-08-09T01:43:05.841Z",
+      "reason": "body_under_1500_chars:744"
+    },
+    {
+      "contentid": "1028358",
+      "title": "[강화 나들길 제1코스] 심도역사문화길",
+      "rejectedAt": "2026-08-09T01:43:06.457Z",
+      "reason": "body_under_1500_chars:798"
+    },
+    {
+      "contentid": "134273",
+      "title": "변산온천산장",
+      "rejectedAt": "2026-08-09T01:43:07.082Z",
+      "reason": "body_under_1500_chars:748"
+    },
+    {
+      "contentid": "126192",
+      "title": "김해수로왕릉",
+      "rejectedAt": "2026-08-09T01:43:07.701Z",
+      "reason": "body_under_1500_chars:734"
+    },
+    {
+      "contentid": "2774698",
+      "title": "강릉아트센터",
+      "rejectedAt": "2026-08-09T01:43:08.322Z",
+      "reason": "body_under_1500_chars:745"
+    },
+    {
+      "contentid": "2752816",
+      "title": "문서프",
+      "rejectedAt": "2026-08-09T01:43:08.956Z",
+      "reason": "body_under_1500_chars:734"
+    },
+    {
+      "contentid": "2774518",
+      "title": "토담숯불닭갈비",
+      "rejectedAt": "2026-08-09T01:43:09.568Z",
+      "reason": "body_under_1500_chars:752"
+    },
+    {
+      "contentid": "2950185",
+      "title": "시리단길",
+      "rejectedAt": "2026-08-09T01:43:10.189Z",
+      "reason": "body_under_1500_chars:758"
+    },
+    {
+      "contentid": "3013386",
+      "title": "한상수자수박물관",
+      "rejectedAt": "2026-08-09T01:43:10.813Z",
+      "reason": "body_under_1500_chars:753"
+    },
+    {
+      "contentid": "1028888",
+      "title": "[강화 나들길 제7코스] 낙조보러 가는 길",
+      "rejectedAt": "2026-08-09T01:43:11.443Z",
+      "reason": "body_under_1500_chars:807"
+    },
+    {
+      "contentid": "2775583",
+      "title": "346커피스토리",
+      "rejectedAt": "2026-08-09T01:43:12.058Z",
+      "reason": "body_under_1500_chars:757"
+    },
+    {
+      "contentid": "2951287",
+      "title": "월성이랑",
+      "rejectedAt": "2026-08-09T01:43:12.687Z",
+      "reason": "body_under_1500_chars:719"
+    },
+    {
+      "contentid": "4096609",
+      "title": "김천시립미술관",
+      "rejectedAt": "2026-08-09T01:43:13.293Z",
+      "reason": "body_under_1500_chars:745"
+    },
+    {
+      "contentid": "2786064",
+      "title": "가좌산대나무숲길",
+      "rejectedAt": "2026-08-09T01:43:13.917Z",
+      "reason": "body_under_1500_chars:753"
+    },
+    {
+      "contentid": "2776588",
+      "title": "1919봄",
+      "rejectedAt": "2026-08-09T01:43:14.539Z",
+      "reason": "body_under_1500_chars:731"
+    },
+    {
+      "contentid": "2961219",
+      "title": "연희자연마당",
+      "rejectedAt": "2026-08-09T01:43:15.163Z",
+      "reason": "body_under_1500_chars:731"
+    },
+    {
+      "contentid": "3012859",
+      "title": "국립극장 공연예술박물관",
+      "rejectedAt": "2026-08-09T01:43:15.783Z",
+      "reason": "body_under_1500_chars:763"
+    },
+    {
+      "contentid": "2744503",
+      "title": "영월솔향기캠프펜션",
+      "rejectedAt": "2026-08-09T01:43:16.405Z",
+      "reason": "body_under_1500_chars:763"
+    },
+    {
+      "contentid": "2776584",
+      "title": "밀양루(RO)",
+      "rejectedAt": "2026-08-09T01:43:17.019Z",
+      "reason": "body_under_1500_chars:737"
+    },
+    {
+      "contentid": "2755042",
+      "title": "무등산 리프트모노레일",
+      "rejectedAt": "2026-08-09T01:43:17.636Z",
+      "reason": "body_under_1500_chars:774"
+    },
+    {
+      "contentid": "2777377",
+      "title": "만봉불화박물관",
+      "rejectedAt": "2026-08-09T01:43:18.255Z",
+      "reason": "body_under_1500_chars:756"
+    },
+    {
+      "contentid": "2726672",
+      "title": "가평명지산카라반글램핑",
+      "rejectedAt": "2026-08-09T01:43:18.887Z",
+      "reason": "body_under_1500_chars:754"
+    },
+    {
+      "contentid": "2778821",
+      "title": "르프리크",
+      "rejectedAt": "2026-08-09T01:43:19.500Z",
+      "reason": "body_under_1500_chars:738"
+    },
+    {
+      "contentid": "2969267",
+      "title": "호전다실",
+      "rejectedAt": "2026-08-09T01:43:20.122Z",
+      "reason": "body_under_1500_chars:732"
+    },
+    {
+      "contentid": "3085045",
+      "title": "매직플로우",
+      "rejectedAt": "2026-08-09T01:43:20.731Z",
+      "reason": "body_under_1500_chars:735"
+    },
+    {
+      "contentid": "3036633",
+      "title": "양촌성구랜드",
+      "rejectedAt": "2026-08-09T01:43:21.357Z",
+      "reason": "body_under_1500_chars:731"
+    },
+    {
+      "contentid": "2977041",
+      "title": "열대과일농장 유진팡",
+      "rejectedAt": "2026-08-09T01:43:21.979Z",
+      "reason": "body_under_1500_chars:769"
+    },
+    {
+      "contentid": "2778049",
+      "title": "하멜전시관",
+      "rejectedAt": "2026-08-09T01:43:22.598Z",
+      "reason": "body_under_1500_chars:752"
+    },
+    {
+      "contentid": "3065360",
+      "title": "부산 요트투어 요트야",
+      "rejectedAt": "2026-08-09T01:43:23.208Z",
+      "reason": "body_under_1500_chars:766"
+    },
+    {
+      "contentid": "2987654",
+      "title": "건지마을",
+      "rejectedAt": "2026-08-09T01:43:23.821Z",
+      "reason": "body_under_1500_chars:730"
+    },
+    {
+      "contentid": "2778070",
+      "title": "유휴열미술관",
+      "rejectedAt": "2026-08-09T01:43:24.453Z",
+      "reason": "body_under_1500_chars:747"
+    },
+    {
+      "contentid": "3064928",
+      "title": "화랑마을 오토캠핑장",
+      "rejectedAt": "2026-08-09T01:43:25.071Z",
+      "reason": "body_under_1500_chars:753"
+    },
+    {
+      "contentid": "2988365",
+      "title": "바람마을 치즈체험장",
+      "rejectedAt": "2026-08-09T01:43:25.692Z",
+      "reason": "body_under_1500_chars:766"
+    },
+    {
+      "contentid": "2778062",
+      "title": "그림책미술관",
+      "rejectedAt": "2026-08-09T01:43:26.302Z",
+      "reason": "body_under_1500_chars:747"
+    },
+    {
+      "contentid": "2498717",
+      "title": "월정 투명카약",
+      "rejectedAt": "2026-08-09T01:43:26.917Z",
+      "reason": "body_under_1500_chars:755"
+    },
+    {
+      "contentid": "2772187",
+      "title": "더드림딸기체험농장",
+      "rejectedAt": "2026-08-09T01:43:27.535Z",
+      "reason": "body_under_1500_chars:755"
+    },
+    {
+      "contentid": "2778915",
+      "title": "나이롱책방",
+      "rejectedAt": "2026-08-09T01:43:28.151Z",
+      "reason": "body_under_1500_chars:747"
+    },
+    {
+      "contentid": "3064991",
+      "title": "신동파인힐스",
+      "rejectedAt": "2026-08-09T01:43:28.760Z",
+      "reason": "body_under_1500_chars:735"
+    },
+    {
+      "contentid": "3036898",
+      "title": "서울퓨처랩",
+      "rejectedAt": "2026-08-09T01:43:29.410Z",
+      "reason": "body_under_1500_chars:740"
+    },
+    {
+      "contentid": "2778939",
+      "title": "밤수지맨드라미",
+      "rejectedAt": "2026-08-09T01:43:30.036Z",
+      "reason": "body_under_1500_chars:753"
+    },
+    {
+      "contentid": "3064930",
+      "title": "힐링브릿지수상레저",
+      "rejectedAt": "2026-08-09T01:43:30.647Z",
+      "reason": "body_under_1500_chars:763"
+    },
+    {
+      "contentid": "2498883",
+      "title": "아름다운정원화수목",
+      "rejectedAt": "2026-08-09T01:43:31.267Z",
+      "reason": "body_under_1500_chars:753"
+    },
+    {
+      "contentid": "2790995",
+      "title": "화천한옥학교",
+      "rejectedAt": "2026-08-09T01:43:31.887Z",
+      "reason": "body_under_1500_chars:751"
+    },
+    {
+      "contentid": "3073199",
+      "title": "유리바닥보트",
+      "rejectedAt": "2026-08-09T01:43:32.513Z",
+      "reason": "body_under_1500_chars:756"
+    },
+    {
+      "contentid": "2993183",
+      "title": "북촌전통공예체험관",
+      "rejectedAt": "2026-08-09T01:43:33.124Z",
+      "reason": "body_under_1500_chars:757"
+    },
+    {
+      "contentid": "3080519",
+      "title": "한강드론공원",
+      "rejectedAt": "2026-08-09T01:43:33.745Z",
+      "reason": "body_under_1500_chars:731"
+    },
+    {
+      "contentid": "3081008",
+      "title": "수암산",
+      "rejectedAt": "2026-08-09T01:43:34.371Z",
+      "reason": "body_under_1500_chars:718"
+    },
+    {
+      "contentid": "128802",
+      "title": "마라도가는여객선",
+      "rejectedAt": "2026-08-09T01:43:34.995Z",
+      "reason": "body_under_1500_chars:761"
+    },
+    {
+      "contentid": "3080970",
+      "title": "점핑파크 인천계양점",
+      "rejectedAt": "2026-08-09T01:43:35.618Z",
+      "reason": "body_under_1500_chars:756"
+    },
+    {
+      "contentid": "2606230",
+      "title": "국립달음산자연휴양림",
+      "rejectedAt": "2026-08-09T01:43:36.237Z",
+      "reason": "body_under_1500_chars:759"
+    },
+    {
+      "contentid": "2508502",
+      "title": "돌산대교",
+      "rejectedAt": "2026-08-09T01:43:36.876Z",
+      "reason": "body_under_1500_chars:750"
+    },
+    {
+      "contentid": "4096575",
+      "title": "낙하리화실",
+      "rejectedAt": "2026-08-09T01:43:37.494Z",
+      "reason": "body_under_1500_chars:728"
+    },
+    {
+      "contentid": "4096560",
+      "title": "화목토 도예연구소",
+      "rejectedAt": "2026-08-09T01:43:38.112Z",
+      "reason": "body_under_1500_chars:747"
+    },
+    {
+      "contentid": "4096597",
+      "title": "횡성성당",
+      "rejectedAt": "2026-08-09T01:43:38.730Z",
+      "reason": "body_under_1500_chars:742"
+    },
+    {
+      "contentid": "2680226",
+      "title": "발왕산 관광케이블카",
+      "rejectedAt": "2026-08-09T01:43:39.347Z",
+      "reason": "body_under_1500_chars:765"
+    },
+    {
+      "contentid": "2790507",
+      "title": "제봉산 마법의 숲 체험원",
+      "rejectedAt": "2026-08-09T01:43:39.972Z",
+      "reason": "body_under_1500_chars:771"
+    },
+    {
+      "contentid": "2774392",
+      "title": "명량해상케이블카",
+      "rejectedAt": "2026-08-09T01:43:40.602Z",
+      "reason": "body_under_1500_chars:767"
+    },
+    {
+      "contentid": "2789677",
+      "title": "다옴농촌체험휴양마을",
+      "rejectedAt": "2026-08-09T01:43:41.222Z",
+      "reason": "body_under_1500_chars:751"
+    },
+    {
+      "contentid": "2789684",
+      "title": "궁항어촌체험마을",
+      "rejectedAt": "2026-08-09T01:43:41.840Z",
+      "reason": "body_under_1500_chars:744"
     }
   ]
 }
