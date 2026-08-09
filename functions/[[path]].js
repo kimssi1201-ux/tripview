@@ -48,7 +48,12 @@ export function transformArticleHtml(document, parts) {
     .replace(/\/\* tripview-coupang-native-ad \*\/[\s\S]*?\/\* end-tripview-coupang-native-ad \*\//g, "")
     .replace(/\s*<script\s+src=["']\/assets\/coupang\.js\?v=[^"']+["']\s+defer><\/script>/gi, "")
     .replace(/\s*<link\s+rel=["']canonical["'][^>]*>/gi, "")
-    .replace(/<nav class=["']links["'] aria-label=["']주요 메뉴["']>[\s\S]*?<\/nav>/i, ARTICLE_NAVIGATION);
+    .replace(/<nav class=["']links["'] aria-label=["']주요 메뉴["']>[\s\S]*?<\/nav>/i, ARTICLE_NAVIGATION)
+    .replaceAll("이 여행지 예약 정보", "주변 숙소·투어")
+    .replaceAll("현재 글의 지역과 여행 목적이 일치하는 상품만 표시합니다.", "여행지 주변의 숙소와 이용 가능한 투어·티켓을 모았습니다.")
+    .replaceAll(" 일정에 맞춘 인근 숙소", " 숙소")
+    .replaceAll(" 일정에 맞춘 투어·티켓", " 투어·티켓")
+    .replaceAll(" 일정에 맞춘 항공권", " 항공권");
 
   if (next.includes("</head>")) {
     next = next.replace("</head>", `    <link rel="canonical" href="${canonicalFor(parts)}">\n  </head>`);

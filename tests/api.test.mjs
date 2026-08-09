@@ -262,6 +262,7 @@ test("article response preserves contextual MyRealTrip blocks, removes paused Co
     <style>/* tripview-mrt-native-ad */.mrt-native-ad{}/* end-tripview-mrt-native-ad */</style>
   </head><body><nav class="links" aria-label="주요 메뉴"><a href="/#festival">7~8월 축제/행사</a></nav>
     <!-- MRT_AD_START mid --><section>unrelated booking</section><!-- MRT_AD_END -->
+    <section aria-label="이 여행지 예약 정보"><strong>이 여행지 예약 정보</strong><p>현재 글의 지역과 여행 목적이 일치하는 상품만 표시합니다.</p><em>서울 일정에 맞춘 인근 숙소</em></section>
     <!-- COUPANG_AD_START bottom --><section>shopping</section><!-- COUPANG_AD_END -->
     <!-- COUPANG_WIDGET_START bottom --><section>carousel</section><!-- COUPANG_WIDGET_END -->
     <article>editorial content</article>
@@ -274,6 +275,10 @@ test("article response preserves contextual MyRealTrip blocks, removes paused Co
   assert.doesNotMatch(transformed, /shopping|carousel|coupang\.js/);
   assert.doesNotMatch(transformed, /7~8월/);
   assert.match(transformed, />8월 가볼만한 곳</);
+  assert.match(transformed, /주변 숙소·투어/);
+  assert.match(transformed, /여행지 주변의 숙소와 이용 가능한 투어·티켓을 모았습니다/);
+  assert.match(transformed, /서울 숙소/);
+  assert.doesNotMatch(transformed, /이 여행지 예약 정보|일정에 맞춘 인근 숙소/);
   assert.equal((transformed.match(/rel="canonical"/g) || []).length, 1);
   assert.match(transformed, /href="https:\/\/tripview\.kr\/travel-129256\/"/);
 });
