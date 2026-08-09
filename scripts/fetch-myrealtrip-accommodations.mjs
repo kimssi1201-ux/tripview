@@ -1,7 +1,7 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { deriveAffiliateRegionKeywords, isDomesticRegion } from "./lib/affiliate-matching.mjs";
+import { affiliateProductImage, deriveAffiliateRegionKeywords, isDomesticRegion } from "./lib/affiliate-matching.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const OUT_PATH = path.join(ROOT, "data", "myrealtrip-accommodations.json");
@@ -100,7 +100,7 @@ function normalizeAccommodation(item, region, keyword) {
     type: "accommodation",
     title: `${region.name} 숙소 ${title}`,
     url,
-    image: item.imageUrl || "",
+    image: affiliateProductImage(item),
     price: item.salePrice || "",
     priceText: `${priceText}부터`,
     region: region.name,

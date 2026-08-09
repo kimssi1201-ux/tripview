@@ -122,6 +122,52 @@ export function isSafeMyRealTripUrl(value = "") {
   }
 }
 
+function imageUrlFromValue(value, depth = 0) {
+  if (!value || depth > 2) return "";
+  if (typeof value === "string") {
+    try {
+      const url = new URL(value.trim());
+      return url.protocol === "https:" ? url.toString() : "";
+    } catch {
+      return "";
+    }
+  }
+  if (Array.isArray(value)) {
+    for (const item of value) {
+      const image = imageUrlFromValue(item, depth + 1);
+      if (image) return image;
+    }
+    return "";
+  }
+  if (typeof value === "object") {
+    for (const key of ["url", "src", "image", "imageUrl", "thumbnail", "thumbnailUrl"]) {
+      const image = imageUrlFromValue(value[key], depth + 1);
+      if (image) return image;
+    }
+  }
+  return "";
+}
+
+export function affiliateProductImage(product = {}) {
+  for (const value of [
+    product.image,
+    product.imageUrl,
+    product.thumbnail,
+    product.thumbnailUrl,
+    product.mainImage,
+    product.mainImageUrl,
+    product.coverImage,
+    product.coverImageUrl,
+    product.images,
+    product.imageUrls,
+    product.thumbnails,
+  ]) {
+    const image = imageUrlFromValue(value);
+    if (image) return image;
+  }
+  return "";
+}
+
 function productRegion(product = {}) {
   return clean(product.region || product.city || product.location || "");
 }
@@ -167,6 +213,8 @@ export function selectAffiliateProducts({ sectionId = "article", posts = [], pro
       const source = productSource(product);
       if (!clean(product?.title) || !source.startsWith("myrealtrip-") || !isSafeMyRealTripUrl(product?.url)) return null;
 
+      const image = affiliateProductImage(product);
+
       const regionScore = Math.max(0, ...postRegions.map((region) => regionMatchScore(productRegion(product), region)));
       if (!regionScore) return null;
 
@@ -176,8 +224,8 @@ export function selectAffiliateProducts({ sectionId = "article", posts = [], pro
 
       const overlap = [...contextIntents].filter((intent) => intents.has(intent)).length;
       const sourceScore = isAccommodation ? 3 : source === "myrealtrip-tna" ? 4 : 2;
-      const score = regionScore + overlap * 3 + sourceScore + (product.image ? 1 : 0);
-      return { product: { ...product, matchReason: matchReason(product) }, score, index, source };
+      const score = regionScore + overlap * 3 + sourceScore + (image ? 1 : 0);
+      return { product: { ...product, image, matchReason: matchReason(product) }, score, index, source };
     })
     .filter(Boolean)
     .sort((a, b) => b.score - a.score || a.index - b.index);

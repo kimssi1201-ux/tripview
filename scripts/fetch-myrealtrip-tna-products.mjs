@@ -2,6 +2,7 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import {
+  affiliateProductImage,
   deriveAffiliateRegionKeywords,
   deriveTourSearchQueries,
   isDomesticRegion,
@@ -107,7 +108,7 @@ function normalizeProduct(item, keyword) {
     type: "tna",
     title,
     url,
-    image: normalizeText(item?.imageUrl),
+    image: affiliateProductImage(item),
     price: item?.salePrice || "",
     priceText: priceText ? `${priceText}부터` : "",
     region: city,

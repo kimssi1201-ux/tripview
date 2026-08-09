@@ -129,14 +129,21 @@ test("MyRealTrip accommodation search clamps dates and guest counts", async () =
     if (url.endsWith("region-autocomplete")) {
       return jsonResponse({ data: { regions: [{ type: "CITY", regionId: "seoul", name: "서울" }] } });
     }
-    return jsonResponse({ data: { items: [{ itemName: "서울 호텔", productUrl: "https://accommodation.myrealtrip.com/products/1", salePrice: 100000 }] } });
+    return jsonResponse({ data: { items: [{
+      itemName: "서울 호텔",
+      productUrl: "https://accommodation.myrealtrip.com/products/1",
+      thumbnailUrl: "https://cdn.example.test/hotel.jpg",
+      salePrice: 100000,
+    }] } });
   }, async () => myrealtripGet({
     request: request("/api/myrealtrip/search?type=accommodation&keyword=서울&checkIn=2026-07-30&checkOut=2026-07-20&adultCount=0&childCount=99"),
     env: { MYREALTRIP_API_KEY: "test-key" },
   }));
 
   assert.equal(response.status, 200);
-  assert.equal((await responseJson(response)).items.length, 1);
+  const payload = await responseJson(response);
+  assert.equal(payload.items.length, 1);
+  assert.equal(payload.items[0].image, "https://cdn.example.test/hotel.jpg");
   assert.equal(calls.length, 2);
   const body = JSON.parse(calls[1].options.body);
   assert.deepEqual(body, {

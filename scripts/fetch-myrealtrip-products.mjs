@@ -1,7 +1,7 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { isDomesticRegion } from "./lib/affiliate-matching.mjs";
+import { affiliateProductImage, isDomesticRegion } from "./lib/affiliate-matching.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const OUT_PATH = path.join(ROOT, "data", "myrealtrip-products.json");
@@ -87,7 +87,7 @@ function inferIntents(product) {
 function normalizeProduct(item) {
   const title = normalizeText(pick(item, ["title", "name", "productName", "displayName"]));
   const url = normalizeText(pick(item, ["url", "link", "linkUrl", "deeplink", "affiliateUrl", "productUrl"]));
-  const image = normalizeText(pick(item, ["image", "imageUrl", "thumbnail", "thumbnailUrl", "mainImage", "coverImage"]));
+  const image = affiliateProductImage(item);
   const price = pick(item, ["price", "salePrice", "displayPrice", "amount", "minPrice"]);
   const priceText = normalizeText(pick(item, ["priceText", "displayPrice", "priceLabel"]));
   const region = normalizeText(pick(item, ["region", "city", "area", "locationName", "destination"]));

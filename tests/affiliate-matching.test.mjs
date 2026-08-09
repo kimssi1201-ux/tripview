@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import {
+  affiliateProductImage,
   affiliateRegionKeyword,
   deriveAffiliateRegionKeywords,
   deriveTourSearchQueries,
@@ -10,6 +11,16 @@ import {
   normalizeRegion,
   selectAffiliateProducts,
 } from "../scripts/lib/affiliate-matching.mjs";
+
+test("extracts safe thumbnails from supported API image fields", () => {
+  assert.equal(
+    affiliateProductImage({ images: [{ thumbnailUrl: "https://cdn.example.test/product.jpg" }] }),
+    "https://cdn.example.test/product.jpg",
+  );
+  assert.equal(affiliateProductImage({ imageUrl: "http://cdn.example.test/product.jpg" }), "");
+  assert.equal(affiliateProductImage({ image: "javascript:alert(1)" }), "");
+  assert.equal(affiliateProductImage({}), "");
+});
 
 const product = (overrides = {}) => ({
   title: "부산 해양 액티비티",

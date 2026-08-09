@@ -81,6 +81,33 @@ function productUrl(value) {
   return url;
 }
 
+function productImage(item = {}) {
+  const candidates = [
+    item.image,
+    item.imageUrl,
+    item.thumbnail,
+    item.thumbnailUrl,
+    item.mainImage,
+    item.mainImageUrl,
+    item.coverImage,
+    item.coverImageUrl,
+    ...(Array.isArray(item.images) ? item.images : []),
+    ...(Array.isArray(item.imageUrls) ? item.imageUrls : []),
+  ];
+  for (const value of candidates) {
+    const candidate = typeof value === "string"
+      ? value
+      : value?.url || value?.src || value?.imageUrl || value?.thumbnailUrl || "";
+    try {
+      const url = new URL(text(candidate));
+      if (url.protocol === "https:") return url.toString();
+    } catch {
+      // Ignore malformed or non-URL image fields from the partner response.
+    }
+  }
+  return "";
+}
+
 function includesKeyword(item, keyword) {
   const needle = text(keyword).toLowerCase();
   if (!needle) return true;
@@ -123,7 +150,7 @@ function normalizeStaticProduct(item, type) {
     url: isFlight ? bookingUrl : text(item?.url),
     detailUrl: isFlight ? flightDealPath(item) : "",
     bookingUrl: isFlight ? bookingUrl : "",
-    image: text(item?.image),
+    image: productImage(item),
     price: Number(item?.price || 0),
     meta: isFlight
       ? [item?.priceText, item?.departureDate ? `출발 ${item.departureDate}` : "", item?.returnDate ? `귀국 ${item.returnDate}` : ""].filter(Boolean).join(" · ")
@@ -233,7 +260,7 @@ function normalizeAccommodation(item, regionName) {
     type: "accommodation",
     title,
     url,
-    image: text(item?.imageUrl),
+    image: productImage(item),
     meta: [regionName, item?.starRating ? `${item.starRating}성` : "", formatWon(item?.salePrice)].filter(Boolean).join(" · "),
   };
 }
@@ -249,7 +276,7 @@ function normalizeTna(item) {
     type: "tna",
     title,
     url,
-    image: text(item?.imageUrl),
+    image: productImage(item),
     meta: [text(item?.category), price, review].filter(Boolean).join(" · "),
   };
 }

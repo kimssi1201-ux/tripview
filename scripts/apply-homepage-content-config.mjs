@@ -1,7 +1,7 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { selectAffiliateProducts } from "./lib/affiliate-matching.mjs";
+import { affiliateProductImage, selectAffiliateProducts } from "./lib/affiliate-matching.mjs";
 import { isIndexablePost } from "./lib/content-quality.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -271,7 +271,8 @@ function externalAttrs(url = "") {
 }
 
 function productCard(product) {
-  const image = product.image ? `<span class="booking-thumb"><img src="${esc(product.image)}" alt="${esc(product.title)}" loading="lazy"></span>` : "";
+  const imageUrl = affiliateProductImage(product);
+  const image = imageUrl ? `<span class="booking-thumb"><img src="${esc(imageUrl)}" alt="${esc(product.title)}" loading="lazy"></span>` : "";
   const className = `check-card product-card${image ? "" : " no-thumb"}`;
   return `<a class="${className}" href="${esc(product.url)}" data-affiliate-match="context"${externalAttrs(product.url)}>
     ${image}

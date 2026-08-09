@@ -73,6 +73,11 @@ test("affiliate cards are contextual, unique, safely linked, and absent from unm
   assert.equal(new Set(urls).size, urls.length, "homepage affiliate products should not repeat");
   assert.ok(urls.every((url) => /^https:\/\/(?:[^/]+\.)?myrealtrip\.com\//.test(url)));
   assert.ok(cards.every((card) => /rel="sponsored noopener"/.test(card)));
+  const productCards = [...homepage.matchAll(/<a class="check-card product-card"[^>]*data-affiliate-match="context"[^>]*>[\s\S]*?<\/a>/g)]
+    .map((match) => match[0]);
+  assert.equal(productCards.length, cards.length);
+  assert.ok(productCards.some((card) => /<img src="https:\/\/[^\"]+"[^>]*loading="lazy"/.test(card)));
+  assert.ok(productCards.every((card) => /<img /.test(card) || /\bno-thumb\b/.test(card)));
   assert.doesNotMatch(homepage, /data-affiliate-match="context"[\s\S]{0,500}오사카/);
 
   const [seoulArticle, unmatchedArticle, thinSeoulArticle] = await Promise.all([
@@ -81,6 +86,7 @@ test("affiliate cards are contextual, unique, safely linked, and absent from unm
     readFile("travel-142733/index.html", "utf8"),
   ]);
   assert.match(seoulArticle, /<!-- MRT_AD_START context -->/);
+  assert.match(seoulArticle, /class="mrt-thumb"><img src="https:\/\/[^\"]+"[^>]*loading="lazy"/);
   assert.match(seoulArticle, /서울 일정에 맞춘 인근 숙소/);
   assert.doesNotMatch(unmatchedArticle, /<!-- MRT_AD_START context -->/);
   assert.match(thinSeoulArticle, /<meta name="robots" content="noindex, follow">/);

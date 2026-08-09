@@ -1,7 +1,7 @@
 import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { selectAffiliateProducts } from "./lib/affiliate-matching.mjs";
+import { affiliateProductImage, selectAffiliateProducts } from "./lib/affiliate-matching.mjs";
 import { isIndexablePost } from "./lib/content-quality.mjs";
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
@@ -445,8 +445,9 @@ function articleAdCard(item) {
   if (!title) return "";
   const url = articleAdUrl(item);
   const rel = String(url).startsWith("/") ? "" : ' rel="sponsored noopener"';
-  const image = item?.image
-    ? `<span class="mrt-thumb"><img src="${html(item.image)}" alt="${title}" loading="lazy"></span>`
+  const imageUrl = affiliateProductImage(item);
+  const image = imageUrl
+    ? `<span class="mrt-thumb"><img src="${html(imageUrl)}" alt="${title}" loading="lazy"></span>`
     : "";
   return `<a class="mrt-card${image ? "" : " no-image"}" href="${html(url)}"${rel}>
     ${image}
