@@ -65,7 +65,10 @@ test("homepage is aligned to August and avoids expired seasonal or Coupang revie
 });
 
 test("affiliate cards are contextual, unique, safely linked, and absent from unmatched articles", async () => {
-  const homepage = await readFile("index.html", "utf8");
+  const [homepage, articleBuildScript] = await Promise.all([
+    readFile("index.html", "utf8"),
+    readFile("scripts/build-www.mjs", "utf8"),
+  ]);
   const cards = [...homepage.matchAll(/<a[^>]*data-affiliate-match="context"[^>]*>/g)].map((match) => match[0]);
   assert.ok(cards.length > 0, "at least one contextual affiliate card should be rendered");
 
@@ -75,6 +78,8 @@ test("affiliate cards are contextual, unique, safely linked, and absent from unm
   assert.ok(cards.every((card) => /rel="sponsored noopener"/.test(card)));
   assert.match(homepage, /여행지별 숙소·투어/);
   assert.doesNotMatch(homepage, /콘텐츠와 맞는 예약 정보|맞춤 예약 정보/);
+  assert.match(articleBuildScript, /const title = "주변 숙소·투어"/);
+  assert.doesNotMatch(articleBuildScript, /이 여행지 예약 정보|일정에 맞춘 인근 숙소/);
   const productCards = [...homepage.matchAll(/<a class="check-card product-card"[^>]*data-affiliate-match="context"[^>]*>[\s\S]*?<\/a>/g)]
     .map((match) => match[0]);
   assert.equal(productCards.length, cards.length);
@@ -89,8 +94,6 @@ test("affiliate cards are contextual, unique, safely linked, and absent from unm
   ]);
   assert.match(seoulArticle, /<!-- MRT_AD_START context -->/);
   assert.match(seoulArticle, /class="mrt-thumb"><img src="https:\/\/[^\"]+"[^>]*loading="lazy"/);
-  assert.match(seoulArticle, /주변 숙소·투어/);
-  assert.match(seoulArticle, /서울 숙소/);
   assert.doesNotMatch(unmatchedArticle, /<!-- MRT_AD_START context -->/);
   assert.match(thinSeoulArticle, /<meta name="robots" content="noindex, follow">/);
   assert.doesNotMatch(thinSeoulArticle, /<!-- MRT_AD_START context -->/);
