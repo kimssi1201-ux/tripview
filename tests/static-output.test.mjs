@@ -64,13 +64,13 @@ test("homepage is aligned to August and avoids expired seasonal or Coupang revie
   assert.doesNotMatch(festivalSection, /festival-4088257/);
 });
 
-test("affiliate cards are contextual, unique, safely linked, and absent from unmatched articles", async () => {
+test("affiliate cards are contextual, limited, safely linked, and absent from pending articles", async () => {
   const [homepage, articleBuildScript] = await Promise.all([
     readFile("index.html", "utf8"),
     readFile("scripts/build-www.mjs", "utf8"),
   ]);
   const cards = [...homepage.matchAll(/<a[^>]*data-affiliate-match="context"[^>]*>/g)].map((match) => match[0]);
-  assert.ok(cards.length > 0, "at least one contextual affiliate card should be rendered");
+  assert.equal(cards.length, 2, "homepage affiliate products should remain a small supporting section");
 
   const urls = cards.map((card) => card.match(/href="([^"]+)"/)?.[1]).filter(Boolean);
   assert.equal(new Set(urls).size, urls.length, "homepage affiliate products should not repeat");
@@ -87,21 +87,24 @@ test("affiliate cards are contextual, unique, safely linked, and absent from unm
   assert.ok(productCards.every((card) => /<img /.test(card) || /\bno-thumb\b/.test(card)));
   assert.doesNotMatch(homepage, /data-affiliate-match="context"[\s\S]{0,500}오사카/);
 
-  const [seoulArticle, unmatchedArticle, enrichedSeoulArticle] = await Promise.all([
+  const [reviewedArticle, pendingArticle] = await Promise.all([
+    readFile("travel-126078/index.html", "utf8"),
     readFile("festival-4094595/index.html", "utf8"),
-    readFile("festival-4008618/index.html", "utf8"),
-    readFile("travel-142733/index.html", "utf8"),
   ]);
-  assert.match(seoulArticle, /<!-- MRT_AD_START context -->/);
-  assert.match(seoulArticle, /class="mrt-thumb"><img src="https:\/\/[^\"]+"[^>]*loading="lazy"/);
-  assert.doesNotMatch(unmatchedArticle, /<!-- MRT_AD_START context -->/);
-  assert.match(enrichedSeoulArticle, /<meta name="robots" content="index, follow, max-image-preview:large">/);
-  assert.match(enrichedSeoulArticle, /<!-- MRT_AD_START context -->/);
+  assert.match(reviewedArticle, /<!-- MRT_AD_START context -->/);
+  assert.match(reviewedArticle, /class="mrt-thumb"><img src="https:\/\/[^\"]+"[^>]*loading="lazy"/);
+  assert.match(reviewedArticle, /<meta name="robots" content="index, follow, max-image-preview:large">/);
+  assert.doesNotMatch(pendingArticle, /<!-- MRT_AD_START context -->/);
+  assert.doesNotMatch(pendingArticle, /adsbygoogle\.js\?client=/);
+  assert.doesNotMatch(pendingArticle, /data-tripview-article/);
+  assert.match(pendingArticle, /<meta name="robots" content="noindex, follow">/);
 
   const flightDirectories = await readdir("flight-deals", { withFileTypes: true });
   const overseasFlightDirectory = flightDirectories.find((entry) => entry.isDirectory() && entry.name.includes("-osa-"));
   assert.ok(overseasFlightDirectory, "an Osaka flight article should exist for the overseas-product guard");
   const overseasFlightArticle = await readFile(`flight-deals/${overseasFlightDirectory.name}/index.html`, "utf8");
+  assert.match(overseasFlightArticle, /<meta name="robots" content="noindex, follow">/);
+  assert.doesNotMatch(overseasFlightArticle, /adsbygoogle\.js\?client=/);
   assert.doesNotMatch(overseasFlightArticle, /같이 보면 좋은 예약 정보/);
   assert.doesNotMatch(overseasFlightArticle, /experiences\.myrealtrip\.com\/products\//);
 });
@@ -118,7 +121,7 @@ test("AdSense script and ads.txt use the same publisher ID", async () => {
 });
 
 test("trust pages use canonical URLs and current homepage anchors", async () => {
-  for (const fileName of ["about.html", "contact.html", "editorial-policy.html", "affiliate-disclosure.html", "privacy.html"]) {
+  for (const fileName of ["about.html", "contact.html", "editorial-team.html", "editorial-policy.html", "affiliate-disclosure.html", "privacy.html"]) {
     const document = await readFile(fileName, "utf8");
     assert.match(document, new RegExp(`<link rel="canonical" href="https://tripview\\.kr/${fileName}">`));
     assert.doesNotMatch(document, /\/#(?:latest|routes)/);
@@ -135,16 +138,55 @@ test("sitemap includes only indexable articles and article robots match content 
   const articleUrls = [...sitemap.matchAll(/<loc>https:\/\/tripview\.kr\/((?:travel|festival)-\d+)\/<\/loc>/g)]
     .map((match) => match[1]);
 
+  assert.equal(indexable.length, 48);
   assert.equal(articleUrls.length, indexable.length);
   assert.ok(articleUrls.every((slug) => indexable.some((post) => post.slug === slug)));
+  assert.match(sitemap, /<loc>https:\/\/tripview\.kr\/editorial-team\.html<\/loc>/);
+  assert.doesNotMatch(sitemap, /<loc>https:\/\/tripview\.kr\/flight-deals(?:\/|<)/);
 
   const strongPost = indexable[0];
   const thinPost = posts.find((post) => !isIndexablePost(post));
   assert.ok(strongPost);
-  assert.match(await readFile(`${strongPost.slug}/index.html`, "utf8"), /<meta name="robots" content="index, follow, max-image-preview:large">/);
+  const strongDocument = await readFile(`${strongPost.slug}/index.html`, "utf8");
+  assert.match(strongDocument, /<meta name="robots" content="index, follow, max-image-preview:large">/);
+  assert.match(strongDocument, /adsbygoogle\.js\?client=ca-pub-5751319666030430/);
+  assert.match(strongDocument, /data-tripview-article/);
+  assert.match(strongDocument, /class="author-link" href="\/editorial-team\.html"/);
+  assert.match(strongDocument, /작성·검수 정보/);
   if (thinPost) {
-    assert.match(await readFile(`${thinPost.slug}/index.html`, "utf8"), /<meta name="robots" content="noindex, follow">/);
+    const thinDocument = await readFile(`${thinPost.slug}/index.html`, "utf8");
+    assert.match(thinDocument, /<meta name="robots" content="noindex, follow">/);
+    assert.doesNotMatch(thinDocument, /adsbygoogle\.js\?client=/);
+    assert.doesNotMatch(thinDocument, /data-tripview-article/);
+    assert.doesNotMatch(thinDocument, /<!-- MRT_AD_START context -->/);
   } else {
     assert.equal(indexable.length, posts.length);
+  }
+});
+
+test("editorial review manifest selects 48 unique, traceable articles", async () => {
+  const [manifestText, postsText] = await Promise.all([
+    readFile("data/editorial-review.json", "utf8"),
+    readFile("data/generated-posts.json", "utf8"),
+  ]);
+  const manifest = JSON.parse(manifestText);
+  const posts = JSON.parse(postsText);
+  const slugs = manifest.posts.map((entry) => entry.slug);
+  const topicCounts = manifest.posts.flatMap((entry) => entry.topics).reduce((counts, topic) => {
+    counts[topic] = (counts[topic] || 0) + 1;
+    return counts;
+  }, {});
+
+  assert.equal(manifest.posts.length, 48);
+  assert.equal(new Set(slugs).size, slugs.length);
+  assert.deepEqual(topicCounts, { popular: 6, weekend: 6, festival: 10, water: 12, indoor: 8, family: 6 });
+  for (const entry of manifest.posts) {
+    const post = posts.find((candidate) => candidate.slug === entry.slug);
+    assert.ok(post, `reviewed post ${entry.slug} should exist`);
+    assert.equal(post.editorialStatus, "reviewed");
+    assert.equal(post.title, entry.title);
+    assert.equal(post.editorialReviewedAt, manifest.reviewedAt);
+    assert.equal(post.editorialAuthorProfile, "/editorial-team.html");
+    assert.ok(entry.angle.length >= 40);
   }
 });

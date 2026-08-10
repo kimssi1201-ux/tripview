@@ -3,6 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { repairEnrichedPost } from "./lib/post-enrichment.mjs";
+import { isIndexablePost } from "./lib/content-quality.mjs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -388,7 +389,7 @@ function relatedPostsFor(post, posts, limit = 4) {
   const currentCategory = strip(post.category);
 
   return posts
-    .filter((candidate) => candidate?.slug && candidate.slug !== post.slug)
+    .filter((candidate) => candidate?.slug && candidate.slug !== post.slug && isIndexablePost(candidate))
     .map((candidate) => {
       const candidateRegion = regionTokens(candidate.region);
       const candidateKeywords = titleKeywords(`${sourceTitle(candidate)} ${candidate.category || ""}`);
@@ -430,7 +431,7 @@ function renderArticle(post, counts, allPosts) {
   const faqs = (post.faq || []).map(([q, a]) => `<details open><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join("");
   const related = renderRelatedPosts(post, allPosts);
   const memo = (post.memo || []).map((m) => `<span>${esc(m)}</span>`).join("");
-  const articleNav = `<nav class="links" aria-label="주요 메뉴"><a href="../">홈</a><a href="../#popular">8월 가볼만한 곳</a><a href="../#water">물놀이·계곡</a><a href="../#weekend">이번 주말</a><a href="../#festival">8월 축제</a><a href="../#indoor">실내여행</a><a href="../#family">아이와</a><a href="../#booking">예약 전 체크</a><a href="../#flight-deals">항공권</a></nav>`;
+  const articleNav = `<nav class="links" aria-label="주요 메뉴"><a href="../">홈</a><a href="../#popular">8월 가볼만한 곳</a><a href="../#water">물놀이·계곡</a><a href="../#weekend">이번 주말</a><a href="../#festival">8월 축제</a><a href="../#indoor">실내여행</a><a href="../#family">아이와</a><a href="../#booking">예약 전 체크</a></nav>`;
   return `<!doctype html>
 <html lang="ko">
   <head>
@@ -468,19 +469,24 @@ const targetSlugs = String(process.env.POST_RENDER_TARGETS || "")
   .map((slug) => slug.trim())
   .filter(Boolean);
 const targetSet = new Set(targetSlugs);
+const reviewedOnly = process.argv.includes("--reviewed");
 const sourcePosts = await readJson("data/generated-posts.json", []);
-const posts = targetSlugs.length ? sourcePosts : sourcePosts.map(polishPost);
+const posts = targetSlugs.length || reviewedOnly ? sourcePosts : sourcePosts.map(polishPost);
 const counts = countCategories(posts);
-const renderTargets = targetSlugs.length ? posts.filter((post) => targetSet.has(post.slug)) : posts;
+const renderTargets = targetSlugs.length
+  ? posts.filter((post) => targetSet.has(post.slug))
+  : reviewedOnly
+    ? posts.filter(isIndexablePost)
+    : posts;
 
 for (const post of renderTargets) {
   await fs.mkdir(path.join(ROOT, post.slug), { recursive: true });
   await fs.writeFile(path.join(ROOT, post.slug, "index.html"), renderArticle(post, counts, posts), "utf8");
 }
 
-if (!targetSlugs.length) {
+if (!targetSlugs.length && !reviewedOnly) {
   await writeJson("data/generated-posts.json", posts);
   console.log(`Polished contextual copy for ${posts.length} post(s).`);
 } else {
-  console.log(`Rendered contextual copy for ${renderTargets.length} target post(s).`);
+  console.log(`Rendered contextual copy for ${renderTargets.length} reviewed or targeted post(s).`);
 }

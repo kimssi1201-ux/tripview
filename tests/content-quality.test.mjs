@@ -12,6 +12,7 @@ function postWithBody(length) {
   return {
     slug: "travel-test",
     title: "테스트 여행지",
+    editorialStatus: "reviewed",
     sections: [["본문", ["가".repeat(length)]]],
   };
 }
@@ -32,4 +33,11 @@ test("content quality rejects empty identity fields even with a long body", () =
   assert.equal(isIndexablePost({ ...longPost, slug: "" }), false);
   assert.equal(isIndexablePost({ ...longPost, title: "" }), false);
   assert.equal(isIndexablePost({}), false);
+});
+
+test("content quality keeps automated drafts out of the index until editorial review", () => {
+  const longPost = postWithBody(MIN_INDEXABLE_BODY_LENGTH + 100);
+  assert.equal(isIndexablePost({ ...longPost, editorialStatus: "pending" }), false);
+  assert.equal(isIndexablePost({ ...longPost, editorialStatus: undefined }), false);
+  assert.equal(isIndexablePost(longPost), true);
 });

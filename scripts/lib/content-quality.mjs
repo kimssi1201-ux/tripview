@@ -1,4 +1,5 @@
 export const MIN_INDEXABLE_BODY_LENGTH = 1500;
+export const REVIEWED_STATUS = "reviewed";
 
 function text(value) {
   return String(value ?? "").trim();
@@ -27,5 +28,10 @@ export function postBodyLength(post = {}) {
 }
 
 export function isIndexablePost(post = {}) {
-  return Boolean(post.slug && post.title && postBodyLength(post) >= MIN_INDEXABLE_BODY_LENGTH);
+  return Boolean(
+    post.slug &&
+    post.title &&
+    post.editorialStatus === REVIEWED_STATUS &&
+    postBodyLength(post) >= MIN_INDEXABLE_BODY_LENGTH
+  );
 }

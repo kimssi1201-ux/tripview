@@ -15,7 +15,7 @@ const I18N_SCRIPT = '<script src="/assets/i18n.js?v=i18n-link-fix-20260706" defe
 const TOPIC_FILTER_SCRIPT = '<script src="/assets/topic-filter.js?v=topic-filter-20260712-no-hero" defer></script>';
 const LANGUAGE_SWITCH_CSS = ".language-switch{display:flex;gap:8px;white-space:nowrap}.language-switch a{font-size:12px;font-weight:900;color:#555;border-bottom:1px solid transparent}.language-switch a.is-active{color:#111;border-bottom-color:#111}";
 const FLIGHT_BOOKING_URL = "https://flights.myrealtrip.com/";
-const ARTICLE_NAVIGATION = '<nav class="links" aria-label="주요 메뉴"><a href="/">홈</a><a href="/#popular">8월 가볼만한 곳</a><a href="/#water">물놀이·계곡</a><a href="/#weekend">이번 주말</a><a href="/#festival">8월 축제</a><a href="/#indoor">실내여행</a><a href="/#family">아이와</a><a href="/#booking">예약 전 체크</a><a href="/#flight-deals">항공권</a></nav>';
+const ARTICLE_NAVIGATION = '<nav class="links" aria-label="주요 메뉴"><a href="/">홈</a><a href="/#popular">8월 가볼만한 곳</a><a href="/#water">물놀이·계곡</a><a href="/#weekend">이번 주말</a><a href="/#festival">8월 축제</a><a href="/#indoor">실내여행</a><a href="/#family">아이와</a><a href="/#booking">예약 전 체크</a></nav>';
 
 async function readJson(relativePath, fallback = []) {
   try {
@@ -37,6 +37,7 @@ const files = [
   "index.html",
   "about.html",
   "contact.html",
+  "editorial-team.html",
   "editorial-policy.html",
   "affiliate-disclosure.html",
   "style.css",
@@ -203,9 +204,9 @@ function flightPageHtml(deal) {
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, follow">
     ${NAVER_VERIFICATION_META}
     <meta name="description" content="${html(description)}">
-    ${ADSENSE_SCRIPT}
     <link rel="canonical" href="${html(flightUrl(deal))}">
     <title>${html(deal.title)} - 트립뷰</title>
     <style>
@@ -255,7 +256,7 @@ function flightIndexHtml(deals) {
     .sort((a, b) => Number(a.price || 0) - Number(b.price || 0))
     .map((deal) => `<a class="product-card flight-card" href="${publicFlightUrl(deal)}"><strong>${html(deal.title)}</strong><span>${html(flightMeta(deal))}</span></a>`)
     .join("");
-  return `<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">${NAVER_VERIFICATION_META}<meta name="description" content="항공권 가격을 기준으로 여행지를 비교하고 함께 볼 숙소와 투어 정보를 확인하세요.">${ADSENSE_SCRIPT}<title>항공권 최저가 여행지 - 트립뷰</title><style>body{margin:0;font-family:Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:#111}.wrap{width:min(760px,calc(100% - 32px));margin:auto}a{color:inherit;text-decoration:none}.top{border-bottom:1px solid #e1e1e1}.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{display:block;padding:22px 0;font-size:26px;font-weight:900}.hero{padding:30px 0}.hero h1{margin:0;font-size:38px;line-height:1.15}.products{border-top:1px solid #e1e1e1}.product-card{display:grid;gap:6px;align-items:center;padding:16px 0;border-bottom:1px solid #e1e1e1}strong{font-size:19px;line-height:1.35}span{color:#707070;font-size:13px}${LANGUAGE_SWITCH_CSS}@media(max-width:520px){.top .wrap{align-items:flex-start;flex-direction:column;padding:14px 0}.brand{padding:0}}</style></head><body><header class="top"><div class="wrap"><a class="brand" href="/">트립뷰</a>${LANGUAGE_SWITCH}</div></header><main class="wrap"><section class="hero"><h1>항공권 최저가 여행지</h1><p>항공권 가격을 기준으로 여행지를 고르고, 상세 페이지에서 함께 볼 숙소와 투어 정보를 확인하세요.</p></section><section class="products">${rows}</section></main>${I18N_SCRIPT}${TOPIC_FILTER_SCRIPT}</body></html>`;
+  return `<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, follow">${NAVER_VERIFICATION_META}<meta name="description" content="항공권 가격을 기준으로 여행지를 비교하고 함께 볼 숙소와 투어 정보를 확인하세요."><title>항공권 최저가 여행지 - 트립뷰</title><style>body{margin:0;font-family:Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:#111}.wrap{width:min(760px,calc(100% - 32px));margin:auto}a{color:inherit;text-decoration:none}.top{border-bottom:1px solid #e1e1e1}.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{display:block;padding:22px 0;font-size:26px;font-weight:900}.hero{padding:30px 0}.hero h1{margin:0;font-size:38px;line-height:1.15}.products{border-top:1px solid #e1e1e1}.product-card{display:grid;gap:6px;align-items:center;padding:16px 0;border-bottom:1px solid #e1e1e1}strong{font-size:19px;line-height:1.35}span{color:#707070;font-size:13px}${LANGUAGE_SWITCH_CSS}@media(max-width:520px){.top .wrap{align-items:flex-start;flex-direction:column;padding:14px 0}.brand{padding:0}}</style></head><body><header class="top"><div class="wrap"><a class="brand" href="/">트립뷰</a>${LANGUAGE_SWITCH}</div></header><main class="wrap"><section class="hero"><h1>항공권 최저가 여행지</h1><p>항공권 가격을 기준으로 여행지를 고르고, 상세 페이지에서 함께 볼 숙소와 투어 정보를 확인하세요.</p></section><section class="products">${rows}</section></main>${I18N_SCRIPT}${TOPIC_FILTER_SCRIPT}</body></html>`;
 }
 
 async function generateFlightDealPages() {
@@ -277,13 +278,10 @@ async function generateSitemap() {
     { loc: `${baseUrl}/`, lastmod: today },
     { loc: `${baseUrl}/about.html`, lastmod: today },
     { loc: `${baseUrl}/contact.html`, lastmod: today },
+    { loc: `${baseUrl}/editorial-team.html`, lastmod: today },
     { loc: `${baseUrl}/editorial-policy.html`, lastmod: today },
     { loc: `${baseUrl}/affiliate-disclosure.html`, lastmod: today },
     { loc: `${baseUrl}/privacy.html`, lastmod: today },
-    { loc: `${baseUrl}/flight-deals/`, lastmod: today },
-    ...(Array.isArray(flightDeals) ? flightDeals : [])
-      .filter((deal) => deal?.title)
-      .map((deal) => ({ loc: flightUrl(deal), lastmod: deal.departureDate || today })),
     ...indexablePosts.map((post) => ({ loc: postUrl(post), lastmod: postDate(post) }))
   ];
 
@@ -361,7 +359,7 @@ function articleCoupangCss() {
 }
 
 function articleTrustCss() {
-  return `${TRUST_STYLE_MARK}.trust-note{margin:36px 0 10px;padding:18px 0 0;border-top:2px solid #111;color:#333}.trust-note h2{margin:0 0 12px;font-size:22px;line-height:1.25}.trust-note dl{display:grid;grid-template-columns:118px minmax(0,1fr);gap:8px 14px;margin:0 0 14px}.trust-note dt{font-weight:900;color:#111}.trust-note dd{margin:0}.trust-note p{margin:0 0 10px;color:var(--muted);font-size:14px;line-height:1.6}.trust-note a{font-weight:900;text-decoration:underline;text-underline-offset:3px}@media(max-width:520px){.trust-note dl{grid-template-columns:1fr;gap:4px}.trust-note dd{padding-bottom:8px;border-bottom:1px solid var(--line)}}/* end-tripview-trust-note */`;
+  return `${TRUST_STYLE_MARK}.meta .author-link,.trust-note a{font-weight:900;text-decoration:underline;text-underline-offset:3px}.trust-note{margin:36px 0 10px;padding:18px 0 0;border-top:2px solid #111;color:#333}.trust-note h2{margin:0 0 12px;font-size:22px;line-height:1.25}.trust-note dl{display:grid;grid-template-columns:118px minmax(0,1fr);gap:8px 14px;margin:0 0 14px}.trust-note dt{font-weight:900;color:#111}.trust-note dd{margin:0}.trust-note p{margin:0 0 10px;color:var(--muted);font-size:14px;line-height:1.6}@media(max-width:520px){.trust-note dl{grid-template-columns:1fr;gap:4px}.trust-note dd{padding-bottom:8px;border-bottom:1px solid var(--line)}}/* end-tripview-trust-note */`;
 }
 
 function stripExistingArticleAds(document) {
@@ -391,6 +389,35 @@ function formatKoreanDate(value) {
   return `${match[1]}년 ${Number(match[2])}월 ${Number(match[3])}일`;
 }
 
+function safeHttpUrl(value) {
+  try {
+    const url = new URL(String(value || ""));
+    return ["http:", "https:"].includes(url.protocol) ? url.href : "";
+  } catch {
+    return "";
+  }
+}
+
+function articleSourceLinks(post) {
+  const sources = [];
+  if (post?.contentid) {
+    sources.push({ label: "한국관광공사 국내여행 정보", url: "https://korean.visitkorea.or.kr/" });
+  }
+  const official = safeHttpUrl(post?.tourApi?.homepage);
+  if (official && !sources.some((source) => source.url === official)) {
+    sources.push({ label: "운영기관 공식 안내", url: official });
+  }
+  return sources;
+}
+
+function articleSourceHtml(post) {
+  const links = articleSourceLinks(post);
+  if (!links.length) return "트립뷰 편집 기준";
+  return links
+    .map((source) => `<a href="${html(source.url)}" target="_blank" rel="noopener">${html(source.label)}</a>`)
+    .join(" · ");
+}
+
 function articleImageSource(post) {
   const images = [post?.image, ...(Array.isArray(post?.images) ? post.images : [])].filter(Boolean);
   if (!images.length) return "이미지 없음";
@@ -398,29 +425,78 @@ function articleImageSource(post) {
   return "본문 표기 이미지 또는 공개 자료";
 }
 
-function articleContentSource(post) {
-  if (post?.contentid) return "한국관광공사 공개 여행 정보와 트립뷰 편집 기준";
-  return "트립뷰 편집 기준";
-}
-
 function articleTrustBlock(post) {
-  const checkedAt = formatKoreanDate(new Date().toISOString().slice(0, 10));
-  const source = articleContentSource(post);
+  const reviewed = isIndexablePost(post);
+  const checkedAt = reviewed ? formatKoreanDate(post.editorialReviewedAt) : "편집 검수 대기";
   const imageSource = articleImageSource(post);
   const updateBase = formatKoreanDate(postDate(post));
+  const authorProfile = post.editorialAuthorProfile || "/editorial-team.html";
   return `${TRUST_NOTE_START} -->
 <aside class="trust-note" aria-label="콘텐츠 신뢰 정보">
-  <h2>콘텐츠 확인 기준</h2>
+  <h2>작성·검수 정보</h2>
   <dl>
+    <dt>작성·검수</dt><dd><a href="${html(authorProfile)}">${html(post.editorialReviewer || "트립뷰 편집팀")}</a></dd>
+    <dt>검수 상태</dt><dd>${reviewed ? "편집 검수 완료" : "편집 검수 대기"}</dd>
     <dt>최종 확인일</dt><dd>${html(checkedAt)}</dd>
-    <dt>정보 기준</dt><dd>${html(source)}</dd>
+    <dt>확인 자료</dt><dd>${articleSourceHtml(post)}</dd>
     <dt>사진 출처</dt><dd>${html(imageSource)}</dd>
-    <dt>발행 기준일</dt><dd>${html(updateBase)}</dd>
+    <dt>수정일</dt><dd>${html(updateBase)}</dd>
   </dl>
   <p>운영 시간, 요금, 프로그램, 주차 가능 여부는 현장 사정에 따라 바뀔 수 있습니다. 출발 전 공식 안내나 현장 문의처를 한 번 더 확인하는 것을 권장합니다.</p>
   <p>글 안의 예약, 숙소, 투어, 상품 링크는 제휴 링크일 수 있으며 예약 또는 구매가 발생할 경우 트립뷰가 일정 수수료를 받을 수 있습니다. 콘텐츠 판단 기준과 정정 요청은 <a href="/editorial-policy.html">콘텐츠 운영 기준</a>, <a href="/affiliate-disclosure.html">제휴 안내</a>, <a href="/contact.html">문의</a>에서 확인할 수 있습니다.</p>
 </aside>
 <!-- ${TRUST_NOTE_END}`;
+}
+
+function alignArticleByline(document, post) {
+  const profile = post.editorialAuthorProfile || "/editorial-team.html";
+  const byline = `<div class="meta"><a class="author-link" href="${html(profile)}">${html(post.editorialReviewer || "트립뷰 편집팀")}</a>`;
+  return String(document).replace(
+    /<div class="meta">(?:<span>트립뷰 편집팀<\/span>|<a class="author-link"[^>]*>[^<]*<\/a>)/,
+    byline,
+  );
+}
+
+function ensureArticleSchema(document, post, indexable) {
+  const withoutExisting = String(document).replace(
+    /\s*<script type="application\/ld\+json" data-tripview-article>[\s\S]*?<\/script>/g,
+    "",
+  );
+  if (!indexable || !withoutExisting.includes("</head>")) return withoutExisting;
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.description || post.excerpt || "",
+    mainEntityOfPage: postUrl(post),
+    datePublished: post.sortDate || post.updatedAt,
+    dateModified: post.editorialReviewedAt || post.updatedAt || post.sortDate,
+    author: {
+      "@type": "Organization",
+      name: post.editorialReviewer || "트립뷰 편집팀",
+      url: `${baseUrl}${post.editorialAuthorProfile || "/editorial-team.html"}`,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "트립뷰",
+      url: `${baseUrl}/`,
+    },
+    image: [post.image, ...(Array.isArray(post.images) ? post.images : [])].filter(Boolean),
+    citation: articleSourceLinks(post).map((source) => source.url),
+    isAccessibleForFree: true,
+    inLanguage: "ko-KR",
+  };
+  const json = JSON.stringify(schema).replaceAll("<", "\\u003c");
+  return withoutExisting.replace("</head>", `    <script type="application/ld+json" data-tripview-article>${json}</script>\n  </head>`);
+}
+
+function ensureArticleAdsense(document, enabled) {
+  if (enabled) return document;
+  return String(document).replace(
+    /\s*<script\s+async\s+src=["']https:\/\/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=ca-pub-\d+["'][^>]*><\/script>/gi,
+    "",
+  );
 }
 
 function injectArticleTrust(document, post) {
@@ -467,7 +543,7 @@ function articleSectionId(post) {
   return "article";
 }
 
-function articleAdItems(post, count = 2) {
+function articleAdItems(post, count = 1) {
   return selectAffiliateProducts({
     sectionId: articleSectionId(post),
     posts: [post],
@@ -477,7 +553,7 @@ function articleAdItems(post, count = 2) {
 }
 
 function articleAdBlock(post) {
-  const items = articleAdItems(post, 2);
+  const items = articleAdItems(post, 1);
   if (!items.length) return "";
   const title = "주변 숙소·투어";
   return `${MRT_AD_START} context -->
@@ -559,13 +635,17 @@ async function polishGeneratedArticles() {
     }
     if (!document.includes('<article class="content"')) continue;
 
-    const affiliateBlock = isIndexablePost(post) ? articleAdBlock(post) : "";
+    const indexable = isIndexablePost(post);
+    const affiliateBlock = indexable ? articleAdBlock(post) : "";
     let next = injectArticleAdCss(stripExistingArticleAds(document), Boolean(affiliateBlock));
     next = alignArticleNavigation(next);
+    next = alignArticleByline(next, post);
     next = injectArticleAffiliate(next, affiliateBlock);
     next = injectArticleTrust(next, post);
     next = ensureCanonical(next, `/${post.slug}/`);
-    next = ensureRobotsMeta(next, isIndexablePost(post));
+    next = ensureRobotsMeta(next, indexable);
+    next = ensureArticleSchema(next, post, indexable);
+    next = ensureArticleAdsense(next, indexable);
     next = cleanGeneratedHtml(next);
     if (next !== document) await writeFile(file, next, "utf8");
   }
@@ -584,6 +664,7 @@ async function polishStaticPages() {
     ["index.html", "/"],
     ["about.html", "/about.html"],
     ["contact.html", "/contact.html"],
+    ["editorial-team.html", "/editorial-team.html"],
     ["editorial-policy.html", "/editorial-policy.html"],
     ["affiliate-disclosure.html", "/affiliate-disclosure.html"],
     ["privacy.html", "/privacy.html"],

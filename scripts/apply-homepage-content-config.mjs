@@ -657,13 +657,17 @@ function buildSections(posts) {
     !hasAnyKeyword(post, indoorKeywords) &&
     !hasAnyKeyword(post, familyKeywords)
   ));
+  const reviewedTopic = (topic, fallback) => {
+    const curated = posts.filter((post) => Array.isArray(post.editorialTopics) && post.editorialTopics.includes(topic));
+    return curated.length ? curated : fallback;
+  };
   const sectionDefs = [
-    { id: "popular", title: TEXT.navPopular, posts: sortCurrentPlaces(generalTravel.length ? generalTravel : domestic) },
-    { id: "weekend", title: TEXT.navWeekend, posts: sortLatest(weekendPool.length ? weekendPool : domestic) },
-    { id: "festival", title: `${FEATURE_MONTH_LABEL} \uCD95\uC81C/\uD589\uC0AC`, posts: festivals },
-    { id: "water", title: TEXT.navWater, posts: waterPosts },
-    { id: "indoor", title: TEXT.navIndoor, posts: indoorPool.length ? indoorPool : sortLatest(domestic), fallbackPosts: sortLatest(domestic) },
-    { id: "family", title: TEXT.navFamily, posts: familyPool.length ? familyPool : sortLatest(domestic), fallbackPosts: sortLatest(domestic) },
+    { id: "popular", title: TEXT.navPopular, posts: reviewedTopic("popular", sortCurrentPlaces(generalTravel.length ? generalTravel : domestic)) },
+    { id: "weekend", title: TEXT.navWeekend, posts: reviewedTopic("weekend", sortLatest(weekendPool.length ? weekendPool : domestic)) },
+    { id: "festival", title: `${FEATURE_MONTH_LABEL} \uCD95\uC81C/\uD589\uC0AC`, posts: reviewedTopic("festival", festivals) },
+    { id: "water", title: TEXT.navWater, posts: reviewedTopic("water", waterPosts) },
+    { id: "indoor", title: TEXT.navIndoor, posts: reviewedTopic("indoor", indoorPool.length ? indoorPool : sortLatest(domestic)), fallbackPosts: sortLatest(domestic) },
+    { id: "family", title: TEXT.navFamily, posts: reviewedTopic("family", familyPool.length ? familyPool : sortLatest(domestic)), fallbackPosts: sortLatest(domestic) },
     { id: "booking", title: TEXT.navBooking, kind: "booking", posts: bookingPool },
   ];
 
@@ -732,54 +736,32 @@ async function readMyRealTripFlights() {
 
 function html(posts, products = [], accommodations = [], tnaProducts = [], flights = []) {
   const sections = buildSections(posts).filter((section) => section.kind === "booking" || section.posts.length);
-  const flightNav = flights.length ? { id: "flight-deals", title: TEXT.navFlight, kind: "flight" } : null;
   const hero = posts[0];
   const ogImage = imageOf(hero);
   const allProducts = [...accommodations, ...tnaProducts, ...products];
-  const flightHtml = flightDealSection(flights);
   const editorialSections = sections.filter((section) => section.kind !== "booking");
   const editorialPosts = editorialSections.flatMap((section) => section.posts || []);
   const usedAffiliateProducts = new Set();
-  const inlineAffiliateProducts = new Map();
 
-  for (const section of editorialSections.filter((item) => item.id !== "popular")) {
-    inlineAffiliateProducts.set(section.id, unusedAffiliateProducts({
-      sectionId: section.id,
-      posts: section.posts,
-      products: allProducts,
-      used: usedAffiliateProducts,
-      limit: 1,
-    }));
-  }
-
-  const bookingPosts = sections.find((section) => section.kind === "booking")?.posts || editorialPosts;
-  const bookingAffiliateProducts = unusedAffiliateProducts({
-    sectionId: "booking",
-    posts: bookingPosts,
-    products: allProducts,
-    used: usedAffiliateProducts,
-    limit: 3,
-  });
+  const bookingAffiliateProducts = [];
   const mrtProducts = unusedAffiliateProducts({
     sectionId: "booking",
     posts: editorialPosts,
     products: allProducts,
     used: usedAffiliateProducts,
-    limit: 3,
+    limit: 2,
   });
   const mrtHtml = myRealTripAdSection(mrtProducts);
   const mrtNav = mrtHtml ? { id: "myrealtrip-deals", title: "숙소·투어", kind: "ad" } : null;
-  const navSections = flightNav
-    ? [sections[0], sections[1], flightNav, ...sections.slice(2, -1), mrtNav, sections.at(-1)].filter(Boolean)
-    : [...sections.slice(0, -1), mrtNav, sections.at(-1)].filter(Boolean);
+  const navSections = [...sections.slice(0, -1), mrtNav, sections.at(-1)].filter(Boolean);
   const sectionHtml = sections
     .map((section) => {
       const html = section.kind === "booking"
         ? bookingSection({ ...section, affiliateProducts: bookingAffiliateProducts })
         : section.id === "popular"
           ? heroSection(section)
-        : newsSection({ ...section, inlineProducts: inlineAffiliateProducts.get(section.id) || [] });
-      return section.id === "weekend" && flightHtml ? `${html}\n${flightHtml}` : html;
+        : newsSection({ ...section, inlineProducts: [] });
+      return html;
     })
     .join("\n")
     .replace(/(<section class="news-section check-section" id="booking")/, `${mrtHtml}\n$1`);
@@ -840,9 +822,9 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
         <a href="#weekend">\uC774\uBC88 \uC8FC\uB9D0 \uCD95\uC81C \uCCB4\uD06C</a>
       </div>
       <div class="footer-col">
-        <b>\uD56D\uACF5\uAD8C</b>
-        <a href="#flight-deals">\uD56D\uACF5\uAD8C \uCD5C\uC800\uAC00</a>
-        <a href="#myrealtrip-deals">\uD56D\uACF5\u00B7\uC219\uC18C \uCD94\uCC9C</a>
+        <b>\uD2B8\uB9BD\uBDF0</b>
+        <a href="/editorial-team.html">\uD3B8\uC9D1\uD300</a>
+        <a href="/editorial-policy.html">\uCF58\uD150\uCE20 \uC6B4\uC601 \uAE30\uC900</a>
       </div>
       <div class="footer-col">
         <b>\uC608\uC57D</b>
@@ -850,7 +832,7 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
         <a href="#myrealtrip-deals">\uD22C\uC5B4\u00B7\uD2F0\uCF13 \uCD94\uCC9C</a>
         <a href="/affiliate-disclosure.html">\uC81C\uD734 \uC548\uB0B4</a>
       </div>
-      <div class="footer-bottom">Copyright 2026 ${esc(BRAND)}. All rights reserved. · <a href="/about.html">\uC18C\uAC1C</a> · <a href="/editorial-policy.html">\uCF58\uD150\uCE20 \uC6B4\uC601 \uAE30\uC900</a> · <a href="/contact.html">\uBB38\uC758</a> · <a href="/privacy.html">\uAC1C\uC778\uC815\uBCF4\uCC98\uB9AC\uBC29\uCE68</a></div>
+      <div class="footer-bottom">Copyright 2026 ${esc(BRAND)}. All rights reserved. · <a href="/about.html">\uC18C\uAC1C</a> · <a href="/editorial-team.html">\uD3B8\uC9D1\uD300</a> · <a href="/editorial-policy.html">\uCF58\uD150\uCE20 \uC6B4\uC601 \uAE30\uC900</a> · <a href="/contact.html">\uBB38\uC758</a> · <a href="/privacy.html">\uAC1C\uC778\uC815\uBCF4\uCC98\uB9AC\uBC29\uCE68</a></div>
     </footer>
     <script type="application/json" data-disabled-homepage-inline>
       const bookingResults = document.querySelector('[data-booking-results]');
