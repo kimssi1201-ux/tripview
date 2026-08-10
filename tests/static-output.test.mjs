@@ -123,8 +123,10 @@ test("AdSense script and ads.txt use the same publisher ID", async () => {
 test("trust pages use canonical URLs and current homepage anchors", async () => {
   for (const fileName of ["about.html", "contact.html", "editorial-team.html", "editorial-policy.html", "affiliate-disclosure.html", "privacy.html"]) {
     const document = await readFile(fileName, "utf8");
-    assert.match(document, new RegExp(`<link rel="canonical" href="https://tripview\\.kr/${fileName}">`));
+    const canonicalPath = fileName.replace(/\.html$/, "");
+    assert.match(document, new RegExp(`<link rel="canonical" href="https://tripview\\.kr/${canonicalPath}">`));
     assert.doesNotMatch(document, /\/#(?:latest|routes)/);
+    assert.doesNotMatch(document, /href="\/(?:about|contact|editorial-team|editorial-policy|affiliate-disclosure|privacy)\.html"/);
   }
 });
 
@@ -141,7 +143,7 @@ test("sitemap includes only indexable articles and article robots match content 
   assert.equal(indexable.length, 48);
   assert.equal(articleUrls.length, indexable.length);
   assert.ok(articleUrls.every((slug) => indexable.some((post) => post.slug === slug)));
-  assert.match(sitemap, /<loc>https:\/\/tripview\.kr\/editorial-team\.html<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/tripview\.kr\/editorial-team<\/loc>/);
   assert.doesNotMatch(sitemap, /<loc>https:\/\/tripview\.kr\/flight-deals(?:\/|<)/);
 
   const strongPost = indexable[0];
@@ -151,7 +153,7 @@ test("sitemap includes only indexable articles and article robots match content 
   assert.match(strongDocument, /<meta name="robots" content="index, follow, max-image-preview:large">/);
   assert.match(strongDocument, /adsbygoogle\.js\?client=ca-pub-5751319666030430/);
   assert.match(strongDocument, /data-tripview-article/);
-  assert.match(strongDocument, /class="author-link" href="\/editorial-team\.html"/);
+  assert.match(strongDocument, /class="author-link" href="\/editorial-team"/);
   assert.match(strongDocument, /작성·검수 정보/);
   if (thinPost) {
     const thinDocument = await readFile(`${thinPost.slug}/index.html`, "utf8");
@@ -186,7 +188,7 @@ test("editorial review manifest selects 48 unique, traceable articles", async ()
     assert.equal(post.editorialStatus, "reviewed");
     assert.equal(post.title, entry.title);
     assert.equal(post.editorialReviewedAt, manifest.reviewedAt);
-    assert.equal(post.editorialAuthorProfile, "/editorial-team.html");
+    assert.equal(post.editorialAuthorProfile, "/editorial-team");
     assert.ok(entry.angle.length >= 40);
   }
 });

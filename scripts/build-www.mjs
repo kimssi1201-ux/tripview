@@ -116,6 +116,9 @@ function cleanGeneratedHtml(value) {
 function canonicalUrl(pathname = "/") {
   const normalized = `/${String(pathname).replace(/^\/+|\/+$/g, "")}`;
   if (normalized === "/") return `${baseUrl}/`;
+  if (/^\/(?:about|contact|editorial-team|editorial-policy|affiliate-disclosure|privacy)$/.test(normalized)) {
+    return `${baseUrl}${normalized}`;
+  }
   return /\/[^/]+\.[a-z0-9]+$/i.test(normalized)
     ? `${baseUrl}${normalized}`
     : `${baseUrl}${normalized}/`;
@@ -142,6 +145,13 @@ function alignArticleNavigation(document) {
   return String(document).replace(
     /<nav class=["']links["'] aria-label=["']주요 메뉴["']>[\s\S]*?<\/nav>/i,
     ARTICLE_NAVIGATION,
+  );
+}
+
+function alignStaticInternalLinks(document) {
+  return String(document).replace(
+    /href=(["'])\/(about|contact|editorial-team|editorial-policy|affiliate-disclosure|privacy)\.html\1/g,
+    (_match, quote, slug) => `href=${quote}/${slug}${quote}`,
   );
 }
 
@@ -276,12 +286,12 @@ async function generateSitemap() {
   const today = new Date().toISOString().slice(0, 10);
   const urls = [
     { loc: `${baseUrl}/`, lastmod: today },
-    { loc: `${baseUrl}/about.html`, lastmod: today },
-    { loc: `${baseUrl}/contact.html`, lastmod: today },
-    { loc: `${baseUrl}/editorial-team.html`, lastmod: today },
-    { loc: `${baseUrl}/editorial-policy.html`, lastmod: today },
-    { loc: `${baseUrl}/affiliate-disclosure.html`, lastmod: today },
-    { loc: `${baseUrl}/privacy.html`, lastmod: today },
+    { loc: `${baseUrl}/about`, lastmod: today },
+    { loc: `${baseUrl}/contact`, lastmod: today },
+    { loc: `${baseUrl}/editorial-team`, lastmod: today },
+    { loc: `${baseUrl}/editorial-policy`, lastmod: today },
+    { loc: `${baseUrl}/affiliate-disclosure`, lastmod: today },
+    { loc: `${baseUrl}/privacy`, lastmod: today },
     ...indexablePosts.map((post) => ({ loc: postUrl(post), lastmod: postDate(post) }))
   ];
 
@@ -430,7 +440,7 @@ function articleTrustBlock(post) {
   const checkedAt = reviewed ? formatKoreanDate(post.editorialReviewedAt) : "편집 검수 대기";
   const imageSource = articleImageSource(post);
   const updateBase = formatKoreanDate(postDate(post));
-  const authorProfile = post.editorialAuthorProfile || "/editorial-team.html";
+  const authorProfile = post.editorialAuthorProfile || "/editorial-team";
   return `${TRUST_NOTE_START} -->
 <aside class="trust-note" aria-label="콘텐츠 신뢰 정보">
   <h2>작성·검수 정보</h2>
@@ -443,13 +453,13 @@ function articleTrustBlock(post) {
     <dt>수정일</dt><dd>${html(updateBase)}</dd>
   </dl>
   <p>운영 시간, 요금, 프로그램, 주차 가능 여부는 현장 사정에 따라 바뀔 수 있습니다. 출발 전 공식 안내나 현장 문의처를 한 번 더 확인하는 것을 권장합니다.</p>
-  <p>글 안의 예약, 숙소, 투어, 상품 링크는 제휴 링크일 수 있으며 예약 또는 구매가 발생할 경우 트립뷰가 일정 수수료를 받을 수 있습니다. 콘텐츠 판단 기준과 정정 요청은 <a href="/editorial-policy.html">콘텐츠 운영 기준</a>, <a href="/affiliate-disclosure.html">제휴 안내</a>, <a href="/contact.html">문의</a>에서 확인할 수 있습니다.</p>
+  <p>글 안의 예약, 숙소, 투어, 상품 링크는 제휴 링크일 수 있으며 예약 또는 구매가 발생할 경우 트립뷰가 일정 수수료를 받을 수 있습니다. 콘텐츠 판단 기준과 정정 요청은 <a href="/editorial-policy">콘텐츠 운영 기준</a>, <a href="/affiliate-disclosure">제휴 안내</a>, <a href="/contact">문의</a>에서 확인할 수 있습니다.</p>
 </aside>
 <!-- ${TRUST_NOTE_END}`;
 }
 
 function alignArticleByline(document, post) {
-  const profile = post.editorialAuthorProfile || "/editorial-team.html";
+  const profile = post.editorialAuthorProfile || "/editorial-team";
   const byline = `<div class="meta"><a class="author-link" href="${html(profile)}">${html(post.editorialReviewer || "트립뷰 편집팀")}</a>`;
   return String(document).replace(
     /<div class="meta">(?:<span>트립뷰 편집팀<\/span>|<a class="author-link"[^>]*>[^<]*<\/a>)/,
@@ -475,7 +485,7 @@ function ensureArticleSchema(document, post, indexable) {
     author: {
       "@type": "Organization",
       name: post.editorialReviewer || "트립뷰 편집팀",
-      url: `${baseUrl}${post.editorialAuthorProfile || "/editorial-team.html"}`,
+      url: `${baseUrl}${post.editorialAuthorProfile || "/editorial-team"}`,
     },
     publisher: {
       "@type": "Organization",
@@ -646,6 +656,7 @@ async function polishGeneratedArticles() {
     next = ensureRobotsMeta(next, indexable);
     next = ensureArticleSchema(next, post, indexable);
     next = ensureArticleAdsense(next, indexable);
+    next = alignStaticInternalLinks(next);
     next = cleanGeneratedHtml(next);
     if (next !== document) await writeFile(file, next, "utf8");
   }
@@ -662,12 +673,12 @@ async function copyIfExists(from, to) {
 async function polishStaticPages() {
   const pages = new Map([
     ["index.html", "/"],
-    ["about.html", "/about.html"],
-    ["contact.html", "/contact.html"],
-    ["editorial-team.html", "/editorial-team.html"],
-    ["editorial-policy.html", "/editorial-policy.html"],
-    ["affiliate-disclosure.html", "/affiliate-disclosure.html"],
-    ["privacy.html", "/privacy.html"],
+    ["about.html", "/about"],
+    ["contact.html", "/contact"],
+    ["editorial-team.html", "/editorial-team"],
+    ["editorial-policy.html", "/editorial-policy"],
+    ["affiliate-disclosure.html", "/affiliate-disclosure"],
+    ["privacy.html", "/privacy"],
   ]);
 
   for (const [fileName, pathname] of pages) {
@@ -677,7 +688,7 @@ async function polishStaticPages() {
       const alignedNavigation = document
         .replaceAll('<a href="/#latest">최신글</a>', '<a href="/#popular">8월 가볼만한 곳</a>')
         .replaceAll('<a href="/#routes">전체글</a>', '<a href="/#festival">8월 축제/행사</a>');
-      const next = cleanGeneratedHtml(ensureCanonical(alignedNavigation, pathname));
+      const next = cleanGeneratedHtml(ensureCanonical(alignStaticInternalLinks(alignedNavigation), pathname));
       if (next !== document) await writeFile(file, next, "utf8");
     } catch (error) {
       if (error.code !== "ENOENT") throw error;

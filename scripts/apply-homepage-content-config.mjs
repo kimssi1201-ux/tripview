@@ -823,16 +823,16 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
       </div>
       <div class="footer-col">
         <b>\uD2B8\uB9BD\uBDF0</b>
-        <a href="/editorial-team.html">\uD3B8\uC9D1\uD300</a>
-        <a href="/editorial-policy.html">\uCF58\uD150\uCE20 \uC6B4\uC601 \uAE30\uC900</a>
+        <a href="/editorial-team">\uD3B8\uC9D1\uD300</a>
+        <a href="/editorial-policy">\uCF58\uD150\uCE20 \uC6B4\uC601 \uAE30\uC900</a>
       </div>
       <div class="footer-col">
         <b>\uC608\uC57D</b>
         <a href="#booking">\uC219\uC18C\u00B7\uD22C\uC5B4 \uAC80\uC0C9</a>
         <a href="#myrealtrip-deals">\uD22C\uC5B4\u00B7\uD2F0\uCF13 \uCD94\uCC9C</a>
-        <a href="/affiliate-disclosure.html">\uC81C\uD734 \uC548\uB0B4</a>
+        <a href="/affiliate-disclosure">\uC81C\uD734 \uC548\uB0B4</a>
       </div>
-      <div class="footer-bottom">Copyright 2026 ${esc(BRAND)}. All rights reserved. · <a href="/about.html">\uC18C\uAC1C</a> · <a href="/editorial-team.html">\uD3B8\uC9D1\uD300</a> · <a href="/editorial-policy.html">\uCF58\uD150\uCE20 \uC6B4\uC601 \uAE30\uC900</a> · <a href="/contact.html">\uBB38\uC758</a> · <a href="/privacy.html">\uAC1C\uC778\uC815\uBCF4\uCC98\uB9AC\uBC29\uCE68</a></div>
+      <div class="footer-bottom">Copyright 2026 ${esc(BRAND)}. All rights reserved. · <a href="/about">\uC18C\uAC1C</a> · <a href="/editorial-team">\uD3B8\uC9D1\uD300</a> · <a href="/editorial-policy">\uCF58\uD150\uCE20 \uC6B4\uC601 \uAE30\uC900</a> · <a href="/contact">\uBB38\uC758</a> · <a href="/privacy">\uAC1C\uC778\uC815\uBCF4\uCC98\uB9AC\uBC29\uCE68</a></div>
     </footer>
     <script type="application/json" data-disabled-homepage-inline>
       const bookingResults = document.querySelector('[data-booking-results]');
