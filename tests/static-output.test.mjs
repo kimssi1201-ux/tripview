@@ -60,7 +60,11 @@ test("homepage is aligned to August and avoids expired seasonal or Coupang revie
 
   const festivalSection = homepage.match(/<section[^>]*id="festival"[\s\S]*?<\/section>/)?.[0];
   assert.ok(festivalSection, "August festival section should exist");
-  assert.equal((festivalSection.match(/class="[^"]*\bmagazine-card\b[^"]*"/g) || []).length, 6);
+  const festivalCards = (festivalSection.match(/class="[^"]*\bmagazine-card\b[^"]*"/g) || []).length;
+  assert.ok(festivalCards >= 6 && festivalCards <= 10);
+  for (const slug of ["festival-3351451", "festival-1939183", "festival-4096371"]) {
+    assert.match(festivalSection, new RegExp(`/${slug}/`));
+  }
   assert.doesNotMatch(festivalSection, /festival-4088257/);
 });
 
@@ -140,7 +144,7 @@ test("sitemap includes only indexable articles and article robots match content 
   const articleUrls = [...sitemap.matchAll(/<loc>https:\/\/tripview\.kr\/((?:travel|festival)-\d+)\/<\/loc>/g)]
     .map((match) => match[1]);
 
-  assert.equal(indexable.length, 48);
+  assert.equal(indexable.length, 51);
   assert.equal(articleUrls.length, indexable.length);
   assert.ok(articleUrls.every((slug) => indexable.some((post) => post.slug === slug)));
   assert.match(sitemap, /<loc>https:\/\/tripview\.kr\/editorial-team<\/loc>/);
@@ -166,7 +170,7 @@ test("sitemap includes only indexable articles and article robots match content 
   }
 });
 
-test("editorial review manifest selects 48 unique, traceable articles", async () => {
+test("editorial review manifest selects 51 unique, traceable articles", async () => {
   const [manifestText, postsText] = await Promise.all([
     readFile("data/editorial-review.json", "utf8"),
     readFile("data/generated-posts.json", "utf8"),
@@ -179,16 +183,23 @@ test("editorial review manifest selects 48 unique, traceable articles", async ()
     return counts;
   }, {});
 
-  assert.equal(manifest.posts.length, 48);
+  assert.equal(manifest.posts.length, 51);
   assert.equal(new Set(slugs).size, slugs.length);
-  assert.deepEqual(topicCounts, { popular: 6, weekend: 6, festival: 10, water: 12, indoor: 8, family: 6 });
+  assert.deepEqual(topicCounts, { popular: 6, weekend: 6, festival: 13, water: 12, indoor: 8, family: 6 });
   for (const entry of manifest.posts) {
     const post = posts.find((candidate) => candidate.slug === entry.slug);
     assert.ok(post, `reviewed post ${entry.slug} should exist`);
     assert.equal(post.editorialStatus, "reviewed");
     assert.equal(post.title, entry.title);
-    assert.equal(post.editorialReviewedAt, manifest.reviewedAt);
+    assert.equal(post.editorialReviewedAt, entry.reviewedAt || manifest.reviewedAt);
     assert.equal(post.editorialAuthorProfile, "/editorial-team");
     assert.ok(entry.angle.length >= 40);
+    if (entry.publishedAt) {
+      assert.equal(post.sortDate, entry.publishedAt);
+      assert.equal(post.date, "2026년 8월 15일");
+      assert.ok(post.sections.length >= 7);
+      assert.ok(post.faq.length >= 5);
+      if (entry.officialUrl) assert.equal(post.tourApi.homepage, entry.officialUrl);
+    }
   }
 });

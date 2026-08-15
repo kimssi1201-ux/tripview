@@ -51,10 +51,44 @@ function verifiedFacts(post) {
   return `현재 확인된 핵심 정보는 ${facts.join(" · ")}입니다. 날짜와 운영 조건은 바뀔 수 있어 출발 당일 공식 안내를 다시 확인하는 것이 좋습니다.`;
 }
 
-function reviewedSections(post, angle) {
+function normalizeSections(value) {
+  if (!Array.isArray(value)) return [];
+  return value
+    .filter((section) => Array.isArray(section) && clean(section[0]) && Array.isArray(section[1]))
+    .map(([heading, paragraphs]) => [clean(heading), paragraphs.map(clean).filter(Boolean)])
+    .filter(([, paragraphs]) => paragraphs.length);
+}
+
+function normalizeFaq(value) {
+  if (!Array.isArray(value)) return [];
+  return value
+    .filter((entry) => Array.isArray(entry) && clean(entry[0]) && clean(entry[1]))
+    .map(([question, answer]) => [clean(question), clean(answer)]);
+}
+
+function reviewedSections(post, review) {
+  const customSections = normalizeSections(review.sections);
+  if (customSections.length) {
+    return [[editorialHeading, [clean(review.angle), verifiedFacts(post)]], ...customSections];
+  }
   const sections = (Array.isArray(post.sections) ? post.sections : [])
     .filter((section) => Array.isArray(section) && !replaceableLeadHeadings.has(clean(section[0])));
-  return [[editorialHeading, [clean(angle), verifiedFacts(post)]], ...sections];
+  return [[editorialHeading, [clean(review.angle), verifiedFacts(post)]], ...sections];
+}
+
+function koreanDate(value) {
+  const match = String(value).match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!match) return "";
+  return `${match[1]}년 ${Number(match[2])}월 ${Number(match[3])}일`;
+}
+
+function safeHttpsUrl(value) {
+  try {
+    const url = new URL(String(value || ""));
+    return url.protocol === "https:" ? url.href : "";
+  } catch {
+    return "";
+  }
 }
 
 function readMinutes(post) {
@@ -92,6 +126,20 @@ function validateConfig(config, posts) {
       throw new Error(`Invalid editorial topics for ${item.slug}`);
     }
     if (clean(item.angle).length < 40) throw new Error(`Editorial angle is too short for ${item.slug}`);
+    const reviewedAt = item.reviewedAt || config.reviewedAt;
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(reviewedAt)) throw new Error(`Invalid review date for ${item.slug}`);
+    if (item.publishedAt && !/^\d{4}-\d{2}-\d{2}$/.test(item.publishedAt)) {
+      throw new Error(`Invalid publication date for ${item.slug}`);
+    }
+    if (item.officialUrl && !safeHttpsUrl(item.officialUrl)) {
+      throw new Error(`Invalid official URL for ${item.slug}`);
+    }
+    if (item.sections && normalizeSections(item.sections).length < 4) {
+      throw new Error(`Custom editorial sections are incomplete for ${item.slug}`);
+    }
+    if (item.faq && normalizeFaq(item.faq).length < 3) {
+      throw new Error(`Custom editorial FAQ is incomplete for ${item.slug}`);
+    }
     seen.add(item.slug);
   }
 }
@@ -105,19 +153,26 @@ const nextPosts = posts.map((post) => {
   const review = reviewBySlug.get(post.slug);
   if (!review) return clearReviewFields(post);
 
+  const reviewedAt = review.reviewedAt || config.reviewedAt;
+  const publishedAt = review.publishedAt || "";
+  const officialUrl = safeHttpsUrl(review.officialUrl);
+  const customFaq = normalizeFaq(review.faq);
   const reviewed = {
     ...post,
     title: clean(review.title || post.title),
     description: compact(`${clean(post.sourceTitle || post.title)} 방문 판단에 필요한 운영 정보와 편집팀 확인 사항을 정리했습니다. ${clean(review.angle)}`, 155),
     excerpt: compact(review.angle, 125),
-    sections: reviewedSections(post, review.angle),
+    sections: reviewedSections(post, review),
+    faq: customFaq.length ? customFaq : post.faq,
     editorialStatus: "reviewed",
-    editorialReviewedAt: config.reviewedAt,
+    editorialReviewedAt: reviewedAt,
     editorialReviewer: clean(config.reviewer),
     editorialAuthorProfile: clean(config.authorProfile),
     editorialTopics: [...new Set(review.topics)],
     editorialAngle: clean(review.angle),
-    updatedAt: config.reviewedAt,
+    updatedAt: reviewedAt,
+    ...(officialUrl ? { tourApi: { ...(post.tourApi || {}), homepage: officialUrl } } : {}),
+    ...(publishedAt ? { date: koreanDate(publishedAt), sortDate: publishedAt } : {}),
   };
   reviewed.read = readMinutes(reviewed);
 
