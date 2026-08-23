@@ -13,22 +13,8 @@
     "'": '&#39;',
   }[match]));
 
-  function currentLangQuery() {
-    const lang = new URLSearchParams(window.location.search).get('lang') || readSavedLang();
-    return ['en', 'ja', 'zh'].includes(lang) ? `?lang=${encodeURIComponent(lang)}` : '';
-  }
-
-  function readSavedLang() {
-    try {
-      return window.localStorage.getItem('tripview-lang') || '';
-    } catch {
-      return '';
-    }
-  }
-
   function postHref(post) {
-    const path = post.slug ? `/${post.slug}/` : '#routes';
-    return `${path}${currentLangQuery()}`;
+    return post.slug ? `/${post.slug}/` : '#routes';
   }
 
   function processedImage(post) {
@@ -275,8 +261,6 @@
 
   function homepageUrlFor(filter) {
     const params = new URLSearchParams();
-    const lang = new URLSearchParams(window.location.search).get('lang');
-    if (lang) params.set('lang', lang);
     if (filter.type === 'category') params.set('topic', filter.value === '공연/축제' ? 'festival' : 'domestic');
     if (filter.type === 'region') params.set('region', filter.value);
     const query = params.toString();

@@ -160,6 +160,8 @@ test("homepage is aligned to August and avoids expired seasonal or Coupang revie
   for (const slug of ["festival-3351451", "festival-1939183", "festival-4096371"]) {
     assert.match(festivalSection, new RegExp(`/${slug}/`));
   }
+  assert.ok(festivalSection.indexOf("/festival-4096371/") < festivalSection.indexOf("/festival-3351451/"));
+  assert.match(festivalSection, /종료 · 서울/);
   assert.doesNotMatch(festivalSection, /festival-4088257/);
 });
 
@@ -204,7 +206,8 @@ test("accommodation cards use cached MyRealTrip stay links and stay out of pendi
   assert.match(reviewedArticle, /<meta name="robots" content="index, follow, max-image-preview:large">/);
   assert.doesNotMatch(pendingArticle, /<!-- MRT_ACCOMMODATION_START/);
   assert.doesNotMatch(pendingArticle, /adsbygoogle\.js\?client=/);
-  assert.doesNotMatch(pendingArticle, /data-tripview-article/);
+  assert.match(pendingArticle, /data-tripview-article/);
+  assert.match(pendingArticle, /data-tripview-event/);
   assert.match(pendingArticle, /<meta name="robots" content="noindex, follow">/);
 
   const flightDirectories = await readdir("flight-deals", { withFileTypes: true });
@@ -270,6 +273,38 @@ test("Korea Tourism images render through processed WebP assets", async () => {
   assert.doesNotMatch(busanHub, /tong\.visitkorea\.or\.kr/);
   assert.match(topicFilter, /processed-tour-images\.json/);
   assert.match(topicFilter, /processedImage\(post\)/);
+});
+
+test("article schema, festival schema, lodging schema, and language policy are applied", async () => {
+  const [festivalArticle, endedFestivalArticle, lodgingArticle, homepage, topicFilter] = await Promise.all([
+    readFile("festival-3351451/index.html", "utf8"),
+    readFile("festival-1939183/index.html", "utf8"),
+    readFile("travel-142733/index.html", "utf8"),
+    readFile("index.html", "utf8"),
+    readFile("assets/topic-filter.js", "utf8"),
+  ]);
+
+  assert.match(festivalArticle, /data-tripview-article/);
+  assert.match(festivalArticle, /"@type":"Article"/);
+  for (const field of ["headline", "description", "image", "datePublished", "author", "publisher"]) {
+    assert.match(festivalArticle, new RegExp(`"${field}"`));
+  }
+  assert.match(festivalArticle, /data-tripview-event/);
+  assert.match(festivalArticle, /"@type":"Event"/);
+  for (const field of ["name", "startDate", "endDate", "location"]) {
+    assert.match(festivalArticle, new RegExp(`"${field}"`));
+  }
+  assert.match(endedFestivalArticle, /<span class="festival-status is-ended">종료<\/span>/);
+  assert.match(lodgingArticle, /data-tripview-lodging/);
+  assert.match(lodgingArticle, /"@type":"LodgingBusiness"/);
+
+  for (const document of [festivalArticle, lodgingArticle, homepage]) {
+    assert.doesNotMatch(document, /\?lang=/);
+    assert.doesNotMatch(document, /class="language-switch/);
+    assert.doesNotMatch(document, /\/assets\/i18n\.js/);
+    assert.doesNotMatch(document, /hreflang=/);
+  }
+  assert.doesNotMatch(topicFilter, /\?lang=|tripview-lang|currentLangQuery/);
 });
 
 test("AdSense script and ads.txt use the same publisher ID", async () => {
@@ -349,7 +384,7 @@ test("sitemap includes only indexable articles and article robots match content 
     const thinDocument = await readFile(`${thinPost.slug}/index.html`, "utf8");
     assert.match(thinDocument, /<meta name="robots" content="noindex, follow">/);
     assert.doesNotMatch(thinDocument, /adsbygoogle\.js\?client=/);
-    assert.doesNotMatch(thinDocument, /data-tripview-article/);
+    assert.match(thinDocument, /data-tripview-article/);
     assert.doesNotMatch(thinDocument, /<!-- MRT_AD_START context -->/);
     assert.doesNotMatch(thinDocument, /<!-- MRT_ACCOMMODATION_START/);
   } else {

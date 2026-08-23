@@ -18,7 +18,7 @@ const BRAND = "\uD2B8\uB9BD\uBDF0";
 const CAT_DOMESTIC = "\uAD6D\uB0B4\uC5EC\uD589";
 const CAT_FESTIVAL = "\uACF5\uC5F0/\uCD95\uC81C";
 const REGION_OTHER = "\uAE30\uD0C0";
-const LANGUAGE_SWITCH = '<div class="language-switch notranslate" translate="no" aria-label="Language selector"><a href="?lang=ko" data-lang="ko" lang="ko">KO</a><a href="?lang=en" data-lang="en" lang="en">EN</a><a href="?lang=ja" data-lang="ja" lang="ja">JA</a><a href="?lang=zh" data-lang="zh" lang="zh-CN">ZH</a></div>';
+const LANGUAGE_SWITCH = "";
 const CONTENT_TODAY = formatDateInKorea();
 const FEATURE_YEAR = Number(CONTENT_TODAY.slice(0, 4));
 const FEATURE_MONTH = 8;
@@ -205,8 +205,20 @@ function festivalInFeaturedAugust(post) {
 function festivalOrder(post) {
   const { start, end } = festivalSchedule(post);
   const lastDay = end || start;
-  const ongoingRank = start <= CONTENT_TODAY && lastDay >= CONTENT_TODAY ? "0" : "1";
-  return `${ongoingRank}:${ongoingRank === "0" ? lastDay : start}`;
+  if (lastDay && lastDay < CONTENT_TODAY) return `2:${lastDay}`;
+  const ongoingRank = start && start <= CONTENT_TODAY && lastDay >= CONTENT_TODAY ? "0" : "1";
+  return `${ongoingRank}:${ongoingRank === "0" ? lastDay : start || lastDay || dateOf(post)}`;
+}
+
+function festivalEnded(post) {
+  if (!isFestival(post)) return false;
+  const { start, end } = festivalSchedule(post);
+  const lastDay = end || start;
+  return Boolean(lastDay && lastDay < CONTENT_TODAY);
+}
+
+function festivalStatusLabel(post) {
+  return festivalEnded(post) ? "종료" : "";
 }
 
 function compactRegion(value = "") {
@@ -257,7 +269,7 @@ function articleImage(post, className) {
 }
 
 function metaLine(post) {
-  return [categoryOf(post), dateOf(post), compactRegion(regionOf(post))].filter(Boolean).join(" \u00B7 ");
+  return [festivalStatusLabel(post), categoryOf(post), dateOf(post), compactRegion(regionOf(post))].filter(Boolean).join(" \u00B7 ");
 }
 
 function productRegionOf(product) {
@@ -993,7 +1005,6 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
     </script>
     <script id="post-card-transition">(() => { const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; const selector = 'a.news-lead, a.pick-card, a.news-row, a.latest-primary, a.side-card, a.card'; document.addEventListener('click', (event) => { const card = event.target.closest(selector); if (!card || !card.href || card.target || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.defaultPrevented) return; const url = new URL(card.href, window.location.href); if (url.origin !== window.location.origin) return; if (reduce) return; event.preventDefault(); card.classList.add('is-opening'); window.setTimeout(() => { window.location.href = card.href; }, 180); }, { capture: true }); })();</script>
     <script src="/assets/homepage.js?v=booking-search-20260712-flight-links" defer></script>
-    <script src="/assets/i18n.js?v=i18n-link-fix-20260706" defer></script>
     <script src="/assets/topic-filter.js?v=topic-filter-20260712-no-hero" defer></script>
   </body>
 </html>`;

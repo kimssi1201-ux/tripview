@@ -21,10 +21,10 @@ const siteDir = join(root, "site");
 const baseUrl = "https://tripview.kr";
 const NAVER_VERIFICATION_META = '<meta name="naver-site-verification" content="38616b4b4209994ed384d0d2439bddcbec2cc711" />';
 const ADSENSE_SCRIPT = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5751319666030430" crossorigin="anonymous"></script>';
-const LANGUAGE_SWITCH = '<div class="language-switch notranslate" translate="no" aria-label="Language selector"><a href="?lang=ko" data-lang="ko" lang="ko">KO</a><a href="?lang=en" data-lang="en" lang="en">EN</a><a href="?lang=ja" data-lang="ja" lang="ja">JA</a><a href="?lang=zh" data-lang="zh" lang="zh-CN">ZH</a></div>';
-const I18N_SCRIPT = '<script src="/assets/i18n.js?v=i18n-link-fix-20260706" defer></script>';
+const LANGUAGE_SWITCH = "";
+const I18N_SCRIPT = "";
 const TOPIC_FILTER_SCRIPT = '<script src="/assets/topic-filter.js?v=topic-filter-20260712-no-hero" defer></script>';
-const LANGUAGE_SWITCH_CSS = ".language-switch{display:flex;gap:8px;white-space:nowrap}.language-switch a{font-size:12px;font-weight:900;color:#555;border-bottom:1px solid transparent}.language-switch a.is-active{color:#111;border-bottom-color:#111}";
+const LANGUAGE_SWITCH_CSS = "";
 const FLIGHT_BOOKING_URL = "https://flights.myrealtrip.com/";
 const ARTICLE_NAVIGATION = '<nav class="links" aria-label="주요 메뉴"><a href="/">홈</a><a href="/travel/">여행지</a><a href="/festival/">축제</a><a href="/stay/">숙소·예약</a></nav>';
 const CATEGORY_PAGES = [
@@ -97,6 +97,7 @@ function defaultStayWindow(reference = new Date()) {
 }
 
 const ACCOMMODATION_STAY = defaultStayWindow();
+const CONTENT_TODAY = dateText(todayInKorea());
 
 const generatedPosts = await readJson("data/generated-posts.json");
 const legacyPosts = await readJson("data/posts.json");
@@ -240,7 +241,7 @@ function isFestivalPost(post) {
 }
 
 function contentTypeOf(post) {
-  return String(post?.contentTypeId || post?.contenttypeid || post?.contentType || "");
+  return String(post?.tourApi?.contentTypeId || post?.contentTypeId || post?.contenttypeid || post?.contentType || "");
 }
 
 function searchablePostText(post) {
@@ -260,6 +261,66 @@ function hasKeyword(post, keywords) {
   return keywords.some((keyword) => text.includes(keyword));
 }
 
+function infoValue(post, label) {
+  const rows = Array.isArray(post?.info) ? post.info : [];
+  const found = rows.find((row) => Array.isArray(row) && normalizeText(row[0]) === label);
+  return normalizeText(found?.[1] || "");
+}
+
+function isoDate(year, month, day) {
+  return `${String(year).padStart(4, "0")}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+}
+
+function extractScheduleDates(value = "") {
+  const text = normalizeText(value);
+  const dates = [];
+  for (const match of text.matchAll(/(\d{4})\D+(\d{1,2})\D+(\d{1,2})/g)) {
+    dates.push(isoDate(match[1], match[2], match[3]));
+  }
+  if (dates.length) return dates;
+  return [...text.matchAll(/(\d{4})(\d{2})(\d{2})/g)].map((match) => isoDate(match[1], match[2], match[3]));
+}
+
+function festivalSchedule(post) {
+  const intro = post?.tourApi?.intro || {};
+  const period = infoValue(post, "기간");
+  const startRaw = normalizeText(intro.eventstartdate || "");
+  const endRaw = normalizeText(intro.eventenddate || "");
+  const dates = extractScheduleDates(period || `${startRaw} ${endRaw}`);
+  const start = dates[0] || "";
+  const end = dates[1] || dates[0] || "";
+  return { start, end, label: period || [start, end].filter(Boolean).join("~") };
+}
+
+function festivalStatus(post) {
+  if (!isFestivalPost(post)) return { state: "", ended: false, ongoing: false, upcoming: false };
+  const { start, end } = festivalSchedule(post);
+  const lastDay = end || start;
+  if (lastDay && lastDay < CONTENT_TODAY) return { state: "ended", ended: true, ongoing: false, upcoming: false };
+  if (start && start <= CONTENT_TODAY && (!lastDay || lastDay >= CONTENT_TODAY)) {
+    return { state: "ongoing", ended: false, ongoing: true, upcoming: false };
+  }
+  if (start && start > CONTENT_TODAY) return { state: "upcoming", ended: false, ongoing: false, upcoming: true };
+  return { state: "", ended: false, ongoing: false, upcoming: false };
+}
+
+function festivalCardStatus(post) {
+  return festivalStatus(post).ended ? "종료" : "";
+}
+
+function festivalSortRank(post) {
+  const status = festivalStatus(post);
+  if (status.ongoing) return 0;
+  if (status.upcoming) return 1;
+  if (status.ended) return 2;
+  return 3;
+}
+
+function festivalSortDate(post) {
+  const { start, end } = festivalSchedule(post);
+  return end || start || postDate(post);
+}
+
 function postTitle(post) {
   return normalizeText(post?.title || post?.sourceTitle || "여행 글");
 }
@@ -274,7 +335,20 @@ function postImage(post) {
 }
 
 function sortedPosts(items) {
-  return [...items].sort((a, b) => String(b.sortDate || b.updatedAt || "").localeCompare(String(a.sortDate || a.updatedAt || "")));
+  return [...items].sort((a, b) => {
+    const aEndedFestival = isFestivalPost(a) && festivalStatus(a).ended;
+    const bEndedFestival = isFestivalPost(b) && festivalStatus(b).ended;
+    if (aEndedFestival !== bEndedFestival) return aEndedFestival ? 1 : -1;
+    if (isFestivalPost(a) && isFestivalPost(b)) {
+      const rankDiff = festivalSortRank(a) - festivalSortRank(b);
+      if (rankDiff) return rankDiff;
+      const aDate = festivalSortDate(a);
+      const bDate = festivalSortDate(b);
+      if (festivalStatus(a).ended && festivalStatus(b).ended) return String(bDate).localeCompare(String(aDate));
+      return String(aDate).localeCompare(String(bDate));
+    }
+    return String(b.sortDate || b.updatedAt || "").localeCompare(String(a.sortDate || a.updatedAt || ""));
+  });
 }
 
 function regionGroups() {
@@ -509,8 +583,16 @@ function accommodationCard(item = {}) {
   </a>`;
 }
 
+function removeLanguageArtifacts(value) {
+  return String(value ?? "")
+    .replace(/\s*<div class=["']language-switch\b[^>]*>[\s\S]*?<\/div>/gi, "")
+    .replace(/\s*<script\s+src=["']\/assets\/i18n\.js(?:\?[^"']*)?["']\s+defer><\/script>/gi, "")
+    .replace(/\s*<div><h3>Language<\/h3>[\s\S]*?<\/div>/gi, "")
+    .replace(/\?lang=(?:ko|en|ja|zh)(?:-[A-Za-z]+)?/g, "");
+}
+
 function cleanGeneratedHtml(value) {
-  return String(value ?? "").replace(/[ \t]+$/gm, "");
+  return removeLanguageArtifacts(value).replace(/[ \t]+$/gm, "");
 }
 
 function canonicalUrl(pathname = "/") {
@@ -688,7 +770,7 @@ function storyCard(post) {
   const thumb = image
     ? `<span class="thumb"><img src="${html(image)}" alt="${html(postTitle(post))}" loading="lazy"></span>`
     : `<span class="thumb"></span>`;
-  const meta = [compactRegion(post?.region), post?.category, formatDate(postDate(post))].filter(Boolean).join(" · ");
+  const meta = [festivalCardStatus(post), compactRegion(post?.region), post?.category, formatDate(postDate(post))].filter(Boolean).join(" · ");
   return `<a class="story-card" href="/${encodeURIComponent(post.slug)}/">
     ${thumb}
     <strong>${html(postTitle(post))}</strong>
@@ -1003,7 +1085,7 @@ function articleCoupangCss() {
 }
 
 function articleTrustCss() {
-  return `${TRUST_STYLE_MARK}.meta .author-link,.trust-note a{font-weight:900;text-decoration:underline;text-underline-offset:3px}.trust-note{margin:36px 0 10px;padding:18px 0 0;border-top:2px solid #111;color:#333}.trust-note h2{margin:0 0 12px;font-size:22px;line-height:1.25}.trust-note dl{display:grid;grid-template-columns:118px minmax(0,1fr);gap:8px 14px;margin:0 0 14px}.trust-note dt{font-weight:900;color:#111}.trust-note dd{margin:0}.trust-note p{margin:0 0 10px;color:var(--muted);font-size:14px;line-height:1.6}@media(max-width:520px){.trust-note dl{grid-template-columns:1fr;gap:4px}.trust-note dd{padding-bottom:8px;border-bottom:1px solid var(--line)}}/* end-tripview-trust-note */`;
+  return `${TRUST_STYLE_MARK}.meta .author-link,.trust-note a{font-weight:900;text-decoration:underline;text-underline-offset:3px}.meta .festival-status{color:#111;font-weight:900}.trust-note{margin:36px 0 10px;padding:18px 0 0;border-top:2px solid #111;color:#333}.trust-note h2{margin:0 0 12px;font-size:22px;line-height:1.25}.trust-note dl{display:grid;grid-template-columns:118px minmax(0,1fr);gap:8px 14px;margin:0 0 14px}.trust-note dt{font-weight:900;color:#111}.trust-note dd{margin:0}.trust-note p{margin:0 0 10px;color:var(--muted);font-size:14px;line-height:1.6}@media(max-width:520px){.trust-note dl{grid-template-columns:1fr;gap:4px}.trust-note dd{padding-bottom:8px;border-bottom:1px solid var(--line)}}/* end-tripview-trust-note */`;
 }
 
 function articleRegionRelatedCss() {
@@ -1111,6 +1193,12 @@ function alignArticleByline(document, post) {
   );
 }
 
+function injectFestivalStatus(document, post) {
+  let next = String(document).replace(/\s*<span class=["']festival-status\b[^"']*["']>[^<]*<\/span>/gi, "");
+  if (!festivalStatus(post).ended) return next;
+  return next.replace(/<div class=["']meta["']>/i, '<div class="meta"><span class="festival-status is-ended">종료</span>');
+}
+
 function publicImageUrl(value = "") {
   const src = String(value || "");
   if (!src) return "";
@@ -1150,21 +1238,32 @@ function applyProcessedArticleImages(document, post) {
   return ensureLazyImages(next);
 }
 
-function ensureArticleSchema(document, post, indexable) {
-  const withoutExisting = String(document).replace(
-    /\s*<script type="application\/ld\+json" data-tripview-article>[\s\S]*?<\/script>/g,
-    "",
-  );
-  if (!indexable || !withoutExisting.includes("</head>")) return withoutExisting;
+function schemaDate(value, fallback = CONTENT_TODAY) {
+  const text = normalizeText(value);
+  if (/^\d{4}-\d{2}-\d{2}/.test(text)) return text.slice(0, 10);
+  const dates = extractScheduleDates(text);
+  return dates[0] || fallback;
+}
 
-  const schema = {
+function schemaImages(post) {
+  const images = postImagesWithProcessed(processedTourImages, post).map(publicImageUrl).filter(Boolean);
+  return images.length ? images : [publicImageUrl(postImage(post))].filter(Boolean);
+}
+
+function schemaScript(name, schema) {
+  const json = JSON.stringify(schema).replaceAll("<", "\\u003c");
+  return `    <script type="application/ld+json" data-tripview-${name}>${json}</script>`;
+}
+
+function articleSchema(post) {
+  return {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: post.title,
-    description: post.description || post.excerpt || "",
+    headline: postTitle(post),
+    description: postSummary(post, 180) || postExcerpt(post),
     mainEntityOfPage: postUrl(post),
-    datePublished: post.sortDate || post.updatedAt,
-    dateModified: post.editorialReviewedAt || post.updatedAt || post.sortDate,
+    datePublished: schemaDate(post.sortDate || post.updatedAt || post.date),
+    dateModified: schemaDate(post.editorialReviewedAt || post.updatedAt || post.sortDate || post.date),
     author: {
       "@type": "Organization",
       name: post.editorialReviewer || "트립뷰 편집팀",
@@ -1175,13 +1274,66 @@ function ensureArticleSchema(document, post, indexable) {
       name: "트립뷰",
       url: `${baseUrl}/`,
     },
-    image: postImagesWithProcessed(processedTourImages, post).map(publicImageUrl),
+    image: schemaImages(post),
     citation: articleSourceLinks(post).map((source) => source.url),
     isAccessibleForFree: true,
     inLanguage: "ko-KR",
   };
-  const json = JSON.stringify(schema).replaceAll("<", "\\u003c");
-  return withoutExisting.replace("</head>", `    <script type="application/ld+json" data-tripview-article>${json}</script>\n  </head>`);
+}
+
+function eventSchema(post) {
+  const schedule = festivalSchedule(post);
+  const startDate = schedule.start || schemaDate(postDate(post));
+  const endDate = schedule.end || startDate;
+  const place = infoValue(post, "장소") || normalizeText(post?.tourApi?.intro?.eventplace) || compactRegion(post?.region);
+  const address = infoValue(post, "주소") || post?.region || place;
+  return {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    name: post?.sourceTitle || postTitle(post),
+    startDate,
+    endDate,
+    location: {
+      "@type": "Place",
+      name: place || postTitle(post),
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: address || place || compactRegion(post?.region),
+        addressCountry: "KR",
+      },
+    },
+  };
+}
+
+function isLodgingPost(post) {
+  return contentTypeOf(post) === "32";
+}
+
+function lodgingSchema(post) {
+  const address = infoValue(post, "주소") || post?.region || "";
+  const phone = infoValue(post, "문의") || normalizeText(post?.tourApi?.intro?.infocenterlodging || "");
+  return {
+    "@context": "https://schema.org",
+    "@type": "LodgingBusiness",
+    name: post?.sourceTitle || postTitle(post),
+    description: postSummary(post, 180) || postExcerpt(post),
+    url: postUrl(post),
+    image: schemaImages(post),
+    ...(address ? { address: { "@type": "PostalAddress", streetAddress: address, addressCountry: "KR" } } : {}),
+    ...(phone ? { telephone: phone } : {}),
+  };
+}
+
+function ensureArticleSchema(document, post) {
+  const withoutExisting = String(document).replace(
+    /\s*<script type="application\/ld\+json" data-tripview-(?:article|event|lodging)>[\s\S]*?<\/script>/g,
+    "",
+  );
+  if (!withoutExisting.includes("</head>")) return withoutExisting;
+  const scripts = [schemaScript("article", articleSchema(post))];
+  if (isFestivalPost(post)) scripts.push(schemaScript("event", eventSchema(post)));
+  if (isLodgingPost(post)) scripts.push(schemaScript("lodging", lodgingSchema(post)));
+  return withoutExisting.replace("</head>", `${scripts.join("\n")}\n  </head>`);
 }
 
 function ensureArticleAdsense(document, enabled) {
@@ -1436,9 +1588,10 @@ async function polishGeneratedArticles() {
     next = injectArticleBottomAccommodation(next, bottomAccommodationBlock);
     next = injectArticleRegionRelated(next, regionRelatedBlock);
     next = injectArticleTrust(next, post);
+    next = injectFestivalStatus(next, post);
     next = ensureCanonical(next, `/${post.slug}/`);
     next = ensureRobotsMeta(next, indexable);
-    next = ensureArticleSchema(next, post, indexable);
+    next = ensureArticleSchema(next, post);
     next = ensureArticleAdsense(next, indexable);
     next = ensureAccommodationLinkScript(next);
     next = ensureLazyImages(next);
