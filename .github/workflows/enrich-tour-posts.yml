@@ -30,6 +30,9 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Install image processing dependencies
+        run: python3 -m pip install --user pillow
+
       - name: Enrich generated posts
         run: node scripts/enrich-tour-posts.mjs
         env:
@@ -37,6 +40,11 @@ jobs:
           OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-5.5' }}
           OPENAI_ENRICH_LIMIT: ${{ github.event.inputs.limit || '0' }}
           OPENAI_TIMEOUT_MS: ${{ vars.OPENAI_TIMEOUT_MS || '90000' }}
+
+      - name: Process Korea Tourism images
+        run: |
+          node scripts/process-tour-images.mjs
+          node scripts/build-www.mjs
 
       - name: Commit enriched posts
         if: github.event_name == 'workflow_dispatch'

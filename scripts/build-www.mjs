@@ -3,6 +3,17 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { affiliateProductImage, selectAffiliateProducts } from "./lib/affiliate-matching.mjs";
 import { isIndexablePost } from "./lib/content-quality.mjs";
+import {
+  TOUR_IMAGE_SOURCE_LABEL,
+  isTourApiImage,
+  postImageWithProcessed,
+  postImagesWithProcessed,
+  readTourImageManifest,
+  tourImageAlt,
+  tourImageAssetForSource,
+  tourImageCaption,
+  tourImageEntry,
+} from "./lib/tour-image-assets.mjs";
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const outDir = join(root, "www");
@@ -95,6 +106,7 @@ const flightDeals = await readJson("data/myrealtrip-flight-deals.json");
 const accommodationCache = await readJson("data/myrealtrip-accommodation-cache.json", null);
 const accommodationProducts = accommodationProductsFromCache(accommodationCache);
 const tnaProducts = await readJson("data/myrealtrip-tna-products.json");
+const processedTourImages = await readTourImageManifest(root);
 
 const files = [
   "index.html",
@@ -258,7 +270,7 @@ function postSummary(post, length = 92) {
 }
 
 function postImage(post) {
-  return [post?.image, ...(Array.isArray(post?.images) ? post.images : [])].find(Boolean) || "";
+  return postImageWithProcessed(processedTourImages, post);
 }
 
 function sortedPosts(items) {
@@ -1063,7 +1075,7 @@ function articleSourceHtml(post) {
 function articleImageSource(post) {
   const images = [post?.image, ...(Array.isArray(post?.images) ? post.images : [])].filter(Boolean);
   if (!images.length) return "이미지 없음";
-  if (images.some((src) => /visitkorea\.or\.kr|tong\.visitkorea/i.test(String(src)))) return "한국관광공사";
+  if (tourImageEntry(processedTourImages, post) || images.some(isTourApiImage)) return TOUR_IMAGE_SOURCE_LABEL;
   return "본문 표기 이미지 또는 공개 자료";
 }
 
@@ -1099,6 +1111,45 @@ function alignArticleByline(document, post) {
   );
 }
 
+function publicImageUrl(value = "") {
+  const src = String(value || "");
+  if (!src) return "";
+  if (src.startsWith("/")) return `${baseUrl}${src}`;
+  return src;
+}
+
+function ensureLazyImages(document) {
+  return String(document).replace(/<img\b(?![^>]*\bloading=)([^>]*?)>/gi, "<img loading=\"lazy\"$1>");
+}
+
+function applyProcessedMetaImages(document, cover) {
+  if (!cover?.src) return document;
+  const imageUrl = html(publicImageUrl(cover.src));
+  return String(document)
+    .replace(/(<meta\s+property=["']og:image["']\s+content=["'])[^"']*(["'])/i, `$1${imageUrl}$2`)
+    .replace(/(<meta\s+property=["']og:image:secure_url["']\s+content=["'])[^"']*(["'])/i, `$1${imageUrl}$2`)
+    .replace(/(<meta\s+name=["']twitter:image["']\s+content=["'])[^"']*(["'])/i, `$1${imageUrl}$2`)
+    .replace(/(<link\s+rel=["']image_src["']\s+href=["'])[^"']*(["'])/i, `$1${imageUrl}$2`);
+}
+
+function processedFigure(asset, className) {
+  const imageClass = className === "cover-figure" ? ' class="cover"' : "";
+  return `<figure class="${className}"><img${imageClass} src="${html(asset.src)}" alt="${html(tourImageAlt(asset))}" loading="lazy" /><figcaption>${html(tourImageCaption(asset))}</figcaption></figure>`;
+}
+
+function applyProcessedArticleImages(document, post) {
+  const entry = tourImageEntry(processedTourImages, post);
+  if (!entry?.cover?.src) return ensureLazyImages(document);
+  let next = applyProcessedMetaImages(document, entry.cover);
+  next = next.replace(/<figure class="cover-figure">[\s\S]*?<\/figure>/, processedFigure(entry.cover, "cover-figure"));
+  next = next.replace(/<figure class="inline-figure">[\s\S]*?<\/figure>/g, (figure) => {
+    const original = figure.match(/<img\b[^>]*\bsrc=["']([^"']+)["']/i)?.[1] || "";
+    const asset = tourImageAssetForSource(processedTourImages, post, original);
+    return asset?.src ? processedFigure(asset, "inline-figure") : ensureLazyImages(figure);
+  });
+  return ensureLazyImages(next);
+}
+
 function ensureArticleSchema(document, post, indexable) {
   const withoutExisting = String(document).replace(
     /\s*<script type="application\/ld\+json" data-tripview-article>[\s\S]*?<\/script>/g,
@@ -1124,7 +1175,7 @@ function ensureArticleSchema(document, post, indexable) {
       name: "트립뷰",
       url: `${baseUrl}/`,
     },
-    image: [post.image, ...(Array.isArray(post.images) ? post.images : [])].filter(Boolean),
+    image: postImagesWithProcessed(processedTourImages, post).map(publicImageUrl),
     citation: articleSourceLinks(post).map((source) => source.url),
     isAccessibleForFree: true,
     inLanguage: "ko-KR",
@@ -1380,6 +1431,7 @@ async function polishGeneratedArticles() {
     let next = injectArticleAdCss(stripExistingArticleAds(document), false, Boolean(regionRelatedBlock), hasAccommodationBlock);
     next = alignArticleNavigation(next);
     next = alignArticleByline(next, post);
+    next = applyProcessedArticleImages(next, post);
     next = injectArticleMidAccommodation(next, midAccommodationBlock);
     next = injectArticleBottomAccommodation(next, bottomAccommodationBlock);
     next = injectArticleRegionRelated(next, regionRelatedBlock);
@@ -1389,6 +1441,7 @@ async function polishGeneratedArticles() {
     next = ensureArticleSchema(next, post, indexable);
     next = ensureArticleAdsense(next, indexable);
     next = ensureAccommodationLinkScript(next);
+    next = ensureLazyImages(next);
     next = alignStaticInternalLinks(next);
     next = cleanGeneratedHtml(next);
     if (next !== document) await writeFile(file, next, "utf8");

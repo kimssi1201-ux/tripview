@@ -240,6 +240,38 @@ test("accommodation cache keeps the MyRealTrip API contract lean", async () => {
   assert.doesNotMatch(cacheText, /"images"|"imageUrls"|"amenities"|"facilities"|"coordinates"|"latitude"|"longitude"/);
 });
 
+test("Korea Tourism images render through processed WebP assets", async () => {
+  const [manifestText, article, busanHub, homepage, topicFilter] = await Promise.all([
+    readFile("data/processed-tour-images.json", "utf8"),
+    readFile("travel-126078/index.html", "utf8"),
+    readFile("region/busan/index.html", "utf8"),
+    readFile("index.html", "utf8"),
+    readFile("assets/topic-filter.js", "utf8"),
+  ]);
+  const manifest = JSON.parse(manifestText);
+  const files = await readdir("assets/processed");
+  assert.equal(Object.keys(manifest.items || {}).length, 51);
+  assert.ok(files.filter((file) => file.endsWith(".webp")).length >= 51);
+  assert.equal(manifest.items["travel-2774026"].cover.src, "/assets/processed/hoengseong-lake-trail-parking.webp");
+  assert.equal(manifest.items["travel-2774026"].cover.caption, "출처: 한국관광공사 공공누리 · 트립뷰 편집 썸네일");
+  assert.match(manifestText, /\/assets\/processed\/samcheok-hwanseongul-parking\.webp/);
+
+  assert.match(article, /src="\/assets\/processed\/busan-gwangalli-beach-parking\.webp"/);
+  assert.match(article, /alt="부산 광안리해수욕장 주차·동선 정보를 한눈에 볼 수 있게 편집한 트립뷰 썸네일"/);
+  assert.match(article, /loading="lazy"/);
+  assert.match(article, /출처: 한국관광공사 공공누리 · 트립뷰 편집 썸네일/);
+  assert.match(article, /"image":\["https:\/\/tripview\.kr\/assets\/processed\/busan-gwangalli-beach-parking\.webp"\]/);
+  assert.doesNotMatch(article, /tong\.visitkorea\.or\.kr/);
+  assert.doesNotMatch(article, /이미지 1|대표 이미지/);
+
+  assert.match(homepage, /\/assets\/processed\/[a-z0-9-]+\.webp/);
+  assert.doesNotMatch(homepage, /tong\.visitkorea\.or\.kr/);
+  assert.match(busanHub, /\/assets\/processed\/busan-gwangalli-beach-parking\.webp/);
+  assert.doesNotMatch(busanHub, /tong\.visitkorea\.or\.kr/);
+  assert.match(topicFilter, /processed-tour-images\.json/);
+  assert.match(topicFilter, /processedImage\(post\)/);
+});
+
 test("AdSense script and ads.txt use the same publisher ID", async () => {
   const [homepage, adsText] = await Promise.all([
     readFile("index.html", "utf8"),

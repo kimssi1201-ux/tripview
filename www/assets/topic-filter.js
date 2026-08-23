@@ -1,8 +1,9 @@
 (() => {
   const DATA_URL = '/data/generated-posts.json';
+  const IMAGE_DATA_URL = '/data/processed-tour-images.json';
   const ROUTES_ID = 'routes';
   const PAGE_SIZE = 80;
-  const state = { posts: [], filter: { type: 'all', value: '' }, shown: PAGE_SIZE };
+  const state = { posts: [], images: null, filter: { type: 'all', value: '' }, shown: PAGE_SIZE };
 
   const esc = (value = '') => String(value).replace(/[&<>"']/g, (match) => ({
     '&': '&amp;',
@@ -28,6 +29,14 @@
   function postHref(post) {
     const path = post.slug ? `/${post.slug}/` : '#routes';
     return `${path}${currentLangQuery()}`;
+  }
+
+  function processedImage(post) {
+    return state.images?.items?.[post?.slug]?.cover?.src || '';
+  }
+
+  function processedAlt(post) {
+    return state.images?.items?.[post?.slug]?.cover?.alt || '';
   }
 
   function compactRegion(value = '') {
@@ -63,12 +72,12 @@
   }
 
   function card(post) {
-    const image = post.image || post.images?.[0] || '';
+    const image = processedImage(post) || post.image || post.images?.[0] || '';
     const title = post.sourceTitle || post.title || '여행 글';
     const meta = [post.category || '여행 정보', post.date || '', compactRegion(post.region)].filter(Boolean).join(' · ');
     const excerpt = post.excerpt || post.description || '';
     const thumb = image
-      ? `<span class="directory-thumb"><img src="${esc(image)}" alt="${esc(post.alt || title)}" loading="lazy" /></span>`
+      ? `<span class="directory-thumb"><img src="${esc(image)}" alt="${esc(processedAlt(post) || post.alt || title)}" loading="lazy" /></span>`
       : '';
     const summary = excerpt ? `<span class="topic-card-excerpt">${esc(excerpt)}</span>` : '';
     return `<a class="region-tab directory-tab topic-result-card" href="${esc(postHref(post))}" data-post-card="true">${thumb}<span class="directory-copy"><strong>${esc(title)}</strong><span>${esc(meta)}</span>${summary}<em>글 내용 보기</em></span></a>`;
@@ -229,11 +238,25 @@
 
   async function loadPosts() {
     if (state.posts.length) return state.posts;
-    const response = await fetch(DATA_URL, { cache: 'no-store' });
+    const [response] = await Promise.all([
+      fetch(DATA_URL, { cache: 'no-store' }),
+      loadImageManifest(),
+    ]);
     if (!response.ok) throw new Error(`post data load failed: ${response.status}`);
     const posts = await response.json();
     state.posts = Array.isArray(posts) ? posts.filter((post) => post?.slug && post?.title) : [];
     return state.posts;
+  }
+
+  async function loadImageManifest() {
+    if (state.images) return state.images;
+    try {
+      const response = await fetch(IMAGE_DATA_URL, { cache: 'no-store' });
+      state.images = response.ok ? await response.json() : { items: {} };
+    } catch {
+      state.images = { items: {} };
+    }
+    return state.images;
   }
 
   function inferFilter(link) {

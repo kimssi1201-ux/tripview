@@ -428,7 +428,7 @@ async function applyOpenAiEnrichment(posts) {
 
 function renderArticle(post, counts = { total: 0, categories: {} }) {
   const rows = (post.info || []).map(([k, v]) => `<tr><th>${esc(k)}</th><td>${esc(v)}</td></tr>`).join('');
-  const gallery = (post.images || [post.image]).filter(Boolean).map((src, index) => `<figure class="${index === 0 ? 'cover-figure' : 'inline-figure'}"><img class="${index === 0 ? 'cover' : ''}" src="${esc(src)}" alt="${esc(`${sourceTitle(post)} 이미지 ${index + 1}`)}"${index === 0 ? '' : ' loading="lazy"'} /><figcaption>출처: 한국관광공사</figcaption></figure>`).join('\n');
+  const gallery = (post.images || [post.image]).filter(Boolean).map((src, index) => `<figure class="${index === 0 ? 'cover-figure' : 'inline-figure'}"><img class="${index === 0 ? 'cover' : ''}" src="${esc(src)}" alt="${esc(`${sourceTitle(post)} 방문 참고 이미지 ${index + 1}`)}" loading="lazy" /><figcaption>출처: 한국관광공사 공공누리</figcaption></figure>`).join('\n');
   const sections = (post.sections || []).map(([heading, paragraphs]) => `<h2>${esc(heading)}</h2>${paragraphs.map((p) => `<p>${esc(p)}</p>`).join('')}`).join('');
   const faqs = (post.faq || []).map(([q, a]) => `<details open><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('');
   const memo = (post.memo || []).map((m) => `<span>${esc(m)}</span>`).join('');
@@ -470,7 +470,7 @@ function renderArticle(post, counts = { total: 0, categories: {} }) {
 }
 
 function card(post, className = 'card', heading = 'h3') {
-  return `<a class="${className}" href="/${esc(post.slug)}/"><img src="${esc(post.image)}" alt="${esc(post.alt || post.title)}" /><small>${esc(post.category)}</small><${heading}>${esc(post.title)}</${heading}><p>${esc(post.excerpt)}</p><div class="meta"><span>${esc(post.date)}</span><span>${esc(post.read)}</span><span>${esc(post.region)}</span></div></a>`;
+  return `<a class="${className}" href="/${esc(post.slug)}/"><img src="${esc(post.image)}" alt="${esc(post.alt || post.title)}" loading="lazy" /><small>${esc(post.category)}</small><${heading}>${esc(post.title)}</${heading}><p>${esc(post.excerpt)}</p><div class="meta"><span>${esc(post.date)}</span><span>${esc(post.read)}</span><span>${esc(post.region)}</span></div></a>`;
 }
 
 

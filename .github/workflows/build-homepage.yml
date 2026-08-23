@@ -18,6 +18,9 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Install image processing dependencies
+        run: python3 -m pip install --user pillow
+
       - name: Merge manual posts
         run: node scripts/merge-manual-posts.mjs
 
@@ -37,6 +40,9 @@ jobs:
 
       - name: Polish contextual article copy
         run: node scripts/polish-contextual-copy.mjs
+
+      - name: Process Korea Tourism images
+        run: node scripts/process-tour-images.mjs
 
       - name: Fetch MyRealTrip products
         run: node scripts/fetch-myrealtrip-products.mjs
@@ -131,6 +137,9 @@ jobs:
 
       - name: Apply map previews
         run: node scripts/add-map-preview.mjs
+
+      - name: Build static export
+        run: node scripts/build-www.mjs
 
       - name: Commit homepage updates
         run: |

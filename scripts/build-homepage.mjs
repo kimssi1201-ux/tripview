@@ -1,11 +1,13 @@
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { postImageWithProcessed, readTourImageManifest } from './lib/tour-image-assets.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, '..');
 const SITE_URL = 'https://tripview.kr';
+const processedTourImages = await readTourImageManifest(ROOT);
 const NAVER_META = '';
 const ADSENSE = '';
 const CATEGORIES = ['국내여행', '공연/축제'];
@@ -142,7 +144,7 @@ async function postsFromGeneratedData() {
       title: post.title,
       path: `/${post.slug}/`,
       url: `${SITE_URL}/${post.slug}/`,
-      image: post.image || post.images?.[0] || '',
+      image: postImageWithProcessed(processedTourImages, post),
       excerpt: post.excerpt || post.description || '',
       category: post.category || CATEGORIES[0],
       region: post.region || '',

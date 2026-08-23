@@ -27,6 +27,9 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Install image processing dependencies
+        run: python3 -m pip install --user pillow
+
       - name: Sync latest main
         run: git pull --rebase origin main
 

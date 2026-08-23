@@ -3,6 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { affiliateProductImage, selectAffiliateProducts } from "./lib/affiliate-matching.mjs";
 import { isIndexablePost } from "./lib/content-quality.mjs";
+import { postImageWithProcessed, readTourImageManifest } from "./lib/tour-image-assets.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const POSTS_PATH = path.join(ROOT, "data", "generated-posts.json");
@@ -11,6 +12,7 @@ const MYREALTRIP_ACCOMMODATIONS_PATH = path.join(ROOT, "data", "myrealtrip-accom
 const MYREALTRIP_TNA_PATH = path.join(ROOT, "data", "myrealtrip-tna-products.json");
 const MYREALTRIP_FLIGHTS_PATH = path.join(ROOT, "data", "myrealtrip-flight-deals.json");
 const INDEX_PATH = path.join(ROOT, "index.html");
+const processedTourImages = await readTourImageManifest(ROOT);
 
 const BRAND = "\uD2B8\uB9BD\uBDF0";
 const CAT_DOMESTIC = "\uAD6D\uB0B4\uC5EC\uD589";
@@ -132,7 +134,7 @@ const CURRENT_TRAVEL_KEYWORDS = [
   "\uC5EC\uB984",
 ];
 const hrefOf = (post) => (post?.slug ? `/${post.slug}/` : "#");
-const imageOf = (post) => post?.image || post?.images?.[0] || "";
+const imageOf = (post) => postImageWithProcessed(processedTourImages, post);
 const titleOf = (post) => normalize(post?.title || post?.sourceTitle || TEXT.articleFallback);
 const categoryOf = (post) => normalize(post?.category || TEXT.infoFallback);
 const regionOf = (post) => normalize(post?.region || "");
