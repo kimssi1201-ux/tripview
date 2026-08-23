@@ -38,7 +38,24 @@ function dateText(date) {
   return date.toISOString().slice(0, 10);
 }
 
-const defaultCheckIn = dateText(addDays(new Date(), 14));
+function koreaCalendarDate(date = new Date()) {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "Asia/Seoul",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(date);
+  const value = Object.fromEntries(parts.map((part) => [part.type, part.value]));
+  return new Date(Date.UTC(Number(value.year), Number(value.month) - 1, Number(value.day)));
+}
+
+function defaultAccommodationCheckIn(reference = new Date()) {
+  const today = koreaCalendarDate(reference);
+  const daysUntilFriday = (5 - today.getUTCDay() + 7) % 7 || 7;
+  return dateText(addDays(today, daysUntilFriday));
+}
+
+const defaultCheckIn = defaultAccommodationCheckIn();
 const CHECK_IN = process.env.MYREALTRIP_ACCOMMODATION_CHECK_IN || defaultCheckIn;
 const CHECK_OUT = process.env.MYREALTRIP_ACCOMMODATION_CHECK_OUT || dateText(addDays(new Date(`${CHECK_IN}T00:00:00Z`), NIGHTS));
 
@@ -102,12 +119,12 @@ function normalizeAccommodation(item, region, keyword) {
     url,
     image: affiliateProductImage(item),
     price: item.salePrice || "",
-    priceText: `${priceText}부터`,
+    priceText: `${priceText}부퀰`,
     region: region.name,
     city: region.name,
     category: "숙소 예약",
     description: [stay, star, review].filter(Boolean).join(" · "),
-    tags: ["숙소", "호텔", "예약", region.name],
+    tags: ["숙소", "호퀔", "예약", region.name],
     intents: ["booking"],
     checkIn: CHECK_IN,
     checkOut: CHECK_OUT,

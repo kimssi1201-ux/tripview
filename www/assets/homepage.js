@@ -8,13 +8,62 @@
     const bookingBackdrop = document.querySelector("[data-booking-backdrop]");
     const bookingSheets = [...document.querySelectorAll("[data-booking-sheet]")];
 
-    const today = new Date();
-    const toDateInput = (date) => date.toISOString().slice(0, 10);
+    const koreaToday = () => {
+      const parts = new Intl.DateTimeFormat("en-US", {
+        timeZone: "Asia/Seoul",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+      }).formatToParts(new Date());
+      const value = Object.fromEntries(parts.map((part) => [part.type, part.value]));
+      return new Date(Number(value.year), Number(value.month) - 1, Number(value.day));
+    };
+    const today = koreaToday();
+    const padDatePart = (value) => String(value).padStart(2, "0");
+    const toDateInput = (date) => [
+      date.getFullYear(),
+      padDatePart(date.getMonth() + 1),
+      padDatePart(date.getDate()),
+    ].join("-");
     const addDays = (date, days) => {
       const next = new Date(date);
       next.setDate(next.getDate() + days);
       return next;
     };
+    const defaultStayWindow = (reference = today) => {
+      const daysUntilFriday = (5 - reference.getDay() + 7) % 7 || 7;
+      const checkInDate = addDays(reference, daysUntilFriday);
+      const checkOutDate = addDays(checkInDate, 2);
+      return {
+        checkIn: toDateInput(checkInDate),
+        checkOut: toDateInput(checkOutDate),
+      };
+    };
+    const defaultStay = defaultStayWindow();
+
+    function accommodationUrlWithStay(rawUrl, stay = defaultStay) {
+      try {
+        const url = new URL(rawUrl, window.location.href);
+        if (url.hostname.toLowerCase() !== "accommodation.myrealtrip.com") return rawUrl;
+        url.searchParams.set("checkIn", stay.checkIn);
+        url.searchParams.set("checkOut", stay.checkOut);
+        url.searchParams.set("adultCount", "2");
+        url.searchParams.set("childCount", "0");
+        url.searchParams.set("childAges", "");
+        return url.toString();
+      } catch {
+        return rawUrl;
+      }
+    }
+
+    function refreshAccommodationCardLinks() {
+      document.querySelectorAll('a[href*="accommodation.myrealtrip.com/union/products/"]').forEach((link) => {
+        const original = link.dataset.accommodationSourceUrl || link.getAttribute("href") || "";
+        if (!original) return;
+        link.dataset.accommodationSourceUrl = original;
+        link.href = accommodationUrlWithStay(original);
+      });
+    }
 
     const guideSections = [
       {
@@ -196,7 +245,7 @@
       const fallbackFlightUrl = "https://flights.myrealtrip.com/";
       const url = item.type === "flight"
         ? (item.bookingUrl || (/^https?:\/\//.test(item.url || "") ? item.url : fallbackFlightUrl))
-        : (item.url || "https://www.myrealtrip.com/");
+        : accommodationUrlWithStay(item.url || "https://www.myrealtrip.com/");
       card.href = url;
       if (/^https?:\/\//.test(url)) {
         card.target = "_blank";
@@ -233,7 +282,13 @@
     async function runBookingSearch(form) {
       const type = form.dataset.bookingSearch;
       const params = new URLSearchParams(new FormData(form));
-      if (type === "accommodation") params.set("type", "accommodation");
+      if (type === "accommodation") {
+        params.set("type", "accommodation");
+        params.set("checkIn", params.get("checkIn") || defaultStay.checkIn);
+        params.set("checkOut", params.get("checkOut") || defaultStay.checkOut);
+        params.set("adultCount", params.get("adultCount") || "2");
+        params.set("childCount", "0");
+      }
       if (type === "tna") params.set("type", "tna");
       if (type === "flight") params.set("type", "flight");
       setBookingStatus("검색 중입니다.", type);
@@ -280,10 +335,18 @@
     window.tripviewSubmitBooking = submitBookingForm;
 
     insertGuideSections();
+    refreshAccommodationCardLinks();
 
-    document.querySelectorAll('[data-booking-search] input[type="date"]').forEach((input, index) => {
-      input.value = toDateInput(addDays(today, index === 0 ? 14 : 16));
+    document.querySelectorAll('[data-booking-search="accommodation"] input[name="checkIn"]').forEach((input) => {
+      input.value = defaultStay.checkIn;
       input.min = toDateInput(today);
+    });
+    document.querySelectorAll('[data-booking-search="accommodation"] input[name="checkOut"]').forEach((input) => {
+      input.value = defaultStay.checkOut;
+      input.min = defaultStay.checkIn;
+    });
+    document.querySelectorAll('[data-booking-search="accommodation"] input[name="adultCount"]').forEach((input) => {
+      input.value = "2";
     });
 
     document.addEventListener("click", (event) => {
