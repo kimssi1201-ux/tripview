@@ -1309,6 +1309,10 @@ function isLodgingPost(post) {
   return contentTypeOf(post) === "32";
 }
 
+function isDataPipelinePost(post) {
+  return Boolean(post?.dataPipeline?.generated);
+}
+
 function lodgingSchema(post) {
   const address = infoValue(post, "주소") || post?.region || "";
   const phone = infoValue(post, "문의") || normalizeText(post?.tourApi?.intro?.infocenterlodging || "");
@@ -1331,8 +1335,8 @@ function ensureArticleSchema(document, post) {
   );
   if (!withoutExisting.includes("</head>")) return withoutExisting;
   const scripts = [schemaScript("article", articleSchema(post))];
-  if (isFestivalPost(post)) scripts.push(schemaScript("event", eventSchema(post)));
-  if (isLodgingPost(post)) scripts.push(schemaScript("lodging", lodgingSchema(post)));
+  if (isFestivalPost(post) && !isDataPipelinePost(post)) scripts.push(schemaScript("event", eventSchema(post)));
+  if (isLodgingPost(post) && !isDataPipelinePost(post)) scripts.push(schemaScript("lodging", lodgingSchema(post)));
   return withoutExisting.replace("</head>", `${scripts.join("\n")}\n  </head>`);
 }
 
@@ -1575,7 +1579,7 @@ async function polishGeneratedArticles() {
     if (!document.includes('<article class="content"')) continue;
 
     const indexable = isIndexablePost(post);
-    const accommodationItems = indexable ? articleAccommodationItems(post, 3) : [];
+    const accommodationItems = indexable && !isDataPipelinePost(post) ? articleAccommodationItems(post, 3) : [];
     const midAccommodationBlock = accommodationItems.length ? articleAccommodationBlock(accommodationItems.slice(0, 1), "mid") : "";
     const bottomAccommodationBlock = accommodationItems.length > 1 ? articleAccommodationBlock(accommodationItems.slice(1, 3), "bottom") : "";
     const regionRelatedBlock = indexable ? articleRegionRelatedBlock(post) : "";

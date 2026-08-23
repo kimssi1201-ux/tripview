@@ -9,6 +9,8 @@
     "test": "node --test tests/*.test.mjs",
     "lint": "node scripts/check-syntax.mjs",
     "audit:content": "node scripts/audit-content-quality.mjs",
+    "generate:data-posts": "node scripts/generate-data-posts.mjs",
+    "validate:data-posts": "node scripts/validate-data-posts.mjs",
     "enrich:short": "node scripts/enrich-short-posts.mjs",
     "review:adsense": "node scripts/apply-editorial-review.mjs",
     "refresh": "node scripts/update-posts.mjs && node scripts/fix-invalid-regions.mjs"

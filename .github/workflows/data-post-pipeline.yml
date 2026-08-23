@@ -1,0 +1,90 @@
+name: Data post pipeline
+
+on:
+  schedule:
+    - cron: "20 18 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: data-post-pipeline
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install image processing dependencies
+        run: python3 -m pip install --user pillow
+
+      - name: Sync latest main
+        run: git pull --rebase origin main
+
+      - name: Refresh accommodation cache
+        run: node scripts/fetch-myrealtrip-accommodations.mjs
+        env:
+          MYREALTRIP_API_KEY: ${{ secrets.MYREALTRIP_API_KEY || secrets.PARTNER_API_KEY || secrets.MYREALTRIP_PARTNER_API_KEY }}
+          PARTNER_API_KEY: ${{ secrets.PARTNER_API_KEY }}
+          MYREALTRIP_ACCOMMODATION_REGION_URL: ${{ vars.MYREALTRIP_ACCOMMODATION_REGION_URL || secrets.MYREALTRIP_ACCOMMODATION_REGION_URL }}
+          MYREALTRIP_ACCOMMODATION_SEARCH_URL: ${{ vars.MYREALTRIP_ACCOMMODATION_SEARCH_URL || secrets.MYREALTRIP_ACCOMMODATION_SEARCH_URL }}
+          MYREALTRIP_ACCOMMODATION_KEYWORDS: ${{ vars.MYREALTRIP_ACCOMMODATION_KEYWORDS }}
+          MYREALTRIP_ACCOMMODATION_IS_DOMESTIC: ${{ vars.MYREALTRIP_ACCOMMODATION_IS_DOMESTIC || 'true' }}
+
+      - name: Refresh ticket cache
+        run: node scripts/fetch-myrealtrip-tna-products.mjs
+        env:
+          MYREALTRIP_API_KEY: ${{ secrets.MYREALTRIP_API_KEY || secrets.PARTNER_API_KEY || secrets.MYREALTRIP_PARTNER_API_KEY }}
+          PARTNER_API_KEY: ${{ secrets.PARTNER_API_KEY }}
+          MYREALTRIP_TNA_SEARCH_URL: ${{ vars.MYREALTRIP_TNA_SEARCH_URL || secrets.MYREALTRIP_TNA_SEARCH_URL }}
+          MYREALTRIP_TNA_KEYWORDS: ${{ vars.MYREALTRIP_TNA_KEYWORDS }}
+          MYREALTRIP_TNA_CATEGORY: ${{ vars.MYREALTRIP_TNA_CATEGORY }}
+
+      - name: Generate data posts
+        run: npm run generate:data-posts
+        env:
+          DATA_PIPELINE_VALIDATE_LIVE_URLS: "true"
+          TRIPVIEW_API_KEY: ${{ secrets.TRIPVIEW_API_KEY }}
+          MYREALTRIP_API_KEY: ${{ secrets.MYREALTRIP_API_KEY || secrets.PARTNER_API_KEY || secrets.MYREALTRIP_PARTNER_API_KEY }}
+          PARTNER_API_KEY: ${{ secrets.PARTNER_API_KEY }}
+
+      - name: Build static files
+        run: npm run build
+        env:
+          TRIPVIEW_API_KEY: ${{ secrets.TRIPVIEW_API_KEY }}
+          MYREALTRIP_API_KEY: ${{ secrets.MYREALTRIP_API_KEY || secrets.PARTNER_API_KEY || secrets.MYREALTRIP_PARTNER_API_KEY }}
+          PARTNER_API_KEY: ${{ secrets.PARTNER_API_KEY }}
+
+      - name: Validate data posts
+        run: npm run validate:data-posts
+        env:
+          TRIPVIEW_API_KEY: ${{ secrets.TRIPVIEW_API_KEY }}
+          MYREALTRIP_API_KEY: ${{ secrets.MYREALTRIP_API_KEY || secrets.PARTNER_API_KEY || secrets.MYREALTRIP_PARTNER_API_KEY }}
+          PARTNER_API_KEY: ${{ secrets.PARTNER_API_KEY }}
+
+      - name: Run tests
+        run: |
+          npm test
+          npm run lint
+
+      - name: Commit generated data posts
+        run: |
+          if git diff --quiet; then
+            echo "No data post changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Update data-driven posts"
+          git pull --rebase origin main
+          git push

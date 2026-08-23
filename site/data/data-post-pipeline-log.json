@@ -1,0 +1,34 @@
+{
+  "runs": [
+    {
+      "runAt": "2026-08-23T15:55:12.064Z",
+      "runDate": "2026-08-24",
+      "generatedCount": 3,
+      "discardedCount": 0,
+      "generated": [
+        {
+          "slug": "data-stay-price-seoul",
+          "type": "stay-price",
+          "region": "서울",
+          "rowCount": 3,
+          "affiliateLinkCount": 3
+        },
+        {
+          "slug": "data-festival-schedule-seoul",
+          "type": "festival-schedule",
+          "region": "서울",
+          "rowCount": 8,
+          "affiliateLinkCount": 0
+        },
+        {
+          "slug": "data-ticket-price-busan",
+          "type": "ticket-price",
+          "region": "부산",
+          "rowCount": 4,
+          "affiliateLinkCount": 4
+        }
+      ],
+      "discarded": []
+    }
+  ]
+}

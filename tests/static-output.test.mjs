@@ -66,6 +66,15 @@ function expectedRegionSlugs(posts) {
   return [...new Set(posts.filter(isIndexablePost).map((post) => regionSlugs.get(compactRegion(post.region)) || "other"))].sort();
 }
 
+function visibleText(document = "") {
+  return String(document)
+    .replace(/<script[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<[^>]*>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 function addDays(date, days) {
   const next = new Date(date);
   next.setUTCDate(next.getUTCDate() + days);
@@ -253,8 +262,8 @@ test("Korea Tourism images render through processed WebP assets", async () => {
   ]);
   const manifest = JSON.parse(manifestText);
   const files = await readdir("assets/processed");
-  assert.equal(Object.keys(manifest.items || {}).length, 51);
-  assert.ok(files.filter((file) => file.endsWith(".webp")).length >= 51);
+  assert.equal(Object.keys(manifest.items || {}).length, 52);
+  assert.ok(files.filter((file) => file.endsWith(".webp")).length >= 52);
   assert.equal(manifest.items["travel-2774026"].cover.src, "/assets/processed/hoengseong-lake-trail-parking.webp");
   assert.equal(manifest.items["travel-2774026"].cover.caption, "출처: 한국관광공사 공공누리 · 트립뷰 편집 썸네일");
   assert.match(manifestText, /\/assets\/processed\/samcheok-hwanseongul-parking\.webp/);
@@ -355,13 +364,13 @@ test("sitemap includes only indexable articles and article robots match content 
   const posts = JSON.parse(postsText);
   const indexable = posts.filter(isIndexablePost);
   const regions = expectedRegionSlugs(posts);
-  const articleUrls = [...sitemap.matchAll(/<loc>https:\/\/tripview\.kr\/((?:travel|festival)-\d+)\/<\/loc>/g)]
+  const articleUrls = [...sitemap.matchAll(/<loc>https:\/\/tripview\.kr\/((?:(?:travel|festival)-\d+)|(?:data-[a-z0-9-]+))\/<\/loc>/g)]
     .map((match) => match[1]);
   const regionUrls = [...sitemap.matchAll(/<loc>https:\/\/tripview\.kr\/region\/([a-z0-9-]+)\/<\/loc>/g)]
     .map((match) => match[1])
     .sort();
 
-  assert.equal(indexable.length, 51);
+  assert.equal(indexable.length, 54);
   assert.equal(articleUrls.length, indexable.length);
   assert.ok(articleUrls.every((slug) => indexable.some((post) => post.slug === slug)));
   assert.match(sitemap, /<loc>https:\/\/tripview\.kr\/travel\/<\/loc>/);
@@ -371,7 +380,7 @@ test("sitemap includes only indexable articles and article robots match content 
   assert.match(sitemap, /<loc>https:\/\/tripview\.kr\/editorial-team<\/loc>/);
   assert.doesNotMatch(sitemap, /<loc>https:\/\/tripview\.kr\/flight-deals(?:\/|<)/);
 
-  const strongPost = indexable[0];
+  const strongPost = indexable.find((post) => !post?.dataPipeline?.generated);
   const thinPost = posts.find((post) => !isIndexablePost(post));
   assert.ok(strongPost);
   const strongDocument = await readFile(`${strongPost.slug}/index.html`, "utf8");
@@ -390,6 +399,44 @@ test("sitemap includes only indexable articles and article robots match content 
   } else {
     assert.equal(indexable.length, posts.length);
   }
+});
+
+test("data post pipeline outputs validated data pages", async () => {
+  const [postsText, sitemap, stay, festival, ticket, logText] = await Promise.all([
+    readFile("data/generated-posts.json", "utf8"),
+    readFile("sitemap.xml", "utf8"),
+    readFile("data-stay-price-seoul/index.html", "utf8"),
+    readFile("data-festival-schedule-seoul/index.html", "utf8"),
+    readFile("data-ticket-price-busan/index.html", "utf8"),
+    readFile("data/data-post-pipeline-log.json", "utf8"),
+  ]);
+  const posts = JSON.parse(postsText);
+  const dataPosts = posts.filter((post) => post?.dataPipeline?.generated);
+  assert.equal(dataPosts.length, 3);
+  assert.deepEqual(dataPosts.map((post) => post.slug).sort(), [
+    "data-festival-schedule-seoul",
+    "data-stay-price-seoul",
+    "data-ticket-price-busan",
+  ]);
+  assert.match(sitemap, /<loc>https:\/\/tripview\.kr\/data-stay-price-seoul\/<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/tripview\.kr\/data-festival-schedule-seoul\/<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/tripview\.kr\/data-ticket-price-busan\/<\/loc>/);
+
+  for (const document of [stay, ticket]) {
+    const affiliateLinks = [...document.matchAll(/<a\b[^>]*data-affiliate-link[^>]*>/g)];
+    assert.ok(affiliateLinks.length > 0 && affiliateLinks.length <= 8);
+    assert.ok(affiliateLinks.every((match) => /rel="[^"]*\bsponsored\b[^"]*\bnofollow\b[^"]*"/.test(match[0])));
+    assert.ok(affiliateLinks.every((match) => /target="_blank"/.test(match[0])));
+    assert.ok(document.indexOf("affiliate-disclosure") < document.indexOf("<article class=\"content\""));
+    assert.doesNotMatch(document, /<!-- MRT_ACCOMMODATION_START/);
+  }
+
+  assert.match(festival, /서울 축제 일정 정리/);
+  assert.match(festival, /data-tripview-article/);
+  assert.doesNotMatch(festival, /data-tripview-event/);
+  assert.doesNotMatch(visibleText(`${stay}\n${festival}\n${ticket}`), /\[[^\]]+\]/);
+  const log = JSON.parse(logText);
+  assert.ok(log.runs.some((run) => run.generatedCount === 3 && run.generated.some((item) => item.slug === "data-stay-price-seoul")));
 });
 
 test("editorial review manifest selects 51 unique, traceable articles", async () => {

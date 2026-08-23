@@ -471,13 +471,14 @@ const targetSlugs = String(process.env.POST_RENDER_TARGETS || "")
 const targetSet = new Set(targetSlugs);
 const reviewedOnly = process.argv.includes("--reviewed");
 const sourcePosts = await readJson("data/generated-posts.json", []);
-const posts = targetSlugs.length || reviewedOnly ? sourcePosts : sourcePosts.map(polishPost);
+const isDataPipelinePost = (post) => Boolean(post?.dataPipeline?.generated);
+const posts = targetSlugs.length || reviewedOnly ? sourcePosts : sourcePosts.map((post) => isDataPipelinePost(post) ? post : polishPost(post));
 const counts = countCategories(posts);
 const renderTargets = targetSlugs.length
-  ? posts.filter((post) => targetSet.has(post.slug))
+  ? posts.filter((post) => targetSet.has(post.slug) && !isDataPipelinePost(post))
   : reviewedOnly
-    ? posts.filter(isIndexablePost)
-    : posts;
+    ? posts.filter((post) => isIndexablePost(post) && !isDataPipelinePost(post))
+    : posts.filter((post) => !isDataPipelinePost(post));
 
 for (const post of renderTargets) {
   await fs.mkdir(path.join(ROOT, post.slug), { recursive: true });

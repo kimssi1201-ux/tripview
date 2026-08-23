@@ -96,6 +96,16 @@ function readMinutes(post) {
 }
 
 function clearReviewFields(post) {
+  if (post?.dataPipeline?.generated) {
+    return {
+      ...post,
+      editorialStatus: "reviewed",
+      editorialReviewedAt: post.editorialReviewedAt || post.dataPipeline.updatedAt || post.sortDate || "",
+      editorialReviewer: post.editorialReviewer || "트립뷰 데이터 편집팀",
+      editorialAuthorProfile: post.editorialAuthorProfile || "/editorial-team",
+    };
+  }
+
   const next = { ...post, editorialStatus: "pending" };
   for (const key of [
     "editorialReviewedAt",
