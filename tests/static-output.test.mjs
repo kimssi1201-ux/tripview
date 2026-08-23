@@ -147,6 +147,20 @@ test("homepage uses dropdown navigation and a five-story lead package", async ()
   assert.doesNotMatch(homepage, /class="masthead-row"|class="nav-scroll"|post-card-transition/);
 });
 
+test("homepage accommodation cards use the dynamic default stay window", async () => {
+  const homepage = await readFile("index.html", "utf8");
+  const stay = expectedStayWindow();
+  const cards = [...homepage.matchAll(/<a class="story-card home-affiliate-card"[^>]*>/g)].map((match) => match[0]);
+  assert.ok(cards.length >= 3, "homepage should render a focused set of accommodation cards");
+  assert.ok(cards.every((card) => card.includes(`checkIn=${stay.checkIn}`)));
+  assert.ok(cards.every((card) => card.includes(`checkOut=${stay.checkOut}`)));
+  assert.ok(cards.every((card) => card.includes("adultCount=2")));
+  assert.ok(cards.every((card) => card.includes("childCount=0")));
+  assert.ok(cards.every((card) => /rel="sponsored nofollow"/.test(card)));
+  assert.ok(cards.every((card) => /target="_blank"/.test(card)));
+  assert.doesNotMatch(homepage, /checkIn=2026-08-24|checkOut=2026-08-26/);
+});
+
 test("beach article pages do not include the removed API information widget", async () => {
   for (const slug of beachSlugs) {
     const html = await readFile(`${slug}/index.html`, "utf8");
