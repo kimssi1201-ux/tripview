@@ -15,7 +15,32 @@ const I18N_SCRIPT = '<script src="/assets/i18n.js?v=i18n-link-fix-20260706" defe
 const TOPIC_FILTER_SCRIPT = '<script src="/assets/topic-filter.js?v=topic-filter-20260712-no-hero" defer></script>';
 const LANGUAGE_SWITCH_CSS = ".language-switch{display:flex;gap:8px;white-space:nowrap}.language-switch a{font-size:12px;font-weight:900;color:#555;border-bottom:1px solid transparent}.language-switch a.is-active{color:#111;border-bottom-color:#111}";
 const FLIGHT_BOOKING_URL = "https://flights.myrealtrip.com/";
-const ARTICLE_NAVIGATION = '<nav class="links" aria-label="주요 메뉴"><a href="/">홈</a><a href="/#popular">8월 가볼만한 곳</a><a href="/#water">물놀이·계곡</a><a href="/#weekend">이번 주말</a><a href="/#festival">8월 축제</a><a href="/#indoor">실내여행</a><a href="/#family">아이와</a><a href="/#booking">예약 전 체크</a></nav>';
+const ARTICLE_NAVIGATION = '<nav class="links" aria-label="주요 메뉴"><a href="/">홈</a><a href="/travel/">여행지</a><a href="/festival/">축제</a><a href="/stay/">숙소·예약</a></nav>';
+const CATEGORY_PAGES = [
+  { path: "/travel/", title: "여행지", description: "물놀이·계곡, 실내여행, 아이와, 이번 주말 글을 태그로 묶어 국내 여행지를 탐색합니다." },
+  { path: "/festival/", title: "축제", description: "전국 축제와 행사를 지역, 일정, 방문 전 확인 포인트 중심으로 모았습니다." },
+  { path: "/stay/", title: "숙소·예약", description: "여행지별 숙소와 투어·티켓 예약 카드를 한곳에서 확인합니다." },
+];
+const REGION_SLUGS = new Map([
+  ["서울", "seoul"],
+  ["경기", "gyeonggi"],
+  ["인천", "incheon"],
+  ["강원", "gangwon"],
+  ["대전", "daejeon"],
+  ["세종", "sejong"],
+  ["충북", "chungbuk"],
+  ["충남", "chungnam"],
+  ["광주", "gwangju"],
+  ["전북", "jeonbuk"],
+  ["전남", "jeonnam"],
+  ["대구", "daegu"],
+  ["부산", "busan"],
+  ["울산", "ulsan"],
+  ["경북", "gyeongbuk"],
+  ["경남", "gyeongnam"],
+  ["제주", "jeju"],
+  ["기타", "other"],
+]);
 
 async function readJson(relativePath, fallback = []) {
   try {
@@ -53,7 +78,11 @@ const files = [
   "feed.xml",
   "rss.xml",
   "ads.txt",
-  "flight-deals"
+  "flight-deals",
+  "travel",
+  "festival",
+  "stay",
+  "region"
 ];
 
 function xml(value) {
@@ -107,6 +136,121 @@ function html(value) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#39;");
+}
+
+function normalizeText(value = "") {
+  return String(value ?? "").replace(/\s+/g, " ").trim();
+}
+
+function compactRegion(value = "") {
+  const text = normalizeText(value);
+  if (!text) return "기타";
+  if (text.includes("서울")) return "서울";
+  if (text.includes("경기")) return "경기";
+  if (text.includes("인천")) return "인천";
+  if (text.includes("강원")) return "강원";
+  if (text.includes("대전")) return "대전";
+  if (text.includes("세종")) return "세종";
+  if (text.includes("충청북도") || text.includes("충북")) return "충북";
+  if (text.includes("충청남도") || text.includes("충남")) return "충남";
+  if (text.includes("광주")) return "광주";
+  if (text.includes("전북") || text.includes("전라북도")) return "전북";
+  if (text.includes("전남") || text.includes("전라남도")) return "전남";
+  if (text.includes("대구")) return "대구";
+  if (text.includes("부산")) return "부산";
+  if (text.includes("울산")) return "울산";
+  if (text.includes("경상북도") || text.includes("경북")) return "경북";
+  if (text.includes("경상남도") || text.includes("경남")) return "경남";
+  if (text.includes("제주")) return "제주";
+  return text.split(/\s+/)[0] || "기타";
+}
+
+function fallbackSlug(value = "") {
+  const text = normalizeText(value)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+  return text || "other";
+}
+
+function regionSlug(region) {
+  const label = compactRegion(region);
+  return REGION_SLUGS.get(label) || fallbackSlug(label);
+}
+
+function regionPath(region) {
+  return `/region/${regionSlug(region)}/`;
+}
+
+function isFestivalPost(post) {
+  const text = [post?.category, post?.title, post?.sourceTitle, post?.description, post?.excerpt]
+    .filter(Boolean)
+    .join(" ");
+  return post?.category === "공연/축제" || /축제|행사|페스티벌|공연|콘서트/.test(text);
+}
+
+function contentTypeOf(post) {
+  return String(post?.contentTypeId || post?.contenttypeid || post?.contentType || "");
+}
+
+function searchablePostText(post) {
+  return [
+    post?.title,
+    post?.sourceTitle,
+    post?.description,
+    post?.excerpt,
+    post?.category,
+    post?.region,
+    ...(Array.isArray(post?.memo) ? post.memo : []),
+  ].filter(Boolean).join(" ");
+}
+
+function hasKeyword(post, keywords) {
+  const text = searchablePostText(post);
+  return keywords.some((keyword) => text.includes(keyword));
+}
+
+function postTitle(post) {
+  return normalizeText(post?.title || post?.sourceTitle || "여행 글");
+}
+
+function postSummary(post, length = 92) {
+  const value = normalizeText(post?.excerpt || post?.description || "");
+  return value.length > length ? `${value.slice(0, length)}...` : value;
+}
+
+function postImage(post) {
+  return [post?.image, ...(Array.isArray(post?.images) ? post.images : [])].find(Boolean) || "";
+}
+
+function sortedPosts(items) {
+  return [...items].sort((a, b) => String(b.sortDate || b.updatedAt || "").localeCompare(String(a.sortDate || a.updatedAt || "")));
+}
+
+function regionGroups() {
+  const groups = new Map();
+  for (const post of indexablePosts) {
+    const label = compactRegion(post?.region);
+    const slug = regionSlug(label);
+    if (!groups.has(slug)) groups.set(slug, { label, slug, posts: [] });
+    groups.get(slug).posts.push(post);
+  }
+  return [...groups.values()]
+    .map((group) => ({ ...group, posts: sortedPosts(group.posts) }))
+    .sort((a, b) => a.label.localeCompare(b.label, "ko"));
+}
+
+function stripAccommodationStayParams(rawUrl = "") {
+  try {
+    const url = new URL(String(rawUrl));
+    if (url.hostname.toLowerCase() !== "accommodation.myrealtrip.com") return String(rawUrl || "");
+    for (const key of ["checkIn", "checkOut", "adultCount", "childCount", "childAges"]) {
+      url.searchParams.delete(key);
+    }
+    return url.toString();
+  } catch {
+    return String(rawUrl || "");
+  }
 }
 
 function cleanGeneratedHtml(value) {
@@ -224,7 +368,7 @@ function flightPageHtml(deal) {
     </style>
   </head>
   <body>
-    <header class="top"><div class="wrap nav"><a class="brand" href="/">트립뷰</a><nav class="links" aria-label="주요 메뉴"><a href="/">홈</a><a href="/#flight-deals">항공권 최저가 여행지</a><a href="/#booking">예약 전 체크</a></nav>${LANGUAGE_SWITCH}</div></header>
+    <header class="top"><div class="wrap nav"><a class="brand" href="/">트립뷰</a>${primaryNavigation("")}${LANGUAGE_SWITCH}</div></header>
     <main class="wrap">
       <article>
         <section class="hero">
@@ -269,6 +413,222 @@ function flightIndexHtml(deals) {
   return `<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, follow">${NAVER_VERIFICATION_META}<meta name="description" content="항공권 가격을 기준으로 여행지를 비교하고 함께 볼 숙소와 투어 정보를 확인하세요."><title>항공권 최저가 여행지 - 트립뷰</title><style>body{margin:0;font-family:Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:#111}.wrap{width:min(760px,calc(100% - 32px));margin:auto}a{color:inherit;text-decoration:none}.top{border-bottom:1px solid #e1e1e1}.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{display:block;padding:22px 0;font-size:26px;font-weight:900}.hero{padding:30px 0}.hero h1{margin:0;font-size:38px;line-height:1.15}.products{border-top:1px solid #e1e1e1}.product-card{display:grid;gap:6px;align-items:center;padding:16px 0;border-bottom:1px solid #e1e1e1}strong{font-size:19px;line-height:1.35}span{color:#707070;font-size:13px}${LANGUAGE_SWITCH_CSS}@media(max-width:520px){.top .wrap{align-items:flex-start;flex-direction:column;padding:14px 0}.brand{padding:0}}</style></head><body><header class="top"><div class="wrap"><a class="brand" href="/">트립뷰</a>${LANGUAGE_SWITCH}</div></header><main class="wrap"><section class="hero"><h1>항공권 최저가 여행지</h1><p>항공권 가격을 기준으로 여행지를 고르고, 상세 페이지에서 함께 볼 숙소와 투어 정보를 확인하세요.</p></section><section class="products">${rows}</section></main>${I18N_SCRIPT}${TOPIC_FILTER_SCRIPT}</body></html>`;
 }
 
+function primaryNavigation(activePath = "") {
+  const items = [
+    ["/", "홈"],
+    ["/travel/", "여행지"],
+    ["/festival/", "축제"],
+    ["/stay/", "숙소·예약"],
+  ];
+  return `<nav class="links" aria-label="주요 메뉴">${items.map(([href, label]) => `<a${href === activePath ? ' class="is-active"' : ""} href="${href}">${label}</a>`).join("")}</nav>`;
+}
+
+function hubPageStyle() {
+  return `:root{--ink:#111;--muted:#707070;--line:#e1e1e1;--paper:#fff;--soft:#f5f5f5;--accent:#22543d}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;line-height:1.62;letter-spacing:0}a{color:inherit;text-decoration:none}img{display:block;width:100%;height:100%;object-fit:cover;background:var(--soft)}.wrap{width:min(1040px,calc(100% - 32px));margin:auto}.top{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.97);border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}.nav{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:70px}.brand{font-size:26px;font-weight:900;line-height:1}.links{display:flex;gap:18px;overflow-x:auto;white-space:nowrap;font-size:14px;font-weight:900}.links a{padding:2px 0;border-bottom:2px solid transparent}.links a.is-active{border-bottom-color:#111}.hero{padding:38px 0 22px;border-bottom:1px solid var(--line)}.kicker{display:block;color:var(--accent);font-size:12px;font-weight:900;letter-spacing:.12em}.hero h1{margin:7px 0 12px;font-size:clamp(32px,6vw,58px);line-height:1.05}.hero p{max-width:720px;margin:0;color:#333;font-size:17px}.tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}.tag-row a,.tag-row span{display:inline-flex;align-items:center;min-height:34px;border:1px solid var(--line);border-radius:999px;padding:7px 13px;background:#fff;font-size:13px;font-weight:900}.summary-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;padding:18px 0;border-bottom:1px solid var(--line)}.summary-row strong{display:block;font-size:24px;line-height:1.1}.summary-row span{display:block;color:var(--muted);font-size:13px}.block{padding:34px 0;border-bottom:1px solid var(--line)}.block-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:15px}.block h2{margin:0;font-size:28px;line-height:1.18}.block-note{margin:0;color:var(--muted);font-size:14px}.story-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px 18px}.story-card{display:block;min-width:0}.thumb{display:block;aspect-ratio:1.45/1;overflow:hidden;background:var(--soft)}.story-card strong{display:block;margin-top:10px;font-size:19px;line-height:1.32}.story-card em{display:block;margin-top:6px;color:var(--muted);font-size:12px;font-style:normal}.story-card p{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin:7px 0 0;color:#444;font-size:13px}.story-list{display:grid;gap:0;border-top:1px solid var(--line)}.story-list .story-card{display:grid;grid-template-columns:112px minmax(0,1fr);gap:13px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}.story-list .thumb{grid-row:1/4;aspect-ratio:1.3/1}.stay-slot{background:#f8faf9}.product-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 18px;border-top:1px solid var(--line)}.product-card{display:grid;grid-template-columns:90px minmax(0,1fr);gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}.product-card.no-image{grid-template-columns:1fr}.product-card .product-thumb{grid-row:1/3;display:block;aspect-ratio:1.26/1;overflow:hidden;background:var(--soft)}.product-card strong{font-size:16px;line-height:1.35}.product-card span{display:block;color:var(--muted);font-size:12px}.affiliate-note{margin:0 0 12px;color:var(--muted);font-size:12px}.empty-slot{margin:0;padding:16px 0;border-top:1px solid var(--line);color:var(--muted)}.footer{padding:28px 0 46px;color:var(--muted);font-size:13px}${LANGUAGE_SWITCH_CSS}@media(max-width:780px){.nav{align-items:flex-start;flex-direction:column;padding:15px 0}.links{width:100%;padding-bottom:3px}.summary-row{grid-template-columns:1fr}.story-grid,.product-grid{grid-template-columns:1fr}.story-list .story-card,.product-card{grid-template-columns:88px minmax(0,1fr)}.hero{padding-top:30px}.block-head{display:block}.block-note{margin-top:5px}}`;
+}
+
+function storyCard(post) {
+  const image = postImage(post);
+  const thumb = image
+    ? `<span class="thumb"><img src="${html(image)}" alt="${html(postTitle(post))}" loading="lazy"></span>`
+    : `<span class="thumb"></span>`;
+  const meta = [compactRegion(post?.region), post?.category, formatDate(postDate(post))].filter(Boolean).join(" · ");
+  return `<a class="story-card" href="/${encodeURIComponent(post.slug)}/">
+    ${thumb}
+    <strong>${html(postTitle(post))}</strong>
+    <em>${html(meta)}</em>
+    ${postSummary(post) ? `<p>${html(postSummary(post))}</p>` : ""}
+  </a>`;
+}
+
+function hubProductCard(product) {
+  const title = html(product?.title || "");
+  if (!title) return "";
+  const url = stripAccommodationStayParams(product?.url || "https://www.myrealtrip.com/");
+  const imageUrl = affiliateProductImage(product);
+  const image = imageUrl
+    ? `<span class="product-thumb"><img src="${html(imageUrl)}" alt="${title}" loading="lazy"></span>`
+    : "";
+  const meta = [product?.region || product?.city, product?.category || product?.type, product?.priceText || product?.price]
+    .filter(Boolean)
+    .join(" · ");
+  return `<a class="product-card${image ? "" : " no-image"}" href="${html(url)}" rel="sponsored noopener" data-affiliate-match="context">
+    ${image}
+    <strong>${title}</strong>
+    <span>${html(meta || "예약 정보")}</span>
+  </a>`;
+}
+
+function selectedHubProducts({ sectionId, posts, limit = 4, accommodationOnly = false }) {
+  const productPool = accommodationOnly ? accommodationProducts : [...accommodationProducts, ...tnaProducts];
+  return selectAffiliateProducts({ sectionId, posts, products: productPool, limit });
+}
+
+function staySlot({ title, posts, products = [], placeholder = "지역별 숙소 카드 자리입니다. 추천 숙소 데이터가 연결되면 이 위치에 카드가 표시됩니다." }) {
+  const cards = products.map(hubProductCard).filter(Boolean);
+  return `<section class="block stay-slot" id="accommodation-cards" aria-labelledby="accommodation-cards-title">
+    <div class="block-head">
+      <div><span class="kicker">STAY</span><h2 id="accommodation-cards-title">${html(title)}</h2></div>
+      <p class="block-note">${html(posts.length ? `${compactRegion(posts[0]?.region)} 글 기준 추천` : "여행지 기준 추천")}</p>
+    </div>
+    <p class="affiliate-note">마이리얼트립 숙소·투어 링크는 제휴 링크일 수 있으며, 숙소 날짜는 접속 시점 기준 다음 금요일 체크인과 2박으로 자동 보정됩니다.</p>
+    ${cards.length ? `<div class="product-grid">${cards.join("")}</div>` : `<p class="empty-slot">${html(placeholder)}</p>`}
+  </section>`;
+}
+
+function sectionBlock({ id, title, posts, note = "" }) {
+  const items = sortedPosts(posts).slice(0, 9);
+  if (!items.length) return "";
+  return `<section class="block" id="${html(id)}" aria-labelledby="${html(id)}-title">
+    <div class="block-head">
+      <div><span class="kicker">TAG</span><h2 id="${html(id)}-title">${html(title)}</h2></div>
+      ${note ? `<p class="block-note">${html(note)}</p>` : ""}
+    </div>
+    <div class="story-grid">${items.map(storyCard).join("")}</div>
+  </section>`;
+}
+
+function pageShell({ path, title, description, kicker = "TRIPVIEW", tags = [], body }) {
+  const canonical = canonicalUrl(path);
+  return `<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    ${NAVER_VERIFICATION_META}
+    <meta name="description" content="${html(description)}">
+    <link rel="canonical" href="${html(canonical)}">
+    <title>${html(title)} - 트립뷰</title>
+    <style>${hubPageStyle()}</style>
+  </head>
+  <body>
+    <header class="top"><div class="wrap nav"><a class="brand" href="/">트립뷰</a>${primaryNavigation(path)}${LANGUAGE_SWITCH}</div></header>
+    <main class="wrap">
+      <section class="hero">
+        <span class="kicker">${html(kicker)}</span>
+        <h1>${html(title)}</h1>
+        <p>${html(description)}</p>
+        ${tags.length ? `<div class="tag-row">${tags.map((tag) => tag.href ? `<a href="${html(tag.href)}">${html(tag.label)}</a>` : `<span>${html(tag.label)}</span>`).join("")}</div>` : ""}
+      </section>
+      ${body}
+    </main>
+    <footer class="wrap footer">트립뷰는 여행지, 축제, 숙소·예약 정보를 실제 URL과 지역 허브로 정리합니다.</footer>
+    <script src="/assets/homepage.js?v=booking-search-20260712-flight-links" defer></script>
+    ${I18N_SCRIPT}
+    ${TOPIC_FILTER_SCRIPT}
+  </body>
+</html>`;
+}
+
+function categoryPageHtml({ path, title, description, posts, tags = [], sections = [], products = [] }) {
+  const rows = sortedPosts(posts).slice(0, 48);
+  const body = [
+    `<div class="summary-row"><div><strong>${rows.length.toLocaleString("ko-KR")}</strong><span>검수된 글</span></div><div><strong>${regionGroups().length.toLocaleString("ko-KR")}</strong><span>지역 허브</span></div><div><strong>3</strong><span>대표 카테고리</span></div></div>`,
+    ...sections.map(sectionBlock),
+    staySlot({ title: title === "숙소·예약" ? "숙소 카드" : "숙소 카드 자리", posts, products }),
+    `<section class="block" id="all-posts" aria-labelledby="all-posts-title">
+      <div class="block-head"><div><span class="kicker">ALL</span><h2 id="all-posts-title">${html(title)} 글 목록</h2></div><p class="block-note">최신 검수 글 기준</p></div>
+      <div class="story-list">${rows.map(storyCard).join("")}</div>
+    </section>`,
+  ].join("");
+  return pageShell({ path, title, description, kicker: "CATEGORY", tags, body });
+}
+
+function regionHubHtml(group) {
+  const description = `${group.label} 지역의 여행지와 축제 글을 최신순으로 모았습니다. 지역 소개와 함께 관련 글, 숙소 카드 자리를 한 번에 확인하세요.`;
+  const products = selectedHubProducts({ sectionId: "booking", posts: group.posts, limit: 3 });
+  const body = [
+    `<section class="block" id="region-intro" aria-labelledby="region-intro-title"><div class="block-head"><div><span class="kicker">REGION</span><h2 id="region-intro-title">${html(group.label)} 여행 소개</h2></div><p class="block-note">${html(group.posts.length)}개 글</p></div><p>${html(group.label)} 여행은 계절 행사, 실내 명소, 자연 여행지를 함께 보면 동선 선택이 쉬워집니다. 아래 목록에서 방문 목적에 맞는 글을 먼저 확인하고, 숙소 카드는 일정이 정해진 뒤 비교용으로 활용하세요.</p></section>`,
+    `<section class="block" id="region-posts" aria-labelledby="region-posts-title"><div class="block-head"><div><span class="kicker">POSTS</span><h2 id="region-posts-title">${html(group.label)} 글 목록</h2></div><p class="block-note">같은 광역 지역 기준</p></div><div class="story-list">${group.posts.map(storyCard).join("")}</div></section>`,
+    staySlot({ title: `${group.label} 숙소 카드 자리`, posts: group.posts, products }),
+  ].join("");
+  return pageShell({
+    path: `/region/${group.slug}/`,
+    title: `${group.label} 여행 허브`,
+    description,
+    kicker: "REGION HUB",
+    tags: [
+      { label: "여행지", href: "/travel/" },
+      { label: "축제", href: "/festival/" },
+      { label: "숙소·예약", href: "/stay/" },
+    ],
+    body,
+  });
+}
+
+async function writePage(pathname, document) {
+  const parts = pathname.split("/").filter(Boolean);
+  const dir = join(root, ...parts);
+  await mkdir(dir, { recursive: true });
+  await writeFile(join(dir, "index.html"), cleanGeneratedHtml(document), "utf8");
+}
+
+async function generateHubPages() {
+  for (const dirName of ["travel", "festival", "stay", "region"]) {
+    await rm(join(root, dirName), { recursive: true, force: true });
+  }
+
+  const travelPosts = sortedPosts(indexablePosts.filter((post) => !isFestivalPost(post)));
+  const festivalPosts = sortedPosts(indexablePosts.filter(isFestivalPost));
+  const waterKeywords = ["수영장", "계곡", "해수욕장", "해변", "바다", "물놀이", "워터파크", "폭포", "수변"];
+  const indoorKeywords = ["실내", "박물관", "미술관", "전시", "문화", "센터", "아트", "공연장"];
+  const familyKeywords = ["아이", "가족", "어린이", "체험", "공원", "생태", "자연학습"];
+  const stayPosts = sortedPosts(indexablePosts.filter((post) => ["32", "38", "39"].includes(contentTypeOf(post)) || hasKeyword(post, ["숙소", "호텔", "예약", "투어", "입장권"])));
+
+  await writePage("/travel/", categoryPageHtml({
+    path: "/travel/",
+    title: "여행지",
+    description: CATEGORY_PAGES[0].description,
+    posts: travelPosts,
+    tags: [
+      { label: "이번 주말", href: "#tag-weekend" },
+      { label: "물놀이·계곡", href: "#tag-water" },
+      { label: "실내여행", href: "#tag-indoor" },
+      { label: "아이와", href: "#tag-family" },
+    ],
+    sections: [
+      { id: "tag-weekend", title: "이번 주말", posts: travelPosts.filter((post) => Array.isArray(post.editorialTopics) && post.editorialTopics.includes("weekend")), note: "기존 이번 주말 카테고리를 태그로 전환" },
+      { id: "tag-water", title: "물놀이·계곡", posts: travelPosts.filter((post) => hasKeyword(post, waterKeywords)), note: "기존 물놀이 카테고리를 태그로 전환" },
+      { id: "tag-indoor", title: "실내여행", posts: travelPosts.filter((post) => hasKeyword(post, indoorKeywords)), note: "기존 실내여행 카테고리를 태그로 전환" },
+      { id: "tag-family", title: "아이와", posts: travelPosts.filter((post) => hasKeyword(post, familyKeywords)), note: "기존 아이와 카테고리를 태그로 전환" },
+    ],
+    products: selectedHubProducts({ sectionId: "booking", posts: travelPosts, limit: 3 }),
+  }));
+
+  await writePage("/festival/", categoryPageHtml({
+    path: "/festival/",
+    title: "축제",
+    description: CATEGORY_PAGES[1].description,
+    posts: festivalPosts,
+    tags: [
+      { label: "이달의 축제", href: "#featured" },
+      { label: "지역 허브", href: "#all-posts" },
+    ],
+    sections: [
+      { id: "featured", title: "이달의 축제", posts: festivalPosts, note: "검수된 축제 글 최신순" },
+    ],
+    products: selectedHubProducts({ sectionId: "festival", posts: festivalPosts, limit: 3 }),
+  }));
+
+  await writePage("/stay/", categoryPageHtml({
+    path: "/stay/",
+    title: "숙소·예약",
+    description: CATEGORY_PAGES[2].description,
+    posts: stayPosts.length ? stayPosts : indexablePosts,
+    tags: [
+      { label: "숙소 카드", href: "#accommodation-cards" },
+      { label: "여행지", href: "/travel/" },
+      { label: "축제", href: "/festival/" },
+    ],
+    sections: [],
+    products: selectedHubProducts({ sectionId: "booking", posts: indexablePosts, limit: 12, accommodationOnly: true }),
+  }));
+
+  for (const group of regionGroups()) {
+    await writePage(`/region/${group.slug}/`, regionHubHtml(group));
+  }
+}
+
 async function generateFlightDealPages() {
   const deals = Array.isArray(flightDeals) ? flightDeals.filter((deal) => deal?.title && deal?.price) : [];
   const dir = join(root, "flight-deals");
@@ -292,6 +652,8 @@ async function generateSitemap() {
     { loc: `${baseUrl}/editorial-policy`, lastmod: today },
     { loc: `${baseUrl}/affiliate-disclosure`, lastmod: today },
     { loc: `${baseUrl}/privacy`, lastmod: today },
+    ...CATEGORY_PAGES.map((page) => ({ loc: canonicalUrl(page.path), lastmod: today })),
+    ...regionGroups().map((group) => ({ loc: `${baseUrl}/region/${group.slug}/`, lastmod: today })),
     ...indexablePosts.map((post) => ({ loc: postUrl(post), lastmod: postDate(post) }))
   ];
 
@@ -353,6 +715,9 @@ const MRT_STYLE_MARK = "/* tripview-mrt-native-ad */";
 const TRUST_NOTE_START = "<!-- TRUST_NOTE_START";
 const TRUST_NOTE_END = "TRUST_NOTE_END -->";
 const TRUST_STYLE_MARK = "/* tripview-trust-note */";
+const REGION_RELATED_START = "<!-- REGION_RELATED_START";
+const REGION_RELATED_END = "REGION_RELATED_END -->";
+const REGION_RELATED_STYLE_MARK = "/* tripview-region-related */";
 const COUPANG_AD_START = "<!-- COUPANG_AD_START";
 const COUPANG_AD_END = "COUPANG_AD_END -->";
 const COUPANG_WIDGET_START = "<!-- COUPANG_WIDGET_START";
@@ -372,23 +737,30 @@ function articleTrustCss() {
   return `${TRUST_STYLE_MARK}.meta .author-link,.trust-note a{font-weight:900;text-decoration:underline;text-underline-offset:3px}.trust-note{margin:36px 0 10px;padding:18px 0 0;border-top:2px solid #111;color:#333}.trust-note h2{margin:0 0 12px;font-size:22px;line-height:1.25}.trust-note dl{display:grid;grid-template-columns:118px minmax(0,1fr);gap:8px 14px;margin:0 0 14px}.trust-note dt{font-weight:900;color:#111}.trust-note dd{margin:0}.trust-note p{margin:0 0 10px;color:var(--muted);font-size:14px;line-height:1.6}@media(max-width:520px){.trust-note dl{grid-template-columns:1fr;gap:4px}.trust-note dd{padding-bottom:8px;border-bottom:1px solid var(--line)}}/* end-tripview-trust-note */`;
 }
 
+function articleRegionRelatedCss() {
+  return `${REGION_RELATED_STYLE_MARK}.region-related{margin:34px 0;padding:18px 0 20px;border-top:2px solid #111;border-bottom:1px solid var(--line)}.region-related-head{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;margin-bottom:12px}.region-related h2{margin:0;font-size:22px;line-height:1.25}.region-hub-link{font-size:13px;font-weight:900;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}.region-related-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 16px;border-top:1px solid var(--line)}.region-related-card{display:block;padding:13px 0;border-bottom:1px solid var(--line)}.region-related-card strong{display:block;font-size:16px;line-height:1.35}.region-related-card span{display:block;margin-top:6px;color:var(--muted);font-size:12px}.region-related-empty{margin:0;color:var(--muted);font-size:14px}@media(max-width:640px){.region-related-head{display:block}.region-hub-link{display:inline-block;margin-top:8px}.region-related-grid{grid-template-columns:1fr}}/* end-tripview-region-related */`;
+}
+
 function stripExistingArticleAds(document) {
   return document
     .replace(new RegExp(`${MRT_AD_START}[\\s\\S]*?${MRT_AD_END}`, "g"), "")
     .replace(new RegExp(`${TRUST_NOTE_START}[\\s\\S]*?${TRUST_NOTE_END}`, "g"), "")
+    .replace(new RegExp(`${REGION_RELATED_START}[\\s\\S]*?${REGION_RELATED_END}`, "g"), "")
     .replace(new RegExp(`${COUPANG_AD_START}[\\s\\S]*?${COUPANG_AD_END}`, "g"), "")
     .replace(new RegExp(`${COUPANG_WIDGET_START}[\\s\\S]*?${COUPANG_WIDGET_END}`, "g"), "")
     .replace(/\/\* tripview-mrt-native-ad \*\/[\s\S]*?\/\* end-tripview-mrt-native-ad \*\//g, "")
     .replace(/\/\* tripview-trust-note \*\/[\s\S]*?\/\* end-tripview-trust-note \*\//g, "")
+    .replace(/\/\* tripview-region-related \*\/[\s\S]*?\/\* end-tripview-region-related \*\//g, "")
     .replace(/\/\* tripview-coupang-native-ad \*\/[\s\S]*?\/\* end-tripview-coupang-native-ad \*\//g, "")
     .replace(/\s*<script\s+src=["']\/assets\/coupang\.js\?v=[^"']+["']\s+defer><\/script>/g, "")
     .replace(/\s*<script\s+src=["']https:\/\/ads-partners\.coupang\.com\/g\.js["']><\/script>/g, "")
     .replace(/\s*<script\s+src=["']\/assets\/beach-(?:info|weather)\.js\?v=[^"']+["']\s+defer><\/script>/g, "");
 }
 
-function injectArticleAdCss(document, includeAffiliate = false) {
+function injectArticleAdCss(document, includeAffiliate = false, includeRegionRelated = false) {
   let next = document;
   if (includeAffiliate && !next.includes(MRT_STYLE_MARK)) next = next.replace("</style>", `${articleAdCss()}</style>`);
+  if (includeRegionRelated && !next.includes(REGION_RELATED_STYLE_MARK)) next = next.replace("</style>", `${articleRegionRelatedCss()}</style>`);
   if (!next.includes(TRUST_STYLE_MARK)) next = next.replace("</style>", `${articleTrustCss()}</style>`);
   return next;
 }
@@ -523,7 +895,7 @@ function articleAdMeta(item) {
 
 function articleAdUrl(item) {
   if (item?.type === "flight" || item?.source === "myrealtrip-flight") return flightBookingUrl(item);
-  return item?.url || "https://www.myrealtrip.com/";
+  return stripAccommodationStayParams(item?.url || "https://www.myrealtrip.com/");
 }
 
 function articleAdCard(item) {
@@ -576,6 +948,41 @@ function articleAdBlock(post) {
 }
 
 function injectArticleAffiliate(document, block) {
+  if (!block || !document.includes("</article>")) return document;
+  return document.replace("</article>", `${block}</article>`);
+}
+
+function articleRegionRelatedItems(post) {
+  const slug = regionSlug(post?.region);
+  return sortedPosts(indexablePosts)
+    .filter((candidate) => candidate?.slug && candidate.slug !== post?.slug && regionSlug(candidate?.region) === slug)
+    .slice(0, 3);
+}
+
+function articleRegionRelatedCard(post) {
+  return `<a class="region-related-card" href="/${encodeURIComponent(post.slug)}/">
+    <strong>${html(postTitle(post))}</strong>
+    <span>${html([compactRegion(post?.region), formatDate(postDate(post))].filter(Boolean).join(" · "))}</span>
+  </a>`;
+}
+
+function articleRegionRelatedBlock(post) {
+  const label = compactRegion(post?.region);
+  const slug = regionSlug(label);
+  const items = articleRegionRelatedItems(post);
+  const cards = items.map(articleRegionRelatedCard).join("");
+  return `${REGION_RELATED_START} -->
+<aside class="region-related" aria-label="같은 지역 다른 글">
+  <div class="region-related-head">
+    <h2>${html(label)}에서 함께 볼 글</h2>
+    <a class="region-hub-link" href="/region/${html(slug)}/">${html(label)} 여행 허브 보기</a>
+  </div>
+  ${cards ? `<div class="region-related-grid">${cards}</div>` : `<p class="region-related-empty">${html(label)} 지역의 다른 검수 글이 추가되면 이곳에 함께 표시됩니다.</p>`}
+</aside>
+<!-- ${REGION_RELATED_END}`;
+}
+
+function injectArticleRegionRelated(document, block) {
   if (!block || !document.includes("</article>")) return document;
   return document.replace("</article>", `${block}</article>`);
 }
@@ -633,6 +1040,15 @@ function injectCoupangScript(document) {
   return next;
 }
 
+function ensureAccommodationLinkScript(document) {
+  if (!document.includes("accommodation.myrealtrip.com/union/products/") || document.includes("/assets/homepage.js")) {
+    return document;
+  }
+  return document.includes("</body>")
+    ? document.replace("</body>", `\n    <script src="/assets/homepage.js?v=booking-search-20260712-flight-links" defer></script>\n  </body>`)
+    : document;
+}
+
 async function polishGeneratedArticles() {
   for (const post of generatedPosts) {
     if (!post?.slug) continue;
@@ -647,15 +1063,18 @@ async function polishGeneratedArticles() {
 
     const indexable = isIndexablePost(post);
     const affiliateBlock = indexable ? articleAdBlock(post) : "";
-    let next = injectArticleAdCss(stripExistingArticleAds(document), Boolean(affiliateBlock));
+    const regionRelatedBlock = indexable ? articleRegionRelatedBlock(post) : "";
+    let next = injectArticleAdCss(stripExistingArticleAds(document), Boolean(affiliateBlock), Boolean(regionRelatedBlock));
     next = alignArticleNavigation(next);
     next = alignArticleByline(next, post);
     next = injectArticleAffiliate(next, affiliateBlock);
+    next = injectArticleRegionRelated(next, regionRelatedBlock);
     next = injectArticleTrust(next, post);
     next = ensureCanonical(next, `/${post.slug}/`);
     next = ensureRobotsMeta(next, indexable);
     next = ensureArticleSchema(next, post, indexable);
     next = ensureArticleAdsense(next, indexable);
+    next = ensureAccommodationLinkScript(next);
     next = alignStaticInternalLinks(next);
     next = cleanGeneratedHtml(next);
     if (next !== document) await writeFile(file, next, "utf8");
@@ -686,8 +1105,11 @@ async function polishStaticPages() {
     try {
       const document = await readFile(file, "utf8");
       const alignedNavigation = document
-        .replaceAll('<a href="/#latest">최신글</a>', '<a href="/#popular">8월 가볼만한 곳</a>')
-        .replaceAll('<a href="/#routes">전체글</a>', '<a href="/#festival">8월 축제/행사</a>');
+        .replaceAll('<a href="/#latest">최신글</a>', '<a href="/travel/">여행지</a>')
+        .replaceAll('<a href="/#routes">전체글</a>', '<a href="/festival/">축제</a>')
+        .replace(/href=(["'])\/#festival\1/g, 'href="/festival/"')
+        .replace(/href=(["'])\/#(?:booking|myrealtrip-deals)\1/g, 'href="/stay/"')
+        .replace(/href=(["'])\/#(?:popular|water|weekend|indoor|family)\1/g, 'href="/travel/"');
       const next = cleanGeneratedHtml(ensureCanonical(alignStaticInternalLinks(alignedNavigation), pathname));
       if (next !== document) await writeFile(file, next, "utf8");
     } catch (error) {
@@ -713,6 +1135,7 @@ async function copySite(targetDir) {
 }
 
 await generateFlightDealPages();
+await generateHubPages();
 await generateSitemap();
 await generateFeed();
 await polishGeneratedArticles();

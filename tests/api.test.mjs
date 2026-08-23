@@ -252,8 +252,10 @@ test("Cloudflare route maps article paths to the site asset and delegates other 
   };
 
   await routeRequest({ request: request("/travel-129256/"), params: { path: "travel-129256" }, env: { ASSETS: assets } });
+  await routeRequest({ request: request("/travel/"), params: { path: "travel" }, env: { ASSETS: assets } });
+  await routeRequest({ request: request("/region/gangwon/"), params: { path: ["region", "gangwon"] }, env: { ASSETS: assets } });
   await routeRequest({ request: request("/unknown"), params: { path: "unknown" }, env: { ASSETS: assets } });
-  assert.deepEqual(calls, ["/site/travel-129256/", "/unknown"]);
+  assert.deepEqual(calls, ["/site/travel-129256/", "/site/travel/", "/site/region/gangwon/", "/unknown"]);
 });
 
 test("article response preserves contextual MyRealTrip blocks, removes paused Coupang blocks, and adds one canonical URL", async () => {
@@ -274,7 +276,9 @@ test("article response preserves contextual MyRealTrip blocks, removes paused Co
   assert.match(transformed, /unrelated booking|tripview-mrt-native-ad/);
   assert.doesNotMatch(transformed, /shopping|carousel|coupang\.js/);
   assert.doesNotMatch(transformed, /7~8월/);
-  assert.match(transformed, />8월 가볼만한 곳</);
+  assert.match(transformed, /href="\/travel\/">여행지</);
+  assert.match(transformed, /href="\/festival\/">축제</);
+  assert.match(transformed, /href="\/stay\/">숙소·예약</);
   assert.match(transformed, /주변 숙소·투어/);
   assert.match(transformed, /여행지 주변의 숙소와 이용 가능한 투어·티켓을 모았습니다/);
   assert.match(transformed, /서울 숙소/);

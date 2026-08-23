@@ -334,7 +334,6 @@
     window.tripviewPresetBooking = applyBookingPreset;
     window.tripviewSubmitBooking = submitBookingForm;
 
-    insertGuideSections();
     refreshAccommodationCardLinks();
 
     document.querySelectorAll('[data-booking-search="accommodation"] input[name="checkIn"]').forEach((input) => {

@@ -12,6 +12,14 @@ function assetRequest(context, pathname) {
 }
 
 function articleAssetPath(parts) {
+  if (parts.length === 1 && ["travel", "festival", "stay"].includes(parts[0])) {
+    return `/site/${parts[0]}/`;
+  }
+
+  if (parts.length === 2 && parts[0] === "region" && /^[a-z0-9-]+$/.test(parts[1])) {
+    return `/site/${parts.join("/")}/`;
+  }
+
   if (parts.length === 1 && /^(travel|festival)-\d+$/.test(parts[0])) {
     return `/site/${parts[0]}/`;
   }
@@ -28,7 +36,7 @@ const GENERATED_BLOCKS = [
   ["<!-- COUPANG_AD_START", "COUPANG_AD_END -->"],
   ["<!-- COUPANG_WIDGET_START", "COUPANG_WIDGET_END -->"],
 ];
-const ARTICLE_NAVIGATION = '<nav class="links" aria-label="주요 메뉴"><a href="/">홈</a><a href="/#popular">8월 가볼만한 곳</a><a href="/#water">물놀이·계곡</a><a href="/#weekend">이번 주말</a><a href="/#festival">8월 축제</a><a href="/#indoor">실내여행</a><a href="/#family">아이와</a><a href="/#booking">예약 전 체크</a><a href="/#flight-deals">항공권</a></nav>';
+const ARTICLE_NAVIGATION = '<nav class="links" aria-label="주요 메뉴"><a href="/">홈</a><a href="/travel/">여행지</a><a href="/festival/">축제</a><a href="/stay/">숙소·예약</a></nav>';
 
 function escapeRegExp(value) {
   return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");

@@ -57,9 +57,9 @@ const DESKTOP_LAYOUT_CSS = `
 const TEXT = {
   articleFallback: "\uC5EC\uD589 \uAE30\uC0AC",
   infoFallback: "\uC5EC\uD589 \uC815\uBCF4",
-  description: `${BRAND}\uB294 8\uC6D4 \uAC00\uBCFC\uB9CC\uD55C \uACF3, \uC774\uBC88 \uC8FC\uB9D0 \uC5EC\uD589, 8\uC6D4 \uCD95\uC81C, \uBB3C\uB180\uC774, \uD574\uC218\uC695\uC7A5, \uC2E4\uB0B4\uC5EC\uD589, \uC544\uC774\uC640 \uAC00\uAE30 \uC88B\uC740 \uACF3, \uC608\uC57D \uC804 \uCCB4\uD06C\uB97C \uC815\uB9AC\uD55C \uC5EC\uD589 \uC815\uBCF4 \uB9E4\uAC70\uC9C4\uC785\uB2C8\uB2E4.`,
+  description: `${BRAND}\uB294 \uC5EC\uD589\uC9C0, \uCD95\uC81C, \uC219\uC18C\u00B7\uC608\uC57D\uC744 \uB530\uB85C \uBCF4\uACE0 \uC9C0\uC5ED\uBCC4 \uC5EC\uD589 \uAE00\uC744 \uBE60\uB974\uAC8C \uCC3E\uC744 \uC218 \uC788\uAC8C \uC815\uB9AC\uD55C \uC5EC\uD589 \uC815\uBCF4 \uB9E4\uAC70\uC9C4\uC785\uB2C8\uB2E4.`,
   ogTitle: `${BRAND} - \uC5EC\uD589 \uB274\uC2A4 \uD53C\uB4DC`,
-  ogDescription: "8\uC6D4 \uAC00\uBCFC\uB9CC\uD55C \uACF3, \uC8FC\uB9D0 \uC5EC\uD589, 8\uC6D4 \uCD95\uC81C, \uBB3C\uB180\uC774, \uD574\uC218\uC695\uC7A5, \uC2E4\uB0B4\uC5EC\uD589, \uC608\uC57D \uC804 \uCCB4\uD06C\uB97C \uB274\uC2A4 \uC139\uC158\uC73C\uB85C \uC815\uB9AC\uD569\uB2C8\uB2E4.",
+  ogDescription: "\uC5EC\uD589\uC9C0, \uCD95\uC81C, \uC219\uC18C\u00B7\uC608\uC57D \uD398\uC774\uC9C0\uC640 \uC9C0\uC5ED\uBCC4 \uD5C8\uBE0C\uB85C \uD544\uC694\uD55C \uAD6D\uB0B4\uC5EC\uD589 \uAE00\uC744 \uBC14\uB85C \uCC3E\uC744 \uC218 \uC788\uAC8C \uC815\uB9AC\uD569\uB2C8\uB2E4.",
   rssTitle: `${BRAND} RSS`,
   navLabel: "\uCE74\uD14C\uACE0\uB9AC",
   navAll: "\uC804\uCCB4",
@@ -79,7 +79,7 @@ const TEXT = {
   feedAll: "\uC804\uCCB4 \uAE00",
   feedShowing: "\uBCF4\uAE30",
   feedSelected: "\uC120\uD0DD\uB428",
-  footer: "\uC5EC\uD589\uC9C0, \uCD95\uC81C\u00B7\uD589\uC0AC, \uBB3C\uB180\uC774, \uC2E4\uB0B4\uC5EC\uD589, \uC608\uC57D \uC804 \uCCB4\uD06C\uB97C \uC758\uB3C4\uBCC4\uB85C \uBE60\uB974\uAC8C \uD655\uC778\uD558\uB294 \uC5EC\uD589 \uB274\uC2A4 \uD53C\uB4DC\uC785\uB2C8\uB2E4.",
+  footer: "\uC5EC\uD589\uC9C0, \uCD95\uC81C, \uC219\uC18C\u00B7\uC608\uC57D\uC744 \uB530\uB85C \uBCF4\uACE0 \uC9C0\uC5ED\uBCC4 \uAE00\uB85C \uC774\uC5B4\uC9C0\uB294 \uC5EC\uD589 \uB274\uC2A4 \uD53C\uB4DC\uC785\uB2C8\uB2E4.",
 };
 
 const esc = (value = "") =>
@@ -663,12 +663,6 @@ function buildSections(posts) {
   };
   const sectionDefs = [
     { id: "popular", title: TEXT.navPopular, posts: reviewedTopic("popular", sortCurrentPlaces(generalTravel.length ? generalTravel : domestic)) },
-    { id: "weekend", title: TEXT.navWeekend, posts: reviewedTopic("weekend", sortLatest(weekendPool.length ? weekendPool : domestic)) },
-    { id: "festival", title: `${FEATURE_MONTH_LABEL} \uCD95\uC81C/\uD589\uC0AC`, posts: reviewedTopic("festival", festivals) },
-    { id: "water", title: TEXT.navWater, posts: reviewedTopic("water", waterPosts) },
-    { id: "indoor", title: TEXT.navIndoor, posts: reviewedTopic("indoor", indoorPool.length ? indoorPool : sortLatest(domestic)), fallbackPosts: sortLatest(domestic) },
-    { id: "family", title: TEXT.navFamily, posts: reviewedTopic("family", familyPool.length ? familyPool : sortLatest(domestic)), fallbackPosts: sortLatest(domestic) },
-    { id: "booking", title: TEXT.navBooking, kind: "booking", posts: bookingPool },
   ];
 
   return sectionDefs
@@ -680,21 +674,12 @@ function buildSections(posts) {
     .filter((section) => section.kind === "booking" || section.posts.length);
 }
 
-function categoryNav(sections) {
-  const sectionById = new Map(sections.map((section) => [section.id, section]));
-  const primaryItems = [
-    ["popular", TEXT.navPopular],
-    ["water", "\uBB3C\uB180\uC774\u00B7\uACC4\uACE1"],
-    ["weekend", "\uC774\uBC88 \uC8FC\uB9D0"],
-    ["festival", `${FEATURE_MONTH_LABEL} \uCD95\uC81C`],
-    ["indoor", "\uC2E4\uB0B4\uC5EC\uD589"],
-    ["family", "\uC544\uC774\uC640"],
-    ["booking", "\uC608\uC57D \uC804 \uCCB4\uD06C"],
-    ["flight-deals", "\uD56D\uACF5\uAD8C"],
-  ].filter(([id]) => sectionById.has(id));
+function categoryNav() {
   return [
-    `<a class="is-active" href="#all" data-filter="all">\uD648</a>`,
-    ...primaryItems.map(([id, label]) => `<a href="#${esc(id)}" data-filter="${esc(id)}">${esc(label)}</a>`),
+    '<a class="is-active" href="/">\uD648</a>',
+    '<a href="/travel/">\uC5EC\uD589\uC9C0</a>',
+    '<a href="/festival/">\uCD95\uC81C</a>',
+    '<a href="/stay/">\uC219\uC18C\u00B7\uC608\uC57D</a>',
   ].join("");
 }
 
@@ -811,15 +796,15 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
       </div>
       <div class="footer-col">
         <b>\uAC00\uBCFC\uB9CC\uD55C \uACF3</b>
-        <a href="#popular">8\uC6D4 \uAC00\uBCFC\uB9CC\uD55C \uACF3</a>
-        <a href="#weekend">\uC774\uBC88 \uC8FC\uB9D0 \uAC00\uBCFC\uB9CC\uD55C \uACF3</a>
-        <a href="#water">\uBB3C\uB180\uC774\u00B7\uACC4\uACE1\u00B7\uD574\uC218\uC695\uC7A5</a>
-        <a href="#indoor">\uBE44 \uC624\uB294 \uB0A0 \uC2E4\uB0B4 \uC5EC\uD589</a>
+        <a href="/travel/">\uC5EC\uD589\uC9C0 \uC804\uCCB4</a>
+        <a href="/travel/#tag-weekend">\uC774\uBC88 \uC8FC\uB9D0 \uD0DC\uADF8</a>
+        <a href="/travel/#tag-water">\uBB3C\uB180\uC774\u00B7\uACC4\uACE1 \uD0DC\uADF8</a>
+        <a href="/travel/#tag-indoor">\uC2E4\uB0B4\uC5EC\uD589 \uD0DC\uADF8</a>
       </div>
       <div class="footer-col">
         <b>\uCD95\uC81C\uC815\uBCF4</b>
-        <a href="#festival">${FEATURE_MONTH_LABEL} \uCD95\uC81C/\uD589\uC0AC</a>
-        <a href="#weekend">\uC774\uBC88 \uC8FC\uB9D0 \uCD95\uC81C \uCCB4\uD06C</a>
+        <a href="/festival/">\uCD95\uC81C \uC804\uCCB4</a>
+        <a href="/festival/#featured">\uC774\uB2EC\uC758 \uCD95\uC81C</a>
       </div>
       <div class="footer-col">
         <b>\uD2B8\uB9BD\uBDF0</b>
@@ -828,8 +813,8 @@ function html(posts, products = [], accommodations = [], tnaProducts = [], fligh
       </div>
       <div class="footer-col">
         <b>\uC608\uC57D</b>
-        <a href="#booking">\uC219\uC18C\u00B7\uD22C\uC5B4 \uAC80\uC0C9</a>
-        <a href="#myrealtrip-deals">\uD22C\uC5B4\u00B7\uD2F0\uCF13 \uCD94\uCC9C</a>
+        <a href="/stay/">\uC219\uC18C\u00B7\uC608\uC57D</a>
+        <a href="/stay/#accommodation-cards">\uC219\uC18C \uCE74\uB4DC</a>
         <a href="/affiliate-disclosure">\uC81C\uD734 \uC548\uB0B4</a>
       </div>
       <div class="footer-bottom">Copyright 2026 ${esc(BRAND)}. All rights reserved. · <a href="/about">\uC18C\uAC1C</a> · <a href="/editorial-team">\uD3B8\uC9D1\uD300</a> · <a href="/editorial-policy">\uCF58\uD150\uCE20 \uC6B4\uC601 \uAE30\uC900</a> · <a href="/contact">\uBB38\uC758</a> · <a href="/privacy">\uAC1C\uC778\uC815\uBCF4\uCC98\uB9AC\uBC29\uCE68</a></div>
