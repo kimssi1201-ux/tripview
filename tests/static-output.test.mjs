@@ -66,6 +66,39 @@ function expectedRegionSlugs(posts) {
   return [...new Set(posts.filter(isIndexablePost).map((post) => regionSlugs.get(compactRegion(post.region)) || "other"))].sort();
 }
 
+function addDays(date, days) {
+  const next = new Date(date);
+  next.setUTCDate(next.getUTCDate() + days);
+  return next;
+}
+
+function dateText(date) {
+  return date.toISOString().slice(0, 10);
+}
+
+function todayInKorea(reference = new Date()) {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Seoul",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(reference);
+  const values = Object.fromEntries(parts.filter((part) => part.type !== "literal").map((part) => [part.type, part.value]));
+  return new Date(Date.UTC(Number(values.year), Number(values.month) - 1, Number(values.day)));
+}
+
+function expectedStayWindow(reference = new Date()) {
+  const today = todayInKorea(reference);
+  const day = today.getUTCDay();
+  let daysUntilFriday = (5 - day + 7) % 7;
+  if (daysUntilFriday === 0) daysUntilFriday = 7;
+  const checkInDate = addDays(today, daysUntilFriday);
+  return {
+    checkIn: dateText(checkInDate),
+    checkOut: dateText(addDays(checkInDate, 2)),
+  };
+}
+
 test("homepage categories use real URLs and travel keeps old topics as tags", async () => {
   const [homepage, travelPage] = await Promise.all([
     readFile("index.html", "utf8"),
@@ -130,38 +163,46 @@ test("homepage is aligned to August and avoids expired seasonal or Coupang revie
   assert.doesNotMatch(festivalSection, /festival-4088257/);
 });
 
-test("affiliate cards are contextual, limited, safely linked, and absent from pending articles", async () => {
-  const [stayPage, articleBuildScript] = await Promise.all([
-    readFile("stay/index.html", "utf8"),
-    readFile("scripts/build-www.mjs", "utf8"),
-  ]);
-  const cards = [...stayPage.matchAll(/<a[^>]*data-affiliate-match="context"[^>]*>/g)].map((match) => match[0]);
-  assert.ok(cards.length >= 6 && cards.length <= 12, "stay page should keep a focused accommodation card set");
+test("accommodation cards use cached MyRealTrip stay links and stay out of pending articles", async () => {
+  const stayPage = await readFile("stay/index.html", "utf8");
+  const cards = [...stayPage.matchAll(/<a[^>]*data-mrt-accommodation-card[^>]*>/g)].map((match) => match[0]);
+  assert.ok(cards.length >= 3 && cards.length <= 12, "stay page should keep a focused accommodation card set");
 
   const urls = cards.map((card) => card.match(/href="([^"]+)"/)?.[1]).filter(Boolean);
-  assert.equal(new Set(urls).size, urls.length, "stay page affiliate products should not repeat");
-  assert.ok(urls.every((url) => /^https:\/\/(?:[^/]+\.)?myrealtrip\.com\//.test(url)));
-  assert.ok(urls.every((url) => !/[?&](?:checkIn|checkOut|adultCount|childCount)=/.test(url)));
-  assert.ok(cards.every((card) => /rel="sponsored noopener"/.test(card)));
+  const stay = expectedStayWindow();
+  assert.equal(new Set(urls).size, urls.length, "stay page accommodation products should not repeat");
+  assert.ok(urls.every((url) => /^https:\/\/accommodation\.myrealtrip\.com\//.test(url)));
+  assert.ok(urls.every((url) => url.includes(`checkIn=${stay.checkIn}`)));
+  assert.ok(urls.every((url) => url.includes(`checkOut=${stay.checkOut}`)));
+  assert.ok(urls.every((url) => url.includes("adultCount=2")));
+  assert.ok(urls.every((url) => url.includes("childCount=0")));
+  assert.ok(cards.every((card) => /rel="sponsored nofollow"/.test(card)));
+  assert.ok(cards.every((card) => /target="_blank"/.test(card)));
   assert.match(stayPage, /숙소 카드/);
-  assert.doesNotMatch(stayPage, /콘텐츠와 맞는 예약 정보|맞춤 예약 정보/);
-  assert.match(articleBuildScript, /const title = "주변 숙소·투어"/);
-  assert.doesNotMatch(articleBuildScript, /이 여행지 예약 정보|일정에 맞춘 인근 숙소/);
-  const productCards = [...stayPage.matchAll(/<a class="product-card[^"]*"[^>]*data-affiliate-match="context"[^>]*>[\s\S]*?<\/a>/g)]
+  assert.match(stayPage, /class="mrt-accommodation-badge"/);
+  assert.match(stayPage, /<del>[\d,]+원<\/del><strong>[\d,]+원<\/strong>/);
+  assert.doesNotMatch(stayPage, /checkIn=2026-08-24|checkOut=2026-08-26/);
+  const productCards = [...stayPage.matchAll(/<a class="mrt-accommodation-card"[^>]*data-mrt-accommodation-card[^>]*>[\s\S]*?<\/a>/g)]
     .map((match) => match[0]);
   assert.equal(productCards.length, cards.length);
   assert.ok(productCards.some((card) => /<img src="https:\/\/[^\"]+"[^>]*loading="lazy"/.test(card)));
-  assert.ok(productCards.every((card) => /<img /.test(card) || /\bno-thumb\b/.test(card)));
-  assert.doesNotMatch(stayPage, /data-affiliate-match="context"[\s\S]{0,500}오사카/);
+  assert.ok(productCards.every((card) => /<img /.test(card)));
+  assert.doesNotMatch(stayPage, /data-mrt-accommodation-card[\s\S]{0,500}오사카/);
 
   const [reviewedArticle, pendingArticle] = await Promise.all([
     readFile("travel-126078/index.html", "utf8"),
     readFile("festival-4094595/index.html", "utf8"),
   ]);
-  assert.match(reviewedArticle, /<!-- MRT_AD_START context -->/);
-  assert.match(reviewedArticle, /class="mrt-thumb"><img src="https:\/\/[^\"]+"[^>]*loading="lazy"/);
+  assert.match(reviewedArticle, /<!-- MRT_ACCOMMODATION_START mid -->/);
+  assert.match(reviewedArticle, /<!-- MRT_ACCOMMODATION_START bottom -->/);
+  const midBlock = reviewedArticle.match(/<!-- MRT_ACCOMMODATION_START mid -->[\s\S]*?<!-- MRT_ACCOMMODATION_END -->/)?.[0] || "";
+  const bottomBlock = reviewedArticle.match(/<!-- MRT_ACCOMMODATION_START bottom -->[\s\S]*?<!-- MRT_ACCOMMODATION_END -->/)?.[0] || "";
+  assert.equal((midBlock.match(/data-mrt-accommodation-card/g) || []).length, 1);
+  assert.ok((bottomBlock.match(/data-mrt-accommodation-card/g) || []).length <= 2);
+  assert.ok(((midBlock + bottomBlock).match(/data-mrt-accommodation-card/g) || []).length <= 3);
+  assert.match(reviewedArticle, /class="mrt-accommodation-thumb"><img src="https:\/\/[^\"]+"[^>]*loading="lazy"/);
   assert.match(reviewedArticle, /<meta name="robots" content="index, follow, max-image-preview:large">/);
-  assert.doesNotMatch(pendingArticle, /<!-- MRT_AD_START context -->/);
+  assert.doesNotMatch(pendingArticle, /<!-- MRT_ACCOMMODATION_START/);
   assert.doesNotMatch(pendingArticle, /adsbygoogle\.js\?client=/);
   assert.doesNotMatch(pendingArticle, /data-tripview-article/);
   assert.match(pendingArticle, /<meta name="robots" content="noindex, follow">/);
@@ -174,6 +215,29 @@ test("affiliate cards are contextual, limited, safely linked, and absent from pe
   assert.doesNotMatch(overseasFlightArticle, /adsbygoogle\.js\?client=/);
   assert.doesNotMatch(overseasFlightArticle, /같이 보면 좋은 예약 정보/);
   assert.doesNotMatch(overseasFlightArticle, /experiences\.myrealtrip\.com\/products\//);
+});
+
+test("accommodation cache keeps the MyRealTrip API contract lean", async () => {
+  const [cacheText, regionMapText, fetchScript] = await Promise.all([
+    readFile("data/myrealtrip-accommodation-cache.json", "utf8"),
+    readFile("data/myrealtrip-accommodation-region-map.json", "utf8"),
+    readFile("scripts/fetch-myrealtrip-accommodations.mjs", "utf8"),
+  ]);
+  const cache = JSON.parse(cacheText);
+  const regionMap = JSON.parse(regionMapText);
+  const stay = expectedStayWindow();
+  assert.equal(cache.checkIn, stay.checkIn);
+  assert.equal(cache.checkOut, stay.checkOut);
+  assert.equal(cache.adultCount, 2);
+  assert.equal(cache.childCount, 0);
+  assert.equal(cache.presets.default, "threestar,fourstar,fivestar");
+  assert.equal(cache.presets.family, "fourstar,fivestar");
+  assert.equal(regionMap.endpoint, "/v1/products/accommodation/region-autocomplete");
+  assert.ok(Object.keys(regionMap.regions || {}).length >= 1);
+  assert.match(fetchScript, /\/v1\/products\/accommodation\/region-autocomplete/);
+  assert.match(fetchScript, /\/v1\/products\/accommodation\/search/);
+  assert.match(fetchScript, /starRating/);
+  assert.doesNotMatch(cacheText, /"images"|"imageUrls"|"amenities"|"facilities"|"coordinates"|"latitude"|"longitude"/);
 });
 
 test("AdSense script and ads.txt use the same publisher ID", async () => {
@@ -198,14 +262,17 @@ test("trust pages use canonical URLs and current homepage anchors", async () => 
 });
 
 test("region hubs are generated and articles link to same-region content", async () => {
-  const [gangwonHub, article] = await Promise.all([
+  const [gangwonHub, busanHub, article] = await Promise.all([
     readFile("region/gangwon/index.html", "utf8"),
+    readFile("region/busan/index.html", "utf8"),
     readFile("travel-2774026/index.html", "utf8"),
   ]);
   assert.match(gangwonHub, /강원 여행 소개/);
   assert.match(gangwonHub, /강원 글 목록/);
-  assert.match(gangwonHub, /강원 숙소 카드 자리/);
   assert.match(gangwonHub, /<link rel="canonical" href="https:\/\/tripview\.kr\/region\/gangwon\/">/);
+  assert.match(busanHub, /부산 추천 숙소/);
+  const busanAccommodationCards = busanHub.match(/data-mrt-accommodation-card/g) || [];
+  assert.ok(busanAccommodationCards.length >= 1 && busanAccommodationCards.length <= 6);
   assert.match(article, /<!-- REGION_RELATED_START -->/);
   assert.match(article, /강원에서 함께 볼 글/);
   assert.match(article, /href="\/region\/gangwon\/"/);
@@ -252,6 +319,7 @@ test("sitemap includes only indexable articles and article robots match content 
     assert.doesNotMatch(thinDocument, /adsbygoogle\.js\?client=/);
     assert.doesNotMatch(thinDocument, /data-tripview-article/);
     assert.doesNotMatch(thinDocument, /<!-- MRT_AD_START context -->/);
+    assert.doesNotMatch(thinDocument, /<!-- MRT_ACCOMMODATION_START/);
   } else {
     assert.equal(indexable.length, posts.length);
   }

@@ -50,12 +50,50 @@ async function readJson(relativePath, fallback = []) {
   }
 }
 
+function addDays(date, days) {
+  const next = new Date(date);
+  next.setUTCDate(next.getUTCDate() + days);
+  return next;
+}
+
+function dateText(date) {
+  return date.toISOString().slice(0, 10);
+}
+
+function todayInKorea(reference = new Date()) {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Seoul",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(reference);
+  const values = Object.fromEntries(parts.filter((part) => part.type !== "literal").map((part) => [part.type, part.value]));
+  return new Date(Date.UTC(Number(values.year), Number(values.month) - 1, Number(values.day)));
+}
+
+function defaultStayWindow(reference = new Date()) {
+  const today = todayInKorea(reference);
+  const day = today.getUTCDay();
+  let daysUntilFriday = (5 - day + 7) % 7;
+  if (daysUntilFriday === 0) daysUntilFriday = 7;
+  const checkInDate = addDays(today, daysUntilFriday);
+  return {
+    checkIn: dateText(checkInDate),
+    checkOut: dateText(addDays(checkInDate, 2)),
+    adultCount: 2,
+    childCount: 0,
+  };
+}
+
+const ACCOMMODATION_STAY = defaultStayWindow();
+
 const generatedPosts = await readJson("data/generated-posts.json");
 const legacyPosts = await readJson("data/posts.json");
 const posts = generatedPosts.length ? generatedPosts : legacyPosts;
 const indexablePosts = posts.filter(isIndexablePost);
 const flightDeals = await readJson("data/myrealtrip-flight-deals.json");
-const accommodationProducts = await readJson("data/myrealtrip-accommodations.json");
+const accommodationCache = await readJson("data/myrealtrip-accommodation-cache.json", null);
+const accommodationProducts = accommodationProductsFromCache(accommodationCache);
 const tnaProducts = await readJson("data/myrealtrip-tna-products.json");
 
 const files = [
@@ -253,6 +291,212 @@ function stripAccommodationStayParams(rawUrl = "") {
   }
 }
 
+function safeMyRealTripUrl(rawUrl = "") {
+  try {
+    const url = new URL(String(rawUrl || ""));
+    return url.protocol === "https:" && (url.hostname === "myrealtrip.com" || url.hostname.endsWith(".myrealtrip.com"))
+      ? url
+      : null;
+  } catch {
+    return null;
+  }
+}
+
+function accommodationUrl(rawUrl = "") {
+  const url = safeMyRealTripUrl(rawUrl);
+  if (!url) return "";
+  if (url.hostname.toLowerCase() === "accommodation.myrealtrip.com") {
+    url.searchParams.set("checkIn", ACCOMMODATION_STAY.checkIn);
+    url.searchParams.set("checkOut", ACCOMMODATION_STAY.checkOut);
+    url.searchParams.set("adultCount", String(ACCOMMODATION_STAY.adultCount));
+    url.searchParams.set("childCount", String(ACCOMMODATION_STAY.childCount));
+    url.searchParams.set("childAges", "");
+  }
+  return url.toString();
+}
+
+function numericValue(value) {
+  if (typeof value === "number") return Number.isFinite(value) ? value : 0;
+  const number = Number(String(value ?? "").replace(/[^\d.]/g, ""));
+  return Number.isFinite(number) ? number : 0;
+}
+
+function won(value) {
+  const number = numericValue(value);
+  return number > 0 ? `${number.toLocaleString("ko-KR")}원` : "";
+}
+
+function starNumber(value) {
+  const text = normalizeText(value).toLowerCase();
+  if (/five|5/.test(text)) return 5;
+  if (/four|4/.test(text)) return 4;
+  if (/three|3/.test(text)) return 3;
+  const number = Number(value);
+  return Number.isFinite(number) ? number : 0;
+}
+
+function accommodationStarLabel(value) {
+  const number = starNumber(value);
+  return number ? `${number}성급` : "";
+}
+
+function accommodationDiscountRate(item = {}) {
+  const explicit = numericValue(item.discountRate || item.discountPercent);
+  if (explicit > 0) return Math.round(explicit);
+  const original = numericValue(item.originalPrice);
+  const sale = numericValue(item.salePrice || item.price);
+  return original > sale && sale > 0 ? Math.round(((original - sale) / original) * 100) : 0;
+}
+
+function accommodationCacheRegions(cache = accommodationCache) {
+  return cache && typeof cache === "object" && cache.regions && typeof cache.regions === "object"
+    ? cache.regions
+    : {};
+}
+
+function normalizeAccommodationProduct(item = {}, fallbackRegion = "") {
+  const title = normalizeText(item.title || item.itemName || item.name);
+  const url = accommodationUrl(item.url || item.productUrl);
+  const image = typeof item.image === "string" ? item.image : "";
+  const region = compactRegion(item.region || item.city || fallbackRegion);
+  const salePrice = numericValue(item.salePrice || item.price);
+  const originalPrice = numericValue(item.originalPrice || salePrice);
+  if (!title || !url || !image || !salePrice) return null;
+  return {
+    ...item,
+    id: item.id || `accommodation-${url}`,
+    type: "accommodation",
+    title,
+    url,
+    image,
+    region,
+    city: region,
+    regionSlug: item.regionSlug || regionSlug(region),
+    category: item.category || "숙소 예약",
+    salePrice,
+    price: salePrice,
+    originalPrice: originalPrice || salePrice,
+    discountRate: accommodationDiscountRate({ ...item, salePrice, originalPrice }),
+    priceText: item.priceText || `${won(salePrice)}부터`,
+    checkIn: ACCOMMODATION_STAY.checkIn,
+    checkOut: ACCOMMODATION_STAY.checkOut,
+    adultCount: ACCOMMODATION_STAY.adultCount,
+    childCount: ACCOMMODATION_STAY.childCount,
+    source: "myrealtrip-accommodation",
+  };
+}
+
+function accommodationProductsFromCache(cache = accommodationCache) {
+  const seen = new Set();
+  const products = [];
+  for (const region of Object.values(accommodationCacheRegions(cache))) {
+    for (const item of [...(region.default || []), ...(region.family || [])]) {
+      const normalized = normalizeAccommodationProduct(item, region.name);
+      if (!normalized || seen.has(stripAccommodationStayParams(normalized.url))) continue;
+      seen.add(stripAccommodationStayParams(normalized.url));
+      products.push(normalized);
+    }
+  }
+  return products;
+}
+
+function familyAccommodationContext(post) {
+  return /아이|가족|어린이|키즈|체험|테마파크|아쿠아리움|생태|자연학습/.test(searchablePostText(post));
+}
+
+function accommodationPresetForPosts(posts = []) {
+  return posts.some(familyAccommodationContext) ? "family" : "default";
+}
+
+function accommodationBucketForRegion(region) {
+  const slug = regionSlug(region);
+  return accommodationCacheRegions()[slug] || null;
+}
+
+function itemKey(item = {}) {
+  return stripAccommodationStayParams(item.url || item.productUrl || item.id || item.title || "");
+}
+
+function selectAccommodationItems({ posts = [], region = "", preset = "", limit = 3, exclude = [] } = {}) {
+  const safeLimit = Math.max(0, Math.min(12, Number.parseInt(limit, 10) || 0));
+  if (!safeLimit) return [];
+  const label = compactRegion(region || posts.find((post) => post?.region)?.region || posts[0]?.city);
+  const bucket = accommodationBucketForRegion(label);
+  if (!bucket) return [];
+  const presetName = preset || accommodationPresetForPosts(posts);
+  const familyPool = (bucket.family || []).map((item) => normalizeAccommodationProduct(item, bucket.name)).filter(Boolean);
+  const defaultPool = (bucket.default || []).map((item) => normalizeAccommodationProduct(item, bucket.name)).filter(Boolean);
+  const pool = presetName === "family"
+    ? (familyPool.length ? familyPool : defaultPool.filter((item) => starNumber(item.starRating) >= 4))
+    : defaultPool;
+  const seen = new Set((Array.isArray(exclude) ? exclude : []).map(itemKey));
+  const picked = [];
+  for (const item of pool) {
+    const key = itemKey(item);
+    if (!key || seen.has(key)) continue;
+    seen.add(key);
+    picked.push(item);
+    if (picked.length >= safeLimit) break;
+  }
+  return picked;
+}
+
+function selectMultiRegionAccommodations(posts = [], limit = 6) {
+  const safeLimit = Math.max(0, Math.min(12, Number.parseInt(limit, 10) || 0));
+  const regionCounts = new Map();
+  for (const post of posts) {
+    const label = compactRegion(post?.region || post?.city);
+    if (accommodationBucketForRegion(label)) regionCounts.set(label, (regionCounts.get(label) || 0) + 1);
+  }
+  const regions = [...regionCounts.entries()]
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], "ko"))
+    .map(([label]) => label);
+  const picked = [];
+  const seen = new Set();
+  for (const label of regions) {
+    for (const item of selectAccommodationItems({ region: label, limit: 2 })) {
+      const key = itemKey(item);
+      if (seen.has(key)) continue;
+      seen.add(key);
+      picked.push(item);
+      if (picked.length >= safeLimit) return picked;
+    }
+  }
+  for (const item of accommodationProducts) {
+    const key = itemKey(item);
+    if (seen.has(key)) continue;
+    seen.add(key);
+    picked.push(item);
+    if (picked.length >= safeLimit) break;
+  }
+  return picked;
+}
+
+function accommodationCard(item = {}) {
+  const product = normalizeAccommodationProduct(item);
+  if (!product) return "";
+  const discount = accommodationDiscountRate(product);
+  const star = accommodationStarLabel(product.starRating);
+  const rating = product.reviewScore ? `평점 ${product.reviewScore}` : "";
+  const reviews = numericValue(product.reviewCount);
+  const meta = [star, rating, reviews ? `리뷰 ${reviews.toLocaleString("ko-KR")}개` : ""].filter(Boolean).join(" · ");
+  const original = numericValue(product.originalPrice);
+  const sale = numericValue(product.salePrice || product.price);
+  const price = [
+    original > sale ? `<del>${html(won(original))}</del>` : "",
+    `<strong>${html(won(sale))}</strong>`,
+  ].filter(Boolean).join("");
+  return `<a class="mrt-accommodation-card" data-mrt-accommodation-card href="${html(product.url)}" rel="sponsored nofollow" target="_blank">
+    <span class="mrt-accommodation-thumb"><img src="${html(product.image)}" alt="${html(product.title)}" loading="lazy"></span>
+    <span class="mrt-accommodation-body">
+      ${discount > 0 ? `<span class="mrt-accommodation-badge">${discount}% 할인</span>` : ""}
+      <strong>${html(product.title)}</strong>
+      <em>${html(meta || product.region)}</em>
+      <span class="mrt-accommodation-price">${price}<small>2인 · ${html(ACCOMMODATION_STAY.checkIn)} 체크인</small></span>
+    </span>
+  </a>`;
+}
+
 function cleanGeneratedHtml(value) {
   return String(value ?? "").replace(/[ \t]+$/gm, "");
 }
@@ -424,7 +668,7 @@ function primaryNavigation(activePath = "") {
 }
 
 function hubPageStyle() {
-  return `:root{--ink:#111;--muted:#707070;--line:#e1e1e1;--paper:#fff;--soft:#f5f5f5;--accent:#22543d}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;line-height:1.62;letter-spacing:0}a{color:inherit;text-decoration:none}img{display:block;width:100%;height:100%;object-fit:cover;background:var(--soft)}.wrap{width:min(1040px,calc(100% - 32px));margin:auto}.top{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.97);border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}.nav{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:70px}.brand{font-size:26px;font-weight:900;line-height:1}.links{display:flex;gap:18px;overflow-x:auto;white-space:nowrap;font-size:14px;font-weight:900}.links a{padding:2px 0;border-bottom:2px solid transparent}.links a.is-active{border-bottom-color:#111}.hero{padding:38px 0 22px;border-bottom:1px solid var(--line)}.kicker{display:block;color:var(--accent);font-size:12px;font-weight:900;letter-spacing:.12em}.hero h1{margin:7px 0 12px;font-size:clamp(32px,6vw,58px);line-height:1.05}.hero p{max-width:720px;margin:0;color:#333;font-size:17px}.tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}.tag-row a,.tag-row span{display:inline-flex;align-items:center;min-height:34px;border:1px solid var(--line);border-radius:999px;padding:7px 13px;background:#fff;font-size:13px;font-weight:900}.summary-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;padding:18px 0;border-bottom:1px solid var(--line)}.summary-row strong{display:block;font-size:24px;line-height:1.1}.summary-row span{display:block;color:var(--muted);font-size:13px}.block{padding:34px 0;border-bottom:1px solid var(--line)}.block-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:15px}.block h2{margin:0;font-size:28px;line-height:1.18}.block-note{margin:0;color:var(--muted);font-size:14px}.story-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px 18px}.story-card{display:block;min-width:0}.thumb{display:block;aspect-ratio:1.45/1;overflow:hidden;background:var(--soft)}.story-card strong{display:block;margin-top:10px;font-size:19px;line-height:1.32}.story-card em{display:block;margin-top:6px;color:var(--muted);font-size:12px;font-style:normal}.story-card p{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin:7px 0 0;color:#444;font-size:13px}.story-list{display:grid;gap:0;border-top:1px solid var(--line)}.story-list .story-card{display:grid;grid-template-columns:112px minmax(0,1fr);gap:13px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}.story-list .thumb{grid-row:1/4;aspect-ratio:1.3/1}.stay-slot{background:#f8faf9}.product-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 18px;border-top:1px solid var(--line)}.product-card{display:grid;grid-template-columns:90px minmax(0,1fr);gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}.product-card.no-image{grid-template-columns:1fr}.product-card .product-thumb{grid-row:1/3;display:block;aspect-ratio:1.26/1;overflow:hidden;background:var(--soft)}.product-card strong{font-size:16px;line-height:1.35}.product-card span{display:block;color:var(--muted);font-size:12px}.affiliate-note{margin:0 0 12px;color:var(--muted);font-size:12px}.empty-slot{margin:0;padding:16px 0;border-top:1px solid var(--line);color:var(--muted)}.footer{padding:28px 0 46px;color:var(--muted);font-size:13px}${LANGUAGE_SWITCH_CSS}@media(max-width:780px){.nav{align-items:flex-start;flex-direction:column;padding:15px 0}.links{width:100%;padding-bottom:3px}.summary-row{grid-template-columns:1fr}.story-grid,.product-grid{grid-template-columns:1fr}.story-list .story-card,.product-card{grid-template-columns:88px minmax(0,1fr)}.hero{padding-top:30px}.block-head{display:block}.block-note{margin-top:5px}}`;
+  return `:root{--ink:#111;--muted:#707070;--line:#e1e1e1;--paper:#fff;--soft:#f5f5f5;--accent:#22543d}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;line-height:1.62;letter-spacing:0}a{color:inherit;text-decoration:none}img{display:block;width:100%;height:100%;object-fit:cover;background:var(--soft)}.wrap{width:min(1040px,calc(100% - 32px));margin:auto}.top{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.97);border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}.nav{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:70px}.brand{font-size:26px;font-weight:900;line-height:1}.links{display:flex;gap:18px;overflow-x:auto;white-space:nowrap;font-size:14px;font-weight:900}.links a{padding:2px 0;border-bottom:2px solid transparent}.links a.is-active{border-bottom-color:#111}.hero{padding:38px 0 22px;border-bottom:1px solid var(--line)}.kicker{display:block;color:var(--accent);font-size:12px;font-weight:900;letter-spacing:.12em}.hero h1{margin:7px 0 12px;font-size:clamp(32px,6vw,58px);line-height:1.05}.hero p{max-width:720px;margin:0;color:#333;font-size:17px}.tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}.tag-row a,.tag-row span{display:inline-flex;align-items:center;min-height:34px;border:1px solid var(--line);border-radius:999px;padding:7px 13px;background:#fff;font-size:13px;font-weight:900}.summary-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;padding:18px 0;border-bottom:1px solid var(--line)}.summary-row strong{display:block;font-size:24px;line-height:1.1}.summary-row span{display:block;color:var(--muted);font-size:13px}.block{padding:34px 0;border-bottom:1px solid var(--line)}.block-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:15px}.block h2{margin:0;font-size:28px;line-height:1.18}.block-note{margin:0;color:var(--muted);font-size:14px}.story-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px 18px}.story-card{display:block;min-width:0}.thumb{display:block;aspect-ratio:1.45/1;overflow:hidden;background:var(--soft)}.story-card strong{display:block;margin-top:10px;font-size:19px;line-height:1.32}.story-card em{display:block;margin-top:6px;color:var(--muted);font-size:12px;font-style:normal}.story-card p{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin:7px 0 0;color:#444;font-size:13px}.story-list{display:grid;gap:0;border-top:1px solid var(--line)}.story-list .story-card{display:grid;grid-template-columns:112px minmax(0,1fr);gap:13px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}.story-list .thumb{grid-row:1/4;aspect-ratio:1.3/1}.stay-slot{background:#f8faf9}.affiliate-note{margin:0 0 12px;color:var(--muted);font-size:12px}.mrt-accommodation-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 18px;border-top:1px solid var(--line)}.mrt-accommodation-card{position:relative;display:grid;grid-template-columns:94px minmax(0,1fr);gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);min-width:0}.mrt-accommodation-thumb{display:block;aspect-ratio:1.24/1;overflow:hidden;background:var(--soft)}.mrt-accommodation-body{display:grid;gap:4px;min-width:0}.mrt-accommodation-body strong{font-size:16px;line-height:1.35}.mrt-accommodation-body em{color:var(--muted);font-size:12px;font-style:normal}.mrt-accommodation-badge{justify-self:start;background:#111;color:#fff;padding:2px 6px;font-size:11px;font-weight:900;line-height:1.35}.mrt-accommodation-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:5px}.mrt-accommodation-price del{color:#999;font-size:12px}.mrt-accommodation-price strong{font-size:16px}.mrt-accommodation-price small{flex-basis:100%;color:var(--muted);font-size:11px}.empty-slot{margin:0;padding:16px 0;border-top:1px solid var(--line);color:var(--muted)}.footer{padding:28px 0 46px;color:var(--muted);font-size:13px}${LANGUAGE_SWITCH_CSS}@media(max-width:780px){.nav{align-items:flex-start;flex-direction:column;padding:15px 0}.links{width:100%;padding-bottom:3px}.summary-row{grid-template-columns:1fr}.story-grid,.mrt-accommodation-grid{grid-template-columns:1fr}.story-list .story-card,.mrt-accommodation-card{grid-template-columns:88px minmax(0,1fr)}.hero{padding-top:30px}.block-head{display:block}.block-note{margin-top:5px}}`;
 }
 
 function storyCard(post) {
@@ -464,15 +708,21 @@ function selectedHubProducts({ sectionId, posts, limit = 4, accommodationOnly = 
   return selectAffiliateProducts({ sectionId, posts, products: productPool, limit });
 }
 
-function staySlot({ title, posts, products = [], placeholder = "지역별 숙소 카드 자리입니다. 추천 숙소 데이터가 연결되면 이 위치에 카드가 표시됩니다." }) {
-  const cards = products.map(hubProductCard).filter(Boolean);
+function staySlot({ title, posts, products = [], region = "", limit = 6 }) {
+  const items = products.length
+    ? products
+    : region
+      ? selectAccommodationItems({ posts, region, limit })
+      : selectMultiRegionAccommodations(posts, limit);
+  const cards = items.map(accommodationCard).filter(Boolean);
+  if (!cards.length) return "";
   return `<section class="block stay-slot" id="accommodation-cards" aria-labelledby="accommodation-cards-title">
     <div class="block-head">
       <div><span class="kicker">STAY</span><h2 id="accommodation-cards-title">${html(title)}</h2></div>
       <p class="block-note">${html(posts.length ? `${compactRegion(posts[0]?.region)} 글 기준 추천` : "여행지 기준 추천")}</p>
     </div>
-    <p class="affiliate-note">마이리얼트립 숙소·투어 링크는 제휴 링크일 수 있으며, 숙소 날짜는 접속 시점 기준 다음 금요일 체크인과 2박으로 자동 보정됩니다.</p>
-    ${cards.length ? `<div class="product-grid">${cards.join("")}</div>` : `<p class="empty-slot">${html(placeholder)}</p>`}
+    <p class="affiliate-note">마이리얼트립 숙소 링크는 제휴 링크일 수 있으며, 날짜는 렌더링 시점 기준 다음 금요일 체크인과 일요일 체크아웃으로 생성됩니다.</p>
+    <div class="mrt-accommodation-grid">${cards.join("")}</div>
   </section>`;
 }
 
@@ -535,12 +785,12 @@ function categoryPageHtml({ path, title, description, posts, tags = [], sections
 }
 
 function regionHubHtml(group) {
-  const description = `${group.label} 지역의 여행지와 축제 글을 최신순으로 모았습니다. 지역 소개와 함께 관련 글, 숙소 카드 자리를 한 번에 확인하세요.`;
-  const products = selectedHubProducts({ sectionId: "booking", posts: group.posts, limit: 3 });
+  const description = `${group.label} 지역의 여행지와 축제 글을 최신순으로 모았습니다. 지역 소개와 함께 관련 글, 추천 숙소 카드를 한 번에 확인하세요.`;
+  const products = selectAccommodationItems({ posts: group.posts, region: group.label, preset: "default", limit: 6 });
   const body = [
     `<section class="block" id="region-intro" aria-labelledby="region-intro-title"><div class="block-head"><div><span class="kicker">REGION</span><h2 id="region-intro-title">${html(group.label)} 여행 소개</h2></div><p class="block-note">${html(group.posts.length)}개 글</p></div><p>${html(group.label)} 여행은 계절 행사, 실내 명소, 자연 여행지를 함께 보면 동선 선택이 쉬워집니다. 아래 목록에서 방문 목적에 맞는 글을 먼저 확인하고, 숙소 카드는 일정이 정해진 뒤 비교용으로 활용하세요.</p></section>`,
+    staySlot({ title: `${group.label} 추천 숙소`, posts: group.posts, region: group.label, products, limit: 6 }),
     `<section class="block" id="region-posts" aria-labelledby="region-posts-title"><div class="block-head"><div><span class="kicker">POSTS</span><h2 id="region-posts-title">${html(group.label)} 글 목록</h2></div><p class="block-note">같은 광역 지역 기준</p></div><div class="story-list">${group.posts.map(storyCard).join("")}</div></section>`,
-    staySlot({ title: `${group.label} 숙소 카드 자리`, posts: group.posts, products }),
   ].join("");
   return pageShell({
     path: `/region/${group.slug}/`,
@@ -592,7 +842,7 @@ async function generateHubPages() {
       { id: "tag-indoor", title: "실내여행", posts: travelPosts.filter((post) => hasKeyword(post, indoorKeywords)), note: "기존 실내여행 카테고리를 태그로 전환" },
       { id: "tag-family", title: "아이와", posts: travelPosts.filter((post) => hasKeyword(post, familyKeywords)), note: "기존 아이와 카테고리를 태그로 전환" },
     ],
-    products: selectedHubProducts({ sectionId: "booking", posts: travelPosts, limit: 3 }),
+    products: selectMultiRegionAccommodations(travelPosts, 6),
   }));
 
   await writePage("/festival/", categoryPageHtml({
@@ -607,7 +857,7 @@ async function generateHubPages() {
     sections: [
       { id: "featured", title: "이달의 축제", posts: festivalPosts, note: "검수된 축제 글 최신순" },
     ],
-    products: selectedHubProducts({ sectionId: "festival", posts: festivalPosts, limit: 3 }),
+    products: selectMultiRegionAccommodations(festivalPosts, 6),
   }));
 
   await writePage("/stay/", categoryPageHtml({
@@ -621,7 +871,7 @@ async function generateHubPages() {
       { label: "축제", href: "/festival/" },
     ],
     sections: [],
-    products: selectedHubProducts({ sectionId: "booking", posts: indexablePosts, limit: 12, accommodationOnly: true }),
+    products: selectMultiRegionAccommodations(indexablePosts, 12),
   }));
 
   for (const group of regionGroups()) {
@@ -712,6 +962,9 @@ ${items}
 const MRT_AD_START = "<!-- MRT_AD_START";
 const MRT_AD_END = "MRT_AD_END -->";
 const MRT_STYLE_MARK = "/* tripview-mrt-native-ad */";
+const MRT_ACCOMMODATION_START = "<!-- MRT_ACCOMMODATION_START";
+const MRT_ACCOMMODATION_END = "MRT_ACCOMMODATION_END -->";
+const MRT_ACCOMMODATION_STYLE_MARK = "/* tripview-mrt-accommodation-cards */";
 const TRUST_NOTE_START = "<!-- TRUST_NOTE_START";
 const TRUST_NOTE_END = "TRUST_NOTE_END -->";
 const TRUST_STYLE_MARK = "/* tripview-trust-note */";
@@ -729,6 +982,10 @@ function articleAdCss() {
   return `${MRT_STYLE_MARK}.mrt-native-ad{margin:34px 0;padding:18px 0 20px;border-top:2px solid #111;border-bottom:1px solid var(--line)}.mrt-native-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:6px}.mrt-native-head strong{font-size:20px;line-height:1.25}.mrt-native-head span{color:var(--muted);font-size:13px}.mrt-affiliate-note{margin:0 0 12px;color:var(--muted);font-size:12px;line-height:1.55}.mrt-native-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px;border-top:1px solid var(--line)}.mrt-card{display:grid;grid-template-columns:88px minmax(0,1fr);gap:12px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}.mrt-card.no-image{grid-template-columns:1fr}.mrt-thumb{grid-row:1/3;display:block;aspect-ratio:1.28/1;overflow:hidden;background:var(--soft)}.mrt-card strong{font-size:16px;line-height:1.35}.mrt-card em{display:block;color:var(--muted);font-size:12px;font-style:normal}.mrt-card.no-image strong,.mrt-card.no-image em{grid-column:1}@media(max-width:640px){.mrt-native-grid{grid-template-columns:1fr}.mrt-card{grid-template-columns:84px minmax(0,1fr)}}/* end-tripview-mrt-native-ad */`;
 }
 
+function articleAccommodationCss() {
+  return `${MRT_ACCOMMODATION_STYLE_MARK}.mrt-accommodation-block{margin:34px 0;padding:18px 0 20px;border-top:2px solid #111;border-bottom:1px solid var(--line)}.mrt-accommodation-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:6px}.mrt-accommodation-head h2{margin:0;font-size:22px;line-height:1.25}.mrt-accommodation-head span{color:var(--muted);font-size:13px}.mrt-accommodation-note{margin:0 0 12px;color:var(--muted);font-size:12px;line-height:1.55}.mrt-accommodation-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px;border-top:1px solid var(--line)}.mrt-accommodation-card{position:relative;display:grid;grid-template-columns:88px minmax(0,1fr);gap:12px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line);min-width:0}.mrt-accommodation-thumb{display:block;aspect-ratio:1.28/1;overflow:hidden;background:var(--soft)}.mrt-accommodation-thumb img{width:100%;height:100%;object-fit:cover}.mrt-accommodation-body{display:grid;gap:4px;min-width:0}.mrt-accommodation-body strong{font-size:16px;line-height:1.35}.mrt-accommodation-body em{display:block;color:var(--muted);font-size:12px;font-style:normal}.mrt-accommodation-badge{justify-self:start;background:#111;color:#fff;padding:2px 6px;font-size:11px;font-weight:900;line-height:1.35}.mrt-accommodation-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:5px}.mrt-accommodation-price del{color:#999;font-size:12px}.mrt-accommodation-price strong{font-size:16px}.mrt-accommodation-price small{flex-basis:100%;color:var(--muted);font-size:11px}@media(max-width:640px){.mrt-accommodation-head{display:block}.mrt-accommodation-grid{grid-template-columns:1fr}.mrt-accommodation-card{grid-template-columns:84px minmax(0,1fr)}}/* end-tripview-mrt-accommodation-cards */`;
+}
+
 function articleCoupangCss() {
   return `${COUPANG_STYLE_MARK}.coupang-native-ad,.coupang-widget-ad{margin:30px 0;padding:18px 0 20px;border-top:2px solid #111;border-bottom:1px solid var(--line)}.coupang-native-ad h2,.coupang-widget-ad h2{margin:0 0 8px;font-size:22px}.coupang-native-ad .affiliate-disclosure,.coupang-widget-ad .affiliate-disclosure{margin:0 0 13px;color:var(--muted);font-size:12px;line-height:1.55}.coupang-native-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px;border-top:1px solid var(--line)}.coupang-card strong{font-size:16px}.coupang-widget-scroll{width:100%;max-width:100%;overflow-x:auto;overflow-y:hidden;padding-bottom:2px}.coupang-widget-inner{width:680px;max-width:680px;min-height:140px}@media(max-width:640px){.coupang-native-grid{grid-template-columns:1fr}}/* end-tripview-coupang-native-ad */`;
 }
@@ -744,11 +1001,13 @@ function articleRegionRelatedCss() {
 function stripExistingArticleAds(document) {
   return document
     .replace(new RegExp(`${MRT_AD_START}[\\s\\S]*?${MRT_AD_END}`, "g"), "")
+    .replace(new RegExp(`${MRT_ACCOMMODATION_START}[\\s\\S]*?${MRT_ACCOMMODATION_END}`, "g"), "")
     .replace(new RegExp(`${TRUST_NOTE_START}[\\s\\S]*?${TRUST_NOTE_END}`, "g"), "")
     .replace(new RegExp(`${REGION_RELATED_START}[\\s\\S]*?${REGION_RELATED_END}`, "g"), "")
     .replace(new RegExp(`${COUPANG_AD_START}[\\s\\S]*?${COUPANG_AD_END}`, "g"), "")
     .replace(new RegExp(`${COUPANG_WIDGET_START}[\\s\\S]*?${COUPANG_WIDGET_END}`, "g"), "")
     .replace(/\/\* tripview-mrt-native-ad \*\/[\s\S]*?\/\* end-tripview-mrt-native-ad \*\//g, "")
+    .replace(/\/\* tripview-mrt-accommodation-cards \*\/[\s\S]*?\/\* end-tripview-mrt-accommodation-cards \*\//g, "")
     .replace(/\/\* tripview-trust-note \*\/[\s\S]*?\/\* end-tripview-trust-note \*\//g, "")
     .replace(/\/\* tripview-region-related \*\/[\s\S]*?\/\* end-tripview-region-related \*\//g, "")
     .replace(/\/\* tripview-coupang-native-ad \*\/[\s\S]*?\/\* end-tripview-coupang-native-ad \*\//g, "")
@@ -757,9 +1016,10 @@ function stripExistingArticleAds(document) {
     .replace(/\s*<script\s+src=["']\/assets\/beach-(?:info|weather)\.js\?v=[^"']+["']\s+defer><\/script>/g, "");
 }
 
-function injectArticleAdCss(document, includeAffiliate = false, includeRegionRelated = false) {
+function injectArticleAdCss(document, includeAffiliate = false, includeRegionRelated = false, includeAccommodation = false) {
   let next = document;
   if (includeAffiliate && !next.includes(MRT_STYLE_MARK)) next = next.replace("</style>", `${articleAdCss()}</style>`);
+  if (includeAccommodation && !next.includes(MRT_ACCOMMODATION_STYLE_MARK)) next = next.replace("</style>", `${articleAccommodationCss()}</style>`);
   if (includeRegionRelated && !next.includes(REGION_RELATED_STYLE_MARK)) next = next.replace("</style>", `${articleRegionRelatedCss()}</style>`);
   if (!next.includes(TRUST_STYLE_MARK)) next = next.replace("</style>", `${articleTrustCss()}</style>`);
   return next;
@@ -952,6 +1212,56 @@ function injectArticleAffiliate(document, block) {
   return document.replace("</article>", `${block}</article>`);
 }
 
+function articleAccommodationItems(post, count = 3) {
+  return selectAccommodationItems({
+    posts: [post],
+    region: post?.region || post?.city,
+    preset: familyAccommodationContext(post) ? "family" : "default",
+    limit: count,
+  });
+}
+
+function articleAccommodationBlock(items = [], slot = "bottom") {
+  const cards = items.map(accommodationCard).filter(Boolean);
+  if (!cards.length) return "";
+  const title = slot === "mid" ? "이 지역 숙소 한 곳" : "같이 볼 숙소";
+  const label = slot === "mid" ? "본문 중간 숙소 추천" : "본문 하단 숙소 추천";
+  return `${MRT_ACCOMMODATION_START} ${slot} -->
+<section class="mrt-accommodation-block" aria-label="${html(label)}">
+  <div class="mrt-accommodation-head"><h2>${html(title)}</h2><span>마이리얼트립 숙소</span></div>
+  <p class="mrt-accommodation-note">렌더링 시점 기준 다음 금요일 체크인, 일요일 체크아웃, 성인 2명 조건으로 연결합니다.</p>
+  <div class="mrt-accommodation-grid">${cards.join("")}</div>
+</section>
+<!-- ${MRT_ACCOMMODATION_END}`;
+}
+
+function injectArticleMidAccommodation(document, block) {
+  if (!block) return document;
+  const articleStart = document.indexOf('<article class="content"');
+  const articleEnd = articleStart >= 0 ? document.indexOf("</article>", articleStart) : -1;
+  if (articleStart < 0 || articleEnd < 0) return document;
+  const article = document.slice(articleStart, articleEnd);
+  const relatedStart = article.search(/<section class=["']related-posts["']/);
+  const body = relatedStart >= 0 ? article.slice(0, relatedStart) : article;
+  const paragraphMatches = [...body.matchAll(/<\/p>/g)];
+  const match = paragraphMatches[Math.min(2, paragraphMatches.length - 1)];
+  if (match) {
+    const insertAt = articleStart + match.index + match[0].length;
+    return `${document.slice(0, insertAt)}${block}${document.slice(insertAt)}`;
+  }
+  const tableIndex = article.indexOf("</table>");
+  if (tableIndex >= 0) {
+    const insertAt = articleStart + tableIndex + "</table>".length;
+    return `${document.slice(0, insertAt)}${block}${document.slice(insertAt)}`;
+  }
+  return document.replace("</article>", `${block}</article>`);
+}
+
+function injectArticleBottomAccommodation(document, block) {
+  if (!block || !document.includes("</article>")) return document;
+  return document.replace("</article>", `${block}</article>`);
+}
+
 function articleRegionRelatedItems(post) {
   const slug = regionSlug(post?.region);
   return sortedPosts(indexablePosts)
@@ -1062,12 +1372,16 @@ async function polishGeneratedArticles() {
     if (!document.includes('<article class="content"')) continue;
 
     const indexable = isIndexablePost(post);
-    const affiliateBlock = indexable ? articleAdBlock(post) : "";
+    const accommodationItems = indexable ? articleAccommodationItems(post, 3) : [];
+    const midAccommodationBlock = accommodationItems.length ? articleAccommodationBlock(accommodationItems.slice(0, 1), "mid") : "";
+    const bottomAccommodationBlock = accommodationItems.length > 1 ? articleAccommodationBlock(accommodationItems.slice(1, 3), "bottom") : "";
     const regionRelatedBlock = indexable ? articleRegionRelatedBlock(post) : "";
-    let next = injectArticleAdCss(stripExistingArticleAds(document), Boolean(affiliateBlock), Boolean(regionRelatedBlock));
+    const hasAccommodationBlock = Boolean(midAccommodationBlock || bottomAccommodationBlock);
+    let next = injectArticleAdCss(stripExistingArticleAds(document), false, Boolean(regionRelatedBlock), hasAccommodationBlock);
     next = alignArticleNavigation(next);
     next = alignArticleByline(next, post);
-    next = injectArticleAffiliate(next, affiliateBlock);
+    next = injectArticleMidAccommodation(next, midAccommodationBlock);
+    next = injectArticleBottomAccommodation(next, bottomAccommodationBlock);
     next = injectArticleRegionRelated(next, regionRelatedBlock);
     next = injectArticleTrust(next, post);
     next = ensureCanonical(next, `/${post.slug}/`);

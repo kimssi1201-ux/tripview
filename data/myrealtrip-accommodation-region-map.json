@@ -1,0 +1,24 @@
+{
+  "updatedDate": "2026-08-23",
+  "generatedAt": "2026-08-23T14:39:18.278Z",
+  "source": "legacy-myrealtrip-accommodation-region-map",
+  "endpoint": "/v1/products/accommodation/region-autocomplete",
+  "regions": {
+    "seoul": {
+      "keyword": "서울",
+      "name": "서울",
+      "slug": "seoul",
+      "regionId": "",
+      "type": "",
+      "sourceName": "서울"
+    },
+    "busan": {
+      "keyword": "부산",
+      "name": "부산",
+      "slug": "busan",
+      "regionId": "",
+      "type": "",
+      "sourceName": "부산"
+    }
+  }
+}

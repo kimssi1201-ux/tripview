@@ -1,0 +1,325 @@
+{
+  "updatedDate": "2026-08-23",
+  "generatedAt": "2026-08-23T14:39:18.278Z",
+  "source": "legacy-myrealtrip-accommodation-cache",
+  "endpoint": "/v1/products/accommodation/search",
+  "checkIn": "2026-08-28",
+  "checkOut": "2026-08-30",
+  "adultCount": 2,
+  "childCount": 0,
+  "nights": 2,
+  "presets": {
+    "default": "threestar,fourstar,fivestar",
+    "family": "fourstar,fivestar"
+  },
+  "regions": {
+    "seoul": {
+      "keyword": "서울",
+      "name": "서울",
+      "slug": "seoul",
+      "regionId": "",
+      "default": [
+        {
+          "id": "accommodation-1485138",
+          "type": "accommodation",
+          "title": "토요코인 서울영등포",
+          "url": "https://accommodation.myrealtrip.com/union/products/1485138?checkIn=2026-08-28&checkOut=2026-08-30&adultCount=2&childCount=0&childAges=",
+          "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/05/11/JCvE/zULsJLFNww.jpg?width=720",
+          "region": "서울",
+          "regionSlug": "seoul",
+          "regionId": "",
+          "category": "숙소 예약",
+          "price": 118525,
+          "priceText": "118,525원부터",
+          "salePrice": 118525,
+          "originalPrice": 118525,
+          "discountRate": 0,
+          "starRating": 3,
+          "reviewScore": "4.5",
+          "reviewCount": 1755,
+          "checkIn": "2026-08-28",
+          "checkOut": "2026-08-30",
+          "adultCount": 2,
+          "childCount": 0,
+          "starRatingPreset": "default",
+          "description": "2026년 8월 28일 체크인 · 2박 · 3성급 · 평점 4.5(1,755개)",
+          "tags": [
+            "숙소",
+            "호텔",
+            "예약",
+            "서울"
+          ],
+          "intents": [
+            "booking"
+          ],
+          "deepLink": "mrt://unionstay/detail/1485138?checkIn=2026-08-28&checkOut=2026-08-30&adultCount=2&childCount=0&childAges=",
+          "source": "myrealtrip-accommodation"
+        },
+        {
+          "id": "accommodation-2680056",
+          "type": "accommodation",
+          "title": "메이필드 호텔",
+          "url": "https://accommodation.myrealtrip.com/union/products/2680056?checkIn=2026-08-28&checkOut=2026-08-30&adultCount=2&childCount=0&childAges=",
+          "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/02/oA9Z/j9d6H12ANh.jpg?width=720",
+          "region": "서울",
+          "regionSlug": "seoul",
+          "regionId": "",
+          "category": "숙소 예약",
+          "price": 194370,
+          "priceText": "194,370원부터",
+          "salePrice": 194370,
+          "originalPrice": 209000,
+          "discountRate": 7,
+          "starRating": 5,
+          "reviewScore": "4.5",
+          "reviewCount": 1187,
+          "checkIn": "2026-08-28",
+          "checkOut": "2026-08-30",
+          "adultCount": 2,
+          "childCount": 0,
+          "starRatingPreset": "default",
+          "description": "2026년 8월 28일 체크인 · 2박 · 5성급 · 평점 4.5(1,187개)",
+          "tags": [
+            "숙소",
+            "호텔",
+            "예약",
+            "서울"
+          ],
+          "intents": [
+            "booking"
+          ],
+          "deepLink": "mrt://unionstay/detail/2680056?checkIn=2026-08-28&checkOut=2026-08-30&adultCount=2&childCount=0&childAges=",
+          "source": "myrealtrip-accommodation"
+        },
+        {
+          "id": "accommodation-2680683",
+          "type": "accommodation",
+          "title": "이비스 스타일 앰배서더 서울 용산",
+          "url": "https://accommodation.myrealtrip.com/union/products/2680683?checkIn=2026-08-28&checkOut=2026-08-30&adultCount=2&childCount=0&childAges=",
+          "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/03/06/yHIB/1Kt1TtAfM8.jpg?width=720",
+          "region": "서울",
+          "regionSlug": "seoul",
+          "regionId": "",
+          "category": "숙소 예약",
+          "price": 198000,
+          "priceText": "198,000원부터",
+          "salePrice": 198000,
+          "originalPrice": 198000,
+          "discountRate": 0,
+          "starRating": "",
+          "reviewScore": "4.4",
+          "reviewCount": 1157,
+          "checkIn": "2026-08-28",
+          "checkOut": "2026-08-30",
+          "adultCount": 2,
+          "childCount": 0,
+          "starRatingPreset": "default",
+          "description": "2026년 8월 28일 체크인 · 2박 · 평점 4.4(1,157개)",
+          "tags": [
+            "숙소",
+            "호텔",
+            "예약",
+            "서울"
+          ],
+          "intents": [
+            "booking"
+          ],
+          "deepLink": "mrt://unionstay/detail/2680683?checkIn=2026-08-28&checkOut=2026-08-30&adultCount=2&childCount=0&childAges=",
+          "source": "myrealtrip-accommodation"
+        }
+      ],
+      "family": [
+        {
+          "id": "accommodation-2680056",
+          "type": "accommodation",
+          "title": "메이필드 호텔",
+          "url": "https://accommodation.myrealtrip.com/union/products/2680056?checkIn=2026-08-28&checkOut=2026-08-30&adultCount=2&childCount=0&childAges=",
+          "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/02/oA9Z/j9d6H12ANh.jpg?width=720",
+          "region": "서울",
+          "regionSlug": "seoul",
+          "regionId": "",
+          "category": "숙소 예약",
+          "price": 194370,
+          "priceText": "194,370원부터",
+          "salePrice": 194370,
+          "originalPrice": 209000,
+          "discountRate": 7,
+          "starRating": 5,
+          "reviewScore": "4.5",
+          "reviewCount": 1187,
+          "checkIn": "2026-08-28",
+          "checkOut": "2026-08-30",
+          "adultCount": 2,
+          "childCount": 0,
+          "starRatingPreset": "family",
+          "description": "2026년 8월 28일 체크인 · 2박 · 5성급 · 평점 4.5(1,187개)",
+          "tags": [
+            "숙소",
+            "호텔",
+            "예약",
+            "서울"
+          ],
+          "intents": [
+            "booking"
+          ],
+          "deepLink": "mrt://unionstay/detail/2680056?checkIn=2026-08-28&checkOut=2026-08-30&adultCount=2&childCount=0&childAges=",
+          "source": "myrealtrip-accommodation"
+        }
+      ]
+    },
+    "busan": {
+      "keyword": "부산",
+      "name": "부산",
+      "slug": "busan",
+      "regionId": "",
+      "default": [
+        {
+          "id": "accommodation-1187439",
+          "type": "accommodation",
+          "title": "토요코인 부산중앙역",
+          "url": "https://accommodation.myrealtrip.com/union/products/1187439?checkIn=2026-08-28&checkOut=2026-08-30&adultCount=2&childCount=0&childAges=",
+          "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2023/02/02/IKUf/Qh6lAM79Y6.jpg?width=720",
+          "region": "부산",
+          "regionSlug": "busan",
+          "regionId": "",
+          "category": "숙소 예약",
+          "price": 77715,
+          "priceText": "77,715원부터",
+          "salePrice": 77715,
+          "originalPrice": 77715,
+          "discountRate": 0,
+          "starRating": 3,
+          "reviewScore": "4.5",
+          "reviewCount": 1028,
+          "checkIn": "2026-08-28",
+          "checkOut": "2026-08-30",
+          "adultCount": 2,
+          "childCount": 0,
+          "starRatingPreset": "default",
+          "description": "2026년 8월 28일 체크인 · 2박 · 3성급 · 평점 4.5(1,028개)",
+          "tags": [
+            "숙소",
+            "호텔",
+            "예약",
+            "부산"
+          ],
+          "intents": [
+            "booking"
+          ],
+          "deepLink": "mrt://unionstay/detail/1187439?checkIn=2026-08-28&checkOut=2026-08-30&adultCount=2&childCount=0&childAges=",
+          "source": "myrealtrip-accommodation"
+        },
+        {
+          "id": "accommodation-2680379",
+          "type": "accommodation",
+          "title": "그랩디 오션 송도",
+          "url": "https://accommodation.myrealtrip.com/union/products/2680379?checkIn=2026-08-28&checkOut=2026-08-30&adultCount=2&childCount=0&childAges=",
+          "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/01/12/YgS2/XJD16szSSO.jpg?width=720",
+          "region": "부산",
+          "regionSlug": "busan",
+          "regionId": "",
+          "category": "숙소 예약",
+          "price": 85560,
+          "priceText": "85,560원부터",
+          "salePrice": 85560,
+          "originalPrice": 92000,
+          "discountRate": 7,
+          "starRating": 4,
+          "reviewScore": "4.5",
+          "reviewCount": 333,
+          "checkIn": "2026-08-28",
+          "checkOut": "2026-08-30",
+          "adultCount": 2,
+          "childCount": 0,
+          "starRatingPreset": "default",
+          "description": "2026년 8월 28일 체크인 · 2박 · 4성급 · 평점 4.5(333개)",
+          "tags": [
+            "숙소",
+            "호텔",
+            "예약",
+            "부산"
+          ],
+          "intents": [
+            "booking"
+          ],
+          "deepLink": "mrt://unionstay/detail/2680379?checkIn=2026-08-28&checkOut=2026-08-30&adultCount=2&childCount=0&childAges=",
+          "source": "myrealtrip-accommodation"
+        },
+        {
+          "id": "accommodation-1189384",
+          "type": "accommodation",
+          "title": "토요코인 부산역1",
+          "url": "https://accommodation.myrealtrip.com/union/products/1189384?checkIn=2026-08-28&checkOut=2026-08-30&adultCount=2&childCount=0&childAges=",
+          "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/09/16/ont6/jwJQzLmTqj.jpg?width=720",
+          "region": "부산",
+          "regionSlug": "busan",
+          "regionId": "",
+          "category": "숙소 예약",
+          "price": 87234,
+          "priceText": "87,234원부터",
+          "salePrice": 87234,
+          "originalPrice": 98274,
+          "discountRate": 11,
+          "starRating": 3,
+          "reviewScore": "4.4",
+          "reviewCount": 1427,
+          "checkIn": "2026-08-28",
+          "checkOut": "2026-08-30",
+          "adultCount": 2,
+          "childCount": 0,
+          "starRatingPreset": "default",
+          "description": "2026년 8월 28일 체크인 · 2박 · 3성급 · 평점 4.4(1,427개)",
+          "tags": [
+            "숙소",
+            "호텔",
+            "예약",
+            "부산"
+          ],
+          "intents": [
+            "booking"
+          ],
+          "deepLink": "mrt://unionstay/detail/1189384?checkIn=2026-08-28&checkOut=2026-08-30&adultCount=2&childCount=0&childAges=",
+          "source": "myrealtrip-accommodation"
+        }
+      ],
+      "family": [
+        {
+          "id": "accommodation-2680379",
+          "type": "accommodation",
+          "title": "그랩디 오션 송도",
+          "url": "https://accommodation.myrealtrip.com/union/products/2680379?checkIn=2026-08-28&checkOut=2026-08-30&adultCount=2&childCount=0&childAges=",
+          "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/01/12/YgS2/XJD16szSSO.jpg?width=720",
+          "region": "부산",
+          "regionSlug": "busan",
+          "regionId": "",
+          "category": "숙소 예약",
+          "price": 85560,
+          "priceText": "85,560원부터",
+          "salePrice": 85560,
+          "originalPrice": 92000,
+          "discountRate": 7,
+          "starRating": 4,
+          "reviewScore": "4.5",
+          "reviewCount": 333,
+          "checkIn": "2026-08-28",
+          "checkOut": "2026-08-30",
+          "adultCount": 2,
+          "childCount": 0,
+          "starRatingPreset": "family",
+          "description": "2026년 8월 28일 체크인 · 2박 · 4성급 · 평점 4.5(333개)",
+          "tags": [
+            "숙소",
+            "호텔",
+            "예약",
+            "부산"
+          ],
+          "intents": [
+            "booking"
+          ],
+          "deepLink": "mrt://unionstay/detail/2680379?checkIn=2026-08-28&checkOut=2026-08-30&adultCount=2&childCount=0&childAges=",
+          "source": "myrealtrip-accommodation"
+        }
+      ]
+    }
+  }
+}
