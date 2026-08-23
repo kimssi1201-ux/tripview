@@ -3,6 +3,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { affiliateProductImage, selectAffiliateProducts } from "./lib/affiliate-matching.mjs";
 import { isIndexablePost } from "./lib/content-quality.mjs";
+import { PRETENDARD_LINK, SITE_CSS, siteFooter, siteHeader, siteNavScript } from "./lib/site-design.mjs";
 import {
   TOUR_IMAGE_SOURCE_LABEL,
   isTourApiImage,
@@ -119,6 +120,7 @@ const files = [
   "style.css",
   "main.js",
   "privacy.html",
+  "terms.html",
   "manifest.webmanifest",
   "package.json",
   "README.md",
@@ -598,7 +600,7 @@ function cleanGeneratedHtml(value) {
 function canonicalUrl(pathname = "/") {
   const normalized = `/${String(pathname).replace(/^\/+|\/+$/g, "")}`;
   if (normalized === "/") return `${baseUrl}/`;
-  if (/^\/(?:about|contact|editorial-team|editorial-policy|affiliate-disclosure|privacy)$/.test(normalized)) {
+  if (/^\/(?:about|contact|editorial-team|editorial-policy|affiliate-disclosure|privacy|terms)$/.test(normalized)) {
     return `${baseUrl}${normalized}`;
   }
   return /\/[^/]+\.[a-z0-9]+$/i.test(normalized)
@@ -623,16 +625,57 @@ function ensureRobotsMeta(document, indexable) {
     : withoutExisting;
 }
 
-function alignArticleNavigation(document) {
+function articleActivePath(post = {}) {
+  if (isFestivalPost(post)) return "/festival/";
+  if (isLodgingPost(post) || /숙소|호텔|예약|입장권|투어/.test(searchablePostText(post))) return "/stay/";
+  return "/travel/";
+}
+
+function ensurePretendardLink(document) {
+  if (String(document).includes("pretendardvariable-dynamic-subset.css")) return document;
+  return String(document).includes("</head>")
+    ? String(document).replace("</head>", `    ${PRETENDARD_LINK}\n  </head>`)
+    : document;
+}
+
+function removeLegacyArticleHeaderScript(document) {
   return String(document).replace(
-    /<nav class=["']links["'] aria-label=["']주요 메뉴["']>[\s\S]*?<\/nav>/i,
-    ARTICLE_NAVIGATION,
+    /\s*<script>const header=document\.querySelector\(['"]\.top['"]\);const syncHeader=[\s\S]*?<\/script>/,
+    "",
   );
+}
+
+function alignArticleNavigation(document, post = {}) {
+  const header = siteHeader(articleActivePath(post));
+  let next = String(document).replace(
+    /<header class=["']top["']>[\s\S]*?<\/header>/i,
+    header,
+  );
+  if (next === document) {
+    next = next.replace(/<body>/i, `<body>\n    ${header}`);
+  }
+  return removeLegacyArticleHeaderScript(ensurePretendardLink(next));
+}
+
+function alignArticleFooter(document) {
+  const regionLinks = regionGroups().map((group) => ({ href: `/region/${group.slug}/`, label: group.label }));
+  const footer = siteFooter({ regionLinks });
+  const next = String(document).replace(/<footer\b[\s\S]*?<\/footer>/i, footer);
+  return next === document && document.includes("</body>")
+    ? document.replace("</body>", `${footer}\n  </body>`)
+    : next;
+}
+
+function ensureSiteNavigationScript(document) {
+  if (!String(document).includes("data-site-menu-toggle") || String(document).includes("[data-site-menu-toggle]")) return document;
+  return String(document).includes("</body>")
+    ? String(document).replace("</body>", `\n    ${siteNavScript()}\n  </body>`)
+    : document;
 }
 
 function alignStaticInternalLinks(document) {
   return String(document).replace(
-    /href=(["'])\/(about|contact|editorial-team|editorial-policy|affiliate-disclosure|privacy)\.html\1/g,
+    /href=(["'])\/(about|contact|editorial-team|editorial-policy|affiliate-disclosure|privacy|terms)\.html\1/g,
     (_match, quote, slug) => `href=${quote}/${slug}${quote}`,
   );
 }
@@ -762,20 +805,58 @@ function primaryNavigation(activePath = "") {
 }
 
 function hubPageStyle() {
-  return `:root{--ink:#111;--muted:#707070;--line:#e1e1e1;--paper:#fff;--soft:#f5f5f5;--accent:#22543d}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;line-height:1.62;letter-spacing:0}a{color:inherit;text-decoration:none}img{display:block;width:100%;height:100%;object-fit:cover;background:var(--soft)}.wrap{width:min(1040px,calc(100% - 32px));margin:auto}.top{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.97);border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}.nav{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:70px}.brand{font-size:26px;font-weight:900;line-height:1}.links{display:flex;gap:18px;overflow-x:auto;white-space:nowrap;font-size:14px;font-weight:900}.links a{padding:2px 0;border-bottom:2px solid transparent}.links a.is-active{border-bottom-color:#111}.hero{padding:38px 0 22px;border-bottom:1px solid var(--line)}.kicker{display:block;color:var(--accent);font-size:12px;font-weight:900;letter-spacing:.12em}.hero h1{margin:7px 0 12px;font-size:clamp(32px,6vw,58px);line-height:1.05}.hero p{max-width:720px;margin:0;color:#333;font-size:17px}.tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}.tag-row a,.tag-row span{display:inline-flex;align-items:center;min-height:34px;border:1px solid var(--line);border-radius:999px;padding:7px 13px;background:#fff;font-size:13px;font-weight:900}.summary-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;padding:18px 0;border-bottom:1px solid var(--line)}.summary-row strong{display:block;font-size:24px;line-height:1.1}.summary-row span{display:block;color:var(--muted);font-size:13px}.block{padding:34px 0;border-bottom:1px solid var(--line)}.block-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:15px}.block h2{margin:0;font-size:28px;line-height:1.18}.block-note{margin:0;color:var(--muted);font-size:14px}.story-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px 18px}.story-card{display:block;min-width:0}.thumb{display:block;aspect-ratio:1.45/1;overflow:hidden;background:var(--soft)}.story-card strong{display:block;margin-top:10px;font-size:19px;line-height:1.32}.story-card em{display:block;margin-top:6px;color:var(--muted);font-size:12px;font-style:normal}.story-card p{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin:7px 0 0;color:#444;font-size:13px}.story-list{display:grid;gap:0;border-top:1px solid var(--line)}.story-list .story-card{display:grid;grid-template-columns:112px minmax(0,1fr);gap:13px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}.story-list .thumb{grid-row:1/4;aspect-ratio:1.3/1}.stay-slot{background:#f8faf9}.affiliate-note{margin:0 0 12px;color:var(--muted);font-size:12px}.mrt-accommodation-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 18px;border-top:1px solid var(--line)}.mrt-accommodation-card{position:relative;display:grid;grid-template-columns:94px minmax(0,1fr);gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);min-width:0}.mrt-accommodation-thumb{display:block;aspect-ratio:1.24/1;overflow:hidden;background:var(--soft)}.mrt-accommodation-body{display:grid;gap:4px;min-width:0}.mrt-accommodation-body strong{font-size:16px;line-height:1.35}.mrt-accommodation-body em{color:var(--muted);font-size:12px;font-style:normal}.mrt-accommodation-badge{justify-self:start;background:#111;color:#fff;padding:2px 6px;font-size:11px;font-weight:900;line-height:1.35}.mrt-accommodation-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:5px}.mrt-accommodation-price del{color:#999;font-size:12px}.mrt-accommodation-price strong{font-size:16px}.mrt-accommodation-price small{flex-basis:100%;color:var(--muted);font-size:11px}.empty-slot{margin:0;padding:16px 0;border-top:1px solid var(--line);color:var(--muted)}.footer{padding:28px 0 46px;color:var(--muted);font-size:13px}${LANGUAGE_SWITCH_CSS}@media(max-width:780px){.nav{align-items:flex-start;flex-direction:column;padding:15px 0}.links{width:100%;padding-bottom:3px}.summary-row{grid-template-columns:1fr}.story-grid,.mrt-accommodation-grid{grid-template-columns:1fr}.story-list .story-card,.mrt-accommodation-card{grid-template-columns:88px minmax(0,1fr)}.hero{padding-top:30px}.block-head{display:block}.block-note{margin-top:5px}}`;
+  return `${SITE_CSS}
+.hub-page{padding-top:32px}
+.hub-banner{display:grid;gap:10px;margin-bottom:24px;padding:24px;border:1px solid var(--line);border-radius:8px;background:var(--soft-teal)}
+.hub-banner h1{margin:0;font-size:28px;line-height:1.35;font-weight:900}
+.hub-banner p{max-width:720px;margin:0;color:var(--muted);line-height:1.7}
+.kicker{display:block;color:var(--brand);font-size:12px;font-weight:900}
+.banner-count{justify-self:start;color:var(--brand);font-size:13px;font-weight:900}
+.tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.tag-row a,.tag-row span{display:inline-flex;align-items:center;min-height:36px;border:1px solid var(--line);border-radius:999px;padding:0 12px;background:var(--card);color:var(--muted);font-size:13px;font-weight:800}
+.block{padding:48px 0;border-bottom:1px solid var(--line)}
+.block-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:16px}
+.block h2{margin:0;font-size:20px;line-height:1.35;font-weight:800}
+.block-note,.affiliate-note{margin:0;color:var(--muted);font-size:13px}
+.story-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.story-list .story-card{height:100%}
+.stay-slot{margin-right:calc((100vw - min(1180px,calc(100vw - 32px))) / -2);margin-left:calc((100vw - min(1180px,calc(100vw - 32px))) / -2);padding-right:calc((100vw - min(1180px,calc(100vw - 32px))) / 2);padding-left:calc((100vw - min(1180px,calc(100vw - 32px))) / 2);background:color-mix(in srgb,var(--brand) 5%,var(--bg))}
+.mrt-accommodation-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.mrt-accommodation-card{position:relative;display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;align-items:center;min-width:0;padding:12px;border:1px solid var(--line);border-left:3px solid var(--cta);border-radius:8px;background:var(--card);transition:border-color 150ms ease}
+.mrt-accommodation-card:hover,.mrt-accommodation-card:focus-visible{border-color:var(--brand);border-left-color:var(--cta)}
+.mrt-accommodation-thumb{display:block;aspect-ratio:4/3;overflow:hidden;background:var(--line)}
+.mrt-accommodation-thumb img{width:100%;height:100%;object-fit:cover}
+.mrt-accommodation-body{display:grid;gap:4px;min-width:0}
+.mrt-accommodation-body strong{font-size:15px;line-height:1.35;font-weight:800}
+.mrt-accommodation-body em{color:var(--muted);font-size:12px;font-style:normal}
+.mrt-accommodation-badge{justify-self:start;border-radius:999px;background:var(--cta);color:var(--card);padding:2px 7px;font-size:11px;font-weight:900;line-height:1.35}
+.mrt-accommodation-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:5px}
+.mrt-accommodation-price del{color:var(--muted);font-size:12px}
+.mrt-accommodation-price strong{font-size:16px;color:var(--ink)}
+.mrt-accommodation-price small{flex-basis:100%;color:var(--muted);font-size:11px}
+.subregion-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.subregion-card{display:block;border:1px solid var(--line);border-radius:8px;background:var(--card);padding:16px;transition:border-color 150ms ease}
+.subregion-card:hover,.subregion-card:focus-visible{border-color:var(--brand)}
+.subregion-card strong{display:block;font-size:17px;line-height:1.35}
+.subregion-card span{display:block;margin-top:6px;color:var(--muted);font-size:13px}
+.empty-slot{margin:0;padding:16px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--muted)}
+@media(max-width:900px){.hub-page{padding-top:24px}.hub-banner{padding:18px}.hub-banner h1{font-size:25px}.block{padding:32px 0}.block-head{display:block}.block-note{margin-top:4px}.story-list,.subregion-grid,.mrt-accommodation-grid{grid-template-columns:1fr}.mrt-accommodation-card{grid-template-columns:90px minmax(0,1fr)}}`;
 }
 
 function storyCard(post) {
   const image = postImage(post);
   const thumb = image
-    ? `<span class="thumb"><img src="${html(image)}" alt="${html(postTitle(post))}" loading="lazy"></span>`
-    : `<span class="thumb"></span>`;
-  const meta = [festivalCardStatus(post), compactRegion(post?.region), post?.category, formatDate(postDate(post))].filter(Boolean).join(" · ");
+    ? `<span class="story-thumb"><img src="${html(image)}" alt="${html(postTitle(post))}" loading="lazy"></span>`
+    : `<span class="story-thumb"></span>`;
+  const meta = [formatDate(postDate(post)), `${Math.max(2, Math.ceil((postSummary(post, 220).length + postTitle(post).length) / 120))}분 읽기`].filter(Boolean).join(" · ");
   return `<a class="story-card" href="/${encodeURIComponent(post.slug)}/">
     ${thumb}
-    <strong>${html(postTitle(post))}</strong>
-    <em>${html(meta)}</em>
-    ${postSummary(post) ? `<p>${html(postSummary(post))}</p>` : ""}
+    <span class="story-card-body">
+      <span class="story-label">${html([festivalCardStatus(post), post?.category || "여행지", compactRegion(post?.region)].filter(Boolean).join(" · "))}</span>
+      <strong>${html(postTitle(post))}</strong>
+      ${postSummary(post) ? `<p>${html(postSummary(post))}</p>` : ""}
+      <span class="story-meta">${html(meta)}</span>
+    </span>
   </a>`;
 }
 
@@ -803,11 +884,14 @@ function selectedHubProducts({ sectionId, posts, limit = 4, accommodationOnly = 
 }
 
 function staySlot({ title, posts, products = [], region = "", limit = 6 }) {
-  const items = products.length
+  let items = products.length
     ? products
     : region
       ? selectAccommodationItems({ posts, region, limit })
       : selectMultiRegionAccommodations(posts, limit);
+  if (region && !items.length) {
+    items = selectMultiRegionAccommodations(indexablePosts, Math.min(6, limit));
+  }
   const cards = items.map(accommodationCard).filter(Boolean);
   if (!cards.length) return "";
   return `<section class="block stay-slot" id="accommodation-cards" aria-labelledby="accommodation-cards-title">
@@ -832,8 +916,9 @@ function sectionBlock({ id, title, posts, note = "" }) {
   </section>`;
 }
 
-function pageShell({ path, title, description, kicker = "TRIPVIEW", tags = [], body }) {
+function pageShell({ path, title, description, kicker = "TRIPVIEW", tags = [], countLabel = "", body }) {
   const canonical = canonicalUrl(path);
+  const regionLinks = regionGroups().map((group) => ({ href: `/region/${group.slug}/`, label: group.label }));
   return `<!doctype html>
 <html lang="ko">
   <head>
@@ -842,21 +927,24 @@ function pageShell({ path, title, description, kicker = "TRIPVIEW", tags = [], b
     ${NAVER_VERIFICATION_META}
     <meta name="description" content="${html(description)}">
     <link rel="canonical" href="${html(canonical)}">
+    ${PRETENDARD_LINK}
     <title>${html(title)} - 트립뷰</title>
     <style>${hubPageStyle()}</style>
   </head>
   <body>
-    <header class="top"><div class="wrap nav"><a class="brand" href="/">트립뷰</a>${primaryNavigation(path)}${LANGUAGE_SWITCH}</div></header>
-    <main class="wrap">
-      <section class="hero">
+    ${siteHeader(path)}
+    <main class="site-page hub-page">
+      <section class="hub-banner">
         <span class="kicker">${html(kicker)}</span>
         <h1>${html(title)}</h1>
         <p>${html(description)}</p>
+        ${countLabel ? `<span class="banner-count">${html(countLabel)}</span>` : ""}
         ${tags.length ? `<div class="tag-row">${tags.map((tag) => tag.href ? `<a href="${html(tag.href)}">${html(tag.label)}</a>` : `<span>${html(tag.label)}</span>`).join("")}</div>` : ""}
       </section>
       ${body}
     </main>
-    <footer class="wrap footer">트립뷰는 여행지, 축제, 숙소·예약 정보를 실제 URL과 지역 허브로 정리합니다.</footer>
+    ${siteFooter({ regionLinks })}
+    ${siteNavScript()}
     <script src="/assets/homepage.js?v=booking-search-20260712-flight-links" defer></script>
     ${I18N_SCRIPT}
     ${TOPIC_FILTER_SCRIPT}
@@ -867,7 +955,6 @@ function pageShell({ path, title, description, kicker = "TRIPVIEW", tags = [], b
 function categoryPageHtml({ path, title, description, posts, tags = [], sections = [], products = [] }) {
   const rows = sortedPosts(posts).slice(0, 48);
   const body = [
-    `<div class="summary-row"><div><strong>${rows.length.toLocaleString("ko-KR")}</strong><span>검수된 글</span></div><div><strong>${regionGroups().length.toLocaleString("ko-KR")}</strong><span>지역 허브</span></div><div><strong>3</strong><span>대표 카테고리</span></div></div>`,
     ...sections.map(sectionBlock),
     staySlot({ title: title === "숙소·예약" ? "숙소 카드" : "숙소 카드 자리", posts, products }),
     `<section class="block" id="all-posts" aria-labelledby="all-posts-title">
@@ -875,7 +962,45 @@ function categoryPageHtml({ path, title, description, posts, tags = [], sections
       <div class="story-list">${rows.map(storyCard).join("")}</div>
     </section>`,
   ].join("");
-  return pageShell({ path, title, description, kicker: "CATEGORY", tags, body });
+  return pageShell({ path, title, description, kicker: "CATEGORY", tags, countLabel: rows.length >= 20 ? `총 ${rows.length.toLocaleString("ko-KR")}개 글` : "", body });
+}
+
+function subregionLabel(post = {}) {
+  const compact = compactRegion(post?.region);
+  const source = normalizeText(post?.region || "");
+  const withoutCompact = source
+    .replace(new RegExp(`^${compact}(?:특별시|광역시|특별자치시|특별자치도|도)?\\s*`), "")
+    .replace(/^(?:전라|경상|충청)(?:남|북)도\s*/, "")
+    .replace(/^강원특별자치도\s*/, "")
+    .replace(/^제주특별자치도\s*/, "")
+    .trim();
+  const match = withoutCompact.match(/[가-힣]+(?:시|군|구)/);
+  return match?.[0] || compact;
+}
+
+function subregionGroups(posts = []) {
+  const groups = new Map();
+  for (const post of posts) {
+    const label = subregionLabel(post);
+    if (!groups.has(label)) groups.set(label, []);
+    groups.get(label).push(post);
+  }
+  return [...groups.entries()]
+    .map(([label, items]) => ({ label, posts: sortedPosts(items) }))
+    .sort((a, b) => b.posts.length - a.posts.length || a.label.localeCompare(b.label, "ko"));
+}
+
+function subregionBlock(posts = []) {
+  const groups = subregionGroups(posts).filter((group) => group.posts.length >= 1);
+  if (groups.length < 2) return "";
+  const cards = groups.slice(0, 12).map((group) => `<a class="subregion-card" href="/${encodeURIComponent(group.posts[0].slug)}/">
+    <strong>${html(group.label)}</strong>
+    <span>${html(group.posts.length.toLocaleString("ko-KR"))}개 글 · 대표 글 ${html(postTitle(group.posts[0]))}</span>
+  </a>`).join("");
+  return `<section class="block" id="subregions" aria-labelledby="subregions-title">
+    <div class="block-head"><div><span class="kicker">LOCAL</span><h2 id="subregions-title">하위 시군구별 글</h2></div><p class="block-note">지역값을 기준으로 자동 그룹핑</p></div>
+    <div class="subregion-grid">${cards}</div>
+  </section>`;
 }
 
 function regionHubHtml(group) {
@@ -885,6 +1010,7 @@ function regionHubHtml(group) {
     `<section class="block" id="region-intro" aria-labelledby="region-intro-title"><div class="block-head"><div><span class="kicker">REGION</span><h2 id="region-intro-title">${html(group.label)} 여행 소개</h2></div><p class="block-note">${html(group.posts.length)}개 글</p></div><p>${html(group.label)} 여행은 계절 행사, 실내 명소, 자연 여행지를 함께 보면 동선 선택이 쉬워집니다. 아래 목록에서 방문 목적에 맞는 글을 먼저 확인하고, 숙소 카드는 일정이 정해진 뒤 비교용으로 활용하세요.</p></section>`,
     staySlot({ title: `${group.label} 추천 숙소`, posts: group.posts, region: group.label, products, limit: 6 }),
     `<section class="block" id="region-posts" aria-labelledby="region-posts-title"><div class="block-head"><div><span class="kicker">POSTS</span><h2 id="region-posts-title">${html(group.label)} 글 목록</h2></div><p class="block-note">같은 광역 지역 기준</p></div><div class="story-list">${group.posts.map(storyCard).join("")}</div></section>`,
+    subregionBlock(group.posts),
   ].join("");
   return pageShell({
     path: `/region/${group.slug}/`,
@@ -896,7 +1022,43 @@ function regionHubHtml(group) {
       { label: "축제", href: "/festival/" },
       { label: "숙소·예약", href: "/stay/" },
     ],
+    countLabel: `${group.posts.length.toLocaleString("ko-KR")}개 글`,
     body,
+  });
+}
+
+function regionIndexHtml(groups = regionGroups()) {
+  const cards = groups.map((group) => {
+    const lead = group.posts[0];
+    const image = postImage(lead);
+    const thumb = image
+      ? `<span class="story-thumb"><img src="${html(image)}" alt="${html(group.label)} 여행 허브 대표 글" loading="lazy"></span>`
+      : `<span class="story-thumb"></span>`;
+    return `<a class="story-card" href="/region/${html(group.slug)}/">
+      ${thumb}
+      <span class="story-card-body">
+        <span class="story-label">지역 허브</span>
+        <strong>${html(group.label)} 여행 허브</strong>
+        <p>${html(group.label)} 지역 글 목록과 숙소 카드, 하위 시군구 그룹을 확인합니다.</p>
+        <span class="story-meta">${html(group.posts.length.toLocaleString("ko-KR"))}개 글</span>
+      </span>
+    </a>`;
+  }).join("");
+  return pageShell({
+    path: "/region/",
+    title: "지역별 여행 허브",
+    description: "지역값을 기준으로 자동 생성된 트립뷰 허브 목록입니다. 각 허브에서 지역 소개, 글 목록, 숙소 카드, 하위 시군구 그룹을 확인할 수 있습니다.",
+    kicker: "REGION",
+    countLabel: `${groups.length.toLocaleString("ko-KR")}개 지역`,
+    tags: [
+      { label: "여행지", href: "/travel/" },
+      { label: "축제·행사", href: "/festival/" },
+      { label: "숙소·예약", href: "/stay/" },
+    ],
+    body: `<section class="block" id="region-list" aria-labelledby="region-list-title">
+      <div class="block-head"><div><span class="kicker">HUBS</span><h2 id="region-list-title">지역 허브 목록</h2></div><p class="block-note">검수 글이 있는 지역만 표시</p></div>
+      <div class="story-grid">${cards}</div>
+    </section>`,
   });
 }
 
@@ -941,15 +1103,18 @@ async function generateHubPages() {
 
   await writePage("/festival/", categoryPageHtml({
     path: "/festival/",
-    title: "축제",
+    title: "축제·행사",
     description: CATEGORY_PAGES[1].description,
     posts: festivalPosts,
     tags: [
-      { label: "이달의 축제", href: "#featured" },
-      { label: "지역 허브", href: "#all-posts" },
+      { label: "진행 중", href: "#ongoing" },
+      { label: "예정", href: "#upcoming" },
+      { label: "지난 축제", href: "#past" },
     ],
     sections: [
-      { id: "featured", title: "이달의 축제", posts: festivalPosts, note: "검수된 축제 글 최신순" },
+      { id: "ongoing", title: "진행 중인 축제", posts: festivalPosts.filter((post) => festivalStatus(post).ongoing), note: "오늘 기준 종료되지 않은 진행 중 축제" },
+      { id: "upcoming", title: "예정 축제", posts: festivalPosts.filter((post) => festivalStatus(post).upcoming), note: "시작일이 남아 있는 축제" },
+      { id: "past", title: "지난 축제", posts: festivalPosts.filter((post) => festivalStatus(post).ended), note: "종료된 축제는 하단에서 확인" },
     ],
     products: selectMultiRegionAccommodations(festivalPosts, 6),
   }));
@@ -971,6 +1136,7 @@ async function generateHubPages() {
   for (const group of regionGroups()) {
     await writePage(`/region/${group.slug}/`, regionHubHtml(group));
   }
+  await writePage("/region/", regionIndexHtml(regionGroups()));
 }
 
 async function generateFlightDealPages() {
@@ -996,7 +1162,9 @@ async function generateSitemap() {
     { loc: `${baseUrl}/editorial-policy`, lastmod: today },
     { loc: `${baseUrl}/affiliate-disclosure`, lastmod: today },
     { loc: `${baseUrl}/privacy`, lastmod: today },
+    { loc: `${baseUrl}/terms`, lastmod: today },
     ...CATEGORY_PAGES.map((page) => ({ loc: canonicalUrl(page.path), lastmod: today })),
+    { loc: `${baseUrl}/region/`, lastmod: today },
     ...regionGroups().map((group) => ({ loc: `${baseUrl}/region/${group.slug}/`, lastmod: today })),
     ...indexablePosts.map((post) => ({ loc: postUrl(post), lastmod: postDate(post) }))
   ];
@@ -1059,6 +1227,7 @@ const MRT_STYLE_MARK = "/* tripview-mrt-native-ad */";
 const MRT_ACCOMMODATION_START = "<!-- MRT_ACCOMMODATION_START";
 const MRT_ACCOMMODATION_END = "MRT_ACCOMMODATION_END -->";
 const MRT_ACCOMMODATION_STYLE_MARK = "/* tripview-mrt-accommodation-cards */";
+const ARTICLE_SITE_STYLE_MARK = "/* tripview-site-design */";
 const TRUST_NOTE_START = "<!-- TRUST_NOTE_START";
 const TRUST_NOTE_END = "TRUST_NOTE_END -->";
 const TRUST_STYLE_MARK = "/* tripview-trust-note */";
@@ -1076,8 +1245,12 @@ function articleAdCss() {
   return `${MRT_STYLE_MARK}.mrt-native-ad{margin:34px 0;padding:18px 0 20px;border-top:2px solid #111;border-bottom:1px solid var(--line)}.mrt-native-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:6px}.mrt-native-head strong{font-size:20px;line-height:1.25}.mrt-native-head span{color:var(--muted);font-size:13px}.mrt-affiliate-note{margin:0 0 12px;color:var(--muted);font-size:12px;line-height:1.55}.mrt-native-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px;border-top:1px solid var(--line)}.mrt-card{display:grid;grid-template-columns:88px minmax(0,1fr);gap:12px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}.mrt-card.no-image{grid-template-columns:1fr}.mrt-thumb{grid-row:1/3;display:block;aspect-ratio:1.28/1;overflow:hidden;background:var(--soft)}.mrt-card strong{font-size:16px;line-height:1.35}.mrt-card em{display:block;color:var(--muted);font-size:12px;font-style:normal}.mrt-card.no-image strong,.mrt-card.no-image em{grid-column:1}@media(max-width:640px){.mrt-native-grid{grid-template-columns:1fr}.mrt-card{grid-template-columns:84px minmax(0,1fr)}}/* end-tripview-mrt-native-ad */`;
 }
 
+function articleSiteDesignCss() {
+  return `${ARTICLE_SITE_STYLE_MARK}${SITE_CSS}.hero{padding:40px 0 24px}.hero h1{font-size:clamp(28px,5vw,46px);line-height:1.28}.layout{padding-top:32px}.content{font-size:16px;line-height:1.7}.content h2{font-size:20px;line-height:1.35;font-weight:800}.cover-figure{margin-top:0}.cover{aspect-ratio:4/3;max-height:none;border-radius:8px}.related-posts,.region-related,.trust-note{border-top:1px solid var(--line)}footer.site-footer{padding:0;color:var(--muted)}@media(max-width:820px){.hero{padding-top:32px}.layout{padding-top:24px}}/* end-tripview-site-design */`;
+}
+
 function articleAccommodationCss() {
-  return `${MRT_ACCOMMODATION_STYLE_MARK}.mrt-accommodation-block{margin:34px 0;padding:18px 0 20px;border-top:2px solid #111;border-bottom:1px solid var(--line)}.mrt-accommodation-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:6px}.mrt-accommodation-head h2{margin:0;font-size:22px;line-height:1.25}.mrt-accommodation-head span{color:var(--muted);font-size:13px}.mrt-accommodation-note{margin:0 0 12px;color:var(--muted);font-size:12px;line-height:1.55}.mrt-accommodation-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px;border-top:1px solid var(--line)}.mrt-accommodation-card{position:relative;display:grid;grid-template-columns:88px minmax(0,1fr);gap:12px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line);min-width:0}.mrt-accommodation-thumb{display:block;aspect-ratio:1.28/1;overflow:hidden;background:var(--soft)}.mrt-accommodation-thumb img{width:100%;height:100%;object-fit:cover}.mrt-accommodation-body{display:grid;gap:4px;min-width:0}.mrt-accommodation-body strong{font-size:16px;line-height:1.35}.mrt-accommodation-body em{display:block;color:var(--muted);font-size:12px;font-style:normal}.mrt-accommodation-badge{justify-self:start;background:#111;color:#fff;padding:2px 6px;font-size:11px;font-weight:900;line-height:1.35}.mrt-accommodation-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:5px}.mrt-accommodation-price del{color:#999;font-size:12px}.mrt-accommodation-price strong{font-size:16px}.mrt-accommodation-price small{flex-basis:100%;color:var(--muted);font-size:11px}@media(max-width:640px){.mrt-accommodation-head{display:block}.mrt-accommodation-grid{grid-template-columns:1fr}.mrt-accommodation-card{grid-template-columns:84px minmax(0,1fr)}}/* end-tripview-mrt-accommodation-cards */`;
+  return `${MRT_ACCOMMODATION_STYLE_MARK}.mrt-accommodation-block{margin:34px 0;padding:18px 0 20px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.mrt-accommodation-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:6px}.mrt-accommodation-head h2{margin:0;font-size:20px;line-height:1.35;font-weight:800}.mrt-accommodation-head span{color:var(--muted);font-size:13px}.mrt-accommodation-note{margin:0 0 12px;color:var(--muted);font-size:12px;line-height:1.55}.mrt-accommodation-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.mrt-accommodation-card{position:relative;display:grid;grid-template-columns:88px minmax(0,1fr);gap:12px;align-items:center;min-width:0;padding:12px;border:1px solid var(--line);border-left:3px solid var(--cta);border-radius:8px;background:var(--card);transition:border-color 150ms ease}.mrt-accommodation-card:hover,.mrt-accommodation-card:focus-visible{border-color:var(--brand);border-left-color:var(--cta)}.mrt-accommodation-thumb{display:block;aspect-ratio:4/3;overflow:hidden;background:var(--line)}.mrt-accommodation-thumb img{width:100%;height:100%;object-fit:cover}.mrt-accommodation-body{display:grid;gap:4px;min-width:0}.mrt-accommodation-body strong{font-size:15px;line-height:1.35;font-weight:800}.mrt-accommodation-body em{display:block;color:var(--muted);font-size:12px;font-style:normal}.mrt-accommodation-badge{justify-self:start;border-radius:999px;background:var(--cta);color:var(--card);padding:2px 7px;font-size:11px;font-weight:900;line-height:1.35}.mrt-accommodation-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:5px}.mrt-accommodation-price del{color:var(--muted);font-size:12px}.mrt-accommodation-price strong{font-size:16px}.mrt-accommodation-price small{flex-basis:100%;color:var(--muted);font-size:11px}@media(max-width:640px){.mrt-accommodation-head{display:block}.mrt-accommodation-grid{grid-template-columns:1fr}.mrt-accommodation-card{grid-template-columns:84px minmax(0,1fr)}}/* end-tripview-mrt-accommodation-cards */`;
 }
 
 function articleCoupangCss() {
@@ -1085,11 +1258,11 @@ function articleCoupangCss() {
 }
 
 function articleTrustCss() {
-  return `${TRUST_STYLE_MARK}.meta .author-link,.trust-note a{font-weight:900;text-decoration:underline;text-underline-offset:3px}.meta .festival-status{color:#111;font-weight:900}.trust-note{margin:36px 0 10px;padding:18px 0 0;border-top:2px solid #111;color:#333}.trust-note h2{margin:0 0 12px;font-size:22px;line-height:1.25}.trust-note dl{display:grid;grid-template-columns:118px minmax(0,1fr);gap:8px 14px;margin:0 0 14px}.trust-note dt{font-weight:900;color:#111}.trust-note dd{margin:0}.trust-note p{margin:0 0 10px;color:var(--muted);font-size:14px;line-height:1.6}@media(max-width:520px){.trust-note dl{grid-template-columns:1fr;gap:4px}.trust-note dd{padding-bottom:8px;border-bottom:1px solid var(--line)}}/* end-tripview-trust-note */`;
+  return `${TRUST_STYLE_MARK}.meta .author-link,.trust-note a{font-weight:900;text-decoration:underline;text-underline-offset:3px}.meta .festival-status{color:var(--ink);font-weight:900}.trust-note{margin:36px 0 10px;padding:18px 0 0;border-top:1px solid var(--line);color:var(--ink)}.trust-note h2{margin:0 0 12px;font-size:20px;line-height:1.35}.trust-note dl{display:grid;grid-template-columns:118px minmax(0,1fr);gap:8px 14px;margin:0 0 14px}.trust-note dt{font-weight:900;color:var(--ink)}.trust-note dd{margin:0}.trust-note p{margin:0 0 10px;color:var(--muted);font-size:14px;line-height:1.6}@media(max-width:520px){.trust-note dl{grid-template-columns:1fr;gap:4px}.trust-note dd{padding-bottom:8px;border-bottom:1px solid var(--line)}}/* end-tripview-trust-note */`;
 }
 
 function articleRegionRelatedCss() {
-  return `${REGION_RELATED_STYLE_MARK}.region-related{margin:34px 0;padding:18px 0 20px;border-top:2px solid #111;border-bottom:1px solid var(--line)}.region-related-head{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;margin-bottom:12px}.region-related h2{margin:0;font-size:22px;line-height:1.25}.region-hub-link{font-size:13px;font-weight:900;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}.region-related-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 16px;border-top:1px solid var(--line)}.region-related-card{display:block;padding:13px 0;border-bottom:1px solid var(--line)}.region-related-card strong{display:block;font-size:16px;line-height:1.35}.region-related-card span{display:block;margin-top:6px;color:var(--muted);font-size:12px}.region-related-empty{margin:0;color:var(--muted);font-size:14px}@media(max-width:640px){.region-related-head{display:block}.region-hub-link{display:inline-block;margin-top:8px}.region-related-grid{grid-template-columns:1fr}}/* end-tripview-region-related */`;
+  return `${REGION_RELATED_STYLE_MARK}.region-related{margin:34px 0;padding:18px 0 20px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.region-related-head{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;margin-bottom:12px}.region-related h2{margin:0;font-size:20px;line-height:1.35}.region-hub-link{color:var(--brand);font-size:13px;font-weight:900;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}.region-related-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.region-related-card{display:block;border:1px solid var(--line);border-radius:8px;background:var(--card);padding:13px;transition:border-color 150ms ease}.region-related-card:hover,.region-related-card:focus-visible{border-color:var(--brand)}.region-related-card strong{display:block;font-size:16px;line-height:1.35}.region-related-card span{display:block;margin-top:6px;color:var(--muted);font-size:12px}.region-related-empty{margin:0;color:var(--muted);font-size:14px}@media(max-width:640px){.region-related-head{display:block}.region-hub-link{display:inline-block;margin-top:8px}.region-related-grid{grid-template-columns:1fr}}/* end-tripview-region-related */`;
 }
 
 function stripExistingArticleAds(document) {
@@ -1112,6 +1285,7 @@ function stripExistingArticleAds(document) {
 
 function injectArticleAdCss(document, includeAffiliate = false, includeRegionRelated = false, includeAccommodation = false) {
   let next = document;
+  if (!next.includes(ARTICLE_SITE_STYLE_MARK)) next = next.replace("</style>", `${articleSiteDesignCss()}</style>`);
   if (includeAffiliate && !next.includes(MRT_STYLE_MARK)) next = next.replace("</style>", `${articleAdCss()}</style>`);
   if (includeAccommodation && !next.includes(MRT_ACCOMMODATION_STYLE_MARK)) next = next.replace("</style>", `${articleAccommodationCss()}</style>`);
   if (includeRegionRelated && !next.includes(REGION_RELATED_STYLE_MARK)) next = next.replace("</style>", `${articleRegionRelatedCss()}</style>`);
@@ -1585,7 +1759,7 @@ async function polishGeneratedArticles() {
     const regionRelatedBlock = indexable ? articleRegionRelatedBlock(post) : "";
     const hasAccommodationBlock = Boolean(midAccommodationBlock || bottomAccommodationBlock);
     let next = injectArticleAdCss(stripExistingArticleAds(document), false, Boolean(regionRelatedBlock), hasAccommodationBlock);
-    next = alignArticleNavigation(next);
+    next = alignArticleNavigation(next, post);
     next = alignArticleByline(next, post);
     next = applyProcessedArticleImages(next, post);
     next = injectArticleMidAccommodation(next, midAccommodationBlock);
@@ -1597,6 +1771,8 @@ async function polishGeneratedArticles() {
     next = ensureRobotsMeta(next, indexable);
     next = ensureArticleSchema(next, post);
     next = ensureArticleAdsense(next, indexable);
+    next = alignArticleFooter(next);
+    next = ensureSiteNavigationScript(next);
     next = ensureAccommodationLinkScript(next);
     next = ensureLazyImages(next);
     next = alignStaticInternalLinks(next);
@@ -1622,6 +1798,7 @@ async function polishStaticPages() {
     ["editorial-policy.html", "/editorial-policy"],
     ["affiliate-disclosure.html", "/affiliate-disclosure"],
     ["privacy.html", "/privacy"],
+    ["terms.html", "/terms"],
   ]);
 
   for (const [fileName, pathname] of pages) {

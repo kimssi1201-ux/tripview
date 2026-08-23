@@ -6,19 +6,140 @@
     <meta name="naver-site-verification" content="38616b4b4209994ed384d0d2439bddcbec2cc711" />
     <meta name="description" content="여행지별 숙소와 투어·티켓 예약 카드를 한곳에서 확인합니다.">
     <link rel="canonical" href="https://tripview.kr/stay/">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
     <title>숙소·예약 - 트립뷰</title>
-    <style>:root{--ink:#111;--muted:#707070;--line:#e1e1e1;--paper:#fff;--soft:#f5f5f5;--accent:#22543d}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;line-height:1.62;letter-spacing:0}a{color:inherit;text-decoration:none}img{display:block;width:100%;height:100%;object-fit:cover;background:var(--soft)}.wrap{width:min(1040px,calc(100% - 32px));margin:auto}.top{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.97);border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}.nav{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:70px}.brand{font-size:26px;font-weight:900;line-height:1}.links{display:flex;gap:18px;overflow-x:auto;white-space:nowrap;font-size:14px;font-weight:900}.links a{padding:2px 0;border-bottom:2px solid transparent}.links a.is-active{border-bottom-color:#111}.hero{padding:38px 0 22px;border-bottom:1px solid var(--line)}.kicker{display:block;color:var(--accent);font-size:12px;font-weight:900;letter-spacing:.12em}.hero h1{margin:7px 0 12px;font-size:clamp(32px,6vw,58px);line-height:1.05}.hero p{max-width:720px;margin:0;color:#333;font-size:17px}.tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}.tag-row a,.tag-row span{display:inline-flex;align-items:center;min-height:34px;border:1px solid var(--line);border-radius:999px;padding:7px 13px;background:#fff;font-size:13px;font-weight:900}.summary-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;padding:18px 0;border-bottom:1px solid var(--line)}.summary-row strong{display:block;font-size:24px;line-height:1.1}.summary-row span{display:block;color:var(--muted);font-size:13px}.block{padding:34px 0;border-bottom:1px solid var(--line)}.block-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:15px}.block h2{margin:0;font-size:28px;line-height:1.18}.block-note{margin:0;color:var(--muted);font-size:14px}.story-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px 18px}.story-card{display:block;min-width:0}.thumb{display:block;aspect-ratio:1.45/1;overflow:hidden;background:var(--soft)}.story-card strong{display:block;margin-top:10px;font-size:19px;line-height:1.32}.story-card em{display:block;margin-top:6px;color:var(--muted);font-size:12px;font-style:normal}.story-card p{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin:7px 0 0;color:#444;font-size:13px}.story-list{display:grid;gap:0;border-top:1px solid var(--line)}.story-list .story-card{display:grid;grid-template-columns:112px minmax(0,1fr);gap:13px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}.story-list .thumb{grid-row:1/4;aspect-ratio:1.3/1}.stay-slot{background:#f8faf9}.affiliate-note{margin:0 0 12px;color:var(--muted);font-size:12px}.mrt-accommodation-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 18px;border-top:1px solid var(--line)}.mrt-accommodation-card{position:relative;display:grid;grid-template-columns:94px minmax(0,1fr);gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);min-width:0}.mrt-accommodation-thumb{display:block;aspect-ratio:1.24/1;overflow:hidden;background:var(--soft)}.mrt-accommodation-body{display:grid;gap:4px;min-width:0}.mrt-accommodation-body strong{font-size:16px;line-height:1.35}.mrt-accommodation-body em{color:var(--muted);font-size:12px;font-style:normal}.mrt-accommodation-badge{justify-self:start;background:#111;color:#fff;padding:2px 6px;font-size:11px;font-weight:900;line-height:1.35}.mrt-accommodation-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:5px}.mrt-accommodation-price del{color:#999;font-size:12px}.mrt-accommodation-price strong{font-size:16px}.mrt-accommodation-price small{flex-basis:100%;color:var(--muted);font-size:11px}.empty-slot{margin:0;padding:16px 0;border-top:1px solid var(--line);color:var(--muted)}.footer{padding:28px 0 46px;color:var(--muted);font-size:13px}@media(max-width:780px){.nav{align-items:flex-start;flex-direction:column;padding:15px 0}.links{width:100%;padding-bottom:3px}.summary-row{grid-template-columns:1fr}.story-grid,.mrt-accommodation-grid{grid-template-columns:1fr}.story-list .story-card,.mrt-accommodation-card{grid-template-columns:88px minmax(0,1fr)}.hero{padding-top:30px}.block-head{display:block}.block-note{margin-top:5px}}</style>
+    <style>
+:root{--brand:#0F5C5C;--brand-hover:#147A7A;--bg:#FAFAF8;--card:#FFFFFF;--ink:#1A1A1A;--muted:#6B6B6B;--line:#E5E5E0;--cta:#E8A33D;--cta-hover:#D18F2A;--soft-teal:color-mix(in srgb,var(--brand) 9%,var(--card));--site-wrap:min(1180px,calc(100% - 32px))}
+*{box-sizing:border-box}
+html{scroll-padding-top:96px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;font-size:16px;line-height:1.7;letter-spacing:0}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%;object-fit:cover;background:color-mix(in srgb,var(--line) 55%,var(--card))}
+button,input,select{font:inherit}
+:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.site-header{position:sticky;top:0;z-index:50;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:saturate(180%) blur(12px)}
+.site-header-inner{width:var(--site-wrap);margin:0 auto;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:24px;min-height:72px}
+.site-brand{display:inline-flex;align-items:center;min-height:44px;color:var(--ink);font-size:22px;font-weight:900;line-height:1}
+.site-menu-toggle{display:none;min-width:44px;min-height:44px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);font-size:13px;font-weight:800}
+.site-nav{display:flex;align-items:center;justify-content:center;gap:8px}
+.site-nav-main{display:flex;align-items:center;gap:8px}
+.site-home-link,.nav-summary{display:inline-flex;align-items:center;min-height:36px;padding:0 12px;border:0;border-radius:999px;background:transparent;color:var(--muted);font-size:14px;font-weight:800;cursor:pointer;transition:color 150ms ease,background-color 150ms ease}
+.site-home-link.is-active,.nav-group.is-active>.nav-summary{background:var(--soft-teal);color:var(--brand)}
+.nav-group{position:relative}
+.nav-group>summary{list-style:none}
+.nav-group>summary::-webkit-details-marker{display:none}
+.nav-summary::after{content:"";width:5px;height:5px;margin-left:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px)}
+.nav-dropdown{position:absolute;left:0;top:calc(100% + 10px);display:none;width:300px;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.nav-group[open] .nav-dropdown,.nav-group:hover .nav-dropdown,.nav-group:focus-within .nav-dropdown{display:grid}
+.nav-dropdown a{display:grid;grid-template-columns:32px minmax(0,1fr);gap:10px;padding:10px;border-radius:8px;transition:background-color 150ms ease}
+.nav-dropdown a:hover,.nav-dropdown a:focus-visible{background:var(--soft-teal)}
+.nav-item-icon{display:inline-grid;place-items:center;width:32px;height:32px;border:1px solid var(--line);border-radius:8px;color:var(--brand);font-size:12px;font-weight:900}
+.nav-item-text{display:grid;gap:2px}
+.nav-item-label{color:var(--ink);font-size:14px;font-weight:800;line-height:1.35}
+.nav-item-desc{color:var(--muted);font-size:12px;line-height:1.45}
+.site-search-link{display:grid;place-items:center;min-width:44px;min-height:44px;border:1px solid transparent;border-radius:999px;color:var(--ink);font-size:23px;line-height:1;transition:background-color 150ms ease,border-color 150ms ease}
+.site-search-link:hover,.site-search-link:focus-visible{border-color:var(--line);background:var(--card)}
+.site-page{width:var(--site-wrap);margin:0 auto;padding:48px 0 64px}
+.site-section{padding:48px 0}
+.site-section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:16px}
+.site-section-head h2{margin:0;font-size:20px;line-height:1.35;font-weight:800}
+.site-section-more{color:var(--brand);font-size:14px;font-weight:800}
+.story-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.story-card{display:block;min-width:0;border:1px solid var(--line);border-radius:8px;background:var(--card);overflow:hidden;transition:border-color 150ms ease}
+.story-card:hover,.story-card:focus-visible{border-color:var(--brand)}
+.story-thumb{display:block;aspect-ratio:4/3;overflow:hidden;background:var(--line)}
+.story-card-body{display:grid;gap:8px;padding:16px}
+.story-label{color:var(--brand);font-size:12px;font-weight:800;line-height:1.3}
+.story-card strong{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin:0;color:var(--ink);font-size:18px;line-height:1.35;font-weight:800}
+.story-card p{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin:0;color:var(--muted);font-size:14px;line-height:1.55}
+.story-meta{color:var(--muted);font-size:12px;line-height:1.4}
+.site-footer{border-top:1px solid var(--line);background:var(--card)}
+.site-footer-inner{width:var(--site-wrap);margin:0 auto;display:grid;grid-template-columns:1.2fr repeat(4,minmax(0,.8fr));gap:24px;padding:40px 0}
+.footer-brand strong{display:block;margin-bottom:8px;color:var(--ink);font-size:22px;font-weight:900}
+.footer-brand p,.footer-business,.site-footer a{color:var(--muted);font-size:13px;line-height:1.65}
+.footer-col{display:grid;align-content:start;gap:7px}
+.footer-col b{margin-bottom:4px;color:var(--ink);font-size:14px}
+.footer-bottom{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px 12px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
+.cta-link{display:inline-flex;align-items:center;justify-content:center;min-height:44px;border-radius:8px;background:var(--cta);color:var(--card);font-weight:800;transition:background-color 150ms ease}
+.cta-link:hover,.cta-link:focus-visible{background:var(--cta-hover)}
+@media(max-width:900px){:root{--site-wrap:min(720px,calc(100% - 32px))}.site-header-inner{grid-template-columns:1fr auto auto;gap:8px;min-height:64px}.site-menu-toggle{display:inline-flex;align-items:center;justify-content:center}.site-nav{display:none;grid-column:1/-1;justify-content:stretch;padding:0 0 12px}.site-header.is-menu-open .site-nav{display:grid}.site-nav-main{display:grid;gap:6px}.site-home-link,.nav-summary{width:100%;justify-content:space-between;border-radius:8px;background:var(--card);min-height:44px}.nav-dropdown{position:static;display:none;width:auto;margin-top:6px}.nav-group[open] .nav-dropdown{display:grid}.site-page{padding:32px 0 48px}.site-section{padding:32px 0}.story-grid{grid-template-columns:1fr;gap:16px}.site-footer-inner{grid-template-columns:1fr;gap:20px;padding:32px 0}.site-search-link{font-size:22px}}
+@media(max-width:520px){body{font-size:15px}.site-section-head h2{font-size:19px}.story-card strong{font-size:17px}.story-card-body{padding:14px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:0.01ms!important;animation-duration:0.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+
+.hub-page{padding-top:32px}
+.hub-banner{display:grid;gap:10px;margin-bottom:24px;padding:24px;border:1px solid var(--line);border-radius:8px;background:var(--soft-teal)}
+.hub-banner h1{margin:0;font-size:28px;line-height:1.35;font-weight:900}
+.hub-banner p{max-width:720px;margin:0;color:var(--muted);line-height:1.7}
+.kicker{display:block;color:var(--brand);font-size:12px;font-weight:900}
+.banner-count{justify-self:start;color:var(--brand);font-size:13px;font-weight:900}
+.tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.tag-row a,.tag-row span{display:inline-flex;align-items:center;min-height:36px;border:1px solid var(--line);border-radius:999px;padding:0 12px;background:var(--card);color:var(--muted);font-size:13px;font-weight:800}
+.block{padding:48px 0;border-bottom:1px solid var(--line)}
+.block-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:16px}
+.block h2{margin:0;font-size:20px;line-height:1.35;font-weight:800}
+.block-note,.affiliate-note{margin:0;color:var(--muted);font-size:13px}
+.story-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.story-list .story-card{height:100%}
+.stay-slot{margin-right:calc((100vw - min(1180px,calc(100vw - 32px))) / -2);margin-left:calc((100vw - min(1180px,calc(100vw - 32px))) / -2);padding-right:calc((100vw - min(1180px,calc(100vw - 32px))) / 2);padding-left:calc((100vw - min(1180px,calc(100vw - 32px))) / 2);background:color-mix(in srgb,var(--brand) 5%,var(--bg))}
+.mrt-accommodation-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.mrt-accommodation-card{position:relative;display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;align-items:center;min-width:0;padding:12px;border:1px solid var(--line);border-left:3px solid var(--cta);border-radius:8px;background:var(--card);transition:border-color 150ms ease}
+.mrt-accommodation-card:hover,.mrt-accommodation-card:focus-visible{border-color:var(--brand);border-left-color:var(--cta)}
+.mrt-accommodation-thumb{display:block;aspect-ratio:4/3;overflow:hidden;background:var(--line)}
+.mrt-accommodation-thumb img{width:100%;height:100%;object-fit:cover}
+.mrt-accommodation-body{display:grid;gap:4px;min-width:0}
+.mrt-accommodation-body strong{font-size:15px;line-height:1.35;font-weight:800}
+.mrt-accommodation-body em{color:var(--muted);font-size:12px;font-style:normal}
+.mrt-accommodation-badge{justify-self:start;border-radius:999px;background:var(--cta);color:var(--card);padding:2px 7px;font-size:11px;font-weight:900;line-height:1.35}
+.mrt-accommodation-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:5px}
+.mrt-accommodation-price del{color:var(--muted);font-size:12px}
+.mrt-accommodation-price strong{font-size:16px;color:var(--ink)}
+.mrt-accommodation-price small{flex-basis:100%;color:var(--muted);font-size:11px}
+.subregion-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.subregion-card{display:block;border:1px solid var(--line);border-radius:8px;background:var(--card);padding:16px;transition:border-color 150ms ease}
+.subregion-card:hover,.subregion-card:focus-visible{border-color:var(--brand)}
+.subregion-card strong{display:block;font-size:17px;line-height:1.35}
+.subregion-card span{display:block;margin-top:6px;color:var(--muted);font-size:13px}
+.empty-slot{margin:0;padding:16px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--muted)}
+@media(max-width:900px){.hub-page{padding-top:24px}.hub-banner{padding:18px}.hub-banner h1{font-size:25px}.block{padding:32px 0}.block-head{display:block}.block-note{margin-top:4px}.story-list,.subregion-grid,.mrt-accommodation-grid{grid-template-columns:1fr}.mrt-accommodation-card{grid-template-columns:90px minmax(0,1fr)}}</style>
   </head>
   <body>
-    <header class="top"><div class="wrap nav"><a class="brand" href="/">트립뷰</a><nav class="links" aria-label="주요 메뉴"><a href="/">홈</a><a href="/travel/">여행지</a><a href="/festival/">축제</a><a class="is-active" href="/stay/">숙소·예약</a></nav></div></header>
-    <main class="wrap">
-      <section class="hero">
+    <header class="site-header" data-site-header>
+    <div class="site-header-inner">
+      <a class="site-brand" href="/">트립뷰</a>
+      <button class="site-menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-site-menu-toggle>메뉴</button>
+      <nav class="site-nav" id="site-nav" aria-label="주요 메뉴">
+        <div class="site-nav-main">
+          <a class="site-home-link" href="/">홈</a>
+          <details class="nav-group">
+      <summary class="nav-summary">여행지</summary>
+      <div class="nav-dropdown">
+        <a href="/region/"><span class="nav-item-icon" aria-hidden="true">지</span><span class="nav-item-text"><span class="nav-item-label">지역별</span><span class="nav-item-desc">지역 허브에서 글과 숙소를 함께 봅니다.</span></span></a><a href="/travel/#tag-water"><span class="nav-item-icon" aria-hidden="true">테</span><span class="nav-item-text"><span class="nav-item-label">테마별</span><span class="nav-item-desc">물놀이·실내·아이와 태그를 모았습니다.</span></span></a><a href="/travel/#all-posts"><span class="nav-item-icon" aria-hidden="true">전</span><span class="nav-item-text"><span class="nav-item-label">전국 관광지</span><span class="nav-item-desc">검수된 전국 여행지 글 목록입니다.</span></span></a>
+      </div>
+    </details><details class="nav-group">
+      <summary class="nav-summary">축제·행사</summary>
+      <div class="nav-dropdown">
+        <a href="/festival/#ongoing"><span class="nav-item-icon" aria-hidden="true">진</span><span class="nav-item-text"><span class="nav-item-label">진행 중</span><span class="nav-item-desc">오늘 기준 진행 중인 축제입니다.</span></span></a><a href="/festival/#upcoming"><span class="nav-item-icon" aria-hidden="true">예</span><span class="nav-item-text"><span class="nav-item-label">예정</span><span class="nav-item-desc">방문 계획을 잡기 좋은 예정 축제입니다.</span></span></a><a href="/festival/#past"><span class="nav-item-icon" aria-hidden="true">종</span><span class="nav-item-text"><span class="nav-item-label">지난 축제</span><span class="nav-item-desc">종료된 축제는 목록 하단에 둡니다.</span></span></a>
+      </div>
+    </details><details class="nav-group is-active">
+      <summary class="nav-summary">숙소·예약</summary>
+      <div class="nav-dropdown">
+        <a href="/stay/#accommodation-cards"><span class="nav-item-icon" aria-hidden="true">숙</span><span class="nav-item-text"><span class="nav-item-label">지역별 숙소</span><span class="nav-item-desc">지역 기준 숙소 카드를 확인합니다.</span></span></a><a href="/stay/#tickets"><span class="nav-item-icon" aria-hidden="true">권</span><span class="nav-item-text"><span class="nav-item-label">입장권·투어</span><span class="nav-item-desc">여행지별 입장권과 투어를 연결합니다.</span></span></a>
+      </div>
+    </details>
+        </div>
+      </nav>
+      <a class="site-search-link" href="/travel/#all-posts" aria-label="검색">⌕</a>
+    </div>
+  </header>
+    <main class="site-page hub-page">
+      <section class="hub-banner">
         <span class="kicker">CATEGORY</span>
         <h1>숙소·예약</h1>
         <p>여행지별 숙소와 투어·티켓 예약 카드를 한곳에서 확인합니다.</p>
+
         <div class="tag-row"><a href="#accommodation-cards">숙소 카드</a><a href="/travel/">여행지</a><a href="/festival/">축제</a></div>
       </section>
-      <div class="summary-row"><div><strong>13</strong><span>검수된 글</span></div><div><strong>13</strong><span>지역 허브</span></div><div><strong>3</strong><span>대표 카테고리</span></div></div><section class="block stay-slot" id="accommodation-cards" aria-labelledby="accommodation-cards-title">
+      <section class="block stay-slot" id="accommodation-cards" aria-labelledby="accommodation-cards-title">
     <div class="block-head">
       <div><span class="kicker">STAY</span><h2 id="accommodation-cards-title">숙소 카드</h2></div>
       <p class="block-note">서울 글 기준 추천</p>
@@ -76,74 +197,159 @@
   </section><section class="block" id="all-posts" aria-labelledby="all-posts-title">
       <div class="block-head"><div><span class="kicker">ALL</span><h2 id="all-posts-title">숙소·예약 글 목록</h2></div><p class="block-note">최신 검수 글 기준</p></div>
       <div class="story-list"><a class="story-card" href="/data-stay-price-seoul/">
-    <span class="thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/05/11/JCvE/zULsJLFNww.jpg?width=720" alt="서울 숙소 가격 비교" loading="lazy"></span>
-    <strong>서울 숙소 가격 비교</strong>
-    <em>서울 · 숙소·예약 · 2026년 8월 24일</em>
-    <p>2026년 8월 28일 체크인, 2박, 성인 2명 기준 서울 숙소 가격표입니다.</p>
+    <span class="story-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/05/11/JCvE/zULsJLFNww.jpg?width=720" alt="서울 숙소 가격 비교" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">숙소·예약 · 서울</span>
+      <strong>서울 숙소 가격 비교</strong>
+      <p>2026년 8월 28일 체크인, 2박, 성인 2명 기준 서울 숙소 가격표입니다.</p>
+      <span class="story-meta">2026년 8월 24일 · 2분 읽기</span>
+    </span>
   </a><a class="story-card" href="/data-ticket-price-busan/">
-    <span class="thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/07/15/ZuG1/O9bvBxvDvX.jpg" alt="부산 입장권 가격 모음" loading="lazy"></span>
-    <strong>부산 입장권 가격 모음</strong>
-    <em>부산 · 숙소·예약 · 2026년 8월 24일</em>
-    <p>부산 입장권 가격표는 판매가가 있는 4개 상품을 낮은 가격순으로 표시합니다.</p>
+    <span class="story-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/07/15/ZuG1/O9bvBxvDvX.jpg" alt="부산 입장권 가격 모음" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">숙소·예약 · 부산</span>
+      <strong>부산 입장권 가격 모음</strong>
+      <p>부산 입장권 가격표는 판매가가 있는 4개 상품을 낮은 가격순으로 표시합니다.</p>
+      <span class="story-meta">2026년 8월 24일 · 2분 읽기</span>
+    </span>
   </a><a class="story-card" href="/travel-2633832/">
-    <span class="thumb"><img src="/assets/processed/wonju-museum-san-parking.webp" alt="원주 뮤지엄산 비 오는 날 관람, 예약·입장료·전시 동선" loading="lazy"></span>
-    <strong>원주 뮤지엄산 비 오는 날 관람, 예약·입장료·전시 동선</strong>
-    <em>강원 · 국내여행 · 2026년 8월 10일</em>
-    <p>실내 전시와 야외 건축 공간을 함께 보는 곳이라 비의 양에 따라 관람 순서를 바꾸는 것이 좋습니다. 예약 전시와 기본 관람을 구분했습니다.</p>
+    <span class="story-thumb"><img src="/assets/processed/wonju-museum-san-parking.webp" alt="원주 뮤지엄산 비 오는 날 관람, 예약·입장료·전시 동선" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">국내여행 · 강원</span>
+      <strong>원주 뮤지엄산 비 오는 날 관람, 예약·입장료·전시 동선</strong>
+      <p>실내 전시와 야외 건축 공간을 함께 보는 곳이라 비의 양에 따라 관람 순서를 바꾸는 것이 좋습니다. 예약 전시와 기본 관람을 구분했습니다.</p>
+      <span class="story-meta">2026년 8월 10일 · 2분 읽기</span>
+    </span>
   </a><a class="story-card" href="/travel-2995966/">
-    <span class="thumb"><img src="/assets/processed/naju-forest-center-family.webp" alt="국립나주숲체원 아이와 가기 전, 프로그램·숙박·준비물" loading="lazy"></span>
-    <strong>국립나주숲체원 아이와 가기 전, 프로그램·숙박·준비물</strong>
-    <em>전남 · 국내여행 · 2026년 8월 10일</em>
-    <p>자유 산책과 예약 프로그램, 숙박 이용은 준비 방식이 다릅니다. 아이의 체력과 체험 시간에 맞춰 필요한 장비와 이동 범위를 정리했습니다.</p>
+    <span class="story-thumb"><img src="/assets/processed/naju-forest-center-family.webp" alt="국립나주숲체원 아이와 가기 전, 프로그램·숙박·준비물" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">국내여행 · 전남</span>
+      <strong>국립나주숲체원 아이와 가기 전, 프로그램·숙박·준비물</strong>
+      <p>자유 산책과 예약 프로그램, 숙박 이용은 준비 방식이 다릅니다. 아이의 체력과 체험 시간에 맞춰 필요한 장비와 이동 범위를 정리했습니다.</p>
+      <span class="story-meta">2026년 8월 10일 · 2분 읽기</span>
+    </span>
   </a><a class="story-card" href="/travel-250345/">
-    <span class="thumb"><img src="/assets/processed/gurye-seomjingang-observatory-indoor.webp" alt="곡성섬진강천문대 관측 전 확인, 날씨·예약·야간 귀가" loading="lazy"></span>
-    <strong>곡성섬진강천문대 관측 전 확인, 날씨·예약·야간 귀가</strong>
-    <em>전남 · 국내여행 · 2026년 8월 10일</em>
-    <p>천문대는 실내 전시가 열려도 실제 관측은 구름과 날씨에 따라 달라집니다. 예약과 관측 가능 여부, 늦은 시간 귀가를 따로 확인했습니다.</p>
+    <span class="story-thumb"><img src="/assets/processed/gurye-seomjingang-observatory-indoor.webp" alt="곡성섬진강천문대 관측 전 확인, 날씨·예약·야간 귀가" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">국내여행 · 전남</span>
+      <strong>곡성섬진강천문대 관측 전 확인, 날씨·예약·야간 귀가</strong>
+      <p>천문대는 실내 전시가 열려도 실제 관측은 구름과 날씨에 따라 달라집니다. 예약과 관측 가능 여부, 늦은 시간 귀가를 따로 확인했습니다.</p>
+      <span class="story-meta">2026년 8월 10일 · 2분 읽기</span>
+    </span>
   </a><a class="story-card" href="/travel-2858860/">
-    <span class="thumb"><img src="/assets/processed/jeju-active-park-jeju-family.webp" alt="액티브파크 제주 체험 전 체크, 이용시간·연령 조건·준비물" loading="lazy"></span>
-    <strong>액티브파크 제주 체험 전 체크, 이용시간·연령 조건·준비물</strong>
-    <em>제주 · 국내여행 · 2026년 8월 10일</em>
-    <p>체험 시설은 현장 도착보다 이용 조건 확인이 먼저입니다. 동행자의 연령과 체력, 예약 시간, 장비 준비 범위를 기준으로 방문 여부를 판단했습니다.</p>
+    <span class="story-thumb"><img src="/assets/processed/jeju-active-park-jeju-family.webp" alt="액티브파크 제주 체험 전 체크, 이용시간·연령 조건·준비물" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">국내여행 · 제주</span>
+      <strong>액티브파크 제주 체험 전 체크, 이용시간·연령 조건·준비물</strong>
+      <p>체험 시설은 현장 도착보다 이용 조건 확인이 먼저입니다. 동행자의 연령과 체력, 예약 시간, 장비 준비 범위를 기준으로 방문 여부를 판단했습니다.</p>
+      <span class="story-meta">2026년 8월 10일 · 2분 읽기</span>
+    </span>
   </a><a class="story-card" href="/travel-1177867/">
-    <span class="thumb"><img src="/assets/processed/yongin-bundang-children-observatory-family.webp" alt="분당 어린이천문대 체험 전, 연령·예약·관측 가능 여부" loading="lazy"></span>
-    <strong>분당 어린이천문대 체험 전, 연령·예약·관측 가능 여부</strong>
-    <em>경기 · 국내여행 · 2026년 8월 10일</em>
-    <p>아이의 연령과 관심에 맞는 수업인지 확인하고, 실제 밤하늘 관측이 날씨에 따라 달라진다는 점을 반영해 예약 전 질문을 정리했습니다.</p>
+    <span class="story-thumb"><img src="/assets/processed/yongin-bundang-children-observatory-family.webp" alt="분당 어린이천문대 체험 전, 연령·예약·관측 가능 여부" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">국내여행 · 경기</span>
+      <strong>분당 어린이천문대 체험 전, 연령·예약·관측 가능 여부</strong>
+      <p>아이의 연령과 관심에 맞는 수업인지 확인하고, 실제 밤하늘 관측이 날씨에 따라 달라진다는 점을 반영해 예약 전 질문을 정리했습니다.</p>
+      <span class="story-meta">2026년 8월 10일 · 2분 읽기</span>
+    </span>
   </a><a class="story-card" href="/travel-3082317/">
-    <span class="thumb"><img src="/assets/processed/sejong-national-children-museum-family.webp" alt="국립어린이박물관 예약 전 체크, 관람시간·연령별 체험" loading="lazy"></span>
-    <strong>국립어린이박물관 예약 전 체크, 관람시간·연령별 체험</strong>
-    <em>세종 · 국내여행 · 2026년 8월 10일</em>
-    <p>어린이 전시는 연령에 맞는 체험과 회차 예약이 핵심입니다. 아이의 집중 시간과 식사·휴식까지 포함해 방문 준비를 정리했습니다.</p>
+    <span class="story-thumb"><img src="/assets/processed/sejong-national-children-museum-family.webp" alt="국립어린이박물관 예약 전 체크, 관람시간·연령별 체험" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">국내여행 · 세종</span>
+      <strong>국립어린이박물관 예약 전 체크, 관람시간·연령별 체험</strong>
+      <p>어린이 전시는 연령에 맞는 체험과 회차 예약이 핵심입니다. 아이의 집중 시간과 식사·휴식까지 포함해 방문 준비를 정리했습니다.</p>
+      <span class="story-meta">2026년 8월 10일 · 2분 읽기</span>
+    </span>
   </a><a class="story-card" href="/travel-992130/">
-    <span class="thumb"><img src="/assets/processed/seoul-kidzania-seoul-family.webp" alt="키자니아 서울 아이와 방문, 체험 예약·대기시간 줄이는 법" loading="lazy"></span>
-    <strong>키자니아 서울 아이와 방문, 체험 예약·대기시간 줄이는 법</strong>
-    <em>서울 · 국내여행 · 2026년 8월 10일</em>
-    <p>인기 체험의 대기 시간이 길어질 수 있어 입장 후 무엇을 먼저 선택할지가 중요합니다. 아이의 희망 직업과 휴식 시간을 기준으로 순서를 잡았습니다.</p>
+    <span class="story-thumb"><img src="/assets/processed/seoul-kidzania-seoul-family.webp" alt="키자니아 서울 아이와 방문, 체험 예약·대기시간 줄이는 법" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">국내여행 · 서울</span>
+      <strong>키자니아 서울 아이와 방문, 체험 예약·대기시간 줄이는 법</strong>
+      <p>인기 체험의 대기 시간이 길어질 수 있어 입장 후 무엇을 먼저 선택할지가 중요합니다. 아이의 희망 직업과 휴식 시간을 기준으로 순서를 잡았습니다.</p>
+      <span class="story-meta">2026년 8월 10일 · 2분 읽기</span>
+    </span>
   </a><a class="story-card" href="/travel-129560/">
-    <span class="thumb"><img src="/assets/processed/samcheok-daegeumgul-reservation.webp" alt="삼척 대금굴 예약 전 확인, 입장 시간·이동·복장 준비" loading="lazy"></span>
-    <strong>삼척 대금굴 예약 전 확인, 입장 시간·이동·복장 준비</strong>
-    <em>강원 · 국내여행 · 2026년 8월 10일</em>
-    <p>대금굴은 정해진 입장 시간과 예약 조건을 놓치면 현장 이용이 어렵습니다. 도착 여유 시간과 내부 관람에 맞는 복장을 우선 확인했습니다.</p>
+    <span class="story-thumb"><img src="/assets/processed/samcheok-daegeumgul-reservation.webp" alt="삼척 대금굴 예약 전 확인, 입장 시간·이동·복장 준비" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">국내여행 · 강원</span>
+      <strong>삼척 대금굴 예약 전 확인, 입장 시간·이동·복장 준비</strong>
+      <p>대금굴은 정해진 입장 시간과 예약 조건을 놓치면 현장 이용이 어렵습니다. 도착 여유 시간과 내부 관람에 맞는 복장을 우선 확인했습니다.</p>
+      <span class="story-meta">2026년 8월 10일 · 2분 읽기</span>
+    </span>
   </a><a class="story-card" href="/travel-3376308/">
-    <span class="thumb"><img src="/assets/processed/muju-starlight-observatory-family.webp" alt="무주 반디별 천문과학관 아이와 관측, 예약·날씨·귀가 체크" loading="lazy"></span>
-    <strong>무주 반디별 천문과학관 아이와 관측, 예약·날씨·귀가 체크</strong>
-    <em>전북 · 국내여행 · 2026년 8월 10일</em>
-    <p>야간 관측은 날씨와 운영 회차 영향을 받으므로 실내 전시만 가능한 경우까지 생각해야 합니다. 아이와 늦은 귀가를 피하는 기준을 담았습니다.</p>
+    <span class="story-thumb"><img src="/assets/processed/muju-starlight-observatory-family.webp" alt="무주 반디별 천문과학관 아이와 관측, 예약·날씨·귀가 체크" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">국내여행 · 전북</span>
+      <strong>무주 반디별 천문과학관 아이와 관측, 예약·날씨·귀가 체크</strong>
+      <p>야간 관측은 날씨와 운영 회차 영향을 받으므로 실내 전시만 가능한 경우까지 생각해야 합니다. 아이와 늦은 귀가를 피하는 기준을 담았습니다.</p>
+      <span class="story-meta">2026년 8월 10일 · 2분 읽기</span>
+    </span>
   </a><a class="story-card" href="/travel-2469139/">
-    <span class="thumb"><img src="/assets/processed/yeongju-bean-world-science-museum-family.webp" alt="영주 콩세계과학관 아이와 실내 여행, 전시·체험 시간" loading="lazy"></span>
-    <strong>영주 콩세계과학관 아이와 실내 여행, 전시·체험 시간</strong>
-    <em>경북 · 국내여행 · 2026년 8월 10일</em>
-    <p>식품과 과학을 연결한 전시는 초등 연령대가 질문하며 보기 좋습니다. 체험 운영 여부와 아이의 집중 시간을 기준으로 관람 분량을 정리했습니다.</p>
+    <span class="story-thumb"><img src="/assets/processed/yeongju-bean-world-science-museum-family.webp" alt="영주 콩세계과학관 아이와 실내 여행, 전시·체험 시간" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">국내여행 · 경북</span>
+      <strong>영주 콩세계과학관 아이와 실내 여행, 전시·체험 시간</strong>
+      <p>식품과 과학을 연결한 전시는 초등 연령대가 질문하며 보기 좋습니다. 체험 운영 여부와 아이의 집중 시간을 기준으로 관람 분량을 정리했습니다.</p>
+      <span class="story-meta">2026년 8월 10일 · 2분 읽기</span>
+    </span>
   </a><a class="story-card" href="/travel-792208/">
-    <span class="thumb"><img src="/assets/processed/goesan-hanji-museum-family.webp" alt="괴산 한지체험박물관 아이와 만들기, 예약·소요시간 체크" loading="lazy"></span>
-    <strong>괴산 한지체험박물관 아이와 만들기, 예약·소요시간 체크</strong>
-    <em>충북 · 국내여행 · 2026년 8월 10일</em>
-    <p>전시 관람보다 만들기 체험을 할지에 따라 체류 시간과 준비가 달라집니다. 체험 접수와 완성품 보관까지 고려해 일정을 정리했습니다.</p>
+    <span class="story-thumb"><img src="/assets/processed/goesan-hanji-museum-family.webp" alt="괴산 한지체험박물관 아이와 만들기, 예약·소요시간 체크" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">국내여행 · 충북</span>
+      <strong>괴산 한지체험박물관 아이와 만들기, 예약·소요시간 체크</strong>
+      <p>전시 관람보다 만들기 체험을 할지에 따라 체류 시간과 준비가 달라집니다. 체험 접수와 완성품 보관까지 고려해 일정을 정리했습니다.</p>
+      <span class="story-meta">2026년 8월 10일 · 2분 읽기</span>
+    </span>
   </a></div>
     </section>
     </main>
-    <footer class="wrap footer">트립뷰는 여행지, 축제, 숙소·예약 정보를 실제 URL과 지역 허브로 정리합니다.</footer>
+    <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="footer-brand">
+        <strong>트립뷰</strong>
+        <p>국내 여행지, 축제, 숙소 예약 정보를 지역과 목적별로 정리합니다.</p>
+      </div>
+      <div class="footer-col">
+        <b>카테고리</b>
+        <a href="/travel/">여행지</a>
+        <a href="/festival/">축제·행사</a>
+        <a href="/stay/">숙소·예약</a>
+      </div>
+      <div class="footer-col">
+        <b>지역 허브</b>
+        <a href="/region/gangwon/">강원</a><a href="/region/gyeonggi/">경기</a><a href="/region/gyeongnam/">경남</a><a href="/region/gyeongbuk/">경북</a><a href="/region/busan/">부산</a><a href="/region/seoul/">서울</a><a href="/region/sejong/">세종</a><a href="/region/ulsan/">울산</a>
+      </div>
+      <div class="footer-col">
+        <b>운영</b>
+        <a href="/editorial-team">편집팀</a>
+        <a href="/editorial-policy">콘텐츠 운영 기준</a>
+        <a href="/affiliate-disclosure">제휴 안내</a>
+      </div>
+      <div class="footer-col">
+        <b>정책</b>
+        <a href="/privacy">개인정보처리방침</a>
+        <a href="/terms">이용약관</a>
+        <a href="/sitemap.xml">사이트맵</a>
+        <a href="/contact">문의</a>
+      </div>
+      <div class="footer-bottom">
+        <span>사업자 정보: 트립뷰 콘텐츠 운영</span>
+        <span>Copyright 2026 Tripview.</span>
+      </div>
+    </div>
+  </footer>
+    <script>
+    (() => {
+      const header = document.querySelector("[data-site-header]");
+      const toggle = document.querySelector("[data-site-menu-toggle]");
+      if (!header || !toggle) return;
+      toggle.addEventListener("click", () => {
+        const open = !header.classList.contains("is-menu-open");
+        header.classList.toggle("is-menu-open", open);
+        toggle.setAttribute("aria-expanded", String(open));
+      });
+    })();
+  </script>
     <script src="/assets/homepage.js?v=booking-search-20260712-flight-links" defer></script>
 
     <script src="/assets/topic-filter.js?v=topic-filter-20260712-no-hero" defer></script>

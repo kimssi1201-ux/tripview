@@ -6,291 +6,486 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="트립뷰는 여행지, 축제, 숙소·예약을 따로 보고 지역별 여행 글을 빠르게 찾을 수 있게 정리한 여행 정보 매거진입니다.">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#FAFAF8">
     <meta property="og:title" content="트립뷰 - 여행 뉴스 피드">
     <meta property="og:description" content="여행지, 축제, 숙소·예약 페이지와 지역별 허브로 필요한 국내여행 글을 바로 찾을 수 있게 정리합니다.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tripview.kr/">
-    <meta property="og:image" content="/assets/processed/seoul-festival-iljeong-jeongri-festival.webp">
+    <meta property="og:image" content="/assets/processed/mungyeong-ogammanjok-mungyeongsaejaemaenbal-festival-parking.webp">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="alternate" type="application/rss+xml" title="트립뷰 RSS" href="https://tripview.kr/rss.xml">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
     <title>트립뷰 - 여행 뉴스 피드</title>
     <style>
-      :root{--ink:#111;--muted:#777;--line:#e2e2e2;--paper:#fff;--soft:#f5f5f5}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:128px}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;letter-spacing:0;line-height:1.45}a{color:inherit;text-decoration:none}img{display:block;width:100%;height:100%;object-fit:cover;background:var(--soft)}.site-header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}.header-inner{max-width:720px;margin:0 auto;padding:15px 16px 10px}.brand{display:block;margin-bottom:12px;font-size:28px;font-weight:900;line-height:1}.nav-scroll{display:flex;gap:18px;overflow-x:auto;padding-bottom:4px;white-space:nowrap;font-size:15px;font-weight:800}.nav-scroll a{display:block;padding:2px 0;border-bottom:2px solid transparent}.nav-scroll a.is-active{border-bottom-color:#111}.nav-scroll::-webkit-scrollbar,.pick-grid::-webkit-scrollbar{display:none}.page{max-width:720px;margin:0 auto;padding:10px 16px 40px}.top-line{display:flex;align-items:center;justify-content:space-between;padding:10px 0 18px;color:var(--muted);font-size:13px;border-bottom:1px solid var(--line)}.top-line b{color:var(--ink)}.news-section{padding:28px 0 34px;border-bottom:8px solid #f2f2f2;scroll-margin-top:128px}.news-section.is-hidden{display:none}.news-section h2{margin:0 0 16px;font-size:31px;line-height:1.05;font-weight:900;letter-spacing:-.01em}.news-lead{display:block}.lead-thumb{display:block;width:100%;aspect-ratio:1.78/1;overflow:hidden;background:var(--soft)}.news-lead strong{display:block;margin-top:12px;font-size:24px;line-height:1.22;font-weight:900}.news-lead span{display:block;margin-top:7px;color:var(--muted);font-size:13px}.pick-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:20px}.pick-card{min-width:0}.pick-thumb{display:block;aspect-ratio:1.2/1;overflow:hidden;background:var(--soft)}.pick-card strong{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:7px;font-size:13px;line-height:1.34;font-weight:800}.news-list{margin-top:22px;border-top:1px solid var(--line)}.news-row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}.row-thumb{display:block;aspect-ratio:1.28/1;overflow:hidden;background:var(--soft)}.news-row strong{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:17px;line-height:1.35;font-weight:900}.news-row em{display:block;margin-top:5px;color:var(--muted);font-size:12px;font-style:normal}.check-grid{display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid var(--line)}.booking-group{margin-top:22px}.booking-group h3{margin:0 0 8px;font-size:20px;line-height:1.2;font-weight:900}.booking-group:first-of-type{margin-top:0}.check-card{display:block;padding:15px 0;border-bottom:1px solid var(--line)}.check-card strong{display:block;font-size:18px;line-height:1.32;font-weight:900}.check-card span{display:block;margin-top:6px;color:var(--muted);font-size:13px;line-height:1.55}.product-card{display:grid;grid-template-columns:84px minmax(0,1fr);gap:8px 12px;align-items:center}.product-card .affiliate-match,.product-card strong,.product-card span{grid-column:2}.product-card .affiliate-match{display:block;color:#555;font-size:10px;font-weight:900;line-height:1.35}.product-card.no-thumb{grid-template-columns:1fr}.product-card.no-thumb .affiliate-match,.product-card.no-thumb strong,.product-card.no-thumb span{grid-column:1}.booking-thumb{grid-row:1/4;display:block;aspect-ratio:1.28/1;overflow:hidden;background:var(--soft)}.no-image{background:linear-gradient(135deg,#f1f1f1,#dedede)}.affiliate-disclosure{margin:-6px 0 14px;color:var(--muted);font-size:12px;line-height:1.55}.coupang-ad-section .booking-status{grid-column:1/-1}.coupang-card strong{font-size:16px}.booking-search{margin:0 0 24px;border-top:2px solid var(--ink);border-bottom:1px solid var(--line)}.booking-search-card{display:grid;gap:9px;padding:14px 0;border-bottom:1px solid var(--line)}.booking-search-card strong{font-size:18px;font-weight:900}.booking-search-card label{display:grid;gap:5px;color:var(--muted);font-size:12px;font-weight:800}.booking-search-card input,.booking-search-card select{width:100%;border:1px solid var(--line);border-radius:0;background:#fff;color:var(--ink);padding:10px 11px;font:inherit;font-size:14px}.booking-search-card button{border:0;background:var(--ink);color:#fff;padding:11px 12px;font:inherit;font-weight:900;cursor:pointer}.booking-fields{display:grid;grid-template-columns:1fr 1fr;gap:8px}.booking-results{display:grid;grid-template-columns:1fr;gap:0}.booking-results[hidden]{display:none}.booking-status{padding:13px 0;color:var(--muted);font-size:13px;border-bottom:1px solid var(--line)}.site-footer{max-width:720px;margin:0 auto;padding:28px 16px 44px;color:var(--muted);font-size:13px}.site-footer strong{display:block;color:var(--ink);font-size:20px;margin-bottom:6px}@media(min-width:760px){.header-inner,.page,.site-footer{max-width:1040px}.page{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 36px}.page.is-filtered .news-section:not(.is-hidden){grid-column:1/-1;width:100%;max-width:720px;justify-self:center}.top-line{grid-column:1/-1}.news-section{border-bottom:1px solid var(--line)}.news-section h2{font-size:34px}.check-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 18px}.booking-search{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 18px}.booking-search-card{border-bottom:0}.booking-results{grid-column:1/-1;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 18px;border-top:1px solid var(--line)}}@media(max-width:360px){.news-section h2{font-size:28px}.news-lead strong{font-size:21px}.news-row{grid-template-columns:82px minmax(0,1fr)}.pick-grid{gap:7px}.pick-card strong{font-size:12px}.product-card{grid-template-columns:76px minmax(0,1fr)}.product-card.no-thumb{grid-template-columns:1fr}.booking-fields{grid-template-columns:1fr}}
-      .booking-search{position:relative;display:block;margin:0 0 24px;padding:16px 0 22px;border-top:2px solid var(--ink);border-bottom:1px solid var(--line)}.booking-launchers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.booking-launcher{min-width:0;border:1px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);padding:13px 10px;text-align:left;font:inherit;cursor:pointer}.booking-launcher span{display:block;color:var(--muted);font-size:11px;font-weight:900}.booking-launcher strong{display:block;margin-top:5px;font-size:15px;line-height:1.25;font-weight:900}.booking-launcher em{display:block;margin-top:5px;color:var(--muted);font-size:11px;line-height:1.35;font-style:normal}.booking-launcher:focus-visible,.booking-chip:focus-visible,.sheet-head button:focus-visible{outline:2px solid #111;outline-offset:2px}.booking-sheet-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.42);z-index:40}.booking-sheet-backdrop[hidden],.booking-sheet[hidden]{display:none}.booking-sheet{position:fixed;left:50%;bottom:0;z-index:41;width:min(100%,620px);max-height:88vh;overflow:auto;transform:translateX(-50%);border-radius:18px 18px 0 0;background:#fff;padding:10px 24px 26px;box-shadow:0 -18px 50px rgba(0,0,0,.2)}body.booking-sheet-open{overflow:hidden}.sheet-handle{width:58px;height:4px;border-radius:999px;background:#d5d5d5;margin:0 auto 18px}.sheet-head{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:18px}.sheet-head h3{margin:0;font-size:24px;line-height:1.2;font-weight:900}.sheet-head button{border:0;background:transparent;color:#222;font-size:34px;line-height:1;cursor:pointer}.booking-search-card{display:grid;gap:12px;padding:0;border:0}.booking-search-card label{display:grid;gap:7px;color:var(--muted);font-size:12px;font-weight:900}.booking-search-card input,.booking-search-card select{width:100%;border:1px solid var(--line);border-radius:14px;background:#f7f7f7;color:var(--ink);padding:14px 15px;font:inherit;font-size:16px}.booking-search-card input:focus,.booking-search-card select:focus{outline:2px solid #111;background:#fff}.booking-search-card button[type="submit"]{border:0;border-radius:12px;background:#111;color:#fff;padding:15px;font:inherit;font-weight:900;cursor:pointer}.booking-fields{display:grid;grid-template-columns:1fr 1fr;gap:8px}.booking-chip-group{display:grid;gap:10px;margin:7px 0}.booking-chip-group b{font-size:16px}.booking-chip-row{display:flex;flex-wrap:wrap;gap:9px}.booking-chip{border:1px solid var(--line);border-radius:999px;background:#fff;color:#222;padding:10px 16px;font:inherit;font-size:14px;font-weight:800;cursor:pointer}.booking-chip.is-selected{border-color:#111;background:#111;color:#fff}.booking-results{display:grid;grid-template-columns:1fr;gap:0;margin-top:18px;border-top:1px solid var(--line)}.booking-results[hidden]{display:none}.booking-results-title{grid-column:1/-1;margin:0;padding:16px 0 4px;font-size:20px;font-weight:900}.booking-status{grid-column:1/-1;padding:13px 0;color:var(--muted);font-size:13px;border-bottom:1px solid var(--line)}.language-switch{display:flex;align-items:center;gap:8px;white-space:nowrap}.language-switch a{font-size:12px;font-weight:900;color:#555;border-bottom:1px solid transparent;padding:2px 0}.language-switch a.is-active{color:#111;border-bottom-color:#111}.flight-section .flight-lead{padding:0 0 18px;border-bottom:1px solid var(--line)}.flight-section .flight-lead strong{margin-top:0;font-size:22px}.flight-section .news-list{margin-top:0}.flight-section .flight-row{grid-template-columns:1fr;padding:15px 0}.flight-section .flight-row span{min-width:0}.news-lead img,.pick-card img,.news-row img{transition:transform .42s ease,filter .28s ease}.news-lead:hover img,.news-lead:focus-visible img,.pick-card:hover img,.pick-card:focus-visible img,.news-row:hover img,.news-row:focus-visible img{transform:scale(1.04)}.news-lead.is-opening img,.pick-card.is-opening img,.news-row.is-opening img{transform:scale(1.12);filter:brightness(.92)}.news-lead.is-opening,.pick-card.is-opening,.news-row.is-opening{pointer-events:none}@media(prefers-reduced-motion:reduce){.news-lead img,.pick-card img,.news-row img{transition:none}.news-lead:hover img,.news-lead:focus-visible img,.pick-card:hover img,.pick-card:focus-visible img,.news-row:hover img,.news-row:focus-visible img,.news-lead.is-opening img,.pick-card.is-opening img,.news-row.is-opening img{transform:none;filter:none}}@media(min-width:760px){.booking-search{grid-column:1/-1;display:block}.booking-launchers{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.booking-launcher{padding:16px}.booking-launcher strong{font-size:18px}.booking-results{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 18px}.booking-sheet{top:50%;bottom:auto;max-height:min(720px,86vh);transform:translate(-50%,-50%);border-radius:18px;padding:12px 28px 28px}.booking-sheet-backdrop{backdrop-filter:blur(2px)}}@media(max-width:920px){.language-switch{gap:10px}.language-switch a{font-size:12px}}@media(max-width:430px){.booking-launchers{gap:7px}.booking-launcher{padding:11px 8px;border-radius:12px}.booking-launcher strong{font-size:13px}.booking-launcher em{display:none}.booking-sheet{padding:10px 20px 24px}.sheet-head h3{font-size:22px}.booking-fields{grid-template-columns:1fr}}
-      .product-card>.booking-thumb{grid-column:1}
-      .masthead-row{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:14px}.masthead-row .brand{margin:0}.brand-note{display:none;color:var(--muted);font-size:10px;font-weight:900;letter-spacing:.16em}.section-kicker{display:block;margin:0 0 3px;color:var(--ink);font-size:10px;font-weight:900;letter-spacing:.12em}.section-headline{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:0 0 18px;padding-top:11px;border-top:2px solid var(--ink)}.section-headline h2{margin:0;font-size:28px;line-height:1.12}.section-more{color:var(--muted);font-size:12px;font-weight:900;white-space:nowrap}.magazine-card{display:block;min-width:0}.editorial-hero{padding-top:24px}.editorial-hero-grid{display:grid;grid-template-columns:1fr;gap:3px;background:#fff}.hero-main,.hero-rail-card{position:relative;display:block;overflow:hidden;background:var(--soft);color:#fff}.hero-main:after,.hero-rail-card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.02) 25%,rgba(0,0,0,.78) 100%);pointer-events:none}.hero-thumb{display:block;width:100%;height:100%;aspect-ratio:1.28/1;overflow:hidden}.hero-content,.hero-rail-content{position:absolute;z-index:1;right:0;bottom:0;left:0;padding:22px}.hero-label{display:block;margin-bottom:7px;font-size:11px;font-weight:900;letter-spacing:.08em}.hero-main h2{max-width:780px;margin:0;font-size:30px;line-height:1.14;font-weight:900}.hero-main p{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;max-width:700px;overflow:hidden;margin:10px 0 0;color:rgba(255,255,255,.84);font-size:13px;line-height:1.55}.hero-rail{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3px}.hero-rail-card{aspect-ratio:1/1}.hero-rail-content{padding:14px}.category-top{display:grid;grid-template-columns:1fr;gap:18px}.news-lead .lead-thumb{aspect-ratio:1.55/1}.story-label{display:block!important;margin:11px 0 0!important;color:var(--ink)!important;font-size:10px!important;font-weight:900!important;letter-spacing:.04em}.news-lead .story-summary{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:8px;color:var(--muted);font-size:13px;line-height:1.55;font-style:normal}.category-picks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.category-picks .pick-card{min-width:0}.category-picks .pick-thumb{aspect-ratio:1/1}.category-picks .pick-card strong{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;margin-top:7px;font-size:13px;line-height:1.35}.category-list{margin-top:22px;border-top:1px solid var(--line)}.category-list .news-row{margin:0}.magazine-thumb{display:block;aspect-ratio:1.56/1;overflow:hidden;background:var(--soft)}.magazine-card strong{display:block;margin-top:8px;font-size:19px;line-height:1.28;font-weight:900}.magazine-card em{display:block;margin-top:7px;color:var(--muted);font-size:13px;line-height:1.55;font-style:normal}.magazine-meta{display:block;margin-top:10px;color:var(--ink);font-size:10px;font-weight:900;letter-spacing:.04em}.hero-rail-card.magazine-card strong{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;margin:0;color:#fff;font-size:15px;line-height:1.3}.news-lead.magazine-card strong{margin-top:5px;font-size:24px}.coupang-widget-scroll{width:100%;max-width:100%;overflow-x:auto;overflow-y:hidden;padding-bottom:2px}.coupang-widget-inner{width:680px;max-width:680px;min-height:140px}.site-footer>span{display:none}.footer-brand strong{display:block;color:var(--ink);font-size:20px;margin-bottom:8px}.footer-brand p,.footer-col a{display:block;margin:0 0 7px;color:var(--muted);font-size:13px}.footer-col b{display:block;margin-bottom:10px;color:var(--ink);font-size:13px}.footer-bottom{grid-column:1/-1;margin-top:10px;padding-top:16px;border-top:1px solid #eee;color:#aaa;font-size:12px}
-      .brand-heading{margin:0;font:inherit;line-height:1}
-      @media(min-width:900px){
-        html{scroll-padding-top:132px}
-        body{background:#fff}
-        .site-header{position:sticky;background:rgba(255,255,255,.98);border-bottom:1px solid #ededed}
-        .header-inner,.page,.site-footer{max-width:1180px}
-        .header-inner{padding:20px 24px 12px}.masthead-row{position:relative;justify-content:center;margin-bottom:18px}.brand{font-size:34px}.brand-note{display:block;position:absolute;left:0}.language-switch{position:absolute;right:0}.nav-scroll{justify-content:center;gap:32px;padding:12px 0 0;border-top:1px solid #eee;font-size:14px}
-        .page{display:block;padding:0 24px 64px}
-        .page.is-filtered .news-section:not(.is-hidden){width:100%;max-width:none}
-        .top-line{display:none}
-        .news-section{padding:42px 0 54px;border-bottom:0}.editorial-hero{padding-top:28px}
-        .news-section h2{font-size:28px}
-        .editorial-hero-grid{grid-template-columns:minmax(0,1.92fr) minmax(330px,1fr);height:520px}.hero-main,.hero-thumb{height:520px}.hero-main h2{font-size:44px}.hero-main p{font-size:15px}.hero-content{padding:38px}.hero-rail{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr))}.hero-rail-card{height:auto;aspect-ratio:auto}.hero-rail-card.magazine-card strong{font-size:17px}.hero-rail-content{padding:18px}
-        .category-top{grid-template-columns:minmax(0,1.8fr) minmax(310px,1fr);gap:24px}.news-lead .lead-thumb{aspect-ratio:1.58/1}.news-lead.magazine-card strong{font-size:28px}.category-picks{grid-template-columns:1fr;gap:0;border-top:1px solid var(--line)}.category-picks .pick-card{display:grid;grid-template-columns:116px minmax(0,1fr);gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}.category-picks .pick-thumb{aspect-ratio:1.34/1}.category-picks .pick-card strong{margin:0;font-size:15px;-webkit-line-clamp:2}.category-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px 20px;margin-top:28px;padding-top:28px}.category-list .news-row{display:block;padding:0;border:0}.category-list .row-thumb{aspect-ratio:1.5/1}.category-list .news-row strong{margin-top:9px;font-size:18px}.category-list .news-row em{margin-top:7px}
-        .check-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:0 20px}
-        .mrt-ad-section .check-grid,.coupang-ad-section .check-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-        .booking-search{grid-column:auto}
-        .booking-launchers{gap:12px}
-        .flight-section{display:block}
-        .flight-section .flight-lead{padding:16px 0;border-top:1px solid var(--line)}
-        .flight-section .news-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 20px}
-        .flight-section .flight-row{border-bottom:1px solid var(--line)}
-        .site-footer{display:grid;grid-template-columns:1.1fr repeat(4,minmax(0,.75fr));gap:28px;padding:44px 24px 64px;border-top:1px solid #eee}
-      }
-      @media(max-width:899px){.site-header{position:relative}.nav-scroll{margin:0 -16px;padding:2px 16px 5px}.editorial-hero{margin-right:-16px;margin-left:-16px;padding-top:18px}.hero-main h2{font-size:28px}.hero-main p{display:none}.hero-rail{padding-top:3px}.news-section{border-bottom:1px solid var(--line)}.section-headline{padding-top:10px}.section-headline h2{font-size:28px}}
-      @media(max-width:899px){.site-header{position:sticky}.hero-main .hero-thumb{aspect-ratio:1.5/1}.hero-rail-card{aspect-ratio:1.24/1}}
-      @media(max-width:430px){.hero-content{padding:18px}.hero-main h2{font-size:25px}.hero-rail-content{padding:11px}.hero-rail-card strong{font-size:13px}.category-picks{gap:7px}.category-picks .pick-card strong{font-size:12px}.section-headline h2{font-size:26px}}
-    </style>
+:root{--brand:#0F5C5C;--brand-hover:#147A7A;--bg:#FAFAF8;--card:#FFFFFF;--ink:#1A1A1A;--muted:#6B6B6B;--line:#E5E5E0;--cta:#E8A33D;--cta-hover:#D18F2A;--soft-teal:color-mix(in srgb,var(--brand) 9%,var(--card));--site-wrap:min(1180px,calc(100% - 32px))}
+*{box-sizing:border-box}
+html{scroll-padding-top:96px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;font-size:16px;line-height:1.7;letter-spacing:0}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%;object-fit:cover;background:color-mix(in srgb,var(--line) 55%,var(--card))}
+button,input,select{font:inherit}
+:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.site-header{position:sticky;top:0;z-index:50;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:saturate(180%) blur(12px)}
+.site-header-inner{width:var(--site-wrap);margin:0 auto;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:24px;min-height:72px}
+.site-brand{display:inline-flex;align-items:center;min-height:44px;color:var(--ink);font-size:22px;font-weight:900;line-height:1}
+.site-menu-toggle{display:none;min-width:44px;min-height:44px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);font-size:13px;font-weight:800}
+.site-nav{display:flex;align-items:center;justify-content:center;gap:8px}
+.site-nav-main{display:flex;align-items:center;gap:8px}
+.site-home-link,.nav-summary{display:inline-flex;align-items:center;min-height:36px;padding:0 12px;border:0;border-radius:999px;background:transparent;color:var(--muted);font-size:14px;font-weight:800;cursor:pointer;transition:color 150ms ease,background-color 150ms ease}
+.site-home-link.is-active,.nav-group.is-active>.nav-summary{background:var(--soft-teal);color:var(--brand)}
+.nav-group{position:relative}
+.nav-group>summary{list-style:none}
+.nav-group>summary::-webkit-details-marker{display:none}
+.nav-summary::after{content:"";width:5px;height:5px;margin-left:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px)}
+.nav-dropdown{position:absolute;left:0;top:calc(100% + 10px);display:none;width:300px;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.nav-group[open] .nav-dropdown,.nav-group:hover .nav-dropdown,.nav-group:focus-within .nav-dropdown{display:grid}
+.nav-dropdown a{display:grid;grid-template-columns:32px minmax(0,1fr);gap:10px;padding:10px;border-radius:8px;transition:background-color 150ms ease}
+.nav-dropdown a:hover,.nav-dropdown a:focus-visible{background:var(--soft-teal)}
+.nav-item-icon{display:inline-grid;place-items:center;width:32px;height:32px;border:1px solid var(--line);border-radius:8px;color:var(--brand);font-size:12px;font-weight:900}
+.nav-item-text{display:grid;gap:2px}
+.nav-item-label{color:var(--ink);font-size:14px;font-weight:800;line-height:1.35}
+.nav-item-desc{color:var(--muted);font-size:12px;line-height:1.45}
+.site-search-link{display:grid;place-items:center;min-width:44px;min-height:44px;border:1px solid transparent;border-radius:999px;color:var(--ink);font-size:23px;line-height:1;transition:background-color 150ms ease,border-color 150ms ease}
+.site-search-link:hover,.site-search-link:focus-visible{border-color:var(--line);background:var(--card)}
+.site-page{width:var(--site-wrap);margin:0 auto;padding:48px 0 64px}
+.site-section{padding:48px 0}
+.site-section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:16px}
+.site-section-head h2{margin:0;font-size:20px;line-height:1.35;font-weight:800}
+.site-section-more{color:var(--brand);font-size:14px;font-weight:800}
+.story-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.story-card{display:block;min-width:0;border:1px solid var(--line);border-radius:8px;background:var(--card);overflow:hidden;transition:border-color 150ms ease}
+.story-card:hover,.story-card:focus-visible{border-color:var(--brand)}
+.story-thumb{display:block;aspect-ratio:4/3;overflow:hidden;background:var(--line)}
+.story-card-body{display:grid;gap:8px;padding:16px}
+.story-label{color:var(--brand);font-size:12px;font-weight:800;line-height:1.3}
+.story-card strong{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin:0;color:var(--ink);font-size:18px;line-height:1.35;font-weight:800}
+.story-card p{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin:0;color:var(--muted);font-size:14px;line-height:1.55}
+.story-meta{color:var(--muted);font-size:12px;line-height:1.4}
+.site-footer{border-top:1px solid var(--line);background:var(--card)}
+.site-footer-inner{width:var(--site-wrap);margin:0 auto;display:grid;grid-template-columns:1.2fr repeat(4,minmax(0,.8fr));gap:24px;padding:40px 0}
+.footer-brand strong{display:block;margin-bottom:8px;color:var(--ink);font-size:22px;font-weight:900}
+.footer-brand p,.footer-business,.site-footer a{color:var(--muted);font-size:13px;line-height:1.65}
+.footer-col{display:grid;align-content:start;gap:7px}
+.footer-col b{margin-bottom:4px;color:var(--ink);font-size:14px}
+.footer-bottom{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px 12px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
+.cta-link{display:inline-flex;align-items:center;justify-content:center;min-height:44px;border-radius:8px;background:var(--cta);color:var(--card);font-weight:800;transition:background-color 150ms ease}
+.cta-link:hover,.cta-link:focus-visible{background:var(--cta-hover)}
+@media(max-width:900px){:root{--site-wrap:min(720px,calc(100% - 32px))}.site-header-inner{grid-template-columns:1fr auto auto;gap:8px;min-height:64px}.site-menu-toggle{display:inline-flex;align-items:center;justify-content:center}.site-nav{display:none;grid-column:1/-1;justify-content:stretch;padding:0 0 12px}.site-header.is-menu-open .site-nav{display:grid}.site-nav-main{display:grid;gap:6px}.site-home-link,.nav-summary{width:100%;justify-content:space-between;border-radius:8px;background:var(--card);min-height:44px}.nav-dropdown{position:static;display:none;width:auto;margin-top:6px}.nav-group[open] .nav-dropdown{display:grid}.site-page{padding:32px 0 48px}.site-section{padding:32px 0}.story-grid{grid-template-columns:1fr;gap:16px}.site-footer-inner{grid-template-columns:1fr;gap:20px;padding:32px 0}.site-search-link{font-size:22px}}
+@media(max-width:520px){body{font-size:15px}.site-section-head h2{font-size:19px}.story-card strong{font-size:17px}.story-card-body{padding:14px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:0.01ms!important;animation-duration:0.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+
+.home-hero{padding:32px 0 48px}
+.home-hero-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(320px,.95fr);gap:24px}
+.home-hero-rail{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.home-hero-main .story-card-body{gap:10px;padding:24px}
+.home-hero-main strong{font-size:28px;line-height:1.28}
+.home-hero-small strong{font-size:16px}
+.home-hero-small .story-card-body{padding:14px}
+.home-hero-small p{display:none}
+.home-affiliate-card{border-left:3px solid var(--cta)}
+@media(max-width:900px){.home-hero{padding:24px 0 32px}.home-hero-grid,.home-hero-rail{grid-template-columns:1fr}.home-hero-main strong{font-size:22px}.home-hero-main .story-card-body{padding:16px}}
+</style>
       <link rel="canonical" href="https://tripview.kr/">
   </head>
   <body>
-    <header class="site-header">
-      <div class="header-inner">
-        <div class="masthead-row">
-          <span class="brand-note">KOREA TRAVEL MAGAZINE</span>
-          <h1 class="brand-heading"><a class="brand" href="/">트립뷰</a></h1>
-
+    <header class="site-header" data-site-header>
+    <div class="site-header-inner">
+      <a class="site-brand" href="/">트립뷰</a>
+      <button class="site-menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-site-menu-toggle>메뉴</button>
+      <nav class="site-nav" id="site-nav" aria-label="주요 메뉴">
+        <div class="site-nav-main">
+          <a class="site-home-link is-active" href="/">홈</a>
+          <details class="nav-group">
+      <summary class="nav-summary">여행지</summary>
+      <div class="nav-dropdown">
+        <a href="/region/"><span class="nav-item-icon" aria-hidden="true">지</span><span class="nav-item-text"><span class="nav-item-label">지역별</span><span class="nav-item-desc">지역 허브에서 글과 숙소를 함께 봅니다.</span></span></a><a href="/travel/#tag-water"><span class="nav-item-icon" aria-hidden="true">테</span><span class="nav-item-text"><span class="nav-item-label">테마별</span><span class="nav-item-desc">물놀이·실내·아이와 태그를 모았습니다.</span></span></a><a href="/travel/#all-posts"><span class="nav-item-icon" aria-hidden="true">전</span><span class="nav-item-text"><span class="nav-item-label">전국 관광지</span><span class="nav-item-desc">검수된 전국 여행지 글 목록입니다.</span></span></a>
+      </div>
+    </details><details class="nav-group">
+      <summary class="nav-summary">축제·행사</summary>
+      <div class="nav-dropdown">
+        <a href="/festival/#ongoing"><span class="nav-item-icon" aria-hidden="true">진</span><span class="nav-item-text"><span class="nav-item-label">진행 중</span><span class="nav-item-desc">오늘 기준 진행 중인 축제입니다.</span></span></a><a href="/festival/#upcoming"><span class="nav-item-icon" aria-hidden="true">예</span><span class="nav-item-text"><span class="nav-item-label">예정</span><span class="nav-item-desc">방문 계획을 잡기 좋은 예정 축제입니다.</span></span></a><a href="/festival/#past"><span class="nav-item-icon" aria-hidden="true">종</span><span class="nav-item-text"><span class="nav-item-label">지난 축제</span><span class="nav-item-desc">종료된 축제는 목록 하단에 둡니다.</span></span></a>
+      </div>
+    </details><details class="nav-group">
+      <summary class="nav-summary">숙소·예약</summary>
+      <div class="nav-dropdown">
+        <a href="/stay/#accommodation-cards"><span class="nav-item-icon" aria-hidden="true">숙</span><span class="nav-item-text"><span class="nav-item-label">지역별 숙소</span><span class="nav-item-desc">지역 기준 숙소 카드를 확인합니다.</span></span></a><a href="/stay/#tickets"><span class="nav-item-icon" aria-hidden="true">권</span><span class="nav-item-text"><span class="nav-item-label">입장권·투어</span><span class="nav-item-desc">여행지별 입장권과 투어를 연결합니다.</span></span></a>
+      </div>
+    </details>
         </div>
-        <nav class="nav-scroll" aria-label="카테고리"><a class="is-active" href="/">홈</a><a href="/travel/">여행지</a><a href="/festival/">축제</a><a href="/stay/">숙소·예약</a></nav>
-      </div>
-    </header>
-    <main class="page">
-      <section class="news-section editorial-hero" id="popular" aria-labelledby="popular-title" data-headline="8월 가볼만한 곳">
-    <div class="editorial-hero-grid">
-      <a class="hero-main magazine-card" href="/travel-2988949/">
-        <span class="hero-thumb"><img src="/assets/processed/hadong-cable-car-parking.webp" alt="하동케이블카 방문 가이드, 금오산 전망·운행 확인·주차 동선" loading="lazy"></span>
-        <span class="hero-content">
-          <span class="hero-label">8월 · 경남</span>
-          <h2 id="popular-title">하동케이블카 방문 가이드, 금오산 전망·운행 확인·주차 동선</h2>
-          <p>금오산 전망을 보는 시간이 핵심이므로 왕복권만 확인하지 말고 당일 운행 여부와 탑승장 주차, 정상 체류 시간을 한 일정으로 잡았습니다.</p>
-        </span>
-      </a>
-      <div class="hero-rail" aria-label="8월 가볼만한 곳 추천 글">
-        <a class="hero-rail-card magazine-card" href="/travel-2774026/">
-          <span class="hero-thumb"><img src="/assets/processed/hoengseong-lake-trail-parking.webp" alt="횡성호수길 5구간 걷기 전 확인할 거리·난이도·귀환 동선" loading="lazy"></span>
-          <span class="hero-rail-content"><span class="hero-label">강원</span><strong>횡성호수길 5구간 걷기 전 확인할 거리·난이도·귀환 동선</strong></span>
-        </a><a class="hero-rail-card magazine-card" href="/travel-2994364/">
-          <span class="hero-thumb"><img src="/assets/processed/busan-songdo-sky-park-parking.webp" alt="송도스카이파크 산책 코스, 주차 후 전망대까지 이동 순서" loading="lazy"></span>
-          <span class="hero-rail-content"><span class="hero-label">부산</span><strong>송도스카이파크 산책 코스, 주차 후 전망대까지 이동 순서</strong></span>
-        </a><a class="hero-rail-card magazine-card" href="/travel-2858860/">
-          <span class="hero-thumb"><img src="/assets/processed/jeju-active-park-jeju-family.webp" alt="액티브파크 제주 체험 전 체크, 이용시간·연령 조건·준비물" loading="lazy"></span>
-          <span class="hero-rail-content"><span class="hero-label">제주</span><strong>액티브파크 제주 체험 전 체크, 이용시간·연령 조건·준비물</strong></span>
-        </a><a class="hero-rail-card magazine-card" href="/travel-126200/">
-          <span class="hero-thumb"><img src="/assets/processed/andong-dosanseowon-unesco-heritage-parking.webp" alt="도산서원 관람 순서, 주차장에서 전시·서원까지 걷는 동선" loading="lazy"></span>
-          <span class="hero-rail-content"><span class="hero-label">경북</span><strong>도산서원 관람 순서, 주차장에서 전시·서원까지 걷는 동선</strong></span>
-        </a>
-      </div>
+      </nav>
+      <a class="site-search-link" href="/travel/#all-posts" aria-label="검색">⌕</a>
     </div>
+  </header>
+    <main class="site-page">
+      <section class="home-hero" aria-label="대표 글">
+    <div class="home-hero-grid">
+      <a class="story-card home-hero-main" href="/festival-1939183/">
+    <span class="story-thumb"><img src="/assets/processed/mungyeong-ogammanjok-mungyeongsaejaemaenbal-festival-parking.webp" alt="문경새재 맨발페스티벌 2026 준비물, 황톳길 완주·발 관리·귀가 동선" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">공연/축제</span>
+      <strong>문경새재 맨발페스티벌 2026 준비물, 황톳길 완주·발 관리·귀가 동선</strong>
+      <p>8월 22일 하루만 열리는 맨발 걷기 행사입니다. 15,000원 참가비와 오전 9시 시작을 기준으로 황톳길을 무리 없이 걷는 방법, 발을 씻고 갈아 신을 준비물, 혼잡한 귀가 시간을 정리했습니다.</p>
+      <span class="story-meta">2026년 8월 15일 · 약 2분</span>
+    </span>
+  </a>
+      <div class="home-hero-rail"><a class="story-card home-hero-small" href="/festival-3351451/">
+    <span class="story-thumb"><img src="/assets/processed/seoul-k-illustration-fair-magok-parking.webp" alt="K-일러스트레이션페어 마곡 2026 관람 가이드, 사전예매·입장 마감·부스 동선" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">공연/축제</span>
+      <strong>K-일러스트레이션페어 마곡 2026 관람 가이드, 사전예매·입장 마감·부스 동선</strong>
+      <p>8월 20일부터 나흘간 열리는 실내 전시입니다. 2차 사전예매 마감과 현장 가격의 차이, 오후 5시 30분 입장 마감, 넓은 부스를 덜 지치게 보는 순서를 중심으로 확인했습니다.</p>
+      <span class="story-meta">2026년 8월 15일 · 약 2분</span>
+    </span>
+  </a><a class="story-card home-hero-small" href="/festival-4096371/">
+    <span class="story-thumb"><img src="/assets/processed/jinan-treasure-hunter-jinan-indoor.webp" alt="트레저헌터 in 진안 2026 참여법, 앱 설치부터 7개 권역 미션까지" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">공연/축제</span>
+      <strong>트레저헌터 in 진안 2026 참여법, 앱 설치부터 7개 권역 미션까지</strong>
+      <p>전시장 한 곳만 보는 축제가 아니라 앱과 헌터 패스를 이용해 진안 7개 명소를 이동하는 참여형 행사입니다. 8월 28일까지의 사전등록, QR 인증, 여러 권역을 나눠 방문하는 방법을 중심으로 정리했습니...</p>
+      <span class="story-meta">2026년 8월 15일 · 약 2분</span>
+    </span>
+  </a><a class="story-card home-hero-small" href="/festival-4008618/">
+    <span class="story-thumb"><img src="/assets/processed/goheung-heritage-night-walk-parking.webp" alt="고흥 국가유산 야행 2026, 8월 28~29일 흥양현읍성 밤 코스" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">공연/축제</span>
+      <strong>고흥 국가유산 야행 2026, 8월 28~29일 흥양현읍성 밤 코스</strong>
+      <p>흥양현읍성 일원을 걷는 야간 행사라 프로그램 수보다 동선 선택이 중요합니다. 해 지기 전 도착과 주차 후 도보 이동을 기준으로 정리했습니다.</p>
+      <span class="story-meta">2026년 8월 7일 · 약 2분</span>
+    </span>
+  </a><a class="story-card home-hero-small" href="/travel-2660046/">
+    <span class="story-thumb"><img src="/assets/processed/pohang-guryongpo-gwamegi-museum-parking.webp" alt="구룡포과메기문화관 실내 관람, 전시·주차와 포항 동선" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">국내여행</span>
+      <strong>구룡포과메기문화관 실내 관람, 전시·주차와 포항 동선</strong>
+      <p>구룡포의 지역 음식과 생활사를 실내에서 이해한 뒤 주변 거리로 이동하기 좋습니다. 전시 관람과 바깥 산책을 나눠 구성했습니다.</p>
+      <span class="story-meta">2026년 8월 7일 · 약 2분</span>
+    </span>
+  </a></div>
+    </div>
+  </section>
+      <section class="site-section" id="regions" aria-labelledby="regions-title">
+    <div class="site-section-head">
+      <h2 id="regions-title">지역별로 찾기</h2>
+      <a class="site-section-more" href="/region/">더보기</a>
+    </div>
+    <div class="story-grid"><a class="story-card region-card" href="/region/gangwon/">
+    <span class="story-thumb"><img src="/assets/processed/wonju-museum-san-parking.webp" alt="강원 여행 허브 대표 글" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">지역별로 찾기</span>
+      <strong>강원 여행 허브</strong>
+      <p>강원 지역 글과 숙소 카드, 하위 지역별 글을 한곳에 모았습니다.</p>
+      <span class="story-meta">12개 글</span>
+    </span>
+  </a><a class="story-card region-card" href="/region/gyeongbuk/">
+    <span class="story-thumb"><img src="/assets/processed/mungyeong-ogammanjok-mungyeongsaejaemaenbal-festival-parking.webp" alt="경북 여행 허브 대표 글" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">지역별로 찾기</span>
+      <strong>경북 여행 허브</strong>
+      <p>경북 지역 글과 숙소 카드, 하위 지역별 글을 한곳에 모았습니다.</p>
+      <span class="story-meta">7개 글</span>
+    </span>
+  </a><a class="story-card region-card" href="/region/jeonnam/">
+    <span class="story-thumb"><img src="/assets/processed/goheung-heritage-night-walk-parking.webp" alt="전남 여행 허브 대표 글" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">지역별로 찾기</span>
+      <strong>전남 여행 허브</strong>
+      <p>전남 지역 글과 숙소 카드, 하위 지역별 글을 한곳에 모았습니다.</p>
+      <span class="story-meta">7개 글</span>
+    </span>
+  </a><a class="story-card region-card" href="/region/jeonbuk/">
+    <span class="story-thumb"><img src="/assets/processed/jinan-treasure-hunter-jinan-indoor.webp" alt="전북 여행 허브 대표 글" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">지역별로 찾기</span>
+      <strong>전북 여행 허브</strong>
+      <p>전북 지역 글과 숙소 카드, 하위 지역별 글을 한곳에 모았습니다.</p>
+      <span class="story-meta">5개 글</span>
+    </span>
+  </a><a class="story-card region-card" href="/region/busan/">
+    <span class="story-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/07/15/ZuG1/O9bvBxvDvX.jpg" alt="부산 여행 허브 대표 글" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">지역별로 찾기</span>
+      <strong>부산 여행 허브</strong>
+      <p>부산 지역 글과 숙소 카드, 하위 지역별 글을 한곳에 모았습니다.</p>
+      <span class="story-meta">4개 글</span>
+    </span>
+  </a><a class="story-card region-card" href="/region/seoul/">
+    <span class="story-thumb"><img src="/assets/processed/seoul-festival-iljeong-jeongri-festival.webp" alt="서울 여행 허브 대표 글" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">지역별로 찾기</span>
+      <strong>서울 여행 허브</strong>
+      <p>서울 지역 글과 숙소 카드, 하위 지역별 글을 한곳에 모았습니다.</p>
+      <span class="story-meta">4개 글</span>
+    </span>
+  </a></div>
+  </section>
+<section class="site-section" id="latest" aria-labelledby="latest-title">
+    <div class="site-section-head">
+      <h2 id="latest-title">최신 글</h2>
+      <a class="site-section-more" href="/travel/#all-posts">더보기</a>
+    </div>
+    <div class="story-grid"><a class="story-card" href="/data-festival-schedule-seoul/">
+    <span class="story-thumb"><img src="/assets/processed/seoul-festival-iljeong-jeongri-festival.webp" alt="서울 축제 일정 정리" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">데이터·축제</span>
+      <strong>서울 축제 일정 정리</strong>
+      <p>서울 축제 8건의 시작일, 종료일, 장소, 상태를 표로 모았습니다.</p>
+      <span class="story-meta">2026년 8월 24일 · 약 2분</span>
+    </span>
+  </a><a class="story-card" href="/data-stay-price-seoul/">
+    <span class="story-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/05/11/JCvE/zULsJLFNww.jpg?width=720" alt="서울 숙소 가격 비교" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">숙소·예약</span>
+      <strong>서울 숙소 가격 비교</strong>
+      <p>2026년 8월 28일 체크인, 2박, 성인 2명 기준 서울 숙소 가격표입니다.</p>
+      <span class="story-meta">2026년 8월 24일 · 약 2분</span>
+    </span>
+  </a><a class="story-card" href="/data-ticket-price-busan/">
+    <span class="story-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/07/15/ZuG1/O9bvBxvDvX.jpg" alt="부산 입장권 가격 모음" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">숙소·예약</span>
+      <strong>부산 입장권 가격 모음</strong>
+      <p>부산 입장권 가격표는 판매가가 있는 4개 상품을 낮은 가격순으로 표시합니다.</p>
+      <span class="story-meta">2026년 8월 24일 · 약 2분</span>
+    </span>
+  </a><a class="story-card" href="/festival-1939183/">
+    <span class="story-thumb"><img src="/assets/processed/mungyeong-ogammanjok-mungyeongsaejaemaenbal-festival-parking.webp" alt="문경새재 맨발페스티벌 2026 준비물, 황톳길 완주·발 관리·귀가 동선" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">공연/축제</span>
+      <strong>문경새재 맨발페스티벌 2026 준비물, 황톳길 완주·발 관리·귀가 동선</strong>
+      <p>8월 22일 하루만 열리는 맨발 걷기 행사입니다. 15,000원 참가비와 오전 9시 시작을 기준으로 황톳길을 무리 없이 걷는 방법, 발을 씻고 갈아 신을 준비물, 혼잡한 귀가 시간을 정리했습니다.</p>
+      <span class="story-meta">2026년 8월 15일 · 약 2분</span>
+    </span>
+  </a><a class="story-card" href="/festival-3351451/">
+    <span class="story-thumb"><img src="/assets/processed/seoul-k-illustration-fair-magok-parking.webp" alt="K-일러스트레이션페어 마곡 2026 관람 가이드, 사전예매·입장 마감·부스 동선" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">공연/축제</span>
+      <strong>K-일러스트레이션페어 마곡 2026 관람 가이드, 사전예매·입장 마감·부스 동선</strong>
+      <p>8월 20일부터 나흘간 열리는 실내 전시입니다. 2차 사전예매 마감과 현장 가격의 차이, 오후 5시 30분 입장 마감, 넓은 부스를 덜 지치게 보는 순서를 중심으로 확인했습니다.</p>
+      <span class="story-meta">2026년 8월 15일 · 약 2분</span>
+    </span>
+  </a><a class="story-card" href="/festival-4096371/">
+    <span class="story-thumb"><img src="/assets/processed/jinan-treasure-hunter-jinan-indoor.webp" alt="트레저헌터 in 진안 2026 참여법, 앱 설치부터 7개 권역 미션까지" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">공연/축제</span>
+      <strong>트레저헌터 in 진안 2026 참여법, 앱 설치부터 7개 권역 미션까지</strong>
+      <p>전시장 한 곳만 보는 축제가 아니라 앱과 헌터 패스를 이용해 진안 7개 명소를 이동하는 참여형 행사입니다. 8월 28일까지의 사전등록, QR 인증, 여러 권역을 나눠 방문하는 방법을 중심으로 정리했습니...</p>
+      <span class="story-meta">2026년 8월 15일 · 약 2분</span>
+    </span>
+  </a></div>
+  </section>
+<section class="site-section" id="season" aria-labelledby="season-title">
+    <div class="site-section-head">
+      <h2 id="season-title">8월 시즌 추천</h2>
+      <a class="site-section-more" href="/travel/#tag-weekend">더보기</a>
+    </div>
+    <div class="story-grid"><a class="story-card" href="/travel-127722/">
+    <span class="story-thumb"><img src="/assets/processed/gangneung-anmok-beach-parking.webp" alt="강릉 안목해변 여름 코스, 바다 산책·카페거리·주차 체크" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">국내여행</span>
+      <strong>강릉 안목해변 여름 코스, 바다 산책·카페거리·주차 체크</strong>
+      <p>안목해변은 본격적인 물놀이보다 바다 산책과 카페거리를 묶는 일정에 잘 맞습니다. 주차 혼잡과 해변 체류 시간을 분리해 판단했습니다.</p>
+      <span class="story-meta">2026년 7월 26일 · 약 2분</span>
+    </span>
+  </a><a class="story-card" href="/travel-125713/">
+    <span class="story-thumb"><img src="/assets/processed/donghae-mangsang-beach-parking.webp" alt="동해 망상해변 여름 여행, 개장 확인·주차·편의시설 이용법" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">국내여행</span>
+      <strong>동해 망상해변 여름 여행, 개장 확인·주차·편의시설 이용법</strong>
+      <p>넓은 해변이라도 주차 위치와 샤워장·화장실 위치에 따라 실제 이동량이 커집니다. 물놀이 구역과 휴식 지점을 먼저 잡도록 정리했습니다.</p>
+      <span class="story-meta">2026년 7월 26일 · 약 2분</span>
+    </span>
+  </a><a class="story-card" href="/travel-125652/">
+    <span class="story-thumb"><img src="/assets/processed/cheolwon-sambuyeon-waterfall-water.webp" alt="철원 삼부연폭포 여름 물길, 물놀이보다 전망과 안전이 먼저" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">국내여행</span>
+      <strong>철원 삼부연폭포 여름 물길, 물놀이보다 전망과 안전이 먼저</strong>
+      <p>폭포는 수량이 많을수록 보기 좋지만 비 온 뒤에는 미끄럼과 통제가 우선입니다. 입수 장소로 오해하지 않도록 전망 중심 일정으로 정리했습니다.</p>
+      <span class="story-meta">2026년 7월 5일 · 약 2분</span>
+    </span>
+  </a><a class="story-card" href="/travel-125677/">
+    <span class="story-thumb"><img src="/assets/processed/donghae-mureung-valley-water.webp" alt="동해 무릉계곡 여름 산책과 물놀이, 코스 길이·안전 체크" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">국내여행</span>
+      <strong>동해 무릉계곡 여름 산책과 물놀이, 코스 길이·안전 체크</strong>
+      <p>무릉계곡은 짧은 물놀이와 긴 산책의 준비가 다릅니다. 동행자의 체력과 비 온 뒤 계곡 상태를 기준으로 코스 선택법을 정리했습니다.</p>
+      <span class="story-meta">2026년 7월 5일 · 약 2분</span>
+    </span>
+  </a><a class="story-card" href="/travel-126265/">
+    <span class="story-thumb"><img src="/assets/processed/gurye-piagol-valley-water.webp" alt="구례 피아골계곡 여름 물길, 깊은 계곡 가기 전 안전 체크" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">국내여행</span>
+      <strong>구례 피아골계곡 여름 물길, 깊은 계곡 가기 전 안전 체크</strong>
+      <p>지리산 계곡은 비가 그친 뒤에도 수위가 빠르게 달라질 수 있습니다. 물놀이 가능 여부보다 통제와 귀환 시간을 먼저 확인하도록 정리했습니다.</p>
+      <span class="story-meta">2026년 7월 5일 · 약 2분</span>
+    </span>
+  </a><a class="story-card" href="/travel-125711/">
+    <span class="story-thumb"><img src="/assets/processed/samcheok-jangho-beach-janghohang-parking.webp" alt="삼척 장호해변·장호항 물놀이, 주차·입수·해양체험 확인" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">국내여행</span>
+      <strong>삼척 장호해변·장호항 물놀이, 주차·입수·해양체험 확인</strong>
+      <p>해변과 항구, 해양체험을 한 번에 보려면 입수 가능 구역과 체험 접수 시간을 먼저 구분해야 합니다. 혼잡한 주말 이동 순서도 함께 확인했습니다.</p>
+      <span class="story-meta">2026년 7월 26일 · 약 2분</span>
+    </span>
+  </a></div>
+  </section>
+<section class="site-section" id="festival" aria-labelledby="festival-title">
+    <div class="site-section-head">
+      <h2 id="festival-title">축제·행사</h2>
+      <a class="site-section-more" href="/festival/">더보기</a>
+    </div>
+    <div class="story-grid"><a class="story-card" href="/festival-4090201/">
+    <span class="story-thumb"><img src="/assets/processed/ulsan-garden-night-market-family.webp" alt="울산 가든 나이트 마켓 2026, 8월 29일까지 야시장·버스킹 일정" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">공연/축제</span>
+      <strong>울산 가든 나이트 마켓 2026, 8월 29일까지 야시장·버스킹 일정</strong>
+      <p>저녁 6시부터 울산대공원에서 열리는 무료 야시장으로, 푸드트럭과 체험·버스킹을 모두 보려면 식사 피크와 귀가 시간을 나눠 잡는 편이 좋습니다.</p>
+      <span class="story-meta">2026년 7월 22일 · 약 2분</span>
+    </span>
+  </a><a class="story-card" href="/festival-4008618/">
+    <span class="story-thumb"><img src="/assets/processed/goheung-heritage-night-walk-parking.webp" alt="고흥 국가유산 야행 2026, 8월 28~29일 흥양현읍성 밤 코스" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">공연/축제</span>
+      <strong>고흥 국가유산 야행 2026, 8월 28~29일 흥양현읍성 밤 코스</strong>
+      <p>흥양현읍성 일원을 걷는 야간 행사라 프로그램 수보다 동선 선택이 중요합니다. 해 지기 전 도착과 주차 후 도보 이동을 기준으로 정리했습니다.</p>
+      <span class="story-meta">2026년 8월 7일 · 약 2분</span>
+    </span>
+  </a><a class="story-card" href="/festival-4096371/">
+    <span class="story-thumb"><img src="/assets/processed/jinan-treasure-hunter-jinan-indoor.webp" alt="트레저헌터 in 진안 2026 참여법, 앱 설치부터 7개 권역 미션까지" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">공연/축제</span>
+      <strong>트레저헌터 in 진안 2026 참여법, 앱 설치부터 7개 권역 미션까지</strong>
+      <p>전시장 한 곳만 보는 축제가 아니라 앱과 헌터 패스를 이용해 진안 7개 명소를 이동하는 참여형 행사입니다. 8월 28일까지의 사전등록, QR 인증, 여러 권역을 나눠 방문하는 방법을 중심으로 정리했습니...</p>
+      <span class="story-meta">2026년 8월 15일 · 약 2분</span>
+    </span>
+  </a><a class="story-card" href="/festival-4093783/">
+    <span class="story-thumb"><img src="/assets/processed/hongseong-heritage-night-walk-parking.webp" alt="홍성 국가유산 야행 2026, 8월 14~15일 밤 동선과 무료 프로그램" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">공연/축제</span>
+      <strong>홍성 국가유산 야행 2026, 8월 14~15일 밤 동선과 무료 프로그램</strong>
+      <p>홍주읍성 일원에서 저녁 6시부터 진행되는 행사라 밝을 때 입구와 귀가 방향을 먼저 확인해야 합니다. 야간 프로그램을 놓치지 않는 순서로 정리했습니다.</p>
+      <span class="story-meta">2026년 7월 29일 · 약 2분</span>
+    </span>
+  </a><a class="story-card" href="/festival-507454/">
+    <span class="story-thumb"><img src="/assets/processed/tongyeong-hansan-victory-festival-parking.webp" alt="통영한산대첩축제 2026, 8월 12~16일 야간 일정·교통 체크" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">공연/축제</span>
+      <strong>통영한산대첩축제 2026, 8월 12~16일 야간 일정·교통 체크</strong>
+      <p>통영 시내 여러 지점에서 이어지는 축제라 대표 프로그램 하나를 먼저 정하고 광장 이동과 귀가 시간을 역산하는 방식이 현실적입니다.</p>
+      <span class="story-meta">2026년 6월 17일 · 약 2분</span>
+    </span>
+  </a><a class="story-card" href="/festival-2541883/">
+    <span class="story-thumb"><img src="/assets/processed/gangneung-heritage-night-walk-parking.webp" alt="강릉 국가유산 야행 2026, 관아·서부시장·명주동 야간 코스" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">공연/축제</span>
+      <strong>강릉 국가유산 야행 2026, 관아·서부시장·명주동 야간 코스</strong>
+      <p>강릉대도호부관아와 서부시장, 명주동을 잇는 야간 행사이므로 한 지점에 주차한 뒤 도보 이동 범위와 마지막 프로그램 위치를 먼저 잡았습니다.</p>
+      <span class="story-meta">2026년 6월 14일 · 약 2분</span>
+    </span>
+  </a></div>
+  </section>
+<section class="site-section" id="stay" aria-labelledby="stay-title">
+    <div class="site-section-head">
+      <h2 id="stay-title">숙소·예약</h2>
+      <a class="site-section-more" href="/stay/">더보기</a>
+    </div>
+    <div class="story-grid"><a class="story-card home-affiliate-card" href="https://accommodation.myrealtrip.com/union/products/1485138?checkIn=2026-08-28&amp;checkOut=2026-08-30&amp;adultCount=2&amp;childCount=0&amp;childAges=" rel="sponsored nofollow" target="_blank">
+    <span class="story-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/05/11/JCvE/zULsJLFNww.jpg?width=720" alt="토요코인 서울영등포 예약 상품 이미지" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">숙소·예약</span>
+      <strong>토요코인 서울영등포</strong>
+      <p>서울 · 숙소 예약 · 118,525원부터</p>
+      <span class="story-meta">제휴 링크 · 조건 확인 필요</span>
+    </span>
+  </a><a class="story-card home-affiliate-card" href="https://accommodation.myrealtrip.com/union/products/2680056?checkIn=2026-08-28&amp;checkOut=2026-08-30&amp;adultCount=2&amp;childCount=0&amp;childAges=" rel="sponsored nofollow" target="_blank">
+    <span class="story-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/02/oA9Z/j9d6H12ANh.jpg?width=720" alt="메이필드 호텔 예약 상품 이미지" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">숙소·예약</span>
+      <strong>메이필드 호텔</strong>
+      <p>서울 · 숙소 예약 · 194,370원부터</p>
+      <span class="story-meta">제휴 링크 · 조건 확인 필요</span>
+    </span>
+  </a><a class="story-card home-affiliate-card" href="https://accommodation.myrealtrip.com/union/products/2680683?checkIn=2026-08-28&amp;checkOut=2026-08-30&amp;adultCount=2&amp;childCount=0&amp;childAges=" rel="sponsored nofollow" target="_blank">
+    <span class="story-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/03/06/yHIB/1Kt1TtAfM8.jpg?width=720" alt="이비스 스타일 앰배서더 서울 용산 예약 상품 이미지" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">숙소·예약</span>
+      <strong>이비스 스타일 앰배서더 서울 용산</strong>
+      <p>서울 · 숙소 예약 · 198,000원부터</p>
+      <span class="story-meta">제휴 링크 · 조건 확인 필요</span>
+    </span>
+  </a><a class="story-card home-affiliate-card" href="https://accommodation.myrealtrip.com/union/products/1187439?checkIn=2026-08-28&amp;checkOut=2026-08-30&amp;adultCount=2&amp;childCount=0&amp;childAges=" rel="sponsored nofollow" target="_blank">
+    <span class="story-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2023/02/02/IKUf/Qh6lAM79Y6.jpg?width=720" alt="토요코인 부산중앙역 예약 상품 이미지" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">숙소·예약</span>
+      <strong>토요코인 부산중앙역</strong>
+      <p>부산 · 숙소 예약 · 77,715원부터</p>
+      <span class="story-meta">제휴 링크 · 조건 확인 필요</span>
+    </span>
+  </a><a class="story-card home-affiliate-card" href="https://accommodation.myrealtrip.com/union/products/2680379?checkIn=2026-08-28&amp;checkOut=2026-08-30&amp;adultCount=2&amp;childCount=0&amp;childAges=" rel="sponsored nofollow" target="_blank">
+    <span class="story-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/01/12/YgS2/XJD16szSSO.jpg?width=720" alt="그랩디 오션 송도 예약 상품 이미지" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">숙소·예약</span>
+      <strong>그랩디 오션 송도</strong>
+      <p>부산 · 숙소 예약 · 85,560원부터</p>
+      <span class="story-meta">제휴 링크 · 조건 확인 필요</span>
+    </span>
+  </a><a class="story-card home-affiliate-card" href="https://accommodation.myrealtrip.com/union/products/1189384?checkIn=2026-08-28&amp;checkOut=2026-08-30&amp;adultCount=2&amp;childCount=0&amp;childAges=" rel="sponsored nofollow" target="_blank">
+    <span class="story-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/09/16/ont6/jwJQzLmTqj.jpg?width=720" alt="토요코인 부산역1 예약 상품 이미지" loading="lazy"></span>
+    <span class="story-card-body">
+      <span class="story-label">숙소·예약</span>
+      <strong>토요코인 부산역1</strong>
+      <p>부산 · 숙소 예약 · 87,234원부터</p>
+      <span class="story-meta">제휴 링크 · 조건 확인 필요</span>
+    </span>
+  </a></div>
   </section>
     </main>
     <footer class="site-footer">
+    <div class="site-footer-inner">
       <div class="footer-brand">
         <strong>트립뷰</strong>
-        <p>여행지, 축제, 숙소·예약을 따로 보고 지역별 글로 이어지는 여행 뉴스 피드입니다.</p>
+        <p>국내 여행지, 축제, 숙소 예약 정보를 지역과 목적별로 정리합니다.</p>
       </div>
       <div class="footer-col">
-        <b>가볼만한 곳</b>
-        <a href="/travel/">여행지 전체</a>
-        <a href="/travel/#tag-weekend">이번 주말 태그</a>
-        <a href="/travel/#tag-water">물놀이·계곡 태그</a>
-        <a href="/travel/#tag-indoor">실내여행 태그</a>
+        <b>카테고리</b>
+        <a href="/travel/">여행지</a>
+        <a href="/festival/">축제·행사</a>
+        <a href="/stay/">숙소·예약</a>
       </div>
       <div class="footer-col">
-        <b>축제정보</b>
-        <a href="/festival/">축제 전체</a>
-        <a href="/festival/#featured">이달의 축제</a>
+        <b>지역 허브</b>
+        <a href="/region/gangwon/">강원</a><a href="/region/gyeongbuk/">경북</a><a href="/region/jeonnam/">전남</a><a href="/region/jeonbuk/">전북</a><a href="/region/busan/">부산</a><a href="/region/seoul/">서울</a><a href="/region/chungnam/">충남</a><a href="/region/chungbuk/">충북</a>
       </div>
       <div class="footer-col">
-        <b>트립뷰</b>
+        <b>운영</b>
         <a href="/editorial-team">편집팀</a>
         <a href="/editorial-policy">콘텐츠 운영 기준</a>
-      </div>
-      <div class="footer-col">
-        <b>예약</b>
-        <a href="/stay/">숙소·예약</a>
-        <a href="/stay/#accommodation-cards">숙소 카드</a>
         <a href="/affiliate-disclosure">제휴 안내</a>
       </div>
-      <div class="footer-bottom">Copyright 2026 트립뷰. All rights reserved. · <a href="/about">소개</a> · <a href="/editorial-team">편집팀</a> · <a href="/editorial-policy">콘텐츠 운영 기준</a> · <a href="/contact">문의</a> · <a href="/privacy">개인정보처리방침</a></div>
-    </footer>
-    <script type="application/json" data-disabled-homepage-inline>
-      const bookingResults = document.querySelector('[data-booking-results]');
-      const today = new Date();
-      const toDateInput = (date) => date.toISOString().slice(0, 10);
-      const addDays = (date, days) => {
-        const next = new Date(date);
-        next.setDate(next.getDate() + days);
-        return next;
-      };
-      document.querySelectorAll('[data-booking-search] input[type="date"]').forEach((input, index) => {
-        input.value = toDateInput(addDays(today, index === 0 ? 14 : 16));
-        input.min = toDateInput(today);
+      <div class="footer-col">
+        <b>정책</b>
+        <a href="/privacy">개인정보처리방침</a>
+        <a href="/terms">이용약관</a>
+        <a href="/sitemap.xml">사이트맵</a>
+        <a href="/contact">문의</a>
+      </div>
+      <div class="footer-bottom">
+        <span>사업자 정보: 트립뷰 콘텐츠 운영</span>
+        <span>Copyright 2026 Tripview.</span>
+      </div>
+    </div>
+  </footer>
+    <script>
+    (() => {
+      const header = document.querySelector("[data-site-header]");
+      const toggle = document.querySelector("[data-site-menu-toggle]");
+      if (!header || !toggle) return;
+      toggle.addEventListener("click", () => {
+        const open = !header.classList.contains("is-menu-open");
+        header.classList.toggle("is-menu-open", open);
+        toggle.setAttribute("aria-expanded", String(open));
       });
-      const bookingBackdrop = document.querySelector('[data-booking-backdrop]');
-      const bookingSheets = [...document.querySelectorAll('[data-booking-sheet]')];
-      const bookingTitle = (type) => ({
-        accommodation: '숙소 검색 결과',
-        tna: '투어·티켓 검색 결과',
-        flight: '항공권 최저가 여행지',
-      }[type] || '예약 검색 결과');
-      function closeBookingSheet() {
-        bookingSheets.forEach((sheet) => { sheet.hidden = true; });
-        if (bookingBackdrop) bookingBackdrop.hidden = true;
-        document.body.classList.remove('booking-sheet-open');
-      }
-      function openBookingSheet(type) {
-        bookingSheets.forEach((sheet) => { sheet.hidden = sheet.dataset.bookingSheet !== type; });
-        if (bookingBackdrop) bookingBackdrop.hidden = false;
-        document.body.classList.add('booking-sheet-open');
-        const activeSheet = bookingSheets.find((sheet) => sheet.dataset.bookingSheet === type);
-        window.setTimeout(() => activeSheet?.querySelector('form input, form select, form button')?.focus(), 30);
-      }
-      window.tripviewOpenBooking = openBookingSheet;
-      window.tripviewCloseBooking = closeBookingSheet;
-      function applyBookingPreset(preset) {
-        const form = preset.closest('form');
-        const field = preset.dataset.field || 'keyword';
-        const input = form?.elements?.namedItem(field);
-        if (!input) return;
-        input.value = preset.dataset.value || preset.textContent.trim();
-        form.querySelectorAll('[data-booking-preset]').forEach((item) => {
-          if ((item.dataset.field || 'keyword') === field) item.classList.remove('is-selected');
-        });
-        preset.classList.add('is-selected');
-        input.focus();
-      }
-      window.tripviewPresetBooking = applyBookingPreset;
-      document.addEventListener('click', (event) => {
-        const opener = event.target.closest('[data-open-booking]');
-        if (opener) {
-          event.preventDefault();
-          openBookingSheet(opener.dataset.openBooking);
-          return;
-        }
-        if (event.target.closest('[data-booking-close]') || event.target === bookingBackdrop) {
-          event.preventDefault();
-          closeBookingSheet();
-          return;
-        }
-        const preset = event.target.closest('[data-booking-preset]');
-        if (!preset) return;
-        event.preventDefault();
-        applyBookingPreset(preset);
-      });
-      document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') closeBookingSheet();
-      });
-      function startBookingResults(type) {
-        if (!bookingResults) return;
-        bookingResults.hidden = false;
-        bookingResults.innerHTML = '';
-        const title = document.createElement('h3');
-        title.className = 'booking-results-title';
-        title.textContent = bookingTitle(type);
-        bookingResults.appendChild(title);
-      }
-      function setBookingStatus(message, type = '') {
-        startBookingResults(type);
-        const status = document.createElement('p');
-        status.className = 'booking-status';
-        status.textContent = message;
-        bookingResults.appendChild(status);
-      }
-      function appendBookingResult(item) {
-        const card = document.createElement('a');
-        card.className = 'check-card product-card' + (item.image ? '' : ' no-thumb');
-        const fallbackFlightUrl = 'https://flights.myrealtrip.com/';
-        const url = item.type === 'flight'
-          ? (item.bookingUrl || (/^https?:///.test(item.url || '') ? item.url : fallbackFlightUrl))
-          : (item.url || 'https://www.myrealtrip.com/');
-        card.href = url;
-        if (/^https?:///.test(url)) {
-          card.target = '_blank';
-          card.rel = 'sponsored noopener';
-        }
-        if (item.image) {
-          const thumb = document.createElement('span');
-          thumb.className = 'booking-thumb';
-          const image = document.createElement('img');
-          image.src = item.image;
-          image.alt = item.title || '예약 상품';
-          image.loading = 'lazy';
-          thumb.appendChild(image);
-          card.appendChild(thumb);
-        }
-        const title = document.createElement('strong');
-        title.textContent = item.title || '예약 상품';
-        const meta = document.createElement('span');
-        meta.textContent = item.meta || '예약 정보';
-        card.appendChild(title);
-        card.appendChild(meta);
-        bookingResults.appendChild(card);
-      }
-      async function runBookingSearch(form) {
-        const type = form.dataset.bookingSearch;
-        const params = new URLSearchParams(new FormData(form));
-        if (type === 'accommodation') params.set('type', 'accommodation');
-        if (type === 'tna') params.set('type', 'tna');
-        if (type === 'flight') params.set('type', 'flight');
-        setBookingStatus('검색 중입니다.', type);
-        try {
-          const response = await fetch('/api/myrealtrip/search?' + params.toString(), { headers: { accept: 'application/json' } });
-          const payload = await response.json();
-          if (!response.ok || !payload.ok) throw new Error(payload.message || '검색에 실패했습니다.');
-          startBookingResults(type);
-          const items = Array.isArray(payload.items) ? payload.items : [];
-          if (!items.length) {
-            setBookingStatus(payload.message || '검색 결과가 없습니다. 다른 키워드로 다시 검색해 보세요.', type);
-            closeBookingSheet();
-            bookingResults?.scrollIntoView({ block: 'start', behavior: 'smooth' });
-            return;
-          }
-          items.forEach(appendBookingResult);
-          closeBookingSheet();
-          bookingResults?.scrollIntoView({ block: 'start', behavior: 'smooth' });
-        } catch (error) {
-          setBookingStatus(error.message || '검색 중 오류가 발생했습니다.', type);
-          closeBookingSheet();
-          bookingResults?.scrollIntoView({ block: 'start', behavior: 'smooth' });
-        }
-      }
-      function submitBookingForm(event) {
-        const form = event.target.closest('[data-booking-search]');
-        if (!form) return true;
-        event.preventDefault();
-        event.tripviewBookingHandled = true;
-        runBookingSearch(form);
-        return false;
-      }
-      window.tripviewSubmitBooking = submitBookingForm;
-      document.addEventListener('submit', (event) => {
-        if (event.tripviewBookingHandled) return;
-        submitBookingForm(event);
-      });
-      const links = [...document.querySelectorAll('[data-filter]')];
-      const sections = [...document.querySelectorAll('.news-section')];
-      const page = document.querySelector('.page');
-      links.forEach((link) => {
-        link.addEventListener('click', (event) => {
-          event.preventDefault();
-          const id = link.dataset.filter || link.getAttribute('href').replace('#', '');
-          const showAll = id === 'all';
-          links.forEach((item) => item.classList.remove('is-active'));
-          link.classList.add('is-active');
-          page?.classList.toggle('is-filtered', !showAll);
-          sections.forEach((section) => section.classList.toggle('is-hidden', !showAll && section.id !== id));
-          page?.scrollIntoView({ block: 'start' });
-        });
-      });
-    </script>
-    <script id="post-card-transition">(() => { const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; const selector = 'a.news-lead, a.pick-card, a.news-row, a.latest-primary, a.side-card, a.card'; document.addEventListener('click', (event) => { const card = event.target.closest(selector); if (!card || !card.href || card.target || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.defaultPrevented) return; const url = new URL(card.href, window.location.href); if (url.origin !== window.location.origin) return; if (reduce) return; event.preventDefault(); card.classList.add('is-opening'); window.setTimeout(() => { window.location.href = card.href; }, 180); }, { capture: true }); })();</script>
+    })();
+  </script>
     <script src="/assets/homepage.js?v=booking-search-20260712-flight-links" defer></script>
     <script src="/assets/topic-filter.js?v=topic-filter-20260712-no-hero" defer></script>
   </body>

@@ -113,10 +113,14 @@ test("homepage categories use real URLs and travel keeps old topics as tags", as
     readFile("index.html", "utf8"),
     readFile("travel/index.html", "utf8"),
   ]);
-  assert.match(homepage, /<a class="is-active" href="\/">홈<\/a>/);
-  assert.match(homepage, /<a href="\/travel\/">여행지<\/a>/);
-  assert.match(homepage, /<a href="\/festival\/">축제<\/a>/);
-  assert.match(homepage, /<a href="\/stay\/">숙소·예약<\/a>/);
+  assert.match(homepage, /class="site-home-link is-active" href="\/">홈<\/a>/);
+  assert.match(homepage, /<summary class="nav-summary">여행지<\/summary>/);
+  assert.match(homepage, /<summary class="nav-summary">축제·행사<\/summary>/);
+  assert.match(homepage, /<summary class="nav-summary">숙소·예약<\/summary>/);
+  assert.match(homepage, /href="\/travel\/#tag-water"/);
+  assert.match(homepage, /href="\/festival\/#ongoing"/);
+  assert.match(homepage, /href="\/stay\/#accommodation-cards"/);
+  assert.match(homepage, /data-site-menu-toggle/);
   assert.doesNotMatch(homepage, /<a[^>]+href="#(?:water|weekend|festival|indoor|family|booking|myrealtrip-deals)"/);
   assert.doesNotMatch(homepage, /data-filter="(?:water|weekend|festival|indoor|family|booking)"/);
 
@@ -129,16 +133,18 @@ test("homepage categories use real URLs and travel keeps old topics as tags", as
   assert.equal(beachSlugs.filter((slug) => travelPage.includes(`/${slug}/`)).length, 6);
 });
 
-test("homepage uses one editorial masthead and a five-story lead package", async () => {
+test("homepage uses dropdown navigation and a five-story lead package", async () => {
   const homepage = await readFile("index.html", "utf8");
-  assert.equal((homepage.match(/class="masthead-row"/g) || []).length, 1);
-  assert.equal((homepage.match(/class="nav-scroll"/g) || []).length, 1);
-  assert.match(homepage, /<h1 class="brand-heading"><a class="brand" href="\/">트립뷰<\/a><\/h1>/);
-  assert.equal((homepage.match(/class="hero-main magazine-card"/g) || []).length, 1);
-  assert.equal((homepage.match(/class="hero-rail-card magazine-card"/g) || []).length, 4);
-  assert.equal((homepage.match(/<section class="news-section editorial-hero"/g) || []).length, 1);
-  assert.doesNotMatch(homepage, /class="category-top"/);
-  assert.doesNotMatch(homepage, /class="news-list category-list"/);
+  assert.equal((homepage.match(/class="site-header"/g) || []).length, 1);
+  assert.ok((homepage.match(/class="nav-dropdown"/g) || []).length >= 3);
+  assert.equal((homepage.match(/class="story-card home-hero-main"/g) || []).length, 1);
+  assert.equal((homepage.match(/class="story-card home-hero-small"/g) || []).length, 4);
+  assert.equal((homepage.match(/<section class="home-hero"/g) || []).length, 1);
+  assert.equal((homepage.match(/<section class="site-section"/g) || []).length, 5);
+  for (const id of ["regions", "latest", "season", "festival", "stay"]) {
+    assert.match(homepage, new RegExp(`<section class="site-section" id="${id}"`));
+  }
+  assert.doesNotMatch(homepage, /class="masthead-row"|class="nav-scroll"|post-card-transition/);
 });
 
 test("beach article pages do not include the removed API information widget", async () => {
@@ -154,24 +160,24 @@ test("homepage is aligned to August and avoids expired seasonal or Coupang revie
     readFile("index.html", "utf8"),
     readFile("festival/index.html", "utf8"),
   ]);
-  assert.match(homepage, /8월 가볼만한 곳/);
+  assert.match(homepage, /8월 시즌 추천/);
   assert.doesNotMatch(homepage, />7~8월/);
   assert.doesNotMatch(homepage, />7월 (?:가볼만한 곳|축제\/행사)</);
   assert.doesNotMatch(homepage, /coupang-travel-items|coupang-partners-widget|assets\/coupang\.js/);
   assert.match(homepage, /<link rel="canonical" href="https:\/\/tripview\.kr\/">/);
-  assert.equal((homepage.match(/<section class="news-section/g) || []).length, 1);
-  assert.doesNotMatch(homepage, /id="(?:weekend|water|festival|indoor|family|booking|myrealtrip-deals)"/);
+  assert.equal((homepage.match(/<section class="site-section/g) || []).length, 5);
+  assert.doesNotMatch(homepage, /id="(?:weekend|water|indoor|family|booking|myrealtrip-deals)"/);
 
-  const festivalSection = festivalPage.match(/<section[^>]*id="featured"[\s\S]*?<\/section>/)?.[0];
-  assert.ok(festivalSection, "August festival section should exist");
-  const festivalCards = (festivalSection.match(/class="[^"]*\bstory-card\b[^"]*"/g) || []).length;
-  assert.ok(festivalCards >= 6 && festivalCards <= 10);
-  for (const slug of ["festival-3351451", "festival-1939183", "festival-4096371"]) {
-    assert.match(festivalSection, new RegExp(`/${slug}/`));
-  }
-  assert.ok(festivalSection.indexOf("/festival-4096371/") < festivalSection.indexOf("/festival-3351451/"));
-  assert.match(festivalSection, /종료 · 서울/);
-  assert.doesNotMatch(festivalSection, /festival-4088257/);
+  const ongoingSection = festivalPage.match(/<section[^>]*id="ongoing"[\s\S]*?<\/section>/)?.[0];
+  const upcomingSection = festivalPage.match(/<section[^>]*id="upcoming"[\s\S]*?<\/section>/)?.[0];
+  const pastSection = festivalPage.match(/<section[^>]*id="past"[\s\S]*?<\/section>/)?.[0];
+  assert.ok(ongoingSection || upcomingSection, "current or upcoming festival section should exist");
+  assert.ok(pastSection, "ended festival section should exist");
+  assert.match(festivalPage, /진행 중인 축제/);
+  assert.match(festivalPage, /예정 축제/);
+  assert.match(festivalPage, /지난 축제/);
+  assert.match(pastSection, /종료 ·/);
+  assert.ok(festivalPage.indexOf('id="past"') > festivalPage.indexOf('id="upcoming"'));
 });
 
 test("accommodation cards use cached MyRealTrip stay links and stay out of pending articles", async () => {
