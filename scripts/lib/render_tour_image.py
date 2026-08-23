@@ -126,16 +126,17 @@ def main():
     quality = int(payload.get("quality", 84))
     image = ImageOps.exif_transpose(Image.open(source))
 
-    if kind == "cover":
+    if kind in {"cover", "hub-banner"}:
         width = int(payload.get("width", 1200))
         height = int(payload.get("height", 675))
         image = crop_cover(image, width, height)
-        image = draw_cover_overlay(
-            image,
-            str(payload.get("region", "")),
-            str(payload.get("topic", "")),
-            str(payload.get("title", "")),
-        )
+        if kind == "hub-banner":
+            image = draw_cover_overlay(
+                image,
+                str(payload.get("region", "")),
+                str(payload.get("topic", "")),
+                str(payload.get("title", "")),
+            )
     else:
         image = resize_inside(image, int(payload.get("width", 1000)))
 

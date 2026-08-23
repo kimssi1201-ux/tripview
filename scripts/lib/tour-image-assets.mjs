@@ -3,7 +3,7 @@ import { join } from "node:path";
 
 export const PROCESSED_TOUR_IMAGES_PATH = "data/processed-tour-images.json";
 export const TOUR_IMAGE_SOURCE_LABEL = "한국관광공사 공공누리";
-export const TOUR_IMAGE_COVER_CAPTION = `출처: ${TOUR_IMAGE_SOURCE_LABEL} · 트립뷰 편집 썸네일`;
+export const TOUR_IMAGE_BANNER_CAPTION = `출처: ${TOUR_IMAGE_SOURCE_LABEL} · 트립뷰 편집 배너`;
 export const TOUR_IMAGE_CAPTION = `출처: ${TOUR_IMAGE_SOURCE_LABEL} · 트립뷰 편집 이미지`;
 
 export async function readTourImageManifest(root, fallback = { items: {} }) {
@@ -34,7 +34,7 @@ export function tourImageEntry(manifest, post) {
 export function tourImageAssetsForPost(manifest, post) {
   const entry = tourImageEntry(manifest, post);
   if (!entry) return [];
-  return [entry.cover, ...(Array.isArray(entry.images) ? entry.images : [])].filter((asset) => asset?.src);
+  return [entry.cover, entry.banner, ...(Array.isArray(entry.images) ? entry.images : [])].filter((asset) => asset?.src);
 }
 
 export function tourImageAssetForSource(manifest, post, source = "") {
@@ -48,6 +48,10 @@ export function postImageWithProcessed(manifest, post) {
   return cover || [post?.image, ...(Array.isArray(post?.images) ? post.images : [])].find(Boolean) || "";
 }
 
+export function tourImageBannerAssetForPost(manifest, post) {
+  return tourImageEntry(manifest, post)?.banner || null;
+}
+
 export function postImagesWithProcessed(manifest, post) {
   const originals = [post?.image, ...(Array.isArray(post?.images) ? post.images : [])].filter(Boolean);
   const mapped = originals.map((source) => tourImageAssetForSource(manifest, post, source)?.src || source);
@@ -59,5 +63,5 @@ export function tourImageAlt(asset, post) {
 }
 
 export function tourImageCaption(asset) {
-  return asset?.caption || (asset?.kind === "cover" ? TOUR_IMAGE_COVER_CAPTION : TOUR_IMAGE_CAPTION);
+  return asset?.caption || (asset?.kind === "hub-banner" ? TOUR_IMAGE_BANNER_CAPTION : TOUR_IMAGE_CAPTION);
 }

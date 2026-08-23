@@ -776,9 +776,8 @@ function homeDateLabel(post = {}) {
 
 function homeStoryCard(post, className = "") {
   const image = imageOf(post);
-  const thumb = image
-    ? `<span class="story-thumb"><img src="${esc(image)}" alt="${esc(titleOf(post))}" loading="lazy"></span>`
-    : `<span class="story-thumb"></span>`;
+  if (!image) return "";
+  const thumb = `<span class="story-thumb"><img src="${esc(image)}" alt="${esc(titleOf(post))}" loading="lazy"></span>`;
   return `<a class="story-card${className ? ` ${esc(className)}` : ""}" href="${esc(hrefOf(post))}">
     ${thumb}
     <span class="story-card-body">
@@ -791,7 +790,7 @@ function homeStoryCard(post, className = "") {
 }
 
 function homeHeroSection(posts = []) {
-  const items = uniquePosts(posts).slice(0, 5);
+  const items = uniquePosts(posts).filter((post) => imageOf(post)).slice(0, 5);
   if (items.length < 5) return "";
   return `<section class="home-hero" aria-label="대표 글">
     <div class="home-hero-grid">
@@ -815,11 +814,9 @@ function homeRegionGroups(posts = []) {
 }
 
 function homeRegionCard(group) {
-  const lead = group.posts[0];
+  const lead = group.posts.find((post) => imageOf(post)) || group.posts[0];
   const image = imageOf(lead);
-  const thumb = image
-    ? `<span class="story-thumb"><img src="${esc(image)}" alt="${esc(group.label)} 여행 허브 대표 글" loading="lazy"></span>`
-    : `<span class="story-thumb"></span>`;
+  const thumb = image ? `<span class="story-thumb"><img src="${esc(image)}" alt="${esc(group.label)} 여행 허브 대표 글" loading="lazy"></span>` : "";
   return `<a class="story-card region-card" href="/region/${esc(group.slug)}/">
     ${thumb}
     <span class="story-card-body">
@@ -836,9 +833,8 @@ function homeAffiliateCard(product = {}) {
   const url = normalize(product.url || product.productUrl || "");
   if (!title || !url) return "";
   const imageUrl = affiliateProductImage(product);
-  const thumb = imageUrl
-    ? `<span class="story-thumb"><img src="${esc(imageUrl)}" alt="${esc(title)} 예약 상품 이미지" loading="lazy"></span>`
-    : `<span class="story-thumb"></span>`;
+  if (!imageUrl) return "";
+  const thumb = `<span class="story-thumb"><img src="${esc(imageUrl)}" alt="${esc(title)} 예약 상품 이미지" loading="lazy"></span>`;
   const meta = [product.region || product.city, product.category || product.type, product.priceText || product.price].filter(Boolean).join(" · ");
   return `<a class="story-card home-affiliate-card" href="${esc(url)}" rel="sponsored nofollow" target="_blank">
     ${thumb}

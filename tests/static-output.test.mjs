@@ -171,13 +171,15 @@ test("homepage is aligned to August and avoids expired seasonal or Coupang revie
   const ongoingSection = festivalPage.match(/<section[^>]*id="ongoing"[\s\S]*?<\/section>/)?.[0];
   const upcomingSection = festivalPage.match(/<section[^>]*id="upcoming"[\s\S]*?<\/section>/)?.[0];
   const pastSection = festivalPage.match(/<section[^>]*id="past"[\s\S]*?<\/section>/)?.[0];
-  assert.ok(ongoingSection || upcomingSection, "current or upcoming festival section should exist");
   assert.ok(pastSection, "ended festival section should exist");
-  assert.match(festivalPage, /진행 중인 축제/);
-  assert.match(festivalPage, /예정 축제/);
+  for (const section of [ongoingSection, upcomingSection, pastSection].filter(Boolean)) {
+    assert.ok((section.match(/<a class="story-card/g) || []).length >= 3, "visible festival sections should have at least 3 image cards");
+  }
+  if (ongoingSection) assert.match(festivalPage, /진행 중인 축제/);
+  if (upcomingSection) assert.match(festivalPage, /예정 축제/);
   assert.match(festivalPage, /지난 축제/);
   assert.match(pastSection, /종료 ·/);
-  assert.ok(festivalPage.indexOf('id="past"') > festivalPage.indexOf('id="upcoming"'));
+  if (upcomingSection) assert.ok(festivalPage.indexOf('id="past"') > festivalPage.indexOf('id="upcoming"'));
 });
 
 test("accommodation cards use cached MyRealTrip stay links and stay out of pending articles", async () => {
@@ -271,20 +273,30 @@ test("Korea Tourism images render through processed WebP assets", async () => {
   assert.equal(Object.keys(manifest.items || {}).length, 52);
   assert.ok(files.filter((file) => file.endsWith(".webp")).length >= 52);
   assert.equal(manifest.items["travel-2774026"].cover.src, "/assets/processed/hoengseong-lake-trail-parking.webp");
-  assert.equal(manifest.items["travel-2774026"].cover.caption, "출처: 한국관광공사 공공누리 · 트립뷰 편집 썸네일");
+  assert.equal(manifest.items["travel-2774026"].cover.caption, "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지");
+  assert.equal(manifest.items["travel-2774026"].cover.overlay, null);
+  assert.equal(manifest.items["travel-2774026"].banner.kind, "hub-banner");
+  assert.match(manifest.items["travel-2774026"].banner.src, /-banner\.webp$/);
+  assert.ok(manifest.items["travel-2774026"].banner.overlay);
   assert.match(manifestText, /\/assets\/processed\/samcheok-hwanseongul-parking\.webp/);
 
   assert.match(article, /src="\/assets\/processed\/busan-gwangalli-beach-parking\.webp"/);
-  assert.match(article, /alt="부산 광안리해수욕장 주차·동선 정보를 한눈에 볼 수 있게 편집한 트립뷰 썸네일"/);
+  assert.match(article, /alt="부산 광안리해수욕장 방문 동선을 참고할 수 있는 트립뷰 편집 이미지"/);
   assert.match(article, /loading="lazy"/);
-  assert.match(article, /출처: 한국관광공사 공공누리 · 트립뷰 편집 썸네일/);
+  assert.match(article, /출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지/);
   assert.match(article, /"image":\["https:\/\/tripview\.kr\/assets\/processed\/busan-gwangalli-beach-parking\.webp"\]/);
   assert.doesNotMatch(article, /tong\.visitkorea\.or\.kr/);
   assert.doesNotMatch(article, /이미지 1|대표 이미지/);
 
   assert.match(homepage, /\/assets\/processed\/[a-z0-9-]+\.webp/);
+  assert.doesNotMatch(homepage, /-banner\.webp/);
   assert.doesNotMatch(homepage, /tong\.visitkorea\.or\.kr/);
+  assert.doesNotMatch(homepage, /<span class="story-thumb"><\/span>/);
+  assert.doesNotMatch(homepage, /story-thumb no-image/);
   assert.match(busanHub, /\/assets\/processed\/busan-gwangalli-beach-parking\.webp/);
+  assert.match(busanHub, /class="hub-banner has-image"/);
+  assert.match(busanHub, /\/assets\/processed\/busan-[a-z0-9-]+-banner\.webp/);
+  assert.match(busanHub, /출처: 한국관광공사 공공누리 · 트립뷰 편집 배너/);
   assert.doesNotMatch(busanHub, /tong\.visitkorea\.or\.kr/);
   assert.match(topicFilter, /processed-tour-images\.json/);
   assert.match(topicFilter, /processedImage\(post\)/);

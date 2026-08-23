@@ -12,6 +12,7 @@ import {
   readTourImageManifest,
   tourImageAlt,
   tourImageAssetForSource,
+  tourImageBannerAssetForPost,
   tourImageCaption,
   tourImageEntry,
 } from "./lib/tour-image-assets.mjs";
@@ -808,6 +809,11 @@ function hubPageStyle() {
   return `${SITE_CSS}
 .hub-page{padding-top:32px}
 .hub-banner{display:grid;gap:10px;margin-bottom:24px;padding:24px;border:1px solid var(--line);border-radius:8px;background:var(--soft-teal)}
+.hub-banner.has-image{grid-template-columns:minmax(0,1fr) minmax(280px,.42fr);align-items:center;gap:20px}
+.hub-banner-copy{display:grid;gap:10px;min-width:0}
+.hub-banner-image{margin:0;overflow:hidden;border-radius:8px;background:var(--card)}
+.hub-banner-image img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.hub-banner-image figcaption{padding:8px 10px;color:var(--muted);font-size:11px;line-height:1.45}
 .hub-banner h1{margin:0;font-size:28px;line-height:1.35;font-weight:900}
 .hub-banner p{max-width:720px;margin:0;color:var(--muted);line-height:1.7}
 .kicker{display:block;color:var(--brand);font-size:12px;font-weight:900}
@@ -840,14 +846,13 @@ function hubPageStyle() {
 .subregion-card strong{display:block;font-size:17px;line-height:1.35}
 .subregion-card span{display:block;margin-top:6px;color:var(--muted);font-size:13px}
 .empty-slot{margin:0;padding:16px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--muted)}
-@media(max-width:900px){.hub-page{padding-top:24px}.hub-banner{padding:18px}.hub-banner h1{font-size:25px}.block{padding:32px 0}.block-head{display:block}.block-note{margin-top:4px}.story-list,.subregion-grid,.mrt-accommodation-grid{grid-template-columns:1fr}.mrt-accommodation-card{grid-template-columns:90px minmax(0,1fr)}}`;
+@media(max-width:900px){.hub-page{padding-top:24px}.hub-banner,.hub-banner.has-image{grid-template-columns:1fr;padding:18px}.hub-banner h1{font-size:25px}.block{padding:32px 0}.block-head{display:block}.block-note{margin-top:4px}.story-list,.subregion-grid,.mrt-accommodation-grid{grid-template-columns:1fr}.mrt-accommodation-card{grid-template-columns:90px minmax(0,1fr)}}`;
 }
 
 function storyCard(post) {
   const image = postImage(post);
-  const thumb = image
-    ? `<span class="story-thumb"><img src="${html(image)}" alt="${html(postTitle(post))}" loading="lazy"></span>`
-    : `<span class="story-thumb"></span>`;
+  if (!image) return "";
+  const thumb = `<span class="story-thumb"><img src="${html(image)}" alt="${html(postTitle(post))}" loading="lazy"></span>`;
   const meta = [formatDate(postDate(post)), `${Math.max(2, Math.ceil((postSummary(post, 220).length + postTitle(post).length) / 120))}분 읽기`].filter(Boolean).join(" · ");
   return `<a class="story-card" href="/${encodeURIComponent(post.slug)}/">
     ${thumb}
@@ -884,14 +889,11 @@ function selectedHubProducts({ sectionId, posts, limit = 4, accommodationOnly = 
 }
 
 function staySlot({ title, posts, products = [], region = "", limit = 6 }) {
-  let items = products.length
+  const items = products.length
     ? products
     : region
       ? selectAccommodationItems({ posts, region, limit })
       : selectMultiRegionAccommodations(posts, limit);
-  if (region && !items.length) {
-    items = selectMultiRegionAccommodations(indexablePosts, Math.min(6, limit));
-  }
   const cards = items.map(accommodationCard).filter(Boolean);
   if (!cards.length) return "";
   return `<section class="block stay-slot" id="accommodation-cards" aria-labelledby="accommodation-cards-title">
@@ -906,19 +908,23 @@ function staySlot({ title, posts, products = [], region = "", limit = 6 }) {
 
 function sectionBlock({ id, title, posts, note = "" }) {
   const items = sortedPosts(posts).slice(0, 9);
-  if (!items.length) return "";
+  const cards = items.map(storyCard).filter(Boolean);
+  if (cards.length < 3) return "";
   return `<section class="block" id="${html(id)}" aria-labelledby="${html(id)}-title">
     <div class="block-head">
       <div><span class="kicker">TAG</span><h2 id="${html(id)}-title">${html(title)}</h2></div>
       ${note ? `<p class="block-note">${html(note)}</p>` : ""}
     </div>
-    <div class="story-grid">${items.map(storyCard).join("")}</div>
+    <div class="story-grid">${cards.join("")}</div>
   </section>`;
 }
 
-function pageShell({ path, title, description, kicker = "TRIPVIEW", tags = [], countLabel = "", body }) {
+function pageShell({ path, title, description, kicker = "TRIPVIEW", tags = [], countLabel = "", bannerAsset = null, body }) {
   const canonical = canonicalUrl(path);
   const regionLinks = regionGroups().map((group) => ({ href: `/region/${group.slug}/`, label: group.label }));
+  const bannerFigure = bannerAsset?.src
+    ? `<figure class="hub-banner-image"><img src="${html(bannerAsset.src)}" alt="${html(tourImageAlt(bannerAsset))}" loading="lazy"><figcaption>${html(tourImageCaption(bannerAsset))}</figcaption></figure>`
+    : "";
   return `<!doctype html>
 <html lang="ko">
   <head>
@@ -934,12 +940,15 @@ function pageShell({ path, title, description, kicker = "TRIPVIEW", tags = [], c
   <body>
     ${siteHeader(path)}
     <main class="site-page hub-page">
-      <section class="hub-banner">
-        <span class="kicker">${html(kicker)}</span>
-        <h1>${html(title)}</h1>
-        <p>${html(description)}</p>
-        ${countLabel ? `<span class="banner-count">${html(countLabel)}</span>` : ""}
-        ${tags.length ? `<div class="tag-row">${tags.map((tag) => tag.href ? `<a href="${html(tag.href)}">${html(tag.label)}</a>` : `<span>${html(tag.label)}</span>`).join("")}</div>` : ""}
+      <section class="hub-banner${bannerFigure ? " has-image" : ""}">
+        <div class="hub-banner-copy">
+          <span class="kicker">${html(kicker)}</span>
+          <h1>${html(title)}</h1>
+          <p>${html(description)}</p>
+          ${countLabel ? `<span class="banner-count">${html(countLabel)}</span>` : ""}
+          ${tags.length ? `<div class="tag-row">${tags.map((tag) => tag.href ? `<a href="${html(tag.href)}">${html(tag.label)}</a>` : `<span>${html(tag.label)}</span>`).join("")}</div>` : ""}
+        </div>
+        ${bannerFigure}
       </section>
       ${body}
     </main>
@@ -954,13 +963,17 @@ function pageShell({ path, title, description, kicker = "TRIPVIEW", tags = [], c
 
 function categoryPageHtml({ path, title, description, posts, tags = [], sections = [], products = [] }) {
   const rows = sortedPosts(posts).slice(0, 48);
+  const rowCards = rows.map(storyCard).filter(Boolean);
+  const allPostsSection = rowCards.length >= 3
+    ? `<section class="block" id="all-posts" aria-labelledby="all-posts-title">
+      <div class="block-head"><div><span class="kicker">ALL</span><h2 id="all-posts-title">${html(title)} 글 목록</h2></div><p class="block-note">최신 검수 글 기준</p></div>
+      <div class="story-list">${rowCards.join("")}</div>
+    </section>`
+    : "";
   const body = [
     ...sections.map(sectionBlock),
     staySlot({ title: title === "숙소·예약" ? "숙소 카드" : "숙소 카드 자리", posts, products }),
-    `<section class="block" id="all-posts" aria-labelledby="all-posts-title">
-      <div class="block-head"><div><span class="kicker">ALL</span><h2 id="all-posts-title">${html(title)} 글 목록</h2></div><p class="block-note">최신 검수 글 기준</p></div>
-      <div class="story-list">${rows.map(storyCard).join("")}</div>
-    </section>`,
+    allPostsSection,
   ].join("");
   return pageShell({ path, title, description, kicker: "CATEGORY", tags, countLabel: rows.length >= 20 ? `총 ${rows.length.toLocaleString("ko-KR")}개 글` : "", body });
 }
@@ -1003,13 +1016,25 @@ function subregionBlock(posts = []) {
   </section>`;
 }
 
+function regionBannerAsset(group) {
+  for (const post of group.posts) {
+    const asset = tourImageBannerAssetForPost(processedTourImages, post);
+    if (asset?.src) return asset;
+  }
+  return null;
+}
+
 function regionHubHtml(group) {
   const description = `${group.label} 지역의 여행지와 축제 글을 최신순으로 모았습니다. 지역 소개와 함께 관련 글, 추천 숙소 카드를 한 번에 확인하세요.`;
   const products = selectAccommodationItems({ posts: group.posts, region: group.label, preset: "default", limit: 6 });
+  const postCards = group.posts.map(storyCard).filter(Boolean);
+  const postSection = postCards.length >= 3
+    ? `<section class="block" id="region-posts" aria-labelledby="region-posts-title"><div class="block-head"><div><span class="kicker">POSTS</span><h2 id="region-posts-title">${html(group.label)} 글 목록</h2></div><p class="block-note">같은 광역 지역 기준</p></div><div class="story-list">${postCards.join("")}</div></section>`
+    : "";
   const body = [
     `<section class="block" id="region-intro" aria-labelledby="region-intro-title"><div class="block-head"><div><span class="kicker">REGION</span><h2 id="region-intro-title">${html(group.label)} 여행 소개</h2></div><p class="block-note">${html(group.posts.length)}개 글</p></div><p>${html(group.label)} 여행은 계절 행사, 실내 명소, 자연 여행지를 함께 보면 동선 선택이 쉬워집니다. 아래 목록에서 방문 목적에 맞는 글을 먼저 확인하고, 숙소 카드는 일정이 정해진 뒤 비교용으로 활용하세요.</p></section>`,
     staySlot({ title: `${group.label} 추천 숙소`, posts: group.posts, region: group.label, products, limit: 6 }),
-    `<section class="block" id="region-posts" aria-labelledby="region-posts-title"><div class="block-head"><div><span class="kicker">POSTS</span><h2 id="region-posts-title">${html(group.label)} 글 목록</h2></div><p class="block-note">같은 광역 지역 기준</p></div><div class="story-list">${group.posts.map(storyCard).join("")}</div></section>`,
+    postSection,
     subregionBlock(group.posts),
   ].join("");
   return pageShell({
@@ -1023,17 +1048,16 @@ function regionHubHtml(group) {
       { label: "숙소·예약", href: "/stay/" },
     ],
     countLabel: `${group.posts.length.toLocaleString("ko-KR")}개 글`,
+    bannerAsset: regionBannerAsset(group),
     body,
   });
 }
 
 function regionIndexHtml(groups = regionGroups()) {
   const cards = groups.map((group) => {
-    const lead = group.posts[0];
+    const lead = group.posts.find((post) => postImage(post)) || group.posts[0];
     const image = postImage(lead);
-    const thumb = image
-      ? `<span class="story-thumb"><img src="${html(image)}" alt="${html(group.label)} 여행 허브 대표 글" loading="lazy"></span>`
-      : `<span class="story-thumb"></span>`;
+    const thumb = image ? `<span class="story-thumb"><img src="${html(image)}" alt="${html(group.label)} 여행 허브 대표 글" loading="lazy"></span>` : "";
     return `<a class="story-card" href="/region/${html(group.slug)}/">
       ${thumb}
       <span class="story-card-body">

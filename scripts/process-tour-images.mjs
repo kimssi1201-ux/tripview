@@ -9,10 +9,10 @@ import { isIndexablePost } from "./lib/content-quality.mjs";
 import {
   PROCESSED_TOUR_IMAGES_PATH,
   TOUR_IMAGE_CAPTION,
-  TOUR_IMAGE_COVER_CAPTION,
+  TOUR_IMAGE_BANNER_CAPTION,
   isTourApiImage,
   readTourImageManifest,
-  tourImageAssetForSource,
+  tourImageAssetsForPost,
 } from "./lib/tour-image-assets.mjs";
 
 const execFileAsync = promisify(execFile);
@@ -291,7 +291,7 @@ function imageAlt(post, kind) {
   const region = compactRegion(post?.region);
   const place = cleanPlaceName(post);
   const topic = topicForPost(post).label;
-  if (kind === "cover") return `${region} ${place} ${topic} 정보를 한눈에 볼 수 있게 편집한 트립뷰 썸네일`;
+  if (kind === "hub-banner") return `${region} ${place} ${topic} 정보를 담은 트립뷰 지역 허브 배너`;
   return `${region} ${place} 방문 동선을 참고할 수 있는 트립뷰 편집 이미지`;
 }
 
@@ -337,18 +337,24 @@ async function findPython() {
 
 async function downloadSource(source) {
   const target = cachePathForSource(source);
-  if (!FORCE && await exists(target)) return target;
+  const hasCachedSource = await exists(target);
+  if (!FORCE && hasCachedSource) return target;
   await mkdir(CACHE_DIR, { recursive: true });
-  const response = await fetch(source, {
-    headers: {
-      "user-agent": "Tripview image processor (+https://tripview.kr)",
-      accept: "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
-    },
-  });
-  if (!response.ok) throw new Error(`download failed ${response.status}`);
-  const buffer = Buffer.from(await response.arrayBuffer());
-  if (!buffer.length) throw new Error("downloaded image is empty");
-  await writeFile(target, buffer);
+  try {
+    const response = await fetch(source, {
+      headers: {
+        "user-agent": "Tripview image processor (+https://tripview.kr)",
+        accept: "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
+      },
+    });
+    if (!response.ok) throw new Error(`download failed ${response.status}`);
+    const buffer = Buffer.from(await response.arrayBuffer());
+    if (!buffer.length) throw new Error("downloaded image is empty");
+    await writeFile(target, buffer);
+  } catch (error) {
+    if (hasCachedSource) return target;
+    throw error;
+  }
   return target;
 }
 
@@ -363,19 +369,22 @@ async function renderImage(python, payload) {
 }
 
 async function processAsset({ python, post, source, kind, outputName, previous }) {
-  const prior = tourImageAssetForSource(previous, post, source);
+  const prior = tourImageAssetsForPost(previous, post)
+    .find((asset) => asset.kind === kind && (asset.original === source || asset.src === `/assets/processed/${outputName}`));
   const publicPath = `/assets/processed/${outputName}`;
   const output = join(ASSET_DIR, outputName);
   const topic = topicForPost(post);
+  const isBanner = kind === "hub-banner";
+  const isCoverLike = kind === "cover" || isBanner;
   const asset = {
     kind,
     original: source,
     src: publicPath,
     alt: imageAlt(post, kind),
-    caption: kind === "cover" ? TOUR_IMAGE_COVER_CAPTION : TOUR_IMAGE_CAPTION,
-    width: kind === "cover" ? 1200 : 1000,
-    height: kind === "cover" ? 675 : null,
-    overlay: kind === "cover" ? { region: compactRegion(post?.region), topic: topic.label } : null,
+    caption: isBanner ? TOUR_IMAGE_BANNER_CAPTION : TOUR_IMAGE_CAPTION,
+    width: isCoverLike ? 1200 : 1000,
+    height: isCoverLike ? 675 : null,
+    overlay: isBanner ? { region: compactRegion(post?.region), topic: topic.label } : null,
   };
 
   if (!FORCE && await exists(output)) return { ...asset, bytes: null };
@@ -389,7 +398,7 @@ async function processAsset({ python, post, source, kind, outputName, previous }
       kind,
       width: asset.width,
       height: asset.height,
-      quality: kind === "cover" ? 84 : 82,
+      quality: isCoverLike ? 84 : 82,
       region: compactRegion(post?.region),
       topic: topic.label,
       title: post?.title || post?.sourceTitle || "",
@@ -442,6 +451,14 @@ async function main() {
       skipped += 1;
       continue;
     }
+    const banner = await processAsset({
+      python,
+      post,
+      source: coverSource,
+      kind: "hub-banner",
+      outputName: `${base}-banner.webp`,
+      previous,
+    });
     const images = [];
     let detailIndex = 1;
     for (const source of sources) {
@@ -463,6 +480,7 @@ async function main() {
       region: compactRegion(post.region),
       source: "한국관광공사 공공누리",
       cover,
+      banner,
       images,
     };
     processed += 1;
