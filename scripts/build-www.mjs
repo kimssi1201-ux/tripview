@@ -28,11 +28,12 @@ const I18N_SCRIPT = "";
 const TOPIC_FILTER_SCRIPT = '<script src="/assets/topic-filter.js?v=topic-filter-20260712-no-hero" defer></script>';
 const LANGUAGE_SWITCH_CSS = "";
 const FLIGHT_BOOKING_URL = "https://flights.myrealtrip.com/";
-const ARTICLE_NAVIGATION = '<nav class="links" aria-label="주요 메뉴"><a href="/">홈</a><a href="/travel/">여행지</a><a href="/festival/">축제</a><a href="/stay/">숙소·예약</a></nav>';
+const ARTICLE_NAVIGATION = '<nav class="links" aria-label="주요 메뉴"><a href="/">홈</a><a href="/travel/">여행지</a><a href="/festival/">축제</a><a href="/stay/">숙소</a><a href="/ticket/">입장권·투어</a></nav>';
 const CATEGORY_PAGES = [
   { path: "/travel/", title: "여행지", description: "물놀이·계곡, 실내여행, 아이와, 이번 주말 글을 태그로 묶어 국내 여행지를 탐색합니다." },
   { path: "/festival/", title: "축제", description: "전국 축제와 행사를 지역, 일정, 방문 전 확인 포인트 중심으로 모았습니다." },
-  { path: "/stay/", title: "숙소·예약", description: "여행지별 숙소와 투어·티켓 예약 카드를 한곳에서 확인합니다." },
+  { path: "/stay/", title: "숙소", description: "지역별 숙소 카드, 숙소 가격 비교, 숙소 상세 리뷰를 한곳에서 확인합니다." },
+  { path: "/ticket/", title: "입장권·투어", description: "지역별 입장권 가격 모음과 여행지별 체험·투어 상품을 분리해 확인합니다." },
 ];
 const REGION_SLUGS = new Map([
   ["서울", "seoul"],
@@ -136,6 +137,7 @@ const files = [
   "travel",
   "festival",
   "stay",
+  "ticket",
   "region"
 ];
 
@@ -628,7 +630,9 @@ function ensureRobotsMeta(document, indexable) {
 
 function articleActivePath(post = {}) {
   if (isFestivalPost(post)) return "/festival/";
-  if (isLodgingPost(post) || /숙소|호텔|예약|입장권|투어/.test(searchablePostText(post))) return "/stay/";
+  const text = searchablePostText(post);
+  if (post?.dataPipeline?.kind === "ticket-price" || /입장권|티켓|관람권|이용권|액티비티/.test(text)) return "/ticket/";
+  if (isLodgingPost(post) || /숙소|호텔|예약/.test(text)) return "/stay/";
   return "/travel/";
 }
 
@@ -648,11 +652,18 @@ function removeLegacyArticleHeaderScript(document) {
 
 function alignArticleNavigation(document, post = {}) {
   const header = siteHeader(articleActivePath(post));
-  let next = String(document).replace(
+  const withoutExistingSiteHeader = String(document).replace(/\s*<header class=["']site-header["'][\s\S]*?<\/header>/gi, "");
+  let next = withoutExistingSiteHeader.replace(
     /<header class=["']top["']>[\s\S]*?<\/header>/i,
     header,
   );
-  if (next === document) {
+  if (next === withoutExistingSiteHeader) {
+    next = next.replace(
+      /<nav class=["']links["'] aria-label=["']주요 메뉴["'][\s\S]*?<\/nav>/i,
+      ARTICLE_NAVIGATION,
+    );
+  }
+  if (next === withoutExistingSiteHeader) {
     next = next.replace(/<body>/i, `<body>\n    ${header}`);
   }
   return removeLegacyArticleHeaderScript(ensurePretendardLink(next));
@@ -800,7 +811,8 @@ function primaryNavigation(activePath = "") {
     ["/", "홈"],
     ["/travel/", "여행지"],
     ["/festival/", "축제"],
-    ["/stay/", "숙소·예약"],
+    ["/stay/", "숙소"],
+    ["/ticket/", "입장권·투어"],
   ];
   return `<nav class="links" aria-label="주요 메뉴">${items.map(([href, label]) => `<a${href === activePath ? ' class="is-active"' : ""} href="${href}">${label}</a>`).join("")}</nav>`;
 }
@@ -840,13 +852,22 @@ function hubPageStyle() {
 .mrt-accommodation-price del{color:var(--muted);font-size:12px}
 .mrt-accommodation-price strong{font-size:16px;color:var(--ink)}
 .mrt-accommodation-price small{flex-basis:100%;color:var(--muted);font-size:11px}
+.mrt-ticket-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.mrt-ticket-card{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;align-items:center;min-width:0;padding:12px;border:1px solid var(--line);border-left:3px solid var(--cta);border-radius:8px;background:var(--card);transition:border-color 150ms ease}
+.mrt-ticket-card:hover,.mrt-ticket-card:focus-visible{border-color:var(--brand);border-left-color:var(--cta)}
+.mrt-ticket-thumb{display:block;aspect-ratio:4/3;overflow:hidden;background:var(--line)}
+.mrt-ticket-thumb img{width:100%;height:100%;object-fit:cover}
+.mrt-ticket-body{display:grid;gap:4px;min-width:0}
+.mrt-ticket-body strong{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:15px;line-height:1.35;font-weight:800}
+.mrt-ticket-body em{color:var(--muted);font-size:12px;font-style:normal}
+.mrt-ticket-price{color:var(--ink);font-size:16px;font-weight:900}
 .subregion-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .subregion-card{display:block;border:1px solid var(--line);border-radius:8px;background:var(--card);padding:16px;transition:border-color 150ms ease}
 .subregion-card:hover,.subregion-card:focus-visible{border-color:var(--brand)}
 .subregion-card strong{display:block;font-size:17px;line-height:1.35}
 .subregion-card span{display:block;margin-top:6px;color:var(--muted);font-size:13px}
 .empty-slot{margin:0;padding:16px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--muted)}
-@media(max-width:900px){.hub-page{padding-top:24px}.hub-banner,.hub-banner.has-image{grid-template-columns:1fr;padding:18px}.hub-banner h1{font-size:25px}.block{padding:32px 0}.block-head{display:block}.block-note{margin-top:4px}.story-list,.subregion-grid,.mrt-accommodation-grid{grid-template-columns:1fr}.mrt-accommodation-card{grid-template-columns:90px minmax(0,1fr)}}`;
+@media(max-width:900px){.hub-page{padding-top:24px}.hub-banner,.hub-banner.has-image{grid-template-columns:1fr;padding:18px}.hub-banner h1{font-size:25px}.block{padding:32px 0}.block-head{display:block}.block-note{margin-top:4px}.story-list,.subregion-grid,.mrt-accommodation-grid,.mrt-ticket-grid{grid-template-columns:1fr}.mrt-accommodation-card,.mrt-ticket-card{grid-template-columns:90px minmax(0,1fr)}}`;
 }
 
 function storyCard(post) {
@@ -906,6 +927,38 @@ function staySlot({ title, posts, products = [], region = "", limit = 6 }) {
   </section>`;
 }
 
+function ticketProductCard(product = {}) {
+  const title = html(product?.title || product?.name || "");
+  const url = normalizeText(product?.url || product?.productUrl || "");
+  const imageUrl = affiliateProductImage(product);
+  if (!title || !url || !imageUrl) return "";
+  const meta = [product?.region || product?.city, product?.category || product?.type]
+    .filter(Boolean)
+    .join(" · ");
+  const price = product?.priceText || product?.price || product?.salePrice || "";
+  return `<a class="mrt-ticket-card" data-mrt-ticket-card href="${html(url)}" rel="sponsored nofollow" target="_blank">
+    <span class="mrt-ticket-thumb"><img src="${html(imageUrl)}" alt="${title}" loading="lazy"></span>
+    <span class="mrt-ticket-body">
+      <em>${html(meta || "입장권·투어")}</em>
+      <strong>${title}</strong>
+      ${price ? `<span class="mrt-ticket-price">${html(String(price))}</span>` : ""}
+    </span>
+  </a>`;
+}
+
+function ticketSlot({ title = "입장권·투어 카드", products = [], limit = 9 }) {
+  const cards = products.slice(0, limit).map(ticketProductCard).filter(Boolean);
+  if (cards.length < 3) return "";
+  return `<section class="block stay-slot" id="ticket-cards" aria-labelledby="ticket-cards-title">
+    <div class="block-head">
+      <div><span class="kicker">TICKET</span><h2 id="ticket-cards-title">${html(title)}</h2></div>
+      <p class="block-note">마이리얼트립 TNA 캐시 기준</p>
+    </div>
+    <p class="affiliate-note">입장권·투어 링크는 제휴 링크일 수 있으며, 가격과 이용 조건은 예약 화면에서 다시 확인해야 합니다.</p>
+    <div class="mrt-ticket-grid">${cards.join("")}</div>
+  </section>`;
+}
+
 function sectionBlock({ id, title, posts, note = "" }) {
   const items = sortedPosts(posts).slice(0, 9);
   const cards = items.map(storyCard).filter(Boolean);
@@ -961,7 +1014,7 @@ function pageShell({ path, title, description, kicker = "TRIPVIEW", tags = [], c
 </html>`;
 }
 
-function categoryPageHtml({ path, title, description, posts, tags = [], sections = [], products = [] }) {
+function categoryPageHtml({ path, title, description, posts, tags = [], sections = [], products = [], affiliateSlot = "stay" }) {
   const rows = sortedPosts(posts).slice(0, 48);
   const rowCards = rows.map(storyCard).filter(Boolean);
   const allPostsSection = rowCards.length >= 3
@@ -970,9 +1023,12 @@ function categoryPageHtml({ path, title, description, posts, tags = [], sections
       <div class="story-list">${rowCards.join("")}</div>
     </section>`
     : "";
+  const affiliateSection = affiliateSlot === "ticket"
+    ? ticketSlot({ title: "입장권·투어 카드", products, limit: 9 })
+    : staySlot({ title: title === "숙소" ? "숙소 카드" : "숙소 카드 자리", posts, products });
   const body = [
     ...sections.map(sectionBlock),
-    staySlot({ title: title === "숙소·예약" ? "숙소 카드" : "숙소 카드 자리", posts, products }),
+    affiliateSection,
     allPostsSection,
   ].join("");
   return pageShell({ path, title, description, kicker: "CATEGORY", tags, countLabel: rows.length >= 20 ? `총 ${rows.length.toLocaleString("ko-KR")}개 글` : "", body });
@@ -1045,7 +1101,8 @@ function regionHubHtml(group) {
     tags: [
       { label: "여행지", href: "/travel/" },
       { label: "축제", href: "/festival/" },
-      { label: "숙소·예약", href: "/stay/" },
+      { label: "숙소", href: "/stay/" },
+      { label: "입장권·투어", href: "/ticket/" },
     ],
     countLabel: `${group.posts.length.toLocaleString("ko-KR")}개 글`,
     bannerAsset: regionBannerAsset(group),
@@ -1077,7 +1134,8 @@ function regionIndexHtml(groups = regionGroups()) {
     tags: [
       { label: "여행지", href: "/travel/" },
       { label: "축제·행사", href: "/festival/" },
-      { label: "숙소·예약", href: "/stay/" },
+      { label: "숙소", href: "/stay/" },
+      { label: "입장권·투어", href: "/ticket/" },
     ],
     body: `<section class="block" id="region-list" aria-labelledby="region-list-title">
       <div class="block-head"><div><span class="kicker">HUBS</span><h2 id="region-list-title">지역 허브 목록</h2></div><p class="block-note">검수 글이 있는 지역만 표시</p></div>
@@ -1094,7 +1152,7 @@ async function writePage(pathname, document) {
 }
 
 async function generateHubPages() {
-  for (const dirName of ["travel", "festival", "stay", "region"]) {
+  for (const dirName of ["travel", "festival", "stay", "ticket", "region"]) {
     await rm(join(root, dirName), { recursive: true, force: true });
   }
 
@@ -1104,6 +1162,8 @@ async function generateHubPages() {
   const indoorKeywords = ["실내", "박물관", "미술관", "전시", "문화", "센터", "아트", "공연장"];
   const familyKeywords = ["아이", "가족", "어린이", "체험", "공원", "생태", "자연학습"];
   const stayPosts = sortedPosts(indexablePosts.filter((post) => ["32", "38", "39"].includes(contentTypeOf(post)) || hasKeyword(post, ["숙소", "호텔", "예약", "투어", "입장권"])));
+  const ticketKeywords = ["입장권", "티켓", "투어", "체험", "액티비티", "이용권", "관람권", "패스"];
+  const ticketPosts = sortedPosts(indexablePosts.filter((post) => post?.dataPipeline?.kind === "ticket-price" || hasKeyword(post, ticketKeywords)));
 
   await writePage("/travel/", categoryPageHtml({
     path: "/travel/",
@@ -1145,16 +1205,37 @@ async function generateHubPages() {
 
   await writePage("/stay/", categoryPageHtml({
     path: "/stay/",
-    title: "숙소·예약",
+    title: "숙소",
     description: CATEGORY_PAGES[2].description,
     posts: stayPosts.length ? stayPosts : indexablePosts,
     tags: [
       { label: "숙소 카드", href: "#accommodation-cards" },
+      { label: "숙소 가격 비교", href: "/data-stay-price-seoul/" },
+      { label: "입장권·투어", href: "/ticket/" },
       { label: "여행지", href: "/travel/" },
       { label: "축제", href: "/festival/" },
     ],
     sections: [],
     products: selectMultiRegionAccommodations(indexablePosts, 12),
+  }));
+
+  await writePage("/ticket/", categoryPageHtml({
+    path: "/ticket/",
+    title: "입장권·투어",
+    description: CATEGORY_PAGES[3].description,
+    posts: ticketPosts.length ? ticketPosts : travelPosts,
+    tags: [
+      { label: "지역별 입장권", href: "#regional-tickets" },
+      { label: "인기 체험", href: "#popular-experiences" },
+      { label: "숙소", href: "/stay/" },
+      { label: "여행지", href: "/travel/" },
+    ],
+    sections: [
+      { id: "regional-tickets", title: "지역별 입장권", posts: ticketPosts.filter((post) => post?.dataPipeline?.kind === "ticket-price" || hasKeyword(post, ["입장권", "티켓", "이용권", "관람권", "패스"])), note: "가격 데이터와 입장권 관련 글 기준" },
+      { id: "popular-experiences", title: "인기 체험", posts: ticketPosts.filter((post) => hasKeyword(post, ["체험", "투어", "액티비티", "수상레저", "요트"])), note: "체험·투어 키워드가 있는 글 기준" },
+    ],
+    products: tnaProducts,
+    affiliateSlot: "ticket",
   }));
 
   for (const group of regionGroups()) {

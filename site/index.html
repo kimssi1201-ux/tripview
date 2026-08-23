@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
     <title>트립뷰 - 여행 뉴스 피드</title>
     <style>
-:root{--brand:#0F5C5C;--brand-hover:#147A7A;--bg:#FAFAF8;--card:#FFFFFF;--ink:#1A1A1A;--muted:#6B6B6B;--line:#E5E5E0;--cta:#E8A33D;--cta-hover:#D18F2A;--soft-teal:color-mix(in srgb,var(--brand) 9%,var(--card));--site-wrap:min(1180px,calc(100% - 32px))}
+:root{--brand:#0F5C5C;--brand-hover:#147A7A;--bg:#FAFAF8;--card:#FFFFFF;--ink:#1A1A1A;--muted:#6B6B6B;--line:#E5E5E0;--cta:#E8A33D;--cta-hover:#D18F2A;--soft-teal:color-mix(in srgb,var(--brand) 9%,var(--card));--soft-cta:color-mix(in srgb,var(--cta) 16%,var(--card));--site-wrap:min(1180px,calc(100% - 32px))}
 *{box-sizing:border-box}
 html{scroll-padding-top:96px}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;font-size:16px;line-height:1.7;letter-spacing:0}
@@ -33,6 +33,7 @@ button,input,select{font:inherit}
 .site-nav-main{display:flex;align-items:center;gap:8px}
 .site-home-link,.nav-summary{display:inline-flex;align-items:center;min-height:36px;padding:0 12px;border:0;border-radius:999px;background:transparent;color:var(--muted);font-size:14px;font-weight:800;cursor:pointer;transition:color 150ms ease,background-color 150ms ease}
 .site-home-link.is-active,.nav-group.is-active>.nav-summary{background:var(--soft-teal);color:var(--brand)}
+.nav-group.is-affiliate.is-active>.nav-summary{background:var(--soft-cta);color:var(--ink)}
 .nav-group{position:relative}
 .nav-group>summary{list-style:none}
 .nav-group>summary::-webkit-details-marker{display:none}
@@ -42,9 +43,11 @@ button,input,select{font:inherit}
 .nav-dropdown a{display:grid;grid-template-columns:32px minmax(0,1fr);gap:10px;padding:10px;border-radius:8px;transition:background-color 150ms ease}
 .nav-dropdown a:hover,.nav-dropdown a:focus-visible{background:var(--soft-teal)}
 .nav-item-icon{display:inline-grid;place-items:center;width:32px;height:32px;border:1px solid var(--line);border-radius:8px;color:var(--brand);font-size:12px;font-weight:900}
+.nav-group.is-affiliate .nav-item-icon{color:var(--cta)}
 .nav-item-text{display:grid;gap:2px}
 .nav-item-label{color:var(--ink);font-size:14px;font-weight:800;line-height:1.35}
 .nav-item-desc{color:var(--muted);font-size:12px;line-height:1.45}
+.nav-item-count{color:var(--muted);font-size:11px;font-weight:800;line-height:1.35}
 .site-search-link{display:grid;place-items:center;min-width:44px;min-height:44px;border:1px solid transparent;border-radius:999px;color:var(--ink);font-size:23px;line-height:1;transition:background-color 150ms ease,border-color 150ms ease}
 .site-search-link:hover,.site-search-link:focus-visible{border-color:var(--line);background:var(--card)}
 .site-page{width:var(--site-wrap);margin:0 auto;padding:48px 0 64px}
@@ -105,10 +108,15 @@ button,input,select{font:inherit}
       <div class="nav-dropdown">
         <a href="/festival/#ongoing"><span class="nav-item-icon" aria-hidden="true">진</span><span class="nav-item-text"><span class="nav-item-label">진행 중</span><span class="nav-item-desc">오늘 기준 진행 중인 축제입니다.</span></span></a><a href="/festival/#upcoming"><span class="nav-item-icon" aria-hidden="true">예</span><span class="nav-item-text"><span class="nav-item-label">예정</span><span class="nav-item-desc">방문 계획을 잡기 좋은 예정 축제입니다.</span></span></a><a href="/festival/#past"><span class="nav-item-icon" aria-hidden="true">종</span><span class="nav-item-text"><span class="nav-item-label">지난 축제</span><span class="nav-item-desc">종료된 축제는 목록 하단에 둡니다.</span></span></a>
       </div>
-    </details><details class="nav-group">
-      <summary class="nav-summary">숙소·예약</summary>
+    </details><details class="nav-group is-affiliate">
+      <summary class="nav-summary">숙소</summary>
       <div class="nav-dropdown">
-        <a href="/stay/#accommodation-cards"><span class="nav-item-icon" aria-hidden="true">숙</span><span class="nav-item-text"><span class="nav-item-label">지역별 숙소</span><span class="nav-item-desc">지역 기준 숙소 카드를 확인합니다.</span></span></a><a href="/stay/#tickets"><span class="nav-item-icon" aria-hidden="true">권</span><span class="nav-item-text"><span class="nav-item-label">입장권·투어</span><span class="nav-item-desc">여행지별 입장권과 투어를 연결합니다.</span></span></a>
+        <a href="/stay/#accommodation-cards"><span class="nav-item-icon" aria-hidden="true">숙</span><span class="nav-item-text"><span class="nav-item-label">지역별 숙소</span><span class="nav-item-desc">지역 기준 숙소 카드를 확인합니다.</span></span></a><a href="/data-stay-price-seoul/"><span class="nav-item-icon" aria-hidden="true">가</span><span class="nav-item-text"><span class="nav-item-label">숙소 가격 비교</span><span class="nav-item-desc">API 캐시 가격표를 데이터 글로 봅니다.</span></span></a><a href="/stay/#all-posts"><span class="nav-item-icon" aria-hidden="true">리</span><span class="nav-item-text"><span class="nav-item-label">숙소 상세 리뷰</span><span class="nav-item-desc">검수된 숙소·예약 관련 글을 모았습니다.</span></span></a>
+      </div>
+    </details><details class="nav-group is-affiliate">
+      <summary class="nav-summary">입장권·투어</summary>
+      <div class="nav-dropdown">
+        <a href="/ticket/#regional-tickets"><span class="nav-item-icon" aria-hidden="true">권</span><span class="nav-item-text"><span class="nav-item-label">지역별 입장권</span><span class="nav-item-desc">지역별 티켓·이용권 가격 글을 확인합니다.</span></span></a><a href="/ticket/#popular-experiences"><span class="nav-item-icon" aria-hidden="true">체</span><span class="nav-item-text"><span class="nav-item-label">인기 체험</span><span class="nav-item-desc">여행지별 체험과 투어 상품을 연결합니다.</span></span></a>
       </div>
     </details>
         </div>
@@ -449,7 +457,8 @@ button,input,select{font:inherit}
         <b>카테고리</b>
         <a href="/travel/">여행지</a>
         <a href="/festival/">축제·행사</a>
-        <a href="/stay/">숙소·예약</a>
+        <a href="/stay/">숙소</a>
+        <a href="/ticket/">입장권·투어</a>
       </div>
       <div class="footer-col">
         <b>지역 허브</b>

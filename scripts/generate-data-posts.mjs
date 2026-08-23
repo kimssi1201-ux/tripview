@@ -642,7 +642,7 @@ function basePost({ kind, region, title, description, excerpt, image, alt, info,
     title,
     sourceTitle: title,
     description,
-    category: kind === "festival-schedule" ? "데이터·축제" : "숙소·예약",
+    category: kind === "festival-schedule" ? "데이터·축제" : kind === "ticket-price" ? "입장권·투어" : "숙소",
     region,
     date: formatKoreanDate(STAY.today),
     sortDate: STAY.today,
@@ -904,7 +904,7 @@ function renderDataArticle(candidate) {
     </style>
   </head>
   <body>
-    <header class="top"><div class="wrap nav"><a class="brand" href="/">트립뷰</a><nav class="links" aria-label="주요 메뉴"><a href="/">홈</a><a href="/travel/">여행지</a><a href="/festival/">축제</a><a href="/stay/">숙소·예약</a></nav></div></header>
+    <header class="top"><div class="wrap nav"><a class="brand" href="/">트립뷰</a><nav class="links" aria-label="주요 메뉴"><a href="/">홈</a><a href="/travel/">여행지</a><a href="/festival/">축제</a><a href="/stay/">숙소</a><a href="/ticket/">입장권·투어</a></nav></div></header>
     <main>
       <section class="wrap hero">
         <h1>${esc(post.title)}</h1>

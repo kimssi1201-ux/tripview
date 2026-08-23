@@ -33,18 +33,31 @@ const NAV_GROUPS = [
   {
     id: "stay",
     href: "/stay/",
-    label: "숙소·예약",
+    label: "숙소",
+    affiliate: true,
     items: [
       { href: "/stay/#accommodation-cards", icon: "숙", label: "지역별 숙소", description: "지역 기준 숙소 카드를 확인합니다." },
-      { href: "/stay/#tickets", icon: "권", label: "입장권·투어", description: "여행지별 입장권과 투어를 연결합니다." },
+      { href: "/data-stay-price-seoul/", icon: "가", label: "숙소 가격 비교", description: "API 캐시 가격표를 데이터 글로 봅니다." },
+      { href: "/stay/#all-posts", icon: "리", label: "숙소 상세 리뷰", description: "검수된 숙소·예약 관련 글을 모았습니다." },
+    ],
+  },
+  {
+    id: "ticket",
+    href: "/ticket/",
+    label: "입장권·투어",
+    affiliate: true,
+    items: [
+      { href: "/ticket/#regional-tickets", icon: "권", label: "지역별 입장권", description: "지역별 티켓·이용권 가격 글을 확인합니다." },
+      { href: "/ticket/#popular-experiences", icon: "체", label: "인기 체험", description: "여행지별 체험과 투어 상품을 연결합니다." },
     ],
   },
 ];
 
 function activeGroup(activePath = "/") {
   const path = String(activePath || "/");
+  if (path.startsWith("/ticket") || path.startsWith("/data-ticket")) return "ticket";
   if (path.startsWith("/festival") || path.includes("festival-")) return "festival";
-  if (path.startsWith("/stay")) return "stay";
+  if (path.startsWith("/stay") || path.startsWith("/data-stay")) return "stay";
   if (path.startsWith("/travel") || path.startsWith("/region") || path.includes("travel-")) return "travel";
   return path === "/" ? "home" : "";
 }
@@ -60,7 +73,7 @@ function esc(value = "") {
 }
 
 export const SITE_CSS = `
-:root{--brand:#0F5C5C;--brand-hover:#147A7A;--bg:#FAFAF8;--card:#FFFFFF;--ink:#1A1A1A;--muted:#6B6B6B;--line:#E5E5E0;--cta:#E8A33D;--cta-hover:#D18F2A;--soft-teal:color-mix(in srgb,var(--brand) 9%,var(--card));--site-wrap:min(1180px,calc(100% - 32px))}
+:root{--brand:#0F5C5C;--brand-hover:#147A7A;--bg:#FAFAF8;--card:#FFFFFF;--ink:#1A1A1A;--muted:#6B6B6B;--line:#E5E5E0;--cta:#E8A33D;--cta-hover:#D18F2A;--soft-teal:color-mix(in srgb,var(--brand) 9%,var(--card));--soft-cta:color-mix(in srgb,var(--cta) 16%,var(--card));--site-wrap:min(1180px,calc(100% - 32px))}
 *{box-sizing:border-box}
 html{scroll-padding-top:96px}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;font-size:16px;line-height:1.7;letter-spacing:0}
@@ -76,6 +89,7 @@ button,input,select{font:inherit}
 .site-nav-main{display:flex;align-items:center;gap:8px}
 .site-home-link,.nav-summary{display:inline-flex;align-items:center;min-height:36px;padding:0 12px;border:0;border-radius:999px;background:transparent;color:var(--muted);font-size:14px;font-weight:800;cursor:pointer;transition:color 150ms ease,background-color 150ms ease}
 .site-home-link.is-active,.nav-group.is-active>.nav-summary{background:var(--soft-teal);color:var(--brand)}
+.nav-group.is-affiliate.is-active>.nav-summary{background:var(--soft-cta);color:var(--ink)}
 .nav-group{position:relative}
 .nav-group>summary{list-style:none}
 .nav-group>summary::-webkit-details-marker{display:none}
@@ -85,9 +99,11 @@ button,input,select{font:inherit}
 .nav-dropdown a{display:grid;grid-template-columns:32px minmax(0,1fr);gap:10px;padding:10px;border-radius:8px;transition:background-color 150ms ease}
 .nav-dropdown a:hover,.nav-dropdown a:focus-visible{background:var(--soft-teal)}
 .nav-item-icon{display:inline-grid;place-items:center;width:32px;height:32px;border:1px solid var(--line);border-radius:8px;color:var(--brand);font-size:12px;font-weight:900}
+.nav-group.is-affiliate .nav-item-icon{color:var(--cta)}
 .nav-item-text{display:grid;gap:2px}
 .nav-item-label{color:var(--ink);font-size:14px;font-weight:800;line-height:1.35}
 .nav-item-desc{color:var(--muted);font-size:12px;line-height:1.45}
+.nav-item-count{color:var(--muted);font-size:11px;font-weight:800;line-height:1.35}
 .site-search-link{display:grid;place-items:center;min-width:44px;min-height:44px;border:1px solid transparent;border-radius:999px;color:var(--ink);font-size:23px;line-height:1;transition:background-color 150ms ease,border-color 150ms ease}
 .site-search-link:hover,.site-search-link:focus-visible{border-color:var(--line);background:var(--card)}
 .site-page{width:var(--site-wrap);margin:0 auto;padding:48px 0 64px}
@@ -120,10 +136,10 @@ button,input,select{font:inherit}
 
 export function siteHeader(activePath = "/") {
   const active = activeGroup(activePath);
-  const groups = NAV_GROUPS.map((group) => `<details class="nav-group${active === group.id ? " is-active" : ""}">
+  const groups = NAV_GROUPS.map((group) => `<details class="nav-group${group.affiliate ? " is-affiliate" : ""}${active === group.id ? " is-active" : ""}">
       <summary class="nav-summary">${esc(group.label)}</summary>
       <div class="nav-dropdown">
-        ${group.items.map((item) => `<a href="${esc(item.href)}"><span class="nav-item-icon" aria-hidden="true">${esc(item.icon)}</span><span class="nav-item-text"><span class="nav-item-label">${esc(item.label)}</span><span class="nav-item-desc">${esc(item.description)}</span></span></a>`).join("")}
+        ${group.items.map((item) => `<a href="${esc(item.href)}"><span class="nav-item-icon" aria-hidden="true">${esc(item.icon)}</span><span class="nav-item-text"><span class="nav-item-label">${esc(item.label)}</span><span class="nav-item-desc">${esc(item.description)}</span>${Number(item.count) >= 20 ? `<span class="nav-item-count">${Number(item.count).toLocaleString("ko-KR")}개</span>` : ""}</span></a>`).join("")}
       </div>
     </details>`).join("");
   return `<header class="site-header" data-site-header>
@@ -153,7 +169,8 @@ export function siteFooter({ regionLinks = DEFAULT_REGION_LINKS } = {}) {
         <b>카테고리</b>
         <a href="/travel/">여행지</a>
         <a href="/festival/">축제·행사</a>
-        <a href="/stay/">숙소·예약</a>
+        <a href="/stay/">숙소</a>
+        <a href="/ticket/">입장권·투어</a>
       </div>
       <div class="footer-col">
         <b>지역 허브</b>

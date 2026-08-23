@@ -12,7 +12,7 @@ function assetRequest(context, pathname) {
 }
 
 function articleAssetPath(parts) {
-  if (parts.length === 1 && ["travel", "festival", "stay"].includes(parts[0])) {
+  if (parts.length === 1 && ["travel", "festival", "stay", "ticket", "region"].includes(parts[0])) {
     return `/site/${parts[0]}/`;
   }
 
@@ -36,7 +36,7 @@ const GENERATED_BLOCKS = [
   ["<!-- COUPANG_AD_START", "COUPANG_AD_END -->"],
   ["<!-- COUPANG_WIDGET_START", "COUPANG_WIDGET_END -->"],
 ];
-const ARTICLE_NAVIGATION = '<nav class="links" aria-label="주요 메뉴"><a href="/">홈</a><a href="/travel/">여행지</a><a href="/festival/">축제</a><a href="/stay/">숙소·예약</a></nav>';
+const ARTICLE_NAVIGATION = '<nav class="links" aria-label="주요 메뉴"><a href="/">홈</a><a href="/travel/">여행지</a><a href="/festival/">축제</a><a href="/stay/">숙소</a><a href="/ticket/">입장권·투어</a></nav>';
 
 function escapeRegExp(value) {
   return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");

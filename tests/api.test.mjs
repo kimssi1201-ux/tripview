@@ -278,7 +278,7 @@ test("article response preserves contextual MyRealTrip blocks, removes paused Co
   assert.doesNotMatch(transformed, /7~8월/);
   assert.match(transformed, /href="\/travel\/">여행지</);
   assert.match(transformed, /href="\/festival\/">축제</);
-  assert.match(transformed, /href="\/stay\/">숙소·예약</);
+  assert.match(transformed, /href="\/stay\/">숙소</);
   assert.match(transformed, /주변 숙소·투어/);
   assert.match(transformed, /여행지 주변의 숙소와 이용 가능한 투어·티켓을 모았습니다/);
   assert.match(transformed, /서울 숙소/);

@@ -109,17 +109,20 @@ function expectedStayWindow(reference = new Date()) {
 }
 
 test("homepage categories use real URLs and travel keeps old topics as tags", async () => {
-  const [homepage, travelPage] = await Promise.all([
+  const [homepage, travelPage, ticketPage] = await Promise.all([
     readFile("index.html", "utf8"),
     readFile("travel/index.html", "utf8"),
+    readFile("ticket/index.html", "utf8"),
   ]);
   assert.match(homepage, /class="site-home-link is-active" href="\/">홈<\/a>/);
   assert.match(homepage, /<summary class="nav-summary">여행지<\/summary>/);
   assert.match(homepage, /<summary class="nav-summary">축제·행사<\/summary>/);
-  assert.match(homepage, /<summary class="nav-summary">숙소·예약<\/summary>/);
+  assert.match(homepage, /<summary class="nav-summary">숙소<\/summary>/);
+  assert.match(homepage, /<summary class="nav-summary">입장권·투어<\/summary>/);
   assert.match(homepage, /href="\/travel\/#tag-water"/);
   assert.match(homepage, /href="\/festival\/#ongoing"/);
   assert.match(homepage, /href="\/stay\/#accommodation-cards"/);
+  assert.match(homepage, /href="\/ticket\/#regional-tickets"/);
   assert.match(homepage, /data-site-menu-toggle/);
   assert.doesNotMatch(homepage, /<a[^>]+href="#(?:water|weekend|festival|indoor|family|booking|myrealtrip-deals)"/);
   assert.doesNotMatch(homepage, /data-filter="(?:water|weekend|festival|indoor|family|booking)"/);
@@ -131,12 +134,17 @@ test("homepage categories use real URLs and travel keeps old topics as tags", as
   assert.match(travelPage, /실내여행/);
   assert.match(travelPage, /아이와/);
   assert.equal(beachSlugs.filter((slug) => travelPage.includes(`/${slug}/`)).length, 6);
+
+  assert.match(ticketPage, /<link rel="canonical" href="https:\/\/tripview\.kr\/ticket\/">/);
+  assert.match(ticketPage, /입장권·투어/);
+  assert.match(ticketPage, /id="regional-tickets"|id="ticket-cards"/);
+  assert.match(ticketPage, /data-mrt-ticket-card/);
 });
 
 test("homepage uses dropdown navigation and a five-story lead package", async () => {
   const homepage = await readFile("index.html", "utf8");
   assert.equal((homepage.match(/class="site-header"/g) || []).length, 1);
-  assert.ok((homepage.match(/class="nav-dropdown"/g) || []).length >= 3);
+  assert.ok((homepage.match(/class="nav-dropdown"/g) || []).length >= 4);
   assert.equal((homepage.match(/class="story-card home-hero-main"/g) || []).length, 1);
   assert.equal((homepage.match(/class="story-card home-hero-small"/g) || []).length, 4);
   assert.equal((homepage.match(/<section class="home-hero"/g) || []).length, 1);
@@ -388,6 +396,17 @@ test("region hubs are generated and articles link to same-region content", async
   assert.ok((relatedBlock.match(/class="region-related-card"/g) || []).length <= 3);
 });
 
+test("generated article pages keep one current site header", async () => {
+  for (const fileName of ["travel-2774026/index.html", "festival-3351451/index.html", "data-ticket-price-busan/index.html"]) {
+    const document = await readFile(fileName, "utf8");
+    assert.equal((document.match(/class="site-header"/g) || []).length, 1);
+    assert.match(document, /<summary class="nav-summary">여행지<\/summary>/);
+    assert.match(document, /<summary class="nav-summary">숙소<\/summary>/);
+    assert.match(document, /<summary class="nav-summary">입장권·투어<\/summary>/);
+    assert.doesNotMatch(document, /<summary class="nav-summary">숙소·예약<\/summary>/);
+  }
+});
+
 test("sitemap includes only indexable articles and article robots match content quality", async () => {
   const [sitemap, postsText] = await Promise.all([
     readFile("sitemap.xml", "utf8"),
@@ -408,6 +427,7 @@ test("sitemap includes only indexable articles and article robots match content 
   assert.match(sitemap, /<loc>https:\/\/tripview\.kr\/travel\/<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/tripview\.kr\/festival\/<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/tripview\.kr\/stay\/<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/tripview\.kr\/ticket\/<\/loc>/);
   assert.deepEqual(regionUrls, regions);
   assert.match(sitemap, /<loc>https:\/\/tripview\.kr\/editorial-team<\/loc>/);
   assert.doesNotMatch(sitemap, /<loc>https:\/\/tripview\.kr\/flight-deals(?:\/|<)/);
