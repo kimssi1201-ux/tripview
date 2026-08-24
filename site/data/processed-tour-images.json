@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-23T17:15:16.860Z",
+  "generatedAt": "2026-08-24T06:14:14.926Z",
   "source": "한국관광공사 공공누리",
   "assetBasePath": "/assets/processed/",
   "items": {
@@ -16,7 +16,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -29,7 +30,8 @@
         "overlay": {
           "region": "서울",
           "topic": "축제 일정"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -46,7 +48,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -59,7 +62,8 @@
         "overlay": {
           "region": "경북",
           "topic": "주차·동선"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -76,7 +80,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -89,7 +94,8 @@
         "overlay": {
           "region": "서울",
           "topic": "주차·동선"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -106,7 +112,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -119,7 +126,8 @@
         "overlay": {
           "region": "전북",
           "topic": "실내 코스"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -136,7 +144,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -149,7 +158,8 @@
         "overlay": {
           "region": "전남",
           "topic": "주차·동선"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -166,7 +176,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -179,7 +190,8 @@
         "overlay": {
           "region": "경북",
           "topic": "주차·동선"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -196,7 +208,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -209,7 +222,8 @@
         "overlay": {
           "region": "전남",
           "topic": "아이와"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -226,7 +240,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -239,7 +254,8 @@
         "overlay": {
           "region": "경남",
           "topic": "주차·동선"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -256,7 +272,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -269,7 +286,8 @@
         "overlay": {
           "region": "강원",
           "topic": "주차·동선"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -286,7 +304,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -299,7 +318,8 @@
         "overlay": {
           "region": "강원",
           "topic": "주차·동선"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -316,7 +336,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -329,7 +350,8 @@
         "overlay": {
           "region": "전북",
           "topic": "주차·동선"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -346,7 +368,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -359,7 +382,8 @@
         "overlay": {
           "region": "전북",
           "topic": "실내 코스"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -376,7 +400,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -389,7 +414,8 @@
         "overlay": {
           "region": "부산",
           "topic": "주차·동선"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -406,7 +432,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -419,7 +446,8 @@
         "overlay": {
           "region": "전남",
           "topic": "아이와"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -436,7 +464,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -449,7 +478,8 @@
         "overlay": {
           "region": "전남",
           "topic": "실내 코스"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -466,7 +496,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -479,7 +510,8 @@
         "overlay": {
           "region": "제주",
           "topic": "아이와"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -496,7 +528,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -509,7 +542,8 @@
         "overlay": {
           "region": "제주",
           "topic": "주차·동선"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -526,7 +560,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -539,7 +574,8 @@
         "overlay": {
           "region": "경기",
           "topic": "아이와"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -556,7 +592,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -569,7 +606,8 @@
         "overlay": {
           "region": "충남",
           "topic": "주차·동선"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -586,7 +624,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -599,7 +638,8 @@
         "overlay": {
           "region": "세종",
           "topic": "아이와"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -616,7 +656,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -629,7 +670,8 @@
         "overlay": {
           "region": "경북",
           "topic": "주차·동선"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -646,7 +688,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -659,7 +702,8 @@
         "overlay": {
           "region": "강원",
           "topic": "주차·동선"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -676,7 +720,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -689,7 +734,8 @@
         "overlay": {
           "region": "강원",
           "topic": "주차·동선"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -706,7 +752,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -719,7 +766,8 @@
         "overlay": {
           "region": "부산",
           "topic": "주차·동선"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -736,7 +784,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -749,7 +798,8 @@
         "overlay": {
           "region": "전남",
           "topic": "주차·동선"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -766,7 +816,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -779,7 +830,8 @@
         "overlay": {
           "region": "강원",
           "topic": "주차·동선"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -796,7 +848,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -809,7 +862,8 @@
         "overlay": {
           "region": "강원",
           "topic": "주차·동선"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -826,7 +880,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -839,7 +894,8 @@
         "overlay": {
           "region": "서울",
           "topic": "아이와"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -856,7 +912,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -869,7 +926,8 @@
         "overlay": {
           "region": "충북",
           "topic": "주차·동선"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -886,7 +944,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -899,7 +958,8 @@
         "overlay": {
           "region": "강원",
           "topic": "예약 체크"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -916,7 +976,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -929,7 +990,8 @@
         "overlay": {
           "region": "세종",
           "topic": "실내 코스"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -946,7 +1008,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -959,7 +1022,8 @@
         "overlay": {
           "region": "울산",
           "topic": "아이와"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -976,7 +1040,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -989,7 +1054,8 @@
         "overlay": {
           "region": "전북",
           "topic": "주차·동선"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -1006,7 +1072,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -1019,7 +1086,8 @@
         "overlay": {
           "region": "전북",
           "topic": "아이와"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -1036,7 +1104,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -1049,7 +1118,8 @@
         "overlay": {
           "region": "경북",
           "topic": "주차·동선"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -1066,7 +1136,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -1079,7 +1150,8 @@
         "overlay": {
           "region": "충남",
           "topic": "주차·동선"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -1096,7 +1168,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -1109,7 +1182,8 @@
         "overlay": {
           "region": "경북",
           "topic": "아이와"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -1126,7 +1200,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -1139,7 +1214,8 @@
         "overlay": {
           "region": "강원",
           "topic": "축제 일정"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -1156,7 +1232,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -1169,7 +1246,8 @@
         "overlay": {
           "region": "전남",
           "topic": "실내 코스"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -1186,7 +1264,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -1199,7 +1278,8 @@
         "overlay": {
           "region": "충남",
           "topic": "주차·동선"
-        }
+        },
+        "bytes": null
       },
       "images": [
         {
@@ -1210,7 +1290,8 @@
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
           "height": null,
-          "overlay": null
+          "overlay": null,
+          "bytes": null
         }
       ]
     },
@@ -1227,7 +1308,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -1240,7 +1322,8 @@
         "overlay": {
           "region": "강원",
           "topic": "물놀이"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -1257,7 +1340,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -1270,7 +1354,8 @@
         "overlay": {
           "region": "강원",
           "topic": "물놀이"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -1287,7 +1372,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -1300,7 +1386,8 @@
         "overlay": {
           "region": "충북",
           "topic": "주차·동선"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -1317,7 +1404,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -1330,7 +1418,8 @@
         "overlay": {
           "region": "부산",
           "topic": "주차·동선"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -1347,7 +1436,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -1360,7 +1450,8 @@
         "overlay": {
           "region": "전남",
           "topic": "물놀이"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -1377,7 +1468,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -1390,7 +1482,8 @@
         "overlay": {
           "region": "경북",
           "topic": "아이와"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -1407,7 +1500,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -1420,7 +1514,8 @@
         "overlay": {
           "region": "강원",
           "topic": "아이와"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -1437,7 +1532,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -1450,7 +1546,8 @@
         "overlay": {
           "region": "충북",
           "topic": "아이와"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -1467,7 +1564,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -1480,7 +1578,8 @@
         "overlay": {
           "region": "경기",
           "topic": "축제 일정"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -1497,7 +1596,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -1510,7 +1610,8 @@
         "overlay": {
           "region": "경남",
           "topic": "주차·동선"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -1527,7 +1628,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -1540,7 +1642,8 @@
         "overlay": {
           "region": "강원",
           "topic": "주차·동선"
-        }
+        },
+        "bytes": null
       },
       "images": []
     },
@@ -1557,7 +1660,8 @@
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 675,
-        "overlay": null
+        "overlay": null,
+        "bytes": null
       },
       "banner": {
         "kind": "hub-banner",
@@ -1570,7 +1674,8 @@
         "overlay": {
           "region": "경북",
           "topic": "주차·동선"
-        }
+        },
+        "bytes": null
       },
       "images": []
     }

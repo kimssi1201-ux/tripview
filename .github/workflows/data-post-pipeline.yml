@@ -67,6 +67,7 @@ jobs:
       - name: Validate data posts
         run: npm run validate:data-posts
         env:
+          DATA_PIPELINE_VALIDATE_LIVE_URLS: "true"
           TRIPVIEW_API_KEY: ${{ secrets.TRIPVIEW_API_KEY }}
           MYREALTRIP_API_KEY: ${{ secrets.MYREALTRIP_API_KEY || secrets.PARTNER_API_KEY || secrets.MYREALTRIP_PARTNER_API_KEY }}
           PARTNER_API_KEY: ${{ secrets.PARTNER_API_KEY }}

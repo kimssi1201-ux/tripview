@@ -216,19 +216,6 @@ footer.site-footer{padding:0;color:var(--muted)}
         <aside class="aside"><strong>자동 생성 로그</strong><span>생성 유형: ticket-price</span><span>지역: 부산</span><span>갱신일: 2026년 8월 24일</span><span>검증: 자동 게이트 통과</span><span><a href="/region/busan/">부산 허브</a></span></aside>
       </section>
     </main>
-
-    <script>
-    (() => {
-      const header = document.querySelector("[data-site-header]");
-      const toggle = document.querySelector("[data-site-menu-toggle]");
-      if (!header || !toggle) return;
-      toggle.addEventListener("click", () => {
-        const open = !header.classList.contains("is-menu-open");
-        header.classList.toggle("is-menu-open", open);
-        toggle.setAttribute("aria-expanded", String(open));
-      });
-    })();
-  </script>
   <footer class="site-footer">
     <div class="site-footer-inner">
       <div class="footer-brand">
@@ -265,5 +252,18 @@ footer.site-footer{padding:0;color:var(--muted)}
       </div>
     </div>
   </footer>
+
+    <script>
+    (() => {
+      const header = document.querySelector("[data-site-header]");
+      const toggle = document.querySelector("[data-site-menu-toggle]");
+      if (!header || !toggle) return;
+      toggle.addEventListener("click", () => {
+        const open = !header.classList.contains("is-menu-open");
+        header.classList.toggle("is-menu-open", open);
+        toggle.setAttribute("aria-expanded", String(open));
+      });
+    })();
+  </script>
   </body>
 </html>

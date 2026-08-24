@@ -228,19 +228,6 @@ footer.site-footer{padding:0;color:var(--muted)}
 </aside>
 <!-- TRUST_NOTE_END --></article><aside class="aside"><strong>운영 메모</strong><span>지역: 강원특별자치도 강릉시</span><span>유형: 해변</span><span>운영: 상시 개방</span><span>문의: 033-660-3887</span><a href="../">목록으로 돌아가기</a></aside></section>
     </main><script src="/assets/topic-filter.js?v=post-click-20260704" defer></script>
-
-    <script>
-    (() => {
-      const header = document.querySelector("[data-site-header]");
-      const toggle = document.querySelector("[data-site-menu-toggle]");
-      if (!header || !toggle) return;
-      toggle.addEventListener("click", () => {
-        const open = !header.classList.contains("is-menu-open");
-        header.classList.toggle("is-menu-open", open);
-        toggle.setAttribute("aria-expanded", String(open));
-      });
-    })();
-  </script>
   <footer class="site-footer">
     <div class="site-footer-inner">
       <div class="footer-brand">
@@ -277,5 +264,18 @@ footer.site-footer{padding:0;color:var(--muted)}
       </div>
     </div>
   </footer>
+
+    <script>
+    (() => {
+      const header = document.querySelector("[data-site-header]");
+      const toggle = document.querySelector("[data-site-menu-toggle]");
+      if (!header || !toggle) return;
+      toggle.addEventListener("click", () => {
+        const open = !header.classList.contains("is-menu-open");
+        header.classList.toggle("is-menu-open", open);
+        toggle.setAttribute("aria-expanded", String(open));
+      });
+    })();
+  </script>
   </body>
 </html>

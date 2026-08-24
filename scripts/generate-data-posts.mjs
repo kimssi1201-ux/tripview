@@ -14,6 +14,9 @@ const MAX_DAILY_POSTS = 3;
 const MAX_DAILY_PER_TYPE = 1;
 const MAX_AFFILIATE_LINKS = 8;
 const MAX_AUTO_SHARE = 0.7;
+const DATA_PIPELINE_VERSION = "2026-08-24-data-gate-v2";
+const ALLOWED_DATA_TYPES = new Set(["stay-price", "festival-schedule", "ticket-price"]);
+const DATA_SLUG_PATTERN = /^data-(stay-price|festival-schedule|ticket-price)-[a-z0-9-]+$/;
 const MIN_ROWS = {
   "stay-price": 3,
   "festival-schedule": 3,
@@ -418,10 +421,22 @@ function secretValues() {
 
 async function validateCandidate(candidate, existingPosts, existingManifest) {
   const failures = [];
+  if (!ALLOWED_DATA_TYPES.has(candidate.type)) failures.push(`unsupported_data_type:${candidate.type || "missing"}`);
+  if (candidate.post?.dataPipeline?.kind !== candidate.type) failures.push("data_kind_mismatch");
+  if (!DATA_SLUG_PATTERN.test(candidate.post?.slug || "")) failures.push(`invalid_data_url:${candidate.post?.slug || "missing"}`);
   const body = plainPostBody(candidate.post);
   const html = renderDataArticle(candidate);
   const text = stripHtml(html);
-  const allowedNumbers = new Set([...candidate.allowedNumbers, ...sourceNumbersFromValues([body, candidate.post.date, candidate.post.sortDate])]);
+  const allowedNumbers = new Set([
+    ...candidate.allowedNumbers,
+    ...sourceNumbersFromValues([
+      candidate.post.date,
+      candidate.post.sortDate,
+      candidate.post.updatedAt,
+      candidate.post.dataPipeline?.updatedAt,
+      MAX_AFFILIATE_LINKS,
+    ]),
+  ]);
 
   for (const pattern of FORBIDDEN_PATTERNS) {
     if (pattern.test(text)) failures.push(`forbidden_expression:${pattern.source}`);
@@ -495,6 +510,42 @@ async function validateCandidate(candidate, existingPosts, existingManifest) {
 
   if (!isIndexablePost(candidate.post)) failures.push(`not_indexable:body_${postBodyLength(candidate.post)}`);
   return [...new Set(failures)];
+}
+
+function sortedNumbers(values = []) {
+  return [...new Set([...values].map((value) => String(value)).filter(Boolean))]
+    .sort((a, b) => Number(a) - Number(b) || a.localeCompare(b));
+}
+
+function candidateValidationMetadata(candidate, liveUrlValidation) {
+  const body = plainPostBody(candidate.post);
+  const affiliateRatio = candidate.affiliateTextLength / Math.max(1, body.length);
+  return {
+    version: DATA_PIPELINE_VERSION,
+    allowedTypes: [...ALLOWED_DATA_TYPES],
+    allowedNumbers: sortedNumbers([
+      ...candidate.allowedNumbers,
+      ...sourceNumbersFromValues([
+        candidate.post.date,
+        candidate.post.sortDate,
+        candidate.post.updatedAt,
+        candidate.post.dataPipeline?.updatedAt,
+        candidate.tableRows.length,
+        candidate.affiliateLinkCount,
+        MAX_DAILY_POSTS,
+        MAX_DAILY_PER_TYPE,
+        MAX_AFFILIATE_LINKS,
+        Math.round(MAX_AUTO_SHARE * 100),
+      ]),
+    ]),
+    sourcePostSlugs: [...new Set(candidate.sourcePostSlugs || [])],
+    rowCount: candidate.tableRows.length,
+    tableEmptyRatio: Number(tableEmptyRatio(candidate.tableRows).toFixed(3)),
+    affiliateLinkCount: candidate.affiliateLinkCount,
+    affiliateTextRatio: Number(affiliateRatio.toFixed(3)),
+    maxAffiliateLinks: MAX_AFFILIATE_LINKS,
+    liveUrlValidation,
+  };
 }
 
 function normalizeAccommodationProduct(item = {}, regionName = "") {
@@ -733,6 +784,7 @@ function buildStayCandidate(region, rows, cache) {
     affiliateTextLength: affiliateTextLength(rows),
     internalUrls: [],
     sourceOverviews: [],
+    sourcePostSlugs: [],
     allowedNumbers: new Set([
       ...allowedDateNumbers(STAY.today, STAY.checkIn, STAY.checkOut, cache.updatedDate),
       ...sourceNumbersFromValues([STAY.adultCount, STAY.childCount, STAY.nights, rows.length, stats.min, stats.max, stats.avg]),
@@ -794,6 +846,7 @@ function buildTicketCandidate(region, rows) {
     affiliateTextLength: affiliateTextLength(rows),
     internalUrls: [],
     sourceOverviews: [],
+    sourcePostSlugs: [],
     allowedNumbers: new Set([
       ...allowedDateNumbers(STAY.today),
       ...sourceNumbersFromValues([rows.length, stats.min, stats.max, stats.avg]),
@@ -860,6 +913,7 @@ function buildFestivalCandidate(region, rows) {
     affiliateTextLength: 0,
     internalUrls: rows.map((row) => `/${row.slug}/`),
     sourceOverviews: rows.map((row) => row.overview).filter(Boolean),
+    sourcePostSlugs: rows.map((row) => row.slug).filter(Boolean),
     allowedNumbers: new Set([
       ...allowedDateNumbers(STAY.today, ...rows.flatMap((row) => [row.startDate, row.endDate])),
       ...sourceNumbersFromValues([rows.length, ongoing, upcoming, ended]),
@@ -998,7 +1052,19 @@ function canPublishMore(existingPosts, plannedNewCount) {
 async function appendLog(run) {
   const existing = await readJson(LOG_PATH, { runs: [] });
   const runs = Array.isArray(existing?.runs) ? existing.runs : [];
-  runs.push(run);
+  const sameDate = runs.find((entry) => entry.runDate === run.runDate && !entry.stoppedReason);
+  if (sameDate && !run.stoppedReason) {
+    const generated = new Map((sameDate.generated || []).map((entry) => [`${entry.type}:${entry.slug}`, entry]));
+    for (const entry of run.generated || []) generated.set(`${entry.type}:${entry.slug}`, entry);
+    sameDate.runAt = run.runAt;
+    sameDate.generated = [...generated.values()];
+    sameDate.generatedCount = sameDate.generated.length;
+    sameDate.discarded = [...(sameDate.discarded || []), ...(run.discarded || [])];
+    sameDate.discardedCount = sameDate.discarded.length;
+    sameDate.rerunCount = Number(sameDate.rerunCount || 0) + 1;
+  } else {
+    runs.push(run);
+  }
   await writeJson(LOG_PATH, { runs: runs.slice(-180) });
 }
 
@@ -1046,6 +1112,10 @@ async function main() {
         discarded.push({ slug: candidate.post.slug, type: candidate.type, region: candidate.region, reasons });
         continue;
       }
+      candidate.post.dataPipeline.validation = candidateValidationMetadata(
+        candidate,
+        String(process.env.DATA_PIPELINE_VALIDATE_LIVE_URLS || "").toLowerCase() === "true",
+      );
       generated.push(candidate);
       dailyTypes.add(candidate.type);
       break;

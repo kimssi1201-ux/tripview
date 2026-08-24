@@ -544,22 +544,34 @@ test("sitemap includes only indexable articles and article robots match content 
 });
 
 test("data post pipeline outputs validated data pages", async () => {
-  const [postsText, sitemap, stay, festival, ticket, logText] = await Promise.all([
+  const [postsText, sitemap, stay, festival, ticket, logText, dataWorkflow, tourWorkflow] = await Promise.all([
     readFile("data/generated-posts.json", "utf8"),
     readFile("sitemap.xml", "utf8"),
     readFile("data-stay-price-seoul/index.html", "utf8"),
     readFile("data-festival-schedule-seoul/index.html", "utf8"),
     readFile("data-ticket-price-busan/index.html", "utf8"),
     readFile("data/data-post-pipeline-log.json", "utf8"),
+    readFile(".github/workflows/data-post-pipeline.yml", "utf8"),
+    readFile(".github/workflows/daily-tour-posts.yml", "utf8"),
   ]);
   const posts = JSON.parse(postsText);
   const dataPosts = posts.filter((post) => post?.dataPipeline?.generated);
+  const allowedKinds = new Set(["stay-price", "festival-schedule", "ticket-price"]);
   assert.equal(dataPosts.length, 3);
   assert.deepEqual(dataPosts.map((post) => post.slug).sort(), [
     "data-festival-schedule-seoul",
     "data-stay-price-seoul",
     "data-ticket-price-busan",
   ]);
+  assert.ok(dataPosts.every((post) => allowedKinds.has(post.dataPipeline.kind)));
+  assert.ok(dataPosts.every((post) => /^data-(stay-price|festival-schedule|ticket-price)-[a-z0-9-]+$/.test(post.slug)));
+  for (const post of dataPosts) {
+    assert.equal(post.dataPipeline.validation.version, "2026-08-24-data-gate-v2");
+    assert.ok(post.dataPipeline.validation.allowedNumbers.length > 0);
+    assert.ok(post.dataPipeline.validation.rowCount >= 2);
+    assert.ok(post.dataPipeline.validation.affiliateLinkCount <= 8);
+    assert.ok(post.dataPipeline.validation.affiliateTextRatio <= 0.3);
+  }
   assert.match(sitemap, /<loc>https:\/\/tripview\.kr\/data-stay-price-seoul\/<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/tripview\.kr\/data-festival-schedule-seoul\/<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/tripview\.kr\/data-ticket-price-busan\/<\/loc>/);
@@ -579,6 +591,19 @@ test("data post pipeline outputs validated data pages", async () => {
   assert.doesNotMatch(visibleText(`${stay}\n${festival}\n${ticket}`), /\[[^\]]+\]/);
   const log = JSON.parse(logText);
   assert.ok(log.runs.some((run) => run.generatedCount === 3 && run.generated.some((item) => item.slug === "data-stay-price-seoul")));
+  for (const run of log.runs) {
+    assert.ok(run.generatedCount <= 3);
+    const typeCounts = run.generated.reduce((counts, item) => {
+      counts[item.type] = (counts[item.type] || 0) + 1;
+      return counts;
+    }, {});
+    assert.ok(Object.values(typeCounts).every((count) => count <= 1));
+    assert.ok(Array.isArray(run.discarded));
+  }
+  assert.match(dataWorkflow, /cron: "20 18 \* \* \*"/);
+  assert.match(dataWorkflow, /npm run generate:data-posts/);
+  assert.match(dataWorkflow, /DATA_PIPELINE_VALIDATE_LIVE_URLS: "true"/);
+  assert.doesNotMatch(tourWorkflow, /\n\s*schedule:/);
 });
 
 test("editorial review manifest selects 51 unique, traceable articles", async () => {

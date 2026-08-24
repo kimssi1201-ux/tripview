@@ -226,19 +226,6 @@ footer.site-footer{padding:0;color:var(--muted)}
 </aside>
 <!-- TRUST_NOTE_END --></article><aside class="aside"><strong>운영 메모</strong><span>지역: 강원특별자치도 철원군</span><span>유형: 폭포</span><span>핵심 체크: 장소 성격에 맞춘 운영 확인, 안전, 주차, 귀가 동선</span><span>운영 여부, 주차, 현장 통제, 날씨 변수를 함께 확인하도록 본문을 보강했습니다.</span><a href="../">목록으로 돌아가기</a></aside></section>
     </main><script src="/assets/topic-filter.js?v=post-click-20260704" defer></script>
-
-    <script>
-    (() => {
-      const header = document.querySelector("[data-site-header]");
-      const toggle = document.querySelector("[data-site-menu-toggle]");
-      if (!header || !toggle) return;
-      toggle.addEventListener("click", () => {
-        const open = !header.classList.contains("is-menu-open");
-        header.classList.toggle("is-menu-open", open);
-        toggle.setAttribute("aria-expanded", String(open));
-      });
-    })();
-  </script>
   <footer class="site-footer">
     <div class="site-footer-inner">
       <div class="footer-brand">
@@ -275,5 +262,18 @@ footer.site-footer{padding:0;color:var(--muted)}
       </div>
     </div>
   </footer>
+
+    <script>
+    (() => {
+      const header = document.querySelector("[data-site-header]");
+      const toggle = document.querySelector("[data-site-menu-toggle]");
+      if (!header || !toggle) return;
+      toggle.addEventListener("click", () => {
+        const open = !header.classList.contains("is-menu-open");
+        header.classList.toggle("is-menu-open", open);
+        toggle.setAttribute("aria-expanded", String(open));
+      });
+    })();
+  </script>
   </body>
 </html>

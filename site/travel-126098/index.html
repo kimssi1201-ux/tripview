@@ -176,14 +176,6 @@ footer.site-footer{padding:0;color:var(--muted)}
         </div>
       </section>
 
-
-
-
-
-
-
-
-
       <!-- ARTICLE_DISCLOSURE_START -->
 <p class="article-affiliate-disclosure">이 글에는 예약·입장권 제휴 링크가 포함될 수 있습니다. 링크를 통해 예약 또는 구매가 발생하면 트립뷰가 일정 수수료를 받을 수 있습니다.</p>
 <!-- ARTICLE_DISCLOSURE_END -->
@@ -236,21 +228,6 @@ footer.site-footer{padding:0;color:var(--muted)}
 </aside>
 <!-- TRUST_NOTE_END --></article><aside class="aside"><strong>운영 메모</strong><span>지역: 부산광역시 기장군</span><span>유형: 해수욕장</span><span>핵심 체크: 장소 성격에 맞춘 운영 확인, 안전, 주차, 귀가 동선</span><span>운영 여부, 주차, 현장 통제, 날씨 변수를 함께 확인하도록 본문을 보강했습니다.</span><a href="../">목록으로 돌아가기</a></aside></section>
     </main><script src="/assets/topic-filter.js?v=post-click-20260704" defer></script>
-
-    <script src="/assets/homepage.js?v=booking-search-20260712-flight-links" defer></script>
-
-    <script>
-    (() => {
-      const header = document.querySelector("[data-site-header]");
-      const toggle = document.querySelector("[data-site-menu-toggle]");
-      if (!header || !toggle) return;
-      toggle.addEventListener("click", () => {
-        const open = !header.classList.contains("is-menu-open");
-        header.classList.toggle("is-menu-open", open);
-        toggle.setAttribute("aria-expanded", String(open));
-      });
-    })();
-  </script>
   <footer class="site-footer">
     <div class="site-footer-inner">
       <div class="footer-brand">
@@ -287,5 +264,20 @@ footer.site-footer{padding:0;color:var(--muted)}
       </div>
     </div>
   </footer>
+
+    <script>
+    (() => {
+      const header = document.querySelector("[data-site-header]");
+      const toggle = document.querySelector("[data-site-menu-toggle]");
+      if (!header || !toggle) return;
+      toggle.addEventListener("click", () => {
+        const open = !header.classList.contains("is-menu-open");
+        header.classList.toggle("is-menu-open", open);
+        toggle.setAttribute("aria-expanded", String(open));
+      });
+    })();
+  </script>
+
+    <script src="/assets/homepage.js?v=booking-search-20260712-flight-links" defer></script>
   </body>
 </html>
