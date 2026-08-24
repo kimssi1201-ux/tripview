@@ -223,19 +223,6 @@ footer.site-footer{padding:0;color:var(--muted)}
 </aside>
 <!-- TRUST_NOTE_END --></article><aside class="aside"><strong>운영 메모</strong><span>지역: 전라남도 해남군</span><span>유형: 해변</span><span>운영: 상시 개방</span><span>문의: 061-530-5917</span><a href="../">목록으로 돌아가기</a></aside></section>
     </main><script src="/assets/topic-filter.js?v=post-click-20260704" defer></script>
-
-    <script>
-    (() => {
-      const header = document.querySelector("[data-site-header]");
-      const toggle = document.querySelector("[data-site-menu-toggle]");
-      if (!header || !toggle) return;
-      toggle.addEventListener("click", () => {
-        const open = !header.classList.contains("is-menu-open");
-        header.classList.toggle("is-menu-open", open);
-        toggle.setAttribute("aria-expanded", String(open));
-      });
-    })();
-  </script>
   <footer class="site-footer">
     <div class="site-footer-inner">
       <div class="footer-brand">
@@ -272,5 +259,49 @@ footer.site-footer{padding:0;color:var(--muted)}
       </div>
     </div>
   </footer>
+
+    <script>
+    (() => {
+      const header = document.querySelector("[data-site-header]");
+      const toggle = document.querySelector("[data-site-menu-toggle]");
+      if (!header || !toggle) return;
+      const groups = Array.from(header.querySelectorAll(".nav-group"));
+      const closeGroups = (except) => {
+        groups.forEach((group) => {
+          if (group !== except) group.removeAttribute("open");
+        });
+      };
+      const openGroup = (group) => {
+        closeGroups(group);
+        group.setAttribute("open", "");
+      };
+      groups.forEach((group) => {
+        const summary = group.querySelector(".nav-summary");
+        group.addEventListener("mouseenter", () => openGroup(group));
+        group.addEventListener("focusin", () => openGroup(group));
+        summary?.addEventListener("click", (event) => {
+          event.preventDefault();
+          if (group.hasAttribute("open")) {
+            group.removeAttribute("open");
+          } else {
+            openGroup(group);
+          }
+        });
+      });
+      toggle.addEventListener("click", () => {
+        const open = !header.classList.contains("is-menu-open");
+        header.classList.toggle("is-menu-open", open);
+        toggle.setAttribute("aria-expanded", String(open));
+        if (!open) closeGroups();
+      });
+      header.addEventListener("mouseleave", () => closeGroups());
+      document.addEventListener("click", (event) => {
+        if (!header.contains(event.target)) closeGroups();
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeGroups();
+      });
+    })();
+  </script>
   </body>
 </html>

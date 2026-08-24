@@ -21,7 +21,7 @@ const POSTS_PATH = join(ROOT, "data", "generated-posts.json");
 const ASSET_DIR = join(ROOT, "assets", "processed");
 const CACHE_DIR = join(ROOT, ".cache", "tour-images");
 const HELPER_PATH = join(ROOT, "scripts", "lib", "render_tour_image.py");
-const PROCESSOR_VERSION = "poster-canvas-20260824";
+const PROCESSOR_VERSION = "no-overlay-poster-canvas-20260824";
 const DOWNLOAD_TIMEOUT_MS = 12_000;
 const FORCE = process.argv.includes("--force");
 const LIMIT = Number.parseInt(process.env.TOUR_IMAGE_LIMIT || "", 10);
@@ -462,7 +462,7 @@ async function processAsset({ python, post, source, kind, outputName, previous }
     width,
     height,
     processorVersion: PROCESSOR_VERSION,
-    overlay: isBanner ? { region: compactRegion(post?.region), topic: topic.label } : null,
+    overlay: null,
   };
 
   const requiresVersionedRender = kind === "cover" || isBanner;
@@ -486,9 +486,6 @@ async function processAsset({ python, post, source, kind, outputName, previous }
       width,
       height,
       quality: isCoverLike ? 84 : 82,
-      region: compactRegion(post?.region),
-      topic: topic.label,
-      title: post?.title || post?.sourceTitle || "",
     });
     return asset;
   } catch (error) {

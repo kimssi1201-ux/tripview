@@ -346,10 +346,16 @@ test("Korea Tourism images render through processed WebP assets", async () => {
   assert.equal(manifest.items["travel-2774026"].cover.overlay, null);
   assert.equal(manifest.items["travel-2774026"].cover.width, 1200);
   assert.equal(manifest.items["travel-2774026"].cover.height, 750);
-  assert.equal(manifest.items["travel-2774026"].cover.processorVersion, "poster-canvas-20260824");
+  assert.equal(manifest.items["travel-2774026"].cover.processorVersion, "no-overlay-poster-canvas-20260824");
   assert.equal(manifest.items["travel-2774026"].banner.kind, "hub-banner");
   assert.match(manifest.items["travel-2774026"].banner.src, /-banner\.webp$/);
-  assert.ok(manifest.items["travel-2774026"].banner.overlay);
+  assert.equal(manifest.items["travel-2774026"].banner.overlay, null);
+  assert.equal(manifest.items["travel-2774026"].banner.processorVersion, "no-overlay-poster-canvas-20260824");
+  for (const entry of Object.values(manifest.items || {})) {
+    for (const asset of [entry.cover, entry.banner, ...(Array.isArray(entry.images) ? entry.images : [])].filter(Boolean)) {
+      assert.equal(asset.overlay, null);
+    }
+  }
   assert.match(manifestText, /\/assets\/processed\/samcheok-hwanseongul-parking\.webp/);
 
   assert.match(article, /style="--article-hero-image:url\('\/assets\/processed\/busan-gwangalli-beach-parking\.webp'\)"/);

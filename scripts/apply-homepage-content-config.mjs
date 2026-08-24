@@ -775,6 +775,11 @@ function homeDateLabel(post = {}) {
   return formatIsoDate(post.sortDate || post.updatedAt || post.date || dateOf(post) || CONTENT_TODAY);
 }
 
+function homeStoryLabel(post) {
+  const region = compactRegion(regionOf(post));
+  return [categoryOf(post), region === REGION_OTHER ? "" : region].filter(Boolean).join(" · ");
+}
+
 function homeStoryCard(post, className = "") {
   const isMainHero = String(className || "").split(/\s+/).includes("home-hero-main");
   const image = isMainHero ? tourImageBannerAssetForPost(processedTourImages, post)?.src || imageOf(post) : imageOf(post);
@@ -783,7 +788,7 @@ function homeStoryCard(post, className = "") {
   return `<a class="story-card${className ? ` ${esc(className)}` : ""}" href="${esc(hrefOf(post))}">
     ${thumb}
     <span class="story-card-body">
-      <span class="story-label">${esc(categoryOf(post))}</span>
+      <span class="story-label">${esc(homeStoryLabel(post))}</span>
       <strong>${esc(titleOf(post))}</strong>
       ${summaryOf(post) ? `<p>${esc(summaryOf(post))}</p>` : ""}
       <span class="story-meta">${esc(homeDateLabel(post))} · 약 ${readingMinutes(post)}분</span>
