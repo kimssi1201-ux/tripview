@@ -14,7 +14,7 @@
 html{scroll-padding-top:96px}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;font-size:16px;line-height:1.7;letter-spacing:0}
 a{color:inherit;text-decoration:none}
-img{display:block;max-width:100%;object-fit:cover;background:color-mix(in srgb,var(--line) 55%,var(--card))}
+img{display:block;max-width:100%;object-fit:cover;background:var(--card)}
 button,input,select{font:inherit}
 :focus-visible{outline:2px solid var(--brand);outline-offset:2px}
 .site-header{position:sticky;top:0;z-index:50;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:saturate(180%) blur(12px)}
@@ -50,7 +50,8 @@ button,input,select{font:inherit}
 .story-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
 .story-card{display:block;min-width:0;border:1px solid var(--line);border-radius:8px;background:var(--card);overflow:hidden;transition:border-color 150ms ease}
 .story-card:hover,.story-card:focus-visible{border-color:var(--brand)}
-.story-thumb{display:block;aspect-ratio:4/3;overflow:hidden;background:var(--line)}
+.story-thumb{position:relative;display:block;width:100%;aspect-ratio:16/10;overflow:hidden;background:var(--card)}
+.story-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
 .story-card-body{display:grid;gap:8px;padding:16px}
 .story-label{color:var(--brand);font-size:12px;font-weight:800;line-height:1.3}
 .story-card strong{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin:0;color:var(--ink);font-size:18px;line-height:1.35;font-weight:800}
@@ -74,7 +75,7 @@ button,input,select{font:inherit}
 .hub-banner.has-image{grid-template-columns:minmax(0,1fr) minmax(280px,.42fr);align-items:center;gap:20px}
 .hub-banner-copy{display:grid;gap:10px;min-width:0}
 .hub-banner-image{margin:0;overflow:hidden;border-radius:8px;background:var(--card)}
-.hub-banner-image img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.hub-banner-image img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:center}
 .hub-banner-image figcaption{padding:8px 10px;color:var(--muted);font-size:11px;line-height:1.45}
 .hub-banner h1{margin:0;font-size:28px;line-height:1.35;font-weight:900}
 .hub-banner p{max-width:720px;margin:0;color:var(--muted);line-height:1.7}
@@ -92,8 +93,8 @@ button,input,select{font:inherit}
 .mrt-accommodation-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .mrt-accommodation-card{position:relative;display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;align-items:center;min-width:0;padding:12px;border:1px solid var(--line);border-left:3px solid var(--cta);border-radius:8px;background:var(--card);transition:border-color 150ms ease}
 .mrt-accommodation-card:hover,.mrt-accommodation-card:focus-visible{border-color:var(--brand);border-left-color:var(--cta)}
-.mrt-accommodation-thumb{display:block;aspect-ratio:4/3;overflow:hidden;background:var(--line)}
-.mrt-accommodation-thumb img{width:100%;height:100%;object-fit:cover}
+.mrt-accommodation-thumb{position:relative;display:block;width:100%;aspect-ratio:16/10;overflow:hidden;background:var(--card)}
+.mrt-accommodation-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
 .mrt-accommodation-body{display:grid;gap:4px;min-width:0}
 .mrt-accommodation-body strong{font-size:15px;line-height:1.35;font-weight:800}
 .mrt-accommodation-body em{color:var(--muted);font-size:12px;font-style:normal}
@@ -105,8 +106,10 @@ button,input,select{font:inherit}
 .mrt-ticket-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .mrt-ticket-card{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;align-items:center;min-width:0;padding:12px;border:1px solid var(--line);border-left:3px solid var(--cta);border-radius:8px;background:var(--card);transition:border-color 150ms ease}
 .mrt-ticket-card:hover,.mrt-ticket-card:focus-visible{border-color:var(--brand);border-left-color:var(--cta)}
-.mrt-ticket-thumb{display:block;aspect-ratio:4/3;overflow:hidden;background:var(--line)}
-.mrt-ticket-thumb img{width:100%;height:100%;object-fit:cover}
+.mrt-ticket-thumb{position:relative;display:block;width:100%;aspect-ratio:16/10;overflow:hidden;background:var(--card)}
+.mrt-ticket-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.product-thumb{position:relative;display:block;width:100%;aspect-ratio:16/10;overflow:hidden;background:var(--card)}
+.product-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
 .mrt-ticket-body{display:grid;gap:4px;min-width:0}
 .mrt-ticket-body strong{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:15px;line-height:1.35;font-weight:800}
 .mrt-ticket-body em{color:var(--muted);font-size:12px;font-style:normal}
@@ -199,7 +202,7 @@ button,input,select{font:inherit}
         <span class="story-meta">7개 글</span>
       </span>
     </a><a class="story-card" href="/region/busan/">
-      <span class="story-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/07/15/ZuG1/O9bvBxvDvX.jpg" alt="부산 여행 허브 대표 글" loading="lazy"></span>
+      <span class="story-thumb"><img src="/assets/processed/busan-songdo-sky-park-parking.webp" alt="부산 여행 허브 대표 글" loading="lazy"></span>
       <span class="story-card-body">
         <span class="story-label">지역 허브</span>
         <strong>부산 여행 허브</strong>
@@ -207,7 +210,7 @@ button,input,select{font:inherit}
         <span class="story-meta">4개 글</span>
       </span>
     </a><a class="story-card" href="/region/seoul/">
-      <span class="story-thumb"><img src="/assets/processed/seoul-festival-iljeong-jeongri-festival.webp" alt="서울 여행 허브 대표 글" loading="lazy"></span>
+      <span class="story-thumb"><img src="/assets/processed/seoul-kidzania-seoul-family.webp" alt="서울 여행 허브 대표 글" loading="lazy"></span>
       <span class="story-card-body">
         <span class="story-label">지역 허브</span>
         <strong>서울 여행 허브</strong>
@@ -231,7 +234,7 @@ button,input,select{font:inherit}
         <span class="story-meta">1개 글</span>
       </span>
     </a><a class="story-card" href="/region/jeonnam/">
-      <span class="story-thumb"><img src="/assets/processed/goheung-heritage-night-walk-parking.webp" alt="전남 여행 허브 대표 글" loading="lazy"></span>
+      <span class="story-thumb"><img src="/assets/processed/yeongam-insect-museum-family.webp" alt="전남 여행 허브 대표 글" loading="lazy"></span>
       <span class="story-card-body">
         <span class="story-label">지역 허브</span>
         <strong>전남 여행 허브</strong>
@@ -239,7 +242,7 @@ button,input,select{font:inherit}
         <span class="story-meta">7개 글</span>
       </span>
     </a><a class="story-card" href="/region/jeonbuk/">
-      <span class="story-thumb"><img src="/assets/processed/jinan-treasure-hunter-jinan-indoor.webp" alt="전북 여행 허브 대표 글" loading="lazy"></span>
+      <span class="story-thumb"><img src="/assets/processed/sunchang-jeonbuk-teukbyeoljachido-forest-museum-parking.webp" alt="전북 여행 허브 대표 글" loading="lazy"></span>
       <span class="story-card-body">
         <span class="story-label">지역 허브</span>
         <strong>전북 여행 허브</strong>

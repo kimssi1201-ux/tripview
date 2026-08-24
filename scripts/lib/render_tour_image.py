@@ -2,6 +2,7 @@ import json
 import math
 import os
 import sys
+from functools import lru_cache
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont, ImageOps
@@ -10,6 +11,7 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps
 RESAMPLE = getattr(getattr(Image, "Resampling", Image), "LANCZOS")
 
 
+@lru_cache(maxsize=4)
 def font_candidates(bold=False):
     names = [
         r"C:\Windows\Fonts\malgunbd.ttf" if bold else r"C:\Windows\Fonts\malgun.ttf",
@@ -18,9 +20,10 @@ def font_candidates(bold=False):
         "/usr/share/fonts/truetype/noto/NotoSansKR-Bold.ttf" if bold else "/usr/share/fonts/truetype/noto/NotoSansKR-Regular.ttf",
         "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf" if bold else "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
     ]
-    return [name for name in names if name and Path(name).exists()]
+    return tuple(name for name in names if name and Path(name).exists())
 
 
+@lru_cache(maxsize=96)
 def load_font(size, bold=False):
     for candidate in font_candidates(bold):
         try:
@@ -53,6 +56,29 @@ def crop_cover(image, width, height):
     left = max(0, (resized.width - width) // 2)
     top = max(0, (resized.height - height) // 2)
     return resized.crop((left, top, left + width, top + height))
+
+
+def dominant_color(image):
+    sample = image.convert("RGB").resize((80, 80), RESAMPLE)
+    try:
+        palette = sample.quantize(colors=8, method=Image.Quantize.MEDIANCUT).convert("RGB")
+    except AttributeError:
+        palette = sample.quantize(colors=8).convert("RGB")
+    colors = palette.getcolors(80 * 80) or []
+    if not colors:
+        return sample.resize((1, 1), RESAMPLE).getpixel((0, 0))
+    return max(colors, key=lambda item: item[0])[1]
+
+
+def poster_canvas(image, width, height):
+    image = image.convert("RGB")
+    canvas = Image.new("RGB", (width, height), dominant_color(image))
+    ratio = min(width / image.width, height / image.height)
+    resized = image.resize((max(1, round(image.width * ratio)), max(1, round(image.height * ratio))), RESAMPLE)
+    left = (width - resized.width) // 2
+    top = (height - resized.height) // 2
+    canvas.paste(resized, (left, top))
+    return canvas
 
 
 def resize_inside(image, max_width):
@@ -129,7 +155,7 @@ def main():
     if kind in {"cover", "hub-banner"}:
         width = int(payload.get("width", 1200))
         height = int(payload.get("height", 675))
-        image = crop_cover(image, width, height)
+        image = poster_canvas(image, width, height) if image.height > image.width else crop_cover(image, width, height)
         if kind == "hub-banner":
             image = draw_cover_overlay(
                 image,
@@ -141,7 +167,7 @@ def main():
         image = resize_inside(image, int(payload.get("width", 1000)))
 
     Path(output).parent.mkdir(parents=True, exist_ok=True)
-    image.save(output, "WEBP", quality=quality, method=6)
+    image.save(output, "WEBP", quality=quality, method=0)
 
 
 if __name__ == "__main__":

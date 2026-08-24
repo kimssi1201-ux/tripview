@@ -21,6 +21,8 @@ const POSTS_PATH = join(ROOT, "data", "generated-posts.json");
 const ASSET_DIR = join(ROOT, "assets", "processed");
 const CACHE_DIR = join(ROOT, ".cache", "tour-images");
 const HELPER_PATH = join(ROOT, "scripts", "lib", "render_tour_image.py");
+const PROCESSOR_VERSION = "poster-canvas-20260824";
+const DOWNLOAD_TIMEOUT_MS = 12_000;
 const FORCE = process.argv.includes("--force");
 const LIMIT = Number.parseInt(process.env.TOUR_IMAGE_LIMIT || "", 10);
 
@@ -306,6 +308,74 @@ function cachePathForSource(source) {
   return join(CACHE_DIR, `${hash}${extension}`);
 }
 
+function imageDimensionsFromBuffer(buffer) {
+  if (!Buffer.isBuffer(buffer) || buffer.length < 24) return null;
+  if (buffer.slice(0, 8).equals(Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]))) {
+    return { width: buffer.readUInt32BE(16), height: buffer.readUInt32BE(20) };
+  }
+  if (buffer[0] === 0xff && buffer[1] === 0xd8) {
+    let offset = 2;
+    while (offset < buffer.length) {
+      if (buffer[offset] !== 0xff) {
+        offset += 1;
+        continue;
+      }
+      if (offset + 4 >= buffer.length) break;
+      const marker = buffer[offset + 1];
+      const length = buffer.readUInt16BE(offset + 2);
+      if (length < 2 || offset + 2 + length > buffer.length) break;
+      if ([0xc0, 0xc1, 0xc2, 0xc3, 0xc5, 0xc6, 0xc7, 0xc9, 0xca, 0xcb, 0xcd, 0xce, 0xcf].includes(marker)) {
+        return { height: buffer.readUInt16BE(offset + 5), width: buffer.readUInt16BE(offset + 7) };
+      }
+      offset += 2 + length;
+    }
+  }
+  if (buffer.toString("ascii", 0, 4) === "RIFF" && buffer.toString("ascii", 8, 12) === "WEBP" && buffer.length >= 30) {
+    const chunk = buffer.toString("ascii", 12, 16);
+    if (chunk === "VP8X" && buffer.length >= 30) {
+      return {
+        width: 1 + buffer.readUIntLE(24, 3),
+        height: 1 + buffer.readUIntLE(27, 3),
+      };
+    }
+    if (chunk === "VP8 " && buffer.length >= 30) {
+      return {
+        width: buffer.readUInt16LE(26) & 0x3fff,
+        height: buffer.readUInt16LE(28) & 0x3fff,
+      };
+    }
+    if (chunk === "VP8L" && buffer.length >= 25) {
+      const b0 = buffer[21];
+      const b1 = buffer[22];
+      const b2 = buffer[23];
+      const b3 = buffer[24];
+      return {
+        width: 1 + (((b1 & 0x3f) << 8) | b0),
+        height: 1 + (((b3 & 0x0f) << 10) | (b2 << 2) | ((b1 & 0xc0) >> 6)),
+      };
+    }
+  }
+  return null;
+}
+
+async function cachedImageDimensions(source) {
+  const cached = cachePathForSource(source);
+  if (!await exists(cached)) return null;
+  try {
+    return imageDimensionsFromBuffer(await readFile(cached));
+  } catch {
+    return null;
+  }
+}
+
+async function existingOutputDimensions(output) {
+  try {
+    return imageDimensionsFromBuffer(await readFile(output));
+  } catch {
+    return null;
+  }
+}
+
 function dependencyPythonPath() {
   const dependencies = dirname(dirname(dirname(process.execPath)));
   return process.platform === "win32" ? join(dependencies, "python", "python.exe") : join(dependencies, "python", "bin", "python");
@@ -340,8 +410,11 @@ async function downloadSource(source) {
   const hasCachedSource = await exists(target);
   if (!FORCE && hasCachedSource) return target;
   await mkdir(CACHE_DIR, { recursive: true });
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), DOWNLOAD_TIMEOUT_MS);
   try {
     const response = await fetch(source, {
+      signal: controller.signal,
       headers: {
         "user-agent": "Tripview image processor (+https://tripview.kr)",
         accept: "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
@@ -354,6 +427,8 @@ async function downloadSource(source) {
   } catch (error) {
     if (hasCachedSource) return target;
     throw error;
+  } finally {
+    clearTimeout(timeout);
   }
   return target;
 }
@@ -376,18 +451,30 @@ async function processAsset({ python, post, source, kind, outputName, previous }
   const topic = topicForPost(post);
   const isBanner = kind === "hub-banner";
   const isCoverLike = kind === "cover" || isBanner;
+  const width = isCoverLike ? 1200 : 1000;
+  const height = kind === "cover" ? 750 : isBanner ? 675 : null;
   const asset = {
     kind,
     original: source,
     src: publicPath,
     alt: imageAlt(post, kind),
     caption: isBanner ? TOUR_IMAGE_BANNER_CAPTION : TOUR_IMAGE_CAPTION,
-    width: isCoverLike ? 1200 : 1000,
-    height: isCoverLike ? 675 : null,
+    width,
+    height,
+    processorVersion: PROCESSOR_VERSION,
     overlay: isBanner ? { region: compactRegion(post?.region), topic: topic.label } : null,
   };
 
-  if (!FORCE && await exists(output)) return { ...asset, bytes: null };
+  const requiresVersionedRender = kind === "cover" || isBanner;
+  const outputExists = await exists(output);
+  const dimensions = isCoverLike ? await cachedImageDimensions(source) : null;
+  const portraitSource = Boolean(dimensions && dimensions.height > dimensions.width);
+  const renderedDimensions = outputExists && isCoverLike ? await existingOutputDimensions(output) : null;
+  const outputMatchesTarget = Boolean(renderedDimensions && renderedDimensions.width === width && renderedDimensions.height === height);
+  asset.posterCanvas = portraitSource;
+  if (!FORCE && outputExists && (!requiresVersionedRender || prior?.processorVersion === PROCESSOR_VERSION || outputMatchesTarget || !portraitSource)) {
+    return { ...asset, bytes: null };
+  }
 
   try {
     const cachedSource = await downloadSource(source);
@@ -396,8 +483,8 @@ async function processAsset({ python, post, source, kind, outputName, previous }
       source: cachedSource,
       output,
       kind,
-      width: asset.width,
-      height: asset.height,
+      width,
+      height,
       quality: isCoverLike ? 84 : 82,
       region: compactRegion(post?.region),
       topic: topic.label,
@@ -484,6 +571,7 @@ async function main() {
       images,
     };
     processed += 1;
+    if (processed % 10 === 0) console.log(`Processed tour images: ${processed}/${selected.length}`);
   }
 
   const manifest = {

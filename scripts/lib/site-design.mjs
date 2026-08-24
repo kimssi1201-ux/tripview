@@ -78,7 +78,7 @@ export const SITE_CSS = `
 html{scroll-padding-top:96px}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;font-size:16px;line-height:1.7;letter-spacing:0}
 a{color:inherit;text-decoration:none}
-img{display:block;max-width:100%;object-fit:cover;background:color-mix(in srgb,var(--line) 55%,var(--card))}
+img{display:block;max-width:100%;object-fit:cover;background:var(--card)}
 button,input,select{font:inherit}
 :focus-visible{outline:2px solid var(--brand);outline-offset:2px}
 .site-header{position:sticky;top:0;z-index:50;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:saturate(180%) blur(12px)}
@@ -114,7 +114,8 @@ button,input,select{font:inherit}
 .story-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
 .story-card{display:block;min-width:0;border:1px solid var(--line);border-radius:8px;background:var(--card);overflow:hidden;transition:border-color 150ms ease}
 .story-card:hover,.story-card:focus-visible{border-color:var(--brand)}
-.story-thumb{display:block;aspect-ratio:4/3;overflow:hidden;background:var(--line)}
+.story-thumb{position:relative;display:block;width:100%;aspect-ratio:16/10;overflow:hidden;background:var(--card)}
+.story-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
 .story-card-body{display:grid;gap:8px;padding:16px}
 .story-label{color:var(--brand);font-size:12px;font-weight:800;line-height:1.3}
 .story-card strong{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin:0;color:var(--ink);font-size:18px;line-height:1.35;font-weight:800}

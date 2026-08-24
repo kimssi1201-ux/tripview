@@ -170,6 +170,15 @@ test("homepage uses dropdown navigation and a five-story lead package", async ()
   assert.doesNotMatch(homepage, /class="masthead-row"|class="nav-scroll"|post-card-transition/);
 });
 
+test("homepage thumbnails use fixed ratios without gray placeholders", async () => {
+  const homepage = await readFile("index.html", "utf8");
+  assert.match(homepage, /\.story-thumb\{position:relative;display:block;width:100%;aspect-ratio:16\/10;overflow:hidden;background:var\(--card\)\}/);
+  assert.match(homepage, /\.story-thumb img\{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block\}/);
+  assert.match(homepage, /\.home-hero \.story-thumb\{aspect-ratio:16\/9\}/);
+  assert.doesNotMatch(homepage, /\.story-thumb\{[^}]*background:var\(--line\)/);
+  assert.doesNotMatch(homepage, /object-fit:(?:contain|scale-down)|height:auto|max-height|class="thumb empty"/);
+});
+
 test("homepage accommodation cards use the dynamic default stay window", async () => {
   const homepage = await readFile("index.html", "utf8");
   const stay = expectedStayWindow();
@@ -329,6 +338,9 @@ test("Korea Tourism images render through processed WebP assets", async () => {
   assert.equal(manifest.items["travel-2774026"].cover.src, "/assets/processed/hoengseong-lake-trail-parking.webp");
   assert.equal(manifest.items["travel-2774026"].cover.caption, "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지");
   assert.equal(manifest.items["travel-2774026"].cover.overlay, null);
+  assert.equal(manifest.items["travel-2774026"].cover.width, 1200);
+  assert.equal(manifest.items["travel-2774026"].cover.height, 750);
+  assert.equal(manifest.items["travel-2774026"].cover.processorVersion, "poster-canvas-20260824");
   assert.equal(manifest.items["travel-2774026"].banner.kind, "hub-banner");
   assert.match(manifest.items["travel-2774026"].banner.src, /-banner\.webp$/);
   assert.ok(manifest.items["travel-2774026"].banner.overlay);
