@@ -7,6 +7,39 @@ import { onRequestGet as myrealtripGet } from "../functions/api/myrealtrip/searc
 import { onRequest as routeRequest, transformArticleHtml } from "../functions/[[path]].js";
 import { assetStore, jsonResponse, request, responseJson, withMockFetch } from "./helpers.mjs";
 
+function addDays(date, days) {
+  const next = new Date(date);
+  next.setUTCDate(next.getUTCDate() + days);
+  return next;
+}
+
+function isoDate(date) {
+  return date.toISOString().slice(0, 10);
+}
+
+function todayInKorea(reference = new Date()) {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Seoul",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(reference);
+  const values = Object.fromEntries(parts.filter((part) => part.type !== "literal").map((part) => [part.type, part.value]));
+  return new Date(Date.UTC(Number(values.year), Number(values.month) - 1, Number(values.day)));
+}
+
+function expectedStayWindow(reference = new Date()) {
+  const today = todayInKorea(reference);
+  const day = today.getUTCDay();
+  let daysUntilFriday = (5 - day + 7) % 7;
+  if (daysUntilFriday === 0) daysUntilFriday = 7;
+  const checkInDate = addDays(today, daysUntilFriday);
+  return {
+    checkIn: isoDate(checkInDate),
+    checkOut: isoDate(addDays(checkInDate, 2)),
+  };
+}
+
 test("beach API rejects an unknown mapping and a missing key", async () => {
   const unknown = await beachInfoGet({ request: request("/api/beach-info?beach=unknown"), env: {} });
   assert.equal(unknown.status, 404);
@@ -152,9 +185,40 @@ test("MyRealTrip accommodation search clamps dates and guest counts", async () =
     checkOut: "2026-08-01",
     adultCount: 1,
     childCount: 9,
+    starRating: "threestar,fourstar,fivestar",
     page: 0,
     size: 10,
   });
+});
+
+test("MyRealTrip accommodation search defaults to the next Friday stay window", async () => {
+  const calls = [];
+  const response = await withMockFetch(async (url, options) => {
+    calls.push({ url: new URL(url), options });
+    if (url.endsWith("region-autocomplete")) {
+      return jsonResponse({ data: { regions: [{ type: "CITY", regionId: "seoul", name: "서울" }] } });
+    }
+    return jsonResponse({ data: { items: [{
+      itemName: "서울 가족 호텔",
+      productUrl: "https://accommodation.myrealtrip.com/products/2",
+      thumbnailUrl: "https://cdn.example.test/family-hotel.jpg",
+      salePrice: 200000,
+    }] } });
+  }, async () => myrealtripGet({
+    request: request("/api/myrealtrip/search?type=accommodation&keyword=아이와 서울"),
+    env: { MYREALTRIP_API_KEY: "test-key" },
+  }));
+
+  assert.equal(response.status, 200);
+  const payload = await responseJson(response);
+  assert.equal(payload.items.length, 1);
+  const stay = expectedStayWindow();
+  const body = JSON.parse(calls[1].options.body);
+  assert.equal(body.checkIn, stay.checkIn);
+  assert.equal(body.checkOut, stay.checkOut);
+  assert.equal(body.adultCount, 2);
+  assert.equal(body.childCount, 0);
+  assert.equal(body.starRating, "fourstar,fivestar");
 });
 
 test("MyRealTrip flight search uses a safe public booking URL", async () => {

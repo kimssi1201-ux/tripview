@@ -62,6 +62,31 @@ function isoDate(date) {
   return date.toISOString().slice(0, 10);
 }
 
+function todayInKorea(reference = new Date()) {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Seoul",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(reference);
+  const values = Object.fromEntries(parts.filter((part) => part.type !== "literal").map((part) => [part.type, part.value]));
+  return new Date(Date.UTC(Number(values.year), Number(values.month) - 1, Number(values.day)));
+}
+
+function defaultStayWindow(reference = new Date()) {
+  const today = todayInKorea(reference);
+  const day = today.getUTCDay();
+  let daysUntilFriday = (5 - day + 7) % 7;
+  if (daysUntilFriday === 0) daysUntilFriday = 7;
+  const checkInDate = addDays(today, daysUntilFriday);
+  return {
+    checkIn: isoDate(checkInDate),
+    checkOut: isoDate(addDays(checkInDate, 2)),
+    adultCount: 2,
+    childCount: 0,
+  };
+}
+
 function parseIsoDate(value) {
   const dateText = text(value);
   if (!/^\d{4}-\d{2}-\d{2}$/.test(dateText)) return null;
@@ -106,6 +131,25 @@ function productImage(item = {}) {
     }
   }
   return "";
+}
+
+function accommodationImage(item = {}) {
+  for (const key of ["thumbnailUrl", "imageUrl", "mainImage", "mainImageUrl", "coverImage", "coverImageUrl", "image", "thumbnail"]) {
+    const value = item?.[key];
+    if (typeof value !== "string") continue;
+    try {
+      const url = new URL(text(value));
+      if (url.protocol === "https:") return url.toString();
+    } catch {
+      // The accommodation API exposes scalar image fields; ignore malformed values.
+    }
+  }
+  return "";
+}
+
+function accommodationStarRating(keyword = "", explicitFamily = false) {
+  const familyContext = explicitFamily || /아이|가족|어린이|키즈|체험|테마파크|아쿠아리움/.test(text(keyword));
+  return familyContext ? "fourstar,fivestar" : "threestar,fourstar,fivestar";
 }
 
 function includesKeyword(item, keyword) {
@@ -260,7 +304,7 @@ function normalizeAccommodation(item, regionName) {
     type: "accommodation",
     title,
     url,
-    image: productImage(item),
+    image: accommodationImage(item),
     meta: [regionName, item?.starRating ? `${item.starRating}성` : "", formatWon(item?.salePrice)].filter(Boolean).join(" · "),
   };
 }
@@ -303,9 +347,8 @@ function normalizeFlight(item) {
 async function searchAccommodation(request, env) {
   const url = new URL(request.url);
   const keyword = text(url.searchParams.get("keyword"), "서울").slice(0, 100);
-  const today = new Date();
-  const defaultCheckIn = isoDate(addDays(today, 14));
-  const checkInDate = parseIsoDate(url.searchParams.get("checkIn")) || parseIsoDate(defaultCheckIn);
+  const defaultStay = defaultStayWindow();
+  const checkInDate = parseIsoDate(url.searchParams.get("checkIn")) || parseIsoDate(defaultStay.checkIn);
   const checkIn = isoDate(checkInDate);
   const requestedCheckOut = parseIsoDate(url.searchParams.get("checkOut"));
   const checkOutDate = requestedCheckOut && requestedCheckOut > checkInDate
@@ -314,6 +357,7 @@ async function searchAccommodation(request, env) {
   const checkOut = isoDate(checkOutDate);
   const adultCount = clampInt(url.searchParams.get("adultCount"), 1, 9, 2);
   const childCount = clampInt(url.searchParams.get("childCount"), 0, 9, 0);
+  const starRating = accommodationStarRating(keyword, url.searchParams.get("family") === "1" || url.searchParams.get("family") === "true");
 
   const regionPayload = await postMyRealTrip(env, "/v1/products/accommodation/region-autocomplete", {
     keyword,
@@ -329,6 +373,7 @@ async function searchAccommodation(request, env) {
     checkOut,
     adultCount,
     childCount,
+    starRating,
     page: 0,
     size: 10,
   });

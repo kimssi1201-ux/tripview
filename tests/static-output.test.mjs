@@ -276,6 +276,13 @@ test("accommodation cache keeps the MyRealTrip API contract lean", async () => {
   assert.equal(cache.presets.family, "fourstar,fivestar");
   assert.equal(regionMap.endpoint, "/v1/products/accommodation/region-autocomplete");
   assert.ok(Object.keys(regionMap.regions || {}).length >= 1);
+  if (regionMap.source === "myrealtrip-accommodation-region-autocomplete") {
+    assert.ok(Object.values(regionMap.regions || {}).every((region) => region.regionId), "API-generated region map must keep regionId values");
+  } else {
+    assert.equal(regionMap.source, "legacy-myrealtrip-accommodation-region-map");
+    assert.equal(cache.source, "legacy-myrealtrip-accommodation-cache");
+    assert.match(fetchScript, /useLegacyFallback/);
+  }
   assert.match(fetchScript, /\/v1\/products\/accommodation\/region-autocomplete/);
   assert.match(fetchScript, /\/v1\/products\/accommodation\/search/);
   assert.match(fetchScript, /starRating/);
