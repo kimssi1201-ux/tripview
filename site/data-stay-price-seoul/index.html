@@ -32,13 +32,13 @@ button,input,select{font:inherit}
 .nav-group>summary{list-style:none}
 .nav-group>summary::-webkit-details-marker{display:none}
 .nav-summary::after{content:"";width:5px;height:5px;margin-left:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px)}
-.nav-dropdown{position:absolute;left:0;top:calc(100% + 10px);display:none;width:300px;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--card)}
-.nav-group[open] .nav-dropdown,.nav-group:hover .nav-dropdown,.nav-group:focus-within .nav-dropdown{display:grid}
-.nav-dropdown a{display:grid;grid-template-columns:32px minmax(0,1fr);gap:10px;padding:10px;border-radius:8px;transition:background-color 150ms ease}
+.nav-dropdown{position:absolute;left:0;top:calc(100% + 10px);z-index:120;display:none;width:300px;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--card);box-shadow:0 12px 28px color-mix(in srgb,var(--ink) 10%,transparent)}
+.nav-group[open] .nav-dropdown{display:grid}
+.nav-dropdown a{display:flex;align-items:flex-start;gap:12px;padding:10px;border-radius:8px;transition:background-color 150ms ease}
 .nav-dropdown a:hover,.nav-dropdown a:focus-visible{background:var(--soft-teal)}
-.nav-item-icon{display:inline-grid;place-items:center;width:32px;height:32px;border:1px solid var(--line);border-radius:8px;color:var(--brand);font-size:12px;font-weight:900}
+.nav-item-icon{display:inline-grid;flex:0 0 32px;place-items:center;width:32px;height:32px;border:1px solid var(--line);border-radius:8px;color:var(--brand);font-size:12px;font-weight:900}
 .nav-group.is-affiliate .nav-item-icon{color:var(--cta)}
-.nav-item-text{display:grid;gap:2px}
+.nav-item-text{display:grid;flex:1 1 auto;min-width:0;gap:2px}
 .nav-item-label{color:var(--ink);font-size:14px;font-weight:800;line-height:1.35}
 .nav-item-desc{color:var(--muted);font-size:12px;line-height:1.45}
 .nav-item-count{color:var(--muted);font-size:11px;font-weight:800;line-height:1.35}

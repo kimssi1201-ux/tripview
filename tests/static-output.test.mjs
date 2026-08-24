@@ -160,6 +160,11 @@ test("homepage uses dropdown navigation and a five-story lead package", async ()
   const homepage = await readFile("index.html", "utf8");
   assert.equal((homepage.match(/class="site-header"/g) || []).length, 1);
   assert.ok((homepage.match(/class="nav-dropdown"/g) || []).length >= 4);
+  assert.match(homepage, /\.nav-dropdown\{[^}]*z-index:120[^}]*background:var\(--card\)[^}]*box-shadow:/);
+  assert.match(homepage, /\.nav-dropdown a\{display:flex;align-items:flex-start;gap:12px/);
+  assert.match(homepage, /const closeGroups = \(except\) =>/);
+  assert.match(homepage, /group\.addEventListener\("mouseenter", \(\) => openGroup\(group\)\)/);
+  assert.doesNotMatch(homepage, /\.nav-group:hover \.nav-dropdown/);
   assert.equal((homepage.match(/class="story-card home-hero-main"/g) || []).length, 1);
   assert.equal((homepage.match(/class="story-card home-hero-small"/g) || []).length, 4);
   assert.equal((homepage.match(/<section class="home-hero"/g) || []).length, 1);
@@ -174,7 +179,8 @@ test("homepage thumbnails use fixed ratios without gray placeholders", async () 
   const homepage = await readFile("index.html", "utf8");
   assert.match(homepage, /\.story-thumb\{position:relative;display:block;width:100%;aspect-ratio:16\/10;overflow:hidden;background:var\(--card\)\}/);
   assert.match(homepage, /\.story-thumb img\{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block\}/);
-  assert.match(homepage, /\.home-hero \.story-thumb\{aspect-ratio:16\/9\}/);
+  assert.match(homepage, /\.home-hero-main \.story-thumb\{aspect-ratio:16\/9\}/);
+  assert.match(homepage, /\.home-hero-small \.story-thumb\{aspect-ratio:16\/10\}/);
   assert.doesNotMatch(homepage, /\.story-thumb\{[^}]*background:var\(--line\)/);
   assert.doesNotMatch(homepage, /object-fit:(?:contain|scale-down)|height:auto|max-height|class="thumb empty"/);
 });
@@ -355,7 +361,7 @@ test("Korea Tourism images render through processed WebP assets", async () => {
   assert.doesNotMatch(article, /이미지 1|<figcaption>대표 이미지/);
 
   assert.match(homepage, /\/assets\/processed\/[a-z0-9-]+\.webp/);
-  assert.doesNotMatch(homepage, /-banner\.webp/);
+  assert.match(homepage, /class="story-card home-hero-main"[\s\S]*\/assets\/processed\/[a-z0-9-]+-banner\.webp/);
   assert.doesNotMatch(homepage, /tong\.visitkorea\.or\.kr/);
   assert.doesNotMatch(homepage, /<span class="story-thumb"><\/span>/);
   assert.doesNotMatch(homepage, /story-thumb no-image/);

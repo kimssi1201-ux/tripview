@@ -38,13 +38,13 @@ button,input,select{font:inherit}
 .nav-group>summary{list-style:none}
 .nav-group>summary::-webkit-details-marker{display:none}
 .nav-summary::after{content:"";width:5px;height:5px;margin-left:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px)}
-.nav-dropdown{position:absolute;left:0;top:calc(100% + 10px);display:none;width:300px;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--card)}
-.nav-group[open] .nav-dropdown,.nav-group:hover .nav-dropdown,.nav-group:focus-within .nav-dropdown{display:grid}
-.nav-dropdown a{display:grid;grid-template-columns:32px minmax(0,1fr);gap:10px;padding:10px;border-radius:8px;transition:background-color 150ms ease}
+.nav-dropdown{position:absolute;left:0;top:calc(100% + 10px);z-index:120;display:none;width:300px;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--card);box-shadow:0 12px 28px color-mix(in srgb,var(--ink) 10%,transparent)}
+.nav-group[open] .nav-dropdown{display:grid}
+.nav-dropdown a{display:flex;align-items:flex-start;gap:12px;padding:10px;border-radius:8px;transition:background-color 150ms ease}
 .nav-dropdown a:hover,.nav-dropdown a:focus-visible{background:var(--soft-teal)}
-.nav-item-icon{display:inline-grid;place-items:center;width:32px;height:32px;border:1px solid var(--line);border-radius:8px;color:var(--brand);font-size:12px;font-weight:900}
+.nav-item-icon{display:inline-grid;flex:0 0 32px;place-items:center;width:32px;height:32px;border:1px solid var(--line);border-radius:8px;color:var(--brand);font-size:12px;font-weight:900}
 .nav-group.is-affiliate .nav-item-icon{color:var(--cta)}
-.nav-item-text{display:grid;gap:2px}
+.nav-item-text{display:grid;flex:1 1 auto;min-width:0;gap:2px}
 .nav-item-label{color:var(--ink);font-size:14px;font-weight:800;line-height:1.35}
 .nav-item-desc{color:var(--muted);font-size:12px;line-height:1.45}
 .nav-item-count{color:var(--muted);font-size:11px;font-weight:800;line-height:1.35}
@@ -78,17 +78,24 @@ button,input,select{font:inherit}
 @media(max-width:520px){body{font-size:15px}.site-section-head h2{font-size:19px}.story-card strong{font-size:17px}.story-card-body{padding:14px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:0.01ms!important;animation-duration:0.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
 
-.home-hero{padding:32px 0 48px}
-.home-hero-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(320px,.95fr);gap:24px}
-.home-hero-rail{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-.home-hero .story-thumb{aspect-ratio:16/9}
-.home-hero-main .story-card-body{gap:10px;padding:24px}
+.home-hero{padding:32px 0 40px}
+.home-hero-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(340px,1fr);align-items:stretch;gap:24px}
+.home-hero-main,.home-hero-rail{height:100%}
+.home-hero-main{display:flex;flex-direction:column}
+.home-hero-main .story-thumb{aspect-ratio:16/9}
+.home-hero-main .story-card-body{flex:1 1 auto}
+.home-hero-rail{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:16px}
+.home-hero-small{display:flex;min-height:0;flex-direction:column}
+.home-hero-small .story-thumb{aspect-ratio:16/10}
+.home-hero-small .story-card-body{flex:1 1 auto}
+.home-hero-main .story-card-body{gap:8px;padding:18px}
 .home-hero-main strong{font-size:28px;line-height:1.28}
+.home-hero-main p{-webkit-line-clamp:1}
 .home-hero-small strong{font-size:16px}
 .home-hero-small .story-card-body{padding:14px}
 .home-hero-small p{display:none}
 .home-affiliate-card{background-image:linear-gradient(var(--cta),var(--cta));background-repeat:no-repeat;background-position:left top;background-size:3px 100%}
-@media(max-width:900px){.home-hero{padding:24px 0 32px}.home-hero-grid,.home-hero-rail{grid-template-columns:1fr}.home-hero-main strong{font-size:22px}.home-hero-main .story-card-body{padding:16px}}
+@media(max-width:900px){.home-hero{padding:24px 0 32px}.home-hero-grid,.home-hero-rail{grid-template-columns:1fr}.home-hero-rail{grid-template-rows:none}.home-hero-main strong{font-size:22px}.home-hero-main .story-card-body{padding:16px}}
 </style>
       <link rel="canonical" href="https://tripview.kr/">
   </head>
@@ -130,7 +137,7 @@ button,input,select{font:inherit}
       <section class="home-hero" aria-label="대표 글">
     <div class="home-hero-grid">
       <a class="story-card home-hero-main" href="/festival-1939183/">
-    <span class="story-thumb"><img src="/assets/processed/mungyeong-ogammanjok-mungyeongsaejaemaenbal-festival-parking.webp" alt="문경새재 맨발페스티벌 2026 준비물, 황톳길 완주·발 관리·귀가 동선" loading="lazy"></span>
+    <span class="story-thumb"><img src="/assets/processed/mungyeong-ogammanjok-mungyeongsaejaemaenbal-festival-parking-banner.webp" alt="문경새재 맨발페스티벌 2026 준비물, 황톳길 완주·발 관리·귀가 동선" loading="lazy"></span>
     <span class="story-card-body">
       <span class="story-label">공연/축제</span>
       <strong>문경새재 맨발페스티벌 2026 준비물, 황톳길 완주·발 관리·귀가 동선</strong>
@@ -490,10 +497,41 @@ button,input,select{font:inherit}
       const header = document.querySelector("[data-site-header]");
       const toggle = document.querySelector("[data-site-menu-toggle]");
       if (!header || !toggle) return;
+      const groups = Array.from(header.querySelectorAll(".nav-group"));
+      const closeGroups = (except) => {
+        groups.forEach((group) => {
+          if (group !== except) group.removeAttribute("open");
+        });
+      };
+      const openGroup = (group) => {
+        closeGroups(group);
+        group.setAttribute("open", "");
+      };
+      groups.forEach((group) => {
+        const summary = group.querySelector(".nav-summary");
+        group.addEventListener("mouseenter", () => openGroup(group));
+        group.addEventListener("focusin", () => openGroup(group));
+        summary?.addEventListener("click", (event) => {
+          event.preventDefault();
+          if (group.hasAttribute("open")) {
+            group.removeAttribute("open");
+          } else {
+            openGroup(group);
+          }
+        });
+      });
       toggle.addEventListener("click", () => {
         const open = !header.classList.contains("is-menu-open");
         header.classList.toggle("is-menu-open", open);
         toggle.setAttribute("aria-expanded", String(open));
+        if (!open) closeGroups();
+      });
+      header.addEventListener("mouseleave", () => closeGroups());
+      document.addEventListener("click", (event) => {
+        if (!header.contains(event.target)) closeGroups();
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeGroups();
       });
     })();
   </script>
