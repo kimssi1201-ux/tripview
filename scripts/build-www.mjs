@@ -258,6 +258,7 @@ function searchablePostText(post) {
     post?.category,
     post?.region,
     ...(Array.isArray(post?.memo) ? post.memo : []),
+    ...(Array.isArray(post?.info) ? post.info.flat() : []),
   ].filter(Boolean).join(" ");
 }
 
@@ -588,6 +589,33 @@ function accommodationCard(item = {}) {
   </a>`;
 }
 
+function articleAccommodationCard(item = {}) {
+  const product = normalizeAccommodationProduct(item);
+  if (!product) return "";
+  const discount = accommodationDiscountRate(product);
+  const rating = product.reviewScore ? `평점 ${product.reviewScore}` : "";
+  const reviews = numericValue(product.reviewCount);
+  const meta = [accommodationStarLabel(product.starRating), rating, reviews ? `리뷰 ${reviews.toLocaleString("ko-KR")}개` : ""]
+    .filter(Boolean)
+    .join(" · ");
+  const original = numericValue(product.originalPrice);
+  const sale = numericValue(product.salePrice || product.price);
+  if (!sale) return "";
+  const price = [
+    original > sale ? `<del>${html(won(original))}</del>` : "",
+    `<strong>${html(won(sale))}</strong>`,
+  ].filter(Boolean).join("");
+  return `<a class="mrt-accommodation-card article-product-card" data-mrt-accommodation-card href="${html(product.url)}" rel="sponsored nofollow" target="_blank">
+    <span class="mrt-accommodation-thumb"><img src="${html(product.image)}" alt="${html(product.title)} 숙소 대표 이미지" loading="lazy" decoding="async">${rating ? `<span class="mrt-rating-badge">${html(rating)}</span>` : ""}</span>
+    <span class="mrt-accommodation-body">
+      ${discount > 0 ? `<span class="mrt-accommodation-badge">${discount}% 할인</span>` : ""}
+      <strong>${html(product.title)}</strong>
+      <em>${html(meta || product.region)}</em>
+      <span class="mrt-accommodation-price">${price}<small>2인 · ${html(ACCOMMODATION_STAY.checkIn)} 체크인</small></span>
+    </span>
+  </a>`;
+}
+
 function removeLanguageArtifacts(value) {
   return String(value ?? "")
     .replace(/\s*<div class=["']language-switch\b[^>]*>[\s\S]*?<\/div>/gi, "")
@@ -597,7 +625,9 @@ function removeLanguageArtifacts(value) {
 }
 
 function cleanGeneratedHtml(value) {
-  return removeLanguageArtifacts(value).replace(/[ \t]+$/gm, "");
+  return removeLanguageArtifacts(value)
+    .replace(/(\s*<footer class=["']site-footer["'][\s\S]*?<\/footer>)(?:\s*<footer class=["']site-footer["'][\s\S]*?<\/footer>)+/gi, "$1")
+    .replace(/[ \t]+$/gm, "");
 }
 
 function canonicalUrl(pathname = "/") {
@@ -672,10 +702,10 @@ function alignArticleNavigation(document, post = {}) {
 function alignArticleFooter(document) {
   const regionLinks = regionGroups().map((group) => ({ href: `/region/${group.slug}/`, label: group.label }));
   const footer = siteFooter({ regionLinks });
-  const next = String(document).replace(/<footer\b[\s\S]*?<\/footer>/i, footer);
-  return next === document && document.includes("</body>")
-    ? document.replace("</body>", `${footer}\n  </body>`)
-    : next;
+  const withoutFooters = String(document).replace(/\s*<footer\b[\s\S]*?<\/footer>/gi, "");
+  return withoutFooters.includes("</body>")
+    ? withoutFooters.replace("</body>", `${footer}\n  </body>`)
+    : `${withoutFooters}${footer}`;
 }
 
 function ensureSiteNavigationScript(document) {
@@ -937,7 +967,7 @@ function ticketProductCard(product = {}) {
     .join(" · ");
   const price = product?.priceText || product?.price || product?.salePrice || "";
   return `<a class="mrt-ticket-card" data-mrt-ticket-card href="${html(url)}" rel="sponsored nofollow" target="_blank">
-    <span class="mrt-ticket-thumb"><img src="${html(imageUrl)}" alt="${title}" loading="lazy"></span>
+    <span class="mrt-ticket-thumb"><img src="${html(imageUrl)}" alt="${title}" loading="lazy" decoding="async"></span>
     <span class="mrt-ticket-body">
       <em>${html(meta || "입장권·투어")}</em>
       <strong>${title}</strong>
@@ -1339,6 +1369,16 @@ const TRUST_STYLE_MARK = "/* tripview-trust-note */";
 const REGION_RELATED_START = "<!-- REGION_RELATED_START";
 const REGION_RELATED_END = "REGION_RELATED_END -->";
 const REGION_RELATED_STYLE_MARK = "/* tripview-region-related */";
+const ARTICLE_DISCLOSURE_START = "<!-- ARTICLE_DISCLOSURE_START";
+const ARTICLE_DISCLOSURE_END = "ARTICLE_DISCLOSURE_END -->";
+const ARTICLE_PHOTO_START = "<!-- ARTICLE_PHOTO_START";
+const ARTICLE_PHOTO_END = "ARTICLE_PHOTO_END -->";
+const ARTICLE_PRODUCT_START = "<!-- ARTICLE_PRODUCT_START";
+const ARTICLE_PRODUCT_END = "ARTICLE_PRODUCT_END -->";
+const ARTICLE_OFFICIAL_START = "<!-- ARTICLE_OFFICIAL_START";
+const ARTICLE_OFFICIAL_END = "ARTICLE_OFFICIAL_END -->";
+const ARTICLE_SOURCE_START = "<!-- ARTICLE_SOURCE_START";
+const ARTICLE_SOURCE_END = "ARTICLE_SOURCE_END -->";
 const COUPANG_AD_START = "<!-- COUPANG_AD_START";
 const COUPANG_AD_END = "COUPANG_AD_END -->";
 const COUPANG_WIDGET_START = "<!-- COUPANG_WIDGET_START";
@@ -1351,7 +1391,58 @@ function articleAdCss() {
 }
 
 function articleSiteDesignCss() {
-  return `${ARTICLE_SITE_STYLE_MARK}${SITE_CSS}.hero{padding:40px 0 24px}.hero h1{font-size:clamp(28px,5vw,46px);line-height:1.28}.layout{padding-top:32px}.content{font-size:16px;line-height:1.7}.content h2{font-size:20px;line-height:1.35;font-weight:800}.cover-figure{margin-top:0}.cover{aspect-ratio:4/3;max-height:none;border-radius:8px}.related-posts,.region-related,.trust-note{border-top:1px solid var(--line)}footer.site-footer{padding:0;color:var(--muted)}@media(max-width:820px){.hero{padding-top:32px}.layout{padding-top:24px}}/* end-tripview-site-design */`;
+  return `${ARTICLE_SITE_STYLE_MARK}${SITE_CSS}
+.hero{padding:40px 0 24px}
+.hero h1{font-size:clamp(28px,5vw,46px);line-height:1.28}
+.layout{padding-top:32px}
+.content{font-size:16px;line-height:1.7}
+.content h2{position:relative;margin-top:38px;padding-left:12px;border-left:3px solid var(--brand);font-size:20px;line-height:1.35;font-weight:800}
+.cover-figure{margin-top:0}
+.cover{aspect-ratio:4/3;max-height:none;border-radius:8px}
+.article-hero-band{position:relative;min-height:280px;background:linear-gradient(90deg,color-mix(in srgb,var(--ink) 76%,transparent),color-mix(in srgb,var(--ink) 28%,transparent)),var(--article-hero-image,linear-gradient(135deg,var(--ink),var(--brand)));background-size:cover;background-position:center;color:var(--card)}
+.article-hero-inner{min-height:280px;display:flex;flex-direction:column;justify-content:flex-end;padding:32px 0}
+.article-breadcrumb{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 12px;color:color-mix(in srgb,var(--card) 82%,transparent);font-size:12px;font-weight:800}
+.article-breadcrumb a{text-decoration:underline;text-underline-offset:3px}
+.article-hero-band h1{max-width:860px;margin:0 0 14px;font-size:clamp(28px,5vw,46px);line-height:1.22}
+.article-hero-tags{display:flex;flex-wrap:wrap;gap:8px}
+.article-tag{display:inline-flex;align-items:center;min-height:28px;padding:0 10px;border:1px solid color-mix(in srgb,var(--card) 38%,transparent);border-radius:999px;background:color-mix(in srgb,var(--card) 12%,transparent);font-size:12px;font-weight:900}
+.article-hero-band .meta{margin-top:12px;color:color-mix(in srgb,var(--card) 84%,transparent)}
+.article-hero-credit{margin-top:8px;color:color-mix(in srgb,var(--card) 72%,transparent);font-size:11px;line-height:1.45}
+.article-hero-image-alt{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.article-affiliate-disclosure{width:var(--site-wrap);margin:18px auto 0;padding:12px 14px;border:1px solid color-mix(in srgb,var(--cta) 28%,var(--line));border-radius:8px;background:color-mix(in srgb,var(--cta) 13%,var(--card));color:var(--ink);font-size:13px;line-height:1.55}
+.article-info-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:0 0 30px}
+.article-info-card{display:grid;grid-template-columns:32px minmax(0,1fr);gap:10px;padding:14px;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.article-info-icon{display:grid;place-items:center;width:32px;height:32px;border-radius:8px;background:var(--soft-teal);color:var(--brand);font-size:13px;font-weight:900}
+.article-info-label{display:block;color:var(--muted);font-size:12px;font-weight:800}
+.article-info-value{display:block;margin-top:2px;color:var(--ink);font-size:15px;font-weight:800;line-height:1.45}
+.article-photo-grid{margin:26px 0 32px}
+.article-photo-grid h2{margin-top:0}
+.article-photo-items{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.article-photo-items figure{margin:0}
+.article-photo-items img{width:100%;aspect-ratio:4/3;border-radius:8px}
+.article-photo-items figcaption{margin-top:6px;color:var(--muted);font-size:12px}
+.article-product-section{margin:36px 0 0;padding:22px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.article-product-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:12px}
+.article-product-head h2{margin:0;padding-left:12px;border-left:3px solid var(--brand);font-size:20px}
+.article-product-note{margin:0 0 14px;color:var(--muted);font-size:12px;line-height:1.55}
+.article-product-section .mrt-accommodation-grid,.article-product-section .mrt-ticket-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.article-product-section .article-product-card,.article-product-section .mrt-ticket-card{display:block;min-width:0;padding:0;overflow:hidden;border:1px solid var(--line);border-left:3px solid var(--cta);border-radius:8px;background:var(--card);transition:border-color 150ms ease}
+.article-product-section .article-product-card:hover,.article-product-section .article-product-card:focus-visible,.article-product-section .mrt-ticket-card:hover,.article-product-section .mrt-ticket-card:focus-visible{border-color:var(--brand);border-left-color:var(--cta)}
+.article-product-section .mrt-accommodation-thumb,.article-product-section .mrt-ticket-thumb{position:relative;display:block;aspect-ratio:4/3;background:var(--line)}
+.article-product-section .mrt-accommodation-thumb img,.article-product-section .mrt-ticket-thumb img{width:100%;height:100%;object-fit:cover}
+.article-product-section .mrt-accommodation-body,.article-product-section .mrt-ticket-body{display:grid;gap:5px;padding:12px}
+.article-product-section .mrt-accommodation-badge{justify-self:start;border-radius:999px;background:var(--cta);color:var(--card);padding:2px 7px;font-size:11px;font-weight:900;line-height:1.35}
+.article-product-section .mrt-accommodation-price,.article-product-section .mrt-ticket-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:5px;color:var(--cta);font-size:16px;font-weight:900}
+.article-product-section .mrt-accommodation-price del{color:var(--muted);font-size:12px;font-weight:400}
+.article-product-section .mrt-accommodation-price small{flex-basis:100%;color:var(--muted);font-size:11px;font-weight:400}
+.mrt-rating-badge{position:absolute;left:8px;top:8px;border-radius:999px;background:color-mix(in srgb,var(--ink) 82%,transparent);color:var(--card);padding:3px 7px;font-size:11px;font-weight:900}
+.article-official-box{margin:22px 0 0}
+.article-official-button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 16px;border-radius:8px;background:var(--brand);color:var(--card);font-weight:900;transition:background-color 150ms ease}
+.article-official-button:hover,.article-official-button:focus-visible{background:var(--brand-hover)}
+.tourapi-source-box{margin:22px 0 0;padding:14px;border:1px solid var(--line);border-radius:8px;background:color-mix(in srgb,var(--line) 36%,var(--card));color:var(--muted);font-size:13px;line-height:1.6}
+.related-posts,.region-related,.trust-note{border-top:1px solid var(--line)}
+footer.site-footer{padding:0;color:var(--muted)}
+@media(max-width:820px){.hero{padding-top:32px}.layout{padding-top:24px}.article-info-grid,.article-product-section .mrt-accommodation-grid,.article-product-section .mrt-ticket-grid{grid-template-columns:1fr}.article-photo-items{grid-template-columns:1fr}.article-hero-band,.article-hero-inner{min-height:240px}.article-affiliate-disclosure{width:var(--site-wrap)}}/* end-tripview-site-design */`;
 }
 
 function articleAccommodationCss() {
@@ -1367,7 +1458,7 @@ function articleTrustCss() {
 }
 
 function articleRegionRelatedCss() {
-  return `${REGION_RELATED_STYLE_MARK}.region-related{margin:34px 0;padding:18px 0 20px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.region-related-head{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;margin-bottom:12px}.region-related h2{margin:0;font-size:20px;line-height:1.35}.region-hub-link{color:var(--brand);font-size:13px;font-weight:900;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}.region-related-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.region-related-card{display:block;border:1px solid var(--line);border-radius:8px;background:var(--card);padding:13px;transition:border-color 150ms ease}.region-related-card:hover,.region-related-card:focus-visible{border-color:var(--brand)}.region-related-card strong{display:block;font-size:16px;line-height:1.35}.region-related-card span{display:block;margin-top:6px;color:var(--muted);font-size:12px}.region-related-empty{margin:0;color:var(--muted);font-size:14px}@media(max-width:640px){.region-related-head{display:block}.region-hub-link{display:inline-block;margin-top:8px}.region-related-grid{grid-template-columns:1fr}}/* end-tripview-region-related */`;
+  return `${REGION_RELATED_STYLE_MARK}.region-related{margin:34px 0;padding:18px 0 20px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.region-related-head{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;margin-bottom:12px}.region-related h2{margin:0;font-size:20px;line-height:1.35}.region-hub-link{color:var(--brand);font-size:13px;font-weight:900;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}.region-related-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.region-related-card{display:block;border:1px solid var(--line);border-radius:8px;background:var(--card);padding:13px;transition:border-color 150ms ease}.region-related-card:hover,.region-related-card:focus-visible{border-color:var(--brand)}.region-related-card strong{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;font-size:15px;line-height:1.35}.region-related-card span{display:block;margin-top:6px;color:var(--muted);font-size:12px}.region-related-empty{margin:0;color:var(--muted);font-size:14px}@media(max-width:900px){.region-related-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:640px){.region-related-head{display:block}.region-hub-link{display:inline-block;margin-top:8px}.region-related-grid{grid-template-columns:1fr}}/* end-tripview-region-related */`;
 }
 
 function stripExistingArticleAds(document) {
@@ -1376,8 +1467,16 @@ function stripExistingArticleAds(document) {
     .replace(new RegExp(`${MRT_ACCOMMODATION_START}[\\s\\S]*?${MRT_ACCOMMODATION_END}`, "g"), "")
     .replace(new RegExp(`${TRUST_NOTE_START}[\\s\\S]*?${TRUST_NOTE_END}`, "g"), "")
     .replace(new RegExp(`${REGION_RELATED_START}[\\s\\S]*?${REGION_RELATED_END}`, "g"), "")
+    .replace(new RegExp(`${ARTICLE_DISCLOSURE_START}[\\s\\S]*?${ARTICLE_DISCLOSURE_END}`, "g"), "")
+    .replace(new RegExp(`${ARTICLE_PHOTO_START}[\\s\\S]*?${ARTICLE_PHOTO_END}`, "g"), "")
+    .replace(new RegExp(`${ARTICLE_PRODUCT_START}[\\s\\S]*?${ARTICLE_PRODUCT_END}`, "g"), "")
+    .replace(new RegExp(`${ARTICLE_OFFICIAL_START}[\\s\\S]*?${ARTICLE_OFFICIAL_END}`, "g"), "")
+    .replace(new RegExp(`${ARTICLE_SOURCE_START}[\\s\\S]*?${ARTICLE_SOURCE_END}`, "g"), "")
     .replace(new RegExp(`${COUPANG_AD_START}[\\s\\S]*?${COUPANG_AD_END}`, "g"), "")
     .replace(new RegExp(`${COUPANG_WIDGET_START}[\\s\\S]*?${COUPANG_WIDGET_END}`, "g"), "")
+    .replace(/\s*<section class=["']related-posts["'][\s\S]*?<\/section>/gi, "")
+    .replace(/\s*<p class=["']note["']>일정과 세부 운영[\s\S]*?<\/p>/gi, "")
+    .replace(/\/\* tripview-site-design \*\/[\s\S]*?\/\* end-tripview-site-design \*\//g, "")
     .replace(/\/\* tripview-mrt-native-ad \*\/[\s\S]*?\/\* end-tripview-mrt-native-ad \*\//g, "")
     .replace(/\/\* tripview-mrt-accommodation-cards \*\/[\s\S]*?\/\* end-tripview-mrt-accommodation-cards \*\//g, "")
     .replace(/\/\* tripview-trust-note \*\/[\s\S]*?\/\* end-tripview-trust-note \*\//g, "")
@@ -1485,6 +1584,14 @@ function publicImageUrl(value = "") {
   return src;
 }
 
+function cssImageUrl(value = "") {
+  return String(value || "")
+    .replaceAll("\\", "/")
+    .replaceAll("'", "%27")
+    .replaceAll("(", "%28")
+    .replaceAll(")", "%29");
+}
+
 function ensureLazyImages(document) {
   return String(document).replace(/<img\b(?![^>]*\bloading=)([^>]*?)>/gi, "<img loading=\"lazy\"$1>");
 }
@@ -1515,6 +1622,245 @@ function applyProcessedArticleImages(document, post) {
     return asset?.src ? processedFigure(asset, "inline-figure") : ensureLazyImages(figure);
   });
   return ensureLazyImages(next);
+}
+
+function articleCategoryLabel(post) {
+  if (articleActivePath(post) === "/ticket/") return "입장권·투어";
+  if (articleActivePath(post) === "/stay/") return "숙소";
+  return isFestivalPost(post) ? "축제·행사" : "여행지";
+}
+
+function articleCategoryPath(post) {
+  return articleActivePath(post);
+}
+
+function articleReadTime(post) {
+  const explicit = normalizeText(post?.read);
+  if (explicit) return explicit;
+  const length = normalizeText([postTitle(post), postExcerpt(post), ...(Array.isArray(post?.sections) ? post.sections.flat() : [])].join(" ")).length;
+  return `${Math.max(2, Math.ceil(length / 520))}분 읽기`;
+}
+
+function articleHeroBand(post) {
+  const image = postImage(post);
+  const coverAsset = tourImageEntry(processedTourImages, post)?.cover || null;
+  const label = articleCategoryLabel(post);
+  const categoryPath = articleCategoryPath(post);
+  const region = compactRegion(post?.region);
+  const status = festivalStatus(post).ended ? "종료" : "";
+  const tags = [status, label, region, isIndexablePost(post) ? "검수 완료" : "검수 대기"].filter(Boolean);
+  const imageStyle = image ? ` style="--article-hero-image:url('${html(cssImageUrl(image))}')" ` : "";
+  const credit = coverAsset?.src ? tourImageCaption(coverAsset) : "";
+  const alt = coverAsset?.src ? tourImageAlt(coverAsset, post) : "";
+  return `<section class="article-hero-band"${imageStyle}aria-labelledby="article-title">
+        <div class="wrap article-hero-inner">
+          ${alt ? `<span class="article-hero-image-alt" role="img" aria-label="${html(alt)}"></span>` : ""}
+          <nav class="article-breadcrumb" aria-label="글 위치"><a href="/">홈</a><span>/</span><a href="${html(categoryPath)}">${html(label)}</a><span>/</span><a href="/region/${html(regionSlug(region))}/">${html(region)}</a></nav>
+          <h1 id="article-title">${html(postTitle(post))}</h1>
+          <div class="article-hero-tags">${tags.map((tag) => `<span class="article-tag">${html(tag)}</span>`).join("")}</div>
+          <div class="meta"><a class="author-link" href="${html(post.editorialAuthorProfile || "/editorial-team")}">${html(post.editorialReviewer || "트립뷰 편집팀")}</a><span>${html(formatDate(postDate(post)))}</span><span>${html(articleReadTime(post))}</span><span>${html(post?.region || region)}</span></div>
+          ${credit ? `<span class="article-hero-credit">${html(credit)}</span>` : ""}
+        </div>
+      </section>`;
+}
+
+function applyArticleHeroBand(document, post) {
+  let next = String(document)
+    .replace(/\s*<section class=["']article-hero-band["'][\s\S]*?<\/section>/gi, "")
+    .replace(/\s*<section class=["']wrap hero["'][\s\S]*?<\/section>/i, "\n      ")
+    .replace(/\s*<figure class=["']cover-figure["'][\s\S]*?<\/figure>/i, "\n      ");
+  return next.includes("<main>")
+    ? next.replace(/<main>/i, `<main>\n      ${articleHeroBand(post)}`)
+    : next;
+}
+
+function articleAffiliateDisclosureBlock() {
+  return `${ARTICLE_DISCLOSURE_START} -->
+<p class="article-affiliate-disclosure">이 글에는 예약·입장권 제휴 링크가 포함될 수 있습니다. 링크를 통해 예약 또는 구매가 발생하면 트립뷰가 일정 수수료를 받을 수 있습니다.</p>
+<!-- ${ARTICLE_DISCLOSURE_END}`;
+}
+
+function injectArticleAffiliateDisclosure(document, enabled) {
+  let next = String(document)
+    .replace(new RegExp(`${ARTICLE_DISCLOSURE_START}[\\s\\S]*?${ARTICLE_DISCLOSURE_END}`, "g"), "")
+    .replace(/\s*<p class=["']article-affiliate-disclosure["'][\s\S]*?<\/p>/gi, "");
+  if (!enabled) return next;
+  const marker = '<section class="wrap layout">';
+  return next.includes(marker)
+    ? next.replace(marker, `${articleAffiliateDisclosureBlock()}\n      ${marker}`)
+    : next;
+}
+
+function plainFieldValue(value = "") {
+  return normalizeText(String(value || "")
+    .replace(/<[^>]+>/g, " ")
+    .replaceAll("&nbsp;", " ")
+    .replaceAll("&amp;", "&"));
+}
+
+function usefulInfoValue(value = "") {
+  const text = plainFieldValue(value);
+  if (!text) return "";
+  if (/방문 전(?:\s*공식)?\s*안내\s*확인|방문 전 확인 필요|확인 필요|전화 문의 요망/.test(text)) return "";
+  if (/^[-–—]+$/.test(text)) return "";
+  return text;
+}
+
+function introValue(post, ...keys) {
+  const intro = post?.tourApi?.intro || {};
+  for (const key of keys) {
+    const value = usefulInfoValue(intro[key]);
+    if (value) return value;
+  }
+  return "";
+}
+
+function firstInfoValue(post, ...labels) {
+  for (const label of labels) {
+    const value = usefulInfoValue(infoValue(post, label));
+    if (value) return value;
+  }
+  return "";
+}
+
+function articleInfoItems(post) {
+  const schedule = isFestivalPost(post) ? usefulInfoValue(festivalSchedule(post).label) || introValue(post, "eventstartdate", "eventenddate") : firstInfoValue(post, "기간", "일정");
+  return [
+    { label: "일정", icon: "일", value: schedule },
+    { label: "장소", icon: "장", value: firstInfoValue(post, "장소", "주소") || usefulInfoValue(post?.region) },
+    { label: "문의", icon: "문", value: firstInfoValue(post, "문의") || introValue(post, "infocenter", "infocenterculture", "infocenterleports", "infocenterlodging", "infocentershopping", "infocenterfood", "sponsor1tel") },
+    { label: "주최", icon: "주", value: firstInfoValue(post, "주최") || introValue(post, "sponsor1", "sponsor2") },
+    { label: "운영 시간", icon: "시", value: firstInfoValue(post, "운영 시간", "운영 확인", "이용 시간", "시간") || introValue(post, "usetime", "usetimeculture", "usetimeleports", "opentime", "opentimefood", "playtime") },
+    { label: "이용 요금", icon: "요", value: firstInfoValue(post, "이용 요금", "요금") || introValue(post, "usefee", "usefeeleports", "usetimefestival", "saleitemcost") },
+  ].filter((item, index, list) => item.value && list.findIndex((candidate) => candidate.label === item.label) === index);
+}
+
+function articleInfoGrid(post) {
+  const items = articleInfoItems(post);
+  if (!items.length) return "";
+  return `<div class="article-info-grid" aria-label="방문 기본 정보">${items.map((item) => `<div class="article-info-card"><span class="article-info-icon" aria-hidden="true">${html(item.icon)}</span><span><span class="article-info-label">${html(item.label)}</span><strong class="article-info-value">${html(item.value)}</strong></span></div>`).join("")}</div>`;
+}
+
+function replaceArticleInfoTable(document, post) {
+  const grid = articleInfoGrid(post);
+  const withoutExistingGrid = String(document).replace(/\s*<div class=["']article-info-grid["'] aria-label=["']방문 기본 정보["']>(?:<div class=["']article-info-card["'][\s\S]*?<\/div>)+<\/div>/gi, "");
+  const hasTable = /<table class=["']info-table["']/.test(withoutExistingGrid);
+  let next = hasTable
+    ? withoutExistingGrid.replace(/\s*<table class=["']info-table["'][\s\S]*?<\/table>/i, grid)
+    : withoutExistingGrid;
+  if (!hasTable && grid) {
+    next = next.replace(/<article class=["']content["']>/i, `<article class="content">${grid}`);
+  }
+  return next;
+}
+
+function articlePhotoGrid(post) {
+  const images = postImagesWithProcessed(processedTourImages, post).filter(Boolean).slice(0, 6);
+  if (images.length < 3) return "";
+  const figures = images.map((src) => {
+    const asset = tourImageAssetForSource(processedTourImages, post, src) || { src, alt: postTitle(post), caption: "" };
+    return `<figure><img src="${html(src)}" alt="${html(tourImageAlt(asset, post))}" loading="lazy" decoding="async"><figcaption>${html(tourImageCaption(asset))}</figcaption></figure>`;
+  }).join("");
+  return `${ARTICLE_PHOTO_START} -->
+<section class="article-photo-grid" aria-labelledby="article-photo-title">
+  <h2 id="article-photo-title">사진으로 확인하기</h2>
+  <div class="article-photo-items">${figures}</div>
+</section>
+<!-- ${ARTICLE_PHOTO_END}`;
+}
+
+function injectArticlePhotoGrid(document, post) {
+  let next = String(document).replace(new RegExp(`${ARTICLE_PHOTO_START}[\\s\\S]*?${ARTICLE_PHOTO_END}`, "g"), "");
+  const block = articlePhotoGrid(post);
+  if (!block) return next;
+  if (next.includes("</div><h2")) return next.replace("</div><h2", `</div>${block}<h2`);
+  return next.replace(/<article class=["']content["']>/i, `<article class="content">${block}`);
+}
+
+function paidDayVisitPost(post) {
+  if (isDataPipelinePost(post) || isLodgingPost(post)) return false;
+  return /입장료|입장권|티켓|관람권|이용권|현장 구매|사전\s*예매|예매|입장 마감|무료 입장|매표|케이블카|천문대|박물관|미술관|과학관|동굴|테마파크|아쿠아리움|전망대|모노레일|유람선|스카이파크/.test(searchablePostText(post));
+}
+
+function articleTicketItems(post, count = 6) {
+  return selectAffiliateProducts({
+    sectionId: "booking",
+    posts: [post],
+    products: tnaProducts,
+    limit: count,
+  });
+}
+
+function articleTicketProductCard(product = {}) {
+  return ticketProductCard(product).replace('class="mrt-ticket-card"', 'class="mrt-ticket-card article-product-card"');
+}
+
+function articleProductSection(post) {
+  if (paidDayVisitPost(post)) {
+    const cards = articleTicketItems(post, 6).map(articleTicketProductCard).filter(Boolean);
+    if (!cards.length) return "";
+    return `${ARTICLE_PRODUCT_START} ticket -->
+<section class="article-product-section" aria-label="입장권·투어 카드" data-article-product-type="ticket">
+  <div class="article-product-head"><h2>이 지역 입장권·투어</h2><span>마이리얼트립</span></div>
+  <p class="article-product-note">방문지 성격과 지역 기준으로 연결한 제휴 상품입니다. 가격과 이용 조건은 예약 화면에서 다시 확인해야 합니다.</p>
+  <div class="mrt-ticket-grid">${cards.join("")}</div>
+</section>
+<!-- ${ARTICLE_PRODUCT_END}`;
+  }
+  const cards = articleAccommodationItems(post, 6).map(articleAccommodationCard).filter(Boolean);
+  if (!cards.length) return "";
+  return `${ARTICLE_PRODUCT_START} accommodation -->
+<section class="article-product-section" aria-label="지역 숙소 카드" data-article-product-type="accommodation">
+  <div class="article-product-head"><h2>${html(compactRegion(post?.region))} 숙소 카드</h2><span>마이리얼트립 숙소</span></div>
+  <p class="article-product-note">렌더링 시점 기준 다음 금요일 체크인, 일요일 체크아웃, 성인 2명 조건으로 연결합니다.</p>
+  <div class="mrt-accommodation-grid">${cards.join("")}</div>
+</section>
+<!-- ${ARTICLE_PRODUCT_END}`;
+}
+
+function injectArticleProductSection(document, block) {
+  if (!block || !String(document).includes("</article>")) return document;
+  return String(document).replace("</article>", `${block}</article>`);
+}
+
+function firstHttpUrl(value = "") {
+  const text = String(value || "").replaceAll("&amp;", "&");
+  const href = text.match(/href=["']([^"']+)["']/i)?.[1] || text.match(/https?:\/\/[^\s<>"']+/i)?.[0] || "";
+  return safeHttpUrl(href);
+}
+
+function officialUrlForPost(post) {
+  return safeHttpUrl(post?.tourApi?.homepage) || firstHttpUrl(infoValue(post, "홈페이지"));
+}
+
+function articleOfficialBlock(post) {
+  const url = officialUrlForPost(post);
+  if (!url) return "";
+  return `${ARTICLE_OFFICIAL_START} -->
+<div class="article-official-box"><a class="article-official-button" href="${html(url)}" target="_blank" rel="noopener">공식 안내 확인</a></div>
+<!-- ${ARTICLE_OFFICIAL_END}`;
+}
+
+function articleTourApiSourceBlock(post) {
+  if (!post?.contentid && !post?.tourApi) return "";
+  const idText = post?.contentid ? `콘텐츠 ID ${post.contentid}. ` : "";
+  return `${ARTICLE_SOURCE_START} -->
+<aside class="tourapi-source-box">${html(idText)}관광 정보 원자료는 한국관광공사 TourAPI를 확인 자료로 사용했습니다. 사진은 공공누리 출처 표기를 유지하고, 본문 설명은 트립뷰 편집 기준으로 다시 작성했습니다.</aside>
+<!-- ${ARTICLE_SOURCE_END}`;
+}
+
+function injectArticleOfficialBlock(document, block) {
+  if (!block || !String(document).includes("</article>")) return document;
+  return String(document).replace("</article>", `${block}</article>`);
+}
+
+function injectArticleTourApiSource(document, block) {
+  if (!block || !String(document).includes("</article>")) return document;
+  return String(document).replace("</article>", `${block}</article>`);
+}
+
+function stripTourOverviewSection(document) {
+  return String(document).replace(/\s*<h2>장소 소개<\/h2>(?:\s*<p>[\s\S]*?<\/p>)+/gi, "");
 }
 
 function schemaDate(value, fallback = CONTENT_TODAY) {
@@ -1752,7 +2098,7 @@ function articleRegionRelatedItems(post) {
   const slug = regionSlug(post?.region);
   return sortedPosts(indexablePosts)
     .filter((candidate) => candidate?.slug && candidate.slug !== post?.slug && regionSlug(candidate?.region) === slug)
-    .slice(0, 3);
+    .slice(0, 8);
 }
 
 function articleRegionRelatedCard(post) {
@@ -1858,18 +2204,23 @@ async function polishGeneratedArticles() {
     if (!document.includes('<article class="content"')) continue;
 
     const indexable = isIndexablePost(post);
-    const accommodationItems = indexable && !isDataPipelinePost(post) ? articleAccommodationItems(post, 3) : [];
-    const midAccommodationBlock = accommodationItems.length ? articleAccommodationBlock(accommodationItems.slice(0, 1), "mid") : "";
-    const bottomAccommodationBlock = accommodationItems.length > 1 ? articleAccommodationBlock(accommodationItems.slice(1, 3), "bottom") : "";
+    const productBlock = indexable && !isDataPipelinePost(post) ? articleProductSection(post) : "";
     const regionRelatedBlock = indexable ? articleRegionRelatedBlock(post) : "";
-    const hasAccommodationBlock = Boolean(midAccommodationBlock || bottomAccommodationBlock);
-    let next = injectArticleAdCss(stripExistingArticleAds(document), false, Boolean(regionRelatedBlock), hasAccommodationBlock);
+    const officialBlock = articleOfficialBlock(post);
+    const sourceBlock = articleTourApiSourceBlock(post);
+    let next = injectArticleAdCss(stripExistingArticleAds(document), false, Boolean(regionRelatedBlock), false);
     next = alignArticleNavigation(next, post);
     next = alignArticleByline(next, post);
     next = applyProcessedArticleImages(next, post);
-    next = injectArticleMidAccommodation(next, midAccommodationBlock);
-    next = injectArticleBottomAccommodation(next, bottomAccommodationBlock);
+    next = applyArticleHeroBand(next, post);
+    next = injectArticleAffiliateDisclosure(next, Boolean(productBlock));
+    next = replaceArticleInfoTable(next, post);
+    next = stripTourOverviewSection(next);
+    next = injectArticlePhotoGrid(next, post);
+    next = injectArticleProductSection(next, productBlock);
     next = injectArticleRegionRelated(next, regionRelatedBlock);
+    next = injectArticleOfficialBlock(next, officialBlock);
+    next = injectArticleTourApiSource(next, sourceBlock);
     next = injectArticleTrust(next, post);
     next = injectFestivalStatus(next, post);
     next = ensureCanonical(next, `/${post.slug}/`);

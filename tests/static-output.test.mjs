@@ -230,20 +230,30 @@ test("accommodation cards use cached MyRealTrip stay links and stay out of pendi
   assert.ok(productCards.every((card) => /<img /.test(card)));
   assert.doesNotMatch(stayPage, /data-mrt-accommodation-card[\s\S]{0,500}오사카/);
 
-  const [reviewedArticle, pendingArticle] = await Promise.all([
+  const [reviewedArticle, paidArticle, pendingArticle] = await Promise.all([
     readFile("travel-126078/index.html", "utf8"),
+    readFile("travel-2994364/index.html", "utf8"),
     readFile("festival-4094595/index.html", "utf8"),
   ]);
-  assert.match(reviewedArticle, /<!-- MRT_ACCOMMODATION_START mid -->/);
-  assert.match(reviewedArticle, /<!-- MRT_ACCOMMODATION_START bottom -->/);
-  const midBlock = reviewedArticle.match(/<!-- MRT_ACCOMMODATION_START mid -->[\s\S]*?<!-- MRT_ACCOMMODATION_END -->/)?.[0] || "";
-  const bottomBlock = reviewedArticle.match(/<!-- MRT_ACCOMMODATION_START bottom -->[\s\S]*?<!-- MRT_ACCOMMODATION_END -->/)?.[0] || "";
-  assert.equal((midBlock.match(/data-mrt-accommodation-card/g) || []).length, 1);
-  assert.ok((bottomBlock.match(/data-mrt-accommodation-card/g) || []).length <= 2);
-  assert.ok(((midBlock + bottomBlock).match(/data-mrt-accommodation-card/g) || []).length <= 3);
-  assert.match(reviewedArticle, /class="mrt-accommodation-thumb"><img src="https:\/\/[^\"]+"[^>]*loading="lazy"/);
+  assert.match(reviewedArticle, /<section class="article-hero-band"/);
+  assert.match(reviewedArticle, /<p class="article-affiliate-disclosure"/);
+  assert.match(reviewedArticle, /<div class="article-info-grid"/);
+  assert.doesNotMatch(reviewedArticle, /<table class="info-table"/);
+  assert.match(reviewedArticle, /<!-- ARTICLE_PRODUCT_START accommodation -->/);
+  const articleProductBlock = reviewedArticle.match(/<!-- ARTICLE_PRODUCT_START accommodation -->[\s\S]*?<!-- ARTICLE_PRODUCT_END -->/)?.[0] || "";
+  const articleAccommodationCards = articleProductBlock.match(/data-mrt-accommodation-card/g) || [];
+  assert.ok(articleAccommodationCards.length > 0 && articleAccommodationCards.length <= 6);
+  assert.match(articleProductBlock, /class="mrt-accommodation-thumb"><img src="https:\/\/[^\"]+"[^>]*loading="lazy"[^>]*decoding="async"/);
+  assert.match(articleProductBlock, /class="mrt-rating-badge"/);
+  assert.match(articleProductBlock, /<del>[\d,]+원<\/del><strong>[\d,]+원<\/strong>|<strong>[\d,]+원<\/strong>/);
+  assert.doesNotMatch(reviewedArticle, /<!-- MRT_ACCOMMODATION_START/);
+  assert.match(paidArticle, /<!-- ARTICLE_PRODUCT_START ticket -->/);
+  assert.doesNotMatch(paidArticle, /data-mrt-accommodation-card/);
+  const paidTicketCards = paidArticle.match(/data-mrt-ticket-card/g) || [];
+  assert.ok(paidTicketCards.length > 0 && paidTicketCards.length <= 6);
   assert.match(reviewedArticle, /<meta name="robots" content="index, follow, max-image-preview:large">/);
   assert.doesNotMatch(pendingArticle, /<!-- MRT_ACCOMMODATION_START/);
+  assert.doesNotMatch(pendingArticle, /<!-- ARTICLE_PRODUCT_START/);
   assert.doesNotMatch(pendingArticle, /adsbygoogle\.js\?client=/);
   assert.match(pendingArticle, /data-tripview-article/);
   assert.match(pendingArticle, /data-tripview-event/);
@@ -309,13 +319,13 @@ test("Korea Tourism images render through processed WebP assets", async () => {
   assert.ok(manifest.items["travel-2774026"].banner.overlay);
   assert.match(manifestText, /\/assets\/processed\/samcheok-hwanseongul-parking\.webp/);
 
-  assert.match(article, /src="\/assets\/processed\/busan-gwangalli-beach-parking\.webp"/);
-  assert.match(article, /alt="부산 광안리해수욕장 방문 동선을 참고할 수 있는 트립뷰 편집 이미지"/);
-  assert.match(article, /loading="lazy"/);
+  assert.match(article, /style="--article-hero-image:url\('\/assets\/processed\/busan-gwangalli-beach-parking\.webp'\)"/);
+  assert.match(article, /role="img" aria-label="부산 광안리해수욕장 방문 동선을 참고할 수 있는 트립뷰 편집 이미지"/);
+  assert.doesNotMatch(article, /<figure class="cover-figure"/);
   assert.match(article, /출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지/);
   assert.match(article, /"image":\["https:\/\/tripview\.kr\/assets\/processed\/busan-gwangalli-beach-parking\.webp"\]/);
   assert.doesNotMatch(article, /tong\.visitkorea\.or\.kr/);
-  assert.doesNotMatch(article, /이미지 1|대표 이미지/);
+  assert.doesNotMatch(article, /이미지 1|<figcaption>대표 이미지/);
 
   assert.match(homepage, /\/assets\/processed\/[a-z0-9-]+\.webp/);
   assert.doesNotMatch(homepage, /-banner\.webp/);
@@ -400,13 +410,15 @@ test("region hubs are generated and articles link to same-region content", async
   assert.match(article, /강원에서 함께 볼 글/);
   assert.match(article, /href="\/region\/gangwon\/"/);
   const relatedBlock = article.match(/<!-- REGION_RELATED_START -->[\s\S]*?<!-- REGION_RELATED_END -->/)?.[0] || "";
-  assert.ok((relatedBlock.match(/class="region-related-card"/g) || []).length <= 3);
+  assert.ok((relatedBlock.match(/class="region-related-card"/g) || []).length <= 8);
+  assert.match(article, /region-related-grid\{display:grid;grid-template-columns:repeat\(4,minmax\(0,1fr\)\)/);
 });
 
 test("generated article pages keep one current site header", async () => {
   for (const fileName of ["travel-2774026/index.html", "festival-3351451/index.html", "data-ticket-price-busan/index.html"]) {
     const document = await readFile(fileName, "utf8");
     assert.equal((document.match(/class="site-header"/g) || []).length, 1);
+    assert.equal((document.match(/<footer class="site-footer"/g) || []).length, 1);
     assert.match(document, /<summary class="nav-summary">여행지<\/summary>/);
     assert.match(document, /<summary class="nav-summary">숙소<\/summary>/);
     assert.match(document, /<summary class="nav-summary">입장권·투어<\/summary>/);
