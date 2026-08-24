@@ -44,6 +44,9 @@ button,input,select{font:inherit}
 .nav-item-count{color:var(--muted);font-size:11px;font-weight:800;line-height:1.35}
 .site-search-link{display:grid;place-items:center;min-width:44px;min-height:44px;border:1px solid transparent;border-radius:999px;color:var(--ink);font-size:23px;line-height:1;transition:background-color 150ms ease,border-color 150ms ease}
 .site-search-link:hover,.site-search-link:focus-visible{border-color:var(--line);background:var(--card)}
+.site-menu-backdrop,.mobile-menu-panel{display:none}
+.mobile-menu-close{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 14px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);font-size:13px;font-weight:800}
+.is-site-menu-open{overflow:hidden}
 .site-page{width:var(--site-wrap);margin:0 auto;padding:48px 0 64px}
 .site-section{padding:48px 0}
 .site-section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:16px}
@@ -68,7 +71,7 @@ button,input,select{font:inherit}
 .footer-bottom{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px 12px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
 .cta-link{display:inline-flex;align-items:center;justify-content:center;min-height:44px;border-radius:8px;background:var(--cta);color:var(--card);font-weight:800;transition:background-color 150ms ease}
 .cta-link:hover,.cta-link:focus-visible{background:var(--cta-hover)}
-@media(max-width:900px){:root{--site-wrap:min(720px,calc(100% - 32px))}.site-header-inner{grid-template-columns:1fr auto auto;gap:8px;min-height:64px}.site-menu-toggle{display:inline-flex;align-items:center;justify-content:center}.site-nav{display:none;grid-column:1/-1;justify-content:stretch;padding:0 0 12px}.site-header.is-menu-open .site-nav{display:grid}.site-nav-main{display:grid;gap:6px}.site-home-link,.nav-summary{width:100%;justify-content:space-between;border-radius:8px;background:var(--card);min-height:44px}.nav-dropdown{position:static;display:none;width:auto;margin-top:6px}.nav-group[open] .nav-dropdown{display:grid}.site-page{padding:32px 0 48px}.site-section{padding:32px 0}.story-grid{grid-template-columns:1fr;gap:16px}.site-footer-inner{grid-template-columns:1fr;gap:20px;padding:32px 0}.site-search-link{font-size:22px}}
+@media(max-width:900px){:root{--site-wrap:min(720px,calc(100% - 32px))}.site-header-inner{grid-template-columns:1fr auto auto;gap:8px;min-height:64px}.site-menu-toggle{display:inline-flex;align-items:center;justify-content:center}.site-nav{display:none}.site-menu-backdrop{position:fixed;inset:0;z-index:80;background:color-mix(in srgb,var(--ink) 42%,transparent)}.site-header.is-menu-open .site-menu-backdrop{display:block}.mobile-menu-panel{position:fixed;inset:0;z-index:90;display:grid;grid-template-rows:auto minmax(0,1fr);width:100%;background:var(--card);box-shadow:-20px 0 40px color-mix(in srgb,var(--ink) 16%,transparent);transform:translateX(100%);transition:transform 150ms ease}.site-header.is-menu-open .mobile-menu-panel{transform:translateX(0)}.mobile-menu-head{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px;padding:10px 18px;border-bottom:1px solid var(--line)}.mobile-menu-nav{display:block;overflow:auto;padding:18px}.mobile-menu-home{display:flex;align-items:center;min-height:48px;margin-bottom:18px;padding:0 14px;border:1px solid var(--line);border-radius:8px;background:var(--bg);font-weight:900}.mobile-menu-home.is-current{background:var(--soft-teal);color:var(--brand)}.mobile-menu-section{display:grid;gap:8px;margin-bottom:22px}.mobile-menu-section h2{margin:0;color:var(--muted);font-size:11px;font-weight:900;line-height:1.4}.mobile-menu-items{display:grid;gap:8px}.mobile-menu-item{display:grid;grid-template-columns:32px minmax(0,1fr) minmax(92px,.9fr);gap:12px;align-items:center;min-height:56px;padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--card);transition:background-color 150ms ease,border-color 150ms ease}.mobile-menu-item.is-current{background:var(--soft-teal);border-color:color-mix(in srgb,var(--brand) 24%,var(--line))}.mobile-menu-section.is-affiliate .mobile-menu-item{border-color:color-mix(in srgb,var(--cta) 28%,var(--line));background:var(--soft-cta)}.mobile-menu-section.is-affiliate .mobile-menu-item.is-current{border-color:color-mix(in srgb,var(--cta) 40%,var(--line))}.mobile-menu-section.is-affiliate .mobile-menu-item .nav-item-icon{color:var(--cta);border-color:color-mix(in srgb,var(--cta) 40%,var(--line));background:var(--card)}.mobile-menu-copy{display:grid;min-width:0}.mobile-menu-aside{justify-self:end;color:var(--muted);font-size:12px;font-weight:800;line-height:1.35;text-align:right}.site-page{padding:32px 0 48px}.site-section{padding:32px 0}.story-grid{grid-template-columns:1fr;gap:16px}.site-footer-inner{grid-template-columns:1fr;gap:20px;padding:32px 0}.site-search-link{font-size:22px}}
 @media(max-width:520px){body{font-size:15px}.site-section-head h2{font-size:19px}.story-card strong{font-size:17px}.story-card-body{padding:14px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:0.01ms!important;animation-duration:0.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
 
@@ -132,8 +135,8 @@ footer.site-footer{padding:0;color:var(--muted)}
     <header class="site-header" data-site-header>
     <div class="site-header-inner">
       <a class="site-brand" href="/">트립뷰</a>
-      <button class="site-menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-site-menu-toggle>메뉴</button>
-      <nav class="site-nav" id="site-nav" aria-label="주요 메뉴">
+      <button class="site-menu-toggle" type="button" aria-expanded="false" aria-controls="site-mobile-menu" data-site-menu-toggle>메뉴</button>
+      <nav class="site-nav site-nav-desktop" aria-label="주요 메뉴">
         <div class="site-nav-main">
           <a class="site-home-link" href="/">홈</a>
           <details class="nav-group">
@@ -160,6 +163,29 @@ footer.site-footer{padding:0;color:var(--muted)}
         </div>
       </nav>
       <a class="site-search-link" href="/travel/#all-posts" aria-label="검색">⌕</a>
+      <button class="site-menu-backdrop" type="button" aria-label="메뉴 닫기" data-site-menu-close hidden></button>
+    <aside class="mobile-menu-panel" id="site-mobile-menu" aria-hidden="true" data-site-menu-panel>
+      <div class="mobile-menu-head"><a class="site-brand" href="/">트립뷰</a><button class="mobile-menu-close" type="button" aria-label="메뉴 닫기" data-site-menu-close>닫기</button></div>
+      <nav class="mobile-menu-nav" aria-label="모바일 주요 메뉴">
+        <a class="mobile-menu-home" href="/">홈</a>
+        <section class="mobile-menu-section">
+      <h2>여행지</h2>
+      <div class="mobile-menu-items">
+        <a class="mobile-menu-item" href="/region/"><span class="nav-item-icon" aria-hidden="true">지</span><span class="mobile-menu-copy"><span class="nav-item-label">지역별</span></span><span class="mobile-menu-aside">지역 허브</span></a><a class="mobile-menu-item" href="/travel/#tag-water"><span class="nav-item-icon" aria-hidden="true">테</span><span class="mobile-menu-copy"><span class="nav-item-label">테마별</span></span><span class="mobile-menu-aside">물놀이·실내·아이와</span></a><a class="mobile-menu-item" href="/travel/#all-posts"><span class="nav-item-icon" aria-hidden="true">전</span><span class="mobile-menu-copy"><span class="nav-item-label">전국 관광지</span></span><span class="mobile-menu-aside">검수 글 목록</span></a>
+      </div>
+    </section><section class="mobile-menu-section">
+      <h2>축제·행사</h2>
+      <div class="mobile-menu-items">
+        <a class="mobile-menu-item" href="/festival/#ongoing"><span class="nav-item-icon" aria-hidden="true">진</span><span class="mobile-menu-copy"><span class="nav-item-label">진행 중</span></span><span class="mobile-menu-aside">오늘 기준</span></a><a class="mobile-menu-item" href="/festival/#upcoming"><span class="nav-item-icon" aria-hidden="true">예</span><span class="mobile-menu-copy"><span class="nav-item-label">예정</span></span><span class="mobile-menu-aside">시작 전 일정</span></a><a class="mobile-menu-item" href="/festival/#past"><span class="nav-item-icon" aria-hidden="true">종</span><span class="mobile-menu-copy"><span class="nav-item-label">지난 축제</span></span><span class="mobile-menu-aside">종료된 일정</span></a>
+      </div>
+    </section><section class="mobile-menu-section is-affiliate">
+      <h2>예약</h2>
+      <div class="mobile-menu-items">
+        <a class="mobile-menu-item is-current" href="/stay/"><span class="nav-item-icon" aria-hidden="true">숙</span><span class="mobile-menu-copy"><span class="nav-item-label">숙소</span></span><span class="mobile-menu-aside">위치·취소 조건 비교</span></a><a class="mobile-menu-item" href="/ticket/"><span class="nav-item-icon" aria-hidden="true">권</span><span class="mobile-menu-copy"><span class="nav-item-label">입장권·투어</span></span><span class="mobile-menu-aside">운영 시간·포함 사항 비교</span></a>
+      </div>
+    </section>
+      </nav>
+    </aside>
     </div>
   </header>
     <main>

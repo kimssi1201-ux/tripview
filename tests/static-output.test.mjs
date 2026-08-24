@@ -139,6 +139,10 @@ test("homepage categories use real URLs and travel keeps old topics as tags", as
   assert.match(homepage, /href="\/stay\/#accommodation-cards"/);
   assert.match(homepage, /href="\/ticket\/#regional-tickets"/);
   assert.match(homepage, /data-site-menu-toggle/);
+  assert.match(homepage, /id="site-mobile-menu"/);
+  assert.match(homepage, /<section class="mobile-menu-section is-affiliate">/);
+  assert.match(homepage, /<h2>예약<\/h2>/);
+  assert.match(homepage, /href="\/ticket\/"><span class="nav-item-icon" aria-hidden="true">권<\/span>/);
   assert.doesNotMatch(homepage, /<a[^>]+href="#(?:water|weekend|festival|indoor|family|booking|myrealtrip-deals)"/);
   assert.doesNotMatch(homepage, /data-filter="(?:water|weekend|festival|indoor|family|booking)"/);
 
@@ -162,6 +166,8 @@ test("homepage uses dropdown navigation and a five-story lead package", async ()
   assert.ok((homepage.match(/class="nav-dropdown"/g) || []).length >= 4);
   assert.match(homepage, /\.nav-dropdown\{[^}]*z-index:120[^}]*background:var\(--card\)[^}]*box-shadow:/);
   assert.match(homepage, /\.nav-dropdown a\{display:flex;align-items:flex-start;gap:12px/);
+  assert.match(homepage, /\.mobile-menu-panel\{[^}]*position:fixed;inset:0;[^}]*width:100%;[^}]*background:var\(--card\)/);
+  assert.match(homepage, /document\.documentElement\.classList\.toggle\("is-site-menu-open", open\)/);
   assert.match(homepage, /const closeGroups = \(except\) =>/);
   assert.match(homepage, /group\.addEventListener\("mouseenter", \(\) => openGroup\(group\)\)/);
   assert.doesNotMatch(homepage, /\.nav-group:hover \.nav-dropdown/);
@@ -249,16 +255,31 @@ test("accommodation cards use cached MyRealTrip stay links and stay out of pendi
   assert.ok(urls.every((url) => url.includes("childCount=0")));
   assert.ok(cards.every((card) => /rel="sponsored nofollow"/.test(card)));
   assert.ok(cards.every((card) => /target="_blank"/.test(card)));
-  assert.match(stayPage, /숙소 카드/);
-  assert.match(stayPage, /class="mrt-accommodation-badge"/);
-  assert.match(stayPage, /<del>[\d,]+원<\/del><strong>[\d,]+원<\/strong>/);
+  assert.match(stayPage, /가격보다 위치와 취소 조건을 먼저 비교하세요/);
+  assert.match(stayPage, /class="booking-condition"/);
+  assert.match(stayPage, /class="booking-affiliate-box"/);
+  assert.match(stayPage, /class="booking-city-grid"/);
+  assert.match(stayPage, /id="accommodation-cards"/);
+  assert.match(stayPage, /class="booking-product-price">[\d,]+원부터<\/span>/);
   assert.doesNotMatch(stayPage, /checkIn=2026-08-24|checkOut=2026-08-26/);
-  const productCards = [...stayPage.matchAll(/<a class="mrt-accommodation-card"[^>]*data-mrt-accommodation-card[^>]*>[\s\S]*?<\/a>/g)]
+  const productCards = [...stayPage.matchAll(/<a class="booking-product-card"[^>]*data-mrt-accommodation-card[^>]*>[\s\S]*?<\/a>/g)]
     .map((match) => match[0]);
   assert.equal(productCards.length, cards.length);
   assert.ok(productCards.some((card) => /<img src="https:\/\/[^\"]+"[^>]*loading="lazy"/.test(card)));
   assert.ok(productCards.every((card) => /<img /.test(card)));
   assert.doesNotMatch(stayPage, /data-mrt-accommodation-card[\s\S]{0,500}오사카/);
+
+  const ticketPage = await readFile("ticket/index.html", "utf8");
+  const ticketCards = [...ticketPage.matchAll(/<a class="booking-product-card"[^>]*data-mrt-ticket-card[^>]*>/g)].map((match) => match[0]);
+  assert.ok(ticketCards.length >= 3, "ticket page should render rating-sorted ticket products");
+  assert.match(ticketPage, /일정 확정 전에 운영 조건을 먼저 비교하세요/);
+  assert.match(ticketPage, /운영 시간과 매표 마감/);
+  assert.match(ticketPage, /class="booking-affiliate-box"/);
+  assert.match(ticketPage, /class="booking-city-grid"/);
+  assert.match(ticketPage, /id="ticket-cards"/);
+  assert.match(ticketPage, /전체 입장권·투어 보기/);
+  assert.ok(ticketCards.every((card) => /rel="sponsored nofollow"/.test(card)));
+  assert.ok(ticketCards.every((card) => /target="_blank"/.test(card)));
 
   const [reviewedArticle, paidArticle, pendingArticle] = await Promise.all([
     readFile("travel-126078/index.html", "utf8"),

@@ -35,6 +35,20 @@ const CATEGORY_PAGES = [
   { path: "/stay/", title: "숙소", description: "지역별 숙소 카드, 숙소 가격 비교, 숙소 상세 리뷰를 한곳에서 확인합니다." },
   { path: "/ticket/", title: "입장권·투어", description: "지역별 입장권 가격 모음과 여행지별 체험·투어 상품을 분리해 확인합니다." },
 ];
+const BOOKING_CITY_ORDER = ["제주", "부산", "강원", "여수", "경주", "속초", "서울", "경기", "전남"];
+const BOOKING_CONDITIONS = {
+  stay: [
+    { label: "가족 여행", point: "객실 인원과 조식", description: "객실 정원, 침대 구성, 조식 포함 여부를 먼저 확인합니다." },
+    { label: "커플 여행", point: "위치와 뷰", description: "이동 동선, 주변 식당, 객실 전망 조건을 비교합니다." },
+    { label: "출장", point: "체크인 시간과 접근성", description: "늦은 체크인, 역·공항 접근성, 업무 동선을 함께 봅니다." },
+  ],
+  ticket: [
+    { label: "입장권", point: "운영 시간과 매표 마감", description: "입장 가능 시간, 현장 매표 마감, 재입장 조건을 확인합니다." },
+    { label: "현지투어", point: "집결지와 포함 사항", description: "집결 장소, 포함·불포함 항목, 취소 조건을 비교합니다." },
+    { label: "체험", point: "소요 시간과 준비물", description: "체험 시간, 준비물, 연령 제한을 예약 전에 확인합니다." },
+    { label: "교통·패스", point: "이용 범위와 수령 방법", description: "사용 가능 구간, 수령 위치, 모바일 바우처 여부를 봅니다." },
+  ],
+};
 const REGION_SLUGS = new Map([
   ["서울", "seoul"],
   ["경기", "gyeonggi"],
@@ -919,13 +933,50 @@ function hubPageStyle() {
 .mrt-ticket-body strong{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:15px;line-height:1.35;font-weight:800}
 .mrt-ticket-body em{color:var(--muted);font-size:12px;font-style:normal}
 .mrt-ticket-price{color:var(--ink);font-size:16px;font-weight:900}
+.booking-page{display:grid;gap:0}
+.booking-conditions{padding-top:24px}
+.booking-condition-list{display:grid;gap:10px}
+.booking-condition{border:1px solid var(--line);border-radius:8px;background:var(--card);overflow:hidden}
+.booking-condition summary{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:56px;padding:0 16px;cursor:pointer;list-style:none}
+.booking-condition summary::-webkit-details-marker{display:none}
+.booking-condition-title{display:grid;gap:2px;min-width:0}
+.booking-condition-title strong{font-size:16px;line-height:1.35;font-weight:900}
+.booking-condition-title em{color:var(--muted);font-size:13px;font-style:normal;line-height:1.35}
+.booking-condition-toggle{color:var(--muted);font-size:12px;font-weight:900}
+.booking-condition p{margin:0;padding:0 16px 12px;color:var(--muted);font-size:14px}
+.booking-condition a{display:inline-flex;align-items:center;min-height:40px;margin:0 16px 16px;color:var(--brand);font-size:13px;font-weight:900}
+.booking-affiliate-box{padding:18px 16px;border:1px solid color-mix(in srgb,var(--cta) 28%,var(--line));border-radius:8px;background:var(--soft-cta)}
+.booking-affiliate-box strong{display:block;margin-bottom:4px;font-size:17px;line-height:1.35}
+.booking-affiliate-box p{margin:0;color:var(--muted);font-size:14px}
+.booking-checklist{display:grid;gap:6px;margin:14px 0 0;padding:0;list-style:none;color:var(--muted);font-size:14px}
+.booking-checklist li{padding-left:14px;position:relative}
+.booking-checklist li::before{content:"";position:absolute;left:0;top:.75em;width:4px;height:4px;border-radius:999px;background:var(--cta)}
+.booking-city-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.booking-city-card{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:64px;padding:14px 16px;border:1px solid var(--line);border-radius:8px;background:var(--card);transition:border-color 150ms ease}
+.booking-city-card:hover,.booking-city-card:focus-visible{border-color:var(--brand)}
+.booking-city-card strong{font-size:17px;line-height:1.35;font-weight:900}
+.booking-city-card span{color:var(--muted);font-size:13px;font-weight:800}
+.booking-product-list{display:grid;gap:12px}
+.booking-product-card{display:grid;grid-template-columns:132px minmax(0,1fr);gap:14px;align-items:center;min-height:132px;padding:12px;border:1px solid var(--line);border-radius:8px;background:var(--card);transition:border-color 150ms ease}
+.booking-product-card:hover,.booking-product-card:focus-visible{border-color:var(--brand)}
+.booking-product-thumb{position:relative;display:block;width:100%;aspect-ratio:16/10;overflow:hidden;border-radius:8px;background:var(--card)}
+.booking-product-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.booking-product-body{display:grid;gap:5px;min-width:0}
+.booking-product-region{color:var(--brand);font-size:12px;font-weight:900;line-height:1.35}
+.booking-product-title{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:17px;line-height:1.35;font-weight:900}
+.booking-product-rating{color:var(--muted);font-size:13px;line-height:1.4}
+.booking-product-price{color:var(--cta);font-size:18px;font-weight:900;line-height:1.25}
+.booking-product-cta{display:flex;justify-content:center;margin-top:18px}
+.booking-product-cta a{display:inline-flex;align-items:center;justify-content:center;min-width:220px;min-height:48px;padding:0 18px;border-radius:8px;background:var(--cta);color:var(--card);font-weight:900;transition:background-color 150ms ease}
+.booking-product-cta a:hover,.booking-product-cta a:focus-visible{background:var(--cta-hover)}
 .subregion-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .subregion-card{display:block;border:1px solid var(--line);border-radius:8px;background:var(--card);padding:16px;transition:border-color 150ms ease}
 .subregion-card:hover,.subregion-card:focus-visible{border-color:var(--brand)}
 .subregion-card strong{display:block;font-size:17px;line-height:1.35}
 .subregion-card span{display:block;margin-top:6px;color:var(--muted);font-size:13px}
 .empty-slot{margin:0;padding:16px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--muted)}
-@media(max-width:900px){.hub-page{padding-top:24px}.hub-banner,.hub-banner.has-image{grid-template-columns:1fr;padding:18px}.hub-banner h1{font-size:25px}.block{padding:32px 0}.block-head{display:block}.block-note{margin-top:4px}.story-list,.subregion-grid,.mrt-accommodation-grid,.mrt-ticket-grid{grid-template-columns:1fr}.mrt-accommodation-card,.mrt-ticket-card{grid-template-columns:90px minmax(0,1fr)}}`;
+@media(max-width:900px){.hub-page{padding-top:24px}.hub-banner,.hub-banner.has-image{grid-template-columns:1fr;padding:18px}.hub-banner h1{font-size:25px}.block{padding:32px 0}.block-head{display:block}.block-note{margin-top:4px}.story-list,.subregion-grid,.mrt-accommodation-grid,.mrt-ticket-grid{grid-template-columns:1fr}.mrt-accommodation-card,.mrt-ticket-card{grid-template-columns:90px minmax(0,1fr)}.booking-product-card{grid-template-columns:104px minmax(0,1fr);min-height:116px}.booking-city-grid{gap:8px}}
+@media(max-width:520px){.booking-city-grid{grid-template-columns:1fr}.booking-product-card{grid-template-columns:96px minmax(0,1fr);gap:12px;padding:10px}.booking-product-title{font-size:15px}.booking-product-price{font-size:16px}}`;
 }
 
 function storyCard(post) {
@@ -1015,6 +1066,201 @@ function ticketSlot({ title = "입장권·투어 카드", products = [], limit =
     <p class="affiliate-note">입장권·투어 링크는 제휴 링크일 수 있으며, 가격과 이용 조건은 예약 화면에서 다시 확인해야 합니다.</p>
     <div class="mrt-ticket-grid">${cards.join("")}</div>
   </section>`;
+}
+
+function bookingProductRegion(product = {}) {
+  const text = normalizeText([product.region, product.city, product.location, product.title].filter(Boolean).join(" "));
+  for (const city of BOOKING_CITY_ORDER) {
+    if (text.includes(city)) return city;
+  }
+  return compactRegion(product.region || product.city || product.location);
+}
+
+function bookingRatingValue(product = {}) {
+  return numericValue(product.reviewScore || product.rating || product.score);
+}
+
+function bookingReviewCount(product = {}) {
+  return numericValue(product.reviewCount || product.reviews || product.review);
+}
+
+function bookingPriceValue(product = {}) {
+  return numericValue(product.salePrice || product.price || product.priceText);
+}
+
+function normalizeBookingProduct(product = {}, type = "stay") {
+  if (type === "stay") {
+    const accommodation = normalizeAccommodationProduct(product);
+    if (!accommodation) return null;
+    return {
+      ...accommodation,
+      bookingType: "stay",
+      region: bookingProductRegion(accommodation),
+      priceText: accommodation.priceText || `${won(accommodation.salePrice)}부터`,
+      detail: accommodationStarLabel(accommodation.starRating),
+    };
+  }
+  const title = normalizeText(product.title || product.name);
+  const url = normalizeText(product.url || product.productUrl);
+  const image = affiliateProductImage(product);
+  const priceText = normalizeText(product.priceText || product.price || product.salePrice);
+  if (!title || !url || !image || !priceText) return null;
+  const region = bookingProductRegion(product);
+  return {
+    ...product,
+    bookingType: "ticket",
+    title,
+    url,
+    image,
+    region,
+    category: product.category || product.type || "입장권·투어",
+    priceText,
+    salePrice: bookingPriceValue(product),
+    reviewScore: bookingRatingValue(product),
+    reviewCount: bookingReviewCount(product),
+  };
+}
+
+function bookingProducts(products = [], type = "stay", limit = 18) {
+  const seen = new Set();
+  const items = [];
+  for (const product of products) {
+    const normalized = normalizeBookingProduct(product, type);
+    if (!normalized) continue;
+    const key = type === "stay" ? stripAccommodationStayParams(normalized.url) : normalized.url;
+    if (!key || seen.has(key)) continue;
+    seen.add(key);
+    items.push(normalized);
+  }
+  return items
+    .sort((a, b) => {
+      const ratingDiff = bookingRatingValue(b) - bookingRatingValue(a);
+      if (ratingDiff) return ratingDiff;
+      const reviewDiff = bookingReviewCount(b) - bookingReviewCount(a);
+      if (reviewDiff) return reviewDiff;
+      const priceDiff = bookingPriceValue(a) - bookingPriceValue(b);
+      if (priceDiff) return priceDiff;
+      return a.title.localeCompare(b.title, "ko");
+    })
+    .slice(0, limit);
+}
+
+function bookingProductListId(type = "stay") {
+  return type === "ticket" ? "ticket-cards" : "accommodation-cards";
+}
+
+function bookingQuickSearch(type = "stay") {
+  const listId = bookingProductListId(type);
+  const conditions = BOOKING_CONDITIONS[type] || [];
+  if (!conditions.length) return "";
+  const items = conditions.map((condition, index) => `<details class="booking-condition"${index === 0 ? " open" : ""}>
+      <summary><span class="booking-condition-title"><strong>${html(condition.label)}</strong><em>${html(condition.point)}</em></span><span class="booking-condition-toggle">보기</span></summary>
+      <p>${html(condition.description)}</p>
+      <a href="#${html(listId)}">조건에 맞는 상품 목록으로 이동</a>
+    </details>`).join("");
+  return `<section class="block booking-conditions" id="quick-search" aria-labelledby="quick-search-title">
+    <div class="block-head"><div><span class="kicker">CHECK</span><h2 id="quick-search-title">조건별 빠른 검색</h2></div><p class="block-note">예약 전 확인 기준</p></div>
+    <div class="booking-condition-list">${items}</div>
+  </section>`;
+}
+
+function bookingAffiliateNotice(type = "stay") {
+  const intro = type === "ticket"
+    ? "트립뷰의 입장권·투어 링크는 제휴 링크일 수 있습니다."
+    : "트립뷰의 숙소 예약 링크는 제휴 링크일 수 있습니다.";
+  const notes = type === "ticket"
+    ? ["방문 날짜와 운영 시간을 먼저 확인하세요.", "매표 마감, 환불 가능 기간, 포함 사항은 예약 화면 기준으로 확인하세요.", "현장 수령 또는 모바일 바우처 사용 여부를 비교하세요."]
+    : ["체크인 날짜와 투숙 인원을 먼저 확인하세요.", "무료 취소 가능 여부와 취소 마감 시각을 예약 화면에서 확인하세요.", "조식, 객실 정원, 위치 조건을 가격과 함께 비교하세요."];
+  return `<section class="block" id="affiliate-notice" aria-labelledby="affiliate-notice-title">
+    <div class="booking-affiliate-box">
+      <strong id="affiliate-notice-title">제휴 링크 안내</strong>
+      <p>${html(intro)} 가격과 조건은 예약 화면에서 변경될 수 있습니다.</p>
+    </div>
+    <ul class="booking-checklist">${notes.map((note) => `<li>${html(note)}</li>`).join("")}</ul>
+  </section>`;
+}
+
+function bookingCityGrid(products = [], type = "stay") {
+  if (!products.length) return "";
+  const counts = new Map();
+  for (const product of products) {
+    const label = bookingProductRegion(product);
+    if (!label || label === "기타") continue;
+    counts.set(label, (counts.get(label) || 0) + 1);
+  }
+  const ordered = [
+    ...BOOKING_CITY_ORDER.filter((city) => counts.has(city)),
+    ...[...counts.keys()].filter((city) => !BOOKING_CITY_ORDER.includes(city)).sort((a, b) => a.localeCompare(b, "ko")),
+  ];
+  if (!ordered.length) return "";
+  const listId = bookingProductListId(type);
+  const cards = ordered.map((city) => `<a class="booking-city-card" href="#${html(listId)}"><strong>${html(city)}</strong><span>${html(counts.get(city).toLocaleString("ko-KR"))}개 상품</span></a>`).join("");
+  return `<section class="block" id="popular-cities" aria-labelledby="popular-cities-title">
+    <div class="block-head"><div><span class="kicker">CITY</span><h2 id="popular-cities-title">인기 도시</h2></div><p class="block-note">상품이 있는 국내 도시만 표시</p></div>
+    <div class="booking-city-grid">${cards}</div>
+  </section>`;
+}
+
+function bookingRatingText(product = {}) {
+  const rating = bookingRatingValue(product);
+  const reviews = bookingReviewCount(product);
+  if (!rating && !reviews) return "";
+  return [rating ? `평점 ${rating}` : "", reviews ? `리뷰 ${reviews.toLocaleString("ko-KR")}개` : ""].filter(Boolean).join(" · ");
+}
+
+function bookingProductCard(product = {}, type = "stay") {
+  const detail = [product.region, product.detail || product.category].filter(Boolean).join(" · ");
+  const rating = bookingRatingText(product);
+  const dataAttr = type === "ticket" ? "data-mrt-ticket-card" : "data-mrt-accommodation-card";
+  return `<a class="booking-product-card" ${dataAttr} href="${html(product.url)}" rel="sponsored nofollow" target="_blank">
+    <span class="booking-product-thumb"><img src="${html(product.image)}" alt="${html(product.title)}" loading="lazy" decoding="async"></span>
+    <span class="booking-product-body">
+      <span class="booking-product-region">${html(detail || (type === "ticket" ? "입장권·투어" : "숙소"))}</span>
+      <strong class="booking-product-title">${html(product.title)}</strong>
+      ${rating ? `<span class="booking-product-rating">${html(rating)}</span>` : ""}
+      <span class="booking-product-price">${html(product.priceText || won(product.salePrice) || "가격 확인")}</span>
+    </span>
+  </a>`;
+}
+
+function bookingProductSection(products = [], type = "stay") {
+  const normalized = bookingProducts(products, type, type === "ticket" ? 18 : 12);
+  if (!normalized.length) return "";
+  const id = bookingProductListId(type);
+  const title = type === "ticket" ? "평점순 입장권·투어" : "평점순 숙소";
+  const note = type === "ticket" ? "마이리얼트립 TNA 캐시 기준" : `마이리얼트립 숙소 캐시 기준 · ${ACCOMMODATION_STAY.checkIn} 체크인`;
+  const ctaUrl = type === "ticket" ? "https://experiences.myrealtrip.com/" : "https://accommodation.myrealtrip.com/";
+  const ctaText = type === "ticket" ? "전체 입장권·투어 보기" : "전체 숙소 보기";
+  const cards = normalized.map((product) => bookingProductCard(product, type)).join("");
+  return `<section class="block" id="${html(id)}" aria-labelledby="${html(id)}-title">
+    <div class="block-head"><div><span class="kicker">RATING</span><h2 id="${html(id)}-title">${html(title)}</h2></div><p class="block-note">${html(note)}</p></div>
+    <div class="booking-product-list">${cards}</div>
+    <div class="booking-product-cta"><a href="${html(ctaUrl)}" rel="sponsored nofollow" target="_blank">${html(ctaText)}</a></div>
+  </section>`;
+}
+
+function bookingCategoryPageHtml({ path, type, title, description, products = [] }) {
+  const normalized = bookingProducts(products, type, type === "ticket" ? 18 : 12);
+  const body = [
+    `<div class="booking-page">`,
+    bookingQuickSearch(type),
+    bookingAffiliateNotice(type),
+    bookingCityGrid(normalized, type),
+    bookingProductSection(normalized, type),
+    `</div>`,
+  ].join("");
+  return pageShell({
+    path,
+    title,
+    description,
+    kicker: type === "ticket" ? "입장권·투어" : "숙소·예약",
+    tags: [
+      { label: "여행지", href: "/travel/" },
+      { label: "축제·행사", href: "/festival/" },
+      { label: type === "ticket" ? "숙소" : "입장권·투어", href: type === "ticket" ? "/stay/" : "/ticket/" },
+    ],
+    body,
+  });
 }
 
 function sectionBlock({ id, title, posts, note = "" }) {
@@ -1220,9 +1466,6 @@ async function generateHubPages() {
   const waterKeywords = ["수영장", "계곡", "해수욕장", "해변", "바다", "물놀이", "워터파크", "폭포", "수변"];
   const indoorKeywords = ["실내", "박물관", "미술관", "전시", "문화", "센터", "아트", "공연장"];
   const familyKeywords = ["아이", "가족", "어린이", "체험", "공원", "생태", "자연학습"];
-  const stayPosts = sortedPosts(indexablePosts.filter((post) => ["32", "38", "39"].includes(contentTypeOf(post)) || hasKeyword(post, ["숙소", "호텔", "예약", "투어", "입장권"])));
-  const ticketKeywords = ["입장권", "티켓", "투어", "체험", "액티비티", "이용권", "관람권", "패스"];
-  const ticketPosts = sortedPosts(indexablePosts.filter((post) => post?.dataPipeline?.kind === "ticket-price" || hasKeyword(post, ticketKeywords)));
 
   await writePage("/travel/", categoryPageHtml({
     path: "/travel/",
@@ -1262,39 +1505,20 @@ async function generateHubPages() {
     products: selectMultiRegionAccommodations(festivalPosts, 6),
   }));
 
-  await writePage("/stay/", categoryPageHtml({
+  await writePage("/stay/", bookingCategoryPageHtml({
     path: "/stay/",
-    title: "숙소",
-    description: CATEGORY_PAGES[2].description,
-    posts: stayPosts.length ? stayPosts : indexablePosts,
-    tags: [
-      { label: "숙소 카드", href: "#accommodation-cards" },
-      { label: "숙소 가격 비교", href: "/data-stay-price-seoul/" },
-      { label: "입장권·투어", href: "/ticket/" },
-      { label: "여행지", href: "/travel/" },
-      { label: "축제", href: "/festival/" },
-    ],
-    sections: [],
-    products: selectMultiRegionAccommodations(indexablePosts, 12),
+    type: "stay",
+    title: "가격보다 위치와 취소 조건을 먼저 비교하세요",
+    description: "국내 숙소를 예약하기 전 날짜, 인원, 취소 가능 여부, 위치 조건을 한 화면에서 확인할 수 있도록 정리했습니다.",
+    products: accommodationProducts,
   }));
 
-  await writePage("/ticket/", categoryPageHtml({
+  await writePage("/ticket/", bookingCategoryPageHtml({
     path: "/ticket/",
-    title: "입장권·투어",
-    description: CATEGORY_PAGES[3].description,
-    posts: ticketPosts.length ? ticketPosts : travelPosts,
-    tags: [
-      { label: "지역별 입장권", href: "#regional-tickets" },
-      { label: "인기 체험", href: "#popular-experiences" },
-      { label: "숙소", href: "/stay/" },
-      { label: "여행지", href: "/travel/" },
-    ],
-    sections: [
-      { id: "regional-tickets", title: "지역별 입장권", posts: ticketPosts.filter((post) => post?.dataPipeline?.kind === "ticket-price" || hasKeyword(post, ["입장권", "티켓", "이용권", "관람권", "패스"])), note: "가격 데이터와 입장권 관련 글 기준" },
-      { id: "popular-experiences", title: "인기 체험", posts: ticketPosts.filter((post) => hasKeyword(post, ["체험", "투어", "액티비티", "수상레저", "요트"])), note: "체험·투어 키워드가 있는 글 기준" },
-    ],
+    type: "ticket",
+    title: "일정 확정 전에 운영 조건을 먼저 비교하세요",
+    description: "국내 입장권과 현지투어를 예약하기 전 운영 시간, 집결지, 포함 사항, 환불 조건을 먼저 확인할 수 있도록 정리했습니다.",
     products: tnaProducts,
-    affiliateSlot: "ticket",
   }));
 
   for (const group of regionGroups()) {
