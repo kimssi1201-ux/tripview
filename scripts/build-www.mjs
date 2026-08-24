@@ -1,4 +1,4 @@
-import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
+import { cp, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { affiliateProductImage, selectAffiliateProducts } from "./lib/affiliate-matching.mjs";
@@ -64,6 +64,18 @@ async function readJson(relativePath, fallback = []) {
   }
 }
 
+async function readLegacyRendererPosts() {
+  try {
+    const source = await readFile(join(root, "assets/article-renderer.js"), "utf8");
+    const match = source.match(/const POSTS = (\{[\s\S]*?\});\s*const slug/);
+    if (!match) return {};
+    const parsed = Function(`"use strict"; return (${match[1]});`)();
+    return parsed && typeof parsed === "object" ? parsed : {};
+  } catch {
+    return {};
+  }
+}
+
 function addDays(date, days) {
   const next = new Date(date);
   next.setUTCDate(next.getUTCDate() + days);
@@ -110,6 +122,7 @@ const flightDeals = await readJson("data/myrealtrip-flight-deals.json");
 const accommodationCache = await readJson("data/myrealtrip-accommodation-cache.json", null);
 const accommodationProducts = accommodationProductsFromCache(accommodationCache);
 const tnaProducts = await readJson("data/myrealtrip-tna-products.json");
+const legacyRendererPosts = await readLegacyRendererPosts();
 const processedTourImages = await readTourImageManifest(root);
 
 const files = [
@@ -282,6 +295,12 @@ function extractScheduleDates(value = "") {
   const dates = [];
   for (const match of text.matchAll(/(\d{4})\D+(\d{1,2})\D+(\d{1,2})/g)) {
     dates.push(isoDate(match[1], match[2], match[3]));
+  }
+  if (dates.length > 1) return dates;
+  const sameYearRange = text.match(/(\d{4})\D+(\d{1,2})\D+(\d{1,2})(?:일)?\s*(?:~|-|부터|–|—)\s*(?:(\d{1,2})\D+)?(\d{1,2})/);
+  if (sameYearRange) {
+    const [, year, month, day, endMonth, endDay] = sameYearRange;
+    return [isoDate(year, month, day), isoDate(year, endMonth || month, endDay)];
   }
   if (dates.length) return dates;
   return [...text.matchAll(/(\d{4})(\d{2})(\d{2})/g)].map((match) => isoDate(match[1], match[2], match[3]));
@@ -620,8 +639,11 @@ function removeLanguageArtifacts(value) {
   return String(value ?? "")
     .replace(/\s*<div class=["']language-switch\b[^>]*>[\s\S]*?<\/div>/gi, "")
     .replace(/\s*<script\s+src=["']\/assets\/i18n\.js(?:\?[^"']*)?["']\s+defer><\/script>/gi, "")
+    .replace(/\s*<link\s+rel=["']alternate["'][^>]*\bhreflang=["'][^"']+["'][^>]*>/gi, "")
     .replace(/\s*<div><h3>Language<\/h3>[\s\S]*?<\/div>/gi, "")
-    .replace(/\?lang=(?:ko|en|ja|zh)(?:-[A-Za-z]+)?/g, "");
+    .replace(/\?lang=(?:ko|en|ja|zh)(?:-[A-Za-z]+)?/g, "")
+    .replace(/\.language-switch(?:\s+a(?:\.is-active)?|\.is-active)?\{[^{}]*\}/g, "")
+    .replace(/@media[^{]+\{\s*\}/g, "");
 }
 
 function cleanGeneratedHtml(value) {
@@ -1965,6 +1987,105 @@ function ensureArticleSchema(document, post) {
   return withoutExisting.replace("</head>", `${scripts.join("\n")}\n  </head>`);
 }
 
+function legacyRendererPost(slug, item = {}) {
+  const title = normalizeText(item.title || "");
+  const description = normalizeText(item.description || "");
+  const category = normalizeText(item.category || "");
+  const festivalLike = /축제|행사|페스타|문화제|단오제|공연/.test(`${category} ${title}`);
+  const lodgingLike = /숙소|호텔|펜션|리조트|게스트하우스/.test(`${category} ${title} ${description}`);
+  return {
+    slug,
+    title,
+    sourceTitle: title,
+    description,
+    excerpt: description,
+    category: category || (festivalLike ? "공연/축제" : "국내여행"),
+    region: item.region || "",
+    date: schemaDate(item.date || CONTENT_TODAY),
+    sortDate: schemaDate(item.date || CONTENT_TODAY),
+    image: item.image || "",
+    images: item.image ? [item.image] : [],
+    info: Array.isArray(item.info) ? item.info : [],
+    contentTypeId: festivalLike ? "15" : lodgingLike ? "32" : "",
+    editorialReviewer: "트립뷰 편집팀",
+    editorialAuthorProfile: "/editorial-team",
+  };
+}
+
+function stripTags(value = "") {
+  return normalizeText(String(value || "").replace(/<[^>]*>/g, " "));
+}
+
+function escapeRegExp(value = "") {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function documentMetaContent(document, key) {
+  const pattern = new RegExp(`<meta\\s+[^>]*(?:name|property)=["']${escapeRegExp(key)}["'][^>]*content=["']([^"']*)["'][^>]*>`, "i");
+  return normalizeText(String(document).match(pattern)?.[1] || "");
+}
+
+function documentTitle(document) {
+  return stripTags(String(document).match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1] || "")
+    .replace(/\s*\|\s*트립뷰\s*$/, "");
+}
+
+function documentMetaSpans(document) {
+  const block = String(document).match(/<div class=["']meta["'][^>]*>([\s\S]*?)<\/div>/i)?.[1] || "";
+  return [...block.matchAll(/<span[^>]*>([\s\S]*?)<\/span>/gi)].map((match) => stripTags(match[1])).filter(Boolean);
+}
+
+function documentInfoRows(document) {
+  const rows = [];
+  for (const match of String(document).matchAll(/<tr[^>]*>\s*<th[^>]*>([\s\S]*?)<\/th>\s*<td[^>]*>([\s\S]*?)<\/td>\s*<\/tr>/gi)) {
+    const label = stripTags(match[1]);
+    const value = stripTags(match[2]);
+    if (label && value) rows.push([label, value]);
+  }
+  return rows;
+}
+
+function legacyDocumentPost(slug, document) {
+  const title = (documentMetaContent(document, "og:title") || documentTitle(document)).replace(/\s*\|\s*트립뷰\s*$/, "");
+  const description = documentMetaContent(document, "description") || documentMetaContent(document, "og:description") || title;
+  const image = documentMetaContent(document, "og:image");
+  const metaSpans = documentMetaSpans(document);
+  const dateText = metaSpans.find((value) => extractScheduleDates(value).length) || CONTENT_TODAY;
+  const region = metaSpans.at(-1) || "";
+  const festivalLike = /축제|행사|페스타|문화제|단오제|공연/.test(`${title} ${description}`);
+  return {
+    slug,
+    title,
+    sourceTitle: title,
+    description,
+    excerpt: description,
+    category: festivalLike ? "공연/축제" : "국내여행",
+    region,
+    date: schemaDate(dateText),
+    sortDate: schemaDate(dateText),
+    image,
+    images: image ? [image] : [],
+    info: documentInfoRows(document),
+    contentTypeId: festivalLike ? "15" : "",
+    editorialReviewer: "트립뷰 편집팀",
+    editorialAuthorProfile: "/editorial-team",
+  };
+}
+
+function ensureLegacyArticleSchema(document, slug, item) {
+  const post = item ? legacyRendererPost(slug, item) : legacyDocumentPost(slug, document);
+  if (!post.title) return document;
+  const withoutExisting = String(document).replace(
+    /\s*<script type="application\/ld\+json" data-tripview-(?:article|event|lodging)>[\s\S]*?<\/script>/g,
+    "",
+  );
+  if (!withoutExisting.includes("</head>")) return withoutExisting;
+  const scripts = [schemaScript("article", articleSchema(post))];
+  if (isFestivalPost(post)) scripts.push(schemaScript("event", eventSchema(post)));
+  if (isLodgingPost(post)) scripts.push(schemaScript("lodging", lodgingSchema(post)));
+  return withoutExisting.replace("</head>", `${scripts.join("\n")}\n  </head>`);
+}
+
 function ensureArticleAdsense(document, enabled) {
   if (enabled) return document;
   return String(document).replace(
@@ -2237,6 +2358,29 @@ async function polishGeneratedArticles() {
   }
 }
 
+async function polishLegacyArticleShells() {
+  const generatedSlugs = new Set(generatedPosts.map((post) => post?.slug).filter(Boolean));
+  for (const entry of await readdir(root, { withFileTypes: true })) {
+    if (!entry.isDirectory() || generatedSlugs.has(entry.name)) continue;
+    const file = join(root, entry.name, "index.html");
+    let document;
+    try {
+      document = await readFile(file, "utf8");
+    } catch {
+      continue;
+    }
+    const legacyShell = document.includes("assets/article-renderer.js") || document.includes("data-slug=");
+    const legacyStaticArticle = document.includes('<article class="content"');
+    const languageArtifacts = /language-switch|\?lang=|hreflang=|i18n\.js/.test(document);
+    if (!legacyShell && !legacyStaticArticle && !languageArtifacts) continue;
+    let next = removeLanguageArtifacts(document);
+    next = ensureCanonical(next, `/${entry.name}/`);
+    next = ensureLegacyArticleSchema(next, entry.name, legacyRendererPosts[entry.name]);
+    next = cleanGeneratedHtml(next);
+    if (next !== document) await writeFile(file, next, "utf8");
+  }
+}
+
 async function copyIfExists(from, to) {
   try {
     await cp(from, to, { recursive: true });
@@ -2296,6 +2440,7 @@ await generateHubPages();
 await generateSitemap();
 await generateFeed();
 await polishGeneratedArticles();
+await polishLegacyArticleShells();
 await polishStaticPages();
 await copySite(outDir);
 await copySite(siteDir);

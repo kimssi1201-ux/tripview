@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { readFile, readdir } from "node:fs/promises";
+import { join } from "node:path";
 import test from "node:test";
 
 import { isIndexablePost } from "../scripts/lib/content-quality.mjs";
@@ -106,6 +107,20 @@ function expectedStayWindow(reference = new Date()) {
     checkIn: dateText(checkInDate),
     checkOut: dateText(addDays(checkInDate, 2)),
   };
+}
+
+async function collectHtmlFiles(dir = ".", files = []) {
+  const ignored = new Set([".git", "node_modules", "www", "site"]);
+  for (const entry of await readdir(dir, { withFileTypes: true })) {
+    if (ignored.has(entry.name)) continue;
+    const path = join(dir, entry.name);
+    if (entry.isDirectory()) {
+      await collectHtmlFiles(path, files);
+    } else if (entry.isFile() && entry.name.endsWith(".html")) {
+      files.push(path);
+    }
+  }
+  return files;
 }
 
 test("homepage categories use real URLs and travel keeps old topics as tags", async () => {
@@ -371,6 +386,62 @@ test("article schema, festival schema, lodging schema, and language policy are a
     assert.doesNotMatch(document, /hreflang=/);
   }
   assert.doesNotMatch(topicFilter, /\?lang=|tripview-lang|currentLangQuery/);
+});
+
+test("every generated article has required JSON-LD and festival pages keep ended items low", async () => {
+  const [postsText, festivalPage] = await Promise.all([
+    readFile("data/generated-posts.json", "utf8"),
+    readFile("festival/index.html", "utf8"),
+  ]);
+  const posts = JSON.parse(postsText);
+  let checked = 0;
+
+  for (const post of posts) {
+    if (!post?.slug) continue;
+    const document = await readFile(`${post.slug}/index.html`, "utf8");
+    if (!document.includes('<article class="content"')) continue;
+    checked += 1;
+    assert.match(document, /data-tripview-article/, post.slug);
+    for (const field of ["headline", "description", "image", "datePublished", "author", "publisher"]) {
+      assert.match(document, new RegExp(`"${field}"`), post.slug);
+    }
+
+    const contentType = String(post.contenttype || post.contentType || "");
+    if (contentType === "15" && !post?.dataPipeline?.generated) {
+      assert.match(document, /data-tripview-event/, post.slug);
+      for (const field of ["name", "startDate", "endDate", "location"]) {
+        assert.match(document, new RegExp(`"${field}"`), post.slug);
+      }
+    }
+    if (contentType === "32" && !post?.dataPipeline?.generated) {
+      assert.match(document, /data-tripview-lodging/, post.slug);
+      assert.match(document, /"@type":"LodgingBusiness"/, post.slug);
+    }
+  }
+
+  assert.ok(checked > 50);
+  const ongoingIndex = festivalPage.indexOf('id="ongoing"');
+  const upcomingIndex = festivalPage.indexOf('id="upcoming"');
+  const pastIndex = festivalPage.indexOf('id="past"');
+  const allPostsIndex = festivalPage.indexOf('id="all-posts"');
+  assert.ok(pastIndex > -1);
+  for (const index of [ongoingIndex, upcomingIndex].filter((value) => value > -1)) {
+    assert.ok(pastIndex > index);
+  }
+  assert.ok(allPostsIndex > pastIndex);
+});
+
+test("generated HTML output does not keep language switch artifacts", async () => {
+  const htmlFiles = await collectHtmlFiles(".");
+  const failures = [];
+  for (const file of htmlFiles) {
+    const document = await readFile(file, "utf8");
+    if (/\?lang=|hreflang=|class=["']language-switch|\/assets\/i18n\.js|\.language-switch/.test(document)) {
+      failures.push(file);
+    }
+  }
+  assert.ok(htmlFiles.length > 50);
+  assert.deepEqual(failures, []);
 });
 
 test("AdSense script and ads.txt use the same publisher ID", async () => {
