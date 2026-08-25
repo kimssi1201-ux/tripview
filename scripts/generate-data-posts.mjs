@@ -62,17 +62,53 @@ const REGION_PRIORITY = [
   "세종",
 ];
 const FORBIDDEN_PATTERNS = [
-  /아마/g,
-  /일 것입니다/g,
-  /것입니다/g,
-  /가보니/g,
-  /걸어보면/g,
-  /최고의/g,
-  /꼭 가야 할/g,
-  /반드시 가야/g,
-  /놓치지 말아야/g,
-  /숨은 명소/g,
-  /핫플/g,
+  /API/,
+  /TourAPI/,
+  /한국관광공사 API/,
+  /마이리얼트립 API/,
+  /캐시/,
+  /캐시에 저장된/,
+  /JSON/,
+  /데이터/,
+  /데이터베이스/,
+  /응답/,
+  /(^|[^가-힣])필드(?=$|[^가-힣])/,
+  /파라미터/,
+  /조회/,
+  /크롤링/,
+  /파싱/,
+  /(^|[^가-힣])로컬(?=$|[^가-힣])/,
+  /엔드포인트/,
+  /스키마/,
+  /렌더링/,
+  /렌더링 시점/,
+  /빌드/,
+  /자동 생성/,
+  /스크립트/,
+  /저장되어 있습니다/,
+  /표에 넣었습니다/,
+  /본문에 넣지 않았습니다/,
+  /만들지 않았습니다/,
+  /생성하지 않았습니다/,
+  /검증할 수 없어/,
+  /확인할 수 없어/,
+  /대조할 수 있는 항목/,
+  /수동 검수 콘텐츠/,
+  /이 글은\s*.*을 위한 콘텐츠입니다/,
+  /항목만 사용했습니다/,
+  /남겼습니다/,
+  /기준으로 작성했으며/,
+  /아마/,
+  /일 것입니다/,
+  /것입니다/,
+  /가보니/,
+  /걸어보면/,
+  /최고의/,
+  /꼭 가야 할/,
+  /반드시 가야/,
+  /놓치지 말아야/,
+  /숨은 명소/,
+  /핫플/,
 ];
 const SECRET_ENV_KEYS = [
   "TRIPVIEW_API_KEY",
@@ -89,6 +125,7 @@ function stripHtml(value = "") {
     .replace(/<script[\s\S]*?<\/script>/gi, " ")
     .replace(/<style[\s\S]*?<\/style>/gi, " ")
     .replace(/<[^>]*>/g, " ")
+    .replace(/&#(?:x[0-9a-f]+|\d+);/gi, " ")
     .replace(/&nbsp;/g, " ")
     .replace(/\s+/g, " ")
     .trim();
@@ -370,26 +407,8 @@ function consecutiveOverviewMatch(body, overviews = []) {
   return "";
 }
 
-function dataPolicySections(kind) {
-  const sourceLabel = kind === "festival-schedule"
-    ? "축제 일정"
-    : kind === "stay-price"
-      ? "숙소 가격"
-      : "입장권 가격";
-  return [
-    ["검증 기준", [
-      `${sourceLabel} 데이터 글은 원천 JSON에 남아 있는 값만 문장과 표에 넣습니다. 가격, 일정, 상태, 성급, 평점, 리뷰 수처럼 표에 표시되는 항목은 생성 전에 다시 대조하고, 원천 파일에서 확인되지 않는 설명은 만들지 않습니다.`,
-      "관광공사 overview 설명문은 복사하지 않고, 문장 구조를 바꾸어 다시 쓰지도 않습니다. 상품 설명문도 평가 문장으로 바꾸지 않으며, 데이터 파일에 없는 편의시설, 좌표, 이미지 배열, 체험 소감은 본문에서 제외합니다.",
-    ]],
-    ["갱신 방식", [
-      "같은 유형과 같은 지역으로 다시 생성될 때는 기존 URL의 내용을 갱신합니다. 새 주소를 만들지 않기 때문에 검색엔진과 사용자는 같은 주소에서 갱신일과 표 값을 확인할 수 있습니다.",
-      "자동 발행 전 검증 게이트가 실패하면 해당 후보 글은 쓰지 않습니다. 실패 사유는 로그 파일에 남기고, 통과한 글만 JSON 데이터와 정적 HTML에 반영합니다.",
-    ]],
-    ["표 해석 범위", [
-      "표는 비교 가능한 열만 남긴 요약입니다. 원천 JSON에 값이 있는 항목은 그대로 표시하고, 값이 비어 있거나 원천 파일에서 찾을 수 없는 항목은 문장으로 채우지 않습니다. 그래서 글마다 표의 행 수와 표시 열은 캐시 상태에 따라 달라질 수 있습니다.",
-      "본문의 문장은 표 값을 읽는 기준을 설명하기 위한 고정 문장입니다. 실제 방문 경험, 이동 소감, 혼잡도 평가, 선호도 판단은 API 응답값으로 검증할 수 없으므로 넣지 않습니다. 사용자는 표에 있는 값과 갱신일을 기준으로 원천 데이터의 범위를 확인할 수 있습니다.",
-    ]],
-  ];
+function dataPolicySections() {
+  return [];
 }
 
 function tableEmptyRatio(rows = []) {
@@ -688,33 +707,32 @@ function priceStats(rows, key = "salePrice") {
 
 function basePost({ kind, region, title, description, excerpt, image, alt, info, sections, faq, affiliateLinkCount }) {
   const slug = `data-${kind}-${regionSlug(region)}`;
+  const readLabel = kind === "festival-schedule" ? "일정 정리" : "가격 비교";
   return {
     slug,
     title,
     sourceTitle: title,
     description,
-    category: kind === "festival-schedule" ? "데이터·축제" : kind === "ticket-price" ? "입장권·투어" : "숙소",
+    category: kind === "festival-schedule" ? "축제·행사" : kind === "ticket-price" ? "입장권·투어" : "숙소",
     region,
     date: formatKoreanDate(STAY.today),
     sortDate: STAY.today,
     updatedAt: STAY.today,
-    read: "데이터 글",
+    read: readLabel,
     image,
     images: image ? [image] : [],
     alt,
     excerpt,
     info,
     memo: [
-      `생성 유형: ${kind}`,
       `지역: ${region}`,
       `갱신일: ${formatKoreanDate(STAY.today)}`,
-      `검증: 자동 게이트 통과`,
     ],
     sections: [...sections, ...dataPolicySections(kind)],
     faq,
     editorialStatus: "reviewed",
     editorialReviewedAt: STAY.today,
-    editorialReviewer: "트립뷰 데이터 편집팀",
+    editorialReviewer: "트립뷰 편집팀",
     editorialAuthorProfile: "/editorial-team",
     dataPipeline: {
       generated: true,
@@ -731,45 +749,66 @@ function buildStayCandidate(region, rows, cache) {
   const stats = priceStats(rows, "salePrice");
   const title = `${region} 숙소 가격 비교`;
   const rowSentences = rows.map((item) => {
-    const meta = [item.starRating, reviewLabel(item), discountLabel(item)].filter(Boolean).join(", ");
-    return `${item.title} 항목은 판매가 ${formatWon(item.salePrice)}, 원가 ${formatWon(item.originalPrice)}${meta ? `, ${meta}` : ""}로 저장되어 있습니다.`;
+    const parts = [
+      item.starRating,
+      `1박 ${formatWon(item.salePrice)}`,
+      item.originalPrice > item.salePrice ? `정가 ${formatWon(item.originalPrice)}` : "",
+      reviewLabel(item),
+      discountLabel(item),
+    ].filter(Boolean);
+    return `${item.title}은 ${parts.join(", ")}입니다.`;
   });
+  const popularRows = rows
+    .slice()
+    .sort((a, b) => (b.reviewCount || 0) - (a.reviewCount || 0))
+    .slice(0, 3);
   const sections = [
-    ["자료 기준", [
-      `${region} 숙소 가격 표는 ${formatKoreanDate(cache.updatedDate || STAY.today)}에 저장된 숙소 API 캐시를 사용했습니다. 검색 조건은 체크인 ${formatKoreanDate(STAY.checkIn)}, 체크아웃 ${formatKoreanDate(STAY.checkOut)}, 성인 ${STAY.adultCount}명, 아동 ${STAY.childCount}명, ${STAY.nights}박입니다.`,
-      `비교 대상은 판매가가 있는 ${rows.length}개 숙소입니다. 가장 낮은 판매가는 ${formatWon(stats.min)}, 가장 높은 판매가는 ${formatWon(stats.max)}, 평균 판매가는 ${formatWon(stats.avg)}입니다. 가격, 성급, 평점, 리뷰 수는 표의 API 캐시 값과 같은 항목만 사용했습니다.`,
-    ]],
-    ["가격표 확인 항목", [
+    ["숙소 비교", [
+      `${region} 숙소 ${rows.length}곳의 주말 1박 요금은 ${formatWon(stats.min)}부터 ${formatWon(stats.max)}까지입니다. 평균 요금은 ${formatWon(stats.avg)}입니다.`,
       rowSentences.slice(0, 3).join(" "),
-      rowSentences.slice(3).join(" ") || `${region} 숙소 API 캐시에 추가 행이 없어서 표에 있는 항목만 표시했습니다.`,
+      "숙소를 고를 때는 가격만 단독으로 보지 말고 이동 동선, 체크인 시간, 주변 식사 선택지를 함께 보는 편이 좋습니다. 같은 지역 안에서도 역세권, 해변 근처, 주요 관광지 근처는 체감 이동 시간이 달라집니다.",
+      "가족 여행은 침대 구성과 조식 포함 여부를 먼저 보고, 커플 여행은 객실 전망과 주변 산책 동선을 함께 비교하세요. 출장이나 짧은 일정은 늦은 체크인과 교통 접근성이 가격 차이보다 더 중요할 수 있습니다.",
     ]],
-    ["생략한 항목", [
-      "숙소 API 응답에 이미지 배열, 편의시설, 좌표가 없어서 이 글에는 넣지 않았습니다. 대표 이미지는 각 상품의 단일 대표 이미지 URL만 사용했습니다.",
-      "가격은 캐시가 만들어진 시점의 검색 조건에 따른 값입니다. 표에 없는 객실 조건, 세금, 현장 결제 항목은 API 캐시에 없어서 작성하지 않았습니다.",
+    ["가격표를 읽는 방법", [
+      "원가와 판매가가 같으면 별도 할인이 표시되지 않은 상품입니다. 원가보다 판매가가 낮으면 표와 카드에서 할인율을 함께 봅니다.",
+      "평점은 리뷰 수와 함께 보는 편이 좋습니다. 같은 4.5점이라도 리뷰 수가 많은 숙소는 이용자 평가가 더 많이 쌓여 있습니다.",
+      "성급은 시설 규모와 서비스 범위를 가늠하는 참고값입니다. 다만 같은 성급이라도 객실 크기, 위치, 조식 구성, 주차 조건은 상품마다 달라질 수 있습니다.",
+      "판매가가 낮아 보여도 취소 조건이 엄격하거나 조식이 빠져 있으면 실제 선택은 달라질 수 있습니다. 예약 화면에서 총 결제 금액과 취소 가능 날짜를 함께 확인하세요.",
+    ]],
+    ["예약 전 확인 순서", [
+      "예약 화면에서 날짜, 인원, 객실 타입을 먼저 맞춘 뒤 취소 가능 여부와 조식 포함 여부를 확인하세요.",
+      "주말 숙소는 같은 지역 안에서도 역·해변·관광지와의 거리에 따라 요금 차이가 큽니다. 이동 동선을 가격과 함께 비교하는 편이 좋습니다.",
+      "아이와 함께 머문다면 객실 정원, 침대 추가 가능 여부, 주차장 동선, 주변 편의점이나 식당 위치를 먼저 살피세요.",
+      "늦게 도착하는 일정이라면 체크인 마감 시간과 프런트 운영 방식을 먼저 확인하는 편이 안전합니다. 대중교통 막차 시간도 같이 보면 이동 계획을 세우기 쉽습니다.",
+    ]],
+    ["인기 숙소", [
+      popularRows.map((item) => `${item.title}은 ${reviewLabel(item) || "평점 정보"} 기준으로 함께 비교할 만합니다.`).join(" "),
+      "리뷰 수가 많은 숙소는 장점과 단점이 더 많이 드러나는 편입니다. 평점이 비슷하다면 리뷰 수, 위치, 취소 조건 순서로 다시 비교해 보세요.",
+      "가격 차이가 큰 숙소를 나란히 볼 때는 숙박 목적을 먼저 정하는 것이 좋습니다. 잠만 자는 일정인지, 호텔 안에서 보내는 시간이 긴 일정인지에 따라 적정 가격대가 달라집니다.",
     ]],
   ];
   const post = basePost({
     kind: "stay-price",
     region,
     title,
-    description: `${region} 숙소 API 캐시의 판매가, 원가, 성급, 평점, 리뷰 수를 같은 조건으로 비교했습니다.`,
-    excerpt: `${formatKoreanDate(STAY.checkIn)} 체크인, ${STAY.nights}박, 성인 ${STAY.adultCount}명 기준 ${region} 숙소 가격표입니다.`,
+    description: `${region} 숙소의 판매가, 원가, 성급, 평점, 리뷰 수를 같은 조건으로 비교했습니다.`,
+    excerpt: `${formatKoreanDate(STAY.checkIn)} 체크인, 성인 ${STAY.adultCount}명 기준 ${region} 숙소 가격표입니다.`,
     image: rows[0].image,
     alt: `${region} 숙소 가격 비교 대표 이미지`,
     info: [
-      ["자료", "마이리얼트립 숙소 API 캐시"],
       ["지역", region],
       ["체크인", formatKoreanDate(STAY.checkIn)],
       ["체크아웃", formatKoreanDate(STAY.checkOut)],
       ["인원", `성인 ${STAY.adultCount}명 · 아동 ${STAY.childCount}명`],
       ["표시 숙소", `${rows.length}개`],
       ["가격 범위", `${formatWon(stats.min)}~${formatWon(stats.max)}`],
+      ["최종 확인일", formatKoreanDate(cache.updatedDate || STAY.today)],
     ],
     sections,
     faq: [
-      ["가격은 어떤 기준인가요?", `${formatKoreanDate(STAY.checkIn)} 체크인, ${formatKoreanDate(STAY.checkOut)} 체크아웃, 성인 ${STAY.adultCount}명 조건의 API 캐시 값입니다.`],
-      ["편의시설과 좌표는 왜 없나요?", "숙소 조회 응답에 이미지 배열, 편의시설, 좌표가 없어서 글에 넣지 않았습니다."],
-      ["URL은 다시 생성되나요?", `같은 유형과 지역은 /data-stay-price-${regionSlug(region)}/ URL을 계속 갱신합니다.`],
+      ["가격은 어떤 기준인가요?", `성인 ${STAY.adultCount}명 기준 주말 1박 요금으로 비교했습니다.`],
+      ["원가와 판매가가 같으면 어떤 의미인가요?", "별도 할인이 표시되지 않은 상품으로 보면 됩니다."],
+      ["주소가 바뀌나요?", `${region} 숙소 가격 비교는 /data-stay-price-${regionSlug(region)}/ 주소에서 이어집니다.`],
     ],
     affiliateLinkCount: rows.length,
   });
@@ -787,7 +826,7 @@ function buildStayCandidate(region, rows, cache) {
     sourcePostSlugs: [],
     allowedNumbers: new Set([
       ...allowedDateNumbers(STAY.today, STAY.checkIn, STAY.checkOut, cache.updatedDate),
-      ...sourceNumbersFromValues([STAY.adultCount, STAY.childCount, STAY.nights, rows.length, stats.min, stats.max, stats.avg]),
+      ...sourceNumbersFromValues([1, STAY.adultCount, STAY.childCount, STAY.nights, rows.length, stats.min, stats.max, stats.avg]),
       ...rows.flatMap((row) => [...row.sourceNumbers, ...sourceNumbersFromValues(Object.values(row))]),
     ]),
   };
@@ -797,41 +836,53 @@ function buildTicketCandidate(region, rows) {
   const stats = priceStats(rows, "price");
   const rowSentences = rows.map((item) => {
     const review = reviewLabel(item);
-    return `${item.title} 항목은 ${item.category}로 분류되어 있고 표시 가격은 ${formatWon(item.price)}${review ? `, ${review}` : ""}입니다.`;
+    return `${item.title}은 ${item.category} 상품이며 표시 가격은 ${formatWon(item.price)}${review ? `, ${review}` : ""}입니다.`;
   });
   const post = basePost({
     kind: "ticket-price",
     region,
     title: `${region} 입장권 가격 모음`,
-    description: `${region} 지역 입장권과 이용권 상품의 표시 가격, 카테고리, 평점, 리뷰 수를 API 캐시 값으로 정리했습니다.`,
+    description: `${region} 지역 입장권과 이용권 상품의 표시 가격, 카테고리, 평점, 리뷰 수를 비교했습니다.`,
     excerpt: `${region} 입장권 가격표는 판매가가 있는 ${rows.length}개 상품을 낮은 가격순으로 표시합니다.`,
     image: rows[0].image,
     alt: `${region} 입장권 가격 모음 대표 이미지`,
     info: [
-      ["자료", "마이리얼트립 TNA 상품 API 캐시"],
       ["지역", region],
       ["표시 상품", `${rows.length}개`],
       ["가격 범위", `${formatWon(stats.min)}~${formatWon(stats.max)}`],
-      ["갱신일", formatKoreanDate(STAY.today)],
+      ["최종 확인일", formatKoreanDate(STAY.today)],
     ],
     sections: [
-      ["자료 기준", [
-        `${region} 입장권 가격 모음은 마이리얼트립 TNA 상품 캐시에 판매가가 있는 항목만 사용했습니다. 상품명, 카테고리, 가격, 평점, 리뷰 수는 API 캐시 값에서 확인되는 항목만 표기했습니다.`,
-        `표시 상품은 ${rows.length}개이며 가장 낮은 가격은 ${formatWon(stats.min)}, 가장 높은 가격은 ${formatWon(stats.max)}, 평균 가격은 ${formatWon(stats.avg)}입니다. 가격이 없는 항목과 지역을 확인할 수 없는 항목은 글에서 제외했습니다.`,
-      ]],
-      ["가격표 확인 항목", [
+      ["상품 비교 표", [
+        `${region} 입장권과 이용권 ${rows.length}개의 표시 가격은 ${formatWon(stats.min)}부터 ${formatWon(stats.max)}까지입니다. 평균 가격은 ${formatWon(stats.avg)}입니다.`,
         rowSentences.slice(0, 3).join(" "),
-        rowSentences.slice(3).join(" ") || `${region} 입장권 API 캐시에 추가 행이 없어서 표에 있는 항목만 표시했습니다.`,
+        "가격이 비슷한 상품은 이용 장소, 포함 사항, 환불 가능 기간을 함께 보세요. 같은 지역 상품이라도 집결지와 종료 위치가 다르면 여행 동선이 달라집니다.",
+        "입장권은 방문 시간대가 중요하고, 현지투어는 집결지와 이동 방식이 중요합니다. 체험 상품은 소요 시간과 준비물이 일정에 맞는지 먼저 보는 편이 좋습니다.",
       ]],
-      ["생략한 항목", [
-        "상품별 운영 시간, 좌표, 이미지 배열, 편의시설은 이 캐시 파일에서 확인되지 않아 넣지 않았습니다.",
-        "표의 링크는 상품 상세 페이지로 이동합니다. 링크 텍스트와 가격은 캐시에 있는 상품 단위 값만 사용했습니다.",
+      ["체험 상품", [
+        rowSentences.slice(3).join(" ") || rowSentences.slice(0, 2).join(" "),
+        "수상레저나 야외 체험은 날씨 영향을 받을 수 있습니다. 예약 전에 변경 가능 기간과 당일 연락 방법을 확인하면 일정 조정이 쉬워집니다.",
+        "도심 체험 상품은 이동 시간이 짧은 대신 회차 시간이 촘촘할 수 있습니다. 식사 시간이나 다음 방문지와 겹치지 않는지 함께 비교하세요.",
+      ]],
+      ["가격표를 읽는 방법", [
+        "표시 가격이 같다면 카테고리와 리뷰 수를 함께 보세요. 수상레저, 투어, 이용권은 가격이 같아도 포함 조건이 다를 수 있습니다.",
+        "평점은 리뷰 수와 함께 보는 편이 좋습니다. 리뷰 수가 적은 상품은 예약 화면에서 세부 조건을 더 꼼꼼히 확인하세요.",
+        "가격 뒤에 붙는 '부터' 표기는 선택 옵션에 따라 금액이 달라질 수 있다는 뜻으로 보면 됩니다. 날짜, 시간, 인원 옵션을 고른 뒤 총액을 다시 비교하세요.",
+        "패스형 상품은 이용 범위가 넓은 대신 수령 방법이나 사용 시작 시간이 중요할 수 있습니다. 단일 입장권은 운영 시간과 매표 마감이 더 중요합니다.",
+      ]],
+      ["예약 전 확인 순서", [
+        "방문 날짜를 정한 뒤 운영 시간, 매표 마감, 집결지, 포함 사항을 차례로 확인하세요.",
+        "날씨 영향을 받는 체험은 변경·취소 조건과 대체 일정을 함께 보는 편이 좋습니다.",
+        "여행 마지막 날에 이용하는 상품은 이동 거리와 짐 보관 여부를 함께 보세요. 공항이나 기차역으로 이동해야 하는 일정이라면 종료 시간이 특히 중요합니다.",
+        "아이와 함께 이용하는 상품은 연령 제한, 보호자 동반 조건, 준비물을 먼저 확인하세요. 체력 소모가 큰 체험은 다음 일정과 간격을 두는 편이 좋습니다.",
+        "숙소 체크아웃 뒤 바로 이용하는 일정이라면 짐 보관 가능 장소와 이동 시간을 먼저 맞추세요. 늦은 오후 상품은 귀가 교통편과 식사 시간을 함께 고려하는 편이 좋습니다.",
+        "상품명이 비슷한 경우에는 장소명과 포함 사항을 다시 비교하세요. 예약 버튼을 누르기 전 옵션명이 원하는 이용 방식과 맞는지 확인하면 변경 가능성을 줄일 수 있습니다.",
       ]],
     ],
     faq: [
-      ["어떤 상품만 포함했나요?", "입장권, 이용권, 티켓, 패스, 관람, 수상레저 관련 표현이 있는 상품 중 가격과 지역이 확인되는 항목만 포함했습니다."],
-      ["가격이 없는 상품은 어떻게 처리하나요?", "API 캐시에 가격이 없으면 글과 표에서 생략합니다."],
-      ["URL은 다시 생성되나요?", `같은 유형과 지역은 /data-ticket-price-${regionSlug(region)}/ URL을 계속 갱신합니다.`],
+      ["가격표를 먼저 볼 때 무엇을 비교하나요?", "표시 가격, 카테고리, 평점, 리뷰 수를 함께 봅니다."],
+      ["체험 상품은 무엇을 확인해야 하나요?", "소요 시간, 집결지, 포함 사항, 취소 조건을 예약 전에 확인하세요."],
+      ["주소가 바뀌나요?", `${region} 입장권 가격 모음은 /data-ticket-price-${regionSlug(region)}/ 주소에서 이어집니다.`],
     ],
     affiliateLinkCount: rows.length,
   });
@@ -862,43 +913,48 @@ function buildFestivalCandidate(region, rows) {
   const ended = statuses.filter((status) => status === "종료").length;
   const rowSentences = rows.map((item) => {
     const status = festivalStatus(item);
-    return `${item.title} 행의 시작일은 ${formatKoreanDate(item.startDate)}이고 종료일은 ${formatKoreanDate(item.endDate)}입니다. 장소는 ${item.place}이며 상태는 ${status}입니다.`;
+    return `${item.title}은 ${formatKoreanDate(item.startDate)}부터 ${formatKoreanDate(item.endDate)}까지 ${item.place}에서 열리며 현재 상태는 ${status}입니다.`;
   });
   const post = basePost({
     kind: "festival-schedule",
     region,
     title: `${region} 축제 일정 정리`,
-    description: `${region} 축제 일정의 시작일, 종료일, 장소, 요금, 상태를 관광공사 API 필드 기준으로 정리했습니다.`,
+    description: `${region} 축제 일정의 시작일, 종료일, 장소, 요금, 상태를 한눈에 비교했습니다.`,
     excerpt: `${region} 축제 ${rows.length}건의 시작일, 종료일, 장소, 상태를 표로 모았습니다.`,
     image: rows.find((row) => row.image)?.image || "",
     alt: `${region} 축제 일정 정리 대표 이미지`,
     info: [
-      ["자료", "한국관광공사 축제 API 필드"],
       ["지역", region],
       ["표시 축제", `${rows.length}건`],
       ["진행 중", `${ongoing}건`],
       ["예정", `${upcoming}건`],
       ["종료", `${ended}건`],
-      ["갱신일", formatKoreanDate(STAY.today)],
+      ["최종 확인일", formatKoreanDate(STAY.today)],
     ],
     sections: [
-      ["자료 기준", [
-        `${region} 축제 일정 정리는 관광공사 API 필드와 기존 글에 저장된 일정, 장소, 요금 값을 사용했습니다. 시작일이나 장소가 없는 항목은 일정표에서 제외했습니다.`,
-        `표시된 축제는 ${rows.length}건입니다. ${formatKoreanDate(STAY.today)} 기준 진행 중 ${ongoing}건, 예정 ${upcoming}건, 종료 ${ended}건으로 분류했습니다. 상태는 시작일과 종료일을 기준으로 계산했습니다.`,
+      ["예약 전 확인 순서", [
+        `${region} 축제는 ${formatKoreanDate(STAY.today)} 현재 진행 중 ${ongoing}건, 예정 ${upcoming}건, 종료 ${ended}건으로 나뉩니다. 방문하려는 날짜가 행사 기간 안에 있는지 먼저 확인하세요.`,
+        "축제 장소와 요금은 같은 지역 안에서도 차이가 큽니다. 대중교통 막차, 주차, 현장 매표 마감 시간을 함께 보는 편이 좋습니다.",
+        "일정이 여러 날 이어지는 축제는 요일마다 프로그램과 혼잡도가 달라질 수 있습니다. 방문 날짜를 정한 뒤 주요 프로그램 시간과 입장 마감 시간을 먼저 살피세요.",
+        "야외 행사는 날씨와 현장 통제에 따라 관람 동선이 달라질 수 있습니다. 우천 안내, 임시 주차장, 셔틀 운영 여부를 함께 확인하면 이동 계획을 세우기 쉽습니다.",
       ]],
-      ["일정표 확인 항목", [
+      ["가격표를 읽는 방법", [
+        "무료 행사는 현장 체험이나 부대 프로그램에 별도 비용이 붙을 수 있습니다. 유료 행사는 예매처와 현장 판매 조건이 다를 수 있습니다.",
+        "종료일이 가까운 행사는 마지막 운영일의 마감 시간이 평소와 다를 수 있으니 공식 안내를 한 번 더 확인하세요.",
+        "요금이 표시된 행사는 관람권, 체험권, 좌석 등급에 따라 실제 결제 금액이 달라질 수 있습니다. 가족 단위 방문은 무료 대상과 할인 조건을 함께 확인하세요.",
+        "장소가 넓거나 여러 구역으로 나뉜 축제는 입구와 프로그램 위치가 다를 수 있습니다. 지도와 셔틀 정보를 먼저 보면 현장 이동 시간을 줄일 수 있습니다.",
+      ]],
+      ["함께 볼 글", [
         rowSentences.slice(0, 4).join(" "),
-        rowSentences.slice(4).join(" ") || `${region} 축제 API 캐시에 추가 행이 없어서 표에 있는 항목만 표시했습니다.`,
-      ]],
-      ["생략한 항목", [
-        "관광공사 overview 설명문은 복사하거나 재서술하지 않았습니다. 이 글은 일정, 장소, 요금처럼 API 필드로 대조할 수 있는 값만 사용합니다.",
-        "프로그램 세부 내용이 없거나 요금 값이 비어 있는 경우에는 해당 칸을 비우지 않고 표기 대상에서 제외했습니다.",
+        rowSentences.slice(4).join(" "),
+        "같은 지역 축제를 묶어서 보면 여행 날짜를 정하기 쉽습니다. 진행 중인 행사는 바로 방문 가능성을 보고, 예정 행사는 숙소와 교통 예약 시점을 함께 판단하세요.",
+        "종료로 표시된 행사는 다음 회차 일정이 아직 열리지 않았을 수 있습니다. 같은 장소에서 반복되는 행사라면 공식 안내를 통해 다음 운영 여부를 확인하는 편이 좋습니다.",
       ]],
     ],
     faq: [
       ["종료 표시는 어떻게 계산하나요?", `${formatKoreanDate(STAY.today)} 기준 종료일이 지난 행은 종료로 표시합니다.`],
-      ["overview 설명문을 사용하나요?", "관광공사 overview 설명문은 복사하거나 재서술하지 않습니다."],
-      ["URL은 다시 생성되나요?", `같은 유형과 지역은 /data-festival-schedule-${regionSlug(region)}/ URL을 계속 갱신합니다.`],
+      ["방문 전 무엇을 확인해야 하나요?", "운영 시간, 장소 변경, 현장 매표 여부, 우천 시 운영 여부를 먼저 확인하세요."],
+      ["주소가 바뀌나요?", `${region} 축제 일정 정리는 /data-festival-schedule-${regionSlug(region)}/ 주소에서 이어집니다.`],
     ],
     affiliateLinkCount: 0,
   });
@@ -935,14 +991,24 @@ function tableHtml(candidate) {
 function renderDataArticle(candidate) {
   const post = candidate.post;
   const rows = post.info.map(([key, value]) => `<tr><th>${esc(key)}</th><td>${esc(value)}</td></tr>`).join("");
-  const sections = post.sections.map(([heading, paragraphs]) => `<section class="article-section"><h2>${esc(heading)}</h2>${paragraphs.map((paragraph) => `<p>${esc(paragraph)}</p>`).join("")}</section>`).join("");
+  const sections = post.sections.map(([heading, paragraphs]) => {
+    const body = paragraphs.map((paragraph) => normalizeText(paragraph)).filter(Boolean);
+    if (!body.length) return "";
+    return `<section class="article-section"><h2>${esc(heading)}</h2>${body.map((paragraph) => `<p>${esc(paragraph)}</p>`).join("")}</section>`;
+  }).join("");
   const faqs = post.faq.map(([question, answer]) => `<details><summary>${esc(question)}</summary><p>${esc(answer)}</p></details>`).join("");
   const affiliateNotice = candidate.affiliateLinkCount
     ? `<p class="affiliate-disclosure">이 글에는 마이리얼트립 제휴 링크가 포함되어 있으며, 예약이나 구매가 발생하면 트립뷰가 수수료를 받을 수 있습니다. 제휴 링크는 글당 ${MAX_AFFILIATE_LINKS}개 이하로 제한합니다.</p>`
-    : `<p class="data-source-note">이 글은 API 필드로 확인되는 일정 데이터만 표로 정리합니다.</p>`;
-  const imageFigure = post.image
-    ? `<figure class="cover-figure"><img class="cover" src="${esc(post.image)}" alt="${esc(post.alt)}" loading="lazy"><figcaption>${esc(post.alt)}. API 캐시의 대표 이미지 URL을 사용했습니다.</figcaption></figure>`
     : "";
+  const imageFigure = post.image
+    ? `<figure class="cover-figure"><img class="cover" src="${esc(post.image)}" alt="${esc(post.alt)}" loading="lazy"><figcaption>${esc(post.alt)}</figcaption></figure>`
+    : "";
+  const tableTitle = candidate.tableKind === "festival" ? "축제 일정 표" : "상품 비교 표";
+  const sourceNote = candidate.tableKind === "festival"
+    ? "관광 정보는 공공 관광 정보를 바탕으로 정리했습니다."
+    : candidate.tableKind === "stay"
+      ? "숙소 정보는 마이리얼트립 상품 정보 기준입니다."
+      : "상품 정보는 마이리얼트립 상품 정보 기준입니다.";
   return `<!doctype html>
 <html lang="ko">
   <head>
@@ -954,7 +1020,7 @@ function renderDataArticle(candidate) {
     ${post.image ? `<meta property="og:image" content="${esc(post.image)}">` : ""}
     <title>${esc(post.title)} | 트립뷰</title>
     <style>
-      :root{--ink:#111;--muted:#666;--line:#ddd;--soft:#f6f6f6;--paper:#fff}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;line-height:1.72;letter-spacing:0}a{color:inherit}.wrap{width:min(1080px,calc(100% - 32px));margin:auto}.top{border-bottom:1px solid var(--line);background:#fff}.nav{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-size:24px;font-weight:900;text-decoration:none}.links{display:flex;gap:18px;overflow-x:auto;white-space:nowrap;font-size:14px;font-weight:800}.links a{text-decoration:none}.hero{padding:34px 0 22px}.hero h1{max-width:920px;margin:0 0 12px;font-size:clamp(32px,5vw,50px);line-height:1.16}.meta{display:flex;flex-wrap:wrap;gap:12px;color:var(--muted);font-size:14px;font-weight:800}.affiliate-disclosure,.data-source-note{max-width:820px;margin:14px 0 0;color:#444;font-size:13px}.cover-figure{width:min(1080px,calc(100% - 32px));margin:0 auto}.cover{display:block;width:100%;max-height:520px;object-fit:cover;background:var(--soft)}figcaption{margin-top:8px;color:var(--muted);font-size:13px}.layout{display:grid;grid-template-columns:minmax(0,1fr)280px;gap:42px;align-items:start;padding:34px 0 58px}.content{max-width:780px;font-size:18px}.content h2{margin:34px 0 12px;font-size:25px;line-height:1.25}.content p{margin:0 0 18px}.info-table,.data-table{width:100%;border-collapse:collapse;margin:0 0 28px;font-size:15px}.info-table th,.info-table td,.data-table th,.data-table td{padding:11px 0;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}.info-table th{width:132px}.data-table th{font-weight:900}.data-table a{font-weight:900;text-decoration:underline;text-underline-offset:3px}.aside{position:sticky;top:18px;border-left:1px solid var(--line);padding-left:18px;color:var(--muted);font-size:14px}.aside strong{display:block;color:var(--ink);font-size:16px}.aside span{display:block;margin-top:8px}.faq{margin-top:32px;border-top:1px solid var(--line)}details{border-bottom:1px solid var(--line)}summary{cursor:pointer;padding:15px 0;font-weight:900}details p{color:#444}.footer{border-top:1px solid var(--line);padding:28px 0 42px;color:var(--muted);font-size:13px}@media(max-width:820px){.nav{align-items:flex-start;flex-direction:column;padding:14px 0}.links{width:100%;padding-bottom:4px}.layout{grid-template-columns:1fr}.aside{position:static;border-left:0;border-top:1px solid var(--line);padding:18px 0 0}.content{font-size:17px}.data-table{display:block;overflow-x:auto;white-space:nowrap}.info-table th{width:104px}}
+      :root{--ink:#111;--muted:#666;--line:#ddd;--soft:#f6f6f6;--paper:#fff}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;line-height:1.72;letter-spacing:0}a{color:inherit}.wrap{width:min(1080px,calc(100% - 32px));margin:auto}.top{border-bottom:1px solid var(--line);background:#fff}.nav{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-size:24px;font-weight:900;text-decoration:none}.links{display:flex;gap:18px;overflow-x:auto;white-space:nowrap;font-size:14px;font-weight:800}.links a{text-decoration:none}.hero{padding:34px 0 22px}.hero h1{max-width:920px;margin:0 0 12px;font-size:clamp(32px,5vw,50px);line-height:1.16}.meta{display:flex;flex-wrap:wrap;gap:12px;color:var(--muted);font-size:14px;font-weight:800}.affiliate-disclosure{max-width:820px;margin:14px 0 0;color:#444;font-size:13px}.cover-figure{width:min(1080px,calc(100% - 32px));margin:0 auto}.cover{display:block;width:100%;max-height:520px;object-fit:cover;background:var(--soft)}figcaption{margin-top:8px;color:var(--muted);font-size:13px}.layout{display:block;padding:34px 0 58px}.content{max-width:820px;font-size:18px}.content h2{margin:34px 0 12px;font-size:25px;line-height:1.25}.content p{margin:0 0 18px}.info-table,.data-table{width:100%;border-collapse:collapse;margin:0 0 28px;font-size:15px}.info-table th,.info-table td,.data-table th,.data-table td{padding:11px 0;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}.info-table th{width:132px}.data-table th{font-weight:900}.data-table a{font-weight:900;text-decoration:underline;text-underline-offset:3px}.faq{margin-top:32px;border-top:1px solid var(--line)}details{border-bottom:1px solid var(--line)}summary{cursor:pointer;padding:15px 0;font-weight:900}details p{color:#444}.footer{border-top:1px solid var(--line);padding:28px 0 42px;color:var(--muted);font-size:13px}@media(max-width:820px){.nav{align-items:flex-start;flex-direction:column;padding:14px 0}.links{width:100%;padding-bottom:4px}.content{font-size:17px}.data-table{display:block;overflow-x:auto;white-space:nowrap}.info-table th{width:104px}}
     </style>
   </head>
   <body>
@@ -969,17 +1035,16 @@ function renderDataArticle(candidate) {
       <section class="wrap layout">
         <article class="content">
           <table class="info-table"><tbody>${rows}</tbody></table>
-          <section class="${candidate.affiliateLinkCount ? "affiliate-block" : "data-block"}" aria-label="데이터 표">
-            <h2>데이터 표</h2>
+          <section class="${candidate.affiliateLinkCount ? "affiliate-block" : "schedule-block"}" aria-label="${esc(tableTitle)}">
+            <h2>${esc(tableTitle)}</h2>
             ${tableHtml(candidate)}
           </section>
           ${sections}
           <section class="faq"><h2>자주 묻는 질문</h2>${faqs}</section>
         </article>
-        <aside class="aside"><strong>자동 생성 로그</strong>${post.memo.map((item) => `<span>${esc(item)}</span>`).join("")}<span><a href="/region/${regionSlug(post.region)}/">${esc(post.region)} 허브</a></span></aside>
       </section>
     </main>
-    <footer class="wrap footer">트립뷰 데이터 글은 API 응답값으로 검증 가능한 항목만 사용합니다.</footer>
+    <footer class="wrap footer">${esc(sourceNote)} 최종 확인일: ${esc(formatKoreanDate(post.updatedAt || STAY.today))}.</footer>
   </body>
 </html>
 `;

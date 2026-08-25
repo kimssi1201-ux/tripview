@@ -38,7 +38,7 @@ const NAV_GROUPS = [
     items: [
       { href: "/stay/", icon: "숙", label: "숙소", description: "위치와 취소 조건을 비교합니다." },
       { href: "/ticket/", icon: "권", label: "입장권·투어", description: "운영 시간과 포함 사항을 비교합니다." },
-      { href: "/data-stay-price-seoul/", icon: "가", label: "숙소 가격 비교", description: "API 캐시 가격표를 데이터 글로 봅니다." },
+      { href: "/data-stay-price-seoul/", icon: "가", label: "숙소 가격 비교", description: "주말 숙소 요금을 비교합니다." },
     ],
   },
 ];

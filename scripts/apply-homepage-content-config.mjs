@@ -837,7 +837,7 @@ function homeRegionCard(group) {
     <span class="story-card-body">
       <span class="story-label">지역별로 찾기</span>
       <strong>${esc(group.label)} 여행 허브</strong>
-      <p>${esc(group.label)} 지역 글과 숙소 카드, 하위 지역별 글을 한곳에 모았습니다.</p>
+      <p>${esc(group.label)} 지역 글과 숙소, 하위 지역별 글을 한곳에 모았습니다.</p>
       <span class="story-meta">${group.posts.length.toLocaleString("ko-KR")}개 글</span>
     </span>
   </a>`;

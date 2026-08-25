@@ -32,7 +32,7 @@ const ARTICLE_NAVIGATION = '<nav class="links" aria-label="주요 메뉴"><a hre
 const CATEGORY_PAGES = [
   { path: "/travel/", title: "여행지", description: "물놀이·계곡, 실내여행, 아이와, 이번 주말 글을 태그로 묶어 국내 여행지를 탐색합니다." },
   { path: "/festival/", title: "축제", description: "전국 축제와 행사를 지역, 일정, 방문 전 확인 포인트 중심으로 모았습니다." },
-  { path: "/stay/", title: "숙소", description: "지역별 숙소 카드, 숙소 가격 비교, 숙소 상세 리뷰를 한곳에서 확인합니다." },
+  { path: "/stay/", title: "숙소", description: "지역별 숙소, 숙소 가격 비교, 숙소 상세 리뷰를 한곳에서 확인합니다." },
   { path: "/ticket/", title: "입장권·투어", description: "지역별 입장권 가격 모음과 여행지별 체험·투어 상품을 분리해 확인합니다." },
 ];
 const BOOKING_CITY_ORDER = ["제주", "부산", "강원", "여수", "경주", "속초", "서울", "경기", "전남"];
@@ -604,6 +604,7 @@ function selectMultiRegionAccommodations(posts = [], limit = 6) {
 function accommodationCard(item = {}) {
   const product = normalizeAccommodationProduct(item);
   if (!product) return "";
+  const stayLabel = accommodationStayLabel();
   const discount = accommodationDiscountRate(product);
   const star = accommodationStarLabel(product.starRating);
   const rating = product.reviewScore ? `평점 ${product.reviewScore}` : "";
@@ -620,8 +621,8 @@ function accommodationCard(item = {}) {
     <span class="mrt-accommodation-body">
       ${discount > 0 ? `<span class="mrt-accommodation-badge">${discount}% 할인</span>` : ""}
       <strong>${html(product.title)}</strong>
-      <em>${html(meta || product.region)}</em>
-      <span class="mrt-accommodation-price">${price}<small>2인 · ${html(ACCOMMODATION_STAY.checkIn)} 체크인</small></span>
+      <span class="mrt-accommodation-meta">${html(meta || product.region)}</span>
+      <span class="mrt-accommodation-price">${price}<small>${html(stayLabel)}</small></span>
     </span>
   </a>`;
 }
@@ -629,6 +630,7 @@ function accommodationCard(item = {}) {
 function articleAccommodationCard(item = {}) {
   const product = normalizeAccommodationProduct(item);
   if (!product) return "";
+  const stayLabel = accommodationStayLabel();
   const discount = accommodationDiscountRate(product);
   const rating = product.reviewScore ? `평점 ${product.reviewScore}` : "";
   const reviews = numericValue(product.reviewCount);
@@ -647,8 +649,8 @@ function articleAccommodationCard(item = {}) {
     <span class="mrt-accommodation-body">
       ${discount > 0 ? `<span class="mrt-accommodation-badge">${discount}% 할인</span>` : ""}
       <strong>${html(product.title)}</strong>
-      <em>${html(meta || product.region)}</em>
-      <span class="mrt-accommodation-price">${price}<small>2인 · ${html(ACCOMMODATION_STAY.checkIn)} 체크인</small></span>
+      <span class="mrt-accommodation-meta">${html(meta || product.region)}</span>
+      <span class="mrt-accommodation-price">${price}<small>${html(stayLabel)}</small></span>
     </span>
   </a>`;
 }
@@ -666,6 +668,8 @@ function removeLanguageArtifacts(value) {
 
 function cleanGeneratedHtml(value) {
   return removeLanguageArtifacts(value)
+    .replace(/로컬/g, "지역")
+    .replace(/데이터 연결/g, "인터넷 연결")
     .replace(/(\s*<footer class=["']site-footer["'][\s\S]*?<\/footer>)(?:\s*<footer class=["']site-footer["'][\s\S]*?<\/footer>)+/gi, "$1")
     .replace(/[ \t]+$/gm, "");
 }
@@ -766,6 +770,16 @@ function formatDate(value = "") {
   const match = String(value).match(/^(\d{4})-(\d{2})-(\d{2})$/);
   if (!match) return String(value || "");
   return `${match[1]}년 ${Number(match[2])}월 ${Number(match[3])}일`;
+}
+
+function formatShortDate(value = "") {
+  const match = String(value).match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!match) return String(value || "");
+  return `${Number(match[2])}월 ${Number(match[3])}일`;
+}
+
+function accommodationStayLabel() {
+  return `성인 2인 · ${formatShortDate(ACCOMMODATION_STAY.checkIn)} 체크인`;
 }
 
 function flightMeta(deal) {
@@ -910,13 +924,15 @@ function hubPageStyle() {
 .story-list .story-card{height:100%}
 .stay-slot{margin-right:calc((100vw - min(1180px,calc(100vw - 32px))) / -2);margin-left:calc((100vw - min(1180px,calc(100vw - 32px))) / -2);padding-right:calc((100vw - min(1180px,calc(100vw - 32px))) / 2);padding-left:calc((100vw - min(1180px,calc(100vw - 32px))) / 2);background:color-mix(in srgb,var(--brand) 5%,var(--bg))}
 .mrt-accommodation-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.mrt-accommodation-grid[data-count="1"]{grid-template-columns:minmax(0,1fr)}
+.mrt-accommodation-grid[data-count="2"]{grid-template-columns:repeat(2,minmax(0,1fr))}
 .mrt-accommodation-card{position:relative;display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;align-items:center;min-width:0;padding:12px;border:1px solid var(--line);border-left:3px solid var(--cta);border-radius:8px;background:var(--card);transition:border-color 150ms ease}
 .mrt-accommodation-card:hover,.mrt-accommodation-card:focus-visible{border-color:var(--brand);border-left-color:var(--cta)}
 .mrt-accommodation-thumb{position:relative;display:block;width:100%;aspect-ratio:16/10;overflow:hidden;background:var(--card)}
 .mrt-accommodation-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
 .mrt-accommodation-body{display:grid;gap:4px;min-width:0}
 .mrt-accommodation-body strong{font-size:15px;line-height:1.35;font-weight:800}
-.mrt-accommodation-body em{color:var(--muted);font-size:12px;font-style:normal}
+.mrt-accommodation-body em,.mrt-accommodation-meta{display:block;color:var(--muted);font-size:12px;font-style:normal}
 .mrt-accommodation-badge{justify-self:start;border-radius:999px;background:var(--cta);color:var(--card);padding:2px 7px;font-size:11px;font-weight:900;line-height:1.35}
 .mrt-accommodation-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:5px}
 .mrt-accommodation-price del{color:var(--muted);font-size:12px}
@@ -966,6 +982,7 @@ function hubPageStyle() {
 .booking-product-title{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:17px;line-height:1.35;font-weight:900}
 .booking-product-rating{color:var(--muted);font-size:13px;line-height:1.4}
 .booking-product-price{color:var(--cta);font-size:18px;font-weight:900;line-height:1.25}
+.booking-product-meta{color:var(--muted);font-size:12px;line-height:1.35}
 .booking-product-cta{display:flex;justify-content:center;margin-top:18px}
 .booking-product-cta a{display:inline-flex;align-items:center;justify-content:center;min-width:220px;min-height:48px;padding:0 18px;border-radius:8px;background:var(--cta);color:var(--card);font-weight:900;transition:background-color 150ms ease}
 .booking-product-cta a:hover,.booking-product-cta a:focus-visible{background:var(--cta-hover)}
@@ -1031,8 +1048,8 @@ function staySlot({ title, posts, products = [], region = "", limit = 6 }) {
       <div><span class="kicker">STAY</span><h2 id="accommodation-cards-title">${html(title)}</h2></div>
       <p class="block-note">${html(posts.length ? `${compactRegion(posts[0]?.region)} 글 기준 추천` : "여행지 기준 추천")}</p>
     </div>
-    <p class="affiliate-note">마이리얼트립 숙소 링크는 제휴 링크일 수 있으며, 날짜는 렌더링 시점 기준 다음 금요일 체크인과 일요일 체크아웃으로 생성됩니다.</p>
-    <div class="mrt-accommodation-grid">${cards.join("")}</div>
+    <p class="affiliate-note">성인 2명 기준 주말 1박 요금입니다. 예약 화면에서 날짜와 취소 조건을 다시 확인하세요.</p>
+    <div class="mrt-accommodation-grid" data-count="${cards.length}">${cards.join("")}</div>
   </section>`;
 }
 
@@ -1061,7 +1078,7 @@ function ticketSlot({ title = "입장권·투어 카드", products = [], limit =
   return `<section class="block stay-slot" id="ticket-cards" aria-labelledby="ticket-cards-title">
     <div class="block-head">
       <div><span class="kicker">TICKET</span><h2 id="ticket-cards-title">${html(title)}</h2></div>
-      <p class="block-note">마이리얼트립 TNA 캐시 기준</p>
+      <p class="block-note">가격과 이용 조건은 예약 화면에서 확인</p>
     </div>
     <p class="affiliate-note">입장권·투어 링크는 제휴 링크일 수 있으며, 가격과 이용 조건은 예약 화면에서 다시 확인해야 합니다.</p>
     <div class="mrt-ticket-grid">${cards.join("")}</div>
@@ -1212,6 +1229,7 @@ function bookingProductCard(product = {}, type = "stay") {
   const detail = [product.region, product.detail || product.category].filter(Boolean).join(" · ");
   const rating = bookingRatingText(product);
   const dataAttr = type === "ticket" ? "data-mrt-ticket-card" : "data-mrt-accommodation-card";
+  const stayMeta = type === "stay" ? `<span class="booking-product-meta">${html(accommodationStayLabel())}</span>` : "";
   return `<a class="booking-product-card" ${dataAttr} href="${html(product.url)}" rel="sponsored nofollow" target="_blank">
     <span class="booking-product-thumb"><img src="${html(product.image)}" alt="${html(product.title)}" loading="lazy" decoding="async"></span>
     <span class="booking-product-body">
@@ -1219,6 +1237,7 @@ function bookingProductCard(product = {}, type = "stay") {
       <strong class="booking-product-title">${html(product.title)}</strong>
       ${rating ? `<span class="booking-product-rating">${html(rating)}</span>` : ""}
       <span class="booking-product-price">${html(product.priceText || won(product.salePrice) || "가격 확인")}</span>
+      ${stayMeta}
     </span>
   </a>`;
 }
@@ -1228,7 +1247,7 @@ function bookingProductSection(products = [], type = "stay") {
   if (!normalized.length) return "";
   const id = bookingProductListId(type);
   const title = type === "ticket" ? "평점순 입장권·투어" : "평점순 숙소";
-  const note = type === "ticket" ? "마이리얼트립 TNA 캐시 기준" : `마이리얼트립 숙소 캐시 기준 · ${ACCOMMODATION_STAY.checkIn} 체크인`;
+  const note = type === "ticket" ? "가격과 이용 조건은 예약 화면에서 확인" : "성인 2명 기준 주말 1박 요금입니다";
   const ctaUrl = type === "ticket" ? "https://experiences.myrealtrip.com/" : "https://accommodation.myrealtrip.com/";
   const ctaText = type === "ticket" ? "전체 입장권·투어 보기" : "전체 숙소 보기";
   const cards = normalized.map((product) => bookingProductCard(product, type)).join("");
@@ -1329,7 +1348,7 @@ function categoryPageHtml({ path, title, description, posts, tags = [], sections
     : "";
   const affiliateSection = affiliateSlot === "ticket"
     ? ticketSlot({ title: "입장권·투어 카드", products, limit: 9 })
-    : staySlot({ title: title === "숙소" ? "숙소 카드" : "숙소 카드 자리", posts, products });
+    : staySlot({ title: title === "숙소" ? "인기 숙소" : "추천 숙소", posts, products });
   const body = [
     ...sections.map(sectionBlock),
     affiliateSection,
@@ -1385,14 +1404,14 @@ function regionBannerAsset(group) {
 }
 
 function regionHubHtml(group) {
-  const description = `${group.label} 지역의 여행지와 축제 글을 최신순으로 모았습니다. 지역 소개와 함께 관련 글, 추천 숙소 카드를 한 번에 확인하세요.`;
+  const description = `${group.label} 지역의 여행지와 축제 글을 최신순으로 모았습니다. 지역 소개와 함께 관련 글, 추천 숙소를 한 번에 확인하세요.`;
   const products = selectAccommodationItems({ posts: group.posts, region: group.label, preset: "default", limit: 6 });
   const postCards = group.posts.map(storyCard).filter(Boolean);
   const postSection = postCards.length >= 3
     ? `<section class="block" id="region-posts" aria-labelledby="region-posts-title"><div class="block-head"><div><span class="kicker">POSTS</span><h2 id="region-posts-title">${html(group.label)} 글 목록</h2></div><p class="block-note">같은 광역 지역 기준</p></div><div class="story-list">${postCards.join("")}</div></section>`
     : "";
   const body = [
-    `<section class="block" id="region-intro" aria-labelledby="region-intro-title"><div class="block-head"><div><span class="kicker">REGION</span><h2 id="region-intro-title">${html(group.label)} 여행 소개</h2></div><p class="block-note">${html(group.posts.length)}개 글</p></div><p>${html(group.label)} 여행은 계절 행사, 실내 명소, 자연 여행지를 함께 보면 동선 선택이 쉬워집니다. 아래 목록에서 방문 목적에 맞는 글을 먼저 확인하고, 숙소 카드는 일정이 정해진 뒤 비교용으로 활용하세요.</p></section>`,
+    `<section class="block" id="region-intro" aria-labelledby="region-intro-title"><div class="block-head"><div><span class="kicker">REGION</span><h2 id="region-intro-title">${html(group.label)} 여행 소개</h2></div><p class="block-note">${html(group.posts.length)}개 글</p></div><p>${html(group.label)} 여행은 계절 행사, 실내 명소, 자연 여행지를 함께 보면 동선 선택이 쉬워집니다. 아래 목록에서 방문 목적에 맞는 글을 먼저 확인하고, 숙소는 일정이 정해진 뒤 비교용으로 활용하세요.</p></section>`,
     staySlot({ title: `${group.label} 추천 숙소`, posts: group.posts, region: group.label, products, limit: 6 }),
     postSection,
     subregionBlock(group.posts),
@@ -1425,7 +1444,7 @@ function regionIndexHtml(groups = regionGroups()) {
       <span class="story-card-body">
         <span class="story-label">지역 허브</span>
         <strong>${html(group.label)} 여행 허브</strong>
-        <p>${html(group.label)} 지역 글 목록과 숙소 카드, 하위 시군구 그룹을 확인합니다.</p>
+        <p>${html(group.label)} 지역 글 목록과 숙소, 하위 시군구 그룹을 확인합니다.</p>
         <span class="story-meta">${html(group.posts.length.toLocaleString("ko-KR"))}개 글</span>
       </span>
     </a>`;
@@ -1433,7 +1452,7 @@ function regionIndexHtml(groups = regionGroups()) {
   return pageShell({
     path: "/region/",
     title: "지역별 여행 허브",
-    description: "지역값을 기준으로 자동 생성된 트립뷰 허브 목록입니다. 각 허브에서 지역 소개, 글 목록, 숙소 카드, 하위 시군구 그룹을 확인할 수 있습니다.",
+    description: "지역별 트립뷰 허브 목록입니다. 각 허브에서 지역 소개, 글 목록, 숙소, 하위 시군구 그룹을 확인할 수 있습니다.",
     kicker: "REGION",
     countLabel: `${groups.length.toLocaleString("ko-KR")}개 지역`,
     tags: [
@@ -1679,11 +1698,14 @@ function articleSiteDesignCss() {
 .article-product-head h2{margin:0;padding-left:12px;border-left:3px solid var(--brand);font-size:20px}
 .article-product-note{margin:0 0 14px;color:var(--muted);font-size:12px;line-height:1.55}
 .article-product-section .mrt-accommodation-grid,.article-product-section .mrt-ticket-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.article-product-section .mrt-accommodation-grid[data-count="1"],.article-product-section .mrt-ticket-grid[data-count="1"]{grid-template-columns:minmax(0,1fr)}
+.article-product-section .mrt-accommodation-grid[data-count="2"],.article-product-section .mrt-ticket-grid[data-count="2"]{grid-template-columns:repeat(2,minmax(0,1fr))}
 .article-product-section .article-product-card,.article-product-section .mrt-ticket-card{display:block;min-width:0;padding:0;overflow:hidden;border:1px solid var(--line);border-left:3px solid var(--cta);border-radius:8px;background:var(--card);transition:border-color 150ms ease}
 .article-product-section .article-product-card:hover,.article-product-section .article-product-card:focus-visible,.article-product-section .mrt-ticket-card:hover,.article-product-section .mrt-ticket-card:focus-visible{border-color:var(--brand);border-left-color:var(--cta)}
 .article-product-section .mrt-accommodation-thumb,.article-product-section .mrt-ticket-thumb{position:relative;display:block;width:100%;aspect-ratio:16/10;overflow:hidden;background:var(--card)}
 .article-product-section .mrt-accommodation-thumb img,.article-product-section .mrt-ticket-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
 .article-product-section .mrt-accommodation-body,.article-product-section .mrt-ticket-body{display:grid;gap:5px;padding:12px}
+.article-product-section .mrt-accommodation-meta{display:block;color:var(--muted);font-size:12px;font-style:normal}
 .article-product-section .mrt-accommodation-badge{justify-self:start;border-radius:999px;background:var(--cta);color:var(--card);padding:2px 7px;font-size:11px;font-weight:900;line-height:1.35}
 .article-product-section .mrt-accommodation-price,.article-product-section .mrt-ticket-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:5px;color:var(--cta);font-size:16px;font-weight:900}
 .article-product-section .mrt-accommodation-price del{color:var(--muted);font-size:12px;font-weight:400}
@@ -1699,7 +1721,7 @@ footer.site-footer{padding:0;color:var(--muted)}
 }
 
 function articleAccommodationCss() {
-  return `${MRT_ACCOMMODATION_STYLE_MARK}.mrt-accommodation-block{margin:34px 0;padding:18px 0 20px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.mrt-accommodation-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:6px}.mrt-accommodation-head h2{margin:0;font-size:20px;line-height:1.35;font-weight:800}.mrt-accommodation-head span{color:var(--muted);font-size:13px}.mrt-accommodation-note{margin:0 0 12px;color:var(--muted);font-size:12px;line-height:1.55}.mrt-accommodation-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.mrt-accommodation-card{position:relative;display:grid;grid-template-columns:88px minmax(0,1fr);gap:12px;align-items:center;min-width:0;padding:12px;border:1px solid var(--line);border-left:3px solid var(--cta);border-radius:8px;background:var(--card);transition:border-color 150ms ease}.mrt-accommodation-card:hover,.mrt-accommodation-card:focus-visible{border-color:var(--brand);border-left-color:var(--cta)}.mrt-accommodation-thumb{position:relative;display:block;width:100%;aspect-ratio:16/10;overflow:hidden;background:var(--card)}.mrt-accommodation-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}.mrt-accommodation-body{display:grid;gap:4px;min-width:0}.mrt-accommodation-body strong{font-size:15px;line-height:1.35;font-weight:800}.mrt-accommodation-body em{display:block;color:var(--muted);font-size:12px;font-style:normal}.mrt-accommodation-badge{justify-self:start;border-radius:999px;background:var(--cta);color:var(--card);padding:2px 7px;font-size:11px;font-weight:900;line-height:1.35}.mrt-accommodation-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:5px}.mrt-accommodation-price del{color:var(--muted);font-size:12px}.mrt-accommodation-price strong{font-size:16px}.mrt-accommodation-price small{flex-basis:100%;color:var(--muted);font-size:11px}@media(max-width:640px){.mrt-accommodation-head{display:block}.mrt-accommodation-grid{grid-template-columns:1fr}.mrt-accommodation-card{grid-template-columns:84px minmax(0,1fr)}}/* end-tripview-mrt-accommodation-cards */`;
+  return `${MRT_ACCOMMODATION_STYLE_MARK}.mrt-accommodation-block{margin:34px 0;padding:18px 0 20px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.mrt-accommodation-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:6px}.mrt-accommodation-head h2{margin:0;font-size:20px;line-height:1.35;font-weight:800}.mrt-accommodation-head span{color:var(--muted);font-size:13px}.mrt-accommodation-note{margin:0 0 12px;color:var(--muted);font-size:12px;line-height:1.55}.mrt-accommodation-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.mrt-accommodation-grid[data-count="1"]{grid-template-columns:minmax(0,1fr)}.mrt-accommodation-grid[data-count="2"]{grid-template-columns:repeat(2,minmax(0,1fr))}.mrt-accommodation-card{position:relative;display:grid;grid-template-columns:88px minmax(0,1fr);gap:12px;align-items:center;min-width:0;padding:12px;border:1px solid var(--line);border-left:3px solid var(--cta);border-radius:8px;background:var(--card);transition:border-color 150ms ease}.mrt-accommodation-card:hover,.mrt-accommodation-card:focus-visible{border-color:var(--brand);border-left-color:var(--cta)}.mrt-accommodation-thumb{position:relative;display:block;width:100%;aspect-ratio:16/10;overflow:hidden;background:var(--card)}.mrt-accommodation-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}.mrt-accommodation-body{display:grid;gap:4px;min-width:0}.mrt-accommodation-body strong{font-size:15px;line-height:1.35;font-weight:800}.mrt-accommodation-body em,.mrt-accommodation-meta{display:block;color:var(--muted);font-size:12px;font-style:normal}.mrt-accommodation-badge{justify-self:start;border-radius:999px;background:var(--cta);color:var(--card);padding:2px 7px;font-size:11px;font-weight:900;line-height:1.35}.mrt-accommodation-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:5px}.mrt-accommodation-price del{color:var(--muted);font-size:12px}.mrt-accommodation-price strong{font-size:16px}.mrt-accommodation-price small{flex-basis:100%;color:var(--muted);font-size:11px}@media(max-width:640px){.mrt-accommodation-head{display:block}.mrt-accommodation-grid{grid-template-columns:1fr}.mrt-accommodation-card{grid-template-columns:84px minmax(0,1fr)}}/* end-tripview-mrt-accommodation-cards */`;
 }
 
 function articleCoupangCss() {
@@ -1728,6 +1750,7 @@ function stripExistingArticleAds(document) {
     .replace(new RegExp(`${COUPANG_AD_START}[\\s\\S]*?${COUPANG_AD_END}`, "g"), "")
     .replace(new RegExp(`${COUPANG_WIDGET_START}[\\s\\S]*?${COUPANG_WIDGET_END}`, "g"), "")
     .replace(/\s*<section class=["']related-posts["'][\s\S]*?<\/section>/gi, "")
+    .replace(/\s*<aside class=["']aside["'][^>]*>\s*<strong>운영 메모<\/strong>[\s\S]*?<\/aside>/gi, "")
     .replace(/\s*<p class=["']note["']>일정과 세부 운영[\s\S]*?<\/p>/gi, "")
     .replace(/\/\* tripview-site-design \*\/[\s\S]*?\/\* end-tripview-site-design \*\//g, "")
     .replace(/\/\* tripview-mrt-native-ad \*\/[\s\S]*?\/\* end-tripview-mrt-native-ad \*\//g, "")
@@ -1792,25 +1815,36 @@ function articleImageSource(post) {
   return "본문 표기 이미지 또는 공개 자료";
 }
 
+function articleTrustSourceNotes(post) {
+  const notes = [];
+  const kind = post?.dataPipeline?.kind || "";
+  const slug = String(post?.slug || "");
+  if (kind === "stay-price" || slug === "data-stay-ticket-seoul") notes.push("숙소 정보는 마이리얼트립 상품 정보 기준입니다.");
+  if (kind === "ticket-price" || slug === "data-stay-ticket-seoul") notes.push("상품 정보는 마이리얼트립 상품 정보 기준입니다.");
+  if (kind === "festival-schedule" || post?.contentid || post?.tourApi) {
+    notes.push("관광 정보는 공공 관광 정보를 바탕으로 정리했습니다.");
+  }
+  if (articleImageSource(post) === TOUR_IMAGE_SOURCE_LABEL) {
+    notes.push("사진은 공공누리 출처 표기를 유지했습니다.");
+  }
+  return notes;
+}
+
 function articleTrustBlock(post) {
   const reviewed = isIndexablePost(post);
-  const checkedAt = reviewed ? formatKoreanDate(post.editorialReviewedAt) : "편집 검수 대기";
-  const imageSource = articleImageSource(post);
-  const updateBase = formatKoreanDate(postDate(post));
+  const checkedAt = reviewed ? formatKoreanDate(post.editorialReviewedAt) : "준비 중";
   const authorProfile = post.editorialAuthorProfile || "/editorial-team";
+  const sourceNotes = articleTrustSourceNotes(post).map((note) => `<p>${html(note)}</p>`).join("");
   return `${TRUST_NOTE_START} -->
 <aside class="trust-note" aria-label="콘텐츠 신뢰 정보">
   <h2>작성·검수 정보</h2>
   <dl>
-    <dt>작성·검수</dt><dd><a href="${html(authorProfile)}">${html(post.editorialReviewer || "트립뷰 편집팀")}</a></dd>
-    <dt>검수 상태</dt><dd>${reviewed ? "편집 검수 완료" : "편집 검수 대기"}</dd>
+    <dt>작성자</dt><dd><a href="${html(authorProfile)}">${html(post.editorialReviewer || "트립뷰 편집팀")}</a></dd>
     <dt>최종 확인일</dt><dd>${html(checkedAt)}</dd>
-    <dt>확인 자료</dt><dd>${articleSourceHtml(post)}</dd>
-    <dt>사진 출처</dt><dd>${html(imageSource)}</dd>
-    <dt>수정일</dt><dd>${html(updateBase)}</dd>
   </dl>
+  ${sourceNotes}
   <p>운영 시간, 요금, 프로그램, 주차 가능 여부는 현장 사정에 따라 바뀔 수 있습니다. 출발 전 공식 안내나 현장 문의처를 한 번 더 확인하는 것을 권장합니다.</p>
-  <p>글 안의 예약, 숙소, 투어, 상품 링크는 제휴 링크일 수 있으며 예약 또는 구매가 발생할 경우 트립뷰가 일정 수수료를 받을 수 있습니다. 콘텐츠 판단 기준과 정정 요청은 <a href="/editorial-policy">콘텐츠 운영 기준</a>, <a href="/affiliate-disclosure">제휴 안내</a>, <a href="/contact">문의</a>에서 확인할 수 있습니다.</p>
+  <p>글 안의 예약, 숙소, 투어, 상품 링크는 제휴 링크일 수 있으며 예약 또는 구매가 발생할 경우 트립뷰가 일정 수수료를 받을 수 있습니다. 정정 요청은 <a href="/editorial-policy">운영 기준</a>, <a href="/affiliate-disclosure">제휴 안내</a>, <a href="/contact">문의</a>에서 보낼 수 있습니다.</p>
 </aside>
 <!-- ${TRUST_NOTE_END}`;
 }
@@ -2056,17 +2090,17 @@ function articleProductSection(post) {
 <section class="article-product-section" aria-label="입장권·투어 카드" data-article-product-type="ticket">
   <div class="article-product-head"><h2>이 지역 입장권·투어</h2><span>마이리얼트립</span></div>
   <p class="article-product-note">방문지 성격과 지역 기준으로 연결한 제휴 상품입니다. 가격과 이용 조건은 예약 화면에서 다시 확인해야 합니다.</p>
-  <div class="mrt-ticket-grid">${cards.join("")}</div>
+  <div class="mrt-ticket-grid" data-count="${cards.length}">${cards.join("")}</div>
 </section>
 <!-- ${ARTICLE_PRODUCT_END}`;
   }
   const cards = articleAccommodationItems(post, 6).map(articleAccommodationCard).filter(Boolean);
   if (!cards.length) return "";
   return `${ARTICLE_PRODUCT_START} accommodation -->
-<section class="article-product-section" aria-label="지역 숙소 카드" data-article-product-type="accommodation">
-  <div class="article-product-head"><h2>${html(compactRegion(post?.region))} 숙소 카드</h2><span>마이리얼트립 숙소</span></div>
-  <p class="article-product-note">렌더링 시점 기준 다음 금요일 체크인, 일요일 체크아웃, 성인 2명 조건으로 연결합니다.</p>
-  <div class="mrt-accommodation-grid">${cards.join("")}</div>
+<section class="article-product-section" aria-label="지역 인기 숙소" data-article-product-type="accommodation">
+  <div class="article-product-head"><h2>${html(compactRegion(post?.region))} 인기 숙소</h2><span>마이리얼트립 숙소</span></div>
+  <p class="article-product-note">성인 2명 기준 주말 1박 요금입니다. 예약 화면에서 날짜와 취소 조건을 다시 확인하세요.</p>
+  <div class="mrt-accommodation-grid" data-count="${cards.length}">${cards.join("")}</div>
 </section>
 <!-- ${ARTICLE_PRODUCT_END}`;
 }
@@ -2095,11 +2129,7 @@ function articleOfficialBlock(post) {
 }
 
 function articleTourApiSourceBlock(post) {
-  if (!post?.contentid && !post?.tourApi) return "";
-  const idText = post?.contentid ? `콘텐츠 ID ${post.contentid}. ` : "";
-  return `${ARTICLE_SOURCE_START} -->
-<aside class="tourapi-source-box">${html(idText)}관광 정보 원자료는 한국관광공사 TourAPI를 확인 자료로 사용했습니다. 사진은 공공누리 출처 표기를 유지하고, 본문 설명은 트립뷰 편집 기준으로 다시 작성했습니다.</aside>
-<!-- ${ARTICLE_SOURCE_END}`;
+  return "";
 }
 
 function injectArticleOfficialBlock(document, block) {
@@ -2318,11 +2348,15 @@ function ensureLegacyArticleSchema(document, slug, item) {
 }
 
 function ensureArticleAdsense(document, enabled) {
-  if (enabled) return document;
-  return String(document).replace(
-    /\s*<script\s+async\s+src=["']https:\/\/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=ca-pub-\d+["'][^>]*><\/script>/gi,
-    "",
-  );
+  const next = String(document);
+  if (!enabled) {
+    return next.replace(
+      /\s*<script\s+async\s+src=["']https:\/\/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=ca-pub-\d+["'][^>]*><\/script>/gi,
+      "",
+    );
+  }
+  if (next.includes("adsbygoogle.js?client=") || !next.includes("</head>")) return next;
+  return next.replace("</head>", `    ${ADSENSE_SCRIPT}\n  </head>`);
 }
 
 function injectArticleTrust(document, post) {
@@ -2408,13 +2442,13 @@ function articleAccommodationItems(post, count = 3) {
 function articleAccommodationBlock(items = [], slot = "bottom") {
   const cards = items.map(accommodationCard).filter(Boolean);
   if (!cards.length) return "";
-  const title = slot === "mid" ? "이 지역 숙소 한 곳" : "같이 볼 숙소";
+  const title = slot === "mid" ? "이 지역 인기 숙소" : "함께 볼 인기 숙소";
   const label = slot === "mid" ? "본문 중간 숙소 추천" : "본문 하단 숙소 추천";
   return `${MRT_ACCOMMODATION_START} ${slot} -->
 <section class="mrt-accommodation-block" aria-label="${html(label)}">
   <div class="mrt-accommodation-head"><h2>${html(title)}</h2><span>마이리얼트립 숙소</span></div>
-  <p class="mrt-accommodation-note">렌더링 시점 기준 다음 금요일 체크인, 일요일 체크아웃, 성인 2명 조건으로 연결합니다.</p>
-  <div class="mrt-accommodation-grid">${cards.join("")}</div>
+  <p class="mrt-accommodation-note">성인 2명 기준 주말 1박 요금입니다. 예약 화면에서 날짜와 취소 조건을 다시 확인하세요.</p>
+  <div class="mrt-accommodation-grid" data-count="${cards.length}">${cards.join("")}</div>
 </section>
 <!-- ${MRT_ACCOMMODATION_END}`;
 }

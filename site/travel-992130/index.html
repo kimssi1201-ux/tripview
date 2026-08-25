@@ -141,11 +141,14 @@ button,input,select{font:inherit}
 .article-product-head h2{margin:0;padding-left:12px;border-left:3px solid var(--brand);font-size:20px}
 .article-product-note{margin:0 0 14px;color:var(--muted);font-size:12px;line-height:1.55}
 .article-product-section .mrt-accommodation-grid,.article-product-section .mrt-ticket-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.article-product-section .mrt-accommodation-grid[data-count="1"],.article-product-section .mrt-ticket-grid[data-count="1"]{grid-template-columns:minmax(0,1fr)}
+.article-product-section .mrt-accommodation-grid[data-count="2"],.article-product-section .mrt-ticket-grid[data-count="2"]{grid-template-columns:repeat(2,minmax(0,1fr))}
 .article-product-section .article-product-card,.article-product-section .mrt-ticket-card{display:block;min-width:0;padding:0;overflow:hidden;border:1px solid var(--line);border-left:3px solid var(--cta);border-radius:8px;background:var(--card);transition:border-color 150ms ease}
 .article-product-section .article-product-card:hover,.article-product-section .article-product-card:focus-visible,.article-product-section .mrt-ticket-card:hover,.article-product-section .mrt-ticket-card:focus-visible{border-color:var(--brand);border-left-color:var(--cta)}
 .article-product-section .mrt-accommodation-thumb,.article-product-section .mrt-ticket-thumb{position:relative;display:block;width:100%;aspect-ratio:16/10;overflow:hidden;background:var(--card)}
 .article-product-section .mrt-accommodation-thumb img,.article-product-section .mrt-ticket-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
 .article-product-section .mrt-accommodation-body,.article-product-section .mrt-ticket-body{display:grid;gap:5px;padding:12px}
+.article-product-section .mrt-accommodation-meta{display:block;color:var(--muted);font-size:12px;font-style:normal}
 .article-product-section .mrt-accommodation-badge{justify-self:start;border-radius:999px;background:var(--cta);color:var(--card);padding:2px 7px;font-size:11px;font-weight:900;line-height:1.35}
 .article-product-section .mrt-accommodation-price,.article-product-section .mrt-ticket-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:5px;color:var(--cta);font-size:16px;font-weight:900}
 .article-product-section .mrt-accommodation-price del{color:var(--muted);font-size:12px;font-weight:400}
@@ -184,7 +187,7 @@ footer.site-footer{padding:0;color:var(--muted)}
     </details><details class="nav-group is-affiliate is-active">
       <summary class="nav-summary">숙소·예약</summary>
       <div class="nav-dropdown">
-        <a href="/stay/"><span class="nav-item-icon" aria-hidden="true">숙</span><span class="nav-item-text"><span class="nav-item-label">숙소</span><span class="nav-item-desc">위치와 취소 조건을 비교합니다.</span></span></a><a href="/ticket/"><span class="nav-item-icon" aria-hidden="true">권</span><span class="nav-item-text"><span class="nav-item-label">입장권·투어</span><span class="nav-item-desc">운영 시간과 포함 사항을 비교합니다.</span></span></a><a href="/data-stay-price-seoul/"><span class="nav-item-icon" aria-hidden="true">가</span><span class="nav-item-text"><span class="nav-item-label">숙소 가격 비교</span><span class="nav-item-desc">API 캐시 가격표를 데이터 글로 봅니다.</span></span></a>
+        <a href="/stay/"><span class="nav-item-icon" aria-hidden="true">숙</span><span class="nav-item-text"><span class="nav-item-label">숙소</span><span class="nav-item-desc">위치와 취소 조건을 비교합니다.</span></span></a><a href="/ticket/"><span class="nav-item-icon" aria-hidden="true">권</span><span class="nav-item-text"><span class="nav-item-label">입장권·투어</span><span class="nav-item-desc">운영 시간과 포함 사항을 비교합니다.</span></span></a><a href="/data-stay-price-seoul/"><span class="nav-item-icon" aria-hidden="true">가</span><span class="nav-item-text"><span class="nav-item-label">숙소 가격 비교</span><span class="nav-item-desc">주말 숙소 요금을 비교합니다.</span></span></a>
       </div>
     </details>
         </div>
@@ -234,20 +237,24 @@ footer.site-footer{padding:0;color:var(--muted)}
 
 
 
+
+
+
+
       <!-- ARTICLE_DISCLOSURE_START -->
 <p class="article-affiliate-disclosure">이 글에는 예약·입장권 제휴 링크가 포함될 수 있습니다. 링크를 통해 예약 또는 구매가 발생하면 트립뷰가 일정 수수료를 받을 수 있습니다.</p>
 <!-- ARTICLE_DISCLOSURE_END -->
       <section class="wrap layout"><article class="content"><div class="article-info-grid" aria-label="방문 기본 정보"><div class="article-info-card"><span class="article-info-icon" aria-hidden="true">장</span><span><span class="article-info-label">장소</span><strong class="article-info-value">서울특별시 송파구 올림픽로 240 (잠실동)</strong></span></div><div class="article-info-card"><span class="article-info-icon" aria-hidden="true">문</span><span><span class="article-info-label">문의</span><strong class="article-info-value">02-1544-5110</strong></span></div><div class="article-info-card"><span class="article-info-icon" aria-hidden="true">시</span><span><span class="article-info-label">운영 시간</span><strong class="article-info-value">- 평일 10:00~18:00 - 주말/공휴일/성수기 10:00~19:30 ※ 자세한 사항은 홈페이지 참조</strong></span></div><div class="article-info-card"><span class="article-info-icon" aria-hidden="true">요</span><span><span class="article-info-label">이용 요금</span><strong class="article-info-value">시설별 상이</strong></span></div></div><h2>편집팀이 먼저 본 핵심</h2><p>인기 체험의 대기 시간이 길어질 수 있어 입장 후 무엇을 먼저 선택할지가 중요합니다. 아이의 희망 직업과 휴식 시간을 기준으로 순서를 잡았습니다.</p><p>현재 확인된 핵심 정보는 장소 서울특별시 송파구 올림픽로 240 (잠실동) · 주소 서울특별시 송파구 올림픽로 240 (잠실동) · 운영 확인 - 평일 10:00~18:00 - 주말/공휴일/성수기 10:00~19:30 ※ 자세한 사항은 홈페이지 참조 · 요금 시설별 상이 · 주차 가능입니다. 날짜와 운영 조건은 바뀔 수 있어 출발 당일 공식 안내를 다시 확인하는 것이 좋습니다.</p><h2>어떤 일정에 어울릴까</h2><p>키자니아 서울은 서울특별시 송파구 여행에서 걷는 시간과 쉬는 시간을 함께 잡기 좋은 코스입니다. 사진만 보고 들르는 곳이라기보다, 어느 지점에서 시작해 어디까지 걸을지 정하면 체류 시간이 훨씬 안정적으로 잡힙니다.</p><p>키자니아 서울을 방문할 때는 체류 시간을 먼저 정하는 것이 좋습니다. 짧게 들를 코스인지, 산책과 식사까지 붙일 코스인지에 따라 이동 동선과 준비물이 달라집니다.</p><h2>운영 정보에서 놓치기 쉬운 부분</h2><p>키자니아 서울 방문 전 확인할 만한 세부 정보는 홈페이지: http://www.kidzania.co.kr / 주차: 가능 / 쉬는 날: 연중무휴 / 이용 시간: - 평일 10:00~18:00 - 주말/공휴일/성수기 10:00~19:30 ※ 자세한 사항은 홈페이지 참조 / 체험 안내: 소방관 체험 / 경찰관 체험 / 승무원 체험 등입니다. 이 정보는 제목이나 대표 이미지보다 실제 일정에 더 직접적으로 영향을 줍니다.</p><p>특히 주차, 쉬는 날, 이용 시간, 체험 접수처럼 현장에서 바로 막히는 항목은 출발 전에 다시 확인하는 편이 좋습니다. 같은 지역 안에서도 입구와 주차 위치가 다르면 이동 시간이 크게 달라질 수 있습니다.</p><h2>위치와 운영 확인</h2><p>위치는 서울특별시 송파구 올림픽로 240 (잠실동) 기준입니다. 운영 관련 안내는 - 평일 10:00~18:00 - 주말/공휴일/성수기 10:00~19:30 ※ 자세한 사항은 홈페이지 참조, 요금은 시설별 상이로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.</p><p>문의처는 02-1544-5110입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다.</p><h2>현장에서 볼 포인트</h2><p>주요 볼거리는 관람, 산책와 주변 여행 동선 쪽에 맞춰져 있습니다. 야외 구간이 많다면 한 번에 전부 보려고 하기보다 빛이 좋은 시간대와 휴식 지점을 함께 생각해 코스를 나누는 편이 좋습니다.</p><p>자연형 코스는 빠르게 둘러보는 것보다 걷는 속도를 늦추는 쪽이 좋습니다. 사진을 찍을 시간, 그늘에서 쉬는 시간, 다시 돌아오는 시간을 따로 생각하면 전체 일정이 덜 빡빡합니다.</p><h2>주변 동선 잡기</h2><p>서울특별시 송파구 안에서 식사, 카페, 산책 코스를 함께 묶으면 이동 시간이 줄어듭니다. 특히 오후 일정이라면 먼저 목적지를 보고, 해가 지기 전 식사나 카페로 이동하는 순서가 편합니다.</p><p>차량 이동이라면 주차 위치를 사진으로 남겨두고, 대중교통이라면 돌아오는 정류장 위치를 먼저 확인하세요. 여행지에서는 들어갈 때보다 나올 때 길을 찾는 시간이 더 오래 걸릴 수 있습니다.</p><h2>준비물과 방문 팁</h2><p>편한 신발, 물, 날씨에 맞는 겉옷은 기본입니다. 걷는 구간이 길거나 야외 시간이 많은 곳이라면 보조 배터리와 간단한 간식도 챙기는 편이 좋습니다.</p><p>아이와 함께라면 화장실과 휴식 지점을 먼저 확인하고, 어르신과 함께라면 계단이나 경사 구간이 있는지 확인하세요. 동행자에 따라 같은 장소도 적절한 동선이 달라집니다.</p><h2>자주 묻는 질문</h2><details open><summary>방문 전에 무엇을 확인해야 하나요?</summary><p>운영 여부, 요금, 주차 또는 대중교통 동선을 먼저 확인하는 것이 좋습니다.</p></details><details open><summary>사진 찍기 좋은 시간은 언제인가요?</summary><p>보통 오전이나 늦은 오후가 좋습니다. 한낮에는 빛이 강하고 사람이 몰릴 수 있습니다.</p></details><details open><summary>주변 코스를 같이 잡아도 되나요?</summary><p>서울특별시 송파구 안에서 식사, 카페, 산책 코스를 함께 묶으면 이동 시간이 줄어듭니다.</p></details><details open><summary>아이와 함께 가도 괜찮나요?</summary><p>가능하지만 걷는 거리와 화장실 위치를 먼저 확인하는 편이 좋습니다.</p></details><details open><summary>문의는 어디로 하나요?</summary><p>키자니아 서울 관련 문의는 02-1544-5110로 확인하세요.</p></details><!-- ARTICLE_PRODUCT_START accommodation -->
-<section class="article-product-section" aria-label="지역 숙소 카드" data-article-product-type="accommodation">
-  <div class="article-product-head"><h2>서울 숙소 카드</h2><span>마이리얼트립 숙소</span></div>
-  <p class="article-product-note">렌더링 시점 기준 다음 금요일 체크인, 일요일 체크아웃, 성인 2명 조건으로 연결합니다.</p>
-  <div class="mrt-accommodation-grid"><a class="mrt-accommodation-card article-product-card" data-mrt-accommodation-card href="https://accommodation.myrealtrip.com/union/products/2680056?checkIn=2026-08-28&amp;checkOut=2026-08-30&amp;adultCount=2&amp;childCount=0&amp;childAges=" rel="sponsored nofollow" target="_blank">
+<section class="article-product-section" aria-label="지역 인기 숙소" data-article-product-type="accommodation">
+  <div class="article-product-head"><h2>서울 인기 숙소</h2><span>마이리얼트립 숙소</span></div>
+  <p class="article-product-note">성인 2명 기준 주말 1박 요금입니다. 예약 화면에서 날짜와 취소 조건을 다시 확인하세요.</p>
+  <div class="mrt-accommodation-grid" data-count="1"><a class="mrt-accommodation-card article-product-card" data-mrt-accommodation-card href="https://accommodation.myrealtrip.com/union/products/2680056?checkIn=2026-08-28&amp;checkOut=2026-08-30&amp;adultCount=2&amp;childCount=0&amp;childAges=" rel="sponsored nofollow" target="_blank">
     <span class="mrt-accommodation-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/02/oA9Z/j9d6H12ANh.jpg?width=720" alt="메이필드 호텔 숙소 대표 이미지" loading="lazy" decoding="async"><span class="mrt-rating-badge">평점 4.5</span></span>
     <span class="mrt-accommodation-body">
       <span class="mrt-accommodation-badge">7% 할인</span>
       <strong>메이필드 호텔</strong>
-      <em>5성급 · 평점 4.5 · 리뷰 1,187개</em>
-      <span class="mrt-accommodation-price"><del>209,000원</del><strong>194,370원</strong><small>2인 · 2026-08-28 체크인</small></span>
+      <span class="mrt-accommodation-meta">5성급 · 평점 4.5 · 리뷰 1,187개</span>
+      <span class="mrt-accommodation-price"><del>209,000원</del><strong>194,370원</strong><small>성인 2인 · 8월 28일 체크인</small></span>
     </span>
   </a></div>
 </section>
@@ -257,15 +264,15 @@ footer.site-footer{padding:0;color:var(--muted)}
     <h2>서울에서 함께 볼 글</h2>
     <a class="region-hub-link" href="/region/seoul/">서울 여행 허브 보기</a>
   </div>
-  <div class="region-related-grid"><a class="region-related-card" href="/data-stay-ticket-seoul/">
-    <strong>서울 숙소와 체험 예약 전 비교 총정리</strong>
-    <span>서울 · 2026년 8월 25일</span>
-  </a><a class="region-related-card" href="/data-festival-schedule-seoul/">
+  <div class="region-related-grid"><a class="region-related-card" href="/data-festival-schedule-seoul/">
     <strong>서울 축제 일정 정리</strong>
-    <span>서울 · 2026년 8월 24일</span>
+    <span>서울 · 2026년 8월 25일</span>
   </a><a class="region-related-card" href="/data-stay-price-seoul/">
     <strong>서울 숙소 가격 비교</strong>
-    <span>서울 · 2026년 8월 24일</span>
+    <span>서울 · 2026년 8월 25일</span>
+  </a><a class="region-related-card" href="/data-stay-ticket-seoul/">
+    <strong>서울 숙소와 체험 예약 전 비교 총정리</strong>
+    <span>서울 · 2026년 8월 25일</span>
   </a><a class="region-related-card" href="/festival-3351451/">
     <strong>K-일러스트레이션페어 마곡 2026 관람 가이드, 사전예매·입장 마감·부스 동선</strong>
     <span>서울 · 2026년 8월 15일</span>
@@ -273,23 +280,18 @@ footer.site-footer{padding:0;color:var(--muted)}
 </aside>
 <!-- REGION_RELATED_END --><!-- ARTICLE_OFFICIAL_START -->
 <div class="article-official-box"><a class="article-official-button" href="http://www.kidzania.co.kr/" target="_blank" rel="noopener">공식 안내 확인</a></div>
-<!-- ARTICLE_OFFICIAL_END --><!-- ARTICLE_SOURCE_START -->
-<aside class="tourapi-source-box">콘텐츠 ID 992130. 관광 정보 원자료는 한국관광공사 TourAPI를 확인 자료로 사용했습니다. 사진은 공공누리 출처 표기를 유지하고, 본문 설명은 트립뷰 편집 기준으로 다시 작성했습니다.</aside>
-<!-- ARTICLE_SOURCE_END --><!-- TRUST_NOTE_START -->
+<!-- ARTICLE_OFFICIAL_END --><!-- TRUST_NOTE_START -->
 <aside class="trust-note" aria-label="콘텐츠 신뢰 정보">
   <h2>작성·검수 정보</h2>
   <dl>
-    <dt>작성·검수</dt><dd><a href="/editorial-team">트립뷰 편집팀</a></dd>
-    <dt>검수 상태</dt><dd>편집 검수 완료</dd>
+    <dt>작성자</dt><dd><a href="/editorial-team">트립뷰 편집팀</a></dd>
     <dt>최종 확인일</dt><dd>2026년 8월 10일</dd>
-    <dt>확인 자료</dt><dd><a href="https://korean.visitkorea.or.kr/" target="_blank" rel="noopener">한국관광공사 국내여행 정보</a> · <a href="http://www.kidzania.co.kr/" target="_blank" rel="noopener">운영기관 공식 안내</a></dd>
-    <dt>사진 출처</dt><dd>한국관광공사 공공누리</dd>
-    <dt>수정일</dt><dd>2026년 8월 10일</dd>
   </dl>
+  <p>관광 정보는 공공 관광 정보를 바탕으로 정리했습니다.</p><p>사진은 공공누리 출처 표기를 유지했습니다.</p>
   <p>운영 시간, 요금, 프로그램, 주차 가능 여부는 현장 사정에 따라 바뀔 수 있습니다. 출발 전 공식 안내나 현장 문의처를 한 번 더 확인하는 것을 권장합니다.</p>
-  <p>글 안의 예약, 숙소, 투어, 상품 링크는 제휴 링크일 수 있으며 예약 또는 구매가 발생할 경우 트립뷰가 일정 수수료를 받을 수 있습니다. 콘텐츠 판단 기준과 정정 요청은 <a href="/editorial-policy">콘텐츠 운영 기준</a>, <a href="/affiliate-disclosure">제휴 안내</a>, <a href="/contact">문의</a>에서 확인할 수 있습니다.</p>
+  <p>글 안의 예약, 숙소, 투어, 상품 링크는 제휴 링크일 수 있으며 예약 또는 구매가 발생할 경우 트립뷰가 일정 수수료를 받을 수 있습니다. 정정 요청은 <a href="/editorial-policy">운영 기준</a>, <a href="/affiliate-disclosure">제휴 안내</a>, <a href="/contact">문의</a>에서 보낼 수 있습니다.</p>
 </aside>
-<!-- TRUST_NOTE_END --></article><aside class="aside"><strong>운영 메모</strong><span>지역: 서울특별시 송파구</span><span>유형: 국내여행</span><span>문의: 방문 전 확인 필요</span><span>핵심 체크: 운영 여부, 이동 시간, 주변 식사 동선</span><a href="../">목록으로 돌아가기</a></aside></section>
+<!-- TRUST_NOTE_END --></article></section>
     </main><script src="/assets/topic-filter.js?v=post-click-20260704" defer></script>
 
     <script>

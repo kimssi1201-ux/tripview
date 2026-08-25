@@ -123,13 +123,15 @@ button,input,select{font:inherit}
 .story-list .story-card{height:100%}
 .stay-slot{margin-right:calc((100vw - min(1180px,calc(100vw - 32px))) / -2);margin-left:calc((100vw - min(1180px,calc(100vw - 32px))) / -2);padding-right:calc((100vw - min(1180px,calc(100vw - 32px))) / 2);padding-left:calc((100vw - min(1180px,calc(100vw - 32px))) / 2);background:color-mix(in srgb,var(--brand) 5%,var(--bg))}
 .mrt-accommodation-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.mrt-accommodation-grid[data-count="1"]{grid-template-columns:minmax(0,1fr)}
+.mrt-accommodation-grid[data-count="2"]{grid-template-columns:repeat(2,minmax(0,1fr))}
 .mrt-accommodation-card{position:relative;display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;align-items:center;min-width:0;padding:12px;border:1px solid var(--line);border-left:3px solid var(--cta);border-radius:8px;background:var(--card);transition:border-color 150ms ease}
 .mrt-accommodation-card:hover,.mrt-accommodation-card:focus-visible{border-color:var(--brand);border-left-color:var(--cta)}
 .mrt-accommodation-thumb{position:relative;display:block;width:100%;aspect-ratio:16/10;overflow:hidden;background:var(--card)}
 .mrt-accommodation-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
 .mrt-accommodation-body{display:grid;gap:4px;min-width:0}
 .mrt-accommodation-body strong{font-size:15px;line-height:1.35;font-weight:800}
-.mrt-accommodation-body em{color:var(--muted);font-size:12px;font-style:normal}
+.mrt-accommodation-body em,.mrt-accommodation-meta{display:block;color:var(--muted);font-size:12px;font-style:normal}
 .mrt-accommodation-badge{justify-self:start;border-radius:999px;background:var(--cta);color:var(--card);padding:2px 7px;font-size:11px;font-weight:900;line-height:1.35}
 .mrt-accommodation-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:5px}
 .mrt-accommodation-price del{color:var(--muted);font-size:12px}
@@ -179,6 +181,7 @@ button,input,select{font:inherit}
 .booking-product-title{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:17px;line-height:1.35;font-weight:900}
 .booking-product-rating{color:var(--muted);font-size:13px;line-height:1.4}
 .booking-product-price{color:var(--cta);font-size:18px;font-weight:900;line-height:1.25}
+.booking-product-meta{color:var(--muted);font-size:12px;line-height:1.35}
 .booking-product-cta{display:flex;justify-content:center;margin-top:18px}
 .booking-product-cta a{display:inline-flex;align-items:center;justify-content:center;min-width:220px;min-height:48px;padding:0 18px;border-radius:8px;background:var(--cta);color:var(--card);font-weight:900;transition:background-color 150ms ease}
 .booking-product-cta a:hover,.booking-product-cta a:focus-visible{background:var(--cta-hover)}
@@ -212,7 +215,7 @@ button,input,select{font:inherit}
     </details><details class="nav-group is-affiliate is-active">
       <summary class="nav-summary">숙소·예약</summary>
       <div class="nav-dropdown">
-        <a href="/stay/"><span class="nav-item-icon" aria-hidden="true">숙</span><span class="nav-item-text"><span class="nav-item-label">숙소</span><span class="nav-item-desc">위치와 취소 조건을 비교합니다.</span></span></a><a href="/ticket/"><span class="nav-item-icon" aria-hidden="true">권</span><span class="nav-item-text"><span class="nav-item-label">입장권·투어</span><span class="nav-item-desc">운영 시간과 포함 사항을 비교합니다.</span></span></a><a href="/data-stay-price-seoul/"><span class="nav-item-icon" aria-hidden="true">가</span><span class="nav-item-text"><span class="nav-item-label">숙소 가격 비교</span><span class="nav-item-desc">API 캐시 가격표를 데이터 글로 봅니다.</span></span></a>
+        <a href="/stay/"><span class="nav-item-icon" aria-hidden="true">숙</span><span class="nav-item-text"><span class="nav-item-label">숙소</span><span class="nav-item-desc">위치와 취소 조건을 비교합니다.</span></span></a><a href="/ticket/"><span class="nav-item-icon" aria-hidden="true">권</span><span class="nav-item-text"><span class="nav-item-label">입장권·투어</span><span class="nav-item-desc">운영 시간과 포함 사항을 비교합니다.</span></span></a><a href="/data-stay-price-seoul/"><span class="nav-item-icon" aria-hidden="true">가</span><span class="nav-item-text"><span class="nav-item-label">숙소 가격 비교</span><span class="nav-item-desc">주말 숙소 요금을 비교합니다.</span></span></a>
       </div>
     </details>
         </div>
@@ -283,7 +286,7 @@ button,input,select{font:inherit}
     <div class="block-head"><div><span class="kicker">CITY</span><h2 id="popular-cities-title">인기 도시</h2></div><p class="block-note">상품이 있는 국내 도시만 표시</p></div>
     <div class="booking-city-grid"><a class="booking-city-card" href="#ticket-cards"><strong>제주</strong><span>3개 상품</span></a><a class="booking-city-card" href="#ticket-cards"><strong>부산</strong><span>4개 상품</span></a><a class="booking-city-card" href="#ticket-cards"><strong>강원</strong><span>3개 상품</span></a><a class="booking-city-card" href="#ticket-cards"><strong>서울</strong><span>2개 상품</span></a><a class="booking-city-card" href="#ticket-cards"><strong>경기</strong><span>3개 상품</span></a><a class="booking-city-card" href="#ticket-cards"><strong>전남</strong><span>1개 상품</span></a><a class="booking-city-card" href="#ticket-cards"><strong>구례</strong><span>2개 상품</span></a></div>
   </section><section class="block" id="ticket-cards" aria-labelledby="ticket-cards-title">
-    <div class="block-head"><div><span class="kicker">RATING</span><h2 id="ticket-cards-title">평점순 입장권·투어</h2></div><p class="block-note">마이리얼트립 TNA 캐시 기준</p></div>
+    <div class="block-head"><div><span class="kicker">RATING</span><h2 id="ticket-cards-title">평점순 입장권·투어</h2></div><p class="block-note">가격과 이용 조건은 예약 화면에서 확인</p></div>
     <div class="booking-product-list"><a class="booking-product-card" data-mrt-ticket-card href="https://experiences.myrealtrip.com/products/3852590" rel="sponsored nofollow" target="_blank">
     <span class="booking-product-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/15/er1z/R6il3lp0sR.jpg" alt="한라봉 제주스냅 5.0 만점 특가(30분~2시간)" loading="lazy" decoding="async"></span>
     <span class="booking-product-body">
@@ -291,6 +294,7 @@ button,input,select{font:inherit}
       <strong class="booking-product-title">한라봉 제주스냅 5.0 만점 특가(30분~2시간)</strong>
       <span class="booking-product-rating">평점 5 · 리뷰 1,040개</span>
       <span class="booking-product-price">10,000원부터</span>
+
     </span>
   </a><a class="booking-product-card" data-mrt-ticket-card href="https://experiences.myrealtrip.com/products/3885036" rel="sponsored nofollow" target="_blank">
     <span class="booking-product-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/27/KqWR/HiplD80Rf6.jpg" alt="[부산] 패들보드 크레이지서퍼스와 함께하는 SUP(패들보드) 체험 광안리(1인)" loading="lazy" decoding="async"></span>
@@ -299,6 +303,7 @@ button,input,select{font:inherit}
       <strong class="booking-product-title">[부산] 패들보드 크레이지서퍼스와 함께하는 SUP(패들보드) 체험 광안리(1인)</strong>
       <span class="booking-product-rating">평점 5 · 리뷰 201개</span>
       <span class="booking-product-price">10,000원부터</span>
+
     </span>
   </a><a class="booking-product-card" data-mrt-ticket-card href="https://experiences.myrealtrip.com/products/3880304" rel="sponsored nofollow" target="_blank">
     <span class="booking-product-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/25/4gl1/QeZ0lPxP81.jpg" alt="[당일/차량/구례] 현지인 가이드와 함께하는 구례 헤리티지 도슨트 투어" loading="lazy" decoding="async"></span>
@@ -307,6 +312,7 @@ button,input,select{font:inherit}
       <strong class="booking-product-title">[당일/차량/구례] 현지인 가이드와 함께하는 구례 헤리티지 도슨트 투어</strong>
       <span class="booking-product-rating">평점 5 · 리뷰 14개</span>
       <span class="booking-product-price">30,000원부터</span>
+
     </span>
   </a><a class="booking-product-card" data-mrt-ticket-card href="https://experiences.myrealtrip.com/products/6116995" rel="sponsored nofollow" target="_blank">
     <span class="booking-product-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/06/12/eXwh/jYWqTPdE8B.jpg" alt="[서울 동대문] 클럽롤러힐 롤러스케이트장 이용권" loading="lazy" decoding="async"></span>
@@ -315,6 +321,7 @@ button,input,select{font:inherit}
       <strong class="booking-product-title">[서울 동대문] 클럽롤러힐 롤러스케이트장 이용권</strong>
       <span class="booking-product-rating">평점 5 · 리뷰 8개</span>
       <span class="booking-product-price">10,000원부터</span>
+
     </span>
   </a><a class="booking-product-card" data-mrt-ticket-card href="https://experiences.myrealtrip.com/products/6117892" rel="sponsored nofollow" target="_blank">
     <span class="booking-product-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/07/22/r53a/NRimhK09v6.jpg" alt="[일산] 원마운트 프렌디노 입장권" loading="lazy" decoding="async"></span>
@@ -323,6 +330,7 @@ button,input,select{font:inherit}
       <strong class="booking-product-title">[일산] 원마운트 프렌디노 입장권</strong>
       <span class="booking-product-rating">평점 5 · 리뷰 3개</span>
       <span class="booking-product-price">10,000원부터</span>
+
     </span>
   </a><a class="booking-product-card" data-mrt-ticket-card href="https://experiences.myrealtrip.com/products/6117809" rel="sponsored nofollow" target="_blank">
     <span class="booking-product-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/07/24/uxCK/hFWutvPUzN.jpg" alt="[가평] 수상레저V 무제한이용권" loading="lazy" decoding="async"></span>
@@ -331,6 +339,7 @@ button,input,select{font:inherit}
       <strong class="booking-product-title">[가평] 수상레저V 무제한이용권</strong>
       <span class="booking-product-rating">평점 5 · 리뷰 2개</span>
       <span class="booking-product-price">10,000원부터</span>
+
     </span>
   </a><a class="booking-product-card" data-mrt-ticket-card href="https://experiences.myrealtrip.com/products/6117083" rel="sponsored nofollow" target="_blank">
     <span class="booking-product-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/06/12/HPrm/nDLEGZwG2v.jpg" alt="[부산 해운대] 부산 요트투어 아이러브유요트 퍼블릭 투어/ 프라이빗투어" loading="lazy" decoding="async"></span>
@@ -339,6 +348,7 @@ button,input,select{font:inherit}
       <strong class="booking-product-title">[부산 해운대] 부산 요트투어 아이러브유요트 퍼블릭 투어/ 프라이빗투어</strong>
       <span class="booking-product-rating">평점 5 · 리뷰 1개</span>
       <span class="booking-product-price">10,000원부터</span>
+
     </span>
   </a><a class="booking-product-card" data-mrt-ticket-card href="https://experiences.myrealtrip.com/products/3880306" rel="sponsored nofollow" target="_blank">
     <span class="booking-product-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/25/Yotz/Ne0Dqn1R22.jpg" alt="[전남/구례] 별빛 아래 구례 문화재 야행 (차량, 야경투어)" loading="lazy" decoding="async"></span>
@@ -347,6 +357,7 @@ button,input,select{font:inherit}
       <strong class="booking-product-title">[전남/구례] 별빛 아래 구례 문화재 야행 (차량, 야경투어)</strong>
       <span class="booking-product-rating">평점 5 · 리뷰 1개</span>
       <span class="booking-product-price">39,000원부터</span>
+
     </span>
   </a><a class="booking-product-card" data-mrt-ticket-card href="https://experiences.myrealtrip.com/products/3517913" rel="sponsored nofollow" target="_blank">
     <span class="booking-product-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/08/25/afnK/sOaaAGM1x5.jpg" alt="[제주동쪽] 제주도 느낌 그대로 (30분~1시간) 제주도 스냅촬영 전체원본 색감보정" loading="lazy" decoding="async"></span>
@@ -355,6 +366,7 @@ button,input,select{font:inherit}
       <strong class="booking-product-title">[제주동쪽] 제주도 느낌 그대로 (30분~1시간) 제주도 스냅촬영 전체원본 색감보정</strong>
       <span class="booking-product-rating">평점 4.9 · 리뷰 357개</span>
       <span class="booking-product-price">10,000원부터</span>
+
     </span>
   </a><a class="booking-product-card" data-mrt-ticket-card href="https://experiences.myrealtrip.com/products/3884077" rel="sponsored nofollow" target="_blank">
     <span class="booking-product-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/26/HuJb/HiOU91wUx8.jpg" alt="힙 한 인테리어! 최고의 강사진과 시설에서 함께하는 서핑입문(양양/죽도해변)" loading="lazy" decoding="async"></span>
@@ -363,6 +375,7 @@ button,input,select{font:inherit}
       <strong class="booking-product-title">힙 한 인테리어! 최고의 강사진과 시설에서 함께하는 서핑입문(양양/죽도해변)</strong>
       <span class="booking-product-rating">평점 4.9 · 리뷰 38개</span>
       <span class="booking-product-price">10,000원부터</span>
+
     </span>
   </a><a class="booking-product-card" data-mrt-ticket-card href="https://experiences.myrealtrip.com/products/3881418" rel="sponsored nofollow" target="_blank">
     <span class="booking-product-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/25/TRwl/N8UnSifCg5.jpg" alt="[부산/광안리] 패들보드&amp;서핑 교육 프로그램" loading="lazy" decoding="async"></span>
@@ -371,6 +384,7 @@ button,input,select{font:inherit}
       <strong class="booking-product-title">[부산/광안리] 패들보드&amp;서핑 교육 프로그램</strong>
       <span class="booking-product-rating">평점 4.7 · 리뷰 103개</span>
       <span class="booking-product-price">10,000원부터</span>
+
     </span>
   </a><a class="booking-product-card" data-mrt-ticket-card href="https://experiences.myrealtrip.com/products/3884071" rel="sponsored nofollow" target="_blank">
     <span class="booking-product-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/26/02Ba/HUzpox25vz.jpg" alt="체육 전공자 안재만의 양양 마린서프에서 즐기는 SUP(패들보드) (강습/렌탈)" loading="lazy" decoding="async"></span>
@@ -379,6 +393,7 @@ button,input,select{font:inherit}
       <strong class="booking-product-title">체육 전공자 안재만의 양양 마린서프에서 즐기는 SUP(패들보드) (강습/렌탈)</strong>
       <span class="booking-product-rating">평점 4.7 · 리뷰 3개</span>
       <span class="booking-product-price">10,000원부터</span>
+
     </span>
   </a><a class="booking-product-card" data-mrt-ticket-card href="https://experiences.myrealtrip.com/products/3884072" rel="sponsored nofollow" target="_blank">
     <span class="booking-product-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/26/yplh/Qahzjf4mA5.jpg" alt="체육 전공자 안재만의 마린서프에서 즐기는 서핑&amp;숙박패키지 (강습/렌탈) (강원/양양)" loading="lazy" decoding="async"></span>
@@ -387,6 +402,7 @@ button,input,select{font:inherit}
       <strong class="booking-product-title">체육 전공자 안재만의 마린서프에서 즐기는 서핑&amp;숙박패키지 (강습/렌탈) (강원/양양)</strong>
       <span class="booking-product-rating">평점 4.6 · 리뷰 13개</span>
       <span class="booking-product-price">10,000원부터</span>
+
     </span>
   </a><a class="booking-product-card" data-mrt-ticket-card href="https://experiences.myrealtrip.com/products/6228842" rel="sponsored nofollow" target="_blank">
     <span class="booking-product-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/07/15/ZuG1/O9bvBxvDvX.jpg" alt="[부산] 울트라백화점 부산: 텍스트 쇼핑 클럽" loading="lazy" decoding="async"></span>
@@ -395,6 +411,7 @@ button,input,select{font:inherit}
       <strong class="booking-product-title">[부산] 울트라백화점 부산: 텍스트 쇼핑 클럽</strong>
 
       <span class="booking-product-price">10,000원부터</span>
+
     </span>
   </a><a class="booking-product-card" data-mrt-ticket-card href="https://experiences.myrealtrip.com/products/6116965" rel="sponsored nofollow" target="_blank">
     <span class="booking-product-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/06/12/Z4ZF/WJsfhXKleZ.jpg" alt="[선착순 쿠폰/가평] 빠지 루피 수상레저" loading="lazy" decoding="async"></span>
@@ -403,6 +420,7 @@ button,input,select{font:inherit}
       <strong class="booking-product-title">[선착순 쿠폰/가평] 빠지 루피 수상레저</strong>
 
       <span class="booking-product-price">10,000원부터</span>
+
     </span>
   </a><a class="booking-product-card" data-mrt-ticket-card href="https://experiences.myrealtrip.com/products/4433162" rel="sponsored nofollow" target="_blank">
     <span class="booking-product-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/04/08/FMBd/6prQJpCuEd.jpg" alt="[초록길벗] 자연환경해설사 예혁과 세계자연유산 성산일출봉 탐방" loading="lazy" decoding="async"></span>
@@ -411,6 +429,7 @@ button,input,select{font:inherit}
       <strong class="booking-product-title">[초록길벗] 자연환경해설사 예혁과 세계자연유산 성산일출봉 탐방</strong>
 
       <span class="booking-product-price">10,000원부터</span>
+
     </span>
   </a><a class="booking-product-card" data-mrt-ticket-card href="https://experiences.myrealtrip.com/products/6208001" rel="sponsored nofollow" target="_blank">
     <span class="booking-product-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/07/09/m0rm/i0YeGu7ctf.jpg" alt="파크하비오 워터킹덤&amp;찜질스파 통합이용권 07.13 ~ 08.21" loading="lazy" decoding="async"></span>
@@ -419,6 +438,7 @@ button,input,select{font:inherit}
       <strong class="booking-product-title">파크하비오 워터킹덤&amp;찜질스파 통합이용권 07.13 ~ 08.21</strong>
 
       <span class="booking-product-price">10,000원부터</span>
+
     </span>
   </a><a class="booking-product-card" data-mrt-ticket-card href="https://experiences.myrealtrip.com/products/3880230" rel="sponsored nofollow" target="_blank">
     <span class="booking-product-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/25/08U0/j5A2GJGIvX.jpg" alt="지리산 봄꽃 명소 나들이" loading="lazy" decoding="async"></span>
@@ -427,6 +447,7 @@ button,input,select{font:inherit}
       <strong class="booking-product-title">지리산 봄꽃 명소 나들이</strong>
 
       <span class="booking-product-price">58,000원부터</span>
+
     </span>
   </a></div>
     <div class="booking-product-cta"><a href="https://experiences.myrealtrip.com/" rel="sponsored nofollow" target="_blank">전체 입장권·투어 보기</a></div>

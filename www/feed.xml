@@ -6,6 +6,22 @@
     <description>국내여행과 공연/축제 여행 정보</description>
     <lastBuildDate>Tue, 25 Aug 2026 00:00:00 GMT</lastBuildDate>
     <item>
+      <title>서울 축제 일정 정리</title>
+      <link>https://tripview.kr/data-festival-schedule-seoul/</link>
+      <guid>https://tripview.kr/data-festival-schedule-seoul/</guid>
+      <description>서울 축제 8건의 시작일, 종료일, 장소, 상태를 표로 모았습니다.</description>
+      <category>축제·행사</category>
+      <pubDate>Tue, 25 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>서울 숙소 가격 비교</title>
+      <link>https://tripview.kr/data-stay-price-seoul/</link>
+      <guid>https://tripview.kr/data-stay-price-seoul/</guid>
+      <description>2026년 8월 28일 체크인, 성인 2명 기준 서울 숙소 가격표입니다.</description>
+      <category>숙소</category>
+      <pubDate>Tue, 25 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>서울 숙소와 체험 예약 전 비교 총정리</title>
       <link>https://tripview.kr/data-stay-ticket-seoul/</link>
       <guid>https://tripview.kr/data-stay-ticket-seoul/</guid>
@@ -14,28 +30,12 @@
       <pubDate>Tue, 25 Aug 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>서울 축제 일정 정리</title>
-      <link>https://tripview.kr/data-festival-schedule-seoul/</link>
-      <guid>https://tripview.kr/data-festival-schedule-seoul/</guid>
-      <description>서울 축제 8건의 시작일, 종료일, 장소, 상태를 표로 모았습니다.</description>
-      <category>데이터·축제</category>
-      <pubDate>Mon, 24 Aug 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>서울 숙소 가격 비교</title>
-      <link>https://tripview.kr/data-stay-price-seoul/</link>
-      <guid>https://tripview.kr/data-stay-price-seoul/</guid>
-      <description>2026년 8월 28일 체크인, 2박, 성인 2명 기준 서울 숙소 가격표입니다.</description>
-      <category>숙소</category>
-      <pubDate>Mon, 24 Aug 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>부산 입장권 가격 모음</title>
       <link>https://tripview.kr/data-ticket-price-busan/</link>
       <guid>https://tripview.kr/data-ticket-price-busan/</guid>
       <description>부산 입장권 가격표는 판매가가 있는 4개 상품을 낮은 가격순으로 표시합니다.</description>
       <category>입장권·투어</category>
-      <pubDate>Mon, 24 Aug 2026 00:00:00 GMT</pubDate>
+      <pubDate>Tue, 25 Aug 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>문경새재 맨발페스티벌 2026 준비물, 황톳길 완주·발 관리·귀가 동선</title>

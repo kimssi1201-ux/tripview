@@ -141,11 +141,14 @@ button,input,select{font:inherit}
 .article-product-head h2{margin:0;padding-left:12px;border-left:3px solid var(--brand);font-size:20px}
 .article-product-note{margin:0 0 14px;color:var(--muted);font-size:12px;line-height:1.55}
 .article-product-section .mrt-accommodation-grid,.article-product-section .mrt-ticket-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.article-product-section .mrt-accommodation-grid[data-count="1"],.article-product-section .mrt-ticket-grid[data-count="1"]{grid-template-columns:minmax(0,1fr)}
+.article-product-section .mrt-accommodation-grid[data-count="2"],.article-product-section .mrt-ticket-grid[data-count="2"]{grid-template-columns:repeat(2,minmax(0,1fr))}
 .article-product-section .article-product-card,.article-product-section .mrt-ticket-card{display:block;min-width:0;padding:0;overflow:hidden;border:1px solid var(--line);border-left:3px solid var(--cta);border-radius:8px;background:var(--card);transition:border-color 150ms ease}
 .article-product-section .article-product-card:hover,.article-product-section .article-product-card:focus-visible,.article-product-section .mrt-ticket-card:hover,.article-product-section .mrt-ticket-card:focus-visible{border-color:var(--brand);border-left-color:var(--cta)}
 .article-product-section .mrt-accommodation-thumb,.article-product-section .mrt-ticket-thumb{position:relative;display:block;width:100%;aspect-ratio:16/10;overflow:hidden;background:var(--card)}
 .article-product-section .mrt-accommodation-thumb img,.article-product-section .mrt-ticket-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
 .article-product-section .mrt-accommodation-body,.article-product-section .mrt-ticket-body{display:grid;gap:5px;padding:12px}
+.article-product-section .mrt-accommodation-meta{display:block;color:var(--muted);font-size:12px;font-style:normal}
 .article-product-section .mrt-accommodation-badge{justify-self:start;border-radius:999px;background:var(--cta);color:var(--card);padding:2px 7px;font-size:11px;font-weight:900;line-height:1.35}
 .article-product-section .mrt-accommodation-price,.article-product-section .mrt-ticket-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:5px;color:var(--cta);font-size:16px;font-weight:900}
 .article-product-section .mrt-accommodation-price del{color:var(--muted);font-size:12px;font-weight:400}
@@ -185,7 +188,7 @@ footer.site-footer{padding:0;color:var(--muted)}
     </details><details class="nav-group is-affiliate">
       <summary class="nav-summary">숙소·예약</summary>
       <div class="nav-dropdown">
-        <a href="/stay/"><span class="nav-item-icon" aria-hidden="true">숙</span><span class="nav-item-text"><span class="nav-item-label">숙소</span><span class="nav-item-desc">위치와 취소 조건을 비교합니다.</span></span></a><a href="/ticket/"><span class="nav-item-icon" aria-hidden="true">권</span><span class="nav-item-text"><span class="nav-item-label">입장권·투어</span><span class="nav-item-desc">운영 시간과 포함 사항을 비교합니다.</span></span></a><a href="/data-stay-price-seoul/"><span class="nav-item-icon" aria-hidden="true">가</span><span class="nav-item-text"><span class="nav-item-label">숙소 가격 비교</span><span class="nav-item-desc">API 캐시 가격표를 데이터 글로 봅니다.</span></span></a>
+        <a href="/stay/"><span class="nav-item-icon" aria-hidden="true">숙</span><span class="nav-item-text"><span class="nav-item-label">숙소</span><span class="nav-item-desc">위치와 취소 조건을 비교합니다.</span></span></a><a href="/ticket/"><span class="nav-item-icon" aria-hidden="true">권</span><span class="nav-item-text"><span class="nav-item-label">입장권·투어</span><span class="nav-item-desc">운영 시간과 포함 사항을 비교합니다.</span></span></a><a href="/data-stay-price-seoul/"><span class="nav-item-icon" aria-hidden="true">가</span><span class="nav-item-text"><span class="nav-item-label">숙소 가격 비교</span><span class="nav-item-desc">주말 숙소 요금을 비교합니다.</span></span></a>
       </div>
     </details>
         </div>
@@ -238,23 +241,18 @@ footer.site-footer{padding:0;color:var(--muted)}
 </aside>
 <!-- REGION_RELATED_END --><!-- ARTICLE_OFFICIAL_START -->
 <div class="article-official-box"><a class="article-official-button" href="http://ulsanstorynightmarket.com/" target="_blank" rel="noopener">공식 안내 확인</a></div>
-<!-- ARTICLE_OFFICIAL_END --><!-- ARTICLE_SOURCE_START -->
-<aside class="tourapi-source-box">콘텐츠 ID 4090201. 관광 정보 원자료는 한국관광공사 TourAPI를 확인 자료로 사용했습니다. 사진은 공공누리 출처 표기를 유지하고, 본문 설명은 트립뷰 편집 기준으로 다시 작성했습니다.</aside>
-<!-- ARTICLE_SOURCE_END --><!-- TRUST_NOTE_START -->
+<!-- ARTICLE_OFFICIAL_END --><!-- TRUST_NOTE_START -->
 <aside class="trust-note" aria-label="콘텐츠 신뢰 정보">
   <h2>작성·검수 정보</h2>
   <dl>
-    <dt>작성·검수</dt><dd><a href="/editorial-team">트립뷰 편집팀</a></dd>
-    <dt>검수 상태</dt><dd>편집 검수 완료</dd>
+    <dt>작성자</dt><dd><a href="/editorial-team">트립뷰 편집팀</a></dd>
     <dt>최종 확인일</dt><dd>2026년 8월 10일</dd>
-    <dt>확인 자료</dt><dd><a href="https://korean.visitkorea.or.kr/" target="_blank" rel="noopener">한국관광공사 국내여행 정보</a> · <a href="http://ulsanstorynightmarket.com/" target="_blank" rel="noopener">운영기관 공식 안내</a></dd>
-    <dt>사진 출처</dt><dd>한국관광공사 공공누리</dd>
-    <dt>수정일</dt><dd>2026년 8월 10일</dd>
   </dl>
+  <p>관광 정보는 공공 관광 정보를 바탕으로 정리했습니다.</p><p>사진은 공공누리 출처 표기를 유지했습니다.</p>
   <p>운영 시간, 요금, 프로그램, 주차 가능 여부는 현장 사정에 따라 바뀔 수 있습니다. 출발 전 공식 안내나 현장 문의처를 한 번 더 확인하는 것을 권장합니다.</p>
-  <p>글 안의 예약, 숙소, 투어, 상품 링크는 제휴 링크일 수 있으며 예약 또는 구매가 발생할 경우 트립뷰가 일정 수수료를 받을 수 있습니다. 콘텐츠 판단 기준과 정정 요청은 <a href="/editorial-policy">콘텐츠 운영 기준</a>, <a href="/affiliate-disclosure">제휴 안내</a>, <a href="/contact">문의</a>에서 확인할 수 있습니다.</p>
+  <p>글 안의 예약, 숙소, 투어, 상품 링크는 제휴 링크일 수 있으며 예약 또는 구매가 발생할 경우 트립뷰가 일정 수수료를 받을 수 있습니다. 정정 요청은 <a href="/editorial-policy">운영 기준</a>, <a href="/affiliate-disclosure">제휴 안내</a>, <a href="/contact">문의</a>에서 보낼 수 있습니다.</p>
 </aside>
-<!-- TRUST_NOTE_END --></article><aside class="aside"><strong>운영 메모</strong><span>기간: 2026.07.29~2026.08.29</span><span>지역: 울산광역시 남구</span><span>유형: 공연/축제</span><span>문의: 052-255-1823</span><span>핵심 체크: 운영 시간, 체험 접수, 주차와 귀가 동선</span><a href="../">목록으로 돌아가기</a></aside></section>
+<!-- TRUST_NOTE_END --></article></section>
     </main><script src="/assets/topic-filter.js?v=post-click-20260704" defer></script>
 
     <script>

@@ -30,6 +30,293 @@
       ],
       "discarded": [],
       "rerunCount": 1
+    },
+    {
+      "runAt": "2026-08-25T08:36:17.367Z",
+      "runDate": "2026-08-25",
+      "generatedCount": 3,
+      "discardedCount": 30,
+      "generated": [
+        {
+          "slug": "data-stay-price-seoul",
+          "type": "stay-price",
+          "region": "서울",
+          "rowCount": 3,
+          "affiliateLinkCount": 3
+        },
+        {
+          "slug": "data-festival-schedule-seoul",
+          "type": "festival-schedule",
+          "region": "서울",
+          "rowCount": 8,
+          "affiliateLinkCount": 0
+        },
+        {
+          "slug": "data-ticket-price-busan",
+          "type": "ticket-price",
+          "region": "부산",
+          "rowCount": 4,
+          "affiliateLinkCount": 4
+        }
+      ],
+      "discarded": [
+        {
+          "slug": "data-stay-price-seoul",
+          "type": "stay-price",
+          "region": "서울",
+          "reasons": [
+            "forbidden_expression:필드",
+            "not_indexable:body_783"
+          ]
+        },
+        {
+          "slug": "data-stay-price-busan",
+          "type": "stay-price",
+          "region": "부산",
+          "reasons": [
+            "not_indexable:body_783"
+          ]
+        },
+        {
+          "slug": "data-festival-schedule-seoul",
+          "type": "festival-schedule",
+          "region": "서울",
+          "reasons": [
+            "not_indexable:body_1006"
+          ]
+        },
+        {
+          "slug": "data-festival-schedule-gyeonggi",
+          "type": "festival-schedule",
+          "region": "경기",
+          "reasons": [
+            "tour_overview_overlap:2026 안산 e스포츠",
+            "not_indexable:body_1116"
+          ]
+        },
+        {
+          "slug": "data-festival-schedule-busan",
+          "type": "festival-schedule",
+          "region": "부산",
+          "reasons": [
+            "not_indexable:body_1027"
+          ]
+        },
+        {
+          "slug": "data-festival-schedule-jeju",
+          "type": "festival-schedule",
+          "region": "제주",
+          "reasons": [
+            "unmatched_number:39",
+            "not_indexable:body_1038"
+          ]
+        },
+        {
+          "slug": "data-festival-schedule-gangwon",
+          "type": "festival-schedule",
+          "region": "강원",
+          "reasons": [
+            "not_indexable:body_965"
+          ]
+        },
+        {
+          "slug": "data-festival-schedule-gyeongbuk",
+          "type": "festival-schedule",
+          "region": "경북",
+          "reasons": [
+            "tour_overview_overlap:2026년 9월 4일부터",
+            "not_indexable:body_1112"
+          ]
+        },
+        {
+          "slug": "data-festival-schedule-gyeongnam",
+          "type": "festival-schedule",
+          "region": "경남",
+          "reasons": [
+            "not_indexable:body_984"
+          ]
+        },
+        {
+          "slug": "data-festival-schedule-jeonnam",
+          "type": "festival-schedule",
+          "region": "전남",
+          "reasons": [
+            "tour_overview_overlap:고흥 국가유산 야행은",
+            "not_indexable:body_1009"
+          ]
+        },
+        {
+          "slug": "data-festival-schedule-jeonbuk",
+          "type": "festival-schedule",
+          "region": "전북",
+          "reasons": [
+            "forbidden_expression:로컬",
+            "tour_overview_overlap:트레저헌터 in 진안은",
+            "not_indexable:body_1013"
+          ]
+        },
+        {
+          "slug": "data-festival-schedule-chungnam",
+          "type": "festival-schedule",
+          "region": "충남",
+          "reasons": [
+            "not_indexable:body_988"
+          ]
+        },
+        {
+          "slug": "data-festival-schedule-chungbuk",
+          "type": "festival-schedule",
+          "region": "충북",
+          "reasons": [
+            "not_indexable:body_1043"
+          ]
+        },
+        {
+          "slug": "data-festival-schedule-daegu",
+          "type": "festival-schedule",
+          "region": "대구",
+          "reasons": [
+            "not_indexable:body_1066"
+          ]
+        },
+        {
+          "slug": "data-festival-schedule-gwangju",
+          "type": "festival-schedule",
+          "region": "광주",
+          "reasons": [
+            "tour_overview_overlap:〈도기陶器, 우리를 담은",
+            "not_indexable:body_1059"
+          ]
+        },
+        {
+          "slug": "data-festival-schedule-incheon",
+          "type": "festival-schedule",
+          "region": "인천",
+          "reasons": [
+            "not_indexable:body_989"
+          ]
+        },
+        {
+          "slug": "data-festival-schedule-ulsan",
+          "type": "festival-schedule",
+          "region": "울산",
+          "reasons": [
+            "tour_overview_overlap:가든 나이트 마켓은",
+            "not_indexable:body_773"
+          ]
+        },
+        {
+          "slug": "data-festival-schedule-sejong",
+          "type": "festival-schedule",
+          "region": "세종",
+          "reasons": [
+            "not_indexable:body_744"
+          ]
+        },
+        {
+          "slug": "data-ticket-price-busan",
+          "type": "ticket-price",
+          "region": "부산",
+          "reasons": [
+            "not_indexable:body_711"
+          ]
+        },
+        {
+          "slug": "data-ticket-price-gyeonggi",
+          "type": "ticket-price",
+          "region": "경기",
+          "reasons": [
+            "not_indexable:body_696"
+          ]
+        },
+        {
+          "slug": "data-ticket-price-jeju",
+          "type": "ticket-price",
+          "region": "제주",
+          "reasons": [
+            "not_indexable:body_777"
+          ]
+        },
+        {
+          "slug": "data-ticket-price-other",
+          "type": "ticket-price",
+          "region": "구례",
+          "reasons": [
+            "not_indexable:body_770"
+          ]
+        },
+        {
+          "slug": "data-ticket-price-seoul",
+          "type": "ticket-price",
+          "region": "서울",
+          "reasons": [
+            "not_indexable:body_684"
+          ]
+        },
+        {
+          "slug": "data-ticket-price-gangwon",
+          "type": "ticket-price",
+          "region": "강원",
+          "reasons": [
+            "not_indexable:body_786"
+          ]
+        },
+        {
+          "slug": "data-ticket-price-busan",
+          "type": "ticket-price",
+          "region": "부산",
+          "reasons": [
+            "unmatched_number:39",
+            "not_indexable:body_1375"
+          ]
+        },
+        {
+          "slug": "data-ticket-price-gyeonggi",
+          "type": "ticket-price",
+          "region": "경기",
+          "reasons": [
+            "unmatched_number:39",
+            "not_indexable:body_1360"
+          ]
+        },
+        {
+          "slug": "data-ticket-price-jeju",
+          "type": "ticket-price",
+          "region": "제주",
+          "reasons": [
+            "unmatched_number:39",
+            "not_indexable:body_1441"
+          ]
+        },
+        {
+          "slug": "data-ticket-price-other",
+          "type": "ticket-price",
+          "region": "구례",
+          "reasons": [
+            "unmatched_number:39",
+            "not_indexable:body_1434"
+          ]
+        },
+        {
+          "slug": "data-ticket-price-seoul",
+          "type": "ticket-price",
+          "region": "서울",
+          "reasons": [
+            "unmatched_number:39",
+            "not_indexable:body_1348"
+          ]
+        },
+        {
+          "slug": "data-ticket-price-gangwon",
+          "type": "ticket-price",
+          "region": "강원",
+          "reasons": [
+            "unmatched_number:39",
+            "not_indexable:body_1450"
+          ]
+        }
+      ],
+      "rerunCount": 2
     }
   ]
 }

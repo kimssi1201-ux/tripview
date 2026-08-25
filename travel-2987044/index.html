@@ -139,11 +139,14 @@ button,input,select{font:inherit}
 .article-product-head h2{margin:0;padding-left:12px;border-left:3px solid var(--brand);font-size:20px}
 .article-product-note{margin:0 0 14px;color:var(--muted);font-size:12px;line-height:1.55}
 .article-product-section .mrt-accommodation-grid,.article-product-section .mrt-ticket-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.article-product-section .mrt-accommodation-grid[data-count="1"],.article-product-section .mrt-ticket-grid[data-count="1"]{grid-template-columns:minmax(0,1fr)}
+.article-product-section .mrt-accommodation-grid[data-count="2"],.article-product-section .mrt-ticket-grid[data-count="2"]{grid-template-columns:repeat(2,minmax(0,1fr))}
 .article-product-section .article-product-card,.article-product-section .mrt-ticket-card{display:block;min-width:0;padding:0;overflow:hidden;border:1px solid var(--line);border-left:3px solid var(--cta);border-radius:8px;background:var(--card);transition:border-color 150ms ease}
 .article-product-section .article-product-card:hover,.article-product-section .article-product-card:focus-visible,.article-product-section .mrt-ticket-card:hover,.article-product-section .mrt-ticket-card:focus-visible{border-color:var(--brand);border-left-color:var(--cta)}
 .article-product-section .mrt-accommodation-thumb,.article-product-section .mrt-ticket-thumb{position:relative;display:block;width:100%;aspect-ratio:16/10;overflow:hidden;background:var(--card)}
 .article-product-section .mrt-accommodation-thumb img,.article-product-section .mrt-ticket-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
 .article-product-section .mrt-accommodation-body,.article-product-section .mrt-ticket-body{display:grid;gap:5px;padding:12px}
+.article-product-section .mrt-accommodation-meta{display:block;color:var(--muted);font-size:12px;font-style:normal}
 .article-product-section .mrt-accommodation-badge{justify-self:start;border-radius:999px;background:var(--cta);color:var(--card);padding:2px 7px;font-size:11px;font-weight:900;line-height:1.35}
 .article-product-section .mrt-accommodation-price,.article-product-section .mrt-ticket-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:5px;color:var(--cta);font-size:16px;font-weight:900}
 .article-product-section .mrt-accommodation-price del{color:var(--muted);font-size:12px;font-weight:400}
@@ -182,7 +185,7 @@ footer.site-footer{padding:0;color:var(--muted)}
     </details><details class="nav-group is-affiliate">
       <summary class="nav-summary">숙소·예약</summary>
       <div class="nav-dropdown">
-        <a href="/stay/"><span class="nav-item-icon" aria-hidden="true">숙</span><span class="nav-item-text"><span class="nav-item-label">숙소</span><span class="nav-item-desc">위치와 취소 조건을 비교합니다.</span></span></a><a href="/ticket/"><span class="nav-item-icon" aria-hidden="true">권</span><span class="nav-item-text"><span class="nav-item-label">입장권·투어</span><span class="nav-item-desc">운영 시간과 포함 사항을 비교합니다.</span></span></a><a href="/data-stay-price-seoul/"><span class="nav-item-icon" aria-hidden="true">가</span><span class="nav-item-text"><span class="nav-item-label">숙소 가격 비교</span><span class="nav-item-desc">API 캐시 가격표를 데이터 글로 봅니다.</span></span></a>
+        <a href="/stay/"><span class="nav-item-icon" aria-hidden="true">숙</span><span class="nav-item-text"><span class="nav-item-label">숙소</span><span class="nav-item-desc">위치와 취소 조건을 비교합니다.</span></span></a><a href="/ticket/"><span class="nav-item-icon" aria-hidden="true">권</span><span class="nav-item-text"><span class="nav-item-label">입장권·투어</span><span class="nav-item-desc">운영 시간과 포함 사항을 비교합니다.</span></span></a><a href="/data-stay-price-seoul/"><span class="nav-item-icon" aria-hidden="true">가</span><span class="nav-item-text"><span class="nav-item-label">숙소 가격 비교</span><span class="nav-item-desc">주말 숙소 요금을 비교합니다.</span></span></a>
       </div>
     </details>
         </div>
@@ -239,23 +242,18 @@ footer.site-footer{padding:0;color:var(--muted)}
 </section>
 <!-- map-preview:end --><h2>먼저 알아둘 점</h2><p>봄날의 책방은 경상남도 통영시의 문화시설입니다. 비 오는 날이나 더운 시간대의 실내 일정으로 검토하기 좋지만, 휴관일과 입장 마감이 관람 가능 시간을 좌우하므로 출발 전에 운영 정보를 먼저 확인하는 편이 정확합니다.</p><p>목적지는 경상남도 통영시 봉수1길 6-1 기준으로 잡으면 됩니다.</p><h2>확인된 운영 정보</h2><p>현재 확인되는 안내는 운영시간 10:30~18:30 (휴게시간 12:00~13:00)※ 주말에는 휴게시간 없이 영업함 · 쉬는 날 연중무휴 · 문의 055-646-0511입니다.</p><p>위 정보는 방문 날짜와 시설 사정에 따라 바뀔 수 있습니다. 특히 운영시간, 휴무, 예약 마감, 주차 가능 여부는 같은 장소라도 평일과 주말 또는 성수기에 달라질 수 있으므로 출발 당일 한 번 더 확인하세요.</p><h2>휴관일과 관람 준비</h2><p>문화시설은 운영 종료 시각보다 입장 마감이 빠른 경우가 많습니다. 전시나 체험을 제대로 보려면 마지막 입장 직전에 도착하기보다 최소 한 시간 이상 여유를 두고, 사전 예약이 필요한 프로그램이 있는지 먼저 확인하세요.</p><p>우산과 큰 가방의 보관 장소, 촬영 가능 구역, 유모차와 휠체어 이동 가능 여부도 관람 만족도에 영향을 줍니다. 아이와 함께라면 체험 시간을 먼저 잡고 일반 전시는 남는 시간에 보는 순서가 효율적입니다.</p><h2>주소와 도착 동선</h2><p>봄날의 책방의 주소는 경상남도 통영시 봉수1길 6-1입니다. 내비게이션에는 장소명과 주소를 함께 대조해 입력하고, 도착 직전에는 실제 입구와 주차장 위치가 같은지 지도에서 다시 확인하세요.</p><p>대중교통을 이용한다면 갈 때보다 돌아오는 교통편을 먼저 확인하는 것이 좋습니다. 막차 시간과 배차 간격, 정류장까지의 도보 거리까지 저장해두면 현장에서 일정을 급하게 줄이는 일을 피할 수 있습니다.</p><h2>동행자별 준비</h2><p>아이와 함께라면 화장실과 휴식 장소, 유모차 이동 가능 구간을 먼저 확인하세요. 부모님과 함께라면 계단과 경사, 앉아 쉴 곳이 중요한 기준이고, 혼자 방문한다면 귀가 교통편과 휴대전화 배터리를 여유 있게 준비하는 편이 좋습니다.</p><p>계절과 날씨에 맞는 신발, 물, 보조 배터리는 기본 준비물입니다. 실외 일정은 햇빛과 소나기 대책을, 실내 일정은 냉방에 대비한 얇은 겉옷과 예약 확인 화면을 챙기면 좋습니다.</p><h2>출발 전 마지막 확인</h2><p>봄날의 책방 방문 당일에는 운영 여부, 입장 또는 주문 마감, 주차 가능 여부를 마지막으로 확인하세요. 안내된 정보가 실제 현장과 다르면 무리하게 기다리기보다 경상남도 통영시 안의 가까운 대체 장소로 이동할 수 있도록 후보 한 곳을 준비해두는 편이 좋습니다.</p><p>일정은 목적지 체류 시간만 계산하지 말고 왕복 이동, 주차, 식사, 휴식 시간을 포함해 잡아야 합니다. 처음 방문하는 곳이라면 계획 사이에 20~30분의 여유를 두는 것이 실제 여행에서 가장 효과적인 변수 대응 방법입니다.</p><h2>일정에 넣는 방법</h2><p>봄날의 책방 하나만 보고 왕복하기보다 경상남도 통영시 안에서 식사, 산책, 실내 대체 코스 중 한 곳을 이어 붙이면 이동 대비 만족도가 높아집니다. 오전에는 목적지를 먼저 보고 오후에 주변 장소로 이동하거나, 혼잡이 예상되면 순서를 바꿀 수 있도록 두 가지 동선을 준비하세요.</p><p>예약이나 이용시간이 정해진 장소라면 그 시간을 기준으로 나머지 일정을 배치하고, 자유 관람 장소라면 주차가 비교적 수월한 시간대를 먼저 선택하세요. 일정 사이의 이동시간은 지도 예상치보다 넉넉하게 잡는 편이 좋습니다.</p><h2>비용과 예약 확인</h2><p>문화시설 이용 비용은 기본 입장이나 이용료 외에 주차, 체험, 장비 대여, 식사처럼 선택 항목에서 추가될 수 있습니다. 무료로 알려진 장소라도 특별 프로그램이나 성수기 운영에는 별도 비용이 생길 수 있으므로 방문 인원 전체의 예상 비용을 나눠 확인하세요.</p><p>온라인 예약을 이용한다면 날짜와 인원, 이용 항목, 취소 가능 시점을 결제 전에 다시 보세요. 현장 안내가 예약 화면과 다를 때를 대비해 예약 번호와 결제 내역을 저장하고, 환불이나 일정 변경이 필요한 경우 이용 전에 문의하는 편이 좋습니다.</p><h2>자주 묻는 질문</h2><details open><summary>운영시간은 어떻게 확인하나요?</summary><p>10:30~18:30 (휴게시간 12:00~13:00)※ 주말에는 휴게시간 없이 영업함</p></details><details open><summary>쉬는 날이 있나요?</summary><p>연중무휴</p></details><details open><summary>주차할 수 있나요?</summary><p>주차 가능 여부가 별도로 확인되지 않았습니다. 장소 주변 공영주차장과 도보 동선을 함께 확인하세요.</p></details><details open><summary>요금은 얼마인가요?</summary><p>이용 항목과 시기에 따라 달라질 수 있어 방문 또는 예약 전에 최종 금액을 확인해야 합니다.</p></details><details open><summary>문의는 어디로 하나요?</summary><p>055-646-0511</p></details><!-- ARTICLE_OFFICIAL_START -->
 <div class="article-official-box"><a class="article-official-button" href="http://bomnalbooks.com/" target="_blank" rel="noopener">공식 안내 확인</a></div>
-<!-- ARTICLE_OFFICIAL_END --><!-- ARTICLE_SOURCE_START -->
-<aside class="tourapi-source-box">콘텐츠 ID 2987044. 관광 정보 원자료는 한국관광공사 TourAPI를 확인 자료로 사용했습니다. 사진은 공공누리 출처 표기를 유지하고, 본문 설명은 트립뷰 편집 기준으로 다시 작성했습니다.</aside>
-<!-- ARTICLE_SOURCE_END --><!-- TRUST_NOTE_START -->
+<!-- ARTICLE_OFFICIAL_END --><!-- TRUST_NOTE_START -->
 <aside class="trust-note" aria-label="콘텐츠 신뢰 정보">
   <h2>작성·검수 정보</h2>
   <dl>
-    <dt>작성·검수</dt><dd><a href="/editorial-team">트립뷰 편집팀</a></dd>
-    <dt>검수 상태</dt><dd>편집 검수 대기</dd>
-    <dt>최종 확인일</dt><dd>편집 검수 대기</dd>
-    <dt>확인 자료</dt><dd><a href="https://korean.visitkorea.or.kr/" target="_blank" rel="noopener">한국관광공사 국내여행 정보</a> · <a href="http://bomnalbooks.com/" target="_blank" rel="noopener">운영기관 공식 안내</a></dd>
-    <dt>사진 출처</dt><dd>한국관광공사 공공누리</dd>
-    <dt>수정일</dt><dd>2026년 8월 9일</dd>
+    <dt>작성자</dt><dd><a href="/editorial-team">트립뷰 편집팀</a></dd>
+    <dt>최종 확인일</dt><dd>준비 중</dd>
   </dl>
+  <p>관광 정보는 공공 관광 정보를 바탕으로 정리했습니다.</p><p>사진은 공공누리 출처 표기를 유지했습니다.</p>
   <p>운영 시간, 요금, 프로그램, 주차 가능 여부는 현장 사정에 따라 바뀔 수 있습니다. 출발 전 공식 안내나 현장 문의처를 한 번 더 확인하는 것을 권장합니다.</p>
-  <p>글 안의 예약, 숙소, 투어, 상품 링크는 제휴 링크일 수 있으며 예약 또는 구매가 발생할 경우 트립뷰가 일정 수수료를 받을 수 있습니다. 콘텐츠 판단 기준과 정정 요청은 <a href="/editorial-policy">콘텐츠 운영 기준</a>, <a href="/affiliate-disclosure">제휴 안내</a>, <a href="/contact">문의</a>에서 확인할 수 있습니다.</p>
+  <p>글 안의 예약, 숙소, 투어, 상품 링크는 제휴 링크일 수 있으며 예약 또는 구매가 발생할 경우 트립뷰가 일정 수수료를 받을 수 있습니다. 정정 요청은 <a href="/editorial-policy">운영 기준</a>, <a href="/affiliate-disclosure">제휴 안내</a>, <a href="/contact">문의</a>에서 보낼 수 있습니다.</p>
 </aside>
-<!-- TRUST_NOTE_END --></article><aside class="aside"><strong>운영 메모</strong><span>지역: 경상남도 통영시</span><span>유형: 문화시설</span><span>운영: 10:30~18:30 (휴게시간 12:00~13:00)※ 주말에는 휴게시간 없이 영업함</span><span>문의: 055-646-0511</span><a href="../">목록으로 돌아가기</a></aside></section>
+<!-- TRUST_NOTE_END --></article></section>
     </main><script src="/assets/topic-filter.js?v=topic-filter-20260706-hardening" defer></script>
     <script>
     (() => {

@@ -123,13 +123,15 @@ button,input,select{font:inherit}
 .story-list .story-card{height:100%}
 .stay-slot{margin-right:calc((100vw - min(1180px,calc(100vw - 32px))) / -2);margin-left:calc((100vw - min(1180px,calc(100vw - 32px))) / -2);padding-right:calc((100vw - min(1180px,calc(100vw - 32px))) / 2);padding-left:calc((100vw - min(1180px,calc(100vw - 32px))) / 2);background:color-mix(in srgb,var(--brand) 5%,var(--bg))}
 .mrt-accommodation-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.mrt-accommodation-grid[data-count="1"]{grid-template-columns:minmax(0,1fr)}
+.mrt-accommodation-grid[data-count="2"]{grid-template-columns:repeat(2,minmax(0,1fr))}
 .mrt-accommodation-card{position:relative;display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;align-items:center;min-width:0;padding:12px;border:1px solid var(--line);border-left:3px solid var(--cta);border-radius:8px;background:var(--card);transition:border-color 150ms ease}
 .mrt-accommodation-card:hover,.mrt-accommodation-card:focus-visible{border-color:var(--brand);border-left-color:var(--cta)}
 .mrt-accommodation-thumb{position:relative;display:block;width:100%;aspect-ratio:16/10;overflow:hidden;background:var(--card)}
 .mrt-accommodation-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
 .mrt-accommodation-body{display:grid;gap:4px;min-width:0}
 .mrt-accommodation-body strong{font-size:15px;line-height:1.35;font-weight:800}
-.mrt-accommodation-body em{color:var(--muted);font-size:12px;font-style:normal}
+.mrt-accommodation-body em,.mrt-accommodation-meta{display:block;color:var(--muted);font-size:12px;font-style:normal}
 .mrt-accommodation-badge{justify-self:start;border-radius:999px;background:var(--cta);color:var(--card);padding:2px 7px;font-size:11px;font-weight:900;line-height:1.35}
 .mrt-accommodation-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:5px}
 .mrt-accommodation-price del{color:var(--muted);font-size:12px}
@@ -179,6 +181,7 @@ button,input,select{font:inherit}
 .booking-product-title{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:17px;line-height:1.35;font-weight:900}
 .booking-product-rating{color:var(--muted);font-size:13px;line-height:1.4}
 .booking-product-price{color:var(--cta);font-size:18px;font-weight:900;line-height:1.25}
+.booking-product-meta{color:var(--muted);font-size:12px;line-height:1.35}
 .booking-product-cta{display:flex;justify-content:center;margin-top:18px}
 .booking-product-cta a{display:inline-flex;align-items:center;justify-content:center;min-width:220px;min-height:48px;padding:0 18px;border-radius:8px;background:var(--cta);color:var(--card);font-weight:900;transition:background-color 150ms ease}
 .booking-product-cta a:hover,.booking-product-cta a:focus-visible{background:var(--cta-hover)}
@@ -212,7 +215,7 @@ button,input,select{font:inherit}
     </details><details class="nav-group is-affiliate">
       <summary class="nav-summary">숙소·예약</summary>
       <div class="nav-dropdown">
-        <a href="/stay/"><span class="nav-item-icon" aria-hidden="true">숙</span><span class="nav-item-text"><span class="nav-item-label">숙소</span><span class="nav-item-desc">위치와 취소 조건을 비교합니다.</span></span></a><a href="/ticket/"><span class="nav-item-icon" aria-hidden="true">권</span><span class="nav-item-text"><span class="nav-item-label">입장권·투어</span><span class="nav-item-desc">운영 시간과 포함 사항을 비교합니다.</span></span></a><a href="/data-stay-price-seoul/"><span class="nav-item-icon" aria-hidden="true">가</span><span class="nav-item-text"><span class="nav-item-label">숙소 가격 비교</span><span class="nav-item-desc">API 캐시 가격표를 데이터 글로 봅니다.</span></span></a>
+        <a href="/stay/"><span class="nav-item-icon" aria-hidden="true">숙</span><span class="nav-item-text"><span class="nav-item-label">숙소</span><span class="nav-item-desc">위치와 취소 조건을 비교합니다.</span></span></a><a href="/ticket/"><span class="nav-item-icon" aria-hidden="true">권</span><span class="nav-item-text"><span class="nav-item-label">입장권·투어</span><span class="nav-item-desc">운영 시간과 포함 사항을 비교합니다.</span></span></a><a href="/data-stay-price-seoul/"><span class="nav-item-icon" aria-hidden="true">가</span><span class="nav-item-text"><span class="nav-item-label">숙소 가격 비교</span><span class="nav-item-desc">주말 숙소 요금을 비교합니다.</span></span></a>
       </div>
     </details>
         </div>
@@ -334,57 +337,57 @@ button,input,select{font:inherit}
   </a></div>
   </section><section class="block stay-slot" id="accommodation-cards" aria-labelledby="accommodation-cards-title">
     <div class="block-head">
-      <div><span class="kicker">STAY</span><h2 id="accommodation-cards-title">숙소 카드 자리</h2></div>
+      <div><span class="kicker">STAY</span><h2 id="accommodation-cards-title">추천 숙소</h2></div>
       <p class="block-note">울산 글 기준 추천</p>
     </div>
-    <p class="affiliate-note">마이리얼트립 숙소 링크는 제휴 링크일 수 있으며, 날짜는 렌더링 시점 기준 다음 금요일 체크인과 일요일 체크아웃으로 생성됩니다.</p>
-    <div class="mrt-accommodation-grid"><a class="mrt-accommodation-card" data-mrt-accommodation-card href="https://accommodation.myrealtrip.com/union/products/1485138?checkIn=2026-08-28&amp;checkOut=2026-08-30&amp;adultCount=2&amp;childCount=0&amp;childAges=" rel="sponsored nofollow" target="_blank">
+    <p class="affiliate-note">성인 2명 기준 주말 1박 요금입니다. 예약 화면에서 날짜와 취소 조건을 다시 확인하세요.</p>
+    <div class="mrt-accommodation-grid" data-count="6"><a class="mrt-accommodation-card" data-mrt-accommodation-card href="https://accommodation.myrealtrip.com/union/products/1485138?checkIn=2026-08-28&amp;checkOut=2026-08-30&amp;adultCount=2&amp;childCount=0&amp;childAges=" rel="sponsored nofollow" target="_blank">
     <span class="mrt-accommodation-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/05/11/JCvE/zULsJLFNww.jpg?width=720" alt="토요코인 서울영등포" loading="lazy"></span>
     <span class="mrt-accommodation-body">
 
       <strong>토요코인 서울영등포</strong>
-      <em>3성급 · 평점 4.5 · 리뷰 1,755개</em>
-      <span class="mrt-accommodation-price"><strong>118,525원</strong><small>2인 · 2026-08-28 체크인</small></span>
+      <span class="mrt-accommodation-meta">3성급 · 평점 4.5 · 리뷰 1,755개</span>
+      <span class="mrt-accommodation-price"><strong>118,525원</strong><small>성인 2인 · 8월 28일 체크인</small></span>
     </span>
   </a><a class="mrt-accommodation-card" data-mrt-accommodation-card href="https://accommodation.myrealtrip.com/union/products/2680056?checkIn=2026-08-28&amp;checkOut=2026-08-30&amp;adultCount=2&amp;childCount=0&amp;childAges=" rel="sponsored nofollow" target="_blank">
     <span class="mrt-accommodation-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/02/oA9Z/j9d6H12ANh.jpg?width=720" alt="메이필드 호텔" loading="lazy"></span>
     <span class="mrt-accommodation-body">
       <span class="mrt-accommodation-badge">7% 할인</span>
       <strong>메이필드 호텔</strong>
-      <em>5성급 · 평점 4.5 · 리뷰 1,187개</em>
-      <span class="mrt-accommodation-price"><del>209,000원</del><strong>194,370원</strong><small>2인 · 2026-08-28 체크인</small></span>
+      <span class="mrt-accommodation-meta">5성급 · 평점 4.5 · 리뷰 1,187개</span>
+      <span class="mrt-accommodation-price"><del>209,000원</del><strong>194,370원</strong><small>성인 2인 · 8월 28일 체크인</small></span>
     </span>
   </a><a class="mrt-accommodation-card" data-mrt-accommodation-card href="https://accommodation.myrealtrip.com/union/products/2680683?checkIn=2026-08-28&amp;checkOut=2026-08-30&amp;adultCount=2&amp;childCount=0&amp;childAges=" rel="sponsored nofollow" target="_blank">
     <span class="mrt-accommodation-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/03/06/yHIB/1Kt1TtAfM8.jpg?width=720" alt="이비스 스타일 앰배서더 서울 용산" loading="lazy"></span>
     <span class="mrt-accommodation-body">
 
       <strong>이비스 스타일 앰배서더 서울 용산</strong>
-      <em>평점 4.4 · 리뷰 1,157개</em>
-      <span class="mrt-accommodation-price"><strong>198,000원</strong><small>2인 · 2026-08-28 체크인</small></span>
+      <span class="mrt-accommodation-meta">평점 4.4 · 리뷰 1,157개</span>
+      <span class="mrt-accommodation-price"><strong>198,000원</strong><small>성인 2인 · 8월 28일 체크인</small></span>
     </span>
   </a><a class="mrt-accommodation-card" data-mrt-accommodation-card href="https://accommodation.myrealtrip.com/union/products/1187439?checkIn=2026-08-28&amp;checkOut=2026-08-30&amp;adultCount=2&amp;childCount=0&amp;childAges=" rel="sponsored nofollow" target="_blank">
     <span class="mrt-accommodation-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2023/02/02/IKUf/Qh6lAM79Y6.jpg?width=720" alt="토요코인 부산중앙역" loading="lazy"></span>
     <span class="mrt-accommodation-body">
 
       <strong>토요코인 부산중앙역</strong>
-      <em>3성급 · 평점 4.5 · 리뷰 1,028개</em>
-      <span class="mrt-accommodation-price"><strong>77,715원</strong><small>2인 · 2026-08-28 체크인</small></span>
+      <span class="mrt-accommodation-meta">3성급 · 평점 4.5 · 리뷰 1,028개</span>
+      <span class="mrt-accommodation-price"><strong>77,715원</strong><small>성인 2인 · 8월 28일 체크인</small></span>
     </span>
   </a><a class="mrt-accommodation-card" data-mrt-accommodation-card href="https://accommodation.myrealtrip.com/union/products/2680379?checkIn=2026-08-28&amp;checkOut=2026-08-30&amp;adultCount=2&amp;childCount=0&amp;childAges=" rel="sponsored nofollow" target="_blank">
     <span class="mrt-accommodation-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/01/12/YgS2/XJD16szSSO.jpg?width=720" alt="그랩디 오션 송도" loading="lazy"></span>
     <span class="mrt-accommodation-body">
       <span class="mrt-accommodation-badge">7% 할인</span>
       <strong>그랩디 오션 송도</strong>
-      <em>4성급 · 평점 4.5 · 리뷰 333개</em>
-      <span class="mrt-accommodation-price"><del>92,000원</del><strong>85,560원</strong><small>2인 · 2026-08-28 체크인</small></span>
+      <span class="mrt-accommodation-meta">4성급 · 평점 4.5 · 리뷰 333개</span>
+      <span class="mrt-accommodation-price"><del>92,000원</del><strong>85,560원</strong><small>성인 2인 · 8월 28일 체크인</small></span>
     </span>
   </a><a class="mrt-accommodation-card" data-mrt-accommodation-card href="https://accommodation.myrealtrip.com/union/products/1189384?checkIn=2026-08-28&amp;checkOut=2026-08-30&amp;adultCount=2&amp;childCount=0&amp;childAges=" rel="sponsored nofollow" target="_blank">
     <span class="mrt-accommodation-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/09/16/ont6/jwJQzLmTqj.jpg?width=720" alt="토요코인 부산역1" loading="lazy"></span>
     <span class="mrt-accommodation-body">
       <span class="mrt-accommodation-badge">11% 할인</span>
       <strong>토요코인 부산역1</strong>
-      <em>3성급 · 평점 4.4 · 리뷰 1,427개</em>
-      <span class="mrt-accommodation-price"><del>98,274원</del><strong>87,234원</strong><small>2인 · 2026-08-28 체크인</small></span>
+      <span class="mrt-accommodation-meta">3성급 · 평점 4.4 · 리뷰 1,427개</span>
+      <span class="mrt-accommodation-price"><del>98,274원</del><strong>87,234원</strong><small>성인 2인 · 8월 28일 체크인</small></span>
     </span>
   </a></div>
   </section><section class="block" id="all-posts" aria-labelledby="all-posts-title">
@@ -424,10 +427,10 @@ button,input,select{font:inherit}
   </a><a class="story-card" href="/data-festival-schedule-seoul/">
     <span class="story-thumb"><img src="/assets/processed/seoul-festival-iljeong-jeongri-festival.webp" alt="서울 축제 일정 정리" loading="lazy"></span>
     <span class="story-card-body">
-      <span class="story-label">데이터·축제 · 서울</span>
+      <span class="story-label">축제·행사 · 서울</span>
       <strong>서울 축제 일정 정리</strong>
       <p>서울 축제 8건의 시작일, 종료일, 장소, 상태를 표로 모았습니다.</p>
-      <span class="story-meta">2026년 8월 24일 · 2분 읽기</span>
+      <span class="story-meta">2026년 8월 25일 · 2분 읽기</span>
     </span>
   </a><a class="story-card" href="/festival-3351451/">
     <span class="story-thumb"><img src="/assets/processed/seoul-k-illustration-fair-magok-parking.webp" alt="K-일러스트레이션페어 마곡 2026 관람 가이드, 사전예매·입장 마감·부스 동선" loading="lazy"></span>
