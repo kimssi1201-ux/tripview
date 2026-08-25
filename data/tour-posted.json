@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-10T01:46:01.147Z",
+  "updatedAt": "2026-08-25T16:08:31.053Z",
   "items": [
     {
       "contentid": "4070865",
@@ -5172,6 +5172,1158 @@
       "title": "궁항어촌체험마을",
       "rejectedAt": "2026-08-09T01:43:41.840Z",
       "reason": "body_under_1500_chars:744"
+    },
+    {
+      "contentid": "2727507",
+      "title": "문경오미자테마터널",
+      "rejectedAt": "2026-08-25T16:06:03.688Z",
+      "reason": "body_under_1500_chars:1104"
+    },
+    {
+      "contentid": "2609839",
+      "title": "문경도자기박물관",
+      "rejectedAt": "2026-08-25T16:06:04.471Z",
+      "reason": "body_under_1500_chars:1008"
+    },
+    {
+      "contentid": "4103259",
+      "title": "2026 DMZ PEACE FESTA",
+      "rejectedAt": "2026-08-25T16:06:05.237Z",
+      "reason": "body_under_1500_chars:1269"
+    },
+    {
+      "contentid": "2761802",
+      "title": "호식이 캠핑장",
+      "rejectedAt": "2026-08-25T16:06:06.014Z",
+      "reason": "body_under_1500_chars:996"
+    },
+    {
+      "contentid": "2561880",
+      "title": "제주신화월드 호텔 앤 리조트 랜딩관",
+      "rejectedAt": "2026-08-25T16:06:06.799Z",
+      "reason": "body_under_1500_chars:1127"
+    },
+    {
+      "contentid": "2874093",
+      "title": "택지골수제생갈비",
+      "rejectedAt": "2026-08-25T16:06:07.560Z",
+      "reason": "body_under_1500_chars:1028"
+    },
+    {
+      "contentid": "132796",
+      "title": "울산 수암시장",
+      "rejectedAt": "2026-08-25T16:06:08.328Z",
+      "reason": "body_under_1500_chars:1113"
+    },
+    {
+      "contentid": "3407434",
+      "title": "농촌테마공원 도도리파크",
+      "rejectedAt": "2026-08-25T16:06:09.103Z",
+      "reason": "body_under_1500_chars:956"
+    },
+    {
+      "contentid": "130314",
+      "title": "옛길박물관",
+      "rejectedAt": "2026-08-25T16:06:09.872Z",
+      "reason": "body_under_1500_chars:1525"
+    },
+    {
+      "contentid": "4103010",
+      "title": "포항 해뜨면 국수축제",
+      "rejectedAt": "2026-08-25T16:06:10.638Z",
+      "reason": "body_under_1500_chars:1508"
+    },
+    {
+      "contentid": "2734177",
+      "title": "예그리나숲",
+      "rejectedAt": "2026-08-25T16:06:11.398Z",
+      "reason": "body_under_1500_chars:948"
+    },
+    {
+      "contentid": "137826",
+      "title": "라운지하우스 제주다",
+      "rejectedAt": "2026-08-25T16:06:12.170Z",
+      "reason": "body_under_1500_chars:985"
+    },
+    {
+      "contentid": "134970",
+      "title": "고바우설렁탕",
+      "rejectedAt": "2026-08-25T16:06:12.934Z",
+      "reason": "body_under_1500_chars:914"
+    },
+    {
+      "contentid": "2679564",
+      "title": "대구 번개시장",
+      "rejectedAt": "2026-08-25T16:06:13.696Z",
+      "reason": "body_under_1500_chars:950"
+    },
+    {
+      "contentid": "128776",
+      "title": "남산케이블카",
+      "rejectedAt": "2026-08-25T16:06:14.462Z",
+      "reason": "body_under_1500_chars:995"
+    },
+    {
+      "contentid": "1940652",
+      "title": "오장환문학관",
+      "rejectedAt": "2026-08-25T16:06:15.231Z",
+      "reason": "body_under_1500_chars:1121"
+    },
+    {
+      "contentid": "4102649",
+      "title": "섬유기획전 《안식의 결 Texture of Rest》",
+      "rejectedAt": "2026-08-25T16:06:15.999Z",
+      "reason": "body_under_1500_chars:1257"
+    },
+    {
+      "contentid": "2738764",
+      "title": "코코비발디글램핑",
+      "rejectedAt": "2026-08-25T16:06:16.767Z",
+      "reason": "body_under_1500_chars:1079"
+    },
+    {
+      "contentid": "1972487",
+      "title": "시원 한옥체험관",
+      "rejectedAt": "2026-08-25T16:06:17.551Z",
+      "reason": "body_under_1500_chars:1094"
+    },
+    {
+      "contentid": "2844192",
+      "title": "개군할머니토종순대국",
+      "rejectedAt": "2026-08-25T16:06:18.312Z",
+      "reason": "body_under_1500_chars:1014"
+    },
+    {
+      "contentid": "131991",
+      "title": "전곡재래시장 (4, 9일)",
+      "rejectedAt": "2026-08-25T16:06:19.109Z",
+      "reason": "body_under_1500_chars:952"
+    },
+    {
+      "contentid": "250252",
+      "title": "광나루한강공원",
+      "rejectedAt": "2026-08-25T16:06:19.879Z",
+      "reason": "body_under_1500_chars:1029"
+    },
+    {
+      "contentid": "3427637",
+      "title": "달성군립도서관",
+      "rejectedAt": "2026-08-25T16:06:20.647Z",
+      "reason": "body_under_1500_chars:825"
+    },
+    {
+      "contentid": "4102351",
+      "title": "안다미로귀때박물관 기획전시 '명화와 티타임(Teatime) : 빛과 색채로 마시는 차 한 잔의 여유'",
+      "rejectedAt": "2026-08-25T16:06:21.418Z",
+      "reason": "body_under_1500_chars:1472"
+    },
+    {
+      "contentid": "2734235",
+      "title": "원주한울오토캠핑장",
+      "rejectedAt": "2026-08-25T16:06:22.185Z",
+      "reason": "body_under_1500_chars:926"
+    },
+    {
+      "contentid": "3090853",
+      "title": "메이플비치 골프&리조트",
+      "rejectedAt": "2026-08-25T16:06:22.951Z",
+      "reason": "body_under_1500_chars:1171"
+    },
+    {
+      "contentid": "4103228",
+      "title": "만장",
+      "rejectedAt": "2026-08-25T16:06:23.711Z",
+      "reason": "body_under_1500_chars:1070"
+    },
+    {
+      "contentid": "2766328",
+      "title": "석바위시장",
+      "rejectedAt": "2026-08-25T16:06:24.482Z",
+      "reason": "body_under_1500_chars:951"
+    },
+    {
+      "contentid": "987810",
+      "title": "해운대 동백섬",
+      "rejectedAt": "2026-08-25T16:06:25.247Z",
+      "reason": "body_under_1500_chars:1165"
+    },
+    {
+      "contentid": "130135",
+      "title": "강진 고려청자박물관",
+      "rejectedAt": "2026-08-25T16:06:26.007Z",
+      "reason": "body_under_1500_chars:948"
+    },
+    {
+      "contentid": "4101384",
+      "title": "20세기 사진 거장전 - 빛, 시간을 멈추다",
+      "rejectedAt": "2026-08-25T16:06:26.779Z",
+      "reason": "body_under_1500_chars:2394"
+    },
+    {
+      "contentid": "2743837",
+      "title": "토리아이글램핑",
+      "rejectedAt": "2026-08-25T16:06:27.543Z",
+      "reason": "body_under_1500_chars:966"
+    },
+    {
+      "contentid": "3091243",
+      "title": "에이치에비뉴 건대점",
+      "rejectedAt": "2026-08-25T16:06:28.314Z",
+      "reason": "body_under_1500_chars:1086"
+    },
+    {
+      "contentid": "2835922",
+      "title": "망향비빔국수 본점",
+      "rejectedAt": "2026-08-25T16:06:29.114Z",
+      "reason": "body_under_1500_chars:929"
+    },
+    {
+      "contentid": "2766337",
+      "title": "용남시장",
+      "rejectedAt": "2026-08-25T16:06:29.879Z",
+      "reason": "body_under_1500_chars:922"
+    },
+    {
+      "contentid": "1626739",
+      "title": "보은동헌",
+      "rejectedAt": "2026-08-25T16:06:30.639Z",
+      "reason": "body_under_1500_chars:1271"
+    },
+    {
+      "contentid": "129708",
+      "title": "이천문화원",
+      "rejectedAt": "2026-08-25T16:06:31.410Z",
+      "reason": "body_under_1500_chars:980"
+    },
+    {
+      "contentid": "4100347",
+      "title": "포항 10미(味) 야장축제",
+      "rejectedAt": "2026-08-25T16:06:32.188Z",
+      "reason": "body_under_1500_chars:1883"
+    },
+    {
+      "contentid": "2731135",
+      "title": "오페라비앙글램핑",
+      "rejectedAt": "2026-08-25T16:06:32.958Z",
+      "reason": "body_under_1500_chars:1002"
+    },
+    {
+      "contentid": "2590471",
+      "title": "쓰리세븐호텔",
+      "rejectedAt": "2026-08-25T16:06:33.719Z",
+      "reason": "body_under_1500_chars:988"
+    },
+    {
+      "contentid": "134095",
+      "title": "고향이야기",
+      "rejectedAt": "2026-08-25T16:06:34.486Z",
+      "reason": "body_under_1500_chars:877"
+    },
+    {
+      "contentid": "2465126",
+      "title": "신기시장",
+      "rejectedAt": "2026-08-25T16:06:35.240Z",
+      "reason": "body_under_1500_chars:1106"
+    },
+    {
+      "contentid": "2758220",
+      "title": "상궁저수지",
+      "rejectedAt": "2026-08-25T16:06:36.010Z",
+      "reason": "body_under_1500_chars:926"
+    },
+    {
+      "contentid": "129765",
+      "title": "호암미술관",
+      "rejectedAt": "2026-08-25T16:06:36.774Z",
+      "reason": "body_under_1500_chars:911"
+    },
+    {
+      "contentid": "4099989",
+      "title": "금천시흥행궁문화제",
+      "rejectedAt": "2026-08-25T16:06:37.537Z",
+      "reason": "body_under_1500_chars:1202"
+    },
+    {
+      "contentid": "2729589",
+      "title": "진북편백골관광농원캠핑장",
+      "rejectedAt": "2026-08-25T16:06:38.300Z",
+      "reason": "body_under_1500_chars:1032"
+    },
+    {
+      "contentid": "3091337",
+      "title": "라트리호텔",
+      "rejectedAt": "2026-08-25T16:06:39.060Z",
+      "reason": "body_under_1500_chars:1012"
+    },
+    {
+      "contentid": "1822775",
+      "title": "천매막국수 어사또왕족발보쌈",
+      "rejectedAt": "2026-08-25T16:06:39.823Z",
+      "reason": "body_under_1500_chars:910"
+    },
+    {
+      "contentid": "2766376",
+      "title": "토지금고시장",
+      "rejectedAt": "2026-08-25T16:06:40.593Z",
+      "reason": "body_under_1500_chars:964"
+    },
+    {
+      "contentid": "126219",
+      "title": "망양정",
+      "rejectedAt": "2026-08-25T16:06:41.362Z",
+      "reason": "body_under_1500_chars:1152"
+    },
+    {
+      "contentid": "1753401",
+      "title": "용인 포은아트홀",
+      "rejectedAt": "2026-08-25T16:06:42.126Z",
+      "reason": "body_under_1500_chars:1120"
+    },
+    {
+      "contentid": "4099532",
+      "title": "2026 별바다부산 「나이트 캠크닉」",
+      "rejectedAt": "2026-08-25T16:06:42.903Z",
+      "reason": "body_under_1500_chars:1371"
+    },
+    {
+      "contentid": "2650370",
+      "title": "세조길",
+      "rejectedAt": "2026-08-25T16:06:43.668Z",
+      "reason": "body_under_1500_chars:964"
+    },
+    {
+      "contentid": "3091350",
+      "title": "케이플러스호텔",
+      "rejectedAt": "2026-08-25T16:06:44.433Z",
+      "reason": "body_under_1500_chars:948"
+    },
+    {
+      "contentid": "4102940",
+      "title": "대접방앗간",
+      "rejectedAt": "2026-08-25T16:06:45.203Z",
+      "reason": "body_under_1500_chars:1007"
+    },
+    {
+      "contentid": "2779536",
+      "title": "풍림하나로쇼핑센타",
+      "rejectedAt": "2026-08-25T16:06:45.963Z",
+      "reason": "body_under_1500_chars:950"
+    },
+    {
+      "contentid": "129173",
+      "title": "죽변등대",
+      "rejectedAt": "2026-08-25T16:06:46.721Z",
+      "reason": "body_under_1500_chars:1111"
+    },
+    {
+      "contentid": "130439",
+      "title": "안성 3·1운동기념관",
+      "rejectedAt": "2026-08-25T16:06:47.481Z",
+      "reason": "body_under_1500_chars:1150"
+    },
+    {
+      "contentid": "4099133",
+      "title": "2026 로컬 그라운드 연남",
+      "rejectedAt": "2026-08-25T16:06:48.248Z",
+      "reason": "body_under_1500_chars:1392"
+    },
+    {
+      "contentid": "1826441",
+      "title": "통영산양스포츠파크",
+      "rejectedAt": "2026-08-25T16:06:49.031Z",
+      "reason": "body_under_1500_chars:956"
+    },
+    {
+      "contentid": "3091316",
+      "title": "제이비스호텔",
+      "rejectedAt": "2026-08-25T16:06:49.810Z",
+      "reason": "body_under_1500_chars:946"
+    },
+    {
+      "contentid": "1826896",
+      "title": "민지송어장",
+      "rejectedAt": "2026-08-25T16:06:50.579Z",
+      "reason": "body_under_1500_chars:854"
+    },
+    {
+      "contentid": "2766281",
+      "title": "남촌농축산물도매시장",
+      "rejectedAt": "2026-08-25T16:06:51.351Z",
+      "reason": "body_under_1500_chars:918"
+    },
+    {
+      "contentid": "127285",
+      "title": "백련사(강진)",
+      "rejectedAt": "2026-08-25T16:06:52.124Z",
+      "reason": "body_under_1500_chars:1166"
+    },
+    {
+      "contentid": "2944481",
+      "title": "국립농업박물관",
+      "rejectedAt": "2026-08-25T16:06:52.914Z",
+      "reason": "body_under_1500_chars:981"
+    },
+    {
+      "contentid": "4099101",
+      "title": "수원남문시장 「불취무귀」 야시장",
+      "rejectedAt": "2026-08-25T16:06:53.684Z",
+      "reason": "body_under_1500_chars:1393"
+    },
+    {
+      "contentid": "2500717",
+      "title": "신안 1004요트",
+      "rejectedAt": "2026-08-25T16:06:54.455Z",
+      "reason": "body_under_1500_chars:999"
+    },
+    {
+      "contentid": "2870042",
+      "title": "김포 브라운도트 호텔",
+      "rejectedAt": "2026-08-25T16:06:55.220Z",
+      "reason": "body_under_1500_chars:915"
+    },
+    {
+      "contentid": "1828179",
+      "title": "모란면옥",
+      "rejectedAt": "2026-08-25T16:06:55.985Z",
+      "reason": "body_under_1500_chars:850"
+    },
+    {
+      "contentid": "2766297",
+      "title": "만수시장",
+      "rejectedAt": "2026-08-25T16:06:56.779Z",
+      "reason": "body_under_1500_chars:901"
+    },
+    {
+      "contentid": "126419",
+      "title": "다산초당",
+      "rejectedAt": "2026-08-25T16:06:57.545Z",
+      "reason": "body_under_1500_chars:1148"
+    },
+    {
+      "contentid": "130412",
+      "title": "영은미술관",
+      "rejectedAt": "2026-08-25T16:06:58.320Z",
+      "reason": "body_under_1500_chars:1080"
+    },
+    {
+      "contentid": "4098980",
+      "title": "완주 상관 워터풀파티",
+      "rejectedAt": "2026-08-25T16:06:59.079Z",
+      "reason": "body_under_1500_chars:1514"
+    },
+    {
+      "contentid": "2752803",
+      "title": "봉화열목어마을",
+      "rejectedAt": "2026-08-25T16:06:59.866Z",
+      "reason": "body_under_1500_chars:1036"
+    },
+    {
+      "contentid": "1830250",
+      "title": "정동캐슬",
+      "rejectedAt": "2026-08-25T16:07:00.659Z",
+      "reason": "body_under_1500_chars:890"
+    },
+    {
+      "contentid": "1828198",
+      "title": "청도참한우식육식당",
+      "rejectedAt": "2026-08-25T16:07:01.418Z",
+      "reason": "body_under_1500_chars:955"
+    },
+    {
+      "contentid": "2766193",
+      "title": "계산전통시장",
+      "rejectedAt": "2026-08-25T16:07:02.192Z",
+      "reason": "body_under_1500_chars:957"
+    },
+    {
+      "contentid": "2719782",
+      "title": "판교 시간이 멈춘 마을",
+      "rejectedAt": "2026-08-25T16:07:02.973Z",
+      "reason": "body_under_1500_chars:1157"
+    },
+    {
+      "contentid": "129796",
+      "title": "렛츠런파크 서울 말박물관",
+      "rejectedAt": "2026-08-25T16:07:03.758Z",
+      "reason": "body_under_1500_chars:1375"
+    },
+    {
+      "contentid": "4098740",
+      "title": "동대문구 북 페스티벌",
+      "rejectedAt": "2026-08-25T16:07:04.522Z",
+      "reason": "body_under_1500_chars:1513"
+    },
+    {
+      "contentid": "2909328",
+      "title": "남작골 농촌체험휴양마을 야영장",
+      "rejectedAt": "2026-08-25T16:07:05.296Z",
+      "reason": "body_under_1500_chars:988"
+    },
+    {
+      "contentid": "1965379",
+      "title": "호텔미투",
+      "rejectedAt": "2026-08-25T16:07:06.064Z",
+      "reason": "body_under_1500_chars:954"
+    },
+    {
+      "contentid": "1829044",
+      "title": "쉬어가는 집",
+      "rejectedAt": "2026-08-25T16:07:06.822Z",
+      "reason": "body_under_1500_chars:894"
+    },
+    {
+      "contentid": "2766234",
+      "title": "작전시장",
+      "rejectedAt": "2026-08-25T16:07:07.588Z",
+      "reason": "body_under_1500_chars:1053"
+    },
+    {
+      "contentid": "3036904",
+      "title": "국립생태원 에코리움",
+      "rejectedAt": "2026-08-25T16:07:08.360Z",
+      "reason": "body_under_1500_chars:1316"
+    },
+    {
+      "contentid": "4077536",
+      "title": "은대리 문화벽돌공장",
+      "rejectedAt": "2026-08-25T16:07:09.125Z",
+      "reason": "body_under_1500_chars:1104"
+    },
+    {
+      "contentid": "4098134",
+      "title": "유성온날",
+      "rejectedAt": "2026-08-25T16:07:09.891Z",
+      "reason": "body_under_1500_chars:1775"
+    },
+    {
+      "contentid": "131634",
+      "title": "모나용평 스키장",
+      "rejectedAt": "2026-08-25T16:07:10.668Z",
+      "reason": "body_under_1500_chars:1045"
+    },
+    {
+      "contentid": "3076441",
+      "title": "제주헬스케어타운리조트",
+      "rejectedAt": "2026-08-25T16:07:11.429Z",
+      "reason": "body_under_1500_chars:1018"
+    },
+    {
+      "contentid": "1829267",
+      "title": "경주횟집 지중해",
+      "rejectedAt": "2026-08-25T16:07:12.228Z",
+      "reason": "body_under_1500_chars:933"
+    },
+    {
+      "contentid": "132761",
+      "title": "춘천 풍물시장(2, 7일)",
+      "rejectedAt": "2026-08-25T16:07:12.997Z",
+      "reason": "body_under_1500_chars:1086"
+    },
+    {
+      "contentid": "4103018",
+      "title": "연호공원",
+      "rejectedAt": "2026-08-25T16:07:13.769Z",
+      "reason": "body_under_1500_chars:1081"
+    },
+    {
+      "contentid": "1824455",
+      "title": "예아리박물관",
+      "rejectedAt": "2026-08-25T16:07:14.554Z",
+      "reason": "body_under_1500_chars:1032"
+    },
+    {
+      "contentid": "4097339",
+      "title": "요즘 청년, 요즘 문화",
+      "rejectedAt": "2026-08-25T16:07:15.314Z",
+      "reason": "body_under_1500_chars:1831"
+    },
+    {
+      "contentid": "2909151",
+      "title": "내를 건너서 숲으로 오토캠핑장",
+      "rejectedAt": "2026-08-25T16:07:16.075Z",
+      "reason": "body_under_1500_chars:977"
+    },
+    {
+      "contentid": "2918701",
+      "title": "아너스호텔",
+      "rejectedAt": "2026-08-25T16:07:16.840Z",
+      "reason": "body_under_1500_chars:870"
+    },
+    {
+      "contentid": "3110712",
+      "title": "흥만소",
+      "rejectedAt": "2026-08-25T16:07:17.615Z",
+      "reason": "body_under_1500_chars:972"
+    },
+    {
+      "contentid": "2819463",
+      "title": "초록스토어",
+      "rejectedAt": "2026-08-25T16:07:18.384Z",
+      "reason": "body_under_1500_chars:884"
+    },
+    {
+      "contentid": "4102991",
+      "title": "서천읍성",
+      "rejectedAt": "2026-08-25T16:07:19.154Z",
+      "reason": "body_under_1500_chars:1121"
+    },
+    {
+      "contentid": "130642",
+      "title": "조현화랑",
+      "rejectedAt": "2026-08-25T16:07:19.912Z",
+      "reason": "body_under_1500_chars:1254"
+    },
+    {
+      "contentid": "2908260",
+      "title": "블루문오토캠핑",
+      "rejectedAt": "2026-08-25T16:07:20.689Z",
+      "reason": "body_under_1500_chars:989"
+    },
+    {
+      "contentid": "706243",
+      "title": "파인리즈리조트 빌라",
+      "rejectedAt": "2026-08-25T16:07:21.464Z",
+      "reason": "body_under_1500_chars:969"
+    },
+    {
+      "contentid": "2868238",
+      "title": "옐로커피",
+      "rejectedAt": "2026-08-25T16:07:22.226Z",
+      "reason": "body_under_1500_chars:977"
+    },
+    {
+      "contentid": "2768173",
+      "title": "가좌시장",
+      "rejectedAt": "2026-08-25T16:07:22.983Z",
+      "reason": "body_under_1500_chars:947"
+    },
+    {
+      "contentid": "2996327",
+      "title": "기억저장소뜨듯 협동조합",
+      "rejectedAt": "2026-08-25T16:07:23.742Z",
+      "reason": "body_under_1500_chars:867"
+    },
+    {
+      "contentid": "2759936",
+      "title": "한생연인간과로봇과학관",
+      "rejectedAt": "2026-08-25T16:07:24.518Z",
+      "reason": "body_under_1500_chars:1042"
+    },
+    {
+      "contentid": "2908012",
+      "title": "하늘빛",
+      "rejectedAt": "2026-08-25T16:07:25.284Z",
+      "reason": "body_under_1500_chars:988"
+    },
+    {
+      "contentid": "2927029",
+      "title": "해든호텔 하이엔드",
+      "rejectedAt": "2026-08-25T16:07:26.053Z",
+      "reason": "body_under_1500_chars:1051"
+    },
+    {
+      "contentid": "2868116",
+      "title": "쉬어가기좋은날식당",
+      "rejectedAt": "2026-08-25T16:07:26.826Z",
+      "reason": "body_under_1500_chars:1126"
+    },
+    {
+      "contentid": "1030642",
+      "title": "인천 강남시장",
+      "rejectedAt": "2026-08-25T16:07:27.587Z",
+      "reason": "body_under_1500_chars:1246"
+    },
+    {
+      "contentid": "2820602",
+      "title": "도자누리",
+      "rejectedAt": "2026-08-25T16:07:28.356Z",
+      "reason": "body_under_1500_chars:897"
+    },
+    {
+      "contentid": "129897",
+      "title": "중남미문화원",
+      "rejectedAt": "2026-08-25T16:07:29.135Z",
+      "reason": "body_under_1500_chars:1210"
+    },
+    {
+      "contentid": "2909832",
+      "title": "채움카라반글램핑리조트",
+      "rejectedAt": "2026-08-25T16:07:29.903Z",
+      "reason": "body_under_1500_chars:980"
+    },
+    {
+      "contentid": "1746410",
+      "title": "호텔콤마",
+      "rejectedAt": "2026-08-25T16:07:30.669Z",
+      "reason": "body_under_1500_chars:915"
+    },
+    {
+      "contentid": "3444482",
+      "title": "마망스",
+      "rejectedAt": "2026-08-25T16:07:31.449Z",
+      "reason": "body_under_1500_chars:959"
+    },
+    {
+      "contentid": "132167",
+      "title": "남평전통시장",
+      "rejectedAt": "2026-08-25T16:07:32.214Z",
+      "reason": "body_under_1500_chars:917"
+    },
+    {
+      "contentid": "128019",
+      "title": "남이섬",
+      "rejectedAt": "2026-08-25T16:07:33.016Z",
+      "reason": "body_under_1500_chars:1290"
+    },
+    {
+      "contentid": "130728",
+      "title": "강원특별자치도산림박물관",
+      "rejectedAt": "2026-08-25T16:07:33.785Z",
+      "reason": "body_under_1500_chars:1265"
+    },
+    {
+      "contentid": "2909864",
+      "title": "다시캠핑장",
+      "rejectedAt": "2026-08-25T16:07:34.544Z",
+      "reason": "body_under_1500_chars:929"
+    },
+    {
+      "contentid": "2874916",
+      "title": "호텔 라르 김포",
+      "rejectedAt": "2026-08-25T16:07:35.317Z",
+      "reason": "body_under_1500_chars:974"
+    },
+    {
+      "contentid": "2749728",
+      "title": "곡물집",
+      "rejectedAt": "2026-08-25T16:07:36.088Z",
+      "reason": "body_under_1500_chars:990"
+    },
+    {
+      "contentid": "2876922",
+      "title": "영광고추특화시장",
+      "rejectedAt": "2026-08-25T16:07:36.853Z",
+      "reason": "body_under_1500_chars:1132"
+    },
+    {
+      "contentid": "2648073",
+      "title": "거제식물원",
+      "rejectedAt": "2026-08-25T16:07:37.623Z",
+      "reason": "body_under_1500_chars:1039"
+    },
+    {
+      "contentid": "2556193",
+      "title": "원주시립중앙도서관",
+      "rejectedAt": "2026-08-25T16:07:38.397Z",
+      "reason": "body_under_1500_chars:1071"
+    },
+    {
+      "contentid": "2910186",
+      "title": "유니레저 경주지점",
+      "rejectedAt": "2026-08-25T16:07:39.165Z",
+      "reason": "body_under_1500_chars:1015"
+    },
+    {
+      "contentid": "136594",
+      "title": "초콜렛호텔",
+      "rejectedAt": "2026-08-25T16:07:39.951Z",
+      "reason": "body_under_1500_chars:962"
+    },
+    {
+      "contentid": "2891607",
+      "title": "강화국수",
+      "rejectedAt": "2026-08-25T16:07:40.758Z",
+      "reason": "body_under_1500_chars:1026"
+    },
+    {
+      "contentid": "2751441",
+      "title": "포방터시장",
+      "rejectedAt": "2026-08-25T16:07:41.519Z",
+      "reason": "body_under_1500_chars:919"
+    },
+    {
+      "contentid": "2650372",
+      "title": "강경근대거리",
+      "rejectedAt": "2026-08-25T16:07:42.283Z",
+      "reason": "body_under_1500_chars:1371"
+    },
+    {
+      "contentid": "130878",
+      "title": "정동진시간박물관",
+      "rejectedAt": "2026-08-25T16:07:43.052Z",
+      "reason": "body_under_1500_chars:973"
+    },
+    {
+      "contentid": "2909725",
+      "title": "동산오토캠핑장",
+      "rejectedAt": "2026-08-25T16:07:43.815Z",
+      "reason": "body_under_1500_chars:1016"
+    },
+    {
+      "contentid": "2870003",
+      "title": "스타비아호텔",
+      "rejectedAt": "2026-08-25T16:07:44.596Z",
+      "reason": "body_under_1500_chars:1078"
+    },
+    {
+      "contentid": "2892089",
+      "title": "바우카페",
+      "rejectedAt": "2026-08-25T16:07:45.361Z",
+      "reason": "body_under_1500_chars:1035"
+    },
+    {
+      "contentid": "2752977",
+      "title": "정자시장",
+      "rejectedAt": "2026-08-25T16:07:46.132Z",
+      "reason": "body_under_1500_chars:965"
+    },
+    {
+      "contentid": "2650458",
+      "title": "저도(창원)",
+      "rejectedAt": "2026-08-25T16:07:46.921Z",
+      "reason": "body_under_1500_chars:971"
+    },
+    {
+      "contentid": "130703",
+      "title": "숲사랑홍보관",
+      "rejectedAt": "2026-08-25T16:07:47.688Z",
+      "reason": "body_under_1500_chars:1417"
+    },
+    {
+      "contentid": "2912932",
+      "title": "쭌 캠핑 펜션",
+      "rejectedAt": "2026-08-25T16:07:48.465Z",
+      "reason": "body_under_1500_chars:916"
+    },
+    {
+      "contentid": "2847311",
+      "title": "라까사호텔 광명",
+      "rejectedAt": "2026-08-25T16:07:49.232Z",
+      "reason": "body_under_1500_chars:1131"
+    },
+    {
+      "contentid": "3546420",
+      "title": "시하온",
+      "rejectedAt": "2026-08-25T16:07:50.023Z",
+      "reason": "body_under_1500_chars:999"
+    },
+    {
+      "contentid": "132374",
+      "title": "인천 동부시장",
+      "rejectedAt": "2026-08-25T16:07:50.798Z",
+      "reason": "body_under_1500_chars:997"
+    },
+    {
+      "contentid": "2656733",
+      "title": "대부바다향기테마파크",
+      "rejectedAt": "2026-08-25T16:07:51.558Z",
+      "reason": "body_under_1500_chars:1092"
+    },
+    {
+      "contentid": "131607",
+      "title": "광운대학교 아이스링크",
+      "rejectedAt": "2026-08-25T16:07:52.319Z",
+      "reason": "body_under_1500_chars:985"
+    },
+    {
+      "contentid": "2775576",
+      "title": "리츠캐슬 리조트",
+      "rejectedAt": "2026-08-25T16:07:53.096Z",
+      "reason": "body_under_1500_chars:899"
+    },
+    {
+      "contentid": "2932169",
+      "title": "카페옐롱",
+      "rejectedAt": "2026-08-25T16:07:53.865Z",
+      "reason": "body_under_1500_chars:1040"
+    },
+    {
+      "contentid": "132030",
+      "title": "당진전통시장",
+      "rejectedAt": "2026-08-25T16:07:54.629Z",
+      "reason": "body_under_1500_chars:863"
+    },
+    {
+      "contentid": "1825460",
+      "title": "3.1독립운동기념탑",
+      "rejectedAt": "2026-08-25T16:07:55.390Z",
+      "reason": "body_under_1500_chars:1116"
+    },
+    {
+      "contentid": "129863",
+      "title": "화성문화원",
+      "rejectedAt": "2026-08-25T16:07:56.154Z",
+      "reason": "body_under_1500_chars:1318"
+    },
+    {
+      "contentid": "2908314",
+      "title": "우이동 가족캠핑장",
+      "rejectedAt": "2026-08-25T16:07:56.914Z",
+      "reason": "body_under_1500_chars:1062"
+    },
+    {
+      "contentid": "137328",
+      "title": "미라지모텔",
+      "rejectedAt": "2026-08-25T16:07:57.694Z",
+      "reason": "body_under_1500_chars:1013"
+    },
+    {
+      "contentid": "4102223",
+      "title": "테누토",
+      "rejectedAt": "2026-08-25T16:07:58.482Z",
+      "reason": "body_under_1500_chars:1042"
+    },
+    {
+      "contentid": "2753682",
+      "title": "판타지움",
+      "rejectedAt": "2026-08-25T16:07:59.252Z",
+      "reason": "body_under_1500_chars:984"
+    },
+    {
+      "contentid": "1826438",
+      "title": "경찰혼",
+      "rejectedAt": "2026-08-25T16:08:00.017Z",
+      "reason": "body_under_1500_chars:1088"
+    },
+    {
+      "contentid": "3345606",
+      "title": "연산문화창고",
+      "rejectedAt": "2026-08-25T16:08:00.811Z",
+      "reason": "body_under_1500_chars:1001"
+    },
+    {
+      "contentid": "2729828",
+      "title": "솔섬캠프장",
+      "rejectedAt": "2026-08-25T16:08:01.580Z",
+      "reason": "body_under_1500_chars:934"
+    },
+    {
+      "contentid": "1836470",
+      "title": "베이브리즈가족호텔",
+      "rejectedAt": "2026-08-25T16:08:02.366Z",
+      "reason": "body_under_1500_chars:943"
+    },
+    {
+      "contentid": "601393",
+      "title": "희래등",
+      "rejectedAt": "2026-08-25T16:08:03.187Z",
+      "reason": "body_under_1500_chars:841"
+    },
+    {
+      "contentid": "132429",
+      "title": "운봉서각원",
+      "rejectedAt": "2026-08-25T16:08:03.970Z",
+      "reason": "body_under_1500_chars:1002"
+    },
+    {
+      "contentid": "1827190",
+      "title": "나석주의사동상",
+      "rejectedAt": "2026-08-25T16:08:04.743Z",
+      "reason": "body_under_1500_chars:1381"
+    },
+    {
+      "contentid": "1207259",
+      "title": "녹청자박물관",
+      "rejectedAt": "2026-08-25T16:08:05.505Z",
+      "reason": "body_under_1500_chars:1159"
+    },
+    {
+      "contentid": "2750032",
+      "title": "달성군낙동강레포츠밸리",
+      "rejectedAt": "2026-08-25T16:08:06.271Z",
+      "reason": "body_under_1500_chars:1150"
+    },
+    {
+      "contentid": "2534394",
+      "title": "월미도 다이아몬드호텔",
+      "rejectedAt": "2026-08-25T16:08:07.073Z",
+      "reason": "body_under_1500_chars:891"
+    },
+    {
+      "contentid": "2842121",
+      "title": "은옥",
+      "rejectedAt": "2026-08-25T16:08:07.836Z",
+      "reason": "body_under_1500_chars:836"
+    },
+    {
+      "contentid": "1961503",
+      "title": "충주공설시장",
+      "rejectedAt": "2026-08-25T16:08:08.604Z",
+      "reason": "body_under_1500_chars:967"
+    },
+    {
+      "contentid": "1827189",
+      "title": "고하송진우선생동상",
+      "rejectedAt": "2026-08-25T16:08:09.366Z",
+      "reason": "body_under_1500_chars:1074"
+    },
+    {
+      "contentid": "864987",
+      "title": "인천광역시 검단선사박물관",
+      "rejectedAt": "2026-08-25T16:08:10.140Z",
+      "reason": "body_under_1500_chars:1075"
+    },
+    {
+      "contentid": "2753087",
+      "title": "가야산백운오토캠핑장",
+      "rejectedAt": "2026-08-25T16:08:10.906Z",
+      "reason": "body_under_1500_chars:975"
+    },
+    {
+      "contentid": "2019324",
+      "title": "이코노미호텔 인천부평점",
+      "rejectedAt": "2026-08-25T16:08:11.685Z",
+      "reason": "body_under_1500_chars:1122"
+    },
+    {
+      "contentid": "2603720",
+      "title": "누닝 펫푸드카페",
+      "rejectedAt": "2026-08-25T16:08:12.503Z",
+      "reason": "body_under_1500_chars:1111"
+    },
+    {
+      "contentid": "132251",
+      "title": "한국기념품백화점",
+      "rejectedAt": "2026-08-25T16:08:13.254Z",
+      "reason": "body_under_1500_chars:923"
+    },
+    {
+      "contentid": "2768186",
+      "title": "석암산 수도사",
+      "rejectedAt": "2026-08-25T16:08:14.015Z",
+      "reason": "body_under_1500_chars:930"
+    },
+    {
+      "contentid": "2465166",
+      "title": "청라호수도서관",
+      "rejectedAt": "2026-08-25T16:08:14.773Z",
+      "reason": "body_under_1500_chars:965"
+    },
+    {
+      "contentid": "2739487",
+      "title": "[강원평화누리자전거길 10코스] 양구 두타연길",
+      "rejectedAt": "2026-08-25T16:08:15.545Z",
+      "reason": "body_under_1500_chars:1086"
+    },
+    {
+      "contentid": "1914920",
+      "title": "JW 메리어트 동대문 스퀘어 서울",
+      "rejectedAt": "2026-08-25T16:08:16.305Z",
+      "reason": "body_under_1500_chars:1480"
+    },
+    {
+      "contentid": "600680",
+      "title": "가보",
+      "rejectedAt": "2026-08-25T16:08:17.095Z",
+      "reason": "body_under_1500_chars:871"
+    },
+    {
+      "contentid": "132019",
+      "title": "삼성전통시장",
+      "rejectedAt": "2026-08-25T16:08:17.849Z",
+      "reason": "body_under_1500_chars:871"
+    },
+    {
+      "contentid": "1828631",
+      "title": "반공순국용사 위령탑",
+      "rejectedAt": "2026-08-25T16:08:18.614Z",
+      "reason": "body_under_1500_chars:1140"
+    },
+    {
+      "contentid": "130788",
+      "title": "인천광역시교육청서구도서관",
+      "rejectedAt": "2026-08-25T16:08:19.393Z",
+      "reason": "body_under_1500_chars:1148"
+    },
+    {
+      "contentid": "2748011",
+      "title": "[강원평화누리자전거길 17코스] 고성 송지호 철새길",
+      "rejectedAt": "2026-08-25T16:08:20.193Z",
+      "reason": "body_under_1500_chars:1096"
+    },
+    {
+      "contentid": "990208",
+      "title": "롯데시티호텔 마포",
+      "rejectedAt": "2026-08-25T16:08:20.967Z",
+      "reason": "body_under_1500_chars:924"
+    },
+    {
+      "contentid": "2875433",
+      "title": "밀레",
+      "rejectedAt": "2026-08-25T16:08:21.744Z",
+      "reason": "body_under_1500_chars:855"
+    },
+    {
+      "contentid": "2754764",
+      "title": "옥곡5일장 (4, 9일)",
+      "rejectedAt": "2026-08-25T16:08:22.506Z",
+      "reason": "body_under_1500_chars:1150"
+    },
+    {
+      "contentid": "1828605",
+      "title": "유관순동상",
+      "rejectedAt": "2026-08-25T16:08:23.279Z",
+      "reason": "body_under_1500_chars:1204"
+    },
+    {
+      "contentid": "2737384",
+      "title": "힐링파크",
+      "rejectedAt": "2026-08-25T16:08:24.050Z",
+      "reason": "body_under_1500_chars:1009"
+    },
+    {
+      "contentid": "1882357",
+      "title": "별자리펜션",
+      "rejectedAt": "2026-08-25T16:08:24.824Z",
+      "reason": "body_under_1500_chars:946"
+    },
+    {
+      "contentid": "4101201",
+      "title": "사나래 울산본점",
+      "rejectedAt": "2026-08-25T16:08:25.594Z",
+      "reason": "body_under_1500_chars:1033"
+    },
+    {
+      "contentid": "2784208",
+      "title": "중마시장",
+      "rejectedAt": "2026-08-25T16:08:26.365Z",
+      "reason": "body_under_1500_chars:1019"
+    },
+    {
+      "contentid": "2657139",
+      "title": "적금대교(여수)",
+      "rejectedAt": "2026-08-25T16:08:27.126Z",
+      "reason": "body_under_1500_chars:1028"
+    },
+    {
+      "contentid": "1997652",
+      "title": "부평 기적의도서관",
+      "rejectedAt": "2026-08-25T16:08:27.902Z",
+      "reason": "body_under_1500_chars:992"
+    },
+    {
+      "contentid": "2737382",
+      "title": "흙집섬진강풍경",
+      "rejectedAt": "2026-08-25T16:08:28.683Z",
+      "reason": "body_under_1500_chars:1054"
+    },
+    {
+      "contentid": "1891566",
+      "title": "와이리조트 제주",
+      "rejectedAt": "2026-08-25T16:08:29.466Z",
+      "reason": "body_under_1500_chars:991"
+    },
+    {
+      "contentid": "4101161",
+      "title": "깨 로스터리 옥희방앗간",
+      "rejectedAt": "2026-08-25T16:08:30.225Z",
+      "reason": "body_under_1500_chars:995"
+    },
+    {
+      "contentid": "132410",
+      "title": "일로전통시장",
+      "rejectedAt": "2026-08-25T16:08:30.999Z",
+      "reason": "body_under_1500_chars:1139"
     }
   ]
 }

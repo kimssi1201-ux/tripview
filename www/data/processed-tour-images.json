@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-25T14:05:39.429Z",
+  "generatedAt": "2026-08-25T16:10:05.021Z",
   "source": "한국관광공사 공공누리",
   "assetBasePath": "/assets/processed/",
   "items": {
@@ -38,51 +38,6 @@
         "original": "https://tong.visitkorea.or.kr/cms/resource/01/4084901_image2_1.jpg",
         "src": "/assets/processed/goesan-suok-waterfall-parking-banner.webp",
         "alt": "충북 수옥폭포 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
-        "width": 1200,
-        "height": 675,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false,
-        "bytes": null
-      },
-      "images": []
-    },
-    "data-festival-schedule-seoul": {
-      "title": "서울 축제 일정 정리",
-      "sourceTitle": "서울 축제 일정 정리",
-      "region": "서울",
-      "source": "한국관광공사 공공누리",
-      "cover": {
-        "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/79/4039379_image2_1.jpg",
-        "src": "/assets/processed/seoul-festival-iljeong-jeongri-festival.webp",
-        "alt": "서울 서울 축제 일정 정리 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 800,
-        "height": 500,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false,
-        "bytes": null
-      },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/79/4039379_image2_1.jpg",
-        "src": "/assets/processed/seoul-festival-iljeong-jeongri-festival-hero.webp",
-        "alt": "서울 서울 축제 일정 정리 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "banner": {
-        "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/79/4039379_image2_1.jpg",
-        "src": "/assets/processed/seoul-festival-iljeong-jeongri-festival-banner.webp",
-        "alt": "서울 서울 축제 일정 정리 축제 일정 정보를 담은 트립뷰 지역 허브 배너",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
         "width": 1200,
         "height": 675,

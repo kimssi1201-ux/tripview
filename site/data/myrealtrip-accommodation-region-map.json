@@ -1,24 +1,168 @@
 {
-  "updatedDate": "2026-08-23",
-  "generatedAt": "2026-08-23T14:39:18.278Z",
-  "source": "legacy-myrealtrip-accommodation-region-map",
+  "updatedDate": "2026-08-26",
+  "generatedAt": "2026-08-25T16:08:47.119Z",
+  "source": "myrealtrip-accommodation-region-autocomplete",
   "endpoint": "/v1/products/accommodation/region-autocomplete",
   "regions": {
     "seoul": {
       "keyword": "서울",
       "name": "서울",
       "slug": "seoul",
-      "regionId": "",
-      "type": "",
+      "regionId": "2573",
+      "type": "CITY",
       "sourceName": "서울"
     },
     "busan": {
       "keyword": "부산",
       "name": "부산",
       "slug": "busan",
-      "regionId": "",
-      "type": "",
+      "regionId": "21467",
+      "type": "CITY",
       "sourceName": "부산"
+    },
+    "제주시": {
+      "keyword": "제주",
+      "name": "제주시",
+      "slug": "제주시",
+      "regionId": "715",
+      "type": "CITY",
+      "sourceName": "제주시"
+    },
+    "daegu": {
+      "keyword": "대구",
+      "name": "대구",
+      "slug": "daegu",
+      "regionId": "194818",
+      "type": "CITY",
+      "sourceName": "대구"
+    },
+    "청주": {
+      "keyword": "청주",
+      "name": "청주",
+      "slug": "청주",
+      "regionId": "41163",
+      "type": "CITY",
+      "sourceName": "청주"
+    },
+    "incheon": {
+      "keyword": "인천",
+      "name": "인천",
+      "slug": "incheon",
+      "regionId": "7002",
+      "type": "CITY",
+      "sourceName": "인천"
+    },
+    "gwangju": {
+      "keyword": "광주",
+      "name": "광주",
+      "slug": "gwangju",
+      "regionId": "1621",
+      "type": "CITY",
+      "sourceName": "광주"
+    },
+    "강릉": {
+      "keyword": "강릉",
+      "name": "강릉",
+      "slug": "강릉",
+      "regionId": "1437",
+      "type": "CITY",
+      "sourceName": "강릉"
+    },
+    "전주": {
+      "keyword": "전주",
+      "name": "전주",
+      "slug": "전주",
+      "regionId": "57803",
+      "type": "CITY",
+      "sourceName": "전주"
+    },
+    "평창": {
+      "keyword": "평창",
+      "name": "평창",
+      "slug": "평창",
+      "regionId": "78440",
+      "type": "CITY",
+      "sourceName": "평창"
+    },
+    "구례": {
+      "keyword": "구례",
+      "name": "구례",
+      "slug": "구례",
+      "regionId": "119479",
+      "type": "CITY",
+      "sourceName": "구례"
+    },
+    "수원": {
+      "keyword": "수원",
+      "name": "수원",
+      "slug": "수원",
+      "regionId": "80600",
+      "type": "CITY",
+      "sourceName": "수원"
+    },
+    "ulsan": {
+      "keyword": "울산",
+      "name": "울산",
+      "slug": "ulsan",
+      "regionId": "3009",
+      "type": "CITY",
+      "sourceName": "울산"
+    },
+    "고흥": {
+      "keyword": "고흥",
+      "name": "고흥",
+      "slug": "고흥",
+      "regionId": "211321",
+      "type": "CITY",
+      "sourceName": "고흥"
+    },
+    "괴산": {
+      "keyword": "괴산",
+      "name": "괴산",
+      "slug": "괴산",
+      "regionId": "211282",
+      "type": "CITY",
+      "sourceName": "괴산"
+    },
+    "화성": {
+      "keyword": "화성",
+      "name": "화성",
+      "slug": "화성",
+      "regionId": "85807",
+      "type": "CITY",
+      "sourceName": "화성"
+    },
+    "거창": {
+      "keyword": "거창",
+      "name": "거창",
+      "slug": "거창",
+      "regionId": "102709",
+      "type": "CITY",
+      "sourceName": "거창"
+    },
+    "문경": {
+      "keyword": "문경",
+      "name": "문경",
+      "slug": "문경",
+      "regionId": "211283",
+      "type": "CITY",
+      "sourceName": "문경"
+    },
+    "세종시": {
+      "keyword": "세종",
+      "name": "세종시",
+      "slug": "세종시",
+      "regionId": "137354",
+      "type": "CITY",
+      "sourceName": "세종시"
+    },
+    "안동": {
+      "keyword": "안동",
+      "name": "안동",
+      "slug": "안동",
+      "regionId": "149085",
+      "type": "CITY",
+      "sourceName": "안동"
     }
   }
 }
