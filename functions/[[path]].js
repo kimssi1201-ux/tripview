@@ -32,15 +32,7 @@ function articleAssetPath(parts) {
 }
 
 const CANONICAL_ORIGIN = "https://tripview.kr";
-const GENERATED_BLOCKS = [
-  ["<!-- COUPANG_AD_START", "COUPANG_AD_END -->"],
-  ["<!-- COUPANG_WIDGET_START", "COUPANG_WIDGET_END -->"],
-];
 const ARTICLE_NAVIGATION = '<nav class="links" aria-label="주요 메뉴"><a href="/">홈</a><a href="/travel/">여행지</a><a href="/festival/">축제</a><a href="/stay/">숙소</a><a href="/ticket/">입장권·투어</a></nav>';
-
-function escapeRegExp(value) {
-  return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-}
 
 function canonicalFor(parts) {
   const pathname = parts.map((part) => encodeURIComponent(part)).join("/");
@@ -49,12 +41,7 @@ function canonicalFor(parts) {
 
 export function transformArticleHtml(document, parts) {
   let next = String(document || "");
-  for (const [start, end] of GENERATED_BLOCKS) {
-    next = next.replace(new RegExp(`${escapeRegExp(start)}[\\s\\S]*?${escapeRegExp(end)}`, "g"), "");
-  }
   next = next
-    .replace(/\/\* tripview-coupang-native-ad \*\/[\s\S]*?\/\* end-tripview-coupang-native-ad \*\//g, "")
-    .replace(/\s*<script\s+src=["']\/assets\/coupang\.js\?v=[^"']+["']\s+defer><\/script>/gi, "")
     .replace(/\s*<link\s+rel=["']canonical["'][^>]*>/gi, "")
     .replace(/<nav class=["']links["'] aria-label=["']주요 메뉴["']>[\s\S]*?<\/nav>/i, ARTICLE_NAVIGATION)
     .replaceAll("이 여행지 예약 정보", "주변 숙소·투어")

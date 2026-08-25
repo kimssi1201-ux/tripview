@@ -322,7 +322,7 @@ test("Cloudflare route maps article paths to the site asset and delegates other 
   assert.deepEqual(calls, ["/site/travel-129256/", "/site/travel/", "/site/region/gangwon/", "/unknown"]);
 });
 
-test("article response preserves contextual MyRealTrip blocks, removes paused Coupang blocks, and adds one canonical URL", async () => {
+test("article response preserves contextual MyRealTrip and Coupang blocks, and adds one canonical URL", async () => {
   const source = `<!doctype html><html><head>
     <link rel="canonical" href="https://old.example/article">
     <style>/* tripview-mrt-native-ad */.mrt-native-ad{}/* end-tripview-mrt-native-ad */</style>
@@ -338,7 +338,7 @@ test("article response preserves contextual MyRealTrip blocks, removes paused Co
   const transformed = transformArticleHtml(source, ["travel-129256"]);
   assert.match(transformed, /editorial content/);
   assert.match(transformed, /unrelated booking|tripview-mrt-native-ad/);
-  assert.doesNotMatch(transformed, /shopping|carousel|coupang\.js/);
+  assert.match(transformed, /shopping|carousel|coupang\.js/);
   assert.doesNotMatch(transformed, /7~8월/);
   assert.match(transformed, /href="\/travel\/">여행지</);
   assert.match(transformed, /href="\/festival\/">축제</);
