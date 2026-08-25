@@ -371,13 +371,19 @@ test("Korea Tourism images render through processed WebP assets", async () => {
   assert.equal(manifest.items["travel-2774026"].cover.overlay, null);
   assert.equal(manifest.items["travel-2774026"].cover.width, 1200);
   assert.equal(manifest.items["travel-2774026"].cover.height, 750);
-  assert.equal(manifest.items["travel-2774026"].cover.processorVersion, "no-overlay-poster-canvas-20260824");
+  assert.equal(manifest.items["travel-2774026"].cover.processorVersion, "edge-fill-height-fit-poster-canvas-20260825");
+  assert.equal(manifest.items["travel-2774026"].hero.kind, "hero-cover");
+  assert.match(manifest.items["travel-2774026"].hero.src, /-hero\.webp$/);
+  assert.equal(manifest.items["travel-2774026"].hero.width, 1200);
+  assert.equal(manifest.items["travel-2774026"].hero.height, 900);
+  assert.equal(manifest.items["travel-2774026"].hero.overlay, null);
+  assert.equal(manifest.items["travel-2774026"].hero.processorVersion, "edge-fill-height-fit-poster-canvas-20260825");
   assert.equal(manifest.items["travel-2774026"].banner.kind, "hub-banner");
   assert.match(manifest.items["travel-2774026"].banner.src, /-banner\.webp$/);
   assert.equal(manifest.items["travel-2774026"].banner.overlay, null);
-  assert.equal(manifest.items["travel-2774026"].banner.processorVersion, "no-overlay-poster-canvas-20260824");
+  assert.equal(manifest.items["travel-2774026"].banner.processorVersion, "edge-fill-height-fit-poster-canvas-20260825");
   for (const entry of Object.values(manifest.items || {})) {
-    for (const asset of [entry.cover, entry.banner, ...(Array.isArray(entry.images) ? entry.images : [])].filter(Boolean)) {
+    for (const asset of [entry.cover, entry.hero, entry.banner, ...(Array.isArray(entry.images) ? entry.images : [])].filter(Boolean)) {
       assert.equal(asset.overlay, null);
     }
   }
@@ -392,7 +398,7 @@ test("Korea Tourism images render through processed WebP assets", async () => {
   assert.doesNotMatch(article, /이미지 1|<figcaption>대표 이미지/);
 
   assert.match(homepage, /\/assets\/processed\/[a-z0-9-]+\.webp/);
-  assert.match(homepage, /class="story-card home-hero-main"[\s\S]*\/assets\/processed\/[a-z0-9-]+\.webp/);
+  assert.match(homepage, /class="story-card home-hero-main"[\s\S]*\/assets\/processed\/[a-z0-9-]+-hero\.webp/);
   assert.doesNotMatch(homepage, /class="story-card home-hero-main"[\s\S]*?\/assets\/processed\/[a-z0-9-]+-banner\.webp/);
   assert.doesNotMatch(homepage, /tong\.visitkorea\.or\.kr/);
   assert.doesNotMatch(homepage, /<span class="story-thumb"><\/span>/);

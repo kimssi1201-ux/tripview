@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 import { affiliateProductImage, selectAffiliateProducts } from "./lib/affiliate-matching.mjs";
 import { isIndexablePost } from "./lib/content-quality.mjs";
 import { PRETENDARD_LINK, SITE_CSS, siteFooter, siteHeader, siteNavScript } from "./lib/site-design.mjs";
-import { postImageWithProcessed, readTourImageManifest, tourImageBannerAssetForPost, tourImageEntry } from "./lib/tour-image-assets.mjs";
+import { postImageWithProcessed, readTourImageManifest, tourImageBannerAssetForPost, tourImageEntry, tourImageHeroAssetForPost } from "./lib/tour-image-assets.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const POSTS_PATH = path.join(ROOT, "data", "generated-posts.json");
@@ -272,7 +272,7 @@ function articleImage(post, className) {
 
 function isPosterImagePost(post) {
   const entry = tourImageEntry(processedTourImages, post);
-  return Boolean(entry?.cover?.posterCanvas || entry?.banner?.posterCanvas);
+  return Boolean(entry?.cover?.posterCanvas || entry?.hero?.posterCanvas || entry?.banner?.posterCanvas);
 }
 
 function homepageHeroPost(posts = []) {
@@ -797,7 +797,7 @@ function homeStoryLabel(post) {
 
 function homeStoryCard(post, className = "") {
   const isMainHero = String(className || "").split(/\s+/).includes("home-hero-main");
-  const image = isMainHero ? imageOf(post) || tourImageBannerAssetForPost(processedTourImages, post)?.src : imageOf(post);
+  const image = isMainHero ? tourImageHeroAssetForPost(processedTourImages, post)?.src || imageOf(post) : imageOf(post);
   if (!image) return "";
   const thumb = `<span class="story-thumb"><img src="${esc(image)}" alt="${esc(titleOf(post))}" loading="lazy"></span>`;
   return `<a class="story-card${className ? ` ${esc(className)}` : ""}" href="${esc(hrefOf(post))}">

@@ -21,7 +21,7 @@ const POSTS_PATH = join(ROOT, "data", "generated-posts.json");
 const ASSET_DIR = join(ROOT, "assets", "processed");
 const CACHE_DIR = join(ROOT, ".cache", "tour-images");
 const HELPER_PATH = join(ROOT, "scripts", "lib", "render_tour_image.py");
-const PROCESSOR_VERSION = "no-overlay-poster-canvas-20260824";
+const PROCESSOR_VERSION = "edge-fill-height-fit-poster-canvas-20260825";
 const DOWNLOAD_TIMEOUT_MS = 12_000;
 const FORCE = process.argv.includes("--force");
 const LIMIT = Number.parseInt(process.env.TOUR_IMAGE_LIMIT || "", 10);
@@ -368,6 +368,14 @@ async function cachedImageDimensions(source) {
   }
 }
 
+async function dimensionsFromFile(path) {
+  try {
+    return imageDimensionsFromBuffer(await readFile(path));
+  } catch {
+    return null;
+  }
+}
+
 async function existingOutputDimensions(output) {
   try {
     return imageDimensionsFromBuffer(await readFile(output));
@@ -450,9 +458,10 @@ async function processAsset({ python, post, source, kind, outputName, previous }
   const output = join(ASSET_DIR, outputName);
   const topic = topicForPost(post);
   const isBanner = kind === "hub-banner";
-  const isCoverLike = kind === "cover" || isBanner;
+  const isHeroCover = kind === "hero-cover";
+  const isCoverLike = kind === "cover" || isHeroCover || isBanner;
   const width = isCoverLike ? 1200 : 1000;
-  const height = kind === "cover" ? 750 : isBanner ? 675 : null;
+  const height = isHeroCover ? 900 : kind === "cover" ? 750 : isBanner ? 675 : null;
   const asset = {
     kind,
     original: source,
@@ -465,19 +474,28 @@ async function processAsset({ python, post, source, kind, outputName, previous }
     overlay: null,
   };
 
-  const requiresVersionedRender = kind === "cover" || isBanner;
+  const requiresVersionedRender = kind === "cover" || isHeroCover || isBanner;
   const outputExists = await exists(output);
-  const dimensions = isCoverLike ? await cachedImageDimensions(source) : null;
+  let cachedSource = "";
+  let dimensions = isCoverLike ? await cachedImageDimensions(source) : null;
+  if (isCoverLike && !dimensions) {
+    try {
+      cachedSource = await downloadSource(source);
+      dimensions = await dimensionsFromFile(cachedSource);
+    } catch {
+      dimensions = null;
+    }
+  }
   const portraitSource = Boolean(dimensions && dimensions.height > dimensions.width);
   const renderedDimensions = outputExists && isCoverLike ? await existingOutputDimensions(output) : null;
   const outputMatchesTarget = Boolean(renderedDimensions && renderedDimensions.width === width && renderedDimensions.height === height);
   asset.posterCanvas = portraitSource;
-  if (!FORCE && outputExists && (!requiresVersionedRender || prior?.processorVersion === PROCESSOR_VERSION || outputMatchesTarget || !portraitSource)) {
+  if (!FORCE && outputExists && (!requiresVersionedRender || (prior?.processorVersion === PROCESSOR_VERSION && outputMatchesTarget))) {
     return { ...asset, bytes: null };
   }
 
   try {
-    const cachedSource = await downloadSource(source);
+    cachedSource ||= await downloadSource(source);
     await mkdir(ASSET_DIR, { recursive: true });
     await renderImage(python, {
       source: cachedSource,
@@ -535,6 +553,14 @@ async function main() {
       skipped += 1;
       continue;
     }
+    const hero = await processAsset({
+      python,
+      post,
+      source: coverSource,
+      kind: "hero-cover",
+      outputName: `${base}-hero.webp`,
+      previous,
+    });
     const banner = await processAsset({
       python,
       post,
@@ -564,6 +590,7 @@ async function main() {
       region: compactRegion(post.region),
       source: "한국관광공사 공공누리",
       cover,
+      hero,
       banner,
       images,
     };

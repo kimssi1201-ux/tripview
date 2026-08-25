@@ -52,6 +52,10 @@ export function tourImageBannerAssetForPost(manifest, post) {
   return tourImageEntry(manifest, post)?.banner || null;
 }
 
+export function tourImageHeroAssetForPost(manifest, post) {
+  return tourImageEntry(manifest, post)?.hero || null;
+}
+
 export function postImagesWithProcessed(manifest, post) {
   const originals = [post?.image, ...(Array.isArray(post?.images) ? post.images : [])].filter(Boolean);
   const mapped = originals.map((source) => tourImageAssetForSource(manifest, post, source)?.src || source);
