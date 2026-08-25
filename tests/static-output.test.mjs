@@ -186,8 +186,11 @@ test("homepage thumbnails use fixed ratios without gray placeholders", async () 
   const homepage = await readFile("index.html", "utf8");
   assert.match(homepage, /\.story-thumb\{position:relative;display:block;width:100%;aspect-ratio:16\/10;overflow:hidden;background:var\(--card\)\}/);
   assert.match(homepage, /\.story-thumb img\{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block\}/);
-  assert.match(homepage, /\.home-hero-main \.story-thumb\{aspect-ratio:16\/9\}/);
+  assert.match(homepage, /\.home-hero-grid\{display:grid;grid-template-columns:minmax\(0,1\.3fr\) minmax\(340px,1fr\);align-items:stretch;gap:16px\}/);
+  assert.match(homepage, /\.home-hero-main \.story-thumb\{aspect-ratio:4\/3\}/);
   assert.match(homepage, /\.home-hero-small \.story-thumb\{aspect-ratio:16\/10\}/);
+  assert.match(homepage, /\.home-hero-main p\{-webkit-line-clamp:2\}/);
+  assert.match(homepage, /\.home-hero-small p\{-webkit-line-clamp:2;font-size:13px;line-height:1\.45\}/);
   assert.doesNotMatch(homepage, /\.story-thumb\{[^}]*background:var\(--line\)/);
   assert.doesNotMatch(homepage, /object-fit:(?:contain|scale-down)|height:auto|max-height|class="thumb empty"/);
 });
@@ -389,7 +392,8 @@ test("Korea Tourism images render through processed WebP assets", async () => {
   assert.doesNotMatch(article, /이미지 1|<figcaption>대표 이미지/);
 
   assert.match(homepage, /\/assets\/processed\/[a-z0-9-]+\.webp/);
-  assert.match(homepage, /class="story-card home-hero-main"[\s\S]*\/assets\/processed\/[a-z0-9-]+-banner\.webp/);
+  assert.match(homepage, /class="story-card home-hero-main"[\s\S]*\/assets\/processed\/[a-z0-9-]+\.webp/);
+  assert.doesNotMatch(homepage, /class="story-card home-hero-main"[\s\S]*?\/assets\/processed\/[a-z0-9-]+-banner\.webp/);
   assert.doesNotMatch(homepage, /tong\.visitkorea\.or\.kr/);
   assert.doesNotMatch(homepage, /<span class="story-thumb"><\/span>/);
   assert.doesNotMatch(homepage, /story-thumb no-image/);

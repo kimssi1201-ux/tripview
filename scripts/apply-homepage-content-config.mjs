@@ -270,10 +270,19 @@ function articleImage(post, className) {
   return `<span class="${className}"><img src="${esc(image)}" alt="${esc(titleOf(post))}" loading="lazy"></span>`;
 }
 
+function isPosterImagePost(post) {
+  const entry = tourImageEntry(processedTourImages, post);
+  return Boolean(entry?.cover?.posterCanvas || entry?.banner?.posterCanvas);
+}
+
 function homepageHeroPost(posts = []) {
-  return posts.find((post) => tourImageBannerAssetForPost(processedTourImages, post)?.src)
-    || posts.find((post) => String(imageOf(post) || "").startsWith("/assets/processed/"))
-    || posts[0];
+  const candidates = uniquePosts(posts).filter((post) => imageOf(post));
+  const landscape = candidates.filter((post) => !isPosterImagePost(post));
+  const preferred = landscape.length ? landscape : candidates;
+  return preferred.find((post) => tourImageBannerAssetForPost(processedTourImages, post)?.src)
+    || preferred.find((post) => String(imageOf(post) || "").startsWith("/assets/processed/"))
+    || preferred[0]
+    || null;
 }
 
 function metaLine(post) {
@@ -788,7 +797,7 @@ function homeStoryLabel(post) {
 
 function homeStoryCard(post, className = "") {
   const isMainHero = String(className || "").split(/\s+/).includes("home-hero-main");
-  const image = isMainHero ? tourImageBannerAssetForPost(processedTourImages, post)?.src || imageOf(post) : imageOf(post);
+  const image = isMainHero ? imageOf(post) || tourImageBannerAssetForPost(processedTourImages, post)?.src : imageOf(post);
   if (!image) return "";
   const thumb = `<span class="story-thumb"><img src="${esc(image)}" alt="${esc(titleOf(post))}" loading="lazy"></span>`;
   return `<a class="story-card${className ? ` ${esc(className)}` : ""}" href="${esc(hrefOf(post))}">
@@ -804,7 +813,8 @@ function homeStoryCard(post, className = "") {
 
 function homeHeroSection(posts = []) {
   const imagePosts = uniquePosts(posts).filter((post) => imageOf(post));
-  const items = uniquePosts([homepageHeroPost(imagePosts), ...imagePosts]).filter(Boolean).slice(0, 5);
+  const lead = homepageHeroPost(imagePosts);
+  const items = uniquePosts([lead, ...imagePosts.filter((post) => (post?.slug || post?.title) !== (lead?.slug || lead?.title))]).filter(Boolean).slice(0, 5);
   if (items.length < 5) return "";
   return `<section class="home-hero" aria-label="대표 글">
     <div class="home-hero-grid">
@@ -876,10 +886,10 @@ function homeSection({ id, title, href, cards = [] }) {
 
 const HOMEPAGE_CSS = `
 .home-hero{padding:32px 0 40px}
-.home-hero-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(340px,1fr);align-items:stretch;gap:24px}
-.home-hero-main,.home-hero-rail{height:100%}
+.home-hero-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(340px,1fr);align-items:stretch;gap:16px}
+.home-hero-main,.home-hero-rail{align-self:stretch;min-height:0}
 .home-hero-main{display:flex;flex-direction:column}
-.home-hero-main .story-thumb{aspect-ratio:16/9}
+.home-hero-main .story-thumb{aspect-ratio:4/3}
 .home-hero-main .story-card-body{flex:1 1 auto}
 .home-hero-rail{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:16px}
 .home-hero-small{display:flex;min-height:0;flex-direction:column}
@@ -887,10 +897,10 @@ const HOMEPAGE_CSS = `
 .home-hero-small .story-card-body{flex:1 1 auto}
 .home-hero-main .story-card-body{gap:8px;padding:18px}
 .home-hero-main strong{font-size:28px;line-height:1.28}
-.home-hero-main p{-webkit-line-clamp:1}
+.home-hero-main p{-webkit-line-clamp:2}
 .home-hero-small strong{font-size:16px}
 .home-hero-small .story-card-body{padding:14px}
-.home-hero-small p{display:none}
+.home-hero-small p{-webkit-line-clamp:2;font-size:13px;line-height:1.45}
 .home-affiliate-card{background-image:linear-gradient(var(--cta),var(--cta));background-repeat:no-repeat;background-position:left top;background-size:3px 100%}
 @media(max-width:900px){.home-hero{padding:24px 0 32px}.home-hero-grid,.home-hero-rail{grid-template-columns:1fr}.home-hero-rail{grid-template-rows:none}.home-hero-main strong{font-size:22px}.home-hero-main .story-card-body{padding:16px}}
 `;
