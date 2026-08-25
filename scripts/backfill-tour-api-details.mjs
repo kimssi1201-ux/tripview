@@ -15,6 +15,7 @@ const INCLUDE_IMAGES = process.env.BACKFILL_INCLUDE_IMAGES === "1";
 const IMAGE_SAMPLE = process.env.BACKFILL_IMAGE_SAMPLE === "1";
 const IMAGE_SAMPLE_SIZE = Math.max(20, Math.min(30, Number.parseInt(process.env.BACKFILL_IMAGE_SAMPLE_SIZE || "30", 10) || 30));
 const MAX_IMAGES_PER_POST = Math.max(3, Math.min(8, Number.parseInt(process.env.BACKFILL_MAX_IMAGES_PER_POST || "8", 10) || 8));
+const FETCH_TIMEOUT_MS = Math.max(1000, Number.parseInt(process.env.BACKFILL_FETCH_TIMEOUT_MS || "15000", 10) || 15000);
 
 const strip = (value = "") =>
   String(value)
@@ -50,7 +51,17 @@ function buildUrl(endpoint, extra, encodedKey) {
 async function tourGet(endpoint, extra = {}) {
   let lastError = "";
   for (const encodedKey of [false, true]) {
-    const res = await fetch(buildUrl(endpoint, extra, encodedKey));
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+    let res;
+    try {
+      res = await fetch(buildUrl(endpoint, extra, encodedKey), { signal: controller.signal });
+    } catch (error) {
+      lastError = error.name === "AbortError" ? `request timed out after ${FETCH_TIMEOUT_MS}ms` : error.message;
+      clearTimeout(timeout);
+      continue;
+    }
+    clearTimeout(timeout);
     const text = await res.text();
     try {
       const json = JSON.parse(text);

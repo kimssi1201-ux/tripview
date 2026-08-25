@@ -49,7 +49,7 @@ jobs:
           fi
           if [ "$IMAGE_MODE" = "full" ]; then
             BACKFILL_INCLUDE_IMAGES=1 BACKFILL_LIMIT="${{ github.event.inputs.limit || '300' }}" node scripts/backfill-tour-api-details.mjs
-          else
+          elif [ "$IMAGE_MODE" = "off" ]; then
             BACKFILL_LIMIT="${{ github.event.inputs.limit || '300' }}" node scripts/backfill-tour-api-details.mjs
           fi
           node scripts/polish-contextual-copy.mjs
