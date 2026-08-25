@@ -14,8 +14,8 @@
     /* map-preview */.map-preview{margin:34px 0 38px}.map-preview h2{margin:0 0 13px;font-size:26px;letter-spacing:0}.map-frame{border:1px solid var(--line);background:var(--soft);aspect-ratio:16/9;overflow:hidden}.map-frame iframe{display:block;width:100%;height:100%;border:0;filter:grayscale(.15)}.map-address{margin:10px 0 0;color:var(--muted);font-size:15px}.map-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}.map-links a{display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:8px 13px;border:1px solid var(--line);font-size:14px;font-weight:800;background:#fff}@media(max-width:640px){.map-frame{aspect-ratio:4/3}.map-links a{width:100%}}/* tripview-site-design */
 :root{--brand:#0F5C5C;--brand-hover:#147A7A;--bg:#FAFAF8;--card:#FFFFFF;--ink:#1A1A1A;--muted:#6B6B6B;--line:#E5E5E0;--cta:#E8A33D;--cta-hover:#D18F2A;--soft-teal:color-mix(in srgb,var(--brand) 9%,var(--card));--soft-cta:color-mix(in srgb,var(--cta) 16%,var(--card));--site-wrap:min(1180px,calc(100% - 32px))}
 *{box-sizing:border-box}
-html{scroll-padding-top:96px}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;font-size:16px;line-height:1.7;letter-spacing:0}
+html{scroll-padding-top:96px;overflow-x:hidden}
+body{margin:0;overflow-x:hidden;background:var(--bg);color:var(--ink);font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;font-size:16px;line-height:1.7;letter-spacing:0}
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%;object-fit:cover;background:var(--card)}
 button,input,select{font:inherit}
@@ -80,8 +80,8 @@ button,input,select{font:inherit}
   .site-nav{display:none}
   .site-menu-backdrop{position:fixed;inset:0;z-index:1201;background:color-mix(in srgb,var(--ink) 18%,transparent)}
   .site-header.is-menu-open .site-menu-backdrop{display:block}
-  .mobile-menu-panel{position:fixed;inset:0 0 0 auto;z-index:1202;display:grid;grid-template-rows:auto minmax(0,1fr);width:min(420px,calc(100% - 32px));max-width:100%;background:var(--card);box-shadow:-20px 0 40px color-mix(in srgb,var(--ink) 16%,transparent);transform:translateX(100%);transition:transform 150ms ease}
-  .site-header.is-menu-open .mobile-menu-panel{transform:translateX(0)}
+  .mobile-menu-panel{position:fixed;inset:0 0 0 auto;z-index:1202;display:none;grid-template-rows:auto minmax(0,1fr);width:min(420px,calc(100% - 32px));max-width:100%;background:var(--card);box-shadow:-20px 0 40px color-mix(in srgb,var(--ink) 16%,transparent)}
+  .site-header.is-menu-open .mobile-menu-panel{display:grid}
   .mobile-menu-head{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px;padding:10px 18px;border-bottom:1px solid var(--line);background:var(--card)}
   .mobile-menu-nav{display:block;overflow:auto;padding:18px;background:var(--card)}
   .mobile-menu-home{display:flex;align-items:center;min-height:48px;margin-bottom:18px;padding:0 14px;border:1px solid var(--line);border-radius:8px;background:var(--bg);font-weight:900}
@@ -101,6 +101,7 @@ button,input,select{font:inherit}
   .story-grid{grid-template-columns:1fr;gap:16px}
   .site-footer-inner{grid-template-columns:1fr;gap:20px;padding:32px 0}
   .site-search-link{font-size:22px}
+  .data-table{background:linear-gradient(to right,var(--card) 30%,color-mix(in srgb,var(--card) 0%,transparent)),linear-gradient(to left,var(--card) 30%,color-mix(in srgb,var(--card) 0%,transparent)) 100% 0,radial-gradient(farthest-side at 0 50%,color-mix(in srgb,var(--ink) 14%,transparent),transparent),radial-gradient(farthest-side at 100% 50%,color-mix(in srgb,var(--ink) 14%,transparent),transparent) 100% 0;background-attachment:local,local,scroll,scroll;background-repeat:no-repeat;background-size:36px 100%,36px 100%,14px 100%,14px 100%}
 }
 @media(max-width:520px){body{font-size:15px}.site-section-head h2{font-size:19px}.story-card strong{font-size:17px}.story-card-body{padding:14px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:0.01ms!important;animation-duration:0.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
@@ -294,7 +295,7 @@ footer.site-footer{padding:0;color:var(--muted)}
     <a href="https://map.naver.com/p/search/%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EA%B0%95%EB%A6%89%EC%8B%9C%20%ED%95%B4%EC%95%88%EB%A1%9C%20210%20(%EC%86%A1%EC%A0%95%EB%8F%99)" target="_blank" rel="noopener">네이버 지도에서 보기</a>
   </div>
 </section>
-<!-- map-preview:end --><h2>먼저 알아둘 점</h2><p>신라모노그램 강릉은 강원특별자치도 강릉시 숙박 일정에서 위치와 이동 편의를 함께 비교해야 하는 숙소입니다.</p><p>객실 사진만으로 결정하기보다 체크인·체크아웃, 주차, 주변 식사와 다음 날 이동 경로를 같이 보면 예약 판단이 쉬워집니다.</p><p>목적지는 강원특별자치도 강릉시 해안로 210 (송정동) 기준으로 잡으면 됩니다.</p><h2>운영 정보</h2><table class="article-fact-table" aria-label="운영 정보 표"><tbody><tr><th>장소</th><td>강원특별자치도 강릉시 해안로 210 (송정동)</td></tr><tr><th>문의</th><td>02-2230-0707</td></tr><tr><th>체크인·아웃</th><td>15:00 / 11:00</td></tr><tr><th>객실 수</th><td>917실</td></tr><tr><th>객실 유형</th><td>[호텔] 디럭스 / [호텔] 시그니처 스위트 / [레지던스] 디럭스 / [레지던스] 시그니처 스위트 등</td></tr><tr><th>부대시설</th><td>수영장 / 트리니티 스파 / 피트니스센터 / 스크린 골프 / 미팅룸 / 파티룸 / 코인런드리 / 편의점 등</td></tr><tr><th>취사</th><td>불가능</td></tr></tbody></table><p>현재 확인되는 안내는 체크인 <strong>15:00</strong> · 체크아웃 11:00 · 주차 가능 · 문의 02-2230-0707입니다.</p><p>위 정보는 방문 날짜와 시설 사정에 따라 바뀔 수 있습니다.</p><p>특히 운영시간, 휴무, 예약 마감, 주차 가능 여부는 같은 장소라도 평일과 주말 또는 성수기에 달라질 수 있으므로 출발 당일 한 번 더 확인하세요.</p><h2>체크인 전 확인할 항목</h2><p>숙소는 같은 건물이라도 객실 유형에 따라 전망, 침대 구성, 취사 가능 여부와 포함 서비스가 달라질 수 있습니다.</p><p>예약 화면에서 객실명과 투숙 인원, 조식 포함 여부, 취소 마감 시각을 확인한 뒤 결제하는 편이 안전합니다.</p><p>늦게 도착할 예정이라면 프런트 운영시간과 심야 체크인 방법을 미리 문의하세요.</p><p>차량 이용 시 주차 등록 방식과 추가 요금, 대중교통 이용 시 마지막 이동 구간의 경사나 도보 시간을 같이 확인하면 좋습니다.</p><h2>이동과 귀가</h2><p>신라모노그램 강릉의 주소는 강원특별자치도 강릉시 해안로 210 (송정동)입니다.</p><p>내비게이션에는 장소명과 주소를 함께 대조해 입력하고, 도착 직전에는 실제 입구와 주차장 위치가 같은지 지도에서 다시 확인하세요.</p><p>대중교통을 이용한다면 갈 때보다 돌아오는 교통편을 먼저 확인하는 것이 좋습니다. 막차 시간과 배차 간격, 정류장까지의 도보 거리까지 저장해두면 현장에서 일정을 급하게 줄이는 일을 피할 수 있습니다.</p><h2>비용과 준비물</h2><p>아이와 함께라면 화장실과 휴식 장소, 유모차 이동 가능 구간을 먼저 확인하세요.</p><p>부모님과 함께라면 계단과 경사, 앉아 쉴 곳이 중요한 기준이고, 혼자 방문한다면 귀가 교통편과 휴대전화 배터리를 여유 있게 준비하는 편이 좋습니다.</p><p>계절과 날씨에 맞는 신발, 물, 보조 배터리는 기본 준비물입니다. 실외 일정은 햇빛과 소나기 대책을, 실내 일정은 냉방에 대비한 얇은 겉옷과 예약 확인 화면을 챙기면 좋습니다.</p><h2>예약 전 확인 순서</h2><p>신라모노그램 강릉 방문 당일에는 운영 여부, 입장 또는 주문 마감, 주차 가능 여부를 마지막으로 확인하세요.</p><p>안내된 정보가 실제 현장과 다르면 무리하게 기다리기보다 강원특별자치도 강릉시 안의 가까운 대체 장소로 이동할 수 있도록 후보 한 곳을 준비해두는 편이 좋습니다.</p><p>일정은 목적지 체류 시간만 계산하지 말고 왕복 이동, 주차, 식사, 휴식 시간을 포함해 잡아야 합니다.</p><p>처음 방문하는 곳이라면 계획 사이에 20~<strong>30분</strong>의 여유를 두는 것이 실제 여행에서 가장 효과적인 변수 대응 방법입니다.</p><h2>자주 묻는 질문</h2><details open><summary>운영시간은 어떻게 확인하나요?</summary><p>고정 운영시간이 별도로 확인되지 않아 방문 날짜의 운영 여부와 입장 마감 시간을 직접 확인해야 합니다.</p></details><details open><summary>쉬는 날이 있나요?</summary><p>정기 휴무 정보가 별도로 확인되지 않았습니다. 임시 휴무가 있을 수 있으므로 출발 당일 다시 확인하세요.</p></details><details open><summary>주차할 수 있나요?</summary><p>가능</p></details><details open><summary>요금은 얼마인가요?</summary><p>이용 항목과 시기에 따라 달라질 수 있어 방문 또는 예약 전에 최종 금액을 확인해야 합니다.</p></details><details open><summary>문의는 어디로 하나요?</summary><p>02-2230-0707</p></details><!-- TRUST_NOTE_START -->
+<!-- map-preview:end --><h2>먼저 알아둘 점</h2><p>신라모노그램 강릉은 강원특별자치도 강릉시 숙박 일정에서 위치와 이동 편의를 함께 비교해야 하는 숙소입니다.</p><p>객실 사진만으로 결정하기보다 체크인·체크아웃, 주차, 주변 식사와 다음 날 이동 경로를 같이 보면 예약 판단이 쉬워집니다.</p><p>목적지는 강원특별자치도 강릉시 해안로 210 (송정동) 기준으로 잡으면 됩니다.</p><h2>운영 정보</h2><table class="article-fact-table" aria-label="운영 정보 표"><tbody><tr><th>장소</th><td>강원특별자치도 강릉시 해안로 210 (송정동)</td></tr><tr><th>문의</th><td>02-2230-0707</td></tr><tr><th>체크인·아웃</th><td>15:00 / 11:00</td></tr><tr><th>객실 수</th><td>917실</td></tr><tr><th>객실 유형</th><td>[호텔] 디럭스 / [호텔] 시그니처 스위트 / [레지던스] 디럭스 / [레지던스] 시그니처 스위트 등</td></tr><tr><th>부대시설</th><td>수영장 / 트리니티 스파 / 피트니스센터 / 스크린 골프 / 미팅룸 / 파티룸 / 코인런드리 / 편의점 등</td></tr><tr><th>취사</th><td>불가능</td></tr></tbody></table><p>현재 확인되는 안내는 체크인 <strong>15:00</strong> · 체크아웃 11:00 · 주차 가능 · 문의 02-2230-0707입니다.</p><p>위 정보는 방문 날짜와 시설 사정에 따라 바뀔 수 있습니다.</p><p>특히 운영시간, 휴무, 예약 마감, 주차 가능 여부는 같은 장소라도 평일과 주말 또는 성수기에 달라질 수 있으므로 출발 당일 한 번 더 확인하세요.</p><h2>체크인 전 확인할 항목</h2><p>숙소는 같은 건물이라도 객실 유형에 따라 전망, 침대 구성, 취사 가능 여부와 포함 서비스가 달라질 수 있습니다.</p><p>예약 화면에서 객실명과 투숙 인원, 조식 포함 여부, 취소 마감 시각을 확인한 뒤 결제하는 편이 안전합니다.</p><p>늦게 도착할 예정이라면 프런트 운영시간과 심야 체크인 방법을 미리 문의하세요.</p><p>차량 이용 시 주차 등록 방식과 추가 요금, 대중교통 이용 시 마지막 이동 구간의 경사나 도보 시간을 같이 확인하면 좋습니다.</p><h2>이동과 귀가</h2><p>신라모노그램 강릉의 주소는 강원특별자치도 강릉시 해안로 210 (송정동)입니다.</p><p>내비게이션에는 장소명과 주소를 함께 대조해 입력하고, 도착 직전에는 실제 입구와 주차장 위치가 같은지 지도에서 다시 확인하세요.</p><p>대중교통을 이용한다면 갈 때보다 돌아오는 교통편을 먼저 확인하는 것이 좋습니다. 막차 시간과 배차 간격, 정류장까지의 도보 거리까지 저장해두면 현장에서 일정을 급하게 줄이는 일을 피할 수 있습니다.</p><h2>비용과 준비물</h2><p>아이와 함께라면 화장실과 휴식 장소, 유모차 이동 가능 구간을 먼저 확인하세요.</p><p>부모님과 함께라면 계단과 경사, 앉아 쉴 곳이 중요한 기준이고, 혼자 방문한다면 귀가 교통편과 휴대전화 배터리를 여유 있게 준비하는 편이 좋습니다.</p><p>계절과 날씨에 맞는 신발, 물, 보조 배터리는 기본 준비물입니다. 실외 일정은 햇빛과 소나기 대책을, 실내 일정은 냉방에 대비한 얇은 겉옷과 예약 확인 화면을 챙기면 좋습니다.</p><h2>예약 전 확인 순서</h2><p>신라모노그램 강릉 방문 당일에는 운영 여부, 입장 또는 주문 마감, 주차 가능 여부를 마지막으로 확인하세요.</p><p>안내된 정보가 실제 현장과 다르면 무리하게 기다리기보다 강원특별자치도 강릉시 안의 가까운 대체 장소로 이동할 수 있도록 후보 한 곳을 준비해두는 편이 좋습니다.</p><p>일정은 목적지 체류 시간만 계산하지 말고 왕복 이동, 주차, 식사, 휴식 시간을 포함해 잡아야 합니다.</p><p>처음 방문하는 곳이라면 계획 사이에 20~ <strong>30분</strong> 의 여유를 두는 것이 실제 여행에서 가장 효과적인 변수 대응 방법입니다.</p><h2>자주 묻는 질문</h2><details open><summary>운영시간은 어떻게 확인하나요?</summary><p>고정 운영시간이 별도로 확인되지 않아 방문 날짜의 운영 여부와 입장 마감 시간을 직접 확인해야 합니다.</p></details><details open><summary>쉬는 날이 있나요?</summary><p>정기 휴무 정보가 별도로 확인되지 않았습니다. 임시 휴무가 있을 수 있으므로 출발 당일 다시 확인하세요.</p></details><details open><summary>주차할 수 있나요?</summary><p>가능</p></details><details open><summary>요금은 얼마인가요?</summary><p>이용 항목과 시기에 따라 달라질 수 있어 방문 또는 예약 전에 최종 금액을 확인해야 합니다.</p></details><details open><summary>문의는 어디로 하나요?</summary><p>02-2230-0707</p></details><!-- TRUST_NOTE_START -->
 <aside class="trust-note" aria-label="콘텐츠 신뢰 정보">
   <h2>작성·검수 정보</h2>
   <dl>
@@ -313,42 +314,7 @@ footer.site-footer{padding:0;color:var(--muted)}
   <a class="lodging-booking-button" href="/stay/">숙소 예약처 보기</a>
 </aside>
 <!-- LODGING_BOOKING_END --></section>
-    </main><script src="/assets/topic-filter.js?v=topic-filter-20260706-hardening" defer></script><footer class="site-footer">
-    <div class="site-footer-inner">
-      <div class="footer-brand">
-        <strong>트립뷰</strong>
-        <p>국내 여행지, 축제, 숙소 예약 정보를 지역과 목적별로 정리합니다.</p>
-      </div>
-      <div class="footer-col">
-        <b>카테고리</b>
-        <a href="/travel/">여행지</a>
-        <a href="/festival/">축제·행사</a>
-        <a href="/stay/">숙소</a>
-        <a href="/ticket/">입장권·투어</a>
-      </div>
-      <div class="footer-col">
-        <b>지역 허브</b>
-        <a href="/region/gangwon/">강원</a><a href="/region/gyeonggi/">경기</a><a href="/region/gyeongnam/">경남</a><a href="/region/gyeongbuk/">경북</a><a href="/region/busan/">부산</a><a href="/region/seoul/">서울</a><a href="/region/sejong/">세종</a><a href="/region/ulsan/">울산</a>
-      </div>
-      <div class="footer-col">
-        <b>운영</b>
-        <a href="/editorial-team">편집팀</a>
-        <a href="/editorial-policy">콘텐츠 운영 기준</a>
-        <a href="/affiliate-disclosure">제휴 안내</a>
-      </div>
-      <div class="footer-col">
-        <b>정책</b>
-        <a href="/privacy">개인정보처리방침</a>
-        <a href="/terms">이용약관</a>
-        <a href="/sitemap.xml">사이트맵</a>
-        <a href="/contact">문의</a>
-      </div>
-      <div class="footer-bottom">
-        <span>사업자 정보: 트립뷰 콘텐츠 운영</span>
-        <span>Copyright 2026 Tripview.</span>
-      </div>
-    </div>
-  </footer>
+    </main><script src="/assets/topic-filter.js?v=topic-filter-20260706-hardening" defer></script>
 
     <script>
     (() => {
@@ -420,5 +386,41 @@ footer.site-footer{padding:0;color:var(--muted)}
       });
     })();
   </script>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="footer-brand">
+        <strong>트립뷰</strong>
+        <p>국내 여행지, 축제, 숙소 예약 정보를 지역과 목적별로 정리합니다.</p>
+      </div>
+      <div class="footer-col">
+        <b>카테고리</b>
+        <a href="/travel/">여행지</a>
+        <a href="/festival/">축제·행사</a>
+        <a href="/stay/">숙소</a>
+        <a href="/ticket/">입장권·투어</a>
+      </div>
+      <div class="footer-col">
+        <b>지역 허브</b>
+        <a href="/region/gangwon/">강원</a><a href="/region/gyeonggi/">경기</a><a href="/region/gyeongnam/">경남</a><a href="/region/gyeongbuk/">경북</a><a href="/region/busan/">부산</a><a href="/region/seoul/">서울</a><a href="/region/sejong/">세종</a><a href="/region/ulsan/">울산</a>
+      </div>
+      <div class="footer-col">
+        <b>운영</b>
+        <a href="/editorial-team">편집팀</a>
+        <a href="/editorial-policy">콘텐츠 운영 기준</a>
+        <a href="/affiliate-disclosure">제휴 안내</a>
+      </div>
+      <div class="footer-col">
+        <b>정책</b>
+        <a href="/privacy">개인정보처리방침</a>
+        <a href="/terms">이용약관</a>
+        <a href="/sitemap.xml">사이트맵</a>
+        <a href="/contact">문의</a>
+      </div>
+      <div class="footer-bottom">
+        <span>사업자 정보: 트립뷰 콘텐츠 운영</span>
+        <span>Copyright 2026 Tripview.</span>
+      </div>
+    </div>
+  </footer>
   </body>
 </html>

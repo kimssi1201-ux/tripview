@@ -14,8 +14,8 @@
     /* tripview-site-design */
 :root{--brand:#0F5C5C;--brand-hover:#147A7A;--bg:#FAFAF8;--card:#FFFFFF;--ink:#1A1A1A;--muted:#6B6B6B;--line:#E5E5E0;--cta:#E8A33D;--cta-hover:#D18F2A;--soft-teal:color-mix(in srgb,var(--brand) 9%,var(--card));--soft-cta:color-mix(in srgb,var(--cta) 16%,var(--card));--site-wrap:min(1180px,calc(100% - 32px))}
 *{box-sizing:border-box}
-html{scroll-padding-top:96px}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;font-size:16px;line-height:1.7;letter-spacing:0}
+html{scroll-padding-top:96px;overflow-x:hidden}
+body{margin:0;overflow-x:hidden;background:var(--bg);color:var(--ink);font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;font-size:16px;line-height:1.7;letter-spacing:0}
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%;object-fit:cover;background:var(--card)}
 button,input,select{font:inherit}
@@ -80,8 +80,8 @@ button,input,select{font:inherit}
   .site-nav{display:none}
   .site-menu-backdrop{position:fixed;inset:0;z-index:1201;background:color-mix(in srgb,var(--ink) 18%,transparent)}
   .site-header.is-menu-open .site-menu-backdrop{display:block}
-  .mobile-menu-panel{position:fixed;inset:0 0 0 auto;z-index:1202;display:grid;grid-template-rows:auto minmax(0,1fr);width:min(420px,calc(100% - 32px));max-width:100%;background:var(--card);box-shadow:-20px 0 40px color-mix(in srgb,var(--ink) 16%,transparent);transform:translateX(100%);transition:transform 150ms ease}
-  .site-header.is-menu-open .mobile-menu-panel{transform:translateX(0)}
+  .mobile-menu-panel{position:fixed;inset:0 0 0 auto;z-index:1202;display:none;grid-template-rows:auto minmax(0,1fr);width:min(420px,calc(100% - 32px));max-width:100%;background:var(--card);box-shadow:-20px 0 40px color-mix(in srgb,var(--ink) 16%,transparent)}
+  .site-header.is-menu-open .mobile-menu-panel{display:grid}
   .mobile-menu-head{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px;padding:10px 18px;border-bottom:1px solid var(--line);background:var(--card)}
   .mobile-menu-nav{display:block;overflow:auto;padding:18px;background:var(--card)}
   .mobile-menu-home{display:flex;align-items:center;min-height:48px;margin-bottom:18px;padding:0 14px;border:1px solid var(--line);border-radius:8px;background:var(--bg);font-weight:900}
@@ -101,6 +101,7 @@ button,input,select{font:inherit}
   .story-grid{grid-template-columns:1fr;gap:16px}
   .site-footer-inner{grid-template-columns:1fr;gap:20px;padding:32px 0}
   .site-search-link{font-size:22px}
+  .data-table{background:linear-gradient(to right,var(--card) 30%,color-mix(in srgb,var(--card) 0%,transparent)),linear-gradient(to left,var(--card) 30%,color-mix(in srgb,var(--card) 0%,transparent)) 100% 0,radial-gradient(farthest-side at 0 50%,color-mix(in srgb,var(--ink) 14%,transparent),transparent),radial-gradient(farthest-side at 100% 50%,color-mix(in srgb,var(--ink) 14%,transparent),transparent) 100% 0;background-attachment:local,local,scroll,scroll;background-repeat:no-repeat;background-size:36px 100%,36px 100%,14px 100%,14px 100%}
 }
 @media(max-width:520px){body{font-size:15px}.site-section-head h2{font-size:19px}.story-card strong{font-size:17px}.story-card-body{padding:14px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:0.01ms!important;animation-duration:0.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
@@ -271,7 +272,7 @@ footer.site-footer{padding:0;color:var(--muted)}
         </div>
       </section>
 
-      <section class="wrap layout"><article class="content"><div class="article-info-grid" aria-label="방문 기본 정보"><div class="article-info-card"><span class="article-info-icon" aria-hidden="true">일</span><span><span class="article-info-label">일정</span><strong class="article-info-value">2026년 9월 18일~2026년 9월 20일</strong></span></div><div class="article-info-card"><span class="article-info-icon" aria-hidden="true">장</span><span><span class="article-info-label">장소</span><strong class="article-info-value">갯골생태공원</strong></span></div><div class="article-info-card"><span class="article-info-icon" aria-hidden="true">문</span><span><span class="article-info-label">문의</span><strong class="article-info-value">031-310-2920</strong></span></div><div class="article-info-card"><span class="article-info-icon" aria-hidden="true">주</span><span><span class="article-info-label">주최</span><strong class="article-info-value">시흥시</strong></span></div><div class="article-info-card"><span class="article-info-icon" aria-hidden="true">시</span><span><span class="article-info-label">운영 시간</span><strong class="article-info-value">07:00~21:30</strong></span></div><div class="article-info-card"><span class="article-info-icon" aria-hidden="true">요</span><span><span class="article-info-label">이용 요금</span><strong class="article-info-value">무료(일부체험프로그램 유료)</strong></span></div></div><h2>관람 포인트</h2><p>시흥갯골축제은 계절감이 분명한 행사라 날씨와 이동 동선이 만족도를 크게 좌우합니다.</p><p>꽃, 강변, 숲길처럼 야외 구간이 중심이라면 사진을 찍는 시간과 쉬는 시간을 따로 잡아야 일정이 빡빡해지지 않습니다.</p><p>시흥갯골축제을 일정에 넣을 때는 “도착해서 무엇을 먼저 볼지”를 정해두는 편이 좋습니다.</p><p>행사장은 생각보다 넓거나 사람이 몰릴 수 있어, 대표 프로그램 하나와 식사·휴식 시간을 먼저 고정해두면 현장에서 선택지가 훨씬 편해집니다.</p><h2>일정과 운영 흐름</h2><table class="article-fact-table" aria-label="운영 정보 표"><tbody><tr><th>일정</th><td>2026년 9월 18일~2026년 9월 20일</td></tr><tr><th>장소</th><td>갯골생태공원</td></tr><tr><th>문의</th><td>031-310-2920</td></tr><tr><th>주최</th><td>시흥시</td></tr><tr><th>운영 시간</th><td>07:00~21:30</td></tr><tr><th>이용 요금</th><td>무료(일부체험프로그램 유료)</td></tr></tbody></table><p>운영 기간은 2026년 <strong>9월 18일</strong>~2026년 9월 20일, 시간은 07:00~21:30 기준입니다.</p><p>같은 축제 안에서도 공연, 체험, 판매 부스의 시작 시간이 다를 수 있으니 도착 직후 전체 시간표부터 확인하는 것이 좋습니다.</p><p>장소는 갯골생태공원입니다. 처음 간다면 입구, 안내 부스, 화장실, 쉼터, 귀가 방향을 먼저 확인하세요. 이 순서만 잡아도 사람이 많은 시간대에 불필요하게 되돌아가는 일을 줄일 수 있습니다.</p><h2>운영 정보</h2><p>시흥갯골축제 방문 전에는 운영 시간, 요금, 주차, 문의 순서로 먼저 살피면 좋습니다.</p><p>행사장 입구와 안내 부스, 화장실, 귀가 방향을 먼저 확인하면 사람이 몰리는 시간에도 동선이 덜 흔들립니다.</p><h2>프로그램 구성</h2><ul class="article-check-list article-program-list" aria-label="프로그램 구성"><li>대표프로그램 : 소금의 기억</li><li>물의 춤 참여형프로그램 : 희망 종이비행기</li><li>피아노의 숲</li><li>Sea Pool 파티 갯골 버스킹</li><li>갯골 춘몽</li><li>나무숲 음악제</li><li>100인의 기타 둥둥</li><li>바람의 음악제</li></ul><p>야외 구간이 많다면 한 번에 전부 보려고 하기보다 빛이 좋은 시간대와 휴식 지점을 함께 생각해 코스를 나누는 편이 좋습니다.</p><p>가족 방문이라면 체험과 휴식 지점을 가까이 묶고, 커플이나 친구끼리라면 공연·먹거리·사진 찍기 좋은 구간을 이어 붙이는 식으로 보는 순서를 잡아보세요.</p><p>혼자 방문한다면 대기 시간이 긴 프로그램보다 짧게 여러 구간을 둘러보는 방식이 더 만족스러울 수 있습니다.</p><h2>비용과 준비물</h2><p>요금 기준은 무료(일부체험프로그램 유료)입니다. 무료 행사라도 먹거리, 체험, 판매 부스는 별도 비용이 생길 수 있으니 현금과 카드 결제 가능 여부를 함께 생각해두면 좋습니다.</p><p>야외 시간이 길어질 수 있으니 편한 신발, 물, 날씨에 맞는 겉옷을 챙기세요. 비나 강한 햇빛이 예보된 날에는 실내 대피 장소나 쉬어갈 카페를 미리 정해두는 것이 좋습니다.</p><h2>이동과 귀가</h2><p>경기도 시흥시로 이동하는 주말 일정이라면 주차보다 귀가 동선이 더 중요할 때가 많습니다.</p><p>행사장 바로 앞 주차만 고집하기보다 조금 떨어진 주차장이나 대중교통 환승 지점을 함께 보는 편이 현실적입니다.</p><p>축제 종료 직후에는 한 번에 사람이 빠져나가므로 이동이 느려질 수 있습니다. 마지막 프로그램까지 볼 계획이라면 막차 시간, 택시 승차 위치, 도보 이동 시간을 미리 확인해두세요.</p><h2>예약 전 확인 순서</h2><p>문의처는 031-310-2920입니다. 날씨, 안전 관리, 현장 혼잡도에 따라 세부 프로그램과 운영 시간이 조정될 수 있으므로 출발 전 당일 공지를 한 번 더 확인하는 편이 안전합니다.</p><p>시흥갯골축제은 현장 분위기를 따라 움직이는 재미가 있지만, 아무 계획 없이 가면 대기와 이동에 시간을 많이 쓰기 쉽습니다.</p><p>일정, 대표 프로그램, 결제 수단, 귀가 방법만 정리해도 훨씬 편하게 즐길 수 있습니다.</p><h2>자주 묻는 질문</h2><details open><summary>입장료가 있나요?</summary><p>요금 기준은 무료(일부체험프로그램 유료)입니다. 다만 체험, 먹거리, 판매 부스 이용 비용은 별도로 발생할 수 있습니다.</p></details><details open><summary>언제 도착하면 좋나요?</summary><p>운영 시간은 07:00~21:30 기준입니다. 대표 프로그램을 보려면 시작 시간보다 여유 있게 도착해 시간표와 관람 위치를 먼저 확인하는 편이 좋습니다.</p></details><details open><summary>아이와 함께 가도 괜찮나요?</summary><p>가능합니다. 다만 대기 시간이 생길 수 있어 물, 간식, 편한 신발, 날씨에 맞는 겉옷을 챙기면 좋습니다.</p></details><details open><summary>비가 오면 어떻게 하나요?</summary><p>야외 프로그램은 날씨에 따라 조정될 수 있습니다. 출발 전 당일 공지와 현장 안내를 확인하세요.</p></details><details open><summary>문의는 어디로 하나요?</summary><p>시흥갯골축제 관련 문의는 031-310-2920로 확인하는 것이 가장 빠릅니다.</p></details><!-- TRUST_NOTE_START -->
+      <section class="wrap layout"><article class="content"><div class="article-info-grid" aria-label="방문 기본 정보"><div class="article-info-card"><span class="article-info-icon" aria-hidden="true">일</span><span><span class="article-info-label">일정</span><strong class="article-info-value">2026년 9월 18일~2026년 9월 20일</strong></span></div><div class="article-info-card"><span class="article-info-icon" aria-hidden="true">장</span><span><span class="article-info-label">장소</span><strong class="article-info-value">갯골생태공원</strong></span></div><div class="article-info-card"><span class="article-info-icon" aria-hidden="true">문</span><span><span class="article-info-label">문의</span><strong class="article-info-value">031-310-2920</strong></span></div><div class="article-info-card"><span class="article-info-icon" aria-hidden="true">주</span><span><span class="article-info-label">주최</span><strong class="article-info-value">시흥시</strong></span></div><div class="article-info-card"><span class="article-info-icon" aria-hidden="true">시</span><span><span class="article-info-label">운영 시간</span><strong class="article-info-value">07:00~21:30</strong></span></div><div class="article-info-card"><span class="article-info-icon" aria-hidden="true">요</span><span><span class="article-info-label">이용 요금</span><strong class="article-info-value">무료(일부체험프로그램 유료)</strong></span></div></div><h2>관람 포인트</h2><p>시흥갯골축제은 계절감이 분명한 행사라 날씨와 이동 동선이 만족도를 크게 좌우합니다.</p><p>꽃, 강변, 숲길처럼 야외 구간이 중심이라면 사진을 찍는 시간과 쉬는 시간을 따로 잡아야 일정이 빡빡해지지 않습니다.</p><p>시흥갯골축제을 일정에 넣을 때는 “도착해서 무엇을 먼저 볼지”를 정해두는 편이 좋습니다.</p><p>행사장은 생각보다 넓거나 사람이 몰릴 수 있어, 대표 프로그램 하나와 식사·휴식 시간을 먼저 고정해두면 현장에서 선택지가 훨씬 편해집니다.</p><h2>일정과 운영 흐름</h2><table class="article-fact-table" aria-label="운영 정보 표"><tbody><tr><th>일정</th><td>2026년 9월 18일~2026년 9월 20일</td></tr><tr><th>장소</th><td>갯골생태공원</td></tr><tr><th>문의</th><td>031-310-2920</td></tr><tr><th>주최</th><td>시흥시</td></tr><tr><th>운영 시간</th><td>07:00~21:30</td></tr><tr><th>이용 요금</th><td>무료(일부체험프로그램 유료)</td></tr></tbody></table><p>운영 기간은 2026년 <strong>9월 18일</strong> ~2026년 9월 20일, 시간은 07:00~21:30 기준입니다.</p><p>같은 축제 안에서도 공연, 체험, 판매 부스의 시작 시간이 다를 수 있으니 도착 직후 전체 시간표부터 확인하는 것이 좋습니다.</p><p>장소는 갯골생태공원입니다. 처음 간다면 입구, 안내 부스, 화장실, 쉼터, 귀가 방향을 먼저 확인하세요. 이 순서만 잡아도 사람이 많은 시간대에 불필요하게 되돌아가는 일을 줄일 수 있습니다.</p><h2>운영 정보</h2><p>시흥갯골축제 방문 전에는 운영 시간, 요금, 주차, 문의 순서로 먼저 살피면 좋습니다.</p><p>행사장 입구와 안내 부스, 화장실, 귀가 방향을 먼저 확인하면 사람이 몰리는 시간에도 동선이 덜 흔들립니다.</p><h2>프로그램 구성</h2><ul class="article-check-list article-program-list" aria-label="프로그램 구성"><li>대표프로그램 : 소금의 기억</li><li>물의 춤 참여형프로그램 : 희망 종이비행기</li><li>피아노의 숲</li><li>Sea Pool 파티 갯골 버스킹</li><li>갯골 춘몽</li><li>나무숲 음악제</li><li>100인의 기타 둥둥</li><li>바람의 음악제</li></ul><p>야외 구간이 많다면 한 번에 전부 보려고 하기보다 빛이 좋은 시간대와 휴식 지점을 함께 생각해 코스를 나누는 편이 좋습니다.</p><p>가족 방문이라면 체험과 휴식 지점을 가까이 묶고, 커플이나 친구끼리라면 공연·먹거리·사진 찍기 좋은 구간을 이어 붙이는 식으로 보는 순서를 잡아보세요.</p><p>혼자 방문한다면 대기 시간이 긴 프로그램보다 짧게 여러 구간을 둘러보는 방식이 더 만족스러울 수 있습니다.</p><h2>비용과 준비물</h2><p>요금 기준은 무료(일부체험프로그램 유료)입니다. 무료 행사라도 먹거리, 체험, 판매 부스는 별도 비용이 생길 수 있으니 현금과 카드 결제 가능 여부를 함께 생각해두면 좋습니다.</p><p>야외 시간이 길어질 수 있으니 편한 신발, 물, 날씨에 맞는 겉옷을 챙기세요. 비나 강한 햇빛이 예보된 날에는 실내 대피 장소나 쉬어갈 카페를 미리 정해두는 것이 좋습니다.</p><h2>이동과 귀가</h2><p>경기도 시흥시로 이동하는 주말 일정이라면 주차보다 귀가 동선이 더 중요할 때가 많습니다.</p><p>행사장 바로 앞 주차만 고집하기보다 조금 떨어진 주차장이나 대중교통 환승 지점을 함께 보는 편이 현실적입니다.</p><p>축제 종료 직후에는 한 번에 사람이 빠져나가므로 이동이 느려질 수 있습니다. 마지막 프로그램까지 볼 계획이라면 막차 시간, 택시 승차 위치, 도보 이동 시간을 미리 확인해두세요.</p><h2>예약 전 확인 순서</h2><p>문의처는 031-310-2920입니다. 날씨, 안전 관리, 현장 혼잡도에 따라 세부 프로그램과 운영 시간이 조정될 수 있으므로 출발 전 당일 공지를 한 번 더 확인하는 편이 안전합니다.</p><p>시흥갯골축제은 현장 분위기를 따라 움직이는 재미가 있지만, 아무 계획 없이 가면 대기와 이동에 시간을 많이 쓰기 쉽습니다.</p><p>일정, 대표 프로그램, 결제 수단, 귀가 방법만 정리해도 훨씬 편하게 즐길 수 있습니다.</p><h2>자주 묻는 질문</h2><details open><summary>입장료가 있나요?</summary><p>요금 기준은 무료(일부체험프로그램 유료)입니다. 다만 체험, 먹거리, 판매 부스 이용 비용은 별도로 발생할 수 있습니다.</p></details><details open><summary>언제 도착하면 좋나요?</summary><p>운영 시간은 07:00~21:30 기준입니다. 대표 프로그램을 보려면 시작 시간보다 여유 있게 도착해 시간표와 관람 위치를 먼저 확인하는 편이 좋습니다.</p></details><details open><summary>아이와 함께 가도 괜찮나요?</summary><p>가능합니다. 다만 대기 시간이 생길 수 있어 물, 간식, 편한 신발, 날씨에 맞는 겉옷을 챙기면 좋습니다.</p></details><details open><summary>비가 오면 어떻게 하나요?</summary><p>야외 프로그램은 날씨에 따라 조정될 수 있습니다. 출발 전 당일 공지와 현장 안내를 확인하세요.</p></details><details open><summary>문의는 어디로 하나요?</summary><p>시흥갯골축제 관련 문의는 031-310-2920로 확인하는 것이 가장 빠릅니다.</p></details><!-- TRUST_NOTE_START -->
 <aside class="trust-note" aria-label="콘텐츠 신뢰 정보">
   <h2>작성·검수 정보</h2>
   <dl>
@@ -283,42 +284,7 @@ footer.site-footer{padding:0;color:var(--muted)}
   <p>글 안의 예약, 숙소, 투어, 상품 링크는 제휴 링크일 수 있으며 예약 또는 구매가 발생할 경우 트립뷰가 일정 수수료를 받을 수 있습니다. 정정 요청은 <a href="/editorial-policy">운영 기준</a>, <a href="/affiliate-disclosure">제휴 안내</a>, <a href="/contact">문의</a>에서 보낼 수 있습니다.</p>
 </aside>
 <!-- TRUST_NOTE_END --></article></section>
-    </main><script src="/assets/topic-filter.js?v=topic-filter-20260706-hardening" defer></script><footer class="site-footer">
-    <div class="site-footer-inner">
-      <div class="footer-brand">
-        <strong>트립뷰</strong>
-        <p>국내 여행지, 축제, 숙소 예약 정보를 지역과 목적별로 정리합니다.</p>
-      </div>
-      <div class="footer-col">
-        <b>카테고리</b>
-        <a href="/travel/">여행지</a>
-        <a href="/festival/">축제·행사</a>
-        <a href="/stay/">숙소</a>
-        <a href="/ticket/">입장권·투어</a>
-      </div>
-      <div class="footer-col">
-        <b>지역 허브</b>
-        <a href="/region/gangwon/">강원</a><a href="/region/gyeonggi/">경기</a><a href="/region/gyeongnam/">경남</a><a href="/region/gyeongbuk/">경북</a><a href="/region/busan/">부산</a><a href="/region/seoul/">서울</a><a href="/region/sejong/">세종</a><a href="/region/ulsan/">울산</a>
-      </div>
-      <div class="footer-col">
-        <b>운영</b>
-        <a href="/editorial-team">편집팀</a>
-        <a href="/editorial-policy">콘텐츠 운영 기준</a>
-        <a href="/affiliate-disclosure">제휴 안내</a>
-      </div>
-      <div class="footer-col">
-        <b>정책</b>
-        <a href="/privacy">개인정보처리방침</a>
-        <a href="/terms">이용약관</a>
-        <a href="/sitemap.xml">사이트맵</a>
-        <a href="/contact">문의</a>
-      </div>
-      <div class="footer-bottom">
-        <span>사업자 정보: 트립뷰 콘텐츠 운영</span>
-        <span>Copyright 2026 Tripview.</span>
-      </div>
-    </div>
-  </footer>
+    </main><script src="/assets/topic-filter.js?v=topic-filter-20260706-hardening" defer></script>
 
     <script>
     (() => {
@@ -390,5 +356,41 @@ footer.site-footer{padding:0;color:var(--muted)}
       });
     })();
   </script>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="footer-brand">
+        <strong>트립뷰</strong>
+        <p>국내 여행지, 축제, 숙소 예약 정보를 지역과 목적별로 정리합니다.</p>
+      </div>
+      <div class="footer-col">
+        <b>카테고리</b>
+        <a href="/travel/">여행지</a>
+        <a href="/festival/">축제·행사</a>
+        <a href="/stay/">숙소</a>
+        <a href="/ticket/">입장권·투어</a>
+      </div>
+      <div class="footer-col">
+        <b>지역 허브</b>
+        <a href="/region/gangwon/">강원</a><a href="/region/gyeonggi/">경기</a><a href="/region/gyeongnam/">경남</a><a href="/region/gyeongbuk/">경북</a><a href="/region/busan/">부산</a><a href="/region/seoul/">서울</a><a href="/region/sejong/">세종</a><a href="/region/ulsan/">울산</a>
+      </div>
+      <div class="footer-col">
+        <b>운영</b>
+        <a href="/editorial-team">편집팀</a>
+        <a href="/editorial-policy">콘텐츠 운영 기준</a>
+        <a href="/affiliate-disclosure">제휴 안내</a>
+      </div>
+      <div class="footer-col">
+        <b>정책</b>
+        <a href="/privacy">개인정보처리방침</a>
+        <a href="/terms">이용약관</a>
+        <a href="/sitemap.xml">사이트맵</a>
+        <a href="/contact">문의</a>
+      </div>
+      <div class="footer-bottom">
+        <span>사업자 정보: 트립뷰 콘텐츠 운영</span>
+        <span>Copyright 2026 Tripview.</span>
+      </div>
+    </div>
+  </footer>
   </body>
 </html>

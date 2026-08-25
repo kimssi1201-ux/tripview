@@ -1865,9 +1865,19 @@ function stripExistingArticleAds(document) {
     .replace(/\s*<script\s+src=["']\/assets\/beach-(?:info|weather)\.js\?v=[^"']+["']\s+defer><\/script>/g, "");
 }
 
+function stripArticleSiteDesignCss(document) {
+  return String(document).replace(/\/\* tripview-site-design \*\/[\s\S]*?\/\* end-tripview-site-design \*\//g, "");
+}
+
+function refreshArticleSiteDesignCss(document) {
+  const withoutExisting = stripArticleSiteDesignCss(document);
+  return withoutExisting.includes("</style>")
+    ? withoutExisting.replace("</style>", `${articleSiteDesignCss()}</style>`)
+    : withoutExisting;
+}
+
 function injectArticleAdCss(document, includeAffiliate = false, includeRegionRelated = false, includeAccommodation = false, includeCoupang = false) {
-  let next = document;
-  if (!next.includes(ARTICLE_SITE_STYLE_MARK)) next = next.replace("</style>", `${articleSiteDesignCss()}</style>`);
+  let next = refreshArticleSiteDesignCss(document);
   if (includeAffiliate && !next.includes(MRT_STYLE_MARK)) next = next.replace("</style>", `${articleAdCss()}</style>`);
   if (includeAccommodation && !next.includes(MRT_ACCOMMODATION_STYLE_MARK)) next = next.replace("</style>", `${articleAccommodationCss()}</style>`);
   if (includeRegionRelated && !next.includes(REGION_RELATED_STYLE_MARK)) next = next.replace("</style>", `${articleRegionRelatedCss()}</style>`);
@@ -3325,7 +3335,7 @@ async function polishLegacyArticleShells() {
       : legacyDocumentPost(entry.name, next);
     next = ensureCanonical(next, `/${entry.name}/`);
     next = ensureLegacyArticleSchema(next, entry.name, legacyRendererPosts[entry.name]);
-    if (legacyStaticArticle) next = improveArticleReadability(next, legacyPost);
+    if (legacyStaticArticle) next = refreshArticleSiteDesignCss(improveArticleReadability(next, legacyPost));
     next = cleanGeneratedHtml(next);
     if (next !== document) await writeFile(file, next, "utf8");
   }

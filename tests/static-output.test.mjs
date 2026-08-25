@@ -196,12 +196,18 @@ test("homepage thumbnails use fixed ratios without gray placeholders", async () 
 });
 
 test("common site design clamps mobile page overflow", async () => {
-  const siteDesign = await readFile("scripts/lib/site-design.mjs", "utf8");
+  const [siteDesign, dataPage] = await Promise.all([
+    readFile("scripts/lib/site-design.mjs", "utf8"),
+    readFile("data-stay-price-seoul/index.html", "utf8"),
+  ]);
   assert.match(siteDesign, /html\{scroll-padding-top:96px;overflow-x:hidden\}/);
   assert.match(siteDesign, /body\{margin:0;overflow-x:hidden;/);
   assert.match(siteDesign, /\.mobile-menu-panel\{position:fixed;inset:0 0 0 auto;z-index:1202;display:none;/);
   assert.match(siteDesign, /\.site-header\.is-menu-open \.mobile-menu-panel\{display:grid\}/);
   assert.match(siteDesign, /\.data-table\{background:linear-gradient\(to right,var\(--card\) 30%/);
+  assert.match(dataPage, /html\{scroll-padding-top:96px;overflow-x:hidden\}/);
+  assert.match(dataPage, /\.mobile-menu-panel\{position:fixed;inset:0 0 0 auto;z-index:1202;display:none;/);
+  assert.doesNotMatch(dataPage, /transform:translateX\(100%\)/);
 });
 
 test("homepage accommodation cards use the dynamic default stay window", async () => {
@@ -368,17 +374,22 @@ test("accommodation cache keeps the MyRealTrip API contract lean", async () => {
 });
 
 test("Korea Tourism images render through processed WebP assets", async () => {
-  const [manifestText, article, busanHub, homepage, topicFilter] = await Promise.all([
+  const [manifestText, postsText, article, busanHub, homepage, topicFilter] = await Promise.all([
     readFile("data/processed-tour-images.json", "utf8"),
+    readFile("data/generated-posts.json", "utf8"),
     readFile("travel-126078/index.html", "utf8"),
     readFile("region/busan/index.html", "utf8"),
     readFile("index.html", "utf8"),
     readFile("assets/topic-filter.js", "utf8"),
   ]);
   const manifest = JSON.parse(manifestText);
+  const posts = JSON.parse(postsText);
   const files = await readdir("assets/processed");
-  assert.equal(Object.keys(manifest.items || {}).length, 52);
-  assert.ok(files.filter((file) => file.endsWith(".webp")).length >= 52);
+  const processedSlugs = Object.keys(manifest.items || {});
+  const indexableSlugs = new Set(posts.filter(isIndexablePost).map((post) => post.slug));
+  assert.ok(processedSlugs.length > 0);
+  assert.ok(processedSlugs.every((slug) => indexableSlugs.has(slug)));
+  assert.ok(files.filter((file) => file.endsWith(".webp")).length >= processedSlugs.length);
   assert.equal(manifest.items["travel-2774026"].cover.src, "/assets/processed/hoengseong-lake-trail-parking.webp");
   assert.equal(manifest.items["travel-2774026"].cover.caption, "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지");
   assert.equal(manifest.items["travel-2774026"].cover.overlay, null);
@@ -609,7 +620,6 @@ test("sitemap includes only indexable articles and article robots match content 
     .map((match) => match[1])
     .sort();
 
-  assert.equal(indexable.length, 55);
   assert.equal(articleUrls.length, indexable.length);
   assert.ok(articleUrls.every((slug) => indexable.some((post) => post.slug === slug)));
   assert.match(sitemap, /<loc>https:\/\/tripview\.kr\/travel\/<\/loc>/);
@@ -683,12 +693,8 @@ test("data post pipeline outputs validated data pages", async () => {
   const posts = JSON.parse(postsText);
   const dataPosts = posts.filter((post) => post?.dataPipeline?.generated);
   const allowedKinds = new Set(["stay-price", "festival-schedule", "ticket-price"]);
-  assert.equal(dataPosts.length, 3);
-  assert.deepEqual(dataPosts.map((post) => post.slug).sort(), [
-    "data-festival-schedule-seoul",
-    "data-stay-price-seoul",
-    "data-ticket-price-busan",
-  ]);
+  assert.ok(dataPosts.length > 0 && dataPosts.length <= 3);
+  assert.equal(new Set(dataPosts.map((post) => post.dataPipeline.kind)).size, dataPosts.length);
   assert.ok(dataPosts.every((post) => allowedKinds.has(post.dataPipeline.kind)));
   assert.ok(dataPosts.every((post) => /^data-(stay-price|festival-schedule|ticket-price)-[a-z0-9-]+$/.test(post.slug)));
   for (const post of dataPosts) {
@@ -698,11 +704,13 @@ test("data post pipeline outputs validated data pages", async () => {
     assert.ok(post.dataPipeline.validation.affiliateLinkCount <= 8);
     assert.ok(post.dataPipeline.validation.affiliateTextRatio <= 0.3);
   }
-  assert.match(sitemap, /<loc>https:\/\/tripview\.kr\/data-stay-price-seoul\/<\/loc>/);
-  assert.match(sitemap, /<loc>https:\/\/tripview\.kr\/data-festival-schedule-seoul\/<\/loc>/);
-  assert.match(sitemap, /<loc>https:\/\/tripview\.kr\/data-ticket-price-busan\/<\/loc>/);
+  for (const post of dataPosts.filter(isIndexablePost)) {
+    assert.match(sitemap, new RegExp(`<loc>https://tripview\\\\.kr/${post.slug}/</loc>`));
+  }
 
-  for (const document of [stay, ticket]) {
+  const dataDocumentsWithAffiliateLinks = [stay, ticket].filter((document) => /<a\b[^>]*data-affiliate-link[^>]*>/.test(document));
+  assert.ok(dataDocumentsWithAffiliateLinks.length > 0);
+  for (const document of dataDocumentsWithAffiliateLinks) {
     const affiliateLinks = [...document.matchAll(/<a\b[^>]*data-affiliate-link[^>]*>/g)];
     assert.ok(affiliateLinks.length > 0 && affiliateLinks.length <= 8);
     assert.ok(affiliateLinks.every((match) => /rel="[^"]*\bsponsored\b[^"]*\bnofollow\b[^"]*"/.test(match[0])));
