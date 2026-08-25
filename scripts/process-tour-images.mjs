@@ -21,7 +21,7 @@ const POSTS_PATH = join(ROOT, "data", "generated-posts.json");
 const ASSET_DIR = join(ROOT, "assets", "processed");
 const CACHE_DIR = join(ROOT, ".cache", "tour-images");
 const HELPER_PATH = join(ROOT, "scripts", "lib", "render_tour_image.py");
-const PROCESSOR_VERSION = "edge-fill-height-fit-poster-canvas-20260825";
+const PROCESSOR_VERSION = "fixed-size-thumbnail-canvas-20260825";
 const DOWNLOAD_TIMEOUT_MS = 12_000;
 const FORCE = process.argv.includes("--force");
 const LIMIT = Number.parseInt(process.env.TOUR_IMAGE_LIMIT || "", 10);
@@ -460,8 +460,8 @@ async function processAsset({ python, post, source, kind, outputName, previous }
   const isBanner = kind === "hub-banner";
   const isHeroCover = kind === "hero-cover";
   const isCoverLike = kind === "cover" || isHeroCover || isBanner;
-  const width = isCoverLike ? 1200 : 1000;
-  const height = isHeroCover ? 900 : kind === "cover" ? 750 : isBanner ? 675 : null;
+  const width = isHeroCover || isBanner ? 1200 : kind === "cover" ? 800 : 1000;
+  const height = isHeroCover ? 900 : kind === "cover" ? 500 : isBanner ? 675 : null;
   const asset = {
     kind,
     original: source,

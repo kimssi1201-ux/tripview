@@ -369,19 +369,19 @@ test("Korea Tourism images render through processed WebP assets", async () => {
   assert.equal(manifest.items["travel-2774026"].cover.src, "/assets/processed/hoengseong-lake-trail-parking.webp");
   assert.equal(manifest.items["travel-2774026"].cover.caption, "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지");
   assert.equal(manifest.items["travel-2774026"].cover.overlay, null);
-  assert.equal(manifest.items["travel-2774026"].cover.width, 1200);
-  assert.equal(manifest.items["travel-2774026"].cover.height, 750);
-  assert.equal(manifest.items["travel-2774026"].cover.processorVersion, "edge-fill-height-fit-poster-canvas-20260825");
+  assert.equal(manifest.items["travel-2774026"].cover.width, 800);
+  assert.equal(manifest.items["travel-2774026"].cover.height, 500);
+  assert.equal(manifest.items["travel-2774026"].cover.processorVersion, "fixed-size-thumbnail-canvas-20260825");
   assert.equal(manifest.items["travel-2774026"].hero.kind, "hero-cover");
   assert.match(manifest.items["travel-2774026"].hero.src, /-hero\.webp$/);
   assert.equal(manifest.items["travel-2774026"].hero.width, 1200);
   assert.equal(manifest.items["travel-2774026"].hero.height, 900);
   assert.equal(manifest.items["travel-2774026"].hero.overlay, null);
-  assert.equal(manifest.items["travel-2774026"].hero.processorVersion, "edge-fill-height-fit-poster-canvas-20260825");
+  assert.equal(manifest.items["travel-2774026"].hero.processorVersion, "fixed-size-thumbnail-canvas-20260825");
   assert.equal(manifest.items["travel-2774026"].banner.kind, "hub-banner");
   assert.match(manifest.items["travel-2774026"].banner.src, /-banner\.webp$/);
   assert.equal(manifest.items["travel-2774026"].banner.overlay, null);
-  assert.equal(manifest.items["travel-2774026"].banner.processorVersion, "edge-fill-height-fit-poster-canvas-20260825");
+  assert.equal(manifest.items["travel-2774026"].banner.processorVersion, "fixed-size-thumbnail-canvas-20260825");
   for (const entry of Object.values(manifest.items || {})) {
     for (const asset of [entry.cover, entry.hero, entry.banner, ...(Array.isArray(entry.images) ? entry.images : [])].filter(Boolean)) {
       assert.equal(asset.overlay, null);
