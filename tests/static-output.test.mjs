@@ -195,6 +195,15 @@ test("homepage thumbnails use fixed ratios without gray placeholders", async () 
   assert.doesNotMatch(homepage, /object-fit:(?:contain|scale-down)|height:auto|max-height|class="thumb empty"/);
 });
 
+test("common site design clamps mobile page overflow", async () => {
+  const siteDesign = await readFile("scripts/lib/site-design.mjs", "utf8");
+  assert.match(siteDesign, /html\{scroll-padding-top:96px;overflow-x:hidden\}/);
+  assert.match(siteDesign, /body\{margin:0;overflow-x:hidden;/);
+  assert.match(siteDesign, /\.mobile-menu-panel\{position:fixed;inset:0 0 0 auto;z-index:1202;display:none;/);
+  assert.match(siteDesign, /\.site-header\.is-menu-open \.mobile-menu-panel\{display:grid\}/);
+  assert.match(siteDesign, /\.data-table\{background:linear-gradient\(to right,var\(--card\) 30%/);
+});
+
 test("homepage accommodation cards use the dynamic default stay window", async () => {
   const homepage = await readFile("index.html", "utf8");
   const stay = expectedStayWindow();
