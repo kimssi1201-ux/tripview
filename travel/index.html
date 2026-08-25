@@ -17,7 +17,7 @@ a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%;object-fit:cover;background:var(--card)}
 button,input,select{font:inherit}
 :focus-visible{outline:2px solid var(--brand);outline-offset:2px}
-.site-header{position:sticky;top:0;z-index:50;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:saturate(180%) blur(12px)}
+.site-header{position:sticky;top:0;z-index:300;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:saturate(180%) blur(12px)}
 .site-header-inner{width:var(--site-wrap);margin:0 auto;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:24px;min-height:72px}
 .site-brand{display:inline-flex;align-items:center;min-height:44px;color:var(--ink);font-size:22px;font-weight:900;line-height:1}
 .site-menu-toggle{display:none;min-width:44px;min-height:44px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);font-size:13px;font-weight:800}
@@ -30,7 +30,7 @@ button,input,select{font:inherit}
 .nav-group>summary{list-style:none}
 .nav-group>summary::-webkit-details-marker{display:none}
 .nav-summary::after{content:"";width:5px;height:5px;margin-left:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px)}
-.nav-dropdown{position:absolute;left:0;top:calc(100% + 10px);z-index:120;display:none;width:300px;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--card);box-shadow:0 12px 28px color-mix(in srgb,var(--ink) 10%,transparent)}
+.nav-dropdown{position:absolute;left:0;top:calc(100% + 10px);z-index:420;display:none;width:300px;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--card);box-shadow:0 12px 28px color-mix(in srgb,var(--ink) 14%,transparent)}
 .nav-group[open] .nav-dropdown{display:grid}
 .nav-dropdown a{display:flex;align-items:flex-start;gap:12px;padding:10px;border-radius:8px;transition:background-color 150ms ease}
 .nav-dropdown a:hover,.nav-dropdown a:focus-visible{background:var(--soft-teal)}
@@ -69,7 +69,36 @@ button,input,select{font:inherit}
 .footer-bottom{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px 12px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
 .cta-link{display:inline-flex;align-items:center;justify-content:center;min-height:44px;border-radius:8px;background:var(--cta);color:var(--card);font-weight:800;transition:background-color 150ms ease}
 .cta-link:hover,.cta-link:focus-visible{background:var(--cta-hover)}
-@media(max-width:900px){:root{--site-wrap:min(720px,calc(100% - 32px))}.site-header-inner{grid-template-columns:1fr auto auto;gap:8px;min-height:64px}.site-menu-toggle{display:inline-flex;align-items:center;justify-content:center}.site-nav{display:none}.site-menu-backdrop{position:fixed;inset:0;z-index:80;background:color-mix(in srgb,var(--ink) 42%,transparent)}.site-header.is-menu-open .site-menu-backdrop{display:block}.mobile-menu-panel{position:fixed;inset:0;z-index:90;display:grid;grid-template-rows:auto minmax(0,1fr);width:100%;background:var(--card);box-shadow:-20px 0 40px color-mix(in srgb,var(--ink) 16%,transparent);transform:translateX(100%);transition:transform 150ms ease}.site-header.is-menu-open .mobile-menu-panel{transform:translateX(0)}.mobile-menu-head{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px;padding:10px 18px;border-bottom:1px solid var(--line)}.mobile-menu-nav{display:block;overflow:auto;padding:18px}.mobile-menu-home{display:flex;align-items:center;min-height:48px;margin-bottom:18px;padding:0 14px;border:1px solid var(--line);border-radius:8px;background:var(--bg);font-weight:900}.mobile-menu-home.is-current{background:var(--soft-teal);color:var(--brand)}.mobile-menu-section{display:grid;gap:8px;margin-bottom:22px}.mobile-menu-section h2{margin:0;color:var(--muted);font-size:11px;font-weight:900;line-height:1.4}.mobile-menu-items{display:grid;gap:8px}.mobile-menu-item{display:grid;grid-template-columns:32px minmax(0,1fr) minmax(92px,.9fr);gap:12px;align-items:center;min-height:56px;padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--card);transition:background-color 150ms ease,border-color 150ms ease}.mobile-menu-item.is-current{background:var(--soft-teal);border-color:color-mix(in srgb,var(--brand) 24%,var(--line))}.mobile-menu-section.is-affiliate .mobile-menu-item{border-color:color-mix(in srgb,var(--cta) 28%,var(--line));background:var(--soft-cta)}.mobile-menu-section.is-affiliate .mobile-menu-item.is-current{border-color:color-mix(in srgb,var(--cta) 40%,var(--line))}.mobile-menu-section.is-affiliate .mobile-menu-item .nav-item-icon{color:var(--cta);border-color:color-mix(in srgb,var(--cta) 40%,var(--line));background:var(--card)}.mobile-menu-copy{display:grid;min-width:0}.mobile-menu-aside{justify-self:end;color:var(--muted);font-size:12px;font-weight:800;line-height:1.35;text-align:right}.site-page{padding:32px 0 48px}.site-section{padding:32px 0}.story-grid{grid-template-columns:1fr;gap:16px}.site-footer-inner{grid-template-columns:1fr;gap:20px;padding:32px 0}.site-search-link{font-size:22px}}
+@media(max-width:900px){
+  :root{--site-wrap:min(720px,calc(100% - 32px))}
+  .site-header-inner{grid-template-columns:1fr auto auto;gap:8px;min-height:64px}
+  .site-header.is-menu-open{z-index:1200}
+  .site-menu-toggle{display:inline-flex;align-items:center;justify-content:center}
+  .site-nav{display:none}
+  .site-menu-backdrop{position:fixed;inset:0;z-index:1201;background:color-mix(in srgb,var(--ink) 18%,transparent)}
+  .site-header.is-menu-open .site-menu-backdrop{display:block}
+  .mobile-menu-panel{position:fixed;inset:0 0 0 auto;z-index:1202;display:grid;grid-template-rows:auto minmax(0,1fr);width:min(420px,calc(100% - 32px));max-width:100%;background:var(--card);box-shadow:-20px 0 40px color-mix(in srgb,var(--ink) 16%,transparent);transform:translateX(100%);transition:transform 150ms ease}
+  .site-header.is-menu-open .mobile-menu-panel{transform:translateX(0)}
+  .mobile-menu-head{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px;padding:10px 18px;border-bottom:1px solid var(--line);background:var(--card)}
+  .mobile-menu-nav{display:block;overflow:auto;padding:18px;background:var(--card)}
+  .mobile-menu-home{display:flex;align-items:center;min-height:48px;margin-bottom:18px;padding:0 14px;border:1px solid var(--line);border-radius:8px;background:var(--bg);font-weight:900}
+  .mobile-menu-home.is-current{background:var(--soft-teal);color:var(--brand)}
+  .mobile-menu-section{display:grid;gap:8px;margin-bottom:22px}
+  .mobile-menu-section h2{margin:0;color:var(--muted);font-size:11px;font-weight:900;line-height:1.4}
+  .mobile-menu-items{display:grid;gap:8px}
+  .mobile-menu-item{display:grid;grid-template-columns:32px minmax(0,1fr) minmax(92px,.9fr);gap:12px;align-items:center;min-height:56px;padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--card);transition:background-color 150ms ease,border-color 150ms ease}
+  .mobile-menu-item.is-current{background:var(--soft-teal);border-color:color-mix(in srgb,var(--brand) 24%,var(--line))}
+  .mobile-menu-section.is-affiliate .mobile-menu-item{border-color:color-mix(in srgb,var(--cta) 28%,var(--line));background:var(--soft-cta)}
+  .mobile-menu-section.is-affiliate .mobile-menu-item.is-current{border-color:color-mix(in srgb,var(--cta) 40%,var(--line))}
+  .mobile-menu-section.is-affiliate .mobile-menu-item .nav-item-icon{color:var(--cta);border-color:color-mix(in srgb,var(--cta) 40%,var(--line));background:var(--card)}
+  .mobile-menu-copy{display:grid;min-width:0}
+  .mobile-menu-aside{justify-self:end;min-width:0;color:var(--muted);font-size:12px;font-weight:800;line-height:1.35;text-align:right;overflow-wrap:anywhere}
+  .site-page{padding:32px 0 48px}
+  .site-section{padding:32px 0}
+  .story-grid{grid-template-columns:1fr;gap:16px}
+  .site-footer-inner{grid-template-columns:1fr;gap:20px;padding:32px 0}
+  .site-search-link{font-size:22px}
+}
 @media(max-width:520px){body{font-size:15px}.site-section-head h2{font-size:19px}.story-card strong{font-size:17px}.story-card-body{padding:14px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:0.01ms!important;animation-duration:0.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
 
@@ -181,14 +210,9 @@ button,input,select{font:inherit}
         <a href="/festival/#ongoing"><span class="nav-item-icon" aria-hidden="true">진</span><span class="nav-item-text"><span class="nav-item-label">진행 중</span><span class="nav-item-desc">오늘 기준 진행 중인 축제입니다.</span></span></a><a href="/festival/#upcoming"><span class="nav-item-icon" aria-hidden="true">예</span><span class="nav-item-text"><span class="nav-item-label">예정</span><span class="nav-item-desc">방문 계획을 잡기 좋은 예정 축제입니다.</span></span></a><a href="/festival/#past"><span class="nav-item-icon" aria-hidden="true">종</span><span class="nav-item-text"><span class="nav-item-label">지난 축제</span><span class="nav-item-desc">종료된 축제는 목록 하단에 둡니다.</span></span></a>
       </div>
     </details><details class="nav-group is-affiliate">
-      <summary class="nav-summary">숙소</summary>
+      <summary class="nav-summary">숙소·예약</summary>
       <div class="nav-dropdown">
-        <a href="/stay/#accommodation-cards"><span class="nav-item-icon" aria-hidden="true">숙</span><span class="nav-item-text"><span class="nav-item-label">지역별 숙소</span><span class="nav-item-desc">지역 기준 숙소 카드를 확인합니다.</span></span></a><a href="/data-stay-price-seoul/"><span class="nav-item-icon" aria-hidden="true">가</span><span class="nav-item-text"><span class="nav-item-label">숙소 가격 비교</span><span class="nav-item-desc">API 캐시 가격표를 데이터 글로 봅니다.</span></span></a><a href="/stay/#all-posts"><span class="nav-item-icon" aria-hidden="true">리</span><span class="nav-item-text"><span class="nav-item-label">숙소 상세 리뷰</span><span class="nav-item-desc">검수된 숙소·예약 관련 글을 모았습니다.</span></span></a>
-      </div>
-    </details><details class="nav-group is-affiliate">
-      <summary class="nav-summary">입장권·투어</summary>
-      <div class="nav-dropdown">
-        <a href="/ticket/#regional-tickets"><span class="nav-item-icon" aria-hidden="true">권</span><span class="nav-item-text"><span class="nav-item-label">지역별 입장권</span><span class="nav-item-desc">지역별 티켓·이용권 가격 글을 확인합니다.</span></span></a><a href="/ticket/#popular-experiences"><span class="nav-item-icon" aria-hidden="true">체</span><span class="nav-item-text"><span class="nav-item-label">인기 체험</span><span class="nav-item-desc">여행지별 체험과 투어 상품을 연결합니다.</span></span></a>
+        <a href="/stay/"><span class="nav-item-icon" aria-hidden="true">숙</span><span class="nav-item-text"><span class="nav-item-label">숙소</span><span class="nav-item-desc">위치와 취소 조건을 비교합니다.</span></span></a><a href="/ticket/"><span class="nav-item-icon" aria-hidden="true">권</span><span class="nav-item-text"><span class="nav-item-label">입장권·투어</span><span class="nav-item-desc">운영 시간과 포함 사항을 비교합니다.</span></span></a><a href="/data-stay-price-seoul/"><span class="nav-item-icon" aria-hidden="true">가</span><span class="nav-item-text"><span class="nav-item-label">숙소 가격 비교</span><span class="nav-item-desc">API 캐시 가격표를 데이터 글로 봅니다.</span></span></a>
       </div>
     </details>
         </div>
@@ -935,21 +959,24 @@ button,input,select{font:inherit}
       const backdrop = header.querySelector(".site-menu-backdrop");
       const closeButtons = Array.from(header.querySelectorAll("[data-site-menu-close]"));
       const groups = Array.from(header.querySelectorAll(".site-nav-desktop .nav-group"));
+      let menuOpen = false;
       const closeGroups = (except) => {
         groups.forEach((group) => {
           if (group !== except) group.removeAttribute("open");
         });
       };
       const setMenuOpen = (open) => {
-        header.classList.toggle("is-menu-open", open);
-        toggle.setAttribute("aria-expanded", String(open));
-        panel?.setAttribute("aria-hidden", String(!open));
-        if (backdrop) backdrop.hidden = !open;
-        document.documentElement.classList.toggle("is-site-menu-open", open);
-        document.body?.classList.toggle("is-site-menu-open", open);
-        if (!open) closeGroups();
+        menuOpen = Boolean(open);
+        header.classList.toggle("is-menu-open", menuOpen);
+        toggle.setAttribute("aria-expanded", String(menuOpen));
+        panel?.setAttribute("aria-hidden", String(!menuOpen));
+        if (backdrop) backdrop.hidden = !menuOpen;
+        document.documentElement.classList.toggle("is-site-menu-open", menuOpen);
+        document.body?.classList.toggle("is-site-menu-open", menuOpen);
+        closeGroups();
       };
       const openGroup = (group) => {
+        if (menuOpen) setMenuOpen(false);
         closeGroups(group);
         group.setAttribute("open", "");
       };
@@ -959,6 +986,7 @@ button,input,select{font:inherit}
         group.addEventListener("focusin", () => openGroup(group));
         summary?.addEventListener("click", (event) => {
           event.preventDefault();
+          event.stopPropagation();
           if (group.hasAttribute("open")) {
             group.removeAttribute("open");
           } else {
@@ -966,16 +994,27 @@ button,input,select{font:inherit}
           }
         });
       });
-      toggle.addEventListener("click", () => setMenuOpen(!header.classList.contains("is-menu-open")));
-      closeButtons.forEach((button) => button.addEventListener("click", () => setMenuOpen(false)));
+      toggle.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        setMenuOpen(!menuOpen);
+      });
+      panel?.addEventListener("click", (event) => event.stopPropagation());
+      closeButtons.forEach((button) => button.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        setMenuOpen(false);
+      }));
       panel?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => setMenuOpen(false)));
       header.addEventListener("mouseleave", () => closeGroups());
       document.addEventListener("click", (event) => {
-        if (!header.contains(event.target)) closeGroups();
+        if (!header.contains(event.target)) {
+          closeGroups();
+          if (menuOpen) setMenuOpen(false);
+        }
       });
       document.addEventListener("keydown", (event) => {
         if (event.key === "Escape") {
-          closeGroups();
           setMenuOpen(false);
         }
       });

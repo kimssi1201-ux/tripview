@@ -132,12 +132,11 @@ test("homepage categories use real URLs and travel keeps old topics as tags", as
   assert.match(homepage, /class="site-home-link is-active" href="\/">홈<\/a>/);
   assert.match(homepage, /<summary class="nav-summary">여행지<\/summary>/);
   assert.match(homepage, /<summary class="nav-summary">축제·행사<\/summary>/);
-  assert.match(homepage, /<summary class="nav-summary">숙소<\/summary>/);
-  assert.match(homepage, /<summary class="nav-summary">입장권·투어<\/summary>/);
+  assert.match(homepage, /<summary class="nav-summary">숙소·예약<\/summary>/);
   assert.match(homepage, /href="\/travel\/#tag-water"/);
   assert.match(homepage, /href="\/festival\/#ongoing"/);
-  assert.match(homepage, /href="\/stay\/#accommodation-cards"/);
-  assert.match(homepage, /href="\/ticket\/#regional-tickets"/);
+  assert.match(homepage, /href="\/stay\/"/);
+  assert.match(homepage, /href="\/ticket\/"/);
   assert.match(homepage, /data-site-menu-toggle/);
   assert.match(homepage, /id="site-mobile-menu"/);
   assert.match(homepage, /<section class="mobile-menu-section is-affiliate">/);
@@ -163,11 +162,13 @@ test("homepage categories use real URLs and travel keeps old topics as tags", as
 test("homepage uses dropdown navigation and a five-story lead package", async () => {
   const homepage = await readFile("index.html", "utf8");
   assert.equal((homepage.match(/class="site-header"/g) || []).length, 1);
-  assert.ok((homepage.match(/class="nav-dropdown"/g) || []).length >= 4);
-  assert.match(homepage, /\.nav-dropdown\{[^}]*z-index:120[^}]*background:var\(--card\)[^}]*box-shadow:/);
+  assert.ok((homepage.match(/class="nav-dropdown"/g) || []).length >= 3);
+  assert.match(homepage, /\.nav-dropdown\{[^}]*z-index:420[^}]*background:var\(--card\)[^}]*box-shadow:/);
   assert.match(homepage, /\.nav-dropdown a\{display:flex;align-items:flex-start;gap:12px/);
-  assert.match(homepage, /\.mobile-menu-panel\{[^}]*position:fixed;inset:0;[^}]*width:100%;[^}]*background:var\(--card\)/);
-  assert.match(homepage, /document\.documentElement\.classList\.toggle\("is-site-menu-open", open\)/);
+  assert.match(homepage, /\.mobile-menu-panel\{[^}]*position:fixed;inset:0 0 0 auto;[^}]*z-index:1202[^}]*width:min\(420px,calc\(100% - 32px\)\)[^}]*background:var\(--card\)/);
+  assert.match(homepage, /let menuOpen = false;/);
+  assert.match(homepage, /event\.stopPropagation\(\);\s*setMenuOpen\(!menuOpen\)/);
+  assert.match(homepage, /document\.documentElement\.classList\.toggle\("is-site-menu-open", menuOpen\)/);
   assert.match(homepage, /const closeGroups = \(except\) =>/);
   assert.match(homepage, /group\.addEventListener\("mouseenter", \(\) => openGroup\(group\)\)/);
   assert.doesNotMatch(homepage, /\.nav-group:hover \.nav-dropdown/);
@@ -536,9 +537,10 @@ test("generated article pages keep one current site header", async () => {
     assert.equal((document.match(/class="site-header"/g) || []).length, 1);
     assert.equal((document.match(/<footer class="site-footer"/g) || []).length, 1);
     assert.match(document, /<summary class="nav-summary">여행지<\/summary>/);
-    assert.match(document, /<summary class="nav-summary">숙소<\/summary>/);
-    assert.match(document, /<summary class="nav-summary">입장권·투어<\/summary>/);
-    assert.doesNotMatch(document, /<summary class="nav-summary">숙소·예약<\/summary>/);
+    assert.match(document, /<summary class="nav-summary">축제·행사<\/summary>/);
+    assert.match(document, /<summary class="nav-summary">숙소·예약<\/summary>/);
+    assert.doesNotMatch(document, /<summary class="nav-summary">숙소<\/summary>/);
+    assert.doesNotMatch(document, /<summary class="nav-summary">입장권·투어<\/summary>/);
   }
 });
 
