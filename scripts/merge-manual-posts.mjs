@@ -32,6 +32,12 @@ function imageKey(post) {
     .toLowerCase();
 }
 
+function usesStrictImageDedupe(post) {
+  const slug = String(post?.slug || '');
+  const image = String(post?.image || '');
+  return !slug.startsWith('data-') && /\/\/tong\.visitkorea\.or\.kr\//i.test(image);
+}
+
 async function manualPosts() {
   const entries = await fs.readdir(DATA_DIR, { withFileTypes: true }).catch(() => []);
   const files = entries
@@ -61,11 +67,11 @@ for (const post of [...manual, ...generated]) {
   if (!post?.slug || !post?.title || !post?.image) continue;
   const key = postKey(post);
   const title = titleKey(post);
-  const image = imageKey(post);
+  const image = usesStrictImageDedupe(post) ? imageKey(post) : '';
   if (seenKeys.has(key) || seenTitles.has(title) || seenImages.has(image)) continue;
   seenKeys.add(key);
   seenTitles.add(title);
-  seenImages.add(image);
+  if (image) seenImages.add(image);
   merged.push(post);
 }
 

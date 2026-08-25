@@ -52,7 +52,7 @@ test("enrichment uses verified detail fields and replaces placeholders", () => {
   assert.equal(info["요금"], "성인 5,000원");
   assert.equal(info["주차"], "주차 가능");
   assert.equal(info["쉬는 날"], "매주 월요일");
-  assert.match(enriched.sections.flat(2).join(" "), /10:00~18:00/);
+  assert.doesNotMatch(enriched.sections.flat(2).join(" "), /API|캐시|저장되어 있습니다|본문에 넣지 않았습니다/);
 });
 
 test("enrichment produces an indexable article without internal API wording", () => {
@@ -71,7 +71,7 @@ test("enrichment handles empty detail values without inventing facts", () => {
   }));
   const text = enriched.sections.flat(2).join(" ");
   assert.equal(postType(enriched).key, "lodging");
-  assert.match(text, /별도로 확인되지 않습니다/);
+  assert.doesNotMatch(text, /별도로 확인되지 않습니다|방문 전 확인 필요|시설별 상이/);
   assert.doesNotMatch(text, /24시간 운영합니다|무료 주차입니다|조식이 포함됩니다/);
   assert.ok(postBodyLength(enriched) >= MIN_ENRICHED_BODY_LENGTH);
 });

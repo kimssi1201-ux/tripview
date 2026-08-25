@@ -1,1212 +1,8 @@
 {
-  "generatedAt": "2026-08-25T10:55:34.487Z",
+  "generatedAt": "2026-08-25T12:23:38.316Z",
   "source": "한국관광공사 공공누리",
   "assetBasePath": "/assets/processed/",
   "items": {
-    "data-festival-schedule-seoul": {
-      "title": "서울 축제 일정 정리",
-      "sourceTitle": "서울 축제 일정 정리",
-      "region": "서울",
-      "source": "한국관광공사 공공누리",
-      "cover": {
-        "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/01/4060301_image2_1.png",
-        "src": "/assets/processed/seoul-festival-iljeong-jeongri-festival.webp",
-        "alt": "서울 서울 축제 일정 정리 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 800,
-        "height": 500,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": true
-      },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/01/4060301_image2_1.png",
-        "src": "/assets/processed/seoul-festival-iljeong-jeongri-festival-hero.webp",
-        "alt": "서울 서울 축제 일정 정리 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": true
-      },
-      "banner": {
-        "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/01/4060301_image2_1.png",
-        "src": "/assets/processed/seoul-festival-iljeong-jeongri-festival-banner.webp",
-        "alt": "서울 서울 축제 일정 정리 축제 일정 정보를 담은 트립뷰 지역 허브 배너",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
-        "width": 1200,
-        "height": 675,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": true
-      },
-      "images": []
-    },
-    "festival-1939183": {
-      "title": "문경새재 맨발페스티벌 2026 준비물, 황톳길 완주·발 관리·귀가 동선",
-      "sourceTitle": "오감만족 문경새재맨발페스티벌",
-      "region": "경북",
-      "source": "한국관광공사 공공누리",
-      "cover": {
-        "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/31/4078831_image2_1.jpg",
-        "src": "/assets/processed/mungyeong-ogammanjok-mungyeongsaejaemaenbal-festival-parking.webp",
-        "alt": "경북 오감만족 문경새재맨발페스티벌 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 800,
-        "height": 500,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": true
-      },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/31/4078831_image2_1.jpg",
-        "src": "/assets/processed/mungyeong-ogammanjok-mungyeongsaejaemaenbal-festival-parking-hero.webp",
-        "alt": "경북 오감만족 문경새재맨발페스티벌 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": true
-      },
-      "banner": {
-        "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/31/4078831_image2_1.jpg",
-        "src": "/assets/processed/mungyeong-ogammanjok-mungyeongsaejaemaenbal-festival-parking-banner.webp",
-        "alt": "경북 오감만족 문경새재맨발페스티벌 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
-        "width": 1200,
-        "height": 675,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": true
-      },
-      "images": []
-    },
-    "festival-3351451": {
-      "title": "K-일러스트레이션페어 마곡 2026 관람 가이드, 사전예매·입장 마감·부스 동선",
-      "sourceTitle": "K-일러스트레이션페어 마곡 2026",
-      "region": "서울",
-      "source": "한국관광공사 공공누리",
-      "cover": {
-        "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/75/4059475_image2_1.jpg",
-        "src": "/assets/processed/seoul-k-illustration-fair-magok-parking.webp",
-        "alt": "서울 K-일러스트레이션페어 마곡 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 800,
-        "height": 500,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": true
-      },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/75/4059475_image2_1.jpg",
-        "src": "/assets/processed/seoul-k-illustration-fair-magok-parking-hero.webp",
-        "alt": "서울 K-일러스트레이션페어 마곡 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": true
-      },
-      "banner": {
-        "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/75/4059475_image2_1.jpg",
-        "src": "/assets/processed/seoul-k-illustration-fair-magok-parking-banner.webp",
-        "alt": "서울 K-일러스트레이션페어 마곡 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
-        "width": 1200,
-        "height": 675,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": true
-      },
-      "images": []
-    },
-    "festival-4096371": {
-      "title": "트레저헌터 in 진안 2026 참여법, 앱 설치부터 7개 권역 미션까지",
-      "sourceTitle": "트레저헌터 in 진안",
-      "region": "전북",
-      "source": "한국관광공사 공공누리",
-      "cover": {
-        "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/08/4096408_image2_1.jpeg",
-        "src": "/assets/processed/jinan-treasure-hunter-jinan-indoor.webp",
-        "alt": "전북 트레저헌터 in 진안 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 800,
-        "height": 500,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": true
-      },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/08/4096408_image2_1.jpeg",
-        "src": "/assets/processed/jinan-treasure-hunter-jinan-indoor-hero.webp",
-        "alt": "전북 트레저헌터 in 진안 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": true
-      },
-      "banner": {
-        "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/08/4096408_image2_1.jpeg",
-        "src": "/assets/processed/jinan-treasure-hunter-jinan-indoor-banner.webp",
-        "alt": "전북 트레저헌터 in 진안 실내 코스 정보를 담은 트립뷰 지역 허브 배너",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
-        "width": 1200,
-        "height": 675,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": true
-      },
-      "images": []
-    },
-    "festival-4008618": {
-      "title": "고흥 국가유산 야행 2026, 8월 28~29일 흥양현읍성 밤 코스",
-      "sourceTitle": "고흥 국가유산 야행",
-      "region": "전남",
-      "source": "한국관광공사 공공누리",
-      "cover": {
-        "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/67/4095567_image2_1.jpg",
-        "src": "/assets/processed/goheung-heritage-night-walk-parking.webp",
-        "alt": "전남 고흥 국가유산 야행 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 800,
-        "height": 500,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/67/4095567_image2_1.jpg",
-        "src": "/assets/processed/goheung-heritage-night-walk-parking-hero.webp",
-        "alt": "전남 고흥 국가유산 야행 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "banner": {
-        "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/67/4095567_image2_1.jpg",
-        "src": "/assets/processed/goheung-heritage-night-walk-parking-banner.webp",
-        "alt": "전남 고흥 국가유산 야행 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
-        "width": 1200,
-        "height": 675,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "images": []
-    },
-    "travel-2660046": {
-      "title": "구룡포과메기문화관 실내 관람, 전시·주차와 포항 동선",
-      "sourceTitle": "구룡포과메기문화관",
-      "region": "경북",
-      "source": "한국관광공사 공공누리",
-      "cover": {
-        "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/40/3586540_image2_1.jpg",
-        "src": "/assets/processed/pohang-guryongpo-gwamegi-museum-parking.webp",
-        "alt": "경북 구룡포과메기문화관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 800,
-        "height": 500,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/40/3586540_image2_1.jpg",
-        "src": "/assets/processed/pohang-guryongpo-gwamegi-museum-parking-hero.webp",
-        "alt": "경북 구룡포과메기문화관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "banner": {
-        "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/40/3586540_image2_1.jpg",
-        "src": "/assets/processed/pohang-guryongpo-gwamegi-museum-parking-banner.webp",
-        "alt": "경북 구룡포과메기문화관 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
-        "width": 1200,
-        "height": 675,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "images": []
-    },
-    "travel-2779301": {
-      "title": "영암곤충박물관 실내 관람, 아이와 체험 전 운영시간 확인",
-      "sourceTitle": "영암곤충박물관",
-      "region": "전남",
-      "source": "한국관광공사 공공누리",
-      "cover": {
-        "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/53/3553853_image2_1.jpg",
-        "src": "/assets/processed/yeongam-insect-museum-family.webp",
-        "alt": "전남 영암곤충박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 800,
-        "height": 500,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/53/3553853_image2_1.jpg",
-        "src": "/assets/processed/yeongam-insect-museum-family-hero.webp",
-        "alt": "전남 영암곤충박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "banner": {
-        "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/53/3553853_image2_1.jpg",
-        "src": "/assets/processed/yeongam-insect-museum-family-banner.webp",
-        "alt": "전남 영암곤충박물관 아이와 정보를 담은 트립뷰 지역 허브 배너",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
-        "width": 1200,
-        "height": 675,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "images": []
-    },
-    "travel-2988949": {
-      "title": "하동케이블카 방문 가이드, 금오산 전망·운행 확인·주차 동선",
-      "sourceTitle": "하동케이블카",
-      "region": "경남",
-      "source": "한국관광공사 공공누리",
-      "cover": {
-        "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/30/3530930_image2_1.jpg",
-        "src": "/assets/processed/hadong-cable-car-parking.webp",
-        "alt": "경남 하동케이블카 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 800,
-        "height": 500,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/30/3530930_image2_1.jpg",
-        "src": "/assets/processed/hadong-cable-car-parking-hero.webp",
-        "alt": "경남 하동케이블카 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "banner": {
-        "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/30/3530930_image2_1.jpg",
-        "src": "/assets/processed/hadong-cable-car-parking-banner.webp",
-        "alt": "경남 하동케이블카 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
-        "width": 1200,
-        "height": 675,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "images": []
-    },
-    "travel-2633832": {
-      "title": "원주 뮤지엄산 비 오는 날 관람, 예약·입장료·전시 동선",
-      "sourceTitle": "뮤지엄산",
-      "region": "강원",
-      "source": "한국관광공사 공공누리",
-      "cover": {
-        "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/08/3584408_image2_1.jpg",
-        "src": "/assets/processed/wonju-museum-san-parking.webp",
-        "alt": "강원 뮤지엄산 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 800,
-        "height": 500,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/08/3584408_image2_1.jpg",
-        "src": "/assets/processed/wonju-museum-san-parking-hero.webp",
-        "alt": "강원 뮤지엄산 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "banner": {
-        "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/08/3584408_image2_1.jpg",
-        "src": "/assets/processed/wonju-museum-san-parking-banner.webp",
-        "alt": "강원 뮤지엄산 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
-        "width": 1200,
-        "height": 675,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "images": []
-    },
-    "travel-2774026": {
-      "title": "횡성호수길 5구간 걷기 전 확인할 거리·난이도·귀환 동선",
-      "sourceTitle": "[횡성호수길] 5구간",
-      "region": "강원",
-      "source": "한국관광공사 공공누리",
-      "cover": {
-        "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/91/4096191_image2_1.jpg",
-        "src": "/assets/processed/hoengseong-lake-trail-parking.webp",
-        "alt": "강원 횡성호수길 5구간 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 800,
-        "height": 500,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/91/4096191_image2_1.jpg",
-        "src": "/assets/processed/hoengseong-lake-trail-parking-hero.webp",
-        "alt": "강원 횡성호수길 5구간 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "banner": {
-        "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/91/4096191_image2_1.jpg",
-        "src": "/assets/processed/hoengseong-lake-trail-parking-banner.webp",
-        "alt": "강원 횡성호수길 5구간 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
-        "width": 1200,
-        "height": 675,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "images": []
-    },
-    "travel-130537": {
-      "title": "전북 산림박물관 비 오는 날 코스, 관람시간·주차 확인",
-      "sourceTitle": "전북특별자치도 산림박물관",
-      "region": "전북",
-      "source": "한국관광공사 공공누리",
-      "cover": {
-        "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/96/4094596_image2_1.jpg",
-        "src": "/assets/processed/sunchang-jeonbuk-teukbyeoljachido-forest-museum-parking.webp",
-        "alt": "전북 전북특별자치도 산림박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 800,
-        "height": 500,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/96/4094596_image2_1.jpg",
-        "src": "/assets/processed/sunchang-jeonbuk-teukbyeoljachido-forest-museum-parking-hero.webp",
-        "alt": "전북 전북특별자치도 산림박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "banner": {
-        "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/96/4094596_image2_1.jpg",
-        "src": "/assets/processed/sunchang-jeonbuk-teukbyeoljachido-forest-museum-parking-banner.webp",
-        "alt": "전북 전북특별자치도 산림박물관 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
-        "width": 1200,
-        "height": 675,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "images": []
-    },
-    "travel-130538": {
-      "title": "고창 신재효판소리박물관 관람, 전시 내용과 주변 문화 코스",
-      "sourceTitle": "고창 신재효판소리박물관",
-      "region": "전북",
-      "source": "한국관광공사 공공누리",
-      "cover": {
-        "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/35/4094635_image2_1.jpg",
-        "src": "/assets/processed/gochang-pansori-museum-indoor.webp",
-        "alt": "전북 고창 신재효판소리박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 800,
-        "height": 500,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/35/4094635_image2_1.jpg",
-        "src": "/assets/processed/gochang-pansori-museum-indoor-hero.webp",
-        "alt": "전북 고창 신재효판소리박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "banner": {
-        "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/35/4094635_image2_1.jpg",
-        "src": "/assets/processed/gochang-pansori-museum-indoor-banner.webp",
-        "alt": "전북 고창 신재효판소리박물관 실내 코스 정보를 담은 트립뷰 지역 허브 배너",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
-        "width": 1200,
-        "height": 675,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "images": []
-    },
-    "travel-2994364": {
-      "title": "송도스카이파크 산책 코스, 주차 후 전망대까지 이동 순서",
-      "sourceTitle": "송도스카이파크",
-      "region": "부산",
-      "source": "한국관광공사 공공누리",
-      "cover": {
-        "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/85/3589785_image2_1.jpg",
-        "src": "/assets/processed/busan-songdo-sky-park-parking.webp",
-        "alt": "부산 송도스카이파크 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 800,
-        "height": 500,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/85/3589785_image2_1.jpg",
-        "src": "/assets/processed/busan-songdo-sky-park-parking-hero.webp",
-        "alt": "부산 송도스카이파크 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "banner": {
-        "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/85/3589785_image2_1.jpg",
-        "src": "/assets/processed/busan-songdo-sky-park-parking-banner.webp",
-        "alt": "부산 송도스카이파크 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
-        "width": 1200,
-        "height": 675,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "images": []
-    },
-    "travel-2995966": {
-      "title": "국립나주숲체원 아이와 가기 전, 프로그램·숙박·준비물",
-      "sourceTitle": "국립나주숲체원",
-      "region": "전남",
-      "source": "한국관광공사 공공누리",
-      "cover": {
-        "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/38/3106038_image2_1.jpg",
-        "src": "/assets/processed/naju-forest-center-family.webp",
-        "alt": "전남 국립나주숲체원 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 800,
-        "height": 500,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/38/3106038_image2_1.jpg",
-        "src": "/assets/processed/naju-forest-center-family-hero.webp",
-        "alt": "전남 국립나주숲체원 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "banner": {
-        "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/38/3106038_image2_1.jpg",
-        "src": "/assets/processed/naju-forest-center-family-banner.webp",
-        "alt": "전남 국립나주숲체원 아이와 정보를 담은 트립뷰 지역 허브 배너",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
-        "width": 1200,
-        "height": 675,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "images": []
-    },
-    "travel-250345": {
-      "title": "곡성섬진강천문대 관측 전 확인, 날씨·예약·야간 귀가",
-      "sourceTitle": "곡성섬진강천문대",
-      "region": "전남",
-      "source": "한국관광공사 공공누리",
-      "cover": {
-        "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/64/4095364_image2_1.png",
-        "src": "/assets/processed/gurye-seomjingang-observatory-indoor.webp",
-        "alt": "전남 곡성섬진강천문대 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 800,
-        "height": 500,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/64/4095364_image2_1.png",
-        "src": "/assets/processed/gurye-seomjingang-observatory-indoor-hero.webp",
-        "alt": "전남 곡성섬진강천문대 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "banner": {
-        "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/64/4095364_image2_1.png",
-        "src": "/assets/processed/gurye-seomjingang-observatory-indoor-banner.webp",
-        "alt": "전남 곡성섬진강천문대 실내 코스 정보를 담은 트립뷰 지역 허브 배너",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
-        "width": 1200,
-        "height": 675,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "images": []
-    },
-    "travel-2858860": {
-      "title": "액티브파크 제주 체험 전 체크, 이용시간·연령 조건·준비물",
-      "sourceTitle": "액티브파크 제주",
-      "region": "제주",
-      "source": "한국관광공사 공공누리",
-      "cover": {
-        "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/40/4095340_image2_1.jpg",
-        "src": "/assets/processed/jeju-active-park-jeju-family.webp",
-        "alt": "제주 액티브파크 제주 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 800,
-        "height": 500,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/40/4095340_image2_1.jpg",
-        "src": "/assets/processed/jeju-active-park-jeju-family-hero.webp",
-        "alt": "제주 액티브파크 제주 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "banner": {
-        "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/40/4095340_image2_1.jpg",
-        "src": "/assets/processed/jeju-active-park-jeju-family-banner.webp",
-        "alt": "제주 액티브파크 제주 아이와 정보를 담은 트립뷰 지역 허브 배너",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
-        "width": 1200,
-        "height": 675,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "images": []
-    },
-    "travel-2931892": {
-      "title": "제주 빛의 벙커 실내 관람, 입장 시간·주차·체류 팁",
-      "sourceTitle": "빛의 벙커",
-      "region": "제주",
-      "source": "한국관광공사 공공누리",
-      "cover": {
-        "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/08/3548808_image2_1.jpg",
-        "src": "/assets/processed/jeju-bunker-des-lumieres-parking.webp",
-        "alt": "제주 빛의 벙커 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 800,
-        "height": 500,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/08/3548808_image2_1.jpg",
-        "src": "/assets/processed/jeju-bunker-des-lumieres-parking-hero.webp",
-        "alt": "제주 빛의 벙커 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "banner": {
-        "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/08/3548808_image2_1.jpg",
-        "src": "/assets/processed/jeju-bunker-des-lumieres-parking-banner.webp",
-        "alt": "제주 빛의 벙커 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
-        "width": 1200,
-        "height": 675,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "images": []
-    },
-    "travel-1177867": {
-      "title": "분당 어린이천문대 체험 전, 연령·예약·관측 가능 여부",
-      "sourceTitle": "분당 어린이천문대",
-      "region": "경기",
-      "source": "한국관광공사 공공누리",
-      "cover": {
-        "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/28/3383428_image2_1.jpg",
-        "src": "/assets/processed/yongin-bundang-children-observatory-family.webp",
-        "alt": "경기 분당 어린이천문대 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 800,
-        "height": 500,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/28/3383428_image2_1.jpg",
-        "src": "/assets/processed/yongin-bundang-children-observatory-family-hero.webp",
-        "alt": "경기 분당 어린이천문대 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "banner": {
-        "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/28/3383428_image2_1.jpg",
-        "src": "/assets/processed/yongin-bundang-children-observatory-family-banner.webp",
-        "alt": "경기 분당 어린이천문대 아이와 정보를 담은 트립뷰 지역 허브 배너",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
-        "width": 1200,
-        "height": 675,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "images": []
-    },
-    "festival-4093783": {
-      "title": "홍성 국가유산 야행 2026, 8월 14~15일 밤 동선과 무료 프로그램",
-      "sourceTitle": "홍성 국가유산 야행",
-      "region": "충남",
-      "source": "한국관광공사 공공누리",
-      "cover": {
-        "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/02/4093802_image2_1.JPG",
-        "src": "/assets/processed/hongseong-heritage-night-walk-parking.webp",
-        "alt": "충남 홍성 국가유산 야행 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 800,
-        "height": 500,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/02/4093802_image2_1.JPG",
-        "src": "/assets/processed/hongseong-heritage-night-walk-parking-hero.webp",
-        "alt": "충남 홍성 국가유산 야행 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "banner": {
-        "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/02/4093802_image2_1.JPG",
-        "src": "/assets/processed/hongseong-heritage-night-walk-parking-banner.webp",
-        "alt": "충남 홍성 국가유산 야행 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
-        "width": 1200,
-        "height": 675,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "images": []
-    },
-    "travel-3082317": {
-      "title": "국립어린이박물관 예약 전 체크, 관람시간·연령별 체험",
-      "sourceTitle": "국립어린이박물관",
-      "region": "세종",
-      "source": "한국관광공사 공공누리",
-      "cover": {
-        "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/81/4093881_image2_1.jpg",
-        "src": "/assets/processed/sejong-national-children-museum-family.webp",
-        "alt": "세종 국립어린이박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 800,
-        "height": 500,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/81/4093881_image2_1.jpg",
-        "src": "/assets/processed/sejong-national-children-museum-family-hero.webp",
-        "alt": "세종 국립어린이박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "banner": {
-        "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/81/4093881_image2_1.jpg",
-        "src": "/assets/processed/sejong-national-children-museum-family-banner.webp",
-        "alt": "세종 국립어린이박물관 아이와 정보를 담은 트립뷰 지역 허브 배너",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
-        "width": 1200,
-        "height": 675,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "images": []
-    },
-    "travel-126200": {
-      "title": "도산서원 관람 순서, 주차장에서 전시·서원까지 걷는 동선",
-      "sourceTitle": "도산서원 [유네스코 세계유산]",
-      "region": "경북",
-      "source": "한국관광공사 공공누리",
-      "cover": {
-        "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/06/4064706_image2_1.JPG",
-        "src": "/assets/processed/andong-dosanseowon-unesco-heritage-parking.webp",
-        "alt": "경북 도산서원 유네스코 세계유산 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 800,
-        "height": 500,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/06/4064706_image2_1.JPG",
-        "src": "/assets/processed/andong-dosanseowon-unesco-heritage-parking-hero.webp",
-        "alt": "경북 도산서원 유네스코 세계유산 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "banner": {
-        "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/06/4064706_image2_1.JPG",
-        "src": "/assets/processed/andong-dosanseowon-unesco-heritage-parking-banner.webp",
-        "alt": "경북 도산서원 유네스코 세계유산 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
-        "width": 1200,
-        "height": 675,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "images": []
-    },
-    "travel-125711": {
-      "title": "삼척 장호해변·장호항 물놀이, 주차·입수·해양체험 확인",
-      "sourceTitle": "장호해변·장호항",
-      "region": "강원",
-      "source": "한국관광공사 공공누리",
-      "cover": {
-        "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource_photo/64/3478664_image2_1.jpg",
-        "src": "/assets/processed/samcheok-jangho-beach-janghohang-parking.webp",
-        "alt": "강원 장호해변·장호항 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 800,
-        "height": 500,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource_photo/64/3478664_image2_1.jpg",
-        "src": "/assets/processed/samcheok-jangho-beach-janghohang-parking-hero.webp",
-        "alt": "강원 장호해변·장호항 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "banner": {
-        "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource_photo/64/3478664_image2_1.jpg",
-        "src": "/assets/processed/samcheok-jangho-beach-janghohang-parking-banner.webp",
-        "alt": "강원 장호해변·장호항 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
-        "width": 1200,
-        "height": 675,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "images": []
-    },
-    "travel-125713": {
-      "title": "동해 망상해변 여름 여행, 개장 확인·주차·편의시설 이용법",
-      "sourceTitle": "망상해변",
-      "region": "강원",
-      "source": "한국관광공사 공공누리",
-      "cover": {
-        "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource_photo/20/3544320_image2_1.jpg",
-        "src": "/assets/processed/donghae-mangsang-beach-parking.webp",
-        "alt": "강원 망상해변 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 800,
-        "height": 500,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource_photo/20/3544320_image2_1.jpg",
-        "src": "/assets/processed/donghae-mangsang-beach-parking-hero.webp",
-        "alt": "강원 망상해변 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "banner": {
-        "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource_photo/20/3544320_image2_1.jpg",
-        "src": "/assets/processed/donghae-mangsang-beach-parking-banner.webp",
-        "alt": "강원 망상해변 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
-        "width": 1200,
-        "height": 675,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "images": []
-    },
-    "travel-126078": {
-      "title": "광안리해수욕장 8월 물놀이, 주차·샤워장·광안대교 야경 동선",
-      "sourceTitle": "광안리해수욕장",
-      "region": "부산",
-      "source": "한국관광공사 공공누리",
-      "cover": {
-        "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/45/3311245_image2_1.jpg",
-        "src": "/assets/processed/busan-gwangalli-beach-parking.webp",
-        "alt": "부산 광안리해수욕장 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 800,
-        "height": 500,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/45/3311245_image2_1.jpg",
-        "src": "/assets/processed/busan-gwangalli-beach-parking-hero.webp",
-        "alt": "부산 광안리해수욕장 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "banner": {
-        "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/45/3311245_image2_1.jpg",
-        "src": "/assets/processed/busan-gwangalli-beach-parking-banner.webp",
-        "alt": "부산 광안리해수욕장 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
-        "width": 1200,
-        "height": 675,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "images": []
-    },
-    "travel-126302": {
-      "title": "땅끝송호해수욕장 가족 물놀이, 얕은 수심·송림·캠핑 동선",
-      "sourceTitle": "땅끝송호해수욕장",
-      "region": "전남",
-      "source": "한국관광공사 공공누리",
-      "cover": {
-        "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/87/3587587_image2_1.jpg",
-        "src": "/assets/processed/haenam-ttangkkeut-songho-beach-parking.webp",
-        "alt": "전남 땅끝송호해수욕장 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 800,
-        "height": 500,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/87/3587587_image2_1.jpg",
-        "src": "/assets/processed/haenam-ttangkkeut-songho-beach-parking-hero.webp",
-        "alt": "전남 땅끝송호해수욕장 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "banner": {
-        "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/87/3587587_image2_1.jpg",
-        "src": "/assets/processed/haenam-ttangkkeut-songho-beach-parking-banner.webp",
-        "alt": "전남 땅끝송호해수욕장 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
-        "width": 1200,
-        "height": 675,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "images": []
-    },
-    "travel-126729": {
-      "title": "삼척 환선굴 주말 방문, 입장 마감·모노레일·관람 시간 체크",
-      "sourceTitle": "환선굴",
-      "region": "강원",
-      "source": "한국관광공사 공공누리",
-      "cover": {
-        "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/51/3503951_image2_1.jpg",
-        "src": "/assets/processed/samcheok-hwanseongul-parking.webp",
-        "alt": "강원 환선굴 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 800,
-        "height": 500,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/51/3503951_image2_1.jpg",
-        "src": "/assets/processed/samcheok-hwanseongul-parking-hero.webp",
-        "alt": "강원 환선굴 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "banner": {
-        "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/51/3503951_image2_1.jpg",
-        "src": "/assets/processed/samcheok-hwanseongul-parking-banner.webp",
-        "alt": "강원 환선굴 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
-        "width": 1200,
-        "height": 675,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "images": []
-    },
-    "travel-127722": {
-      "title": "강릉 안목해변 여름 코스, 바다 산책·카페거리·주차 체크",
-      "sourceTitle": "안목해변",
-      "region": "강원",
-      "source": "한국관광공사 공공누리",
-      "cover": {
-        "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/58/4075958_image2_1.jpg",
-        "src": "/assets/processed/gangneung-anmok-beach-parking.webp",
-        "alt": "강원 안목해변 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 800,
-        "height": 500,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/58/4075958_image2_1.jpg",
-        "src": "/assets/processed/gangneung-anmok-beach-parking-hero.webp",
-        "alt": "강원 안목해변 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "banner": {
-        "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/58/4075958_image2_1.jpg",
-        "src": "/assets/processed/gangneung-anmok-beach-parking-banner.webp",
-        "alt": "강원 안목해변 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
-        "width": 1200,
-        "height": 675,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "images": []
-    },
-    "travel-992130": {
-      "title": "키자니아 서울 아이와 방문, 체험 예약·대기시간 줄이는 법",
-      "sourceTitle": "키자니아 서울",
-      "region": "서울",
-      "source": "한국관광공사 공공누리",
-      "cover": {
-        "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/27/3529027_image2_1.JPG",
-        "src": "/assets/processed/seoul-kidzania-seoul-family.webp",
-        "alt": "서울 키자니아 서울 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 800,
-        "height": 500,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/27/3529027_image2_1.JPG",
-        "src": "/assets/processed/seoul-kidzania-seoul-family-hero.webp",
-        "alt": "서울 키자니아 서울 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "banner": {
-        "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/27/3529027_image2_1.JPG",
-        "src": "/assets/processed/seoul-kidzania-seoul-family-banner.webp",
-        "alt": "서울 키자니아 서울 아이와 정보를 담은 트립뷰 지역 허브 배너",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
-        "width": 1200,
-        "height": 675,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "images": []
-    },
     "travel-125837": {
       "title": "괴산 수옥폭포 여름 방문, 수량·통제 여부와 안전한 동선",
       "sourceTitle": "수옥폭포",
@@ -1222,7 +18,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -1246,7 +43,1268 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "images": []
+    },
+    "data-festival-schedule-seoul": {
+      "title": "서울 축제 일정 정리",
+      "sourceTitle": "서울 축제 일정 정리",
+      "region": "서울",
+      "source": "한국관광공사 공공누리",
+      "cover": {
+        "kind": "cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/79/4039379_image2_1.jpg",
+        "src": "/assets/processed/seoul-festival-iljeong-jeongri-festival.webp",
+        "alt": "서울 서울 축제 일정 정리 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 800,
+        "height": 500,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "hero": {
+        "kind": "hero-cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/79/4039379_image2_1.jpg",
+        "src": "/assets/processed/seoul-festival-iljeong-jeongri-festival-hero.webp",
+        "alt": "서울 서울 축제 일정 정리 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 1200,
+        "height": 900,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
         "posterCanvas": false
+      },
+      "banner": {
+        "kind": "hub-banner",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/79/4039379_image2_1.jpg",
+        "src": "/assets/processed/seoul-festival-iljeong-jeongri-festival-banner.webp",
+        "alt": "서울 서울 축제 일정 정리 축제 일정 정보를 담은 트립뷰 지역 허브 배너",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
+        "width": 1200,
+        "height": 675,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "images": []
+    },
+    "festival-1939183": {
+      "title": "문경새재 맨발페스티벌 2026 준비물, 황톳길 완주·발 관리·귀가 동선",
+      "sourceTitle": "오감만족 문경새재맨발페스티벌",
+      "region": "경북",
+      "source": "한국관광공사 공공누리",
+      "cover": {
+        "kind": "cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/31/4078831_image2_1.jpg",
+        "src": "/assets/processed/mungyeong-ogammanjok-mungyeongsaejaemaenbal-festival-parking.webp",
+        "alt": "경북 오감만족 문경새재맨발페스티벌 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 800,
+        "height": 500,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": true,
+        "bytes": null
+      },
+      "hero": {
+        "kind": "hero-cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/31/4078831_image2_1.jpg",
+        "src": "/assets/processed/mungyeong-ogammanjok-mungyeongsaejaemaenbal-festival-parking-hero.webp",
+        "alt": "경북 오감만족 문경새재맨발페스티벌 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 1200,
+        "height": 900,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": true
+      },
+      "banner": {
+        "kind": "hub-banner",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/31/4078831_image2_1.jpg",
+        "src": "/assets/processed/mungyeong-ogammanjok-mungyeongsaejaemaenbal-festival-parking-banner.webp",
+        "alt": "경북 오감만족 문경새재맨발페스티벌 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
+        "width": 1200,
+        "height": 675,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": true,
+        "bytes": null
+      },
+      "images": []
+    },
+    "festival-3351451": {
+      "title": "K-일러스트레이션페어 마곡 2026 관람 가이드, 사전예매·입장 마감·부스 동선",
+      "sourceTitle": "K-일러스트레이션페어 마곡 2026",
+      "region": "서울",
+      "source": "한국관광공사 공공누리",
+      "cover": {
+        "kind": "cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/75/4059475_image2_1.jpg",
+        "src": "/assets/processed/seoul-k-illustration-fair-magok-parking.webp",
+        "alt": "서울 K-일러스트레이션페어 마곡 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 800,
+        "height": 500,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": true,
+        "bytes": null
+      },
+      "hero": {
+        "kind": "hero-cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/75/4059475_image2_1.jpg",
+        "src": "/assets/processed/seoul-k-illustration-fair-magok-parking-hero.webp",
+        "alt": "서울 K-일러스트레이션페어 마곡 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 1200,
+        "height": 900,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": true
+      },
+      "banner": {
+        "kind": "hub-banner",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/75/4059475_image2_1.jpg",
+        "src": "/assets/processed/seoul-k-illustration-fair-magok-parking-banner.webp",
+        "alt": "서울 K-일러스트레이션페어 마곡 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
+        "width": 1200,
+        "height": 675,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": true,
+        "bytes": null
+      },
+      "images": []
+    },
+    "festival-4096371": {
+      "title": "트레저헌터 in 진안 2026 참여법, 앱 설치부터 7개 권역 미션까지",
+      "sourceTitle": "트레저헌터 in 진안",
+      "region": "전북",
+      "source": "한국관광공사 공공누리",
+      "cover": {
+        "kind": "cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/08/4096408_image2_1.jpeg",
+        "src": "/assets/processed/jinan-treasure-hunter-jinan-indoor.webp",
+        "alt": "전북 트레저헌터 in 진안 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 800,
+        "height": 500,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": true,
+        "bytes": null
+      },
+      "hero": {
+        "kind": "hero-cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/08/4096408_image2_1.jpeg",
+        "src": "/assets/processed/jinan-treasure-hunter-jinan-indoor-hero.webp",
+        "alt": "전북 트레저헌터 in 진안 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 1200,
+        "height": 900,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": true
+      },
+      "banner": {
+        "kind": "hub-banner",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/08/4096408_image2_1.jpeg",
+        "src": "/assets/processed/jinan-treasure-hunter-jinan-indoor-banner.webp",
+        "alt": "전북 트레저헌터 in 진안 실내 코스 정보를 담은 트립뷰 지역 허브 배너",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
+        "width": 1200,
+        "height": 675,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": true,
+        "bytes": null
+      },
+      "images": []
+    },
+    "festival-4008618": {
+      "title": "고흥 국가유산 야행 2026, 8월 28~29일 흥양현읍성 밤 코스",
+      "sourceTitle": "고흥 국가유산 야행",
+      "region": "전남",
+      "source": "한국관광공사 공공누리",
+      "cover": {
+        "kind": "cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/67/4095567_image2_1.jpg",
+        "src": "/assets/processed/goheung-heritage-night-walk-parking.webp",
+        "alt": "전남 고흥 국가유산 야행 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 800,
+        "height": 500,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "hero": {
+        "kind": "hero-cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/67/4095567_image2_1.jpg",
+        "src": "/assets/processed/goheung-heritage-night-walk-parking-hero.webp",
+        "alt": "전남 고흥 국가유산 야행 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 1200,
+        "height": 900,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false
+      },
+      "banner": {
+        "kind": "hub-banner",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/67/4095567_image2_1.jpg",
+        "src": "/assets/processed/goheung-heritage-night-walk-parking-banner.webp",
+        "alt": "전남 고흥 국가유산 야행 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
+        "width": 1200,
+        "height": 675,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "images": []
+    },
+    "travel-2660046": {
+      "title": "구룡포과메기문화관 실내 관람, 전시·주차와 포항 동선",
+      "sourceTitle": "구룡포과메기문화관",
+      "region": "경북",
+      "source": "한국관광공사 공공누리",
+      "cover": {
+        "kind": "cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/40/3586540_image2_1.jpg",
+        "src": "/assets/processed/pohang-guryongpo-gwamegi-museum-parking.webp",
+        "alt": "경북 구룡포과메기문화관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 800,
+        "height": 500,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "hero": {
+        "kind": "hero-cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/40/3586540_image2_1.jpg",
+        "src": "/assets/processed/pohang-guryongpo-gwamegi-museum-parking-hero.webp",
+        "alt": "경북 구룡포과메기문화관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 1200,
+        "height": 900,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false
+      },
+      "banner": {
+        "kind": "hub-banner",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/40/3586540_image2_1.jpg",
+        "src": "/assets/processed/pohang-guryongpo-gwamegi-museum-parking-banner.webp",
+        "alt": "경북 구룡포과메기문화관 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
+        "width": 1200,
+        "height": 675,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "images": []
+    },
+    "travel-2779301": {
+      "title": "영암곤충박물관 실내 관람, 아이와 체험 전 운영시간 확인",
+      "sourceTitle": "영암곤충박물관",
+      "region": "전남",
+      "source": "한국관광공사 공공누리",
+      "cover": {
+        "kind": "cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/53/3553853_image2_1.jpg",
+        "src": "/assets/processed/yeongam-insect-museum-family.webp",
+        "alt": "전남 영암곤충박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 800,
+        "height": 500,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "hero": {
+        "kind": "hero-cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/53/3553853_image2_1.jpg",
+        "src": "/assets/processed/yeongam-insect-museum-family-hero.webp",
+        "alt": "전남 영암곤충박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 1200,
+        "height": 900,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false
+      },
+      "banner": {
+        "kind": "hub-banner",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/53/3553853_image2_1.jpg",
+        "src": "/assets/processed/yeongam-insect-museum-family-banner.webp",
+        "alt": "전남 영암곤충박물관 아이와 정보를 담은 트립뷰 지역 허브 배너",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
+        "width": 1200,
+        "height": 675,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "images": []
+    },
+    "travel-2988949": {
+      "title": "하동케이블카 방문 가이드, 금오산 전망·운행 확인·주차 동선",
+      "sourceTitle": "하동케이블카",
+      "region": "경남",
+      "source": "한국관광공사 공공누리",
+      "cover": {
+        "kind": "cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/30/3530930_image2_1.jpg",
+        "src": "/assets/processed/hadong-cable-car-parking.webp",
+        "alt": "경남 하동케이블카 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 800,
+        "height": 500,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "hero": {
+        "kind": "hero-cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/30/3530930_image2_1.jpg",
+        "src": "/assets/processed/hadong-cable-car-parking-hero.webp",
+        "alt": "경남 하동케이블카 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 1200,
+        "height": 900,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false
+      },
+      "banner": {
+        "kind": "hub-banner",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/30/3530930_image2_1.jpg",
+        "src": "/assets/processed/hadong-cable-car-parking-banner.webp",
+        "alt": "경남 하동케이블카 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
+        "width": 1200,
+        "height": 675,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "images": []
+    },
+    "travel-2633832": {
+      "title": "원주 뮤지엄산 비 오는 날 관람, 예약·입장료·전시 동선",
+      "sourceTitle": "뮤지엄산",
+      "region": "강원",
+      "source": "한국관광공사 공공누리",
+      "cover": {
+        "kind": "cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/08/3584408_image2_1.jpg",
+        "src": "/assets/processed/wonju-museum-san-parking.webp",
+        "alt": "강원 뮤지엄산 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 800,
+        "height": 500,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "hero": {
+        "kind": "hero-cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/08/3584408_image2_1.jpg",
+        "src": "/assets/processed/wonju-museum-san-parking-hero.webp",
+        "alt": "강원 뮤지엄산 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 1200,
+        "height": 900,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false
+      },
+      "banner": {
+        "kind": "hub-banner",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/08/3584408_image2_1.jpg",
+        "src": "/assets/processed/wonju-museum-san-parking-banner.webp",
+        "alt": "강원 뮤지엄산 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
+        "width": 1200,
+        "height": 675,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "images": []
+    },
+    "travel-2774026": {
+      "title": "횡성호수길 5구간 걷기 전 확인할 거리·난이도·귀환 동선",
+      "sourceTitle": "[횡성호수길] 5구간",
+      "region": "강원",
+      "source": "한국관광공사 공공누리",
+      "cover": {
+        "kind": "cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/91/4096191_image2_1.jpg",
+        "src": "/assets/processed/hoengseong-lake-trail-parking.webp",
+        "alt": "강원 횡성호수길 5구간 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 800,
+        "height": 500,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "hero": {
+        "kind": "hero-cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/91/4096191_image2_1.jpg",
+        "src": "/assets/processed/hoengseong-lake-trail-parking-hero.webp",
+        "alt": "강원 횡성호수길 5구간 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 1200,
+        "height": 900,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false
+      },
+      "banner": {
+        "kind": "hub-banner",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/91/4096191_image2_1.jpg",
+        "src": "/assets/processed/hoengseong-lake-trail-parking-banner.webp",
+        "alt": "강원 횡성호수길 5구간 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
+        "width": 1200,
+        "height": 675,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "images": []
+    },
+    "travel-130537": {
+      "title": "전북 산림박물관 비 오는 날 코스, 관람시간·주차 확인",
+      "sourceTitle": "전북특별자치도 산림박물관",
+      "region": "전북",
+      "source": "한국관광공사 공공누리",
+      "cover": {
+        "kind": "cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/96/4094596_image2_1.jpg",
+        "src": "/assets/processed/sunchang-jeonbuk-teukbyeoljachido-forest-museum-parking.webp",
+        "alt": "전북 전북특별자치도 산림박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 800,
+        "height": 500,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "hero": {
+        "kind": "hero-cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/96/4094596_image2_1.jpg",
+        "src": "/assets/processed/sunchang-jeonbuk-teukbyeoljachido-forest-museum-parking-hero.webp",
+        "alt": "전북 전북특별자치도 산림박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 1200,
+        "height": 900,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false
+      },
+      "banner": {
+        "kind": "hub-banner",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/96/4094596_image2_1.jpg",
+        "src": "/assets/processed/sunchang-jeonbuk-teukbyeoljachido-forest-museum-parking-banner.webp",
+        "alt": "전북 전북특별자치도 산림박물관 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
+        "width": 1200,
+        "height": 675,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "images": []
+    },
+    "travel-130538": {
+      "title": "고창 신재효판소리박물관 관람, 전시 내용과 주변 문화 코스",
+      "sourceTitle": "고창 신재효판소리박물관",
+      "region": "전북",
+      "source": "한국관광공사 공공누리",
+      "cover": {
+        "kind": "cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/35/4094635_image2_1.jpg",
+        "src": "/assets/processed/gochang-pansori-museum-indoor.webp",
+        "alt": "전북 고창 신재효판소리박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 800,
+        "height": 500,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "hero": {
+        "kind": "hero-cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/35/4094635_image2_1.jpg",
+        "src": "/assets/processed/gochang-pansori-museum-indoor-hero.webp",
+        "alt": "전북 고창 신재효판소리박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 1200,
+        "height": 900,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false
+      },
+      "banner": {
+        "kind": "hub-banner",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/35/4094635_image2_1.jpg",
+        "src": "/assets/processed/gochang-pansori-museum-indoor-banner.webp",
+        "alt": "전북 고창 신재효판소리박물관 실내 코스 정보를 담은 트립뷰 지역 허브 배너",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
+        "width": 1200,
+        "height": 675,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "images": []
+    },
+    "travel-2994364": {
+      "title": "송도스카이파크 산책 코스, 주차 후 전망대까지 이동 순서",
+      "sourceTitle": "송도스카이파크",
+      "region": "부산",
+      "source": "한국관광공사 공공누리",
+      "cover": {
+        "kind": "cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/85/3589785_image2_1.jpg",
+        "src": "/assets/processed/busan-songdo-sky-park-parking.webp",
+        "alt": "부산 송도스카이파크 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 800,
+        "height": 500,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "hero": {
+        "kind": "hero-cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/85/3589785_image2_1.jpg",
+        "src": "/assets/processed/busan-songdo-sky-park-parking-hero.webp",
+        "alt": "부산 송도스카이파크 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 1200,
+        "height": 900,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false
+      },
+      "banner": {
+        "kind": "hub-banner",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/85/3589785_image2_1.jpg",
+        "src": "/assets/processed/busan-songdo-sky-park-parking-banner.webp",
+        "alt": "부산 송도스카이파크 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
+        "width": 1200,
+        "height": 675,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "images": []
+    },
+    "travel-2995966": {
+      "title": "국립나주숲체원 아이와 가기 전, 프로그램·숙박·준비물",
+      "sourceTitle": "국립나주숲체원",
+      "region": "전남",
+      "source": "한국관광공사 공공누리",
+      "cover": {
+        "kind": "cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/38/3106038_image2_1.jpg",
+        "src": "/assets/processed/naju-forest-center-family.webp",
+        "alt": "전남 국립나주숲체원 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 800,
+        "height": 500,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "hero": {
+        "kind": "hero-cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/38/3106038_image2_1.jpg",
+        "src": "/assets/processed/naju-forest-center-family-hero.webp",
+        "alt": "전남 국립나주숲체원 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 1200,
+        "height": 900,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false
+      },
+      "banner": {
+        "kind": "hub-banner",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/38/3106038_image2_1.jpg",
+        "src": "/assets/processed/naju-forest-center-family-banner.webp",
+        "alt": "전남 국립나주숲체원 아이와 정보를 담은 트립뷰 지역 허브 배너",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
+        "width": 1200,
+        "height": 675,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "images": []
+    },
+    "travel-250345": {
+      "title": "곡성섬진강천문대 관측 전 확인, 날씨·예약·야간 귀가",
+      "sourceTitle": "곡성섬진강천문대",
+      "region": "전남",
+      "source": "한국관광공사 공공누리",
+      "cover": {
+        "kind": "cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/64/4095364_image2_1.png",
+        "src": "/assets/processed/gurye-seomjingang-observatory-indoor.webp",
+        "alt": "전남 곡성섬진강천문대 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 800,
+        "height": 500,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "hero": {
+        "kind": "hero-cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/64/4095364_image2_1.png",
+        "src": "/assets/processed/gurye-seomjingang-observatory-indoor-hero.webp",
+        "alt": "전남 곡성섬진강천문대 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 1200,
+        "height": 900,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false
+      },
+      "banner": {
+        "kind": "hub-banner",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/64/4095364_image2_1.png",
+        "src": "/assets/processed/gurye-seomjingang-observatory-indoor-banner.webp",
+        "alt": "전남 곡성섬진강천문대 실내 코스 정보를 담은 트립뷰 지역 허브 배너",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
+        "width": 1200,
+        "height": 675,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "images": []
+    },
+    "travel-2858860": {
+      "title": "액티브파크 제주 체험 전 체크, 이용시간·연령 조건·준비물",
+      "sourceTitle": "액티브파크 제주",
+      "region": "제주",
+      "source": "한국관광공사 공공누리",
+      "cover": {
+        "kind": "cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/40/4095340_image2_1.jpg",
+        "src": "/assets/processed/jeju-active-park-jeju-family.webp",
+        "alt": "제주 액티브파크 제주 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 800,
+        "height": 500,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "hero": {
+        "kind": "hero-cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/40/4095340_image2_1.jpg",
+        "src": "/assets/processed/jeju-active-park-jeju-family-hero.webp",
+        "alt": "제주 액티브파크 제주 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 1200,
+        "height": 900,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false
+      },
+      "banner": {
+        "kind": "hub-banner",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/40/4095340_image2_1.jpg",
+        "src": "/assets/processed/jeju-active-park-jeju-family-banner.webp",
+        "alt": "제주 액티브파크 제주 아이와 정보를 담은 트립뷰 지역 허브 배너",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
+        "width": 1200,
+        "height": 675,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "images": []
+    },
+    "travel-2931892": {
+      "title": "제주 빛의 벙커 실내 관람, 입장 시간·주차·체류 팁",
+      "sourceTitle": "빛의 벙커",
+      "region": "제주",
+      "source": "한국관광공사 공공누리",
+      "cover": {
+        "kind": "cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/08/3548808_image2_1.jpg",
+        "src": "/assets/processed/jeju-bunker-des-lumieres-parking.webp",
+        "alt": "제주 빛의 벙커 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 800,
+        "height": 500,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "hero": {
+        "kind": "hero-cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/08/3548808_image2_1.jpg",
+        "src": "/assets/processed/jeju-bunker-des-lumieres-parking-hero.webp",
+        "alt": "제주 빛의 벙커 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 1200,
+        "height": 900,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false
+      },
+      "banner": {
+        "kind": "hub-banner",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/08/3548808_image2_1.jpg",
+        "src": "/assets/processed/jeju-bunker-des-lumieres-parking-banner.webp",
+        "alt": "제주 빛의 벙커 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
+        "width": 1200,
+        "height": 675,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "images": []
+    },
+    "travel-1177867": {
+      "title": "분당 어린이천문대 체험 전, 연령·예약·관측 가능 여부",
+      "sourceTitle": "분당 어린이천문대",
+      "region": "경기",
+      "source": "한국관광공사 공공누리",
+      "cover": {
+        "kind": "cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/28/3383428_image2_1.jpg",
+        "src": "/assets/processed/yongin-bundang-children-observatory-family.webp",
+        "alt": "경기 분당 어린이천문대 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 800,
+        "height": 500,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "hero": {
+        "kind": "hero-cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/28/3383428_image2_1.jpg",
+        "src": "/assets/processed/yongin-bundang-children-observatory-family-hero.webp",
+        "alt": "경기 분당 어린이천문대 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 1200,
+        "height": 900,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false
+      },
+      "banner": {
+        "kind": "hub-banner",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/28/3383428_image2_1.jpg",
+        "src": "/assets/processed/yongin-bundang-children-observatory-family-banner.webp",
+        "alt": "경기 분당 어린이천문대 아이와 정보를 담은 트립뷰 지역 허브 배너",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
+        "width": 1200,
+        "height": 675,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "images": []
+    },
+    "festival-4093783": {
+      "title": "홍성 국가유산 야행 2026, 8월 14~15일 밤 동선과 무료 프로그램",
+      "sourceTitle": "홍성 국가유산 야행",
+      "region": "충남",
+      "source": "한국관광공사 공공누리",
+      "cover": {
+        "kind": "cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/02/4093802_image2_1.JPG",
+        "src": "/assets/processed/hongseong-heritage-night-walk-parking.webp",
+        "alt": "충남 홍성 국가유산 야행 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 800,
+        "height": 500,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "hero": {
+        "kind": "hero-cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/02/4093802_image2_1.JPG",
+        "src": "/assets/processed/hongseong-heritage-night-walk-parking-hero.webp",
+        "alt": "충남 홍성 국가유산 야행 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 1200,
+        "height": 900,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false
+      },
+      "banner": {
+        "kind": "hub-banner",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/02/4093802_image2_1.JPG",
+        "src": "/assets/processed/hongseong-heritage-night-walk-parking-banner.webp",
+        "alt": "충남 홍성 국가유산 야행 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
+        "width": 1200,
+        "height": 675,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "images": []
+    },
+    "travel-3082317": {
+      "title": "국립어린이박물관 예약 전 체크, 관람시간·연령별 체험",
+      "sourceTitle": "국립어린이박물관",
+      "region": "세종",
+      "source": "한국관광공사 공공누리",
+      "cover": {
+        "kind": "cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/81/4093881_image2_1.jpg",
+        "src": "/assets/processed/sejong-national-children-museum-family.webp",
+        "alt": "세종 국립어린이박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 800,
+        "height": 500,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "hero": {
+        "kind": "hero-cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/81/4093881_image2_1.jpg",
+        "src": "/assets/processed/sejong-national-children-museum-family-hero.webp",
+        "alt": "세종 국립어린이박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 1200,
+        "height": 900,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false
+      },
+      "banner": {
+        "kind": "hub-banner",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/81/4093881_image2_1.jpg",
+        "src": "/assets/processed/sejong-national-children-museum-family-banner.webp",
+        "alt": "세종 국립어린이박물관 아이와 정보를 담은 트립뷰 지역 허브 배너",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
+        "width": 1200,
+        "height": 675,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "images": []
+    },
+    "travel-126200": {
+      "title": "도산서원 관람 순서, 주차장에서 전시·서원까지 걷는 동선",
+      "sourceTitle": "도산서원 [유네스코 세계유산]",
+      "region": "경북",
+      "source": "한국관광공사 공공누리",
+      "cover": {
+        "kind": "cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/06/4064706_image2_1.JPG",
+        "src": "/assets/processed/andong-dosanseowon-unesco-heritage-parking.webp",
+        "alt": "경북 도산서원 유네스코 세계유산 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 800,
+        "height": 500,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "hero": {
+        "kind": "hero-cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/06/4064706_image2_1.JPG",
+        "src": "/assets/processed/andong-dosanseowon-unesco-heritage-parking-hero.webp",
+        "alt": "경북 도산서원 유네스코 세계유산 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 1200,
+        "height": 900,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false
+      },
+      "banner": {
+        "kind": "hub-banner",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/06/4064706_image2_1.JPG",
+        "src": "/assets/processed/andong-dosanseowon-unesco-heritage-parking-banner.webp",
+        "alt": "경북 도산서원 유네스코 세계유산 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
+        "width": 1200,
+        "height": 675,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "images": []
+    },
+    "travel-125711": {
+      "title": "삼척 장호해변·장호항 물놀이, 주차·입수·해양체험 확인",
+      "sourceTitle": "장호해변·장호항",
+      "region": "강원",
+      "source": "한국관광공사 공공누리",
+      "cover": {
+        "kind": "cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource_photo/64/3478664_image2_1.jpg",
+        "src": "/assets/processed/samcheok-jangho-beach-janghohang-parking.webp",
+        "alt": "강원 장호해변·장호항 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 800,
+        "height": 500,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "hero": {
+        "kind": "hero-cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource_photo/64/3478664_image2_1.jpg",
+        "src": "/assets/processed/samcheok-jangho-beach-janghohang-parking-hero.webp",
+        "alt": "강원 장호해변·장호항 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 1200,
+        "height": 900,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false
+      },
+      "banner": {
+        "kind": "hub-banner",
+        "original": "https://tong.visitkorea.or.kr/cms/resource_photo/64/3478664_image2_1.jpg",
+        "src": "/assets/processed/samcheok-jangho-beach-janghohang-parking-banner.webp",
+        "alt": "강원 장호해변·장호항 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
+        "width": 1200,
+        "height": 675,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "images": []
+    },
+    "travel-125713": {
+      "title": "동해 망상해변 여름 여행, 개장 확인·주차·편의시설 이용법",
+      "sourceTitle": "망상해변",
+      "region": "강원",
+      "source": "한국관광공사 공공누리",
+      "cover": {
+        "kind": "cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource_photo/20/3544320_image2_1.jpg",
+        "src": "/assets/processed/donghae-mangsang-beach-parking.webp",
+        "alt": "강원 망상해변 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 800,
+        "height": 500,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "hero": {
+        "kind": "hero-cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource_photo/20/3544320_image2_1.jpg",
+        "src": "/assets/processed/donghae-mangsang-beach-parking-hero.webp",
+        "alt": "강원 망상해변 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 1200,
+        "height": 900,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false
+      },
+      "banner": {
+        "kind": "hub-banner",
+        "original": "https://tong.visitkorea.or.kr/cms/resource_photo/20/3544320_image2_1.jpg",
+        "src": "/assets/processed/donghae-mangsang-beach-parking-banner.webp",
+        "alt": "강원 망상해변 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
+        "width": 1200,
+        "height": 675,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "images": []
+    },
+    "travel-126078": {
+      "title": "광안리해수욕장 8월 물놀이, 주차·샤워장·광안대교 야경 동선",
+      "sourceTitle": "광안리해수욕장",
+      "region": "부산",
+      "source": "한국관광공사 공공누리",
+      "cover": {
+        "kind": "cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/45/3311245_image2_1.jpg",
+        "src": "/assets/processed/busan-gwangalli-beach-parking.webp",
+        "alt": "부산 광안리해수욕장 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 800,
+        "height": 500,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "hero": {
+        "kind": "hero-cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/45/3311245_image2_1.jpg",
+        "src": "/assets/processed/busan-gwangalli-beach-parking-hero.webp",
+        "alt": "부산 광안리해수욕장 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 1200,
+        "height": 900,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false
+      },
+      "banner": {
+        "kind": "hub-banner",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/45/3311245_image2_1.jpg",
+        "src": "/assets/processed/busan-gwangalli-beach-parking-banner.webp",
+        "alt": "부산 광안리해수욕장 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
+        "width": 1200,
+        "height": 675,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "images": []
+    },
+    "travel-126302": {
+      "title": "땅끝송호해수욕장 가족 물놀이, 얕은 수심·송림·캠핑 동선",
+      "sourceTitle": "땅끝송호해수욕장",
+      "region": "전남",
+      "source": "한국관광공사 공공누리",
+      "cover": {
+        "kind": "cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/87/3587587_image2_1.jpg",
+        "src": "/assets/processed/haenam-ttangkkeut-songho-beach-parking.webp",
+        "alt": "전남 땅끝송호해수욕장 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 800,
+        "height": 500,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "hero": {
+        "kind": "hero-cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/87/3587587_image2_1.jpg",
+        "src": "/assets/processed/haenam-ttangkkeut-songho-beach-parking-hero.webp",
+        "alt": "전남 땅끝송호해수욕장 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 1200,
+        "height": 900,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false
+      },
+      "banner": {
+        "kind": "hub-banner",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/87/3587587_image2_1.jpg",
+        "src": "/assets/processed/haenam-ttangkkeut-songho-beach-parking-banner.webp",
+        "alt": "전남 땅끝송호해수욕장 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
+        "width": 1200,
+        "height": 675,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "images": []
+    },
+    "travel-126729": {
+      "title": "삼척 환선굴 주말 방문, 입장 마감·모노레일·관람 시간 체크",
+      "sourceTitle": "환선굴",
+      "region": "강원",
+      "source": "한국관광공사 공공누리",
+      "cover": {
+        "kind": "cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/51/3503951_image2_1.jpg",
+        "src": "/assets/processed/samcheok-hwanseongul-parking.webp",
+        "alt": "강원 환선굴 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 800,
+        "height": 500,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "hero": {
+        "kind": "hero-cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/51/3503951_image2_1.jpg",
+        "src": "/assets/processed/samcheok-hwanseongul-parking-hero.webp",
+        "alt": "강원 환선굴 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 1200,
+        "height": 900,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false
+      },
+      "banner": {
+        "kind": "hub-banner",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/51/3503951_image2_1.jpg",
+        "src": "/assets/processed/samcheok-hwanseongul-parking-banner.webp",
+        "alt": "강원 환선굴 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
+        "width": 1200,
+        "height": 675,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "images": []
+    },
+    "travel-127722": {
+      "title": "강릉 안목해변 여름 코스, 바다 산책·카페거리·주차 체크",
+      "sourceTitle": "안목해변",
+      "region": "강원",
+      "source": "한국관광공사 공공누리",
+      "cover": {
+        "kind": "cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/58/4075958_image2_1.jpg",
+        "src": "/assets/processed/gangneung-anmok-beach-parking.webp",
+        "alt": "강원 안목해변 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 800,
+        "height": 500,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "hero": {
+        "kind": "hero-cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/58/4075958_image2_1.jpg",
+        "src": "/assets/processed/gangneung-anmok-beach-parking-hero.webp",
+        "alt": "강원 안목해변 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 1200,
+        "height": 900,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false
+      },
+      "banner": {
+        "kind": "hub-banner",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/58/4075958_image2_1.jpg",
+        "src": "/assets/processed/gangneung-anmok-beach-parking-banner.webp",
+        "alt": "강원 안목해변 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
+        "width": 1200,
+        "height": 675,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "images": []
+    },
+    "travel-992130": {
+      "title": "키자니아 서울 아이와 방문, 체험 예약·대기시간 줄이는 법",
+      "sourceTitle": "키자니아 서울",
+      "region": "서울",
+      "source": "한국관광공사 공공누리",
+      "cover": {
+        "kind": "cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/27/3529027_image2_1.JPG",
+        "src": "/assets/processed/seoul-kidzania-seoul-family.webp",
+        "alt": "서울 키자니아 서울 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 800,
+        "height": 500,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "hero": {
+        "kind": "hero-cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/27/3529027_image2_1.JPG",
+        "src": "/assets/processed/seoul-kidzania-seoul-family-hero.webp",
+        "alt": "서울 키자니아 서울 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 1200,
+        "height": 900,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false
+      },
+      "banner": {
+        "kind": "hub-banner",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/27/3529027_image2_1.JPG",
+        "src": "/assets/processed/seoul-kidzania-seoul-family-banner.webp",
+        "alt": "서울 키자니아 서울 아이와 정보를 담은 트립뷰 지역 허브 배너",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
+        "width": 1200,
+        "height": 675,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": []
     },
@@ -1265,7 +1323,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -1289,7 +1348,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": []
     },
@@ -1308,7 +1368,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": true
+        "posterCanvas": true,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -1332,7 +1393,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": true
+        "posterCanvas": true,
+        "bytes": null
       },
       "images": []
     },
@@ -1351,7 +1413,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": true
+        "posterCanvas": true,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -1375,7 +1438,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": true
+        "posterCanvas": true,
+        "bytes": null
       },
       "images": []
     },
@@ -1394,7 +1458,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -1418,7 +1483,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": []
     },
@@ -1437,7 +1503,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -1461,7 +1528,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": []
     },
@@ -1480,7 +1548,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -1504,7 +1573,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": []
     },
@@ -1523,7 +1593,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -1547,7 +1618,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": []
     },
@@ -1566,7 +1638,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": true
+        "posterCanvas": true,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -1590,7 +1663,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": true
+        "posterCanvas": true,
+        "bytes": null
       },
       "images": []
     },
@@ -1609,7 +1683,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -1633,7 +1708,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": []
     },
@@ -1652,7 +1728,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -1676,7 +1753,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": []
     },
@@ -1695,7 +1773,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -1719,7 +1798,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": [
         {
@@ -1732,7 +1812,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         }
       ]
     },
@@ -1751,7 +1832,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -1775,7 +1857,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": []
     },
@@ -1794,7 +1877,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -1818,7 +1902,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": []
     },
@@ -1837,7 +1922,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -1861,7 +1947,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": []
     },
@@ -1880,7 +1967,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -1904,7 +1992,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": []
     },
@@ -1923,7 +2012,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -1947,7 +2037,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": []
     },
@@ -1966,7 +2057,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -1990,7 +2082,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": []
     },
@@ -2009,7 +2102,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -2033,7 +2127,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": []
     },
@@ -2052,7 +2147,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -2076,7 +2172,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": []
     },
@@ -2095,7 +2192,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -2119,7 +2217,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": []
     },
@@ -2138,7 +2237,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -2162,7 +2262,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": []
     },
@@ -2181,7 +2282,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -2205,7 +2307,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": []
     },
@@ -2224,7 +2327,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -2248,7 +2352,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": []
     }

@@ -8,7 +8,7 @@ import { isIndexablePost } from "./lib/content-quality.mjs";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, "..");
-const VERSION = 2;
+const VERSION = 3;
 const esc = (value = "") =>
   String(value).replace(/[&<>"']/g, (m) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m]));
 
@@ -54,7 +54,6 @@ function apiOverview(post) {
 function apiFacts(post) {
   const intro = post.tourApi?.intro || {};
   const rows = [
-    ["홈페이지", post.tourApi?.homepage],
     ["주차", intro.parking || intro.parkingculture || intro.parkingfestival || intro.parkingleports],
     ["쉬는 날", intro.restdate || intro.restdateculture],
     ["이용 시간", intro.usetime || intro.usetimeculture || intro.usetimeleports || intro.playtime],
@@ -71,29 +70,18 @@ function apiFacts(post) {
 
 function withApiSections(post, sections, isFestival) {
   const title = sourceTitle(post);
-  const overview = apiOverview(post);
   const facts = apiFacts(post);
   const next = [...sections];
 
-  if (overview && !next.some(([, paragraphs]) => paragraphs.some((p) => p.includes(overview.slice(0, 40))))) {
-    next.unshift([
-      isFestival ? "행사 개요를 먼저 보면" : "장소 개요를 먼저 보면",
-      [
-        `${title}은 공식 관광 정보에 등록된 소개 내용을 기준으로 보면 다음처럼 이해하면 좋습니다. ${overview}`,
-        isFestival
-          ? "행사 소개만 보고 바로 이동하기보다 기간, 장소, 프로그램, 요금, 주차 가능 여부를 함께 확인해야 현장에서 기다리는 시간을 줄일 수 있습니다."
-          : "장소 소개만 보고 바로 이동하기보다 실제 입구, 운영 여부, 주차 또는 대중교통 동선, 주변 식사 동선을 함께 잡아야 방문 만족도가 높아집니다."
-      ]
-    ]);
-  }
-
-  if (facts.length) {
-    const factText = facts.map(([label, value]) => `${label}: ${value}`).join(" / ");
+  const hasOperatingSection = next.some(([heading]) => /운영 정보|위치와 운영 확인|방문 전 확인할 정보|운영정보/.test(strip(heading)));
+  if (facts.length && !hasOperatingSection) {
     next.splice(Math.min(2, next.length), 0, [
-      "운영 정보에서 놓치기 쉬운 부분",
+      "운영 정보",
       [
-        `${title} 방문 전 확인할 만한 세부 정보는 ${factText}입니다. 이 정보는 제목이나 대표 이미지보다 실제 일정에 더 직접적으로 영향을 줍니다.`,
-        "특히 주차, 쉬는 날, 이용 시간, 체험 접수처럼 현장에서 바로 막히는 항목은 출발 전에 다시 확인하는 편이 좋습니다. 같은 지역 안에서도 입구와 주차 위치가 다르면 이동 시간이 크게 달라질 수 있습니다."
+        `${title} 방문 전에는 운영 시간, 요금, 주차, 문의 순서로 먼저 살피면 좋습니다.`,
+        isFestival
+          ? "행사장 입구와 안내 부스, 화장실, 귀가 방향을 먼저 확인하면 사람이 몰리는 시간에도 동선이 덜 흔들립니다."
+          : "입구와 주차 위치, 가까운 정류장을 함께 확인하면 실제 이동 시간이 길어지는 일을 줄일 수 있습니다."
       ]
     ]);
   }
@@ -184,15 +172,15 @@ function programParagraph(post, theme) {
   }
   const joined = joinKorean(items);
   if (theme === "food") {
-    return `프로그램은 ${joined} 중심으로 볼 수 있습니다. 먹거리 축제는 인기 부스에 사람이 몰리기 쉬우니, 먼저 전체 판매·체험 위치를 확인하고 줄이 긴 곳은 식사 시간대를 살짝 비켜 다시 찾는 방식이 편합니다.`;
+    return "먹거리 축제는 인기 부스에 사람이 몰리기 쉬우니, 먼저 전체 판매·체험 위치를 확인하고 줄이 긴 곳은 식사 시간대를 살짝 비켜 다시 찾는 방식이 편합니다.";
   }
   if (theme === "history") {
-    return `프로그램은 ${joined} 흐름으로 이어집니다. 역사문화형 행사는 눈으로만 보는 것보다 해설, 재현, 공연 시간을 맞춰 보면 이해가 쉬워지므로 입장 직후 시간표를 먼저 확인하는 것이 좋습니다.`;
+    return "역사문화형 행사는 눈으로만 보는 것보다 해설, 재현, 공연 시간을 맞춰 보면 이해가 쉬워지므로 입장 직후 시간표를 먼저 확인하는 것이 좋습니다.";
   }
   if (theme === "nature") {
-    return `주요 볼거리는 ${joined} 쪽에 맞춰져 있습니다. 야외 구간이 많다면 한 번에 전부 보려고 하기보다 빛이 좋은 시간대와 휴식 지점을 함께 생각해 코스를 나누는 편이 좋습니다.`;
+    return "야외 구간이 많다면 한 번에 전부 보려고 하기보다 빛이 좋은 시간대와 휴식 지점을 함께 생각해 코스를 나누는 편이 좋습니다.";
   }
-  return `주요 프로그램은 ${joined}입니다. 인기 프로그램은 현장 상황에 따라 대기가 길어질 수 있으니, 가장 보고 싶은 순서를 정하고 나머지는 여유 시간에 붙이는 방식이 현실적입니다.`;
+  return "인기 프로그램은 현장 상황에 따라 대기가 길어질 수 있으니, 가장 보고 싶은 순서를 정하고 나머지는 여유 시간에 붙이는 방식이 현실적입니다.";
 }
 
 function buildFestivalSections(post) {
@@ -207,7 +195,7 @@ function buildFestivalSections(post) {
 
   return [
     [
-      "이 축제를 어떻게 보면 좋을까",
+      "관람 포인트",
       [
         themeIntro(title, region, place, theme, true),
         `${title}을 일정에 넣을 때는 “도착해서 무엇을 먼저 볼지”를 정해두는 편이 좋습니다. 행사장은 생각보다 넓거나 사람이 몰릴 수 있어, 대표 프로그램 하나와 식사·휴식 시간을 먼저 고정해두면 현장에서 선택지가 훨씬 편해집니다.`
@@ -221,7 +209,7 @@ function buildFestivalSections(post) {
       ]
     ],
     [
-      "프로그램 고르는 법",
+      "프로그램 구성",
       [
         programParagraph(post, theme),
         `가족 방문이라면 체험과 휴식 지점을 가까이 묶고, 커플이나 친구끼리라면 공연·먹거리·사진 찍기 좋은 구간을 이어 붙이는 식으로 보는 순서를 잡아보세요. 혼자 방문한다면 대기 시간이 긴 프로그램보다 짧게 여러 구간을 둘러보는 방식이 더 만족스러울 수 있습니다.`
@@ -230,21 +218,21 @@ function buildFestivalSections(post) {
     [
       "비용과 준비물",
       [
-        `요금은 ${fee}로 안내됩니다. 무료 행사라도 먹거리, 체험, 판매 부스는 별도 비용이 생길 수 있으니 현금과 카드 결제 가능 여부를 함께 생각해두면 좋습니다.`,
+        `요금 기준은 ${fee}입니다. 무료 행사라도 먹거리, 체험, 판매 부스는 별도 비용이 생길 수 있으니 현금과 카드 결제 가능 여부를 함께 생각해두면 좋습니다.`,
         theme === "food"
           ? "먹거리 행사는 식사 시간대에 줄이 길어지기 쉽습니다. 너무 배고픈 상태로 가기보다 가볍게 간식을 챙기고, 인기 부스는 식사 피크를 피해 다시 찾는 편이 편합니다."
           : "야외 시간이 길어질 수 있으니 편한 신발, 물, 날씨에 맞는 겉옷을 챙기세요. 비나 강한 햇빛이 예보된 날에는 실내 대피 장소나 쉬어갈 카페를 미리 정해두는 것이 좋습니다."
       ]
     ],
     [
-      "이동과 귀가 팁",
+      "이동과 귀가",
       [
         `${destination(region)} 이동하는 주말 일정이라면 주차보다 귀가 동선이 더 중요할 때가 많습니다. 행사장 바로 앞 주차만 고집하기보다 조금 떨어진 주차장이나 대중교통 환승 지점을 함께 보는 편이 현실적입니다.`,
         `축제 종료 직후에는 한 번에 사람이 빠져나가므로 이동이 느려질 수 있습니다. 마지막 프로그램까지 볼 계획이라면 막차 시간, 택시 승차 위치, 도보 이동 시간을 미리 확인해두세요.`
       ]
     ],
     [
-      "출발 전 마지막 확인",
+      "예약 전 확인 순서",
       [
         `문의처는 ${tel}입니다. 날씨, 안전 관리, 현장 혼잡도에 따라 세부 프로그램과 운영 시간이 조정될 수 있으므로 출발 전 당일 공지를 한 번 더 확인하는 편이 안전합니다.`,
         `${title}은 현장 분위기를 따라 움직이는 재미가 있지만, 아무 계획 없이 가면 대기와 이동에 시간을 많이 쓰기 쉽습니다. 일정, 대표 프로그램, 결제 수단, 귀가 방법만 정리해도 훨씬 편하게 즐길 수 있습니다.`
@@ -264,21 +252,21 @@ function buildTravelSections(post) {
 
   return [
     [
-      "어떤 일정에 어울릴까",
+      "관람 포인트",
       [
         themeIntro(title, region, place, theme, false),
         `${title}을 방문할 때는 체류 시간을 먼저 정하는 것이 좋습니다. 짧게 들를 코스인지, 산책과 식사까지 붙일 코스인지에 따라 이동 동선과 준비물이 달라집니다.`
       ]
     ],
     [
-      "위치와 운영 확인",
+      "운영 정보",
       [
         `위치는 ${place} 기준입니다. 운영 관련 안내는 ${operation}, 요금은 ${fee}로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.`,
         `문의처는 ${tel}입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다.`
       ]
     ],
     [
-      "현장에서 볼 포인트",
+      "프로그램 구성",
       [
         programParagraph(post, theme),
         theme === "nature"
@@ -287,14 +275,14 @@ function buildTravelSections(post) {
       ]
     ],
     [
-      "주변 동선 잡기",
+      "이동과 귀가",
       [
         `${region} 안에서 식사, 카페, 산책 코스를 함께 묶으면 이동 시간이 줄어듭니다. 특히 오후 일정이라면 먼저 목적지를 보고, 해가 지기 전 식사나 카페로 이동하는 순서가 편합니다.`,
         `차량 이동이라면 주차 위치를 사진으로 남겨두고, 대중교통이라면 돌아오는 정류장 위치를 먼저 확인하세요. 여행지에서는 들어갈 때보다 나올 때 길을 찾는 시간이 더 오래 걸릴 수 있습니다.`
       ]
     ],
     [
-      "준비물과 방문 팁",
+      "비용과 준비물",
       [
         `편한 신발, 물, 날씨에 맞는 겉옷은 기본입니다. 걷는 구간이 길거나 야외 시간이 많은 곳이라면 보조 배터리와 간단한 간식도 챙기는 편이 좋습니다.`,
         `아이와 함께라면 화장실과 휴식 지점을 먼저 확인하고, 어르신과 함께라면 계단이나 경사 구간이 있는지 확인하세요. 동행자에 따라 같은 장소도 적절한 동선이 달라집니다.`
@@ -312,7 +300,7 @@ function buildFaq(post) {
 
   if (isFestival) {
     return [
-      ["입장료가 있나요?", `요금은 ${fee}로 안내됩니다. 다만 체험, 먹거리, 판매 부스 이용 비용은 별도로 발생할 수 있습니다.`],
+      ["입장료가 있나요?", `요금 기준은 ${fee}입니다. 다만 체험, 먹거리, 판매 부스 이용 비용은 별도로 발생할 수 있습니다.`],
       ["언제 도착하면 좋나요?", `운영 시간은 ${time} 기준입니다. 대표 프로그램을 보려면 시작 시간보다 여유 있게 도착해 시간표와 관람 위치를 먼저 확인하는 편이 좋습니다.`],
       ["아이와 함께 가도 괜찮나요?", "가능합니다. 다만 대기 시간이 생길 수 있어 물, 간식, 편한 신발, 날씨에 맞는 겉옷을 챙기면 좋습니다."],
       ["비가 오면 어떻게 하나요?", "야외 프로그램은 날씨에 따라 조정될 수 있습니다. 출발 전 당일 공지와 현장 안내를 확인하세요."],
@@ -330,6 +318,9 @@ function buildFaq(post) {
 }
 
 function polishPost(post) {
+  if (post.slug === "data-stay-ticket-seoul") {
+    return { ...post, copyPolishedVersion: VERSION };
+  }
   if (post.contentDepthVersion) {
     return { ...repairEnrichedPost(post), copyPolishedVersion: VERSION };
   }

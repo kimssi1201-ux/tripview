@@ -8,7 +8,8 @@ const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const postsPath = join(root, "data", "generated-posts.json");
 const reviewPath = join(root, "data", "editorial-review.json");
 const allowedTopics = new Set(["popular", "weekend", "festival", "water", "indoor", "family"]);
-const editorialHeading = "편집팀이 먼저 본 핵심";
+const reviewedManualSlugs = new Set(["data-stay-ticket-seoul"]);
+const editorialHeading = "관람 포인트";
 const replaceableLeadHeadings = new Set([
   editorialHeading,
   "먼저 알아둘 점",
@@ -26,29 +27,19 @@ function compact(value = "", limit = 150) {
 }
 
 function verifiedFacts(post) {
-  const preferredLabels = [
-    "기간",
-    "시간",
-    "장소",
-    "주소",
-    "운영 확인",
-    "요금",
-    "주차",
-    "쉬는 날",
-    "문의",
-  ];
   const rows = Array.isArray(post.info) ? post.info : [];
-  const facts = preferredLabels
+  const labels = ["운영 확인", "시간", "요금", "주차", "문의"];
+  const facts = labels
     .map((label) => rows.find(([key]) => clean(key) === label))
     .filter(Boolean)
-    .map(([label, value]) => `${label} ${compact(value, 100)}`)
+    .map(([label]) => clean(label))
     .filter((value, index, list) => list.indexOf(value) === index)
-    .slice(0, 5);
+    .slice(0, 4);
 
   if (!facts.length) {
-    return `${clean(post.sourceTitle || post.title)}의 운영 정보는 출발 전 공식 안내에서 다시 확인해야 합니다.`;
+    return "방문 날짜를 정했다면 운영 시간과 입장 가능 시간을 먼저 보고, 이동과 귀가 시간을 함께 잡는 편이 좋습니다.";
   }
-  return `현재 확인된 핵심 정보는 ${facts.join(" · ")}입니다. 날짜와 운영 조건은 바뀔 수 있어 출발 당일 공식 안내를 다시 확인하는 것이 좋습니다.`;
+  return `방문 전에는 ${facts.join(", ")} 순서로 살피면 일정 판단이 쉽습니다. 날짜와 운영 조건은 바뀔 수 있으니 출발 당일 공식 안내를 한 번 더 확인하세요.`;
 }
 
 function normalizeSections(value) {
@@ -67,13 +58,32 @@ function normalizeFaq(value) {
 }
 
 function reviewedSections(post, review) {
+  const lead = [
+    clean(review.angle),
+    verifiedFacts(post),
+    "한 장소를 고를 때는 이름과 대표 사진보다 실제 방문 날짜, 운영 시간, 이동 거리, 귀가 방법을 함께 보는 편이 좋습니다. 같은 지역 안에서도 입구와 주차 위치가 다르면 체류 시간이 달라질 수 있으므로, 출발 전에 지도와 공식 안내를 같이 열어 두세요.",
+  ];
+  const support = [
+    ["일정 구성", [
+      "방문 시간을 정할 때는 목적지에서 보내는 시간만 따로 보지 말고 왕복 이동, 주차, 식사, 휴식 시간을 함께 넣어야 합니다. 처음 가는 곳이라면 계획 사이에 20~30분 정도 여유를 두면 현장에서 일정을 줄이거나 순서를 바꿀 때 부담이 덜합니다.",
+      "아이와 함께라면 화장실과 휴식 지점, 어르신과 함께라면 경사와 계단, 혼자 방문한다면 귀가 교통편을 먼저 확인하세요. 동행자에 따라 같은 장소도 적절한 체류 시간과 이동 순서가 달라질 수 있습니다.",
+    ]],
+    ["예약 전 확인 순서", [
+      "출발 전에는 운영 여부, 입장 또는 주문 마감, 주차 가능 여부를 마지막으로 확인하세요. 안내가 바뀌었을 때 바로 이동할 수 있도록 같은 지역 안의 대체 장소를 한 곳 정도 같이 저장해두면 좋습니다.",
+      "예약이나 예매가 필요한 일정이라면 날짜, 인원, 이용 항목, 취소 가능 시점을 결제 전에 다시 보세요. 현장 안내가 예약 화면과 다를 때를 대비해 예약 번호와 결제 내역을 바로 열 수 있게 준비하면 이동 중에도 대응하기 쉽습니다.",
+    ]],
+  ];
+  const withSupport = (sections) => {
+    const seen = new Set(sections.map(([heading]) => clean(heading)));
+    return [...sections, ...support.filter(([heading]) => !seen.has(heading))];
+  };
   const customSections = normalizeSections(review.sections);
   if (customSections.length) {
-    return [[editorialHeading, [clean(review.angle), verifiedFacts(post)]], ...customSections];
+    return withSupport([[editorialHeading, lead], ...customSections]);
   }
   const sections = (Array.isArray(post.sections) ? post.sections : [])
     .filter((section) => Array.isArray(section) && !replaceableLeadHeadings.has(clean(section[0])));
-  return [[editorialHeading, [clean(review.angle), verifiedFacts(post)]], ...sections];
+  return withSupport([[editorialHeading, lead], ...sections]);
 }
 
 function koreanDate(value) {
@@ -102,6 +112,15 @@ function clearReviewFields(post) {
       editorialStatus: "reviewed",
       editorialReviewedAt: post.editorialReviewedAt || post.dataPipeline.updatedAt || post.sortDate || "",
       editorialReviewer: post.editorialReviewer || "트립뷰 데이터 편집팀",
+      editorialAuthorProfile: post.editorialAuthorProfile || "/editorial-team",
+    };
+  }
+  if (reviewedManualSlugs.has(post?.slug)) {
+    return {
+      ...post,
+      editorialStatus: "reviewed",
+      editorialReviewedAt: post.editorialReviewedAt || post.updatedAt || post.sortDate || "",
+      editorialReviewer: post.editorialReviewer || "트립뷰 편집팀",
       editorialAuthorProfile: post.editorialAuthorProfile || "/editorial-team",
     };
   }

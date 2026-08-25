@@ -1645,6 +1645,8 @@ const ARTICLE_DISCLOSURE_START = "<!-- ARTICLE_DISCLOSURE_START";
 const ARTICLE_DISCLOSURE_END = "ARTICLE_DISCLOSURE_END -->";
 const ARTICLE_PHOTO_START = "<!-- ARTICLE_PHOTO_START";
 const ARTICLE_PHOTO_END = "ARTICLE_PHOTO_END -->";
+const ARTICLE_INLINE_PHOTO_START = "<!-- ARTICLE_INLINE_PHOTO_START";
+const ARTICLE_INLINE_PHOTO_END = "ARTICLE_INLINE_PHOTO_END -->";
 const ARTICLE_PRODUCT_START = "<!-- ARTICLE_PRODUCT_START";
 const ARTICLE_PRODUCT_END = "ARTICLE_PRODUCT_END -->";
 const ARTICLE_OFFICIAL_START = "<!-- ARTICLE_OFFICIAL_START";
@@ -1667,8 +1669,14 @@ function articleSiteDesignCss() {
 .hero{padding:40px 0 24px}
 .hero h1{font-size:clamp(28px,5vw,46px);line-height:1.28}
 .layout{padding-top:32px}
-.content{font-size:16px;line-height:1.7}
-.content h2{position:relative;margin-top:38px;padding-left:12px;border-left:3px solid var(--brand);font-size:20px;line-height:1.35;font-weight:800}
+.layout.wrap{width:min(1120px,calc(100% - 40px))}
+.content{max-width:760px;font-size:16px;line-height:1.8;word-break:keep-all;overflow-wrap:anywhere}
+.content p{margin:0 0 24px}
+.content h2{position:relative;margin:40px 0 16px;padding-left:12px;border-left:3px solid var(--brand);font-size:22px;line-height:1.35;font-weight:900}
+.content h2:first-child{margin-top:0}
+.content ul,.content ol{margin:0 0 24px;padding-left:1.25rem;line-height:1.8}
+.content li+li{margin-top:8px}
+.content strong{font-weight:900}
 .cover-figure{margin-top:0}
 .cover{width:100%;aspect-ratio:4/3;border-radius:8px;object-fit:cover}
 .article-hero-band{position:relative;min-height:280px;background:linear-gradient(90deg,color-mix(in srgb,var(--ink) 76%,transparent),color-mix(in srgb,var(--ink) 28%,transparent)),var(--article-hero-image,linear-gradient(135deg,var(--ink),var(--brand)));background-size:cover;background-position:center;color:var(--card)}
@@ -1686,7 +1694,18 @@ function articleSiteDesignCss() {
 .article-info-card{display:grid;grid-template-columns:32px minmax(0,1fr);gap:10px;padding:14px;border:1px solid var(--line);border-radius:8px;background:var(--card)}
 .article-info-icon{display:grid;place-items:center;width:32px;height:32px;border-radius:8px;background:var(--soft-teal);color:var(--brand);font-size:13px;font-weight:900}
 .article-info-label{display:block;color:var(--muted);font-size:12px;font-weight:800}
-.article-info-value{display:block;margin-top:2px;color:var(--ink);font-size:15px;font-weight:800;line-height:1.45}
+.article-info-value{display:block;margin-top:2px;color:var(--ink);font-size:15px;font-weight:800;line-height:1.55;white-space:pre-line;word-break:keep-all;overflow-wrap:anywhere}
+.article-fact-table{width:100%;margin:0 0 24px;border-collapse:separate;border-spacing:0;border:1px solid var(--line);border-radius:8px;background:var(--card);overflow:hidden;font-size:15px;line-height:1.65}
+.article-fact-table th,.article-fact-table td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+.article-fact-table th{width:118px;background:color-mix(in srgb,var(--line) 28%,var(--card));color:var(--ink);font-weight:900}
+.article-fact-table td{color:var(--ink);white-space:pre-line;word-break:keep-all;overflow-wrap:anywhere}
+.article-fact-table tr:last-child th,.article-fact-table tr:last-child td{border-bottom:0}
+.article-check-list{display:grid;gap:8px;list-style:none;padding:0!important}
+.article-check-list li{position:relative;margin:0!important;padding:10px 12px 10px 24px;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.article-check-list li::before{content:"";position:absolute;left:12px;top:20px;width:4px;height:4px;border-radius:50%;background:var(--brand)}
+.inline-figure.article-inline-figure{margin:24px 0}
+.inline-figure.article-inline-figure img{width:100%;aspect-ratio:16/10;border-radius:8px;object-fit:cover;object-position:center;background:var(--card)}
+.inline-figure.article-inline-figure figcaption{margin-top:8px;color:var(--muted);font-size:12px;line-height:1.55}
 .article-photo-grid{margin:26px 0 32px}
 .article-photo-grid h2{margin-top:0}
 .article-photo-items{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
@@ -1717,7 +1736,7 @@ function articleSiteDesignCss() {
 .tourapi-source-box{margin:22px 0 0;padding:14px;border:1px solid var(--line);border-radius:8px;background:color-mix(in srgb,var(--line) 36%,var(--card));color:var(--muted);font-size:13px;line-height:1.6}
 .related-posts,.region-related,.trust-note{border-top:1px solid var(--line)}
 footer.site-footer{padding:0;color:var(--muted)}
-@media(max-width:820px){.hero{padding-top:32px}.layout{padding-top:24px}.article-info-grid,.article-product-section .mrt-accommodation-grid,.article-product-section .mrt-ticket-grid{grid-template-columns:1fr}.article-photo-items{grid-template-columns:1fr}.article-hero-band,.article-hero-inner{min-height:240px}.article-affiliate-disclosure{width:var(--site-wrap)}}/* end-tripview-site-design */`;
+@media(max-width:820px){.hero{padding-top:32px}.layout{padding-top:24px}.layout.wrap{width:calc(100% - 40px)}.content{font-size:15px;line-height:1.8}.content h2{margin:36px 0 16px;font-size:20px}.article-info-grid,.article-product-section .mrt-accommodation-grid,.article-product-section .mrt-ticket-grid{grid-template-columns:1fr}.article-fact-table th{width:96px}.article-photo-items{grid-template-columns:1fr}.article-hero-band,.article-hero-inner{min-height:240px}.article-affiliate-disclosure{width:var(--site-wrap)}}/* end-tripview-site-design */`;
 }
 
 function articleAccommodationCss() {
@@ -1744,6 +1763,7 @@ function stripExistingArticleAds(document) {
     .replace(new RegExp(`${REGION_RELATED_START}[\\s\\S]*?${REGION_RELATED_END}`, "g"), "")
     .replace(new RegExp(`${ARTICLE_DISCLOSURE_START}[\\s\\S]*?${ARTICLE_DISCLOSURE_END}`, "g"), "")
     .replace(new RegExp(`${ARTICLE_PHOTO_START}[\\s\\S]*?${ARTICLE_PHOTO_END}`, "g"), "")
+    .replace(new RegExp(`${ARTICLE_INLINE_PHOTO_START}[\\s\\S]*?${ARTICLE_INLINE_PHOTO_END}`, "g"), "")
     .replace(new RegExp(`${ARTICLE_PRODUCT_START}[\\s\\S]*?${ARTICLE_PRODUCT_END}`, "g"), "")
     .replace(new RegExp(`${ARTICLE_OFFICIAL_START}[\\s\\S]*?${ARTICLE_OFFICIAL_END}`, "g"), "")
     .replace(new RegExp(`${ARTICLE_SOURCE_START}[\\s\\S]*?${ARTICLE_SOURCE_END}`, "g"), "")
@@ -1911,6 +1931,326 @@ function applyProcessedArticleImages(document, post) {
   return ensureLazyImages(next);
 }
 
+const ARTICLE_HEADING_REWRITES = new Map([
+  ["이 축제를 어떻게 보면 좋을까", "관람 포인트"],
+  ["어떤 일정에 어울릴까", "관람 포인트"],
+  ["어떤 일정에 넣기 좋은 곳인가", "관람 포인트"],
+  ["한눈에 보는 방문 포인트", "관람 포인트"],
+  ["이번 일정에서 먼저 볼 점", "관람 포인트"],
+  ["편집팀이 먼저 본 핵심", "관람 포인트"],
+  ["운영 정보에서 놓치기 쉬운 부분", "운영 정보"],
+  ["위치와 운영 확인", "운영 정보"],
+  ["방문 전 확인할 정보", "운영 정보"],
+  ["운영정보를 자세히 보면", "운영 정보"],
+  ["프로그램 고르는 법", "프로그램 구성"],
+  ["프로그램을 고르는 법", "프로그램 구성"],
+  ["현장에서 볼 포인트", "프로그램 구성"],
+  ["주변 동선 잡기", "이동과 귀가"],
+  ["교통과 현장 동선", "이동과 귀가"],
+  ["이동과 귀가 팁", "이동과 귀가"],
+  ["주소와 도착 동선", "이동과 귀가"],
+  ["동선과 준비물", "이동과 귀가"],
+  ["준비물과 방문 팁", "비용과 준비물"],
+  ["비용과 예약 확인", "비용과 준비물"],
+  ["출발 전 마지막 확인", "예약 전 확인 순서"],
+  ["정보 확인 순서", "예약 전 확인 순서"],
+]);
+
+const ARTICLE_DELETED_SECTION_HEADINGS = new Set([
+  "자료 기준",
+  "본문에서 제외한 내용",
+]);
+
+const VERBOSE_PROCESS_PATTERNS = [
+  /방문 전 확인할 만한 세부 정보는/,
+  /현재 확인된 핵심 정보는/,
+  /본문에 넣지 않았습니다/,
+  /표에 넣었습니다/,
+  /만들지 않았습니다/,
+  /생성하지 않았습니다/,
+  /검증할 수 없어/,
+  /확인할 수 없어/,
+  /대조할 수 있는 항목/,
+  /수동 검수 콘텐츠/,
+  /항목만 사용했습니다/,
+  /기준으로 작성했으며/,
+  /저장되어 있습니다/,
+  /운영 관련 안내는/,
+  /^요금은 .+로 안내됩니다/,
+  /이 정보는 제목이나 대표 이미지보다 실제 일정에 더 직접적으로 영향을 줍니다/,
+  /홈페이지:\s*https?:\/\//i,
+];
+
+function replaceArticleContent(document, mapper) {
+  return String(document).replace(
+    /(<article\b[^>]*\bclass=["'][^"']*\bcontent\b[^"']*["'][^>]*>)([\s\S]*?)(<\/article>)/i,
+    (_match, open, body, close) => `${open}${mapper(body)}${close}`,
+  );
+}
+
+function normalizeArticleHeadingText(value = "") {
+  const text = stripTags(value);
+  if (!text) return "";
+  const direct = ARTICLE_HEADING_REWRITES.get(text);
+  if (direct) return direct;
+  if (/^(?:자주 묻는 질문|작성·검수 정보|사진으로 확인하기|함께 볼 글|이 지역 입장권·투어|지역 인기 숙소)/.test(text)) return text;
+  if (/이 축제|어떤 일정|어떤 곳|한눈|먼저 볼 점|방문 포인트/.test(text)) return "관람 포인트";
+  if (/운영\s*정보|운영정보|위치와 운영|방문 전 확인/.test(text)) return "운영 정보";
+  if (/일정|운영 흐름/.test(text)) return "일정과 운영 흐름";
+  if (/프로그램|현장에서 볼|관람 순서|체류 시간/.test(text)) return "프로그램 구성";
+  if (/비용|요금|준비물|동행자별 준비/.test(text)) return "비용과 준비물";
+  if (/이동|귀가|동선|주소|도착|교통|주변/.test(text)) return "이동과 귀가";
+  return text.replace(/[?？]\s*$/g, "");
+}
+
+function normalizeArticleHeadings(document) {
+  return replaceArticleContent(document, (body) => body.replace(
+    /<h2([^>]*)>([\s\S]*?)<\/h2>/gi,
+    (match, attrs, label) => {
+      const normalized = normalizeArticleHeadingText(label);
+      if (!normalized) return match;
+      return `<h2${attrs}>${html(normalized)}</h2>`;
+    },
+  ));
+}
+
+function cleanFactValue(value = "") {
+  return plainFieldValue(value)
+    .replace(/https?:\/\/[^\s<>"']+/g, "")
+    .replace(/([^\n])※/g, "$1\n※")
+    .replace(/([^\n])\s*-\s*(?=(?:평일|토요일|일요일|월요일|화요일|수요일|목요일|금요일|주말|공휴일|매표|성인|소인|어린이|청소년|경로|주요|부대|전시|공연|\d{1,2}:))/g, "$1\n- ")
+    .replace(/\s*\/\s*(?=(?:주차|쉬는 날|이용 시간|행사 장소|행사 기간|프로그램|이용 요금|문의|요금|시간|장소)\s*:)/g, "\n")
+    .replace(/\n{2,}/g, "\n")
+    .trim();
+}
+
+function articleFactTable(post) {
+  if (isDataPipelinePost(post)) return "";
+  const items = articleInfoItems(post)
+    .map((item) => ({ ...item, value: cleanFactValue(item.value) }))
+    .filter((item) => item.value)
+    .slice(0, 7);
+  if (!items.length) return "";
+  return `<table class="article-fact-table" aria-label="운영 정보 표"><tbody>${items.map((item) => `<tr><th>${html(item.label)}</th><td>${html(item.value)}</td></tr>`).join("")}</tbody></table>`;
+}
+
+function splitProgramItems(value = "") {
+  const normalized = plainFieldValue(value)
+    .replace(/\d+\.\s*/g, " ")
+    .replace(/(?:메인|주요|부대|공연|소비자 참여|전시 연계)\s*(?:행사|프로그램)?\s*[:：]/g, " ")
+    .replace(/기타\s*내용\s*[:：]/g, " ");
+  return [...new Set(normalized
+    .split(/[,·ㆍ/]|(?:\s+-\s+)|(?:\s+및\s+)|(?:\s+등\s*)/)
+    .map((item) => normalizeText(item).replace(/^[:：-]+/, "").trim())
+    .filter((item) => item.length >= 2 && item.length <= 64))]
+    .slice(0, 8);
+}
+
+function articleProgramList(post) {
+  const raw = firstInfoValue(post, "주요 프로그램", "방문 포인트", "체험 안내") || introValue(post, "program", "subevent", "expguide");
+  const items = splitProgramItems(raw);
+  if (items.length < 2) return "";
+  return `<ul class="article-check-list article-program-list" aria-label="프로그램 구성">${items.map((item) => `<li>${html(item)}</li>`).join("")}</ul>`;
+}
+
+function insertArticleFactBlocks(document, post) {
+  return replaceArticleContent(document, (body) => {
+    let next = body.replace(/\s*<table\b[^>]*\bclass=["'][^"']*\barticle-fact-table\b[^"']*["'][^>]*>[\s\S]*?<\/table>/gi, "");
+    const factTable = articleFactTable(post);
+    if (factTable && !next.includes("article-fact-table")) {
+      const target = next.match(/<h2[^>]*>\s*(?:운영 정보|일정과 운영 흐름|비용과 준비물)\s*<\/h2>/i);
+      next = target
+        ? `${next.slice(0, target.index + target[0].length)}${factTable}${next.slice(target.index + target[0].length)}`
+        : `${factTable}${next}`;
+    }
+    const programList = articleProgramList(post);
+    if (programList && !next.includes("article-program-list")) {
+      next = next.replace(/(<h2[^>]*>\s*프로그램 구성\s*<\/h2>)/i, `$1${programList}`);
+    }
+    return next;
+  });
+}
+
+function sentenceUnits(value = "") {
+  const text = normalizeText(value);
+  const protectedText = text.replace(/(\d)\.(\d)/g, "$1__DECIMAL_POINT__$2");
+  const sentences = protectedText
+    .match(/[^.!?。]+[.!?。]?/g)
+    ?.map((sentence) => normalizeText(sentence.replaceAll("__DECIMAL_POINT__", ".")))
+    .filter(Boolean) || [text];
+  const units = [];
+  for (const sentence of sentences) {
+    if (sentence.length <= 96) {
+      units.push(sentence);
+      continue;
+    }
+    const parts = sentence.split(/,\s+|;\s+| · /).map(normalizeText).filter(Boolean);
+    if (parts.length > 1) units.push(...parts);
+    else units.push(sentence);
+  }
+  return units;
+}
+
+function splitReadableParagraphs(value = "") {
+  const units = sentenceUnits(value);
+  const paragraphs = [];
+  let current = "";
+  for (const unit of units) {
+    if (current && `${current} ${unit}`.length > 110) {
+      paragraphs.push(current);
+      current = unit;
+    } else {
+      current = [current, unit].filter(Boolean).join(" ");
+    }
+  }
+  if (current) paragraphs.push(current);
+  return paragraphs;
+}
+
+function emphasizeFirstMetric(escaped = "") {
+  return escaped.replace(
+    /(\d{1,2}:\d{2}(?:\s*~\s*\d{1,2}:\d{2})?|\d{1,3}(?:,\d{3})+(?:원|개|건|명)?|\d+(?:\.\d+)?점|\d+개월|\d+개|\d+건|\d+명|\d+분|\d+월\s*\d+일)/,
+    "<strong>$1</strong>",
+  );
+}
+
+function feeRowsFromText(text = "") {
+  if (!/^요금 기준은\s+/.test(text)) return [];
+  let feeText = normalizeText(text.replace(/^요금 기준은\s+/, ""));
+  const endIndex = feeText.indexOf("입니다.");
+  if (endIndex >= 0) feeText = feeText.slice(0, endIndex);
+  feeText = feeText
+    .replace(/\s*(\[[^\]]+\])/g, "\n$1")
+    .replace(/\s*※\s*/g, "\n※ ")
+    .replace(/\s+-\s*/g, "\n")
+    .replace(/\)\s*-\s*/g, ")\n")
+    .replace(/(원|%)\s*-\s*/g, "$1\n")
+    .replace(/\s*\/\s*(?=(?:성인|소인|어린이|청소년|경로|광주|여주|만|초등|장애|국가|현역|ICOM|예술|단체|버스|체험|공연|특별|자유|개별|통합))/g, "\n")
+    .replace(/\n{2,}/g, "\n")
+    .trim();
+  return feeText
+    .split(/\n+/)
+    .map((item) => normalizeText(item).replace(/^[:：-]+/, "").trim())
+    .filter((item) => item.length >= 2)
+    .slice(0, 18);
+}
+
+function feeAdviceFromText(text = "") {
+  const match = normalizeText(text).match(/입니다\.\s*(.+)$/);
+  return match?.[1] || "";
+}
+
+function feeListBlock(text = "", attrs = "") {
+  const rows = feeRowsFromText(text);
+  if (rows.length < 2) return "";
+  const advice = feeAdviceFromText(text);
+  return `<ul class="article-check-list article-fee-list" aria-label="요금 구분">${rows.map((item) => `<li>${emphasizeFirstMetric(html(item))}</li>`).join("")}</ul>${advice ? `<p${attrs}>${html(advice)}</p>` : ""}`;
+}
+
+function repairBrokenNumericMarkup(document) {
+  return String(document)
+    .replace(/<strong>(\d+)개<\/strong>\s*월/g, "<strong>$1개월</strong>")
+    .replace(/(\d+)\.\s*<strong>(\d+(?:점)?)<\/strong>/g, "<strong>$1.$2</strong>")
+    .replace(/(\d+),\s*<strong>(\d{3}(?:원|개|건|명)?)<\/strong>/g, "<strong>$1,$2</strong>")
+    .replace(/(\d+)\.\s+(\d+)(?=\s*(?:점|·|,|<\/p>))/g, "$1.$2")
+    .replace(/(\d+),\s+(\d{3})(?=\s*(?:원|개|건|명|·|,|<\/p>))/g, "$1,$2")
+    .replace(/\s+,/g, ",");
+}
+
+function shouldDropArticleParagraph(text = "") {
+  return VERBOSE_PROCESS_PATTERNS.some((pattern) => pattern.test(text));
+}
+
+function splitLongArticleParagraphs(document) {
+  return replaceArticleContent(document, (body) => body.replace(
+    /<p([^>]*)>([\s\S]*?)<\/p>/gi,
+    (match, attrs, content, offset, source) => {
+      if (/\bclass=["'][^"']*(?:article-affiliate-disclosure|article-product-note|mrt-affiliate-note|note|region-related-empty)/i.test(attrs)) return match;
+      const text = stripTags(content);
+      if (!text) return "";
+      if (shouldDropArticleParagraph(text)) return "";
+      const feeBlock = feeListBlock(text, attrs);
+      if (feeBlock) return feeBlock;
+      if (/<\/summary>\s*$/i.test(source.slice(Math.max(0, offset - 80), offset))) return match;
+      if (/<(?:img|figure|table|ul|ol|details|section|aside)\b/i.test(content)) return match;
+      return splitReadableParagraphs(text)
+        .map((paragraph) => `<p${attrs}>${emphasizeFirstMetric(html(paragraph))}</p>`)
+        .join("");
+    },
+  ));
+}
+
+function replaceVisibleArticleUrls(document, post) {
+  const official = officialUrlForPost(post);
+  return replaceArticleContent(document, (body) => body.replace(
+    />([^<>]*https?:\/\/[^<>]+)</gi,
+    (_match, text) => {
+      const replaced = text.replace(/https?:\/\/[^\s<>"']+/gi, (rawUrl) => {
+        const suffix = rawUrl.match(/[.,)]$/)?.[0] || "";
+        const cleanUrl = suffix ? rawUrl.slice(0, -suffix.length) : rawUrl;
+        const href = safeHttpUrl(cleanUrl);
+        if (!href) return suffix;
+        const label = official && href === official ? "공식 안내" : "관련 안내";
+        return `<a href="${html(href)}" target="_blank" rel="noopener">${label}</a>${suffix}`;
+      });
+      return `>${replaced}<`;
+    },
+  ));
+}
+
+function removeDeletedArticleSections(document) {
+  return replaceArticleContent(document, (body) => body.replace(
+    /\s*<h2[^>]*>([\s\S]*?)<\/h2>[\s\S]*?(?=\s*<h2\b|\s*<section\b|\s*<aside\b|$)/gi,
+    (match, heading) => ARTICLE_DELETED_SECTION_HEADINGS.has(stripTags(heading)) ? "" : match,
+  ));
+}
+
+function articleInlineAssets(post) {
+  const entry = tourImageEntry(processedTourImages, post);
+  const assets = [
+    ...(Array.isArray(entry?.images) ? entry.images : []),
+    entry?.cover,
+  ].filter((asset) => asset?.src);
+  const seen = new Set();
+  return assets.filter((asset) => {
+    if (seen.has(asset.src)) return false;
+    seen.add(asset.src);
+    return true;
+  }).slice(0, 3);
+}
+
+function injectArticleInlinePhotos(document, post) {
+  return replaceArticleContent(document, (body) => {
+    let next = body
+      .replace(new RegExp(`${ARTICLE_INLINE_PHOTO_START}[\\s\\S]*?${ARTICLE_INLINE_PHOTO_END}`, "g"), "")
+      .replace(/\s*<figure class=["'][^"']*\barticle-inline-figure\b[\s\S]*?<\/figure>/gi, "");
+    const figures = articleInlineAssets(post).map((asset, index) => `${ARTICLE_INLINE_PHOTO_START} ${index + 1} -->${processedFigure(asset, "inline-figure article-inline-figure")}<!-- ${ARTICLE_INLINE_PHOTO_END}`);
+    if (!figures.length) return next;
+    const headings = [...next.matchAll(/<h2\b[^>]*>[\s\S]*?<\/h2>/gi)];
+    if (!headings.length) return `${figures[0]}${next}`;
+    let offset = 0;
+    figures.forEach((figure, index) => {
+      const headingIndex = Math.min((index + 1) * 3 - 1, headings.length);
+      const insertAt = headingIndex < headings.length ? headings[headingIndex].index + offset : next.length;
+      next = `${next.slice(0, insertAt)}${figure}${next.slice(insertAt)}`;
+      offset += figure.length;
+    });
+    return next;
+  });
+}
+
+function improveArticleReadability(document, post) {
+  let next = normalizeArticleHeadings(document);
+  next = removeDeletedArticleSections(next);
+  next = insertArticleFactBlocks(next, post);
+  next = replaceVisibleArticleUrls(next, post);
+  if (!isDataPipelinePost(post)) {
+    next = splitLongArticleParagraphs(next);
+    next = injectArticleInlinePhotos(next, post);
+  }
+  return repairBrokenNumericMarkup(next);
+}
+
 function articleCategoryLabel(post) {
   if (articleActivePath(post) === "/ticket/") return "입장권·투어";
   if (articleActivePath(post) === "/stay/") return "숙소";
@@ -2011,6 +2351,12 @@ function firstInfoValue(post, ...labels) {
 }
 
 function articleInfoItems(post) {
+  if (isDataPipelinePost(post)) {
+    return (Array.isArray(post?.info) ? post.info : [])
+      .map((row) => Array.isArray(row) ? { label: normalizeText(row[0]), icon: normalizeText(row[0]).slice(0, 1), value: usefulInfoValue(row[1]) } : null)
+      .filter((item) => item?.label && item.value)
+      .slice(0, 8);
+  }
   const schedule = isFestivalPost(post) ? usefulInfoValue(festivalSchedule(post).label) || introValue(post, "eventstartdate", "eventenddate") : firstInfoValue(post, "기간", "일정");
   return [
     { label: "일정", icon: "일", value: schedule },
@@ -2025,7 +2371,7 @@ function articleInfoItems(post) {
 function articleInfoGrid(post) {
   const items = articleInfoItems(post);
   if (!items.length) return "";
-  return `<div class="article-info-grid" aria-label="방문 기본 정보">${items.map((item) => `<div class="article-info-card"><span class="article-info-icon" aria-hidden="true">${html(item.icon)}</span><span><span class="article-info-label">${html(item.label)}</span><strong class="article-info-value">${html(item.value)}</strong></span></div>`).join("")}</div>`;
+  return `<div class="article-info-grid" aria-label="방문 기본 정보">${items.map((item) => `<div class="article-info-card"><span class="article-info-icon" aria-hidden="true">${html(item.icon)}</span><span><span class="article-info-label">${html(item.label)}</span><strong class="article-info-value">${html(cleanFactValue(item.value))}</strong></span></div>`).join("")}</div>`;
 }
 
 function replaceArticleInfoTable(document, post) {
@@ -2602,6 +2948,7 @@ async function polishGeneratedArticles() {
     next = injectArticleAffiliateDisclosure(next, Boolean(productBlock));
     next = replaceArticleInfoTable(next, post);
     next = stripTourOverviewSection(next);
+    next = improveArticleReadability(next, post);
     next = injectArticlePhotoGrid(next, post);
     next = injectArticleProductSection(next, productBlock);
     next = injectArticleRegionRelated(next, regionRelatedBlock);
@@ -2639,8 +2986,12 @@ async function polishLegacyArticleShells() {
     const languageArtifacts = /language-switch|\?lang=|hreflang=|i18n\.js/.test(document);
     if (!legacyShell && !legacyStaticArticle && !languageArtifacts) continue;
     let next = removeLanguageArtifacts(document);
+    const legacyPost = legacyRendererPosts[entry.name]
+      ? legacyRendererPost(entry.name, legacyRendererPosts[entry.name])
+      : legacyDocumentPost(entry.name, next);
     next = ensureCanonical(next, `/${entry.name}/`);
     next = ensureLegacyArticleSchema(next, entry.name, legacyRendererPosts[entry.name]);
+    if (legacyStaticArticle) next = improveArticleReadability(next, legacyPost);
     next = cleanGeneratedHtml(next);
     if (next !== document) await writeFile(file, next, "utf8");
   }
