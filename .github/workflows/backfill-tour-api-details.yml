@@ -13,6 +13,14 @@ on:
         description: "Number of existing posts to refresh"
         required: false
         default: "300"
+      image_mode:
+        description: "Image backfill mode: sample, full, or off"
+        required: false
+        default: "sample"
+      image_sample_size:
+        description: "Number of posts for detailImage2 sample test"
+        required: false
+        default: "30"
 
 permissions:
   contents: write
@@ -34,7 +42,16 @@ jobs:
         run: |
           node --check scripts/backfill-tour-api-details.mjs
           node --check scripts/polish-contextual-copy.mjs
-          BACKFILL_LIMIT="${{ github.event.inputs.limit || '300' }}" node scripts/backfill-tour-api-details.mjs
+          IMAGE_MODE="${{ github.event.inputs.image_mode || 'sample' }}"
+          IMAGE_SAMPLE_SIZE="${{ github.event.inputs.image_sample_size || '30' }}"
+          if [ "$IMAGE_MODE" = "sample" ] || [ "$IMAGE_MODE" = "full" ]; then
+            BACKFILL_IMAGE_SAMPLE=1 BACKFILL_IMAGE_SAMPLE_SIZE="$IMAGE_SAMPLE_SIZE" node scripts/backfill-tour-api-details.mjs
+          fi
+          if [ "$IMAGE_MODE" = "full" ]; then
+            BACKFILL_INCLUDE_IMAGES=1 BACKFILL_LIMIT="${{ github.event.inputs.limit || '300' }}" node scripts/backfill-tour-api-details.mjs
+          else
+            BACKFILL_LIMIT="${{ github.event.inputs.limit || '300' }}" node scripts/backfill-tour-api-details.mjs
+          fi
           node scripts/polish-contextual-copy.mjs
           node scripts/build-homepage.mjs
           node scripts/apply-homepage-content-config.mjs
@@ -58,7 +75,7 @@ jobs:
             throw new Error(`Too few enriched posts: ${enriched.length}/${posts.length}`);
           }
           const html = fs.readFileSync(`${enriched[0].slug}/index.html`, 'utf8');
-          if (!html.includes('공식 관광 정보') && !html.includes('운영 정보에서 놓치기 쉬운 부분')) {
+          if (!html.includes('data-tripview-article') && !html.includes('article-place-intro')) {
             throw new Error('API-derived article sections were not rendered.');
           }
           console.log(`Verified TourAPI detail enrichment: ${enriched.length}/${posts.length}`);

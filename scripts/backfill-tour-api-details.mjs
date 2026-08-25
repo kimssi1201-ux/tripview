@@ -11,10 +11,10 @@ const SERVICE_KEY = process.env.TRIPVIEW_API_KEY || process.env.TRIPVIEW_API_KEY
 const LIMIT = Math.max(0, Number.parseInt(process.env.BACKFILL_LIMIT || "300", 10) || 300);
 const ONLY_SHORT = process.env.BACKFILL_ONLY_SHORT === "1";
 const TARGETS = new Set(String(process.env.BACKFILL_TARGETS || "").split(",").map((value) => value.trim()).filter(Boolean));
-
-if (!SERVICE_KEY) {
-  throw new Error("TRIPVIEW_API_KEY is required for TourAPI detail backfill.");
-}
+const INCLUDE_IMAGES = process.env.BACKFILL_INCLUDE_IMAGES === "1";
+const IMAGE_SAMPLE = process.env.BACKFILL_IMAGE_SAMPLE === "1";
+const IMAGE_SAMPLE_SIZE = Math.max(20, Math.min(30, Number.parseInt(process.env.BACKFILL_IMAGE_SAMPLE_SIZE || "30", 10) || 30));
+const MAX_IMAGES_PER_POST = Math.max(3, Math.min(8, Number.parseInt(process.env.BACKFILL_MAX_IMAGES_PER_POST || "8", 10) || 8));
 
 const strip = (value = "") =>
   String(value)
@@ -35,7 +35,7 @@ async function writeJson(file, value) {
   await fs.writeFile(path.join(ROOT, file), `${JSON.stringify(value, null, 2)}\n`, "utf8");
 }
 
-function contentTypeId(post) {
+export function contentTypeId(post) {
   if (post.tourApi?.contentTypeId) return String(post.tourApi.contentTypeId);
   if (String(post.slug || "").startsWith("festival-") || post.category === "공연/축제") return "15";
   return "12";
@@ -70,6 +70,133 @@ async function tourGet(endpoint, extra = {}) {
     }
   }
   throw new Error(`TourAPI request failed: ${lastError}`);
+}
+
+export function imageFamilyKey(src) {
+  const clean = String(src || "").split("?")[0];
+  const resource = clean.match(/\/resource\/\d+\/([^/_]+)_image\d+_\d+/i);
+  if (resource) return resource[1];
+  return clean.toLowerCase();
+}
+
+function imageUrlFromDetail(item = {}) {
+  return strip(item.originimgurl || item.smallimageurl || item.imageUrl || item.imageurl);
+}
+
+function addImage(images, seen, src, limit = MAX_IMAGES_PER_POST) {
+  const value = strip(src);
+  if (!value || images.length >= limit) return;
+  const key = imageFamilyKey(value);
+  if (seen.has(key)) return;
+  seen.add(key);
+  images.push(value);
+}
+
+export function mergePostImages(post, detailImages = [], limit = MAX_IMAGES_PER_POST) {
+  const images = [];
+  const seen = new Set();
+  addImage(images, seen, post?.image, limit);
+  for (const src of Array.isArray(post?.images) ? post.images : []) addImage(images, seen, src, limit);
+  for (const item of detailImages) addImage(images, seen, imageUrlFromDetail(item), limit);
+  return images;
+}
+
+export function sampleImageBackfillPosts(posts = [], size = IMAGE_SAMPLE_SIZE) {
+  const byType = new Map();
+  for (const post of posts) {
+    if (!post?.contentid) continue;
+    const typeId = contentTypeId(post);
+    if (!byType.has(typeId)) byType.set(typeId, []);
+    byType.get(typeId).push(post);
+  }
+  const types = [...byType.keys()].sort((a, b) => Number(a) - Number(b));
+  const selected = [];
+  let cursor = 0;
+  while (selected.length < size && types.some((typeId) => (byType.get(typeId) || []).length > cursor)) {
+    for (const typeId of types) {
+      const post = byType.get(typeId)?.[cursor];
+      if (post) selected.push(post);
+      if (selected.length >= size) break;
+    }
+    cursor += 1;
+  }
+  return selected;
+}
+
+export function summarizeImageSampleResults(results = []) {
+  const distribution = {};
+  const mergedDistribution = {};
+  const byType = {};
+  for (const result of results) {
+    const detailKey = String(result.detailCount || 0);
+    const mergedKey = String(result.mergedCount || 0);
+    distribution[detailKey] = (distribution[detailKey] || 0) + 1;
+    mergedDistribution[mergedKey] = (mergedDistribution[mergedKey] || 0) + 1;
+    const typeId = result.typeId || "unknown";
+    byType[typeId] ||= { checked: 0, atLeast3: 0 };
+    byType[typeId].checked += 1;
+    if ((result.mergedCount || 0) >= 3) byType[typeId].atLeast3 += 1;
+  }
+  const atLeast3 = results.filter((result) => (result.mergedCount || 0) >= 3).length;
+  return {
+    checked: results.length,
+    detailImageDistribution: Object.fromEntries(Object.entries(distribution).sort((a, b) => Number(a[0]) - Number(b[0]))),
+    mergedImageDistribution: Object.fromEntries(Object.entries(mergedDistribution).sort((a, b) => Number(a[0]) - Number(b[0]))),
+    atLeast3,
+    atLeast3Ratio: results.length ? atLeast3 / results.length : 0,
+    byType,
+  };
+}
+
+async function fetchDetailImages(post) {
+  return tourGet("detailImage2", {
+    contentId: post.contentid,
+    imageYN: "Y",
+    subImageYN: "Y",
+    numOfRows: "50",
+  });
+}
+
+async function runImageSample(posts) {
+  const sample = sampleImageBackfillPosts(posts, IMAGE_SAMPLE_SIZE);
+  const results = [];
+  for (const post of sample) {
+    const typeId = contentTypeId(post);
+    try {
+      const detailImages = await fetchDetailImages(post);
+      const merged = mergePostImages(post, detailImages, MAX_IMAGES_PER_POST);
+      results.push({
+        slug: post.slug,
+        contentId: post.contentid,
+        typeId,
+        detailCount: detailImages.map(imageUrlFromDetail).filter(Boolean).length,
+        mergedCount: merged.length,
+      });
+    } catch (error) {
+      results.push({
+        slug: post.slug,
+        contentId: post.contentid,
+        typeId,
+        detailCount: 0,
+        mergedCount: mergePostImages(post, [], MAX_IMAGES_PER_POST).length,
+        error: error.message,
+      });
+    }
+  }
+  const summary = summarizeImageSampleResults(results);
+  const percent = summary.checked ? Math.round(summary.atLeast3Ratio * 1000) / 10 : 0;
+  console.log(`TourAPI detailImage2 sample complete. Checked ${summary.checked} post(s).`);
+  console.log(`Detail image count distribution: ${JSON.stringify(summary.detailImageDistribution)}`);
+  console.log(`Merged image count distribution: ${JSON.stringify(summary.mergedImageDistribution)}`);
+  console.log(`Posts with 3+ renderable images: ${summary.atLeast3}/${summary.checked} (${percent}%).`);
+  for (const [typeId, row] of Object.entries(summary.byType).sort((a, b) => Number(a[0]) - Number(b[0]))) {
+    console.log(`Type ${typeId}: ${row.atLeast3}/${row.checked} with 3+ renderable images.`);
+  }
+  const errors = results.filter((result) => result.error);
+  if (errors.length) {
+    console.log(`detailImage2 sample errors: ${errors.length}`);
+    for (const item of errors.slice(0, 5)) console.log(`- ${item.slug}: ${item.error}`);
+  }
 }
 
 function pickIntroFields(intro = {}) {
@@ -176,44 +303,69 @@ function mergeInfo(post, common, intro) {
   return rows;
 }
 
-const posts = await readJson("data/generated-posts.json", []);
-let checked = 0;
-let updated = 0;
-const next = [];
-
-for (const post of posts) {
-  const selected = (!TARGETS.size || TARGETS.has(post.slug))
-    && (!ONLY_SHORT || postBodyLength(post) < MIN_INDEXABLE_BODY_LENGTH);
-  if (!selected || !post.contentid || checked >= LIMIT) {
-    next.push(post);
-    continue;
+async function main() {
+  if (!SERVICE_KEY) {
+    throw new Error("TRIPVIEW_API_KEY is required for TourAPI detail backfill.");
   }
 
-  checked += 1;
-  const typeId = contentTypeId(post);
-  try {
-    const common = (await tourGet("detailCommon2", { contentId: post.contentid }))[0] || {};
-    const intro = (await tourGet("detailIntro2", { contentId: post.contentid, contentTypeId: typeId }))[0] || {};
-    const pickedIntro = pickIntroFields(intro);
-    const tourApi = {
-      ...(post.tourApi || {}),
-      contentTypeId: typeId,
-      overview: strip(common.overview) || strip(post.tourApi?.overview),
-      homepage: strip(common.homepage) || strip(post.tourApi?.homepage),
-      mapx: common.mapx || post.tourApi?.mapx || "",
-      mapy: common.mapy || post.tourApi?.mapy || "",
-      mlevel: common.mlevel || post.tourApi?.mlevel || "",
-      intro: { ...(post.tourApi?.intro || {}), ...pickedIntro },
-      backfilledAt: new Date().toISOString()
-    };
-    next.push({ ...post, info: mergeInfo(post, common, tourApi.intro), tourApi });
-    updated += 1;
-    console.log(`Backfilled ${post.slug}`);
-  } catch (error) {
-    console.warn(`Skipped ${post.slug}: ${error.message}`);
-    next.push(post);
+  const posts = await readJson("data/generated-posts.json", []);
+  if (IMAGE_SAMPLE) {
+    await runImageSample(posts);
+    return;
   }
+
+  let checked = 0;
+  let updated = 0;
+  let imagesUpdated = 0;
+  const next = [];
+
+  for (const post of posts) {
+    const selected = (!TARGETS.size || TARGETS.has(post.slug))
+      && (!ONLY_SHORT || postBodyLength(post) < MIN_INDEXABLE_BODY_LENGTH);
+    if (!selected || !post.contentid || checked >= LIMIT) {
+      next.push(post);
+      continue;
+    }
+
+    checked += 1;
+    const typeId = contentTypeId(post);
+    try {
+      const common = (await tourGet("detailCommon2", { contentId: post.contentid }))[0] || {};
+      const intro = (await tourGet("detailIntro2", { contentId: post.contentid, contentTypeId: typeId }))[0] || {};
+      const pickedIntro = pickIntroFields(intro);
+      const tourApi = {
+        ...(post.tourApi || {}),
+        contentTypeId: typeId,
+        overview: strip(common.overview) || strip(post.tourApi?.overview),
+        homepage: strip(common.homepage) || strip(post.tourApi?.homepage),
+        mapx: common.mapx || post.tourApi?.mapx || "",
+        mapy: common.mapy || post.tourApi?.mapy || "",
+        mlevel: common.mlevel || post.tourApi?.mlevel || "",
+        intro: { ...(post.tourApi?.intro || {}), ...pickedIntro },
+        backfilledAt: new Date().toISOString()
+      };
+      let images = Array.isArray(post.images) ? post.images : [];
+      if (INCLUDE_IMAGES) {
+        const detailImages = await fetchDetailImages(post);
+        const mergedImages = mergePostImages(post, detailImages, MAX_IMAGES_PER_POST);
+        if (JSON.stringify(mergedImages) !== JSON.stringify(images)) {
+          images = mergedImages;
+          imagesUpdated += 1;
+        }
+      }
+      next.push({ ...post, images, info: mergeInfo(post, common, tourApi.intro), tourApi });
+      updated += 1;
+      console.log(`Backfilled ${post.slug}`);
+    } catch (error) {
+      console.warn(`Skipped ${post.slug}: ${error.message}`);
+      next.push(post);
+    }
+  }
+
+  await writeJson("data/generated-posts.json", next);
+  console.log(`TourAPI backfill complete. Checked ${checked}, updated ${updated}.${INCLUDE_IMAGES ? ` Image sets updated ${imagesUpdated}.` : ""}`);
 }
 
-await writeJson("data/generated-posts.json", next);
-console.log(`TourAPI backfill complete. Checked ${checked}, updated ${updated}.`);
+if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {
+  await main();
+}
