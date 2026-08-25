@@ -155,6 +155,14 @@ button,input,select{font:inherit}
 .article-product-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:12px}
 .article-product-head h2{margin:0;padding-left:12px;border-left:3px solid var(--brand);font-size:20px}
 .article-product-note{margin:0 0 14px;color:var(--muted);font-size:12px;line-height:1.55}
+.article-place-intro{margin:0 0 28px}
+.article-product-compare-wrap{margin:0 0 16px;overflow-x:auto}
+.article-product-compare{width:100%;min-width:560px;border-collapse:separate;border-spacing:0;border:1px solid var(--line);border-radius:8px;background:var(--card);overflow:hidden;font-size:13px;line-height:1.55}
+.article-product-compare th,.article-product-compare td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.article-product-compare th{background:color-mix(in srgb,var(--line) 28%,var(--card));color:var(--ink);font-weight:900}
+.article-product-compare td{color:var(--ink)}
+.article-product-compare td:first-child{font-weight:800}
+.article-product-compare tr:last-child td{border-bottom:0}
 .article-product-section .mrt-accommodation-grid,.article-product-section .mrt-ticket-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .article-product-section .mrt-accommodation-grid[data-count="1"],.article-product-section .mrt-ticket-grid[data-count="1"]{grid-template-columns:minmax(0,1fr)}
 .article-product-section .mrt-accommodation-grid[data-count="2"],.article-product-section .mrt-ticket-grid[data-count="2"]{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -168,6 +176,7 @@ button,input,select{font:inherit}
 .article-product-section .mrt-accommodation-price,.article-product-section .mrt-ticket-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:5px;color:var(--cta);font-size:16px;font-weight:900}
 .article-product-section .mrt-accommodation-price del{color:var(--muted);font-size:12px;font-weight:400}
 .article-product-section .mrt-accommodation-price small{flex-basis:100%;color:var(--muted);font-size:11px;font-weight:400}
+.article-product-section .article-product-cta{justify-self:start;display:inline-flex;align-items:center;min-height:28px;margin-top:2px;padding:0 9px;border-radius:999px;background:var(--cta);color:var(--card);font-size:12px;font-weight:900}
 .mrt-rating-badge{position:absolute;left:8px;top:8px;border-radius:999px;background:color-mix(in srgb,var(--ink) 82%,transparent);color:var(--card);padding:3px 7px;font-size:11px;font-weight:900}
 .article-official-box{margin:22px 0 0}
 .article-official-button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 16px;border-radius:8px;background:var(--brand);color:var(--card);font-weight:900;transition:background-color 150ms ease}

@@ -298,14 +298,18 @@ test("accommodation cards use cached MyRealTrip stay links and stay out of pendi
   const articleProductBlock = reviewedArticle.match(/<!-- ARTICLE_PRODUCT_START accommodation -->[\s\S]*?<!-- ARTICLE_PRODUCT_END -->/)?.[0] || "";
   const articleAccommodationCards = articleProductBlock.match(/data-mrt-accommodation-card/g) || [];
   assert.ok(articleAccommodationCards.length > 0 && articleAccommodationCards.length <= 6);
+  assert.match(articleProductBlock, /class="article-product-compare"/);
   assert.match(articleProductBlock, /class="mrt-accommodation-thumb"><img src="https:\/\/[^\"]+"[^>]*loading="lazy"[^>]*decoding="async"/);
   assert.match(articleProductBlock, /class="mrt-rating-badge"/);
   assert.match(articleProductBlock, /<del>[\d,]+원<\/del><strong>[\d,]+원<\/strong>|<strong>[\d,]+원<\/strong>/);
+  assert.match(articleProductBlock, /예약하기/);
   assert.doesNotMatch(reviewedArticle, /<!-- MRT_ACCOMMODATION_START/);
   assert.match(paidArticle, /<!-- ARTICLE_PRODUCT_START ticket -->/);
   assert.doesNotMatch(paidArticle, /data-mrt-accommodation-card/);
   const paidTicketCards = paidArticle.match(/data-mrt-ticket-card/g) || [];
   assert.ok(paidTicketCards.length > 0 && paidTicketCards.length <= 6);
+  assert.match(paidArticle, /class="article-product-compare"/);
+  assert.match(paidArticle, /예약하기/);
   assert.match(reviewedArticle, /<meta name="robots" content="index, follow, max-image-preview:large">/);
   assert.doesNotMatch(pendingArticle, /<!-- MRT_ACCOMMODATION_START/);
   assert.doesNotMatch(pendingArticle, /<!-- ARTICLE_PRODUCT_START/);
@@ -538,7 +542,19 @@ test("region hubs are generated and articles link to same-region content", async
   assert.match(article, /href="\/region\/gangwon\/"/);
   const relatedBlock = article.match(/<!-- REGION_RELATED_START -->[\s\S]*?<!-- REGION_RELATED_END -->/)?.[0] || "";
   assert.ok((relatedBlock.match(/class="region-related-card"/g) || []).length <= 8);
+  assert.match(relatedBlock, /class="region-related-thumb"><img/);
   assert.match(article, /region-related-grid\{display:grid;grid-template-columns:repeat\(4,minmax\(0,1fr\)\)/);
+});
+
+test("lodging articles keep place introductions and expanded lodging facts", async () => {
+  const article = await readFile("travel-142733/index.html", "utf8");
+  assert.match(article, /<section class="article-place-intro"/);
+  assert.match(article, /<h2 id="article-place-intro-title">장소 소개<\/h2>/);
+  assert.match(article, /객실 수/);
+  assert.match(article, /객실 유형/);
+  assert.match(article, /부대시설/);
+  assert.match(article, /취사/);
+  assert.match(article, /주차/);
 });
 
 test("generated article pages keep one current site header", async () => {
