@@ -270,6 +270,12 @@ function articleImage(post, className) {
   return `<span class="${className}"><img src="${esc(image)}" alt="${esc(titleOf(post))}" loading="lazy"></span>`;
 }
 
+function homepageHeroPost(posts = []) {
+  return posts.find((post) => tourImageBannerAssetForPost(processedTourImages, post)?.src)
+    || posts.find((post) => String(imageOf(post) || "").startsWith("/assets/processed/"))
+    || posts[0];
+}
+
 function metaLine(post) {
   return [festivalStatusLabel(post), categoryOf(post), dateOf(post), compactRegion(regionOf(post))].filter(Boolean).join(" \u00B7 ");
 }
@@ -797,7 +803,8 @@ function homeStoryCard(post, className = "") {
 }
 
 function homeHeroSection(posts = []) {
-  const items = uniquePosts(posts).filter((post) => imageOf(post)).slice(0, 5);
+  const imagePosts = uniquePosts(posts).filter((post) => imageOf(post));
+  const items = uniquePosts([homepageHeroPost(imagePosts), ...imagePosts]).filter(Boolean).slice(0, 5);
   if (items.length < 5) return "";
   return `<section class="home-hero" aria-label="대표 글">
     <div class="home-hero-grid">
@@ -890,7 +897,7 @@ const HOMEPAGE_CSS = `
 
 function html(posts, products = [], accommodations = [], tnaProducts = []) {
   const editorialPosts = posts.filter((post) => !post?.dataPipeline?.generated);
-  const hero = editorialPosts[0] || posts[0];
+  const hero = homepageHeroPost(editorialPosts) || posts[0];
   const ogImage = imageOf(hero);
   const domestic = sortLatest(posts.filter((post) => categoryOf(post) === CAT_DOMESTIC && !isFestival(post)));
   const festivals = posts.filter(isFestival).sort((a, b) => festivalOrder(a).localeCompare(festivalOrder(b)));

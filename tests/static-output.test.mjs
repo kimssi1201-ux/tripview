@@ -556,13 +556,14 @@ test("sitemap includes only indexable articles and article robots match content 
     .map((match) => match[1])
     .sort();
 
-  assert.equal(indexable.length, 54);
+  assert.equal(indexable.length, 55);
   assert.equal(articleUrls.length, indexable.length);
   assert.ok(articleUrls.every((slug) => indexable.some((post) => post.slug === slug)));
   assert.match(sitemap, /<loc>https:\/\/tripview\.kr\/travel\/<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/tripview\.kr\/festival\/<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/tripview\.kr\/stay\/<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/tripview\.kr\/ticket\/<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/tripview\.kr\/data-stay-ticket-seoul\/<\/loc>/);
   assert.deepEqual(regionUrls, regions);
   assert.match(sitemap, /<loc>https:\/\/tripview\.kr\/editorial-team<\/loc>/);
   assert.doesNotMatch(sitemap, /<loc>https:\/\/tripview\.kr\/flight-deals(?:\/|<)/);
@@ -586,6 +587,31 @@ test("sitemap includes only indexable articles and article robots match content 
   } else {
     assert.equal(indexable.length, posts.length);
   }
+});
+
+test("manual Seoul booking guide uses cached products and sponsored links", async () => {
+  const [article, sitemap] = await Promise.all([
+    readFile("data-stay-ticket-seoul/index.html", "utf8"),
+    readFile("sitemap.xml", "utf8"),
+  ]);
+
+  assert.match(article, /서울 숙소와 체험 예약 전 비교 총정리/);
+  assert.match(article, /토요코인 서울영등포/);
+  assert.match(article, /메이필드 호텔/);
+  assert.match(article, /이비스 스타일 앰배서더 서울 용산/);
+  assert.match(article, /클럽롤러힐 롤러스케이트장 이용권/);
+  assert.match(article, /checkIn=2026-08-28/);
+  assert.match(article, /checkOut=2026-08-30/);
+  assert.match(article, /adultCount=2/);
+  assert.match(article, /childCount=0/);
+  assert.match(article, /data-tripview-article/);
+  assert.match(article, /<meta name="robots" content="index, follow, max-image-preview:large">/);
+
+  const affiliateLinks = [...article.matchAll(/<a\b[^>]*(?:data-affiliate-link|data-mrt-accommodation-card)[^>]*>/g)];
+  assert.ok(affiliateLinks.length > 0 && affiliateLinks.length <= 8);
+  assert.ok(affiliateLinks.every((match) => /target="_blank"/.test(match[0])));
+  assert.ok(affiliateLinks.every((match) => /rel="[^"]*\bsponsored\b[^"]*\bnofollow\b[^"]*"/.test(match[0])));
+  assert.match(sitemap, /<loc>https:\/\/tripview\.kr\/data-stay-ticket-seoul\/<\/loc>/);
 });
 
 test("data post pipeline outputs validated data pages", async () => {
