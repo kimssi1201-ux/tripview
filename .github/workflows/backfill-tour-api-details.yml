@@ -38,15 +38,24 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Backfill Tour API details
+      - name: Validate backfill scripts
         run: |
           node --check scripts/backfill-tour-api-details.mjs
           node --check scripts/polish-contextual-copy.mjs
-          IMAGE_MODE="${{ github.event.inputs.image_mode || 'sample' }}"
-          IMAGE_SAMPLE_SIZE="${{ github.event.inputs.image_sample_size || '30' }}"
-          if [ "$IMAGE_MODE" = "sample" ] || [ "$IMAGE_MODE" = "full" ]; then
-            BACKFILL_IMAGE_SAMPLE=1 BACKFILL_IMAGE_SAMPLE_SIZE="$IMAGE_SAMPLE_SIZE" BACKFILL_IMAGE_SAMPLE_CONCURRENCY=5 node scripts/backfill-tour-api-details.mjs
-          fi
+
+      - name: Sample TourAPI gallery images
+        if: ${{ github.event_name == 'push' || github.event.inputs.image_mode == 'sample' || github.event.inputs.image_mode == 'full' }}
+        run: |
+          IMAGE_SAMPLE_SIZE="${{ github.event.inputs.image_sample_size || '20' }}"
+          BACKFILL_IMAGE_SAMPLE=1 BACKFILL_IMAGE_SAMPLE_SIZE="$IMAGE_SAMPLE_SIZE" BACKFILL_IMAGE_SAMPLE_CONCURRENCY=5 node scripts/backfill-tour-api-details.mjs
+        env:
+          TRIPVIEW_API_KEY: ${{ secrets.TRIPVIEW_API_KEY }}
+          TRIPVIEW_API_KEY_PARAM: ${{ secrets.TRIPVIEW_API_KEY_PARAM }}
+
+      - name: Backfill Tour API details
+        if: ${{ github.event.inputs.image_mode == 'full' || github.event.inputs.image_mode == 'off' }}
+        run: |
+          IMAGE_MODE="${{ github.event.inputs.image_mode }}"
           if [ "$IMAGE_MODE" = "full" ]; then
             BACKFILL_INCLUDE_IMAGES=1 BACKFILL_LIMIT="${{ github.event.inputs.limit || '300' }}" node scripts/backfill-tour-api-details.mjs
           elif [ "$IMAGE_MODE" = "off" ]; then
@@ -66,6 +75,7 @@ jobs:
           TRIPVIEW_API_KEY_PARAM: ${{ secrets.TRIPVIEW_API_KEY_PARAM }}
 
       - name: Verify enriched article data
+        if: ${{ github.event.inputs.image_mode == 'full' || github.event.inputs.image_mode == 'off' }}
         run: |
           node <<'NODE'
           const fs = require('node:fs');
@@ -82,6 +92,7 @@ jobs:
           NODE
 
       - name: Commit backfilled posts
+        if: ${{ github.event.inputs.image_mode == 'full' || github.event.inputs.image_mode == 'off' }}
         run: |
           if git diff --quiet; then
             echo "No TourAPI detail changes to commit."

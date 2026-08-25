@@ -62,14 +62,17 @@ test("backfill workflow runs detailImage2 sample before any full image merge", a
     readFile(".github/workflows/backfill-tour-api-details.yml", "utf8"),
   ]);
   assert.match(script, /detailImage2/);
+  assert.doesNotMatch(script, /subImageYN/);
   assert.match(script, /BACKFILL_IMAGE_SAMPLE/);
   assert.match(script, /BACKFILL_IMAGE_SAMPLE_CONCURRENCY/);
   assert.match(script, /BACKFILL_INCLUDE_IMAGES/);
   assert.match(script, /originimgurl/);
   assert.match(workflow, /image_mode/);
+  assert.match(workflow, /image_sample_size \|\| '20'/);
   assert.match(workflow, /BACKFILL_IMAGE_SAMPLE=1/);
   assert.match(workflow, /BACKFILL_INCLUDE_IMAGES=1/);
-  assert.match(workflow, /IMAGE_MODE" = "off"/);
+  assert.match(workflow, /github.event_name == 'push'/);
+  assert.match(workflow, /github.event.inputs.image_mode == 'full' \|\| github.event.inputs.image_mode == 'off'/);
   assert.ok(workflow.indexOf("BACKFILL_IMAGE_SAMPLE=1") < workflow.indexOf("BACKFILL_INCLUDE_IMAGES=1"));
-  assert.ok(workflow.indexOf("BACKFILL_INCLUDE_IMAGES=1") < workflow.indexOf("IMAGE_MODE\" = \"off\""));
+  assert.ok(workflow.indexOf("Sample TourAPI gallery images") < workflow.indexOf("Backfill Tour API details"));
 });

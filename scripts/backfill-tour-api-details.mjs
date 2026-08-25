@@ -164,7 +164,6 @@ async function fetchDetailImages(post) {
   return tourGet("detailImage2", {
     contentId: post.contentid,
     imageYN: "Y",
-    subImageYN: "Y",
     numOfRows: "50",
   });
 }
