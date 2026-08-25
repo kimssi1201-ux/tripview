@@ -76,12 +76,12 @@ function localityTokens(value = "") {
   if (!text) return [];
   const topLevel = /^(서울특별시|부산광역시|대구광역시|인천광역시|광주광역시|대전광역시|울산광역시|세종특별자치시|경기도|강원특별자치도|강원도|충청북도|충청남도|전북특별자치도|전라북도|전라남도|경상북도|경상남도|제주특별자치도)$/;
   return text.split(/\s+/)
-    .filter((token) => token && !topLevel.test(token))
+    .filter((token) => token && !topLevel.test(token) && !DOMESTIC_REGIONS.has(token))
     .map((token) => token.replace(/(?:특별자치시|특별시|광역시|자치구|시|군|구|읍|면)$/u, ""))
     .filter((token) => token.length >= 2);
 }
 
-function regionMatchScore(productRegion, postRegion) {
+export function regionMatchScore(productRegion, postRegion) {
   const productText = clean(productRegion);
   const postText = clean(postRegion);
   if (!productText || !postText) return 0;
@@ -93,7 +93,7 @@ function regionMatchScore(productRegion, postRegion) {
   return normalizeRegion(productText) === normalizeRegion(postText) ? 8 : 0;
 }
 
-function inferredIntents(value = {}) {
+export function inferredIntents(value = {}) {
   const text = itemText(value);
   const intents = new Set(Array.isArray(value.intents) ? value.intents : []);
   const rules = [
@@ -257,9 +257,9 @@ export function affiliateRegionKeyword(value = "") {
 }
 
 export function deriveAffiliateRegionKeywords(posts = [], limit = 8) {
-  const safeLimit = Math.max(1, Math.min(20, Number.parseInt(limit, 10) || 8));
+  const safeLimit = Math.max(1, Math.min(240, Number.parseInt(limit, 10) || 8));
   const scores = new Map();
-  for (const [index, post] of (Array.isArray(posts) ? posts : []).slice(0, 160).entries()) {
+  for (const [index, post] of (Array.isArray(posts) ? posts : []).entries()) {
     const keyword = affiliateRegionKeyword(post?.region || post?.city || "");
     if (!keyword) continue;
     const recencyWeight = index < 30 ? 3 : index < 80 ? 2 : 1;
@@ -272,7 +272,7 @@ export function deriveAffiliateRegionKeywords(posts = [], limit = 8) {
 }
 
 export function deriveTourSearchQueries(posts = [], limit = 8) {
-  const safeLimit = Math.max(1, Math.min(20, Number.parseInt(limit, 10) || 8));
+  const safeLimit = Math.max(1, Math.min(120, Number.parseInt(limit, 10) || 8));
   const themedLimit = Math.max(1, Math.ceil(safeLimit / 2));
   const queries = [];
   const seen = new Set();
@@ -289,7 +289,7 @@ export function deriveTourSearchQueries(posts = [], limit = 8) {
     [/축제|행사|페스티벌|공연|콘서트/, "티켓"],
   ];
 
-  for (const post of (Array.isArray(posts) ? posts : []).slice(0, 160)) {
+  for (const post of (Array.isArray(posts) ? posts : [])) {
     const region = affiliateRegionKeyword(post?.region || post?.city || "");
     if (!region) continue;
     if (post?.category === "공연/축제") {

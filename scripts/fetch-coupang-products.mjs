@@ -19,16 +19,59 @@ const API_HOST = "https://api-gateway.coupang.com";
 const SEARCH_PATH = "/v2/providers/affiliate_open_api/apis/openapi/products/search";
 const REQUEST_TIMEOUT_MS = 8000;
 
-const SEARCHES = [
-  { intent: "travel", keyword: "\uC5EC\uD589 \uC900\uBE44\uBB3C", limit: 8 },
-  { intent: "water", keyword: "\uBB3C\uB180\uC774 \uC6A9\uD488", limit: 8 },
-  { intent: "water", keyword: "\uC544\uCFE0\uC544\uC288\uC988", limit: 8 },
-  { intent: "indoor", keyword: "\uC7A5\uB9C8 \uC6B0\uC0B0", limit: 8 },
-  { intent: "festival", keyword: "\uBCF4\uC870\uBC30\uD130\uB9AC", limit: 8 },
-  { intent: "family", keyword: "\uC544\uC774 \uC5EC\uD589 \uC900\uBE44\uBB3C", limit: 8 },
-  { intent: "booking", keyword: "\uC5EC\uD589\uC6A9 \uD30C\uC6B0\uCE58", limit: 8 },
-  { intent: "summer", keyword: "\uC120\uD06C\uB9BC", limit: 8 },
-];
+const SEASONAL_SEARCHES = {
+  evergreen: [
+    { intent: "travel", keyword: "\uC5EC\uD589 \uC900\uBE44\uBB3C", limit: 8 },
+    { intent: "festival", keyword: "\uBCF4\uC870\uBC30\uD130\uB9AC", limit: 8 },
+    { intent: "family", keyword: "\uC544\uC774 \uC5EC\uD589 \uC900\uBE44\uBB3C", limit: 8 },
+    { intent: "booking", keyword: "\uC5EC\uD589\uC6A9 \uD30C\uC6B0\uCE58", limit: 8 },
+  ],
+  spring: [
+    { intent: "travel", keyword: "\uBD04 \uC5EC\uD589 \uC900\uBE44\uBB3C", limit: 8 },
+    { intent: "travel", keyword: "\uD53C\uD06C\uB2C9 \uB9E4\uD2B8", limit: 8 },
+    { intent: "indoor", keyword: "\uBBF8\uC138\uBA3C\uC9C0 \uB9C8\uC2A4\uD06C", limit: 8 },
+  ],
+  summer: [
+    { intent: "water", keyword: "\uBB3C\uB180\uC774 \uC6A9\uD488", limit: 8 },
+    { intent: "water", keyword: "\uC544\uCFE0\uC544\uC288\uC988", limit: 8 },
+    { intent: "water", keyword: "\uBC29\uC218\uD329", limit: 8 },
+    { intent: "travel", keyword: "\uC120\uD06C\uB9BC", limit: 8 },
+    { intent: "indoor", keyword: "\uC7A5\uB9C8 \uC6B0\uC0B0", limit: 8 },
+  ],
+  autumn: [
+    { intent: "travel", keyword: "\uB2E8\uD48D \uC5EC\uD589 \uC900\uBE44\uBB3C", limit: 8 },
+    { intent: "travel", keyword: "\uBC14\uB78C\uB9C9\uC774", limit: 8 },
+    { intent: "travel", keyword: "\uB4F1\uC0B0 \uAC00\uBC29", limit: 8 },
+  ],
+  winter: [
+    { intent: "travel", keyword: "\uACA8\uC6B8 \uC5EC\uD589 \uC900\uBE44\uBB3C", limit: 8 },
+    { intent: "travel", keyword: "\uD56B\uD329", limit: 8 },
+    { intent: "travel", keyword: "\uBCF4\uC628\uBCD1", limit: 8 },
+    { intent: "travel", keyword: "\uBC29\uD55C \uC7A5\uAC11", limit: 8 },
+  ],
+};
+
+function seasonForDate(date = new Date()) {
+  const month = date.getMonth() + 1;
+  if (month >= 3 && month <= 5) return "spring";
+  if (month >= 6 && month <= 8) return "summer";
+  if (month >= 9 && month <= 11) return "autumn";
+  return "winter";
+}
+
+function activeSearches(date = new Date()) {
+  const seen = new Set();
+  const rows = [];
+  for (const search of [...SEASONAL_SEARCHES.evergreen, ...(SEASONAL_SEARCHES[seasonForDate(date)] || [])]) {
+    const key = `${search.intent}:${search.keyword}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    rows.push(search);
+  }
+  return rows;
+}
+
+const SEARCHES = activeSearches();
 
 function text(value, fallback = "") {
   return String(value ?? fallback).trim();

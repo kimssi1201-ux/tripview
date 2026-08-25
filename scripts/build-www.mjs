@@ -251,7 +251,7 @@ function compactRegion(value = "") {
 function fallbackSlug(value = "") {
   const text = normalizeText(value)
     .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/[^\p{Letter}\p{Number}]+/gu, "-")
     .replace(/^-+|-+$/g, "");
   return text || "other";
 }
@@ -259,6 +259,17 @@ function fallbackSlug(value = "") {
 function regionSlug(region) {
   const label = compactRegion(region);
   return REGION_SLUGS.get(label) || fallbackSlug(label);
+}
+
+function detailedRegionLabel(value = "") {
+  const token = normalizeText(value)
+    .split(/\s+/)
+    .filter(Boolean)
+    .pop()
+    ?.replace(/(?:특별자치시|특별시|광역시|자치구|시|군|구|읍|면)$/u, "") || "";
+  const label = compactRegion(value);
+  if (REGION_SLUGS.has(token) && token !== label) return "";
+  return token && token !== label ? token : "";
 }
 
 function regionPath(region) {
@@ -542,6 +553,24 @@ function accommodationBucketForRegion(region) {
   return accommodationCacheRegions()[slug] || null;
 }
 
+function accommodationBucketsForRegion(region) {
+  const regions = accommodationCacheRegions();
+  const labels = [
+    detailedRegionLabel(region),
+    compactRegion(region),
+  ].filter(Boolean);
+  const seen = new Set();
+  return labels
+    .map((label) => regionSlug(label))
+    .filter((slug) => {
+      if (!slug || seen.has(slug)) return false;
+      seen.add(slug);
+      return true;
+    })
+    .map((slug) => regions[slug])
+    .filter(Boolean);
+}
+
 function itemKey(item = {}) {
   return stripAccommodationStayParams(item.url || item.productUrl || item.id || item.title || "");
 }
@@ -550,11 +579,11 @@ function selectAccommodationItems({ posts = [], region = "", preset = "", limit 
   const safeLimit = Math.max(0, Math.min(12, Number.parseInt(limit, 10) || 0));
   if (!safeLimit) return [];
   const label = compactRegion(region || posts.find((post) => post?.region)?.region || posts[0]?.city);
-  const bucket = accommodationBucketForRegion(label);
-  if (!bucket) return [];
+  const buckets = accommodationBucketsForRegion(region || posts.find((post) => post?.region)?.region || posts[0]?.city || label);
+  if (!buckets.length) return [];
   const presetName = preset || accommodationPresetForPosts(posts);
-  const familyPool = (bucket.family || []).map((item) => normalizeAccommodationProduct(item, bucket.name)).filter(Boolean);
-  const defaultPool = (bucket.default || []).map((item) => normalizeAccommodationProduct(item, bucket.name)).filter(Boolean);
+  const familyPool = buckets.flatMap((bucket) => (bucket.family || []).map((item) => normalizeAccommodationProduct(item, bucket.name)).filter(Boolean));
+  const defaultPool = buckets.flatMap((bucket) => (bucket.default || []).map((item) => normalizeAccommodationProduct(item, bucket.name)).filter(Boolean));
   const pool = presetName === "family"
     ? (familyPool.length ? familyPool : defaultPool.filter((item) => starNumber(item.starRating) >= 4))
     : defaultPool;
@@ -1744,7 +1773,7 @@ function articleAccommodationCss() {
 }
 
 function articleCoupangCss() {
-  return `${COUPANG_STYLE_MARK}.coupang-native-ad,.coupang-widget-ad{margin:30px 0;padding:18px 0 20px;border-top:2px solid #111;border-bottom:1px solid var(--line)}.coupang-native-ad h2,.coupang-widget-ad h2{margin:0 0 8px;font-size:22px}.coupang-native-ad .affiliate-disclosure,.coupang-widget-ad .affiliate-disclosure{margin:0 0 13px;color:var(--muted);font-size:12px;line-height:1.55}.coupang-native-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px;border-top:1px solid var(--line)}.coupang-card strong{font-size:16px}.coupang-widget-scroll{width:100%;max-width:100%;overflow-x:auto;overflow-y:hidden;padding-bottom:2px}.coupang-widget-inner{width:680px;max-width:680px;min-height:140px}@media(max-width:640px){.coupang-native-grid{grid-template-columns:1fr}}/* end-tripview-coupang-native-ad */`;
+  return `${COUPANG_STYLE_MARK}.coupang-native-ad,.coupang-widget-ad{margin:30px 0;padding:18px 0 20px;border-top:2px solid var(--ink);border-bottom:1px solid var(--line)}.coupang-native-ad h2,.coupang-widget-ad h2{margin:0 0 8px;font-size:22px}.coupang-native-ad .affiliate-disclosure,.coupang-widget-ad .affiliate-disclosure{margin:0 0 13px;color:var(--muted);font-size:12px;line-height:1.55}.coupang-native-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px;border-top:1px solid var(--line)}.coupang-card strong{font-size:16px}.coupang-widget-scroll{width:100%;max-width:100%;overflow-x:auto;overflow-y:hidden;padding-bottom:2px}.coupang-widget-inner{width:680px;max-width:680px;min-height:140px}@media(max-width:640px){.coupang-native-grid{grid-template-columns:1fr}}/* end-tripview-coupang-native-ad */`;
 }
 
 function articleTrustCss() {
@@ -1783,12 +1812,13 @@ function stripExistingArticleAds(document) {
     .replace(/\s*<script\s+src=["']\/assets\/beach-(?:info|weather)\.js\?v=[^"']+["']\s+defer><\/script>/g, "");
 }
 
-function injectArticleAdCss(document, includeAffiliate = false, includeRegionRelated = false, includeAccommodation = false) {
+function injectArticleAdCss(document, includeAffiliate = false, includeRegionRelated = false, includeAccommodation = false, includeCoupang = false) {
   let next = document;
   if (!next.includes(ARTICLE_SITE_STYLE_MARK)) next = next.replace("</style>", `${articleSiteDesignCss()}</style>`);
   if (includeAffiliate && !next.includes(MRT_STYLE_MARK)) next = next.replace("</style>", `${articleAdCss()}</style>`);
   if (includeAccommodation && !next.includes(MRT_ACCOMMODATION_STYLE_MARK)) next = next.replace("</style>", `${articleAccommodationCss()}</style>`);
   if (includeRegionRelated && !next.includes(REGION_RELATED_STYLE_MARK)) next = next.replace("</style>", `${articleRegionRelatedCss()}</style>`);
+  if (includeCoupang && !next.includes(COUPANG_STYLE_MARK)) next = next.replace("</style>", `${articleCoupangCss()}</style>`);
   if (!next.includes(TRUST_STYLE_MARK)) next = next.replace("</style>", `${articleTrustCss()}</style>`);
   return next;
 }
@@ -2456,6 +2486,11 @@ function injectArticleProductSection(document, block) {
   return String(document).replace("</article>", `${block}</article>`);
 }
 
+function injectCoupangAdBlock(document, block) {
+  if (!block || !String(document).includes("</article>")) return document;
+  return String(document).replace("</article>", `${block}</article>`);
+}
+
 function firstHttpUrl(value = "") {
   const text = String(value || "").replaceAll("&amp;", "&");
   const href = text.match(/href=["']([^"']+)["']/i)?.[1] || text.match(/https?:\/\/[^\s<>"']+/i)?.[0] || "";
@@ -2937,10 +2972,11 @@ async function polishGeneratedArticles() {
 
     const indexable = isIndexablePost(post);
     const productBlock = indexable && !isDataPipelinePost(post) ? articleProductSection(post) : "";
+    const coupangBlock = indexable && !isLodgingPost(post) ? coupangAdBlock(post) : "";
     const regionRelatedBlock = indexable ? articleRegionRelatedBlock(post) : "";
     const officialBlock = articleOfficialBlock(post);
     const sourceBlock = articleTourApiSourceBlock(post);
-    let next = injectArticleAdCss(stripExistingArticleAds(document), false, Boolean(regionRelatedBlock), false);
+    let next = injectArticleAdCss(stripExistingArticleAds(document), false, Boolean(regionRelatedBlock), false, Boolean(coupangBlock));
     next = alignArticleNavigation(next, post);
     next = alignArticleByline(next, post);
     next = applyProcessedArticleImages(next, post);
@@ -2951,6 +2987,7 @@ async function polishGeneratedArticles() {
     next = improveArticleReadability(next, post);
     next = injectArticlePhotoGrid(next, post);
     next = injectArticleProductSection(next, productBlock);
+    next = injectCoupangAdBlock(next, coupangBlock);
     next = injectArticleRegionRelated(next, regionRelatedBlock);
     next = injectArticleOfficialBlock(next, officialBlock);
     next = injectArticleTourApiSource(next, sourceBlock);
@@ -2963,6 +3000,7 @@ async function polishGeneratedArticles() {
     next = alignArticleFooter(next);
     next = ensureSiteNavigationScript(next);
     next = ensureAccommodationLinkScript(next);
+    if (coupangBlock) next = injectCoupangScript(next);
     next = ensureLazyImages(next);
     next = alignStaticInternalLinks(next);
     next = cleanGeneratedHtml(next);

@@ -24,9 +24,9 @@ const MIN_PRICE = process.env.MYREALTRIP_TNA_MIN_PRICE || "10000";
 const MAX_PRICE = process.env.MYREALTRIP_TNA_MAX_PRICE || "200000";
 const SORT = process.env.MYREALTRIP_TNA_SORT || "price_asc";
 const SIZE = Math.max(1, Math.min(100, Number.parseInt(process.env.MYREALTRIP_TNA_SIZE || "20", 10) || 20));
-const QUERY_LIMIT = Math.max(1, Math.min(12, Number.parseInt(process.env.MYREALTRIP_TNA_QUERY_LIMIT || "8", 10) || 8));
-const PER_QUERY_LIMIT = Math.max(1, Math.min(8, Number.parseInt(process.env.MYREALTRIP_TNA_PER_QUERY_LIMIT || "3", 10) || 3));
-const LIMIT = Math.max(1, Math.min(60, Number.parseInt(process.env.MYREALTRIP_TNA_LIMIT || "24", 10) || 24));
+const QUERY_LIMIT = Math.max(1, Math.min(80, Number.parseInt(process.env.MYREALTRIP_TNA_QUERY_LIMIT || "40", 10) || 40));
+const PER_QUERY_LIMIT = Math.max(1, Math.min(8, Number.parseInt(process.env.MYREALTRIP_TNA_PER_QUERY_LIMIT || "4", 10) || 4));
+const LIMIT = Math.max(1, Math.min(240, Number.parseInt(process.env.MYREALTRIP_TNA_LIMIT || "120", 10) || 120));
 
 function formatWon(value) {
   const number = Number(value);
@@ -140,7 +140,7 @@ async function readPosts() {
 }
 
 function configuredKeywords(posts) {
-  const knownRegions = new Set(deriveAffiliateRegionKeywords(posts, 20));
+  const knownRegions = new Set(deriveAffiliateRegionKeywords(posts, 120));
   return CONFIGURED_KEYWORDS.split(/[,\n]/)
     .map((value) => value.trim())
     .filter((value) => isDomesticRegion(value) || knownRegions.has(keywordRegion(value)));

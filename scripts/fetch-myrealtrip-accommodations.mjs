@@ -29,9 +29,9 @@ const NIGHTS = 2;
 const ADULT_COUNT = 2;
 const CHILD_COUNT = 0;
 const SIZE = Math.max(1, Math.min(50, Number.parseInt(process.env.MYREALTRIP_ACCOMMODATION_SIZE || "20", 10) || 20));
-const REGION_LIMIT = Math.max(1, Math.min(20, Number.parseInt(process.env.MYREALTRIP_ACCOMMODATION_REGION_LIMIT || "20", 10) || 20));
+const REGION_LIMIT = Math.max(1, Math.min(120, Number.parseInt(process.env.MYREALTRIP_ACCOMMODATION_REGION_LIMIT || "60", 10) || 60));
 const PER_REGION_LIMIT = Math.max(3, Math.min(8, Number.parseInt(process.env.MYREALTRIP_ACCOMMODATION_PER_REGION_LIMIT || "6", 10) || 6));
-const LIMIT = Math.max(12, Math.min(160, Number.parseInt(process.env.MYREALTRIP_ACCOMMODATION_LIMIT || "120", 10) || 120));
+const LIMIT = Math.max(12, Math.min(240, Number.parseInt(process.env.MYREALTRIP_ACCOMMODATION_LIMIT || "180", 10) || 180));
 const STAR_RATINGS = {
   default: "threestar,fourstar,fivestar",
   family: "fourstar,fivestar",
@@ -65,8 +65,22 @@ function normalizeText(value = "") {
 function fallbackSlug(value = "") {
   return normalizeText(value)
     .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/[^\p{Letter}\p{Number}]+/gu, "-")
     .replace(/^-+|-+$/g, "") || "other";
+}
+
+function comparableRegionToken(value = "") {
+  return normalizeText(value)
+    .split(/\s+/)
+    .filter(Boolean)
+    .pop()
+    ?.replace(/(?:특별자치시|특별시|광역시|자치구|시|군|구|읍|면)$/u, "") || "";
+}
+
+function sameLocalRegion(left = "", right = "") {
+  const leftToken = comparableRegionToken(left);
+  const rightToken = comparableRegionToken(right);
+  return Boolean(leftToken && rightToken && (leftToken === rightToken || leftToken.includes(rightToken) || rightToken.includes(leftToken)));
 }
 
 function compactRegion(value = "") {
@@ -325,14 +339,20 @@ function regionCandidates(payload) {
 
 function normalizeRegionEntry(region, keyword) {
   const regionId = normalizeText(region?.regionId || region?.id);
-  const name = compactRegion(region?.name || region?.regionName || keyword);
-  if (!regionId || !name || !isDomesticRegion(name)) return null;
+  const rawName = normalizeText(region?.name || region?.regionName || keyword);
+  const keywordName = compactRegion(keyword);
+  const type = normalizeText(region?.type || region?.regionType);
+  let name = compactRegion(rawName);
+  const isKeywordLocal = keywordName && !isDomesticRegion(keywordName);
+  if (isKeywordLocal && sameLocalRegion(rawName, keywordName)) name = keywordName;
+  const isDomesticCandidate = isDomesticRegion(rawName) || isDomesticRegion(name) || type.toUpperCase() === "CITY" || sameLocalRegion(rawName, keywordName);
+  if (!regionId || !name || !isDomesticCandidate) return null;
   return {
     keyword,
     name,
     slug: regionSlug(name),
     regionId,
-    type: normalizeText(region?.type || region?.regionType),
+    type,
     sourceName: normalizeText(region?.name || region?.regionName),
   };
 }
