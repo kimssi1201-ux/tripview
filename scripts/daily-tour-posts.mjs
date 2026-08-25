@@ -34,6 +34,29 @@ const stripHtml = (value = '') => String(value).replace(/<[^>]*>/g, ' ').replace
 const esc = (value = '') => String(value).replace(/[&<>"']/g, (m) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
 const norm = (value = '') => stripHtml(value).replace(/\s+/g, '').toLowerCase();
 
+function distributionLabel(post = {}) {
+  const typeId = String(post.contentTypeId || post.contenttypeid || post.tourApi?.contentTypeId || '');
+  if (typeId === '15' || post.category === '공연/축제') return '축제';
+  if (typeId === '32' || post.category === '숙소/예약') return '숙소';
+  if (['12', '14', '25', '28'].includes(typeId) || post.category === '국내여행') return '여행정보';
+  return '기타';
+}
+
+function distributionCounts(items = []) {
+  const order = ['여행정보', '축제', '숙소', '기타'];
+  const counts = Object.fromEntries(order.map((label) => [label, 0]));
+  for (const item of items) {
+    const label = distributionLabel(item);
+    counts[label] = (counts[label] || 0) + 1;
+  }
+  return counts;
+}
+
+function distributionText(items = []) {
+  const counts = distributionCounts(items);
+  return Object.entries(counts).map(([label, count]) => `${label} ${count}`).join(' · ');
+}
+
 function kstNow() {
   return new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Seoul' }));
 }
@@ -182,7 +205,7 @@ function addImage(images, seen, src) {
 async function collectImages(contentId, seedImages = []) {
   const images = [];
   const seen = new Set();
-  const detailImages = await tourGet('detailImage2', { contentId, imageYN: 'Y', subImageYN: 'Y', numOfRows: '50' }).catch(() => []);
+  const detailImages = await tourGet('detailImage2', { contentId, imageYN: 'Y', numOfRows: '50' }).catch(() => []);
   for (const image of detailImages) {
     addImage(images, seen, image.originimgurl || image.smallimageurl);
     if (images.length >= MAX_IMAGES_PER_POST) break;
@@ -512,6 +535,7 @@ async function buildPosts() {
   }
   const newPosts = [];
   const rejectedPosts = [];
+  const imageRejectedPosts = [];
 
   for (const candidate of candidates) {
     if (newPosts.length >= POST_LIMIT) break;
@@ -521,7 +545,15 @@ async function buildPosts() {
     const common = (await tourGet('detailCommon2', { contentId: contentid }).catch(() => []))[0] || {};
     const intro = (await tourGet('detailIntro2', { contentId: contentid, contentTypeId: candidate.contentTypeId }).catch(() => []))[0] || {};
     const images = await collectImages(contentid, [candidate.firstimage, candidate.firstimage2, common.firstimage, common.firstimage2]);
-    if (!images.length) continue;
+    if (!images.length) {
+      imageRejectedPosts.push({
+        contentid,
+        title: stripHtml(candidate.title || ''),
+        category: candidate.category,
+        contentTypeId: candidate.contentTypeId
+      });
+      continue;
+    }
     const post = makeArticle(candidate, common, intro, images, candidate.category, today);
     if (hasExistingTitle(titles, post.sourceTitle) || hasExistingTitle(titles, post.title)) continue;
     if (!isIndexablePost(post)) {
@@ -556,6 +588,11 @@ async function buildPosts() {
   });
 
   console.log(`Generated ${newPosts.length} post(s).`);
+  console.log(`Published category distribution: ${distributionText(newPosts)}.`);
+  console.log(`Image requirement skipped ${imageRejectedPosts.length} candidate(s): ${distributionText(imageRejectedPosts)}.`);
+  if (newPosts.length && Object.entries(distributionCounts(newPosts)).some(([, count]) => count === 0)) {
+    console.warn(`Published category warning: at least one category had 0 posts in this run.`);
+  }
   if (rejectedPosts.length) console.log(`Skipped ${rejectedPosts.length} post(s) below the content quality threshold.`);
   for (const post of newPosts) console.log(`- ${post.title} (${post.images.length} image(s))`);
 }

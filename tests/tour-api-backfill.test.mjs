@@ -57,12 +57,15 @@ test("TourAPI image sample uses a content-type spread and reports 3+ image cover
 });
 
 test("backfill workflow runs detailImage2 sample before any full image merge", async () => {
-  const [script, workflow] = await Promise.all([
+  const [script, dailyScript, workflow] = await Promise.all([
     readFile("scripts/backfill-tour-api-details.mjs", "utf8"),
+    readFile("scripts/daily-tour-posts.mjs", "utf8"),
     readFile(".github/workflows/backfill-tour-api-details.yml", "utf8"),
   ]);
   assert.match(script, /detailImage2/);
   assert.doesNotMatch(script, /subImageYN/);
+  assert.match(dailyScript, /detailImage2/);
+  assert.doesNotMatch(dailyScript, /subImageYN/);
   assert.match(script, /BACKFILL_IMAGE_SAMPLE/);
   assert.match(script, /BACKFILL_IMAGE_SAMPLE_CONCURRENCY/);
   assert.match(script, /BACKFILL_INCLUDE_IMAGES/);

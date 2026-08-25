@@ -659,7 +659,7 @@ test("manual Seoul booking guide uses cached products and sponsored links", asyn
 });
 
 test("data post pipeline outputs validated data pages", async () => {
-  const [postsText, sitemap, stay, festival, ticket, logText, dataWorkflow, tourWorkflow] = await Promise.all([
+  const [postsText, sitemap, stay, festival, ticket, logText, dataWorkflow, tourWorkflow, postNowWorkflow, tourScript] = await Promise.all([
     readFile("data/generated-posts.json", "utf8"),
     readFile("sitemap.xml", "utf8"),
     readFile("data-stay-price-seoul/index.html", "utf8"),
@@ -668,6 +668,8 @@ test("data post pipeline outputs validated data pages", async () => {
     readFile("data/data-post-pipeline-log.json", "utf8"),
     readFile(".github/workflows/data-post-pipeline.yml", "utf8"),
     readFile(".github/workflows/daily-tour-posts.yml", "utf8"),
+    readFile(".github/workflows/post-10-now.yml", "utf8"),
+    readFile("scripts/daily-tour-posts.mjs", "utf8"),
   ]);
   const posts = JSON.parse(postsText);
   const dataPosts = posts.filter((post) => post?.dataPipeline?.generated);
@@ -718,7 +720,13 @@ test("data post pipeline outputs validated data pages", async () => {
   assert.match(dataWorkflow, /cron: "20 18 \* \* \*"/);
   assert.match(dataWorkflow, /npm run generate:data-posts/);
   assert.match(dataWorkflow, /DATA_PIPELINE_VALIDATE_LIVE_URLS: "true"/);
-  assert.doesNotMatch(tourWorkflow, /\n\s*schedule:/);
+  assert.match(tourWorkflow, /\n\s*schedule:\s*\n\s*-\s*cron: "30 15 \* \* \*"/);
+  assert.match(tourWorkflow, /default: "5"/);
+  assert.match(tourWorkflow, /POST_LIMIT: \$\{\{ github\.event\.inputs\.limit \|\| '5' \}\}/);
+  assert.match(tourScript, /Published category distribution/);
+  assert.match(tourScript, /Image requirement skipped/);
+  assert.match(postNowWorkflow, /Published category distribution/);
+  assert.match(postNowWorkflow, /여행정보/);
 });
 
 test("editorial review manifest selects 51 unique, traceable articles", async () => {

@@ -138,7 +138,19 @@ jobs:
           if (duplicateSlugs.length) throw new Error(`Duplicate new slugs: ${duplicateSlugs.map((post) => post.slug).join(', ')}`);
           const homepage = fs.readFileSync('index.html', 'utf8');
           if (!homepage.includes('class="news-section"') || !homepage.includes('id="booking"')) throw new Error('Homepage topic sections missing from index');
+          const distributionLabel = (post) => {
+            const typeId = String(post.contentTypeId || post.contenttypeid || post.tourApi?.contentTypeId || '');
+            if (typeId === '15' || post.category === '공연/축제') return '축제';
+            if (typeId === '32' || post.category === '숙소/예약') return '숙소';
+            if (['12', '14', '25', '28'].includes(typeId) || post.category === '국내여행') return '여행정보';
+            return '기타';
+          };
+          const counts = { '여행정보': 0, '축제': 0, '숙소': 0, '기타': 0 };
+          for (const post of newPosts) counts[distributionLabel(post)] += 1;
+          const distribution = Object.entries(counts).map(([label, count]) => `${label} ${count}`).join(' · ');
           console.log(`Verified ${added} new posts. Max new post images: ${Math.max(...newPosts.map((post) => (post.images || []).length))}`);
+          console.log(`Published category distribution: ${distribution}.`);
+          if (Object.values(counts).some((count) => count === 0)) console.warn('Published category warning: at least one category had 0 posts in this run.');
           for (const post of newPosts.slice(0, 10)) console.log(`- ${post.slug}: ${(post.images || []).length} image(s)`);
           NODE
 
