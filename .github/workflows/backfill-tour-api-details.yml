@@ -20,7 +20,7 @@ on:
       image_sample_size:
         description: "Number of posts for detailImage2 sample test"
         required: false
-        default: "30"
+        default: "20"
 
 permissions:
   contents: write
@@ -45,7 +45,7 @@ jobs:
           IMAGE_MODE="${{ github.event.inputs.image_mode || 'sample' }}"
           IMAGE_SAMPLE_SIZE="${{ github.event.inputs.image_sample_size || '30' }}"
           if [ "$IMAGE_MODE" = "sample" ] || [ "$IMAGE_MODE" = "full" ]; then
-            BACKFILL_IMAGE_SAMPLE=1 BACKFILL_IMAGE_SAMPLE_SIZE="$IMAGE_SAMPLE_SIZE" node scripts/backfill-tour-api-details.mjs
+            BACKFILL_IMAGE_SAMPLE=1 BACKFILL_IMAGE_SAMPLE_SIZE="$IMAGE_SAMPLE_SIZE" BACKFILL_IMAGE_SAMPLE_CONCURRENCY=5 node scripts/backfill-tour-api-details.mjs
           fi
           if [ "$IMAGE_MODE" = "full" ]; then
             BACKFILL_INCLUDE_IMAGES=1 BACKFILL_LIMIT="${{ github.event.inputs.limit || '300' }}" node scripts/backfill-tour-api-details.mjs

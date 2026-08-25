@@ -63,6 +63,7 @@ test("backfill workflow runs detailImage2 sample before any full image merge", a
   ]);
   assert.match(script, /detailImage2/);
   assert.match(script, /BACKFILL_IMAGE_SAMPLE/);
+  assert.match(script, /BACKFILL_IMAGE_SAMPLE_CONCURRENCY/);
   assert.match(script, /BACKFILL_INCLUDE_IMAGES/);
   assert.match(script, /originimgurl/);
   assert.match(workflow, /image_mode/);

@@ -13,9 +13,10 @@ const ONLY_SHORT = process.env.BACKFILL_ONLY_SHORT === "1";
 const TARGETS = new Set(String(process.env.BACKFILL_TARGETS || "").split(",").map((value) => value.trim()).filter(Boolean));
 const INCLUDE_IMAGES = process.env.BACKFILL_INCLUDE_IMAGES === "1";
 const IMAGE_SAMPLE = process.env.BACKFILL_IMAGE_SAMPLE === "1";
-const IMAGE_SAMPLE_SIZE = Math.max(20, Math.min(30, Number.parseInt(process.env.BACKFILL_IMAGE_SAMPLE_SIZE || "30", 10) || 30));
+const IMAGE_SAMPLE_SIZE = Math.max(20, Math.min(30, Number.parseInt(process.env.BACKFILL_IMAGE_SAMPLE_SIZE || "20", 10) || 20));
+const IMAGE_SAMPLE_CONCURRENCY = Math.max(1, Math.min(6, Number.parseInt(process.env.BACKFILL_IMAGE_SAMPLE_CONCURRENCY || "5", 10) || 5));
 const MAX_IMAGES_PER_POST = Math.max(3, Math.min(8, Number.parseInt(process.env.BACKFILL_MAX_IMAGES_PER_POST || "8", 10) || 8));
-const FETCH_TIMEOUT_MS = Math.max(1000, Number.parseInt(process.env.BACKFILL_FETCH_TIMEOUT_MS || "15000", 10) || 15000);
+const FETCH_TIMEOUT_MS = Math.max(1000, Number.parseInt(process.env.BACKFILL_FETCH_TIMEOUT_MS || "8000", 10) || 8000);
 
 const strip = (value = "") =>
   String(value)
@@ -168,32 +169,45 @@ async function fetchDetailImages(post) {
   });
 }
 
+async function mapLimit(items, limit, mapper) {
+  const results = new Array(items.length);
+  let cursor = 0;
+  async function worker() {
+    while (cursor < items.length) {
+      const index = cursor;
+      cursor += 1;
+      results[index] = await mapper(items[index], index);
+    }
+  }
+  await Promise.all(Array.from({ length: Math.min(limit, items.length) }, () => worker()));
+  return results;
+}
+
 async function runImageSample(posts) {
   const sample = sampleImageBackfillPosts(posts, IMAGE_SAMPLE_SIZE);
-  const results = [];
-  for (const post of sample) {
+  const results = await mapLimit(sample, IMAGE_SAMPLE_CONCURRENCY, async (post) => {
     const typeId = contentTypeId(post);
     try {
       const detailImages = await fetchDetailImages(post);
       const merged = mergePostImages(post, detailImages, MAX_IMAGES_PER_POST);
-      results.push({
+      return {
         slug: post.slug,
         contentId: post.contentid,
         typeId,
         detailCount: detailImages.map(imageUrlFromDetail).filter(Boolean).length,
         mergedCount: merged.length,
-      });
+      };
     } catch (error) {
-      results.push({
+      return {
         slug: post.slug,
         contentId: post.contentid,
         typeId,
         detailCount: 0,
         mergedCount: mergePostImages(post, [], MAX_IMAGES_PER_POST).length,
         error: error.message,
-      });
+      };
     }
-  }
+  });
   const summary = summarizeImageSampleResults(results);
   const percent = summary.checked ? Math.round(summary.atLeast3Ratio * 1000) / 10 : 0;
   console.log(`TourAPI detailImage2 sample complete. Checked ${summary.checked} post(s).`);
