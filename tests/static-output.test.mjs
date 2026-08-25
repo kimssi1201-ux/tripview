@@ -557,6 +557,22 @@ test("lodging articles keep place introductions and expanded lodging facts", asy
   assert.match(article, /주차/);
 });
 
+test("lodging articles render photo guides and booking sidebars", async () => {
+  const posts = JSON.parse(await readFile("data/generated-posts.json", "utf8"));
+  const lodgingPosts = posts.filter((post) => String(post.tourApi?.contentTypeId || post.contentTypeId || post.contenttypeid || post.contentType || "") === "32");
+  assert.equal(lodgingPosts.length, 44);
+  for (const post of lodgingPosts) {
+    const article = await readFile(`${post.slug}/index.html`, "utf8");
+    assert.match(article, /<section class="article-place-intro"/, `${post.slug} should keep a lodging introduction`);
+    assert.match(article, /<section class="lodging-photo-guide"/, `${post.slug} should render a lodging photo guide`);
+    assert.match(article, /class="lodging-photo-item"[\s\S]*?<img[^>]+loading="lazy"[^>]+decoding="async"/, `${post.slug} should render a lazy guide image`);
+    const cta = article.match(/<a class="lodging-booking-button" href="([^"]+)"/);
+    assert.ok(cta, `${post.slug} should render a lodging booking button`);
+    assert.ok(cta[1].startsWith("/") || cta[1].startsWith("https://"), `${post.slug} should use a valid booking URL`);
+    assert.doesNotMatch(article, /<section class="article-photo-grid"/, `${post.slug} should avoid the generic photo grid`);
+  }
+});
+
 test("generated article pages keep one current site header", async () => {
   for (const fileName of ["travel-2774026/index.html", "festival-3351451/index.html", "data-ticket-price-busan/index.html"]) {
     const document = await readFile(fileName, "utf8");

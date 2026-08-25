@@ -375,6 +375,23 @@ function postTitle(post) {
   return normalizeText(post?.title || post?.sourceTitle || "여행 글");
 }
 
+function placeName(post) {
+  return normalizeText(post?.sourceTitle || post?.title || "")
+    .replace(/\[[^\]]+\]/g, (match) => match.slice(1, -1))
+    .replace(/\s*\d{4}.*$/g, "")
+    .replace(/\s*(?:방문|운영정보|관람 정보|입장 정보).*$/g, "")
+    .trim() || postTitle(post);
+}
+
+function lodgingPlaceName(post) {
+  return placeName(post)
+    .replace(/,\s*체크인[\s\S]*$/g, "")
+    .replace(/\s*체크인[\s\S]*$/g, "")
+    .replace(/^(?:서울|부산|인천|대구|대전|광주|울산|세종|제주|강원|경기|충북|충남|전북|전남|경북|경남)(?:특별시|광역시|특별자치시|특별자치도|도)?\s*/g, "")
+    .replace(/^[가-힣]+(?:시|군|구)\s+/g, "")
+    .trim() || placeName(post);
+}
+
 function postSummary(post, length = 92) {
   const value = normalizeText(post?.excerpt || post?.description || "");
   return value.length > length ? `${value.slice(0, length)}...` : value;
@@ -1680,6 +1697,10 @@ const ARTICLE_PHOTO_START = "<!-- ARTICLE_PHOTO_START";
 const ARTICLE_PHOTO_END = "ARTICLE_PHOTO_END -->";
 const ARTICLE_INLINE_PHOTO_START = "<!-- ARTICLE_INLINE_PHOTO_START";
 const ARTICLE_INLINE_PHOTO_END = "ARTICLE_INLINE_PHOTO_END -->";
+const LODGING_GUIDE_START = "<!-- LODGING_GUIDE_START";
+const LODGING_GUIDE_END = "LODGING_GUIDE_END -->";
+const LODGING_BOOKING_START = "<!-- LODGING_BOOKING_START";
+const LODGING_BOOKING_END = "LODGING_BOOKING_END -->";
 const ARTICLE_PRODUCT_START = "<!-- ARTICLE_PRODUCT_START";
 const ARTICLE_PRODUCT_END = "ARTICLE_PRODUCT_END -->";
 const ARTICLE_OFFICIAL_START = "<!-- ARTICLE_OFFICIAL_START";
@@ -1745,6 +1766,22 @@ function articleSiteDesignCss() {
 .article-photo-items figure{margin:0}
 .article-photo-items img{width:100%;aspect-ratio:4/3;border-radius:8px}
 .article-photo-items figcaption{margin-top:6px;color:var(--muted);font-size:12px}
+.article-lodging-layout{display:grid;grid-template-columns:minmax(0,760px) 280px;gap:32px;align-items:start}
+.article-lodging-layout .content{max-width:none}
+.lodging-photo-guide{margin:34px 0 30px;padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.lodging-photo-guide h2{margin-top:0}
+.lodging-photo-item{display:grid;gap:12px;margin:0 0 24px}
+.lodging-photo-item:last-child{margin-bottom:0}
+.lodging-photo-item figure{margin:0}
+.lodging-photo-item img{width:100%;aspect-ratio:16/10;border-radius:8px;object-fit:cover;object-position:center;background:var(--card)}
+.lodging-photo-item figcaption{margin-top:8px;color:var(--muted);font-size:12px;line-height:1.55}
+.lodging-photo-item p{margin:0!important}
+.lodging-booking-aside{position:sticky;top:92px;display:grid;gap:10px;padding:16px;border:1px solid color-mix(in srgb,var(--cta) 32%,var(--line));border-left:3px solid var(--cta);border-radius:8px;background:var(--card)}
+.lodging-booking-aside h2{margin:0;font-size:18px;line-height:1.35}
+.lodging-booking-aside p{margin:0;color:var(--muted);font-size:13px;line-height:1.6}
+.lodging-booking-price{color:var(--cta)!important;font-size:18px!important;font-weight:900}
+.lodging-booking-button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 14px;border-radius:8px;background:var(--cta);color:var(--card);font-weight:900;transition:background-color 150ms ease}
+.lodging-booking-button:hover,.lodging-booking-button:focus-visible{background:var(--cta-hover)}
 .article-product-section{margin:36px 0 0;padding:22px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .article-product-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:12px}
 .article-product-head h2{margin:0;padding-left:12px;border-left:3px solid var(--brand);font-size:20px}
@@ -1778,7 +1815,7 @@ function articleSiteDesignCss() {
 .tourapi-source-box{margin:22px 0 0;padding:14px;border:1px solid var(--line);border-radius:8px;background:color-mix(in srgb,var(--line) 36%,var(--card));color:var(--muted);font-size:13px;line-height:1.6}
 .related-posts,.region-related,.trust-note{border-top:1px solid var(--line)}
 footer.site-footer{padding:0;color:var(--muted)}
-@media(max-width:820px){.hero{padding-top:32px}.layout{padding-top:24px}.layout.wrap{width:calc(100% - 40px)}.content{font-size:15px;line-height:1.8}.content h2{margin:36px 0 16px;font-size:20px}.article-info-grid,.article-product-section .mrt-accommodation-grid,.article-product-section .mrt-ticket-grid{grid-template-columns:1fr}.article-fact-table th{width:96px}.article-photo-items{grid-template-columns:1fr}.article-hero-band,.article-hero-inner{min-height:240px}.article-affiliate-disclosure{width:var(--site-wrap)}}/* end-tripview-site-design */`;
+@media(max-width:820px){.hero{padding-top:32px}.layout{padding-top:24px}.layout.wrap{width:calc(100% - 40px)}.content{font-size:15px;line-height:1.8}.content h2{margin:36px 0 16px;font-size:20px}.article-lodging-layout{display:block}.lodging-booking-aside{position:static;margin:28px 0 0}.article-info-grid,.article-product-section .mrt-accommodation-grid,.article-product-section .mrt-ticket-grid{grid-template-columns:1fr}.article-fact-table th{width:96px}.article-photo-items{grid-template-columns:1fr}.article-hero-band,.article-hero-inner{min-height:240px}.article-affiliate-disclosure{width:var(--site-wrap)}}/* end-tripview-site-design */`;
 }
 
 function articleAccommodationCss() {
@@ -1806,6 +1843,8 @@ function stripExistingArticleAds(document) {
     .replace(new RegExp(`${ARTICLE_DISCLOSURE_START}[\\s\\S]*?${ARTICLE_DISCLOSURE_END}`, "g"), "")
     .replace(new RegExp(`${ARTICLE_PHOTO_START}[\\s\\S]*?${ARTICLE_PHOTO_END}`, "g"), "")
     .replace(new RegExp(`${ARTICLE_INLINE_PHOTO_START}[\\s\\S]*?${ARTICLE_INLINE_PHOTO_END}`, "g"), "")
+    .replace(new RegExp(`${LODGING_GUIDE_START}[\\s\\S]*?${LODGING_GUIDE_END}`, "g"), "")
+    .replace(new RegExp(`${LODGING_BOOKING_START}[\\s\\S]*?${LODGING_BOOKING_END}`, "g"), "")
     .replace(new RegExp(`${ARTICLE_PRODUCT_START}[\\s\\S]*?${ARTICLE_PRODUCT_END}`, "g"), "")
     .replace(new RegExp(`${ARTICLE_OFFICIAL_START}[\\s\\S]*?${ARTICLE_OFFICIAL_END}`, "g"), "")
     .replace(new RegExp(`${ARTICLE_SOURCE_START}[\\s\\S]*?${ARTICLE_SOURCE_END}`, "g"), "")
@@ -1820,6 +1859,7 @@ function stripExistingArticleAds(document) {
     .replace(/\/\* tripview-trust-note \*\/[\s\S]*?\/\* end-tripview-trust-note \*\//g, "")
     .replace(/\/\* tripview-region-related \*\/[\s\S]*?\/\* end-tripview-region-related \*\//g, "")
     .replace(/\/\* tripview-coupang-native-ad \*\/[\s\S]*?\/\* end-tripview-coupang-native-ad \*\//g, "")
+    .replace(/\s*class=["']wrap layout article-lodging-layout["']/g, ' class="wrap layout"')
     .replace(/\s*<script\s+src=["']\/assets\/coupang\.js\?v=[^"']+["']\s+defer><\/script>/g, "")
     .replace(/\s*<script\s+src=["']https:\/\/ads-partners\.coupang\.com\/g\.js["']><\/script>/g, "")
     .replace(/\s*<script\s+src=["']\/assets\/beach-(?:info|weather)\.js\?v=[^"']+["']\s+defer><\/script>/g, "");
@@ -2262,6 +2302,72 @@ function articleInlineAssets(post) {
   }).slice(0, 3);
 }
 
+function lodgingPhotoAssets(post) {
+  if (!isLodgingPost(post)) return [];
+  const sources = postImagesWithProcessed(processedTourImages, post).filter(Boolean);
+  const seen = new Set();
+  return sources
+    .filter((src) => {
+      if (seen.has(src)) return false;
+      seen.add(src);
+      return true;
+    })
+    .slice(0, 3)
+    .map((src) => {
+      const asset = tourImageAssetForSource(processedTourImages, post, src);
+      const place = lodgingPlaceName(post);
+      const region = compactRegion(post?.region);
+      return {
+        src,
+        alt: asset ? tourImageAlt(asset, post) : `${region} ${place} 숙소 외관과 주변 분위기`,
+        caption: asset ? tourImageCaption(asset) : `출처: ${TOUR_IMAGE_SOURCE_LABEL} · 트립뷰 편집 이미지`,
+      };
+    });
+}
+
+function lodgingPhotoGuideParagraph(post, index) {
+  const place = lodgingPlaceName(post);
+  const region = compactRegion(post?.region);
+  const checkIn = introValue(post, "checkintime");
+  const checkOut = introValue(post, "checkouttime");
+  const roomType = introValue(post, "roomtype");
+  const facilities = introValue(post, "subfacility");
+  const parking = introValue(post, "parkinglodging") || firstInfoValue(post, "주차");
+  const options = [
+    `${place} 사진에서는 숙소 외관과 주변 분위기를 먼저 확인할 수 있습니다. 예약 전에는 위치, 객실 조건, 취소 마감 시각을 함께 비교하세요.`,
+    [roomType ? `객실 유형은 ${roomType}입니다.` : "", facilities ? `부대시설은 ${facilities}입니다.` : "", "동행 인원에 맞는 객실명과 포함 서비스를 예약 화면에서 다시 확인하세요."].filter(Boolean).join(" "),
+    [`${region} 일정에 넣을 때는 숙소 주변 이동 시간을 같이 잡는 편이 좋습니다.`, parking ? `주차는 ${parking}입니다.` : "", checkIn || checkOut ? `체크인·아웃은 ${[checkIn, checkOut].filter(Boolean).join(" / ")} 기준입니다.` : ""].filter(Boolean).join(" "),
+  ].filter(Boolean);
+  return options[index] || options[0];
+}
+
+function lodgingPhotoGuideBlock(post) {
+  const assets = lodgingPhotoAssets(post);
+  if (!assets.length) return "";
+  return `${LODGING_GUIDE_START} -->
+<section class="lodging-photo-guide" aria-labelledby="lodging-photo-guide-title">
+  <h2 id="lodging-photo-guide-title">숙소 사진으로 확인할 부분</h2>
+  ${assets.map((asset, index) => `<div class="lodging-photo-item">
+    <figure><img src="${html(asset.src)}" alt="${html(asset.alt)}" loading="lazy" decoding="async"><figcaption>${html(asset.caption)}</figcaption></figure>
+    <p>${html(lodgingPhotoGuideParagraph(post, index))}</p>
+  </div>`).join("")}
+</section>
+<!-- ${LODGING_GUIDE_END}`;
+}
+
+function ensureLodgingPhotoGuide(document, post) {
+  if (!isLodgingPost(post)) return document;
+  const block = lodgingPhotoGuideBlock(post);
+  if (!block) return document;
+  return replaceArticleContent(document, (body) => {
+    const next = body.replace(new RegExp(`${LODGING_GUIDE_START}[\\s\\S]*?${LODGING_GUIDE_END}`, "g"), "");
+    const introRe = /(<section class=["']article-place-intro["'][\s\S]*?<\/section>)/i;
+    return introRe.test(next)
+      ? next.replace(introRe, `$1${block}`)
+      : `${block}${next}`;
+  });
+}
+
 function injectArticleInlinePhotos(document, post) {
   return replaceArticleContent(document, (body) => {
     let next = body
@@ -2289,7 +2395,7 @@ function improveArticleReadability(document, post) {
   next = replaceVisibleArticleUrls(next, post);
   if (!isDataPipelinePost(post)) {
     next = splitLongArticleParagraphs(next);
-    next = injectArticleInlinePhotos(next, post);
+    if (!isLodgingPost(post)) next = injectArticleInlinePhotos(next, post);
   }
   return repairBrokenNumericMarkup(next);
 }
@@ -2445,6 +2551,7 @@ function replaceArticleInfoTable(document, post) {
 }
 
 function articlePhotoGrid(post) {
+  if (isLodgingPost(post)) return "";
   const images = postImagesWithProcessed(processedTourImages, post).filter(Boolean).slice(0, 6);
   if (images.length < 3) return "";
   const figures = images.map((src) => {
@@ -2557,6 +2664,63 @@ function articleProductSection(post) {
 function injectArticleProductSection(document, block) {
   if (!block || !String(document).includes("</article>")) return document;
   return String(document).replace("</article>", `${block}</article>`);
+}
+
+function lodgingMatchName(value = "") {
+  return normalizeText(value)
+    .toLowerCase()
+    .replace(/\[[^\]]+\]|\([^)]*\)/g, " ")
+    .replace(/(?:체크인|방문|운영|위치|주차|확인|예약|가이드)[\s\S]*$/g, " ")
+    .replace(/(?:서울|부산|인천|대구|대전|광주|울산|세종|제주|강원|경기|충북|충남|전북|전남|경북|경남)(?:특별시|광역시|특별자치시|특별자치도|도)?/g, " ")
+    .replace(/[가-힣]+(?:시|군|구)\s+/g, " ")
+    .replace(/[^0-9a-z가-힣]+/g, "");
+}
+
+function matchingLodgingProduct(post) {
+  if (!isLodgingPost(post)) return null;
+  const region = compactRegion(post?.region);
+  const postName = lodgingMatchName(lodgingPlaceName(post));
+  if (!postName) return null;
+  return accommodationProducts
+    .map((item) => normalizeAccommodationProduct(item))
+    .find((product) => {
+      if (!product || compactRegion(product.region) !== region) return false;
+      const productName = lodgingMatchName(product.title);
+      return productName && (productName.includes(postName) || postName.includes(productName));
+    }) || null;
+}
+
+function lodgingBookingSidebar(post) {
+  if (!isLodgingPost(post)) return "";
+  const product = matchingLodgingProduct(post);
+  const place = lodgingPlaceName(post);
+  const href = product?.url || "/stay/";
+  const external = /^https:\/\//i.test(href);
+  const linkAttrs = external ? ' rel="sponsored nofollow" target="_blank"' : "";
+  const price = product?.priceText || "가격과 객실 조건은 예약 허브에서 확인하세요.";
+  const cta = product ? "예약하기" : "숙소 예약처 보기";
+  return `${LODGING_BOOKING_START} -->
+<aside class="lodging-booking-aside" aria-label="숙소 예약 확인">
+  <h2>${html(place)} 예약 확인</h2>
+  <p class="lodging-booking-price">${html(price)}</p>
+  <p>날짜, 인원, 취소 가능 여부를 먼저 비교한 뒤 예약 화면에서 최종 조건을 확인하세요.</p>
+  <a class="lodging-booking-button" href="${html(href)}"${linkAttrs}>${html(cta)}</a>
+</aside>
+<!-- ${LODGING_BOOKING_END}`;
+}
+
+function injectLodgingBookingSidebar(document, post) {
+  if (!isLodgingPost(post)) return document;
+  const block = lodgingBookingSidebar(post);
+  if (!block) return document;
+  let next = String(document)
+    .replace(new RegExp(`${LODGING_BOOKING_START}[\\s\\S]*?${LODGING_BOOKING_END}`, "g"), "")
+    .replace(/\s*class=["']wrap layout article-lodging-layout["']/g, ' class="wrap layout"');
+  next = next.replace(/<section class=["']wrap layout["']>/i, '<section class="wrap layout article-lodging-layout">');
+  return next.replace(
+    /(<section class=["']wrap layout article-lodging-layout["'][^>]*>[\s\S]*?<\/article>)(\s*<\/section>)/i,
+    `$1${block}$2`,
+  );
 }
 
 function injectCoupangAdBlock(document, block) {
@@ -3115,6 +3279,7 @@ async function polishGeneratedArticles() {
     next = ensureLodgingPlaceIntro(next, post);
     next = stripTourOverviewSection(next, post);
     next = improveArticleReadability(next, post);
+    next = ensureLodgingPhotoGuide(next, post);
     next = injectArticlePhotoGrid(next, post);
     next = injectArticleProductSection(next, productBlock);
     next = injectCoupangAdBlock(next, coupangBlock);
@@ -3122,6 +3287,7 @@ async function polishGeneratedArticles() {
     next = injectArticleOfficialBlock(next, officialBlock);
     next = injectArticleTourApiSource(next, sourceBlock);
     next = injectArticleTrust(next, post);
+    next = injectLodgingBookingSidebar(next, post);
     next = injectFestivalStatus(next, post);
     next = ensureCanonical(next, `/${post.slug}/`);
     next = ensureRobotsMeta(next, indexable);
