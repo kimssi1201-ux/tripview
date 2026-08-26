@@ -99465,7 +99465,9 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/57/4001657_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/57/4001657_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/57/4001657_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/59/4001659_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/72/4001672_image2_1.jpg"
     ],
     "alt": "남산봉수의식 등 전통문화행사 이미지",
     "excerpt": "남산봉수의식 등 전통문화행사을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -99602,7 +99604,15 @@
         "sponsor1tel": "행사장 02-319-1220운영사 02-737-6444",
         "sponsor2": "서울특별시"
       },
-      "backfilledAt": "2026-08-26T08:08:17.518Z"
+      "backfilledAt": "2026-08-26T21:20:25.741Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:20:25.741Z",
+        "completed": true,
+        "imageCount": 3,
+        "detailImageCount": 2,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "editorialStatus": "pending"
   },
@@ -99756,7 +99766,15 @@
         "sponsor1tel": "070-5220-0328",
         "sponsor2": "일간스포츠, 이데일리"
       },
-      "backfilledAt": "2026-08-26T08:08:18.904Z"
+      "backfilledAt": "2026-08-26T21:20:26.976Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:20:26.976Z",
+        "completed": false,
+        "imageCount": 1,
+        "detailImageCount": 0,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "editorialStatus": "pending"
   },
@@ -99910,7 +99928,15 @@
         "sponsor1tel": "064-710-4300",
         "sponsor2": "제주도립미술관"
       },
-      "backfilledAt": "2026-08-26T08:08:20.278Z"
+      "backfilledAt": "2026-08-26T21:20:28.238Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:20:28.238Z",
+        "completed": false,
+        "imageCount": 1,
+        "detailImageCount": 0,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "editorialStatus": "pending"
   },
@@ -100063,7 +100089,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/42/4071342_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/42/4071342_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/42/4071342_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/34/4071334_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/35/4071335_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/36/4071336_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/37/4071337_image2_1.png",
+      "https://tong.visitkorea.or.kr/cms/resource/39/4071339_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/40/4071340_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/41/4071341_image2_1.jpg"
     ],
     "alt": "그루브 인 관악 이미지",
     "excerpt": "그루브 인 관악을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -100196,7 +100229,15 @@
         "sponsor1tel": "02-828-5764",
         "sponsor2": "관악문화재단"
       },
-      "backfilledAt": "2026-08-26T08:08:23.070Z"
+      "backfilledAt": "2026-08-26T21:20:29.528Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:20:29.528Z",
+        "completed": true,
+        "imageCount": 8,
+        "detailImageCount": 9,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "editorialStatus": "pending"
   },
@@ -100350,7 +100391,15 @@
         "sponsor1tel": "062-413-1274",
         "sponsor2": "㈜상상오"
       },
-      "backfilledAt": "2026-08-26T08:08:24.432Z"
+      "backfilledAt": "2026-08-26T21:20:30.810Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:20:30.810Z",
+        "completed": false,
+        "imageCount": 1,
+        "detailImageCount": 0,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "editorialStatus": "pending"
   },
@@ -100367,7 +100416,12 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/00/4066700_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/00/4066700_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/00/4066700_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/99/4066699_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/01/4066701_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/02/4066702_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/03/4066703_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/04/4066704_image2_1.jpg"
     ],
     "alt": "증평장뜰들노래축제 이미지",
     "excerpt": "증평장뜰들노래축제을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -100504,7 +100558,15 @@
         "sponsor1tel": "043-835-4134",
         "sponsor2": "증평군"
       },
-      "backfilledAt": "2026-08-26T08:08:25.818Z"
+      "backfilledAt": "2026-08-26T21:20:32.035Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:20:32.035Z",
+        "completed": true,
+        "imageCount": 6,
+        "detailImageCount": 5,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "editorialStatus": "pending"
   },
@@ -100633,7 +100695,15 @@
       "mapy": "",
       "mlevel": "",
       "intro": {},
-      "backfilledAt": "2026-08-26T08:08:27.192Z"
+      "backfilledAt": "2026-08-26T21:20:33.297Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:20:33.297Z",
+        "completed": false,
+        "imageCount": 1,
+        "detailImageCount": 0,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "editorialStatus": "pending"
   },
@@ -100650,7 +100720,11 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/78/4073378_image2_1.JPG",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/78/4073378_image2_1.JPG"
+      "https://tong.visitkorea.or.kr/cms/resource/78/4073378_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/77/4073377_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/79/4073379_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/82/4073382_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/83/4073383_image2_1.JPG"
     ],
     "alt": "강원한우데이 이미지",
     "excerpt": "강원한우데이을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -100782,7 +100856,15 @@
         "sponsor1": "춘천시, 강원한우조합공동사업법인, 춘천철원화천양구축산농협, 한우자조금관리위원회, 전국한우협회 강원도지회 춘천시지부",
         "sponsor1tel": "033-242-1825"
       },
-      "backfilledAt": "2026-08-26T08:08:28.605Z"
+      "backfilledAt": "2026-08-26T21:20:34.546Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:20:34.546Z",
+        "completed": true,
+        "imageCount": 5,
+        "detailImageCount": 4,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "editorialStatus": "pending"
   },
@@ -100799,7 +100881,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/61/4063761_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/61/4063761_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/61/4063761_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/56/4063756_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/04/4081104_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/05/4081105_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/06/4081106_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/07/4081107_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/08/4081108_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/09/4081109_image2_1.jpg"
     ],
     "alt": "횡성썸머나잇페스타 이미지",
     "excerpt": "횡성썸머나잇페스타을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -100935,7 +101024,15 @@
         "sponsor1": "횡성문화관광재단",
         "sponsor1tel": "033-808-8007/8009"
       },
-      "backfilledAt": "2026-08-26T08:08:29.994Z"
+      "backfilledAt": "2026-08-26T21:20:35.764Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:20:35.764Z",
+        "completed": true,
+        "imageCount": 8,
+        "detailImageCount": 9,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "editorialStatus": "pending"
   },
@@ -101064,7 +101161,15 @@
       "mapy": "",
       "mlevel": "",
       "intro": {},
-      "backfilledAt": "2026-08-26T08:08:31.371Z"
+      "backfilledAt": "2026-08-26T21:20:37.045Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:20:37.045Z",
+        "completed": false,
+        "imageCount": 1,
+        "detailImageCount": 0,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "editorialStatus": "pending"
   },
@@ -101081,7 +101186,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/35/4059435_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/35/4059435_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/35/4059435_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/93/4058893_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/95/4058895_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/98/4058898_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/99/4058899_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/32/4059432_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/33/4059433_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/34/4059434_image2_1.jpg"
     ],
     "alt": "동구 무등산인문축제 이미지",
     "excerpt": "동구 무등산인문축제을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -101217,7 +101329,15 @@
         "sponsor1": "광주광역시 동구",
         "sponsor1tel": "062-608-2173"
       },
-      "backfilledAt": "2026-08-26T08:08:32.747Z"
+      "backfilledAt": "2026-08-26T21:20:38.379Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:20:38.379Z",
+        "completed": true,
+        "imageCount": 8,
+        "detailImageCount": 7,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "editorialStatus": "pending"
   },
@@ -101372,7 +101492,15 @@
         "sponsor2": "㈜블렌트",
         "sponsor2tel": "070-4705-2008"
       },
-      "backfilledAt": "2026-08-26T08:08:34.142Z"
+      "backfilledAt": "2026-08-26T21:20:39.816Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:20:39.816Z",
+        "completed": false,
+        "imageCount": 1,
+        "detailImageCount": 0,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "editorialStatus": "pending"
   },
@@ -101389,7 +101517,9 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/10/4020710_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/10/4020710_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/10/4020710_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/49/4012449_image2_1.png",
+      "https://tong.visitkorea.or.kr/cms/resource/13/4020713_image2_1.jpg"
     ],
     "alt": "2026 천안 K-컬처박람회 이미지",
     "excerpt": "2026 천안 K-컬처박람회을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -101526,7 +101656,15 @@
         "sponsor1tel": "041-521-3411041-521-3405",
         "sponsor2": "천안시, 독립기념관, (재)천안문화재단"
       },
-      "backfilledAt": "2026-08-26T08:08:35.511Z"
+      "backfilledAt": "2026-08-26T21:20:41.065Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:20:41.065Z",
+        "completed": true,
+        "imageCount": 3,
+        "detailImageCount": 2,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "editorialStatus": "pending"
   },
@@ -101543,7 +101681,13 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/36/4063736_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/36/4063736_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/36/4063736_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/69/4062969_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/70/4062970_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/71/4062971_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/72/4062972_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/73/4062973_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/74/4062974_image2_1.jpg"
     ],
     "alt": "구팔일 댕댕이 대잔치！ 이미지",
     "excerpt": "구팔일 댕댕이 대잔치！을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -101680,7 +101824,15 @@
         "sponsor1tel": "1833-9810",
         "sponsor2": "㈜모노리스제주파크"
       },
-      "backfilledAt": "2026-08-26T08:08:36.896Z"
+      "backfilledAt": "2026-08-26T21:20:42.323Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:20:42.323Z",
+        "completed": true,
+        "imageCount": 7,
+        "detailImageCount": 6,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "editorialStatus": "pending"
   },
@@ -101697,7 +101849,13 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/28/4068028_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/28/4068028_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/28/4068028_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/44/4102844_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/45/4102845_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/46/4102846_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/47/4102847_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/48/4102848_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/50/4102850_image2_1.jpg"
     ],
     "alt": "Colorful Garden 자라섬 꽃 페스타 이미지",
     "excerpt": "Colorful Garden 자라섬 꽃 페스타을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -101833,7 +101991,15 @@
         "sponsor1tel": "031-580-2601",
         "eventplace": "자라섬"
       },
-      "backfilledAt": "2026-08-26T08:08:38.332Z"
+      "backfilledAt": "2026-08-26T21:20:43.555Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:20:43.555Z",
+        "completed": true,
+        "imageCount": 7,
+        "detailImageCount": 6,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "editorialStatus": "pending"
   },
@@ -101850,7 +102016,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/06/4063806_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/06/4063806_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/06/4063806_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/80/4063080_image2_1.png",
+      "https://tong.visitkorea.or.kr/cms/resource/02/4063802_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/03/4063803_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/04/4063804_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/05/4063805_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/07/4063807_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/08/4063808_image2_1.jpg"
     ],
     "alt": "횡성호수길축제 이미지",
     "excerpt": "횡성호수길축제을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -101983,7 +102156,15 @@
         "sponsor1tel": "033-340-2803",
         "sponsor2": "횡성호수길축제위원회"
       },
-      "backfilledAt": "2026-08-26T08:08:39.666Z"
+      "backfilledAt": "2026-08-26T21:20:44.858Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:20:44.858Z",
+        "completed": true,
+        "imageCount": 8,
+        "detailImageCount": 7,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "editorialStatus": "pending"
   },
@@ -102112,7 +102293,15 @@
       "mapy": "",
       "mlevel": "",
       "intro": {},
-      "backfilledAt": "2026-08-26T08:08:41.048Z"
+      "backfilledAt": "2026-08-26T21:20:46.078Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:20:46.078Z",
+        "completed": false,
+        "imageCount": 1,
+        "detailImageCount": 0,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "editorialStatus": "pending"
   },
@@ -102241,7 +102430,15 @@
       "mapy": "",
       "mlevel": "",
       "intro": {},
-      "backfilledAt": "2026-08-26T08:12:25.556Z"
+      "backfilledAt": "2026-08-26T21:20:47.326Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:20:47.326Z",
+        "completed": false,
+        "imageCount": 1,
+        "detailImageCount": 0,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "editorialStatus": "pending"
   },
@@ -102258,7 +102455,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/87/4067387_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/87/4067387_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/87/4067387_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/75/4067375_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/86/4067386_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/88/4067388_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/89/4067389_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/90/4067390_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/91/4067391_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/92/4067392_image2_1.jpg"
     ],
     "alt": "태화강마두희축제 이미지",
     "excerpt": "태화강마두희축제을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -102394,7 +102598,15 @@
         "sponsor1": "태화강마두희축제추진위원회",
         "sponsor1tel": "052-244-2007~8"
       },
-      "backfilledAt": "2026-08-26T08:12:29.005Z"
+      "backfilledAt": "2026-08-26T21:20:48.584Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:20:48.584Z",
+        "completed": true,
+        "imageCount": 8,
+        "detailImageCount": 7,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "editorialStatus": "pending"
   },
@@ -102411,7 +102623,9 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/99/4001599_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/99/4001599_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/99/4001599_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/00/4001600_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/01/4001601_image2_1.jpg"
     ],
     "alt": "2026 숭례문 파수의식 이미지",
     "excerpt": "2026 숭례문 파수의식을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -102546,7 +102760,15 @@
         "usetimefestival": "무료",
         "sponsor1tel": "02-3789-7402"
       },
-      "backfilledAt": "2026-08-26T08:12:30.158Z"
+      "backfilledAt": "2026-08-26T21:20:49.868Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:20:49.868Z",
+        "completed": true,
+        "imageCount": 3,
+        "detailImageCount": 2,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "editorialStatus": "pending"
   },
@@ -102563,7 +102785,10 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/49/4058449_image2_1.png",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/49/4058449_image2_1.png"
+      "https://tong.visitkorea.or.kr/cms/resource/49/4058449_image2_1.png",
+      "https://tong.visitkorea.or.kr/cms/resource/46/4058446_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/47/4058447_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/48/4058448_image2_1.jpg"
     ],
     "alt": "한강역사탐방 이미지",
     "excerpt": "한강역사탐방을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -102700,7 +102925,15 @@
         "sponsor1tel": "02-6953-9239",
         "sponsor2": "서울시 미래한강본부"
       },
-      "backfilledAt": "2026-08-26T08:12:31.301Z"
+      "backfilledAt": "2026-08-26T21:20:51.140Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:20:51.140Z",
+        "completed": true,
+        "imageCount": 4,
+        "detailImageCount": 3,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "editorialStatus": "pending"
   },
@@ -102717,7 +102950,13 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/10/4071410_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/10/4071410_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/10/4071410_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/98/4072398_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/01/4072401_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/02/4072402_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/66/4073766_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/67/4073767_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/68/4073768_image2_1.jpg"
     ],
     "alt": "2026 공예주간 이미지",
     "excerpt": "2026 공예주간을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -102854,7 +103093,15 @@
         "sponsor1tel": "- 부여 041-830-6865- 세종·공주 044-850-0531- 전주·고창 063-281-1613- 칠곡·구미 0507-1409-6809- 울산·부산 052-289-1881- 제주·서귀포 0507-1333-2123",
         "sponsor2": "(재)한국공예·디자인문화진흥원"
       },
-      "backfilledAt": "2026-08-26T08:12:32.435Z"
+      "backfilledAt": "2026-08-26T21:20:52.400Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:20:52.400Z",
+        "completed": true,
+        "imageCount": 7,
+        "detailImageCount": 6,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "editorialStatus": "pending"
   },
@@ -103008,7 +103255,15 @@
         "sponsor1tel": "031-687-0548",
         "sponsor2": "(재)안양문화예술재단"
       },
-      "backfilledAt": "2026-08-26T08:12:33.572Z"
+      "backfilledAt": "2026-08-26T21:20:53.633Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:20:53.633Z",
+        "completed": false,
+        "imageCount": 1,
+        "detailImageCount": 0,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "editorialStatus": "pending"
   },
@@ -103025,7 +103280,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/24/4063024_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/24/4063024_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/24/4063024_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/52/4103752_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/53/4103753_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/55/4103755_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/56/4103756_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/57/4103757_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/58/4103758_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/59/4103759_image2_1.jpg"
     ],
     "alt": "차 없는 잠수교 뚜벅뚜벅축제 이미지",
     "excerpt": "차 없는 잠수교 뚜벅뚜벅축제을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -103161,7 +103423,15 @@
         "sponsor1": "서울특별시 미래한강본부",
         "sponsor1tel": "02-6401-9717"
       },
-      "backfilledAt": "2026-08-26T08:12:34.740Z"
+      "backfilledAt": "2026-08-26T21:20:54.861Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:20:54.861Z",
+        "completed": true,
+        "imageCount": 8,
+        "detailImageCount": 7,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "editorialStatus": "pending"
   },
@@ -103178,7 +103448,9 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/46/4060146_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/46/4060146_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/46/4060146_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/47/4060147_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/48/4060148_image2_1.png"
     ],
     "alt": "한강야경투어 이미지",
     "excerpt": "한강야경투어을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -103315,7 +103587,15 @@
         "sponsor1tel": "02-6953-9239",
         "sponsor2": "서울시 미래한강본부"
       },
-      "backfilledAt": "2026-08-26T08:12:35.859Z"
+      "backfilledAt": "2026-08-26T21:20:56.106Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:20:56.106Z",
+        "completed": true,
+        "imageCount": 3,
+        "detailImageCount": 2,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "editorialStatus": "pending"
   },
@@ -103332,7 +103612,12 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/90/4066290_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/90/4066290_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/90/4066290_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/86/4066286_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/87/4066287_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/88/4066288_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/89/4066289_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/91/4066291_image2_1.jpg"
     ],
     "alt": "양평밀축제 이미지",
     "excerpt": "양평밀축제을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -103465,7 +103750,15 @@
         "sponsor1tel": "031-770-1072, 1079",
         "sponsor2": "양평군 축제추진위원회"
       },
-      "backfilledAt": "2026-08-26T08:12:37.022Z"
+      "backfilledAt": "2026-08-26T21:20:57.361Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:20:57.361Z",
+        "completed": true,
+        "imageCount": 6,
+        "detailImageCount": 5,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "editorialStatus": "pending"
   },
@@ -103482,7 +103775,12 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/48/4065648_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/48/4065648_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/48/4065648_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/49/4065649_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/50/4065650_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/51/4065651_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/52/4065652_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/53/4065653_image2_1.jpg"
     ],
     "alt": "대한민국 펫캉스 이미지",
     "excerpt": "대한민국 펫캉스을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -103619,7 +103917,15 @@
         "sponsor1tel": "053-567-4497",
         "sponsor2": "(사)한국마이스진흥재단"
       },
-      "backfilledAt": "2026-08-26T08:12:38.164Z"
+      "backfilledAt": "2026-08-26T21:20:58.639Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:20:58.639Z",
+        "completed": true,
+        "imageCount": 6,
+        "detailImageCount": 5,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "editorialStatus": "pending"
   },
@@ -103636,7 +103942,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/40/4067740_image2_1.JPG",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/40/4067740_image2_1.JPG"
+      "https://tong.visitkorea.or.kr/cms/resource/40/4067740_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/39/4067739_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/42/4067742_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/43/4067743_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/44/4067744_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/45/4067745_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/46/4067746_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/47/4067747_image2_1.JPG"
     ],
     "alt": "무릉별유천지 라벤더축제 이미지",
     "excerpt": "무릉별유천지 라벤더축제을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -103773,7 +104086,15 @@
         "sponsor1tel": "033-532-1945",
         "sponsor2": "동해문화관광재단"
       },
-      "backfilledAt": "2026-08-26T08:12:39.367Z"
+      "backfilledAt": "2026-08-26T21:20:59.886Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:20:59.886Z",
+        "completed": true,
+        "imageCount": 8,
+        "detailImageCount": 7,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "editorialStatus": "pending"
   },
@@ -103927,7 +104248,15 @@
         "sponsor1tel": "064-722-7915",
         "sponsor2": "제주농업농촌진흥원 제주농촌융복합산업지원센터"
       },
-      "backfilledAt": "2026-08-26T08:12:40.527Z"
+      "backfilledAt": "2026-08-26T21:21:01.127Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:21:01.127Z",
+        "completed": false,
+        "imageCount": 1,
+        "detailImageCount": 0,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "editorialStatus": "pending"
   },
@@ -104056,7 +104385,15 @@
       "mapy": "",
       "mlevel": "",
       "intro": {},
-      "backfilledAt": "2026-08-26T08:12:41.650Z"
+      "backfilledAt": "2026-08-26T21:21:02.359Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:21:02.359Z",
+        "completed": false,
+        "imageCount": 1,
+        "detailImageCount": 0,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "editorialStatus": "pending"
   },
@@ -104073,7 +104410,8 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/90/4054090_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/90/4054090_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/90/4054090_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/91/4054091_image2_1.jpg"
     ],
     "alt": "2026 국제선명상대회 이미지",
     "excerpt": "2026 국제선명상대회을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -104210,7 +104548,15 @@
         "sponsor1tel": "010-8441-2371",
         "sponsor2": "대한불교조계종 미래본부"
       },
-      "backfilledAt": "2026-08-26T08:12:42.780Z"
+      "backfilledAt": "2026-08-26T21:21:03.624Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:21:03.624Z",
+        "completed": false,
+        "imageCount": 2,
+        "detailImageCount": 1,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "editorialStatus": "pending"
   },
