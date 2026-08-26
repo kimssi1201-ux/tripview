@@ -99,6 +99,29 @@ test("Durunubi course matching rejects province-only false positives", () => {
   assert.equal(result.matched, false);
 });
 
+test("Durunubi course matching avoids partial district-name matches", () => {
+  const post = {
+    slug: "travel-2666784",
+    title: "광주 동구 지호로 여행, 활기와 산책을 함께 즐기는 방문 동선",
+    region: "광주광역시 동구",
+  };
+  const routes = [{ routeIdx: "47", themeNm: "DMZ 평화의 길" }];
+  const courses = [
+    {
+      routeIdx: "47",
+      sigun: "서울 강동구",
+      crsKorNm: "DMZ 평화의 길 19-1코스",
+      crsDstnc: "26",
+      crsTotlRqrmHour: "540",
+      crsLevel: "3",
+    },
+  ];
+
+  const result = matchDurunubiCourse(post, courses, routes);
+
+  assert.equal(result.matched, false);
+});
+
 test("Durunubi sample summary reports match and failure rates", () => {
   const summary = summarizeDurunubiResults([
     { matched: true },

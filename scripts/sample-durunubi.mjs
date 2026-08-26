@@ -285,6 +285,14 @@ function includesNormalized(haystack = "", needle = "") {
   return Boolean(cleanNeedle && cleanHaystack.includes(cleanNeedle));
 }
 
+function normalizedTokenSet(value = "") {
+  return new Set(textTokens(value).map(compactPlaceToken));
+}
+
+function tokenMatchesText(token = "", tokenSet = new Set(), haystack = "") {
+  return tokenSet.has(token) || (token.length >= 4 && includesNormalized(haystack, token));
+}
+
 function routeByIndex(routes = []) {
   const map = new Map();
   for (const route of routes) {
@@ -313,10 +321,11 @@ export function scoreDurunubiCourse(post = {}, course = {}, route = {}) {
     route.linemsg,
     route.themedescs,
   ].filter(Boolean).join(" "));
+  const courseTokens = normalizedTokenSet(haystack);
   const regionMatches = regionTokens.filter((token) => includesNormalized(`${sigun} ${haystack}`, token));
   const specificRegionTokens = specificRegionTokensForPost(post);
-  const specificRegionMatches = specificRegionTokens.filter((token) => includesNormalized(`${sigun} ${haystack}`, token));
-  const titleMatches = titleTokens.filter((token) => includesNormalized(haystack, token));
+  const specificRegionMatches = specificRegionTokens.filter((token) => tokenMatchesText(token, courseTokens, haystack));
+  const titleMatches = titleTokens.filter((token) => tokenMatchesText(token, courseTokens, haystack));
   const keywordMatches = TRAIL_KEYWORDS.filter((keyword) => postText.includes(keyword) && haystack.includes(keyword));
   const exactCourseName = courseName && (includesNormalized(postText, courseName) || includesNormalized(courseName, postText));
   const exactRouteName = routeName && includesNormalized(postText, routeName);
