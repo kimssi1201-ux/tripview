@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-26T21:43:32.036Z",
+  "generatedAt": "2026-08-26T22:25:15.880Z",
   "source": "한국관광공사 공공누리",
   "assetBasePath": "/assets/processed/",
   "items": {
@@ -46,7 +46,92 @@
         "posterCanvas": false,
         "bytes": null
       },
-      "images": []
+      "images": [
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/82/3494982_image2_1.jpg",
+          "src": "/assets/processed/goesan-suok-waterfall-parking-detail-1.webp",
+          "alt": "충북 수옥폭포 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/83/3494983_image2_1.jpg",
+          "src": "/assets/processed/goesan-suok-waterfall-parking-detail-2.webp",
+          "alt": "충북 수옥폭포 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/84/3494984_image2_1.jpg",
+          "src": "/assets/processed/goesan-suok-waterfall-parking-detail-3.webp",
+          "alt": "충북 수옥폭포 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/85/3494985_image2_1.jpg",
+          "src": "/assets/processed/goesan-suok-waterfall-parking-detail-4.webp",
+          "alt": "충북 수옥폭포 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/97/4084897_image2_1.jpg",
+          "src": "/assets/processed/goesan-suok-waterfall-parking-detail-5.webp",
+          "alt": "충북 수옥폭포 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/99/4084899_image2_1.jpg",
+          "src": "/assets/processed/goesan-suok-waterfall-parking-detail-6.webp",
+          "alt": "충북 수옥폭포 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/00/4084900_image2_1.jpg",
+          "src": "/assets/processed/goesan-suok-waterfall-parking-detail-7.webp",
+          "alt": "충북 수옥폭포 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        }
+      ]
     },
     "festival-1939183": {
       "title": "문경새재 맨발페스티벌 2026 준비물, 황톳길 완주·발 관리·귀가 동선",
