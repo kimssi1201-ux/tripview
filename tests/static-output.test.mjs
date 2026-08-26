@@ -214,6 +214,31 @@ test("common site design clamps mobile page overflow", async () => {
   assert.doesNotMatch(dataPage, /transform:translateX\(100%\)/);
 });
 
+test("article product comparison tables stay inside mobile content width", async () => {
+  const [buildScript, dataArticle, travelArticle, festivalArticle] = await Promise.all([
+    readFile("scripts/build-www.mjs", "utf8"),
+    readFile("data-stay-ticket-seoul/index.html", "utf8"),
+    readFile("travel-126078/index.html", "utf8"),
+    readFile("festival-1939183/index.html", "utf8"),
+  ]);
+
+  assert.match(buildScript, /\.article-product-compare-wrap\{[^}]*max-width:100%[^}]*overflow-x:auto[^}]*-webkit-overflow-scrolling:touch/);
+  assert.match(buildScript, /@media\(max-width:640px\)\{[^}]*\.article-product-compare-wrap\{overflow-x:visible\}/);
+  assert.match(buildScript, /@media\(max-width:640px\)\{[\s\S]*\.article-product-compare\{display:block;width:100%;min-width:0\}/);
+  assert.match(buildScript, /\.article-product-compare td\{[^}]*overflow-wrap:anywhere/);
+  assert.match(buildScript, /<td data-label="상품명">/);
+  assert.match(buildScript, /<td data-label="조건">/);
+
+  for (const document of [dataArticle, travelArticle, festivalArticle]) {
+    assert.match(document, /class="article-product-compare-wrap"/);
+    assert.match(document, /class="article-product-compare"/);
+    assert.match(document, /<td data-label="상품명">/);
+    assert.match(document, /<td data-label="조건">/);
+    assert.match(document, /\.article-product-compare-wrap\{[^}]*max-width:100%[^}]*overflow-x:auto/);
+    assert.match(document, /\.article-product-compare\{display:block;width:100%;min-width:0\}/);
+  }
+});
+
 test("homepage accommodation cards use the dynamic default stay window", async () => {
   const homepage = await readFile("index.html", "utf8");
   const stay = expectedStayWindow();
@@ -317,7 +342,9 @@ test("accommodation cards use cached MyRealTrip stay links and stay out of pendi
   const articleProductBlock = reviewedArticle.match(/<!-- ARTICLE_PRODUCT_START accommodation -->[\s\S]*?<!-- ARTICLE_PRODUCT_END -->/)?.[0] || "";
   const articleAccommodationCards = articleProductBlock.match(/data-mrt-accommodation-card/g) || [];
   assert.ok(articleAccommodationCards.length > 0 && articleAccommodationCards.length <= 6);
+  assert.match(articleProductBlock, /class="article-product-compare-wrap"/);
   assert.match(articleProductBlock, /class="article-product-compare"/);
+  assert.match(articleProductBlock, /<td data-label="상품명">/);
   assert.match(articleProductBlock, /class="mrt-accommodation-thumb"><img src="https:\/\/[^\"]+"[^>]*loading="lazy"[^>]*decoding="async"/);
   assert.match(articleProductBlock, /class="mrt-rating-badge"/);
   assert.match(articleProductBlock, /<del>[\d,]+원<\/del><strong>[\d,]+원<\/strong>|<strong>[\d,]+원<\/strong>/);
@@ -327,7 +354,9 @@ test("accommodation cards use cached MyRealTrip stay links and stay out of pendi
   assert.doesNotMatch(paidArticle, /data-mrt-accommodation-card/);
   const paidTicketCards = paidArticle.match(/data-mrt-ticket-card/g) || [];
   assert.ok(paidTicketCards.length > 0 && paidTicketCards.length <= 6);
+  assert.match(paidArticle, /class="article-product-compare-wrap"/);
   assert.match(paidArticle, /class="article-product-compare"/);
+  assert.match(paidArticle, /<td data-label="조건">/);
   assert.match(paidArticle, /예약하기/);
   assert.match(reviewedArticle, /<meta name="robots" content="index, follow, max-image-preview:large">/);
   assert.doesNotMatch(pendingArticle, /<!-- MRT_ACCOMMODATION_START/);

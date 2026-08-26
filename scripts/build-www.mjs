@@ -1809,7 +1809,7 @@ function articleSiteDesignCss() {
 .article-product-head h2{margin:0;padding-left:12px;border-left:3px solid var(--brand);font-size:20px}
 .article-product-note{margin:0 0 14px;color:var(--muted);font-size:12px;line-height:1.55}
 .article-place-intro{margin:0 0 28px}
-.article-product-compare-wrap{margin:0 0 16px;overflow-x:auto}
+.article-product-compare-wrap{margin:0 0 16px;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
 .article-product-compare{width:100%;min-width:560px;border-collapse:separate;border-spacing:0;border:1px solid var(--line);border-radius:8px;background:var(--card);overflow:hidden;font-size:13px;line-height:1.55}
 .article-product-compare th,.article-product-compare td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
 .article-product-compare th{background:color-mix(in srgb,var(--line) 28%,var(--card));color:var(--ink);font-weight:900}
@@ -1837,6 +1837,7 @@ function articleSiteDesignCss() {
 .tourapi-source-box{margin:22px 0 0;padding:14px;border:1px solid var(--line);border-radius:8px;background:color-mix(in srgb,var(--line) 36%,var(--card));color:var(--muted);font-size:13px;line-height:1.6}
 .related-posts,.region-related,.trust-note{border-top:1px solid var(--line)}
 footer.site-footer{padding:0;color:var(--muted)}
+@media(max-width:640px){.article-product-compare-wrap{overflow-x:visible}.article-product-compare{display:block;width:100%;min-width:0}.article-product-compare thead{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}.article-product-compare tbody{display:grid;gap:8px}.article-product-compare tr{display:grid;gap:6px;padding:12px;border-bottom:1px solid var(--line)}.article-product-compare tr:last-child{border-bottom:0}.article-product-compare td{display:grid;grid-template-columns:74px minmax(0,1fr);gap:8px;padding:0;border-bottom:0;overflow-wrap:anywhere}.article-product-compare td::before{content:attr(data-label);color:var(--muted);font-size:11px;font-weight:800;line-height:1.55}.article-product-compare td:first-child{font-weight:800}}
 @media(max-width:820px){.hero{padding-top:32px}.layout{padding-top:24px}.layout.wrap{width:calc(100% - 40px)}.content{font-size:15px;line-height:1.8}.content h2{margin:36px 0 16px;font-size:20px}.article-lodging-layout{display:block}.lodging-booking-aside{position:static;margin:28px 0 0}.article-info-grid,.article-product-section .mrt-accommodation-grid,.article-product-section .mrt-ticket-grid{grid-template-columns:1fr}.article-fact-table th{width:96px}.article-photo-items{grid-template-columns:1fr}.article-hero-band,.article-hero-inner{min-height:240px}.article-affiliate-disclosure{width:var(--site-wrap)}}/* end-tripview-site-design */`;
 }
 
@@ -2661,7 +2662,7 @@ function articleProductComparisonTable(items = [], type = "ticket") {
   return `<div class="article-product-compare-wrap">
     <table class="article-product-compare" aria-label="예약 상품 비교">
       <thead><tr><th>상품명</th><th>유형</th><th>가격</th><th>확인할 조건</th></tr></thead>
-      <tbody>${rows.map((row) => `<tr><td>${html(row.title)}</td><td>${html(row.type)}</td><td>${html(row.price)}</td><td>${html(row.condition)}</td></tr>`).join("")}</tbody>
+      <tbody>${rows.map((row) => `<tr><td data-label="상품명">${html(row.title)}</td><td data-label="유형">${html(row.type)}</td><td data-label="가격">${html(row.price)}</td><td data-label="조건">${html(row.condition)}</td></tr>`).join("")}</tbody>
     </table>
   </div>`;
 }
