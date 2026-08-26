@@ -42,34 +42,12 @@ const NAV_GROUPS = [
     ],
   },
 ];
-const MOBILE_MENU_SECTIONS = [
-  {
-    id: "travel",
-    label: "여행지",
-    items: [
-      { href: "/region/", icon: "지", label: "지역별", description: "지역 허브" },
-      { href: "/travel/#tag-water", icon: "테", label: "테마별", description: "물놀이·실내·아이와" },
-      { href: "/travel/#all-posts", icon: "전", label: "전국 관광지", description: "검수 글 목록" },
-    ],
-  },
-  {
-    id: "festival",
-    label: "축제·행사",
-    items: [
-      { href: "/festival/#ongoing", icon: "진", label: "진행 중", description: "오늘 기준" },
-      { href: "/festival/#upcoming", icon: "예", label: "예정", description: "시작 전 일정" },
-      { href: "/festival/#past", icon: "종", label: "지난 축제", description: "종료된 일정" },
-    ],
-  },
-  {
-    id: "booking",
-    label: "예약",
-    affiliate: true,
-    items: [
-      { href: "/stay/", icon: "숙", label: "숙소", description: "위치·취소 조건 비교" },
-      { href: "/ticket/", icon: "권", label: "입장권·투어", description: "운영 시간·포함 사항 비교" },
-    ],
-  },
+const MOBILE_CATEGORY_LINKS = [
+  { href: "/", label: "홈" },
+  { href: "/travel/", label: "여행지" },
+  { href: "/festival/", label: "축제·행사" },
+  { href: "/stay/", label: "숙소" },
+  { href: "/ticket/", label: "입장권·투어" },
 ];
 function activeGroup(activePath = "/") {
   const path = String(activePath || "/");
@@ -93,21 +71,9 @@ function isCurrentNavItem(activePath = "/", href = "") {
   return path.startsWith(target);
 }
 
-function mobileMenuPanel(activePath = "/") {
-  const sections = MOBILE_MENU_SECTIONS.map((section) => `<section class="mobile-menu-section${section.affiliate ? " is-affiliate" : ""}">
-      <h2>${esc(section.label)}</h2>
-      <div class="mobile-menu-items">
-        ${section.items.map((item) => `<a class="mobile-menu-item${isCurrentNavItem(activePath, item.href) ? " is-current" : ""}" href="${esc(item.href)}"><span class="nav-item-icon" aria-hidden="true">${esc(item.icon)}</span><span class="mobile-menu-copy"><span class="nav-item-label">${esc(item.label)}</span></span><span class="mobile-menu-aside">${Number(item.count) >= 20 ? `${Number(item.count).toLocaleString("ko-KR")}개` : esc(item.description)}</span></a>`).join("")}
-      </div>
-    </section>`).join("");
-  return `<button class="site-menu-backdrop" type="button" aria-label="메뉴 닫기" data-site-menu-close hidden></button>
-    <aside class="mobile-menu-panel" id="site-mobile-menu" aria-hidden="true" data-site-menu-panel>
-      <div class="mobile-menu-head"><a class="site-brand" href="/">트립뷰</a><button class="mobile-menu-close" type="button" aria-label="메뉴 닫기" data-site-menu-close>닫기</button></div>
-      <nav class="mobile-menu-nav" aria-label="모바일 주요 메뉴">
-        <a class="mobile-menu-home${activeGroup(activePath) === "home" ? " is-current" : ""}" href="/">홈</a>
-        ${sections}
-      </nav>
-    </aside>`;
+function mobileCategoryBar(activePath = "/") {
+  const links = MOBILE_CATEGORY_LINKS.map((item) => `<a class="site-mobile-category${isCurrentNavItem(activePath, item.href) ? " is-current" : ""}" href="${esc(item.href)}">${esc(item.label)}</a>`).join("");
+  return `<nav class="site-mobile-categories" aria-label="카테고리">${links}</nav>`;
 }
 function esc(value = "") {
   return String(value).replace(/[&<>"']/g, (match) => ({
@@ -131,7 +97,6 @@ button,input,select{font:inherit}
 .site-header{position:sticky;top:0;z-index:300;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:saturate(180%) blur(12px)}
 .site-header-inner{width:var(--site-wrap);margin:0 auto;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:24px;min-height:72px}
 .site-brand{display:inline-flex;align-items:center;min-height:44px;color:var(--ink);font-size:22px;font-weight:900;line-height:1}
-.site-menu-toggle{display:none;min-width:44px;min-height:44px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);font-size:13px;font-weight:800}
 .site-nav{display:flex;align-items:center;justify-content:center;gap:8px}
 .site-nav-main{display:flex;align-items:center;gap:8px}
 .site-home-link,.nav-summary{display:inline-flex;align-items:center;min-height:36px;padding:0 12px;border:0;border-radius:999px;background:transparent;color:var(--muted);font-size:14px;font-weight:800;cursor:pointer;transition:color 150ms ease,background-color 150ms ease}
@@ -153,9 +118,7 @@ button,input,select{font:inherit}
 .nav-item-count{color:var(--muted);font-size:11px;font-weight:800;line-height:1.35}
 .site-search-link{display:grid;place-items:center;min-width:44px;min-height:44px;border:1px solid transparent;border-radius:999px;color:var(--ink);font-size:23px;line-height:1;transition:background-color 150ms ease,border-color 150ms ease}
 .site-search-link:hover,.site-search-link:focus-visible{border-color:var(--line);background:var(--card)}
-.site-menu-backdrop,.mobile-menu-panel{display:none}
-.mobile-menu-close{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 14px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);font-size:13px;font-weight:800}
-.is-site-menu-open{overflow:hidden}
+.site-mobile-categories{display:none}
 .site-page{width:var(--site-wrap);margin:0 auto;padding:48px 0 64px}
 .site-section{padding:48px 0}
 .site-section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:16px}
@@ -182,28 +145,12 @@ button,input,select{font:inherit}
 .cta-link:hover,.cta-link:focus-visible{background:var(--cta-hover)}
 @media(max-width:900px){
   :root{--site-wrap:min(720px,calc(100% - 32px))}
-  .site-header-inner{grid-template-columns:1fr auto auto;gap:8px;min-height:64px}
-  .site-header.is-menu-open{z-index:1200}
-  .site-menu-toggle{display:inline-flex;align-items:center;justify-content:center}
+  .site-header-inner{grid-template-columns:1fr auto;gap:8px;min-height:64px}
   .site-nav{display:none}
-  .site-menu-backdrop{position:fixed;inset:0;z-index:1201;background:color-mix(in srgb,var(--ink) 18%,transparent)}
-  .site-header.is-menu-open .site-menu-backdrop{display:block}
-  .mobile-menu-panel{position:fixed;inset:0 0 0 auto;z-index:1202;display:none;grid-template-rows:auto minmax(0,1fr);width:min(420px,calc(100% - 32px));max-width:100%;background:var(--card);box-shadow:-20px 0 40px color-mix(in srgb,var(--ink) 16%,transparent)}
-  .site-header.is-menu-open .mobile-menu-panel{display:grid}
-  .mobile-menu-head{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px;padding:10px 18px;border-bottom:1px solid var(--line);background:var(--card)}
-  .mobile-menu-nav{display:block;overflow:auto;padding:18px;background:var(--card)}
-  .mobile-menu-home{display:flex;align-items:center;min-height:48px;margin-bottom:18px;padding:0 14px;border:1px solid var(--line);border-radius:8px;background:var(--bg);font-weight:900}
-  .mobile-menu-home.is-current{background:var(--soft-teal);color:var(--brand)}
-  .mobile-menu-section{display:grid;gap:8px;margin-bottom:22px}
-  .mobile-menu-section h2{margin:0;color:var(--muted);font-size:11px;font-weight:900;line-height:1.4}
-  .mobile-menu-items{display:grid;gap:8px}
-  .mobile-menu-item{display:grid;grid-template-columns:32px minmax(0,1fr) minmax(92px,.9fr);gap:12px;align-items:center;min-height:56px;padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--card);transition:background-color 150ms ease,border-color 150ms ease}
-  .mobile-menu-item.is-current{background:var(--soft-teal);border-color:color-mix(in srgb,var(--brand) 24%,var(--line))}
-  .mobile-menu-section.is-affiliate .mobile-menu-item{border-color:color-mix(in srgb,var(--cta) 28%,var(--line));background:var(--soft-cta)}
-  .mobile-menu-section.is-affiliate .mobile-menu-item.is-current{border-color:color-mix(in srgb,var(--cta) 40%,var(--line))}
-  .mobile-menu-section.is-affiliate .mobile-menu-item .nav-item-icon{color:var(--cta);border-color:color-mix(in srgb,var(--cta) 40%,var(--line));background:var(--card)}
-  .mobile-menu-copy{display:grid;min-width:0}
-  .mobile-menu-aside{justify-self:end;min-width:0;color:var(--muted);font-size:12px;font-weight:800;line-height:1.35;text-align:right;overflow-wrap:anywhere}
+  .site-mobile-categories{display:flex;gap:8px;width:100%;padding:0 16px 12px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .site-mobile-categories::-webkit-scrollbar{display:none}
+  .site-mobile-category{flex:0 0 auto;display:inline-flex;align-items:center;min-height:34px;padding:0 14px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--muted);font-size:13px;font-weight:800;white-space:nowrap;transition:color 150ms ease,background-color 150ms ease,border-color 150ms ease}
+  .site-mobile-category.is-current{background:var(--soft-teal);color:var(--brand);border-color:transparent}
   .site-page{padding:32px 0 48px}
   .site-section{padding:32px 0}
   .story-grid{grid-template-columns:1fr;gap:16px}
@@ -226,7 +173,6 @@ export function siteHeader(activePath = "/") {
   return `<header class="site-header" data-site-header>
     <div class="site-header-inner">
       <a class="site-brand" href="/">트립뷰</a>
-      <button class="site-menu-toggle" type="button" aria-expanded="false" aria-controls="site-mobile-menu" data-site-menu-toggle>메뉴</button>
       <nav class="site-nav site-nav-desktop" aria-label="주요 메뉴">
         <div class="site-nav-main">
           <a class="site-home-link${active === "home" ? " is-active" : ""}" href="/">홈</a>
@@ -234,8 +180,8 @@ export function siteHeader(activePath = "/") {
         </div>
       </nav>
       <a class="site-search-link" href="/travel/#all-posts" aria-label="검색">⌕</a>
-      ${mobileMenuPanel(activePath)}
     </div>
+    ${mobileCategoryBar(activePath)}
   </header>`;
 }
 
@@ -280,73 +226,47 @@ export function siteFooter({ regionLinks = DEFAULT_REGION_LINKS } = {}) {
 }
 
 export function siteNavScript() {
-  return `<script>
+  return `<script data-site-nav-script>
     (() => {
       const header = document.querySelector("[data-site-header]");
-      const toggle = document.querySelector("[data-site-menu-toggle]");
-      if (!header || !toggle) return;
-      const panel = header.querySelector("[data-site-menu-panel]");
-      const backdrop = header.querySelector(".site-menu-backdrop");
-      const closeButtons = Array.from(header.querySelectorAll("[data-site-menu-close]"));
+      if (!header) return;
       const groups = Array.from(header.querySelectorAll(".site-nav-desktop .nav-group"));
-      let menuOpen = false;
       const closeGroups = (except) => {
         groups.forEach((group) => {
-          if (group !== except) group.removeAttribute("open");
+          if (group !== except) {
+            group.removeAttribute("open");
+            delete group.dataset.openedByHover;
+          }
         });
       };
-      const setMenuOpen = (open) => {
-        menuOpen = Boolean(open);
-        header.classList.toggle("is-menu-open", menuOpen);
-        toggle.setAttribute("aria-expanded", String(menuOpen));
-        panel?.setAttribute("aria-hidden", String(!menuOpen));
-        if (backdrop) backdrop.hidden = !menuOpen;
-        document.documentElement.classList.toggle("is-site-menu-open", menuOpen);
-        document.body?.classList.toggle("is-site-menu-open", menuOpen);
-        closeGroups();
-      };
-      const openGroup = (group) => {
-        if (menuOpen) setMenuOpen(false);
+      const openGroup = (group, byHover = false) => {
         closeGroups(group);
         group.setAttribute("open", "");
+        group.dataset.openedByHover = byHover ? "true" : "false";
       };
       groups.forEach((group) => {
         const summary = group.querySelector(".nav-summary");
-        group.addEventListener("mouseenter", () => openGroup(group));
-        group.addEventListener("focusin", () => openGroup(group));
+        group.addEventListener("mouseenter", () => openGroup(group, true));
+        group.addEventListener("toggle", () => {
+          if (group.open) closeGroups(group);
+        });
         summary?.addEventListener("click", (event) => {
           event.preventDefault();
-          event.stopPropagation();
-          if (group.hasAttribute("open")) {
+          const openedByHover = group.dataset.openedByHover === "true";
+          if (group.open && !openedByHover) {
             group.removeAttribute("open");
+            delete group.dataset.openedByHover;
           } else {
             openGroup(group);
           }
         });
       });
-      toggle.addEventListener("click", (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        setMenuOpen(!menuOpen);
-      });
-      panel?.addEventListener("click", (event) => event.stopPropagation());
-      closeButtons.forEach((button) => button.addEventListener("click", (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        setMenuOpen(false);
-      }));
-      panel?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => setMenuOpen(false)));
       header.addEventListener("mouseleave", () => closeGroups());
       document.addEventListener("click", (event) => {
-        if (!header.contains(event.target)) {
-          closeGroups();
-          if (menuOpen) setMenuOpen(false);
-        }
+        if (!header.contains(event.target)) closeGroups();
       });
       document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") {
-          setMenuOpen(false);
-        }
+        if (event.key === "Escape") closeGroups();
       });
     })();
   </script>`;

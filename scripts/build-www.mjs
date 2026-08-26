@@ -714,8 +714,14 @@ function removeLanguageArtifacts(value) {
     .replace(/@media[^{]+\{\s*\}/g, "");
 }
 
+const EMBEDDED_SITE_CSS_RE = /:root\{--brand:#0F5C5C;[\s\S]*?@media\(prefers-reduced-motion:reduce\)\{\*,\*::before,\*::after\{transition-duration:0\.01ms!important;animation-duration:0\.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important\}\}\s*/g;
+
+function refreshEmbeddedSiteCss(value) {
+  return String(value ?? "").replace(EMBEDDED_SITE_CSS_RE, SITE_CSS);
+}
+
 function cleanGeneratedHtml(value) {
-  return removeLanguageArtifacts(value)
+  return removeLanguageArtifacts(refreshEmbeddedSiteCss(value))
     .replace(/로컬/g, "지역")
     .replace(/데이터 연결/g, "인터넷 연결")
     .replace(/(\s*<footer class=["']site-footer["'][\s\S]*?<\/footer>)(?:\s*<footer class=["']site-footer["'][\s\S]*?<\/footer>)+/gi, "$1")
@@ -772,6 +778,14 @@ function removeLegacyArticleHeaderScript(document) {
   );
 }
 
+function alignSiteHeader(document, activePath = "/") {
+  const header = siteHeader(activePath);
+  const withoutExistingSiteHeader = String(document).replace(/\s*<header class=["']site-header["'][\s\S]*?<\/header>/gi, "");
+  return withoutExistingSiteHeader.includes("<body")
+    ? withoutExistingSiteHeader.replace(/<body([^>]*)>/i, `<body$1>\n    ${header}`)
+    : `${header}${withoutExistingSiteHeader}`;
+}
+
 function alignArticleNavigation(document, post = {}) {
   const header = siteHeader(articleActivePath(post));
   const withoutExistingSiteHeader = String(document).replace(/\s*<header class=["']site-header["'][\s\S]*?<\/header>/gi, "");
@@ -800,11 +814,19 @@ function alignArticleFooter(document) {
     : `${withoutFooters}${footer}`;
 }
 
+function removeExistingSiteNavScript(document) {
+  return String(document).replace(
+    /\s*<script(?:\s+data-site-nav-script)?>(?:(?!<\/script>)[\s\S])*?\.site-nav-desktop \.nav-group(?:(?!<\/script>)[\s\S])*?<\/script>/g,
+    "",
+  );
+}
+
 function ensureSiteNavigationScript(document) {
-  if (!String(document).includes("data-site-menu-toggle") || String(document).includes("[data-site-menu-toggle]")) return document;
-  return String(document).includes("</body>")
-    ? String(document).replace("</body>", `\n    ${siteNavScript()}\n  </body>`)
-    : document;
+  if (!String(document).includes("data-site-header")) return document;
+  const stripped = removeExistingSiteNavScript(document);
+  return stripped.includes("</body>")
+    ? stripped.replace("</body>", `\n    ${siteNavScript()}\n  </body>`)
+    : stripped;
 }
 
 function alignStaticInternalLinks(document) {
@@ -3335,7 +3357,9 @@ async function polishLegacyArticleShells() {
       : legacyDocumentPost(entry.name, next);
     next = ensureCanonical(next, `/${entry.name}/`);
     next = ensureLegacyArticleSchema(next, entry.name, legacyRendererPosts[entry.name]);
+    if (next.includes("data-site-header")) next = alignSiteHeader(next, articleActivePath(legacyPost));
     if (legacyStaticArticle) next = refreshArticleSiteDesignCss(improveArticleReadability(next, legacyPost));
+    next = ensureSiteNavigationScript(next);
     next = cleanGeneratedHtml(next);
     if (next !== document) await writeFile(file, next, "utf8");
   }
@@ -3371,7 +3395,7 @@ async function polishStaticPages() {
         .replace(/href=(["'])\/#festival\1/g, 'href="/festival/"')
         .replace(/href=(["'])\/#(?:booking|myrealtrip-deals)\1/g, 'href="/stay/"')
         .replace(/href=(["'])\/#(?:popular|water|weekend|indoor|family)\1/g, 'href="/travel/"');
-      const next = cleanGeneratedHtml(ensureCanonical(alignStaticInternalLinks(alignedNavigation), pathname));
+      const next = cleanGeneratedHtml(ensureSiteNavigationScript(ensureCanonical(alignStaticInternalLinks(alignSiteHeader(alignedNavigation, pathname)), pathname)));
       if (next !== document) await writeFile(file, next, "utf8");
     } catch (error) {
       if (error.code !== "ENOENT") throw error;

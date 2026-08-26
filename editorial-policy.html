@@ -14,6 +14,34 @@
       <link rel="canonical" href="https://tripview.kr/editorial-policy">
   </head>
   <body>
+    <header class="site-header" data-site-header>
+    <div class="site-header-inner">
+      <a class="site-brand" href="/">트립뷰</a>
+      <nav class="site-nav site-nav-desktop" aria-label="주요 메뉴">
+        <div class="site-nav-main">
+          <a class="site-home-link" href="/">홈</a>
+          <details class="nav-group">
+      <summary class="nav-summary">여행지</summary>
+      <div class="nav-dropdown">
+        <a href="/region/"><span class="nav-item-icon" aria-hidden="true">지</span><span class="nav-item-text"><span class="nav-item-label">지역별</span><span class="nav-item-desc">지역 허브에서 글과 숙소를 함께 봅니다.</span></span></a><a href="/travel/#tag-water"><span class="nav-item-icon" aria-hidden="true">테</span><span class="nav-item-text"><span class="nav-item-label">테마별</span><span class="nav-item-desc">물놀이·실내·아이와 태그를 모았습니다.</span></span></a><a href="/travel/#all-posts"><span class="nav-item-icon" aria-hidden="true">전</span><span class="nav-item-text"><span class="nav-item-label">전국 관광지</span><span class="nav-item-desc">검수된 전국 여행지 글 목록입니다.</span></span></a>
+      </div>
+    </details><details class="nav-group">
+      <summary class="nav-summary">축제·행사</summary>
+      <div class="nav-dropdown">
+        <a href="/festival/#ongoing"><span class="nav-item-icon" aria-hidden="true">진</span><span class="nav-item-text"><span class="nav-item-label">진행 중</span><span class="nav-item-desc">오늘 기준 진행 중인 축제입니다.</span></span></a><a href="/festival/#upcoming"><span class="nav-item-icon" aria-hidden="true">예</span><span class="nav-item-text"><span class="nav-item-label">예정</span><span class="nav-item-desc">방문 계획을 잡기 좋은 예정 축제입니다.</span></span></a><a href="/festival/#past"><span class="nav-item-icon" aria-hidden="true">종</span><span class="nav-item-text"><span class="nav-item-label">지난 축제</span><span class="nav-item-desc">종료된 축제는 목록 하단에 둡니다.</span></span></a>
+      </div>
+    </details><details class="nav-group is-affiliate">
+      <summary class="nav-summary">숙소·예약</summary>
+      <div class="nav-dropdown">
+        <a href="/stay/"><span class="nav-item-icon" aria-hidden="true">숙</span><span class="nav-item-text"><span class="nav-item-label">숙소</span><span class="nav-item-desc">위치와 취소 조건을 비교합니다.</span></span></a><a href="/ticket/"><span class="nav-item-icon" aria-hidden="true">권</span><span class="nav-item-text"><span class="nav-item-label">입장권·투어</span><span class="nav-item-desc">운영 시간과 포함 사항을 비교합니다.</span></span></a><a href="/data-stay-price-seoul/"><span class="nav-item-icon" aria-hidden="true">가</span><span class="nav-item-text"><span class="nav-item-label">숙소 가격 비교</span><span class="nav-item-desc">주말 숙소 요금을 비교합니다.</span></span></a>
+      </div>
+    </details>
+        </div>
+      </nav>
+      <a class="site-search-link" href="/travel/#all-posts" aria-label="검색">⌕</a>
+    </div>
+    <nav class="site-mobile-categories" aria-label="카테고리"><a class="site-mobile-category" href="/">홈</a><a class="site-mobile-category" href="/travel/">여행지</a><a class="site-mobile-category" href="/festival/">축제·행사</a><a class="site-mobile-category" href="/stay/">숙소</a><a class="site-mobile-category" href="/ticket/">입장권·투어</a></nav>
+  </header>
     <header class="top"><div class="wrap"><a class="brand" href="/">트립뷰</a></div></header>
     <main class="wrap page">
       <h1>콘텐츠 운영 기준</h1>
@@ -28,5 +56,51 @@
 
       <p>검수 방식은 <a href="/editorial-team">트립뷰 편집팀</a> 페이지에서 확인할 수 있습니다. 콘텐츠 오류나 수정 요청은 <a href="/contact">문의 페이지</a>를 통해 보낼 수 있습니다.</p>
     </main>
-    <footer class="wrap footer"><a href="/about">소개</a> · <a href="/editorial-team">편집팀</a> · <a href="/affiliate-disclosure">제휴 안내</a> · <a href="/privacy">개인정보처리방침</a></footer><script src="/assets/topic-filter.js?v=topic-filter-20260706-hardening" defer></script></body>
+    <footer class="wrap footer"><a href="/about">소개</a> · <a href="/editorial-team">편집팀</a> · <a href="/affiliate-disclosure">제휴 안내</a> · <a href="/privacy">개인정보처리방침</a></footer><script src="/assets/topic-filter.js?v=topic-filter-20260706-hardening" defer></script>
+
+    <script data-site-nav-script>
+    (() => {
+      const header = document.querySelector("[data-site-header]");
+      if (!header) return;
+      const groups = Array.from(header.querySelectorAll(".site-nav-desktop .nav-group"));
+      const closeGroups = (except) => {
+        groups.forEach((group) => {
+          if (group !== except) {
+            group.removeAttribute("open");
+            delete group.dataset.openedByHover;
+          }
+        });
+      };
+      const openGroup = (group, byHover = false) => {
+        closeGroups(group);
+        group.setAttribute("open", "");
+        group.dataset.openedByHover = byHover ? "true" : "false";
+      };
+      groups.forEach((group) => {
+        const summary = group.querySelector(".nav-summary");
+        group.addEventListener("mouseenter", () => openGroup(group, true));
+        group.addEventListener("toggle", () => {
+          if (group.open) closeGroups(group);
+        });
+        summary?.addEventListener("click", (event) => {
+          event.preventDefault();
+          const openedByHover = group.dataset.openedByHover === "true";
+          if (group.open && !openedByHover) {
+            group.removeAttribute("open");
+            delete group.dataset.openedByHover;
+          } else {
+            openGroup(group);
+          }
+        });
+      });
+      header.addEventListener("mouseleave", () => closeGroups());
+      document.addEventListener("click", (event) => {
+        if (!header.contains(event.target)) closeGroups();
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeGroups();
+      });
+    })();
+  </script>
+  </body>
 </html>
