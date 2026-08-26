@@ -458,7 +458,7 @@ async function runSample() {
     `Durunubi sample complete. Matched ${summary.matched}/${summary.checked} (${percent(summary.matchRate)}). Failed ${summary.failed}/${summary.checked} (${percent(summary.failureRate)}).`,
   );
 
-  const matchedExamples = results.filter((result) => result.matched).sort((a, b) => b.score - a.score).slice(0, 8);
+  const matchedExamples = results.filter((result) => result.matched).sort((a, b) => b.score - a.score).slice(0, SAMPLE_SIZE);
   console.log(`Durunubi matched examples: ${matchedExamples.length}`);
   for (const item of matchedExamples) {
     console.log(
@@ -466,7 +466,7 @@ async function runSample() {
     );
   }
 
-  const failedExamples = results.filter((result) => !result.matched).sort((a, b) => b.score - a.score).slice(0, 8);
+  const failedExamples = results.filter((result) => !result.matched).sort((a, b) => b.score - a.score).slice(0, SAMPLE_SIZE);
   console.log(`Durunubi unmatched examples: ${failedExamples.length}`);
   for (const item of failedExamples) {
     console.log(
