@@ -2172,7 +2172,12 @@ function articleProgramList(post) {
 function insertArticleFactBlocks(document, post) {
   return replaceArticleContent(document, (body) => {
     let next = body.replace(/\s*<table\b[^>]*\bclass=["'][^"']*\barticle-fact-table\b[^"']*["'][^>]*>[\s\S]*?<\/table>/gi, "");
-    const factTable = articleFactTable(post);
+    // articleFactTable() and the article-info-grid card near the top both
+    // read the same articleInfoItems(post), so whenever the grid already
+    // rendered, the table would just repeat the identical 장소/문의/운영
+    // 시간/이용 요금 facts a second time further down the page. Only add
+    // the table as a fallback when there's no info-grid card to show them.
+    const factTable = next.includes("article-info-grid") ? "" : articleFactTable(post);
     if (factTable && !next.includes("article-fact-table")) {
       const target = next.match(/<h2[^>]*>\s*(?:운영 정보|일정과 운영 흐름|비용과 준비물)\s*<\/h2>/i);
       next = target
