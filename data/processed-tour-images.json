@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-26T21:15:22.121Z",
+  "generatedAt": "2026-08-26T21:18:46.060Z",
   "source": "한국관광공사 공공누리",
   "assetBasePath": "/assets/processed/",
   "items": {
@@ -5757,7 +5757,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -5769,7 +5770,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -5781,7 +5783,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -5793,7 +5796,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -5805,7 +5809,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -5817,7 +5822,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -5829,7 +5835,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         }
       ]
     },
@@ -5876,7 +5883,56 @@
         "posterCanvas": false,
         "bytes": null
       },
-      "images": []
+      "images": [
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/78/3317778_image2_1.JPG",
+          "src": "/assets/processed/gangneung-heritage-night-walk-parking-detail-1.webp",
+          "alt": "강원 강릉 국가유산 야행 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/79/3317779_image2_1.jpg",
+          "src": "/assets/processed/gangneung-heritage-night-walk-parking-detail-2.webp",
+          "alt": "강원 강릉 국가유산 야행 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/80/3317780_image2_1.JPG",
+          "src": "/assets/processed/gangneung-heritage-night-walk-parking-detail-3.webp",
+          "alt": "강원 강릉 국가유산 야행 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/36/4078836_image2_1.jpg",
+          "src": "/assets/processed/gangneung-heritage-night-walk-parking-detail-4.webp",
+          "alt": "강원 강릉 국가유산 야행 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        }
+      ]
     },
     "festival-2751126": {
       "title": "김천포도축제 2026, 8월 14~16일 체험·먹거리·주차 정보",
