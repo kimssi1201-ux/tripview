@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-26T07:05:47.516Z",
+  "generatedAt": "2026-08-26T07:08:59.709Z",
   "source": "한국관광공사 공공누리",
   "assetBasePath": "/assets/processed/",
   "items": {
@@ -4591,7 +4591,92 @@
         "posterCanvas": false,
         "bytes": null
       },
-      "images": []
+      "images": [
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/32/3365432_image2_1.JPG",
+          "src": "/assets/processed/cheolwon-sambuyeon-waterfall-water-detail-1.webp",
+          "alt": "강원 삼부연폭포 (한탄강 유네스코 세계지질공원) 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/02/4062502_image2_1.jpg",
+          "src": "/assets/processed/cheolwon-sambuyeon-waterfall-water-detail-2.webp",
+          "alt": "강원 삼부연폭포 (한탄강 유네스코 세계지질공원) 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/98/4062498_image2_1.jpg",
+          "src": "/assets/processed/cheolwon-sambuyeon-waterfall-water-detail-3.webp",
+          "alt": "강원 삼부연폭포 (한탄강 유네스코 세계지질공원) 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/99/4062499_image2_1.jpg",
+          "src": "/assets/processed/cheolwon-sambuyeon-waterfall-water-detail-4.webp",
+          "alt": "강원 삼부연폭포 (한탄강 유네스코 세계지질공원) 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/00/4062500_image2_1.jpg",
+          "src": "/assets/processed/cheolwon-sambuyeon-waterfall-water-detail-5.webp",
+          "alt": "강원 삼부연폭포 (한탄강 유네스코 세계지질공원) 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/21/3365421_image2_1.JPG",
+          "src": "/assets/processed/cheolwon-sambuyeon-waterfall-water-detail-6.webp",
+          "alt": "강원 삼부연폭포 (한탄강 유네스코 세계지질공원) 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/36/3365436_image2_1.JPG",
+          "src": "/assets/processed/cheolwon-sambuyeon-waterfall-water-detail-7.webp",
+          "alt": "강원 삼부연폭포 (한탄강 유네스코 세계지질공원) 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        }
+      ]
     },
     "travel-125677": {
       "title": "동해 무릉계곡 여름 산책과 물놀이, 코스 길이·안전 체크",
@@ -4636,7 +4721,92 @@
         "posterCanvas": false,
         "bytes": null
       },
-      "images": []
+      "images": [
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/45/3474445_image2_1.jpg",
+          "src": "/assets/processed/donghae-mureung-valley-water-detail-1.webp",
+          "alt": "강원 무릉계곡 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/39/3474439_image2_1.jpg",
+          "src": "/assets/processed/donghae-mureung-valley-water-detail-2.webp",
+          "alt": "강원 무릉계곡 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/52/3365452_image2_1.JPG",
+          "src": "/assets/processed/donghae-mureung-valley-water-detail-3.webp",
+          "alt": "강원 무릉계곡 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/24/3388924_image2_1.jpg",
+          "src": "/assets/processed/donghae-mureung-valley-water-detail-4.webp",
+          "alt": "강원 무릉계곡 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/20/3388920_image2_1.jpg",
+          "src": "/assets/processed/donghae-mureung-valley-water-detail-5.webp",
+          "alt": "강원 무릉계곡 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms2/website/71/1930271.jpg",
+          "src": "/assets/processed/donghae-mureung-valley-water-detail-6.webp",
+          "alt": "강원 무릉계곡 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms2/website/72/1930272.jpg",
+          "src": "/assets/processed/donghae-mureung-valley-water-detail-7.webp",
+          "alt": "강원 무릉계곡 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        }
+      ]
     },
     "travel-125838": {
       "title": "영동 옥계폭포 여름 산책, 수량·접근로·미끄럼 주의사항",
@@ -4681,7 +4851,92 @@
         "posterCanvas": false,
         "bytes": null
       },
-      "images": []
+      "images": [
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/83/3569483_image2_1.jpg",
+          "src": "/assets/processed/yeongdong-okgye-waterfall-parking-detail-1.webp",
+          "alt": "충북 옥계폭포 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/84/3569484_image2_1.jpg",
+          "src": "/assets/processed/yeongdong-okgye-waterfall-parking-detail-2.webp",
+          "alt": "충북 옥계폭포 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/85/3569485_image2_1.jpg",
+          "src": "/assets/processed/yeongdong-okgye-waterfall-parking-detail-3.webp",
+          "alt": "충북 옥계폭포 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/87/3569487_image2_1.jpg",
+          "src": "/assets/processed/yeongdong-okgye-waterfall-parking-detail-4.webp",
+          "alt": "충북 옥계폭포 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/88/3569488_image2_1.jpg",
+          "src": "/assets/processed/yeongdong-okgye-waterfall-parking-detail-5.webp",
+          "alt": "충북 옥계폭포 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/26/4065726_image2_1.jpg",
+          "src": "/assets/processed/yeongdong-okgye-waterfall-parking-detail-6.webp",
+          "alt": "충북 옥계폭포 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/27/4065727_image2_1.jpg",
+          "src": "/assets/processed/yeongdong-okgye-waterfall-parking-detail-7.webp",
+          "alt": "충북 옥계폭포 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        }
+      ]
     },
     "travel-126098": {
       "title": "부산 일광해수욕장 8월 가족 바다, 주차·샤워장·입수 체크",
@@ -4726,7 +4981,92 @@
         "posterCanvas": false,
         "bytes": null
       },
-      "images": []
+      "images": [
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/95/3495495_image2_1.jpg",
+          "src": "/assets/processed/busan-ilgwang-beach-parking-detail-1.webp",
+          "alt": "부산 일광해수욕장 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/96/3495496_image2_1.jpg",
+          "src": "/assets/processed/busan-ilgwang-beach-parking-detail-2.webp",
+          "alt": "부산 일광해수욕장 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/97/3495497_image2_1.jpg",
+          "src": "/assets/processed/busan-ilgwang-beach-parking-detail-3.webp",
+          "alt": "부산 일광해수욕장 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/98/3495498_image2_1.jpg",
+          "src": "/assets/processed/busan-ilgwang-beach-parking-detail-4.webp",
+          "alt": "부산 일광해수욕장 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/99/3495499_image2_1.jpg",
+          "src": "/assets/processed/busan-ilgwang-beach-parking-detail-5.webp",
+          "alt": "부산 일광해수욕장 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/00/3495500_image2_1.jpg",
+          "src": "/assets/processed/busan-ilgwang-beach-parking-detail-6.webp",
+          "alt": "부산 일광해수욕장 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/01/3495501_image2_1.jpg",
+          "src": "/assets/processed/busan-ilgwang-beach-parking-detail-7.webp",
+          "alt": "부산 일광해수욕장 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        }
+      ]
     },
     "travel-126265": {
       "title": "구례 피아골계곡 여름 물길, 깊은 계곡 가기 전 안전 체크",
@@ -4771,7 +5111,80 @@
         "posterCanvas": false,
         "bytes": null
       },
-      "images": []
+      "images": [
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/69/644269_image2_1.jpg",
+          "src": "/assets/processed/gurye-piagol-valley-water-detail-1.webp",
+          "alt": "전남 피아골계곡 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/22/3574822_image2_1.jpg",
+          "src": "/assets/processed/gurye-piagol-valley-water-detail-2.webp",
+          "alt": "전남 피아골계곡 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/31/3574831_image2_1.jpg",
+          "src": "/assets/processed/gurye-piagol-valley-water-detail-3.webp",
+          "alt": "전남 피아골계곡 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms2/website/22/3574822.jpg",
+          "src": "/assets/processed/gurye-piagol-valley-water-detail-4.webp",
+          "alt": "전남 피아골계곡 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms2/website/31/3574831.jpg",
+          "src": "/assets/processed/gurye-piagol-valley-water-detail-5.webp",
+          "alt": "전남 피아골계곡 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms2/website/32/3574832.jpg",
+          "src": "/assets/processed/gurye-piagol-valley-water-detail-6.webp",
+          "alt": "전남 피아골계곡 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        }
+      ]
     },
     "travel-2469139": {
       "title": "영주 콩세계과학관 아이와 실내 여행, 전시·체험 시간",
@@ -4816,7 +5229,80 @@
         "posterCanvas": false,
         "bytes": null
       },
-      "images": []
+      "images": [
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/72/3548172_image2_1.jpg",
+          "src": "/assets/processed/yeongju-bean-world-science-museum-family-detail-1.webp",
+          "alt": "경북 영주 콩세계과학관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/74/3548174_image2_1.jpg",
+          "src": "/assets/processed/yeongju-bean-world-science-museum-family-detail-2.webp",
+          "alt": "경북 영주 콩세계과학관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/75/3548175_image2_1.jpg",
+          "src": "/assets/processed/yeongju-bean-world-science-museum-family-detail-3.webp",
+          "alt": "경북 영주 콩세계과학관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/76/3548176_image2_1.jpg",
+          "src": "/assets/processed/yeongju-bean-world-science-museum-family-detail-4.webp",
+          "alt": "경북 영주 콩세계과학관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/77/3548177_image2_1.jpg",
+          "src": "/assets/processed/yeongju-bean-world-science-museum-family-detail-5.webp",
+          "alt": "경북 영주 콩세계과학관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/78/3548178_image2_1.jpg",
+          "src": "/assets/processed/yeongju-bean-world-science-museum-family-detail-6.webp",
+          "alt": "경북 영주 콩세계과학관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        }
+      ]
     },
     "travel-647272": {
       "title": "영월 연하계곡 물놀이 준비, 비 온 뒤 수량과 미끄럼 체크",
