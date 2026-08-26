@@ -28,6 +28,9 @@ const PHOTO_GALLERY_ROWS = Math.max(3, Math.min(20, Number.parseInt(process.env.
 const MAX_IMAGES_PER_POST = Math.max(3, Math.min(8, Number.parseInt(process.env.BACKFILL_MAX_IMAGES_PER_POST || "8", 10) || 8));
 const FETCH_TIMEOUT_MS = Math.max(1000, Number.parseInt(process.env.BACKFILL_FETCH_TIMEOUT_MS || "8000", 10) || 8000);
 const API_REQUEST_RETRIES = Math.max(1, Math.min(3, Number.parseInt(process.env.BACKFILL_REQUEST_RETRIES || "1", 10) || 1));
+const IMAGE_BACKFILL_CAMPAIGN = process.env.BACKFILL_IMAGE_CAMPAIGN || "detail-photo-gallery-v1";
+const SKIP_IMAGE_COMPLETE = process.env.BACKFILL_SKIP_IMAGE_COMPLETE !== "0";
+const RETRY_IMAGE_INCOMPLETE = process.env.BACKFILL_RETRY_IMAGE_INCOMPLETE === "1";
 
 const strip = (value = "") =>
   String(value)
@@ -152,6 +155,15 @@ export function mergePostImages(post, detailImages = [], limit = MAX_IMAGES_PER_
   for (const src of Array.isArray(post?.images) ? post.images : []) addImage(images, seen, src, limit);
   for (const item of detailImages) addImage(images, seen, imageUrlFromDetail(item), limit);
   return images;
+}
+
+export function existingMergedImageCount(post, limit = MAX_IMAGES_PER_POST) {
+  return mergePostImages(post, [], limit).length;
+}
+
+function imageBackfillAttempt(post) {
+  const attempt = post?.tourApi?.imageBackfill;
+  return attempt && attempt.campaign === IMAGE_BACKFILL_CAMPAIGN ? attempt : null;
 }
 
 export function sampleImageBackfillPosts(posts = [], size = IMAGE_SAMPLE_SIZE) {
@@ -566,6 +578,8 @@ async function main() {
   let photoGalleryChecked = 0;
   let photoGalleryMatched = 0;
   let photoGalleryErrors = 0;
+  let skippedImageComplete = 0;
+  let skippedImageAttempted = 0;
   let photoGalleryMissingKeyWarned = false;
   const next = [];
 
@@ -575,6 +589,18 @@ async function main() {
     if (!selected || !post.contentid) {
       next.push(post);
       continue;
+    }
+    if (INCLUDE_IMAGES && SKIP_IMAGE_COMPLETE && !TARGETS.size) {
+      if (existingMergedImageCount(post) >= 3) {
+        skippedImageComplete += 1;
+        next.push(post);
+        continue;
+      }
+      if (!RETRY_IMAGE_INCOMPLETE && imageBackfillAttempt(post)) {
+        skippedImageAttempted += 1;
+        next.push(post);
+        continue;
+      }
     }
     if (eligibleSeen < OFFSET) {
       eligibleSeen += 1;
@@ -608,12 +634,14 @@ async function main() {
       if (INCLUDE_IMAGES) {
         const detailImages = await fetchDetailImages(post);
         const combinedImages = [...detailImages];
+        let photoGalleryMatchedForPost = 0;
         if (INCLUDE_PHOTO_GALLERY) {
           if (PHOTO_GALLERY_SERVICE_KEY) {
             photoGalleryChecked += 1;
             try {
               const galleryItems = await fetchPhotoGalleryImages(post);
               const matchedItems = galleryItems.filter((item) => isRelevantPhotoGalleryItem(post, item));
+              photoGalleryMatchedForPost = matchedItems.length;
               photoGalleryMatched += matchedItems.length;
               combinedImages.push(...photoGalleryDetailImages(matchedItems));
             } catch (error) {
@@ -632,6 +660,14 @@ async function main() {
           images = mergedImages;
           imagesUpdated += 1;
         }
+        tourApi.imageBackfill = {
+          campaign: IMAGE_BACKFILL_CAMPAIGN,
+          attemptedAt: tourApi.backfilledAt,
+          completed: mergedImages.length >= 3,
+          imageCount: mergedImages.length,
+          detailImageCount: detailImages.length,
+          photoGalleryMatchedCount: photoGalleryMatchedForPost
+        };
       }
       next.push({ ...post, images, info: mergeInfo(post, common, tourApi.intro), tourApi });
       updated += 1;
@@ -646,12 +682,15 @@ async function main() {
   const imageSummary = INCLUDE_IMAGES
     ? ` Image sets updated ${imagesUpdated}. Posts with 3+ images after merge ${imagesAtLeast3}/${imageChecked} (${imageChecked ? Math.round((imagesAtLeast3 / imageChecked) * 1000) / 10 : 0}%).`
     : "";
+  const imageSkipSummary = INCLUDE_IMAGES
+    ? ` Image backfill skipped complete ${skippedImageComplete}, already attempted ${skippedImageAttempted}.`
+    : "";
   const photoGallerySummary = INCLUDE_IMAGES && INCLUDE_PHOTO_GALLERY
     ? PHOTO_GALLERY_SERVICE_KEY
       ? ` PhotoGallery checked ${photoGalleryChecked}, matched images ${photoGalleryMatched}, errors ${photoGalleryErrors}.`
       : " PhotoGallery skipped because PHOTO_GALLERY_API_KEY is not set."
     : "";
-  console.log(`TourAPI backfill complete. Offset ${OFFSET}, checked ${checked}, updated ${updated}.${imageSummary}${photoGallerySummary}`);
+  console.log(`TourAPI backfill complete. Offset ${OFFSET}, checked ${checked}, updated ${updated}.${imageSummary}${imageSkipSummary}${photoGallerySummary}`);
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {

@@ -17,6 +17,7 @@ const FETCH_TIMEOUT_MS = Math.max(1000, Number.parseInt(process.env.DURUNUBI_FET
 const REQUEST_RETRIES = Math.max(1, Math.min(3, Number.parseInt(process.env.DURUNUBI_REQUEST_RETRIES || "1", 10) || 1));
 const MAX_PAGES = Math.max(1, Math.min(20, Number.parseInt(process.env.DURUNUBI_MAX_PAGES || "10", 10) || 10));
 export const CONFIDENT_MATCH_SCORE = 20;
+export const REGION_CONFIRMED_MATCH_SCORE = 12;
 
 const TRAIL_KEYWORDS = [
   "둘레길",
@@ -347,10 +348,14 @@ export function scoreDurunubiCourse(post = {}, course = {}, route = {}) {
     : specificRegionTokens.length
       ? Boolean(specificRegionMatches.length)
       : Boolean(regionMatches.length);
+  const regionConfirmed = specificRegionMatches.length > 0;
+  const matchThreshold = regionConfirmed ? REGION_CONFIRMED_MATCH_SCORE : CONFIDENT_MATCH_SCORE;
   return {
     score,
     rawScore,
-    matched: score >= CONFIDENT_MATCH_SCORE && hasCourseTextMatch && hasRegionMatch && !regionExcluded,
+    matched: score >= matchThreshold && hasCourseTextMatch && hasRegionMatch && !regionExcluded,
+    matchThreshold,
+    regionConfirmed,
     regionExcluded,
     regionMatches,
     specificRegionMatches,
@@ -381,6 +386,8 @@ export function matchDurunubiCourse(post = {}, courses = [], routes = []) {
     score: best.score.score,
     rawScore: best.score.rawScore,
     regionExcluded: best.score.regionExcluded,
+    matchThreshold: best.score.matchThreshold,
+    regionConfirmed: best.score.regionConfirmed,
     regionMatches: best.score.regionMatches,
     specificRegionMatches: best.score.specificRegionMatches,
     titleMatches: best.score.titleMatches,

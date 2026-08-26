@@ -5,6 +5,7 @@ import path from "node:path";
 import test from "node:test";
 
 import {
+  existingMergedImageCount,
   imageFamilyKey,
   isRelevantPhotoGalleryItem,
   mergePostImages,
@@ -41,6 +42,19 @@ test("TourAPI image backfill merges gallery images without duplicating the cover
     "https://tong.visitkorea.or.kr/cms/resource/89/4096568_image2_1.jpg",
     "https://tong.visitkorea.or.kr/cms/resource/90/4096569_image2_1.jpg",
   ]);
+});
+
+test("TourAPI image backfill can count existing renderable images before retrying", () => {
+  const post = {
+    image: "https://example.com/cover.jpg",
+    images: [
+      "https://example.com/cover.jpg",
+      "https://example.com/detail-a.jpg",
+      "https://example.com/detail-b.jpg",
+    ],
+  };
+
+  assert.equal(existingMergedImageCount(post), 3);
 });
 
 test("TourAPI image sample uses a content-type spread and reports 3+ image coverage", () => {
@@ -153,6 +167,12 @@ test("full image backfill can merge PhotoGallery images in bounded batches", asy
   assert.match(script, /PhotoGallery image backfill skipped because PHOTO_GALLERY_API_KEY is not set/);
   assert.match(script, /combinedImages\.push\(\.\.\.photoGalleryDetailImages\(matchedItems\)\)/);
   assert.match(script, /BACKFILL_OFFSET/);
+  assert.match(script, /BACKFILL_SKIP_IMAGE_COMPLETE/);
+  assert.match(script, /BACKFILL_RETRY_IMAGE_INCOMPLETE/);
+  assert.match(script, /IMAGE_BACKFILL_CAMPAIGN/);
+  assert.match(script, /existingMergedImageCount\(post\) >= 3/);
+  assert.match(script, /imageBackfillAttempt\(post\)/);
+  assert.match(script, /Image backfill skipped complete/);
   assert.match(script, /Posts with 3\+ images after merge/);
   assert.match(workflow, /default: "120"/);
   assert.match(workflow, /offset:/);

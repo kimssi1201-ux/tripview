@@ -3,6 +3,7 @@ import test from "node:test";
 
 import {
   CONFIDENT_MATCH_SCORE,
+  REGION_CONFIRMED_MATCH_SCORE,
   matchDurunubiCourse,
   regionTokensForPost,
   selectDurunubiSamplePosts,
@@ -80,6 +81,33 @@ test("Durunubi course matching does not pass on region-only overlap", () => {
   assert.equal(result.regionExcluded, false);
 });
 
+test("Durunubi course matching accepts lower scores only when city or county is confirmed", () => {
+  const post = {
+    slug: "travel-donghae-trail",
+    title: "동해 해안길 산책, 바다 따라 걷는 코스",
+    region: "강원특별자치도 동해시",
+    tags: ["산책로"],
+  };
+  const routes = [{ routeIdx: "7", themeNm: "해파랑길" }];
+  const courses = [
+    {
+      routeIdx: "7",
+      sigun: "강원 동해시",
+      crsKorNm: "해안길 산책로 1코스",
+      crsDstnc: "8",
+      crsTotlRqrmHour: "150",
+      crsLevel: "1",
+    },
+  ];
+
+  const result = matchDurunubiCourse(post, courses, routes);
+
+  assert.equal(result.regionConfirmed, true);
+  assert.equal(result.score >= REGION_CONFIRMED_MATCH_SCORE, true);
+  assert.equal(result.score < CONFIDENT_MATCH_SCORE, true);
+  assert.equal(result.matched, true);
+});
+
 test("Durunubi course matching rejects province-only false positives", () => {
   const post = {
     slug: "travel-2774026",
@@ -126,7 +154,8 @@ test("Durunubi course matching requires a confident score", () => {
 
   const result = matchDurunubiCourse(post, courses, routes);
 
-  assert.equal(result.score < CONFIDENT_MATCH_SCORE, true);
+  assert.equal(result.regionConfirmed, true);
+  assert.equal(result.score < REGION_CONFIRMED_MATCH_SCORE, true);
   assert.equal(result.matched, false);
 });
 
