@@ -16,6 +16,7 @@ const PAGE_SIZE = Math.max(20, Math.min(200, Number.parseInt(process.env.DURUNUB
 const FETCH_TIMEOUT_MS = Math.max(1000, Number.parseInt(process.env.DURUNUBI_FETCH_TIMEOUT_MS || "8000", 10) || 8000);
 const REQUEST_RETRIES = Math.max(1, Math.min(3, Number.parseInt(process.env.DURUNUBI_REQUEST_RETRIES || "1", 10) || 1));
 const MAX_PAGES = Math.max(1, Math.min(20, Number.parseInt(process.env.DURUNUBI_MAX_PAGES || "10", 10) || 10));
+export const CONFIDENT_MATCH_SCORE = 20;
 
 const TRAIL_KEYWORDS = [
   "둘레길",
@@ -330,7 +331,7 @@ export function scoreDurunubiCourse(post = {}, course = {}, route = {}) {
   const exactCourseName = courseName && (includesNormalized(postText, courseName) || includesNormalized(courseName, postText));
   const exactRouteName = routeName && includesNormalized(postText, routeName);
   const strongKeywordMatch = keywordMatches.some((keyword) => STRONG_TRAIL_KEYWORDS.has(keyword));
-  const score =
+  const rawScore =
     regionMatches.length * 3
     + titleMatches.length * 4
     + keywordMatches.length * 2
@@ -339,6 +340,8 @@ export function scoreDurunubiCourse(post = {}, course = {}, route = {}) {
     + (strongKeywordMatch ? 3 : 0);
 
   const hasCourseTextMatch = Boolean(titleMatches.length || exactCourseName || exactRouteName || strongKeywordMatch);
+  const regionExcluded = strip(post.region) !== "국내" && specificRegionTokens.length > 0 && !specificRegionMatches.length;
+  const score = regionExcluded ? 0 : rawScore;
   const hasRegionMatch = strip(post.region) === "국내"
     ? true
     : specificRegionTokens.length
@@ -346,7 +349,9 @@ export function scoreDurunubiCourse(post = {}, course = {}, route = {}) {
       : Boolean(regionMatches.length);
   return {
     score,
-    matched: score >= 6 && hasCourseTextMatch && hasRegionMatch,
+    rawScore,
+    matched: score >= CONFIDENT_MATCH_SCORE && hasCourseTextMatch && hasRegionMatch && !regionExcluded,
+    regionExcluded,
     regionMatches,
     specificRegionMatches,
     titleMatches,
@@ -366,6 +371,8 @@ export function matchDurunubiCourse(post = {}, courses = [], routes = []) {
   return {
     matched: best.score.matched,
     score: best.score.score,
+    rawScore: best.score.rawScore,
+    regionExcluded: best.score.regionExcluded,
     regionMatches: best.score.regionMatches,
     specificRegionMatches: best.score.specificRegionMatches,
     titleMatches: best.score.titleMatches,

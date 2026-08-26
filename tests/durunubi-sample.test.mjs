@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import {
+  CONFIDENT_MATCH_SCORE,
   matchDurunubiCourse,
   regionTokensForPost,
   selectDurunubiSamplePosts,
@@ -47,6 +48,7 @@ test("Durunubi course matching uses route, course name, and sigun text", () => {
   assert.equal(result.crsKorNm, "지리산둘레길 방광-산동");
   assert.equal(result.level, "중");
   assert.equal(result.hasGpx, true);
+  assert.equal(result.score >= CONFIDENT_MATCH_SCORE, true);
 });
 
 test("Durunubi region tokens keep one-syllable district names matchable", () => {
@@ -74,6 +76,8 @@ test("Durunubi course matching does not pass on region-only overlap", () => {
   const result = matchDurunubiCourse(post, courses, routes);
 
   assert.equal(result.matched, false);
+  assert.equal(result.score < CONFIDENT_MATCH_SCORE, true);
+  assert.equal(result.regionExcluded, false);
 });
 
 test("Durunubi course matching rejects province-only false positives", () => {
@@ -96,6 +100,32 @@ test("Durunubi course matching rejects province-only false positives", () => {
 
   const result = matchDurunubiCourse(post, courses, routes);
 
+  assert.equal(result.matched, false);
+  assert.equal(result.score, 0);
+  assert.equal(result.regionExcluded, true);
+});
+
+test("Durunubi course matching requires a confident score", () => {
+  const post = {
+    slug: "travel-125677",
+    title: "동해 무릉계곡 여름 산책과 물놀이, 코스 길이·안전 체크",
+    region: "강원특별자치도 동해시",
+  };
+  const routes = [{ routeIdx: "7", themeNm: "해파랑길" }];
+  const courses = [
+    {
+      routeIdx: "7",
+      sigun: "강원 동해시",
+      crsKorNm: "해파랑길 33코스",
+      crsDstnc: "14",
+      crsTotlRqrmHour: "270",
+      crsLevel: "1",
+    },
+  ];
+
+  const result = matchDurunubiCourse(post, courses, routes);
+
+  assert.equal(result.score < CONFIDENT_MATCH_SCORE, true);
   assert.equal(result.matched, false);
 });
 
