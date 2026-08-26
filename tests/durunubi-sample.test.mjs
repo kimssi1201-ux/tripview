@@ -1,0 +1,86 @@
+import assert from "node:assert/strict";
+import test from "node:test";
+
+import {
+  matchDurunubiCourse,
+  selectDurunubiSamplePosts,
+  summarizeDurunubiResults,
+} from "../scripts/sample-durunubi.mjs";
+
+test("Durunubi sample candidates come from title, sourceTitle, or tags only", () => {
+  const posts = [
+    { slug: "trail-title", title: "횡성호수길 5구간 걷기 전 확인할 거리", region: "강원특별자치도 횡성군" },
+    { slug: "trail-tag", title: "강릉 바다 여행", tags: ["숲길"], region: "강원특별자치도 강릉시" },
+    { slug: "body-only", title: "일반 관광지", body: "본문에 산책이라는 말이 있습니다.", region: "서울특별시 중구" },
+    { slug: "trail-source", sourceTitle: "지리산둘레길 방광-산동", title: "구례 걷기 코스", region: "전라남도 구례군" },
+  ];
+
+  const slugs = selectDurunubiSamplePosts(posts, 10).map((post) => post.slug);
+
+  assert.deepEqual(slugs, ["trail-source", "trail-tag", "trail-title"]);
+});
+
+test("Durunubi course matching uses route, course name, and sigun text", () => {
+  const post = {
+    slug: "travel-2788055",
+    title: "전남 구례군 [지리산둘레길] 방광-산동, 이용시간·예약과 준비물",
+    region: "전라남도 구례군",
+  };
+  const routes = [{ routeIdx: "5", themeNm: "지리산둘레길", linemsg: "지리산 권역 걷기길" }];
+  const courses = [
+    {
+      routeIdx: "5",
+      sigun: "구례군",
+      crsKorNm: "지리산둘레길 방광-산동",
+      crsDstnc: "13.2km",
+      crsTotlRqrmHour: "5시간",
+      crsLevel: "2",
+      gpxpath: "https://example.com/course.gpx",
+    },
+  ];
+
+  const result = matchDurunubiCourse(post, courses, routes);
+
+  assert.equal(result.matched, true);
+  assert.equal(result.themeNm, "지리산둘레길");
+  assert.equal(result.crsKorNm, "지리산둘레길 방광-산동");
+  assert.equal(result.level, "중");
+  assert.equal(result.hasGpx, true);
+});
+
+test("Durunubi course matching does not pass on region-only overlap", () => {
+  const post = {
+    slug: "travel-127722",
+    title: "강릉 안목해변 여름 코스, 바다 산책·카페거리·주차 체크",
+    region: "강원특별자치도 강릉시",
+  };
+  const routes = [{ routeIdx: "7", themeNm: "해파랑길" }];
+  const courses = [
+    {
+      routeIdx: "7",
+      sigun: "강릉시",
+      crsKorNm: "해파랑길 39코스",
+      crsDstnc: "16.1km",
+      crsTotlRqrmHour: "5시간",
+      crsLevel: "2",
+    },
+  ];
+
+  const result = matchDurunubiCourse(post, courses, routes);
+
+  assert.equal(result.matched, false);
+});
+
+test("Durunubi sample summary reports match and failure rates", () => {
+  const summary = summarizeDurunubiResults([
+    { matched: true },
+    { matched: false },
+    { matched: true },
+  ]);
+
+  assert.equal(summary.checked, 3);
+  assert.equal(summary.matched, 2);
+  assert.equal(summary.failed, 1);
+  assert.equal(summary.matchRate, 2 / 3);
+  assert.equal(summary.failureRate, 1 / 3);
+});

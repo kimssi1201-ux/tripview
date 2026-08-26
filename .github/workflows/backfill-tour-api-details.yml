@@ -33,6 +33,14 @@ on:
         description: "Number of posts for PhotoGalleryService1 sample test"
         required: false
         default: "30"
+      durunubi_mode:
+        description: "Durunubi walking course sample mode: sample or off"
+        required: false
+        default: "off"
+      durunubi_sample_size:
+        description: "Number of trail-like posts for Durunubi sample test"
+        required: false
+        default: "25"
 
 permissions:
   contents: write
@@ -58,6 +66,7 @@ jobs:
           node --check scripts/backfill-tour-api-details.mjs
           node --check scripts/polish-contextual-copy.mjs
           node --check scripts/report-photo-coverage.mjs
+          node --check scripts/sample-durunubi.mjs
 
       - name: Sample TourAPI gallery images
         if: ${{ github.event_name == 'push' || github.event.inputs.image_mode == 'sample' || github.event.inputs.image_mode == 'full' }}
@@ -79,6 +88,18 @@ jobs:
           BACKFILL_PHOTO_GALLERY_SAMPLE=1 PHOTO_GALLERY_SAMPLE_SIZE="$PHOTO_GALLERY_SAMPLE_SIZE" PHOTO_GALLERY_SAMPLE_CONCURRENCY=4 node scripts/backfill-tour-api-details.mjs --photo-gallery-sample
         env:
           PHOTO_GALLERY_API_KEY: ${{ secrets.PHOTO_GALLERY_API_KEY }}
+
+      - name: Sample Durunubi walking courses
+        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.durunubi_mode == 'sample' }}
+        run: |
+          if [ -z "$DURUNUBI_API_KEY" ]; then
+            echo "::error::DURUNUBI_API_KEY is required for Durunubi sample. Add it in Settings > Secrets and variables > Actions."
+            exit 1
+          fi
+          DURUNUBI_SAMPLE_SIZE="${{ github.event.inputs.durunubi_sample_size || '25' }}"
+          DURUNUBI_SAMPLE_SIZE="$DURUNUBI_SAMPLE_SIZE" node scripts/sample-durunubi.mjs
+        env:
+          DURUNUBI_API_KEY: ${{ secrets.DURUNUBI_API_KEY }}
 
       - name: Backfill Tour API details
         if: ${{ github.event.inputs.image_mode == 'full' || github.event.inputs.image_mode == 'off' }}

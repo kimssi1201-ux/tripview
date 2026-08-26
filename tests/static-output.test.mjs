@@ -451,7 +451,10 @@ test("Korea Tourism images render through processed WebP assets", async () => {
   assert.match(article, /role="img" aria-label="부산 광안리해수욕장 방문 동선을 참고할 수 있는 트립뷰 편집 이미지"/);
   assert.doesNotMatch(article, /<figure class="cover-figure"/);
   assert.match(article, /출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지/);
-  assert.match(article, /"image":\["https:\/\/tripview\.kr\/assets\/processed\/busan-gwangalli-beach-parking\.webp"\]/);
+  assert.match(
+    article,
+    /"image":\["https:\/\/tripview\.kr\/assets\/processed\/busan-gwangalli-beach-parking\.webp"(?:,"https:\/\/tripview\.kr\/assets\/processed\/[a-z0-9-]+\.webp")*\]/,
+  );
   assert.doesNotMatch(article, /tong\.visitkorea\.or\.kr/);
   assert.doesNotMatch(article, /이미지 1|<figcaption>대표 이미지/);
 
