@@ -85,7 +85,7 @@ Parameters:
 | `MobileOS` | yes | string | OS value such as `IOS`, `AND`, `WIN`, `ETC` |
 | `MobileApp` | yes | string | App or service name |
 | `serviceKey` | yes | string | data.go.kr service key |
-| `themeNm` | no | string | Route name |
+| `themeNm` | no in Swagger, required in the current sample path | Route name |
 | `brdDiv` | no | string | Walking or bicycle division. The spec notes `DNWW` for walking routes currently provided. |
 
 Response item fields:
@@ -102,7 +102,7 @@ Response item fields:
 
 Notes:
 
-- `routeList` looks broader than an individual course lookup. Use it to discover valid route names and `routeIdx` values before calling `courseList`.
+- `routeList` looks broader than an individual course lookup, but the 2026-08-26 GitHub Actions sample returned `NO_MANDATORY_REQUEST_PARAMETERS_ERROR(SG_APIM)` when called without a route-name search term. The sample script therefore derives route-name candidates from existing Tripview titles and calls `routeList` with `themeNm` before calling `courseList` by `routeIdx`.
 - This response also has no image URL or coordinate fields.
 
 ## Official Swagger example

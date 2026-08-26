@@ -49,6 +49,17 @@ const STRONG_TRAIL_KEYWORDS = new Set([
   "코리아둘레길",
 ]);
 
+const ROUTE_NAME_KEYWORDS = [
+  "지리산둘레길",
+  "해파랑길",
+  "남파랑길",
+  "서해랑길",
+  "DMZ 평화의 길",
+  "코리아둘레길",
+  "제주올레",
+  "올레길",
+];
+
 const TOKEN_STOPWORDS = new Set([
   "가이드",
   "구간별",
@@ -209,6 +220,18 @@ async function fetchAllDurunubiItems(endpoint, extra = {}) {
   return all;
 }
 
+function dedupeDurunubiItems(items = [], keyForItem) {
+  const seen = new Set();
+  const next = [];
+  for (const item of items) {
+    const key = strip(keyForItem(item));
+    if (!key || seen.has(key)) continue;
+    seen.add(key);
+    next.push(item);
+  }
+  return next;
+}
+
 function unique(values = []) {
   const seen = new Set();
   const next = [];
@@ -219,6 +242,44 @@ function unique(values = []) {
     next.push(value);
   }
   return next;
+}
+
+async function fetchRoutesForKeywords(keywords = []) {
+  const routes = [];
+  const errors = [];
+  for (const keyword of keywords) {
+    try {
+      const items = await fetchAllDurunubiItems("routeList", { themeNm: keyword });
+      routes.push(...items);
+    } catch (error) {
+      errors.push(`${keyword}: ${error.message}`);
+    }
+  }
+  if (errors.length) {
+    console.warn(`Durunubi routeList keyword errors: ${errors.length}`);
+    for (const error of errors.slice(0, 5)) console.warn(`- ${error}`);
+  }
+  return dedupeDurunubiItems(routes, (route) => route.routeIdx || route.themeNm);
+}
+
+async function fetchCoursesForRoutes(routes = []) {
+  const courses = [];
+  const errors = [];
+  for (const route of routes) {
+    const routeIdx = strip(route.routeIdx);
+    if (!routeIdx) continue;
+    try {
+      const items = await fetchAllDurunubiItems("courseList", { routeIdx });
+      courses.push(...items);
+    } catch (error) {
+      errors.push(`${routeIdx}: ${error.message}`);
+    }
+  }
+  if (errors.length) {
+    console.warn(`Durunubi courseList route errors: ${errors.length}`);
+    for (const error of errors.slice(0, 5)) console.warn(`- ${error}`);
+  }
+  return dedupeDurunubiItems(courses, (course) => course.crsIdx || `${course.routeIdx}:${course.crsKorNm}:${course.sigun}`);
 }
 
 function compactPlaceToken(value = "") {
@@ -247,6 +308,20 @@ function searchablePostText(post = {}) {
   ]
     .filter(Boolean)
     .join(" ");
+}
+
+export function durunubiRouteKeywordsForPost(post = {}) {
+  const text = searchablePostText(post);
+  const bracketed = [...text.matchAll(/\[([^\]]*(?:길|트레일|올레)[^\]]*)\]/g)]
+    .map((match) => strip(match[1]));
+  const named = ROUTE_NAME_KEYWORDS.filter((keyword) => text.includes(keyword));
+  return unique([...bracketed, ...named]);
+}
+
+function durunubiRouteKeywordsForPosts(posts = []) {
+  const keywords = [];
+  for (const post of posts) keywords.push(...durunubiRouteKeywordsForPost(post));
+  return unique(keywords);
 }
 
 export function durunubiCandidateScore(post = {}) {
@@ -452,12 +527,14 @@ async function runSample() {
     console.log(`Candidate: ${post.slug} | ${strip(post.region) || "-"} | ${strip(post.title)}`);
   }
 
-  const routes = await fetchAllDurunubiItems("routeList");
+  const routeKeywords = durunubiRouteKeywordsForPosts(sample);
+  console.log(`Durunubi routeList keyword candidates: ${routeKeywords.join(", ") || "-"}.`);
+  const routes = await fetchRoutesForKeywords(routeKeywords);
   console.log(`Durunubi routeList fetched ${routes.length} route(s).`);
   if (!routes.length) throw new Error("Durunubi routeList returned no routes.");
   for (const route of routes.slice(0, 3)) console.log(`routeList example: ${routeExample(route)}`);
 
-  const courses = await fetchAllDurunubiItems("courseList");
+  const courses = await fetchCoursesForRoutes(routes);
   console.log(`Durunubi courseList fetched ${courses.length} course(s).`);
   if (!courses.length) throw new Error("Durunubi courseList returned no courses.");
   for (const course of courses.slice(0, 3)) console.log(`courseList example: ${courseExample(course)}`);

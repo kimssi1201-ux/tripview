@@ -4,6 +4,7 @@ import test from "node:test";
 import {
   CONFIDENT_MATCH_SCORE,
   REGION_CONFIRMED_MATCH_SCORE,
+  durunubiRouteKeywordsForPost,
   matchDurunubiCourse,
   regionTokensForPost,
   selectDurunubiSamplePosts,
@@ -54,6 +55,23 @@ test("Durunubi course matching uses route, course name, and sigun text", () => {
 
 test("Durunubi region tokens keep one-syllable district names matchable", () => {
   assert.deepEqual(regionTokensForPost({ region: "부산광역시 서구" }), ["부산", "서구"]);
+});
+
+test("Durunubi route keywords come from explicit route names only", () => {
+  assert.deepEqual(
+    durunubiRouteKeywordsForPost({
+      title: "경남 하동군 [지리산둘레길] 위태-하동호, 이용시간·예약과 준비물",
+      tags: ["산책"],
+    }),
+    ["지리산둘레길"],
+  );
+  assert.deepEqual(
+    durunubiRouteKeywordsForPost({
+      title: "동해 무릉계곡 여름 산책과 물놀이",
+      tags: ["산책로"],
+    }),
+    [],
+  );
 });
 
 test("Durunubi course matching does not pass on region-only overlap", () => {
