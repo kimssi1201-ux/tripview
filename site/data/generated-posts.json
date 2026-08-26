@@ -68851,7 +68851,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/15/3364115_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/15/3364115_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/15/3364115_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/16/3364116_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/17/3364117_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/18/3364118_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/19/3364119_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/20/3364120_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/21/3364121_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/22/3364122_image2_1.jpg"
     ],
     "alt": "삼탄아트마인 이미지",
     "excerpt": "삼탄아트마인 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -68866,7 +68873,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "033 591-3001"
       ],
       [
         "요금",
@@ -68874,7 +68881,7 @@
       ],
       [
         "운영 확인",
-        "방문 전 확인 필요"
+        "09:30~17:30"
       ],
       [
         "방문 포인트",
@@ -68887,6 +68894,10 @@
       [
         "쉬는 날",
         "매주 월요일 / 화요일 / 1월 1일 / 설·추석 당일※ 임시 휴관일 별도 공지"
+      ],
+      [
+        "좌표",
+        "37.1850515002, 128.8835216944"
       ]
     ],
     "memo": [
@@ -68898,18 +68909,18 @@
     ],
     "tourApi": {
       "contentTypeId": "12",
-      "overview": "",
+      "overview": "삼탄아트마인은 1964년에서 2001년까지 삼척탄좌가 있던 자리다. 그 터 위에 옛 폐광의 흔적을 보존하며 문화 예술의 가치를 입혔다. 그래서 그 이름 안에 ‘아트(예술 art)’와 ‘마인(광산 mine)’이 공존한다. 제일 먼저 만나는 장소는 삼탄아트센터 본관이다. 과거 삼척탄좌 시절 사무공간과 광원들의 공동 샤워실, 수직갱을 움직이던 운전실이 있던 장소다. 이를 활용해 레지던시룸, 현대미술관 CAM1, 삼탄아트마인 자료 등으로 꾸몄다. 그 가운데 옛 광원이 몸을 씻던 샤워장과 장화를 씻던 세화장 등은 마인 갤러리로 변신했다. 덕분에 아주 특별한 전시 풍경을 연출한다. 레일바이뮤지엄 또한 삼탄아트마인의 자랑이다. 외부에서 진입할 때 가장 먼저 보이는 53m의 권양기가 위치한 건물이다. 권양기는 광원들이 지하 탄광으로 이동할 때 사용하던 산업용 엘리베이터다. 건물 내부는 당시의 현장을 그대로 보존해 옛 삼척탄좌의 분위기를 가장 잘 느낄 수 있다. 야외공원에는 탄광의 기계 제작 공장동을 개조한 레스토랑 823L, 중앙압축기실로 쓰이던 원시미술박물관이 위치한다. 옛 탄광과 예술의 조화가 절묘해 현재와 과거의 시간을 넘나드는 듯하다.",
       "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "mapx": "128.8835216944",
+      "mapy": "37.1850515002",
+      "mlevel": "6",
       "intro": {
         "parking": "가능",
         "restdate": "매주 월요일 / 화요일 / 1월 1일 / 설·추석 당일※ 임시 휴관일 별도 공지",
         "usetime": "09:30~17:30",
         "infocenter": "033 591-3001"
       },
-      "backfilledAt": "2026-07-10T10:51:24.427Z"
+      "backfilledAt": "2026-08-26T07:10:08.396Z"
     },
     "sections": [
       [
@@ -69033,7 +69044,12 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/82/4081482_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/82/4081482_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/82/4081482_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/83/4081483_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/84/4081484_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/85/4081485_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/86/4081486_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/87/4081487_image2_1.jpg"
     ],
     "alt": "한옥혜윰 이미지",
     "excerpt": "한옥혜윰 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -69048,7 +69064,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "0507-1437-1263"
       ],
       [
         "요금",
@@ -69061,6 +69077,26 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "좌표",
+        "35.8114705131, 127.1520778835"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "체크인",
+        "- 스테이 지안 16:00- 꽃심/승연/올곧음/풍류/대동/창신 15:00"
+      ],
+      [
+        "체크아웃",
+        "- 스테이 지안 11:00- 꽃심/승연/올곧음/풍류/대동/창신 10:00"
+      ],
+      [
+        "객실 안내",
+        "스테이 지안 / 풍류 / 올곧음 등"
       ]
     ],
     "memo": [
@@ -69072,13 +69108,20 @@
     ],
     "tourApi": {
       "contentTypeId": "32",
-      "overview": "",
+      "overview": "한옥혜윰은 전주 한옥마을과 전주천 인근에 위치한 전통 한옥 숙소로 한옥의 고즈넉한 멋과 현대적인 편의시설을 함께 갖춘 공간이다. 전주향교, 강암서예관 등 주요 관광지가 가까워 전주의 역사와 문화를 여유롭게 둘러보기 좋다. 숙소는 전통 한옥의 아름다움을 재현하기 위해 대목장과 소목장 등 전통 장인의 손길로 완성됐으며 전라북도 무형문화유산 목조각장이 제작한 현판이 한옥의 품격을 더한다. 객실은 온돌과 침대형 등 다양한 형태로 구성되어 있으며 개별 욕실, 냉난방시설, TV, 냉장고, 무선 인터넷 등 편의시설을 갖춰 쾌적한 휴식을 제공한다. 또한 한옥 마당과 공용 휴게 공간에서 전주의 여유로운 정취를 만끽하며 편안한 시간을 보낼 수 있다.",
       "homepage": "",
-      "mapx": "",
-      "mapy": "",
+      "mapx": "127.1520778835",
+      "mapy": "35.8114705131",
       "mlevel": "",
-      "intro": {},
-      "backfilledAt": "2026-07-10T10:51:25.993Z"
+      "intro": {
+        "infocenterlodging": "0507-1437-1263",
+        "checkintime": "- 스테이 지안 16:00- 꽃심/승연/올곧음/풍류/대동/창신 15:00",
+        "checkouttime": "- 스테이 지안 11:00- 꽃심/승연/올곧음/풍류/대동/창신 10:00",
+        "chkcooking": "불가능",
+        "parkinglodging": "가능",
+        "roomtype": "스테이 지안 / 풍류 / 올곧음 등"
+      },
+      "backfilledAt": "2026-08-26T07:10:09.489Z"
     },
     "sections": [
       [
@@ -69195,7 +69238,14 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/31/4081531_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/31/4081531_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/31/4081531_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/30/4081530_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/32/4081532_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/33/4081533_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/34/4081534_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/35/4081535_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/36/4081536_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/37/4081537_image2_1.jpg"
     ],
     "alt": "조견당 이미지",
     "excerpt": "조견당의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -69265,7 +69315,7 @@
         "roomtype": "북스테이풍류 / 오솔레미오 / 종휘각",
         "subfacility": "세미나실 / 바비큐 / 캠프화이어"
       },
-      "backfilledAt": "2026-08-09T13:24:57.573Z"
+      "backfilledAt": "2026-08-26T07:10:10.723Z"
     },
     "sections": [
       [
@@ -69365,7 +69415,14 @@
     "read": "약 7분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/07/3496107_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/07/3496107_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/07/3496107_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/09/3496109_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/10/3496110_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/11/3496111_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/12/3496112_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms2/website/30/2649630.jpg",
+      "https://tong.visitkorea.or.kr/cms2/website/31/2649631.jpg",
+      "https://tong.visitkorea.or.kr/cms2/website/32/2649632.jpg"
     ],
     "alt": "김해낙동강레일파크 이미지",
     "excerpt": "김해낙동강레일파크 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -69380,7 +69437,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "055-333-8359"
       ],
       [
         "요금",
@@ -69388,7 +69445,7 @@
       ],
       [
         "운영 확인",
-        "방문 전 확인 필요"
+        "[매표시간] - 평일 09:30~17:20 - 주말 09:30~18:50"
       ],
       [
         "방문 포인트",
@@ -69405,6 +69462,14 @@
       [
         "체험 안내",
         "철교전망대 / 레일바이크 / 열차카페 / 와인동굴 / 잔디광장"
+      ],
+      [
+        "홈페이지",
+        "https://rp.ghct.or.kr/"
+      ],
+      [
+        "좌표",
+        "35.3717748194, 128.8208376917"
       ]
     ],
     "memo": [
@@ -69415,11 +69480,11 @@
     ],
     "tourApi": {
       "contentTypeId": "12",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "김해낙동강레일파크는 낙동강 황단 철교 위를 달리는 레일바이크와 김해시 특산물인 산딸기와인을 전시·판매하는 와인동굴, 새마을호 열차를 활용한 열차카페 그리고 철교 위에 올라가 석양을 바라보며 여유를 즐길 수 있는 철교전망대 등이 조성되어 있어 온 가족이 함께 다양한 체험을 즐길 수 있다.",
+      "homepage": "https://rp.ghct.or.kr/",
+      "mapx": "128.8208376917",
+      "mapy": "35.3717748194",
+      "mlevel": "6",
       "intro": {
         "parking": "가능",
         "restdate": "매주 월요일",
@@ -69428,7 +69493,7 @@
         "expagerange": "36개월 이상",
         "infocenter": "055-333-8359"
       },
-      "backfilledAt": "2026-07-10T10:51:28.907Z"
+      "backfilledAt": "2026-08-26T07:10:11.944Z"
     },
     "sections": [
       [
@@ -69441,8 +69506,8 @@
       [
         "운영 정보",
         [
-          "위치는 경상남도 김해시 생림면 마사로473번길 41 기준입니다. 운영 관련 안내는 방문 전 확인 필요, 요금은 시설별 상이로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
-          "문의처는 방문 전 확인 필요입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
+          "위치는 경상남도 김해시 생림면 마사로473번길 41 기준입니다. 운영 관련 안내는 [매표시간] - 평일 09:30~17:20 - 주말 09:30~18:50, 요금은 시설별 상이로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
+          "문의처는 055-333-8359입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
         ]
       ],
       [
@@ -69486,7 +69551,7 @@
       ],
       [
         "문의는 어디로 하나요?",
-        "김해낙동강레일파크 관련 문의는 방문 전 확인 필요로 확인하세요."
+        "김해낙동강레일파크 관련 문의는 055-333-8359로 확인하세요."
       ]
     ],
     "aiEnrichedVersion": 1,
@@ -69507,7 +69572,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/81/3349781_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/81/3349781_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/81/3349781_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/74/3349774_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/75/3349775_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/76/3349776_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/77/3349777_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/78/3349778_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/79/3349779_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/80/3349780_image2_1.jpg"
     ],
     "alt": "통영해양스포츠센터 이미지",
     "excerpt": "통영해양스포츠센터 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -69522,7 +69594,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "055-644-8082"
       ],
       [
         "요금",
@@ -69530,7 +69602,7 @@
       ],
       [
         "운영 확인",
-        "방문 전 확인 필요"
+        "10:00~20:30"
       ],
       [
         "방문 포인트",
@@ -69547,6 +69619,14 @@
       [
         "체험 안내",
         "통영밤바다 야경투어"
+      ],
+      [
+        "홈페이지",
+        "https://www.instagram.com/tyboat_"
+      ],
+      [
+        "좌표",
+        "34.8277163801, 128.4338039735"
       ]
     ],
     "memo": [
@@ -69558,11 +69638,11 @@
     ],
     "tourApi": {
       "contentTypeId": "12",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "통영해양스포츠센터는 통영해상관광을 색다르게 즐길 수 있는 곳이다. 통영해상택시를 타고 아름다운 섬과 통영항을 투어 할 수 있다. 개방형 선박을 타고 강구안해상, 통영운하, 충무교, 통영대교를 천천히 누비며 황홀한 야경을 즐길 수 있다. 또한 통영의 숨은 이야기를 들으며 투어를 하기 때문에 더욱 흥미진진하고 낭만 가득하게 한다.",
+      "homepage": "https://www.instagram.com/tyboat_",
+      "mapx": "128.4338039735",
+      "mapy": "34.8277163801",
+      "mlevel": "6",
       "intro": {
         "parking": "가능",
         "restdate": "연중무휴",
@@ -69570,7 +69650,7 @@
         "expguide": "통영밤바다 야경투어",
         "infocenter": "055-644-8082"
       },
-      "backfilledAt": "2026-07-10T10:51:30.288Z"
+      "backfilledAt": "2026-08-26T07:10:13.095Z"
     },
     "sections": [
       [
@@ -69694,7 +69774,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/05/3497005_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/05/3497005_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/05/3497005_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/03/3497003_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/04/3497004_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/06/3497006_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/07/3497007_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/08/3497008_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/09/3497009_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/10/3497010_image2_1.jpg"
     ],
     "alt": "부산시민공원 이미지",
     "excerpt": "부산시민공원 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -69709,7 +69796,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "051-850-6000"
       ],
       [
         "요금",
@@ -69717,7 +69804,7 @@
       ],
       [
         "운영 확인",
-        "방문 전 확인 필요"
+        "05:00~24:00"
       ],
       [
         "방문 포인트",
@@ -69730,6 +69817,14 @@
       [
         "쉬는 날",
         "연중무휴"
+      ],
+      [
+        "홈페이지",
+        "http://citizenpark.or.kr/"
+      ],
+      [
+        "좌표",
+        "35.1681000000, 129.0574000000"
       ]
     ],
     "memo": [
@@ -69741,10 +69836,10 @@
     ],
     "tourApi": {
       "contentTypeId": "12",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
+      "overview": "부산시민공원은 기억, 문화, 즐거움, 자연, 참여의 활동주제로 조성되었다. 부산의 새로운 공공 경관과 치유와 침적 그리고 새로운 가능성의 축적의 장으로 세계에서 유례를 찾아볼 수 없는 새로운 형태의 최첨단 공원으로 그 중 공원 중앙지역에 자리하고 있는 하야리아 잔디광장이 가장 넓다. 공원 내에는 공원역사관, 공원안내소, 분수, 광장, 어린이놀이시설 등과 카페, 편의점, 화장실 등의 편의시설이 갖추어져 있다. 부산시민공원은 부산 시민들과 외국인들도 편하게 방문하여 휴식을 취할 수 있는 공원이다.",
+      "homepage": "http://citizenpark.or.kr/",
+      "mapx": "129.0574000000",
+      "mapy": "35.1681000000",
       "mlevel": "",
       "intro": {
         "parking": "가능",
@@ -69752,7 +69847,7 @@
         "usetime": "05:00~24:00",
         "infocenter": "051-850-6000"
       },
-      "backfilledAt": "2026-07-10T10:51:32.170Z"
+      "backfilledAt": "2026-08-26T07:10:14.341Z"
     },
     "sections": [
       [
@@ -69904,6 +69999,18 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "좌표",
+        "35.1493705544, 126.9490947774"
+      ],
+      [
+        "예상 시간",
+        "1박 2일"
+      ],
+      [
+        "코스 안내",
+        "기타"
       ]
     ],
     "memo": [
@@ -69915,13 +70022,18 @@
     ],
     "tourApi": {
       "contentTypeId": "25",
-      "overview": "",
+      "overview": "무등산부터 5.18민주화운동기록관까지! 무등산 지산유원지, 펭귄마을, 전일빌딩, 5.18민주화 운동기록관에 발걸음하는 일정으로 하루를 보내고, 다음날 무각사, 김대중컨벤션센터에 방문하며 전라남도 의 푸근하고도 즐거운 자연에 품에 안겨 당시의 치열했던 눈물을 느껴보자!",
       "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
-      "intro": {},
-      "backfilledAt": "2026-07-10T10:51:32.734Z"
+      "mapx": "126.9490947774",
+      "mapy": "35.1493705544",
+      "mlevel": "6",
+      "intro": {
+        "distance": "17.1km",
+        "schedule": "기타",
+        "taketime": "1박 2일",
+        "theme": "지자체"
+      },
+      "backfilledAt": "2026-08-26T07:10:15.471Z"
     },
     "sections": [
       [
@@ -70038,7 +70150,11 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/84/3304084_image2_1.JPG",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/84/3304084_image2_1.JPG"
+      "https://tong.visitkorea.or.kr/cms/resource/84/3304084_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/81/3304081_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/82/3304082_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/83/3304083_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/85/3304085_image2_1.jpg"
     ],
     "alt": "운림산림욕장 이미지",
     "excerpt": "운림산림욕장 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -70053,7 +70169,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "진도군청 산림휴양과 061-540-3773"
       ],
       [
         "요금",
@@ -70061,7 +70177,7 @@
       ],
       [
         "운영 확인",
-        "방문 전 확인 필요"
+        "상시 개방"
       ],
       [
         "방문 포인트",
@@ -70070,6 +70186,14 @@
       [
         "쉬는 날",
         "연중무휴"
+      ],
+      [
+        "홈페이지",
+        "https://www.jindo.go.kr"
+      ],
+      [
+        "좌표",
+        "34.4709000000, 126.2929000000"
       ]
     ],
     "memo": [
@@ -70081,17 +70205,17 @@
     ],
     "tourApi": {
       "contentTypeId": "12",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "진도군 첨찰산 자락에 위치한 운림산림욕장은 30ha의 편백숲을 산림욕장으로 조성한 곳이다. 약 2㎞에 걸쳐 일반 보행자뿐만 아니라 노약자, 장애인, 어린이 등 모든 계층이 안전하게 숲을 즐길 수 있다. 산책할 수 있게 조성된 길과 중간중간에 산림욕 하기 좋은 평상도 설치되어 있다. 유아숲과 연계해 트리하우스, 암벽등반, 모래밭 체험, 그물다리 등 여가시설을 설치해 아이와 함께 방문하기에 좋다.",
+      "homepage": "https://www.jindo.go.kr",
+      "mapx": "126.2929000000",
+      "mapy": "34.4709000000",
+      "mlevel": "6",
       "intro": {
         "restdate": "연중무휴",
         "usetime": "상시 개방",
         "infocenter": "진도군청 산림휴양과 061-540-3773"
       },
-      "backfilledAt": "2026-07-10T10:51:36.073Z"
+      "backfilledAt": "2026-08-26T07:10:16.739Z"
     },
     "sections": [
       [
@@ -70215,7 +70339,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/86/4081586_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/86/4081586_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/86/4081586_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/81/4081581_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/84/4081584_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/85/4081585_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/88/4081588_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/90/4081590_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/91/4081591_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/92/4081592_image2_1.jpg"
     ],
     "alt": "어라운드빌리지 이미지",
     "excerpt": "어라운드빌리지 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -70230,7 +70361,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "070-4616-5975"
       ],
       [
         "요금",
@@ -70238,11 +70369,23 @@
       ],
       [
         "운영 확인",
-        "방문 전 확인 필요"
+        "- 캠핑 13:00~익일 12:00- 글램핑/게스트룸 15:00~익일 11:00"
       ],
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "홈페이지",
+        "공식 홈페이지 http://aroundvillage.kr/"
+      ],
+      [
+        "좌표",
+        "36.4456744296, 127.7533171441"
+      ],
+      [
+        "쉬는 날",
+        "매주 월요일~수요일"
       ]
     ],
     "memo": [
@@ -70254,16 +70397,17 @@
     ],
     "tourApi": {
       "contentTypeId": "28",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "어라운드빌리지는 보은에 위치한 캠핑장이다. 과거 분교로 쓰이던 건물과 운동장을 캠핑장으로 운영하고 있어 캠핑장에 맞게 인위적으로 바꾼 흔적보다 일부러 없애지 않은 목재식 복도와 창문에 붙어있는 88올림픽 마스코트 '호돌이' 스티커, 화목난로 등이 오래전부터 이어져온 장소의 결을 먼저 느낄 수 있게 해준다. 개인적인 도시의 공간에서 벗어나 함께 자연을 공유하는 시간을 보낼 수 있다.",
+      "homepage": "공식 홈페이지 http://aroundvillage.kr/",
+      "mapx": "127.7533171441",
+      "mapy": "36.4456744296",
+      "mlevel": "6",
       "intro": {
         "usetimeleports": "- 캠핑 13:00~익일 12:00- 글램핑/게스트룸 15:00~익일 11:00",
-        "infocenterleports": "070-4616-5975"
+        "infocenterleports": "070-4616-5975",
+        "restdateleports": "매주 월요일~수요일"
       },
-      "backfilledAt": "2026-07-10T10:51:37.582Z"
+      "backfilledAt": "2026-08-26T07:10:17.998Z"
     },
     "sections": [
       [
@@ -70387,7 +70531,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/71/4081471_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/71/4081471_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/71/4081471_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/65/4081465_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/66/4081466_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/68/4081468_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/69/4081469_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/70/4081470_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/73/4081473_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/74/4081474_image2_1.jpg"
     ],
     "alt": "다리안 캠핑장 이미지",
     "excerpt": "다리안 캠핑장 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -70402,7 +70553,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "043-423-1243"
       ],
       [
         "요금",
@@ -70410,11 +70561,23 @@
       ],
       [
         "운영 확인",
-        "방문 전 확인 필요"
+        "- 입실 14:00- 퇴실 11:00"
       ],
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "홈페이지",
+        "https://mirihae.com/dytc/camping/G24526799"
+      ],
+      [
+        "좌표",
+        "36.9648721253, 128.4208677805"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -70426,16 +70589,17 @@
     ],
     "tourApi": {
       "contentTypeId": "28",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "다리안관광지는 소백산 국립공원 다리안계곡에 만들어진 산과 계곡이 아름다운 관광지로 야영장은 물론 원두막, 돔 하우스가 있는 다목적 휴양지다. 총 70여 개의 데크가 총 4개 야영장에 나눠져 있다. 야영장에 따라 계곡이 가까운 곳 또는 나무 그늘이 많은 곳이나 단풍을 보기 좋은 곳 등을 선택이 가능하다. 여름에는 계곡 물놀이, 가을에는 단풍을 즐기는 가족단위 캠핑객들이 선호하는 캠핑장이다.",
+      "homepage": "https://mirihae.com/dytc/camping/G24526799",
+      "mapx": "128.4208677805",
+      "mapy": "36.9648721253",
+      "mlevel": "6",
       "intro": {
         "usetimeleports": "- 입실 14:00- 퇴실 11:00",
-        "infocenterleports": "043-423-1243"
+        "infocenterleports": "043-423-1243",
+        "restdateleports": "연중무휴"
       },
-      "backfilledAt": "2026-07-10T10:51:38.271Z"
+      "backfilledAt": "2026-08-26T07:10:19.210Z"
     },
     "sections": [
       [
@@ -70559,7 +70723,14 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/97/3381797_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/97/3381797_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/97/3381797_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/90/3381790_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/91/3381791_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/94/3381794_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/95/3381795_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/96/3381796_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/83/4020783_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/84/4020784_image2_1.jpg"
     ],
     "alt": "삼국지 벽화거리 이미지",
     "excerpt": "삼국지 벽화거리의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -70620,7 +70791,7 @@
         "usetime": "상시 개방",
         "infocenter": "인천역 관광안내소 032-777-1330"
       },
-      "backfilledAt": "2026-08-09T13:24:57.783Z"
+      "backfilledAt": "2026-08-26T07:10:20.447Z"
     },
     "sections": [
       [
@@ -70714,7 +70885,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/49/4081449_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/49/4081449_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/49/4081449_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/46/4081446_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/47/4081447_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/48/4081448_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/50/4081450_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/51/4081451_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/52/4081452_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/53/4081453_image2_1.jpg"
     ],
     "alt": "추원재(김종직선생생가) 이미지",
     "excerpt": "추원재(김종직선생생가) 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -70729,7 +70907,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "밀양시청 문화예술과 055-359-5637~45"
       ],
       [
         "요금",
@@ -70737,7 +70915,7 @@
       ],
       [
         "운영 확인",
-        "방문 전 확인 필요"
+        "09:00~18:00"
       ],
       [
         "방문 포인트",
@@ -70750,6 +70928,14 @@
       [
         "쉬는 날",
         "연중무휴"
+      ],
+      [
+        "홈페이지",
+        "https://www.miryang.go.kr/tur/"
+      ],
+      [
+        "좌표",
+        "35.4838596616, 128.7184608441"
       ]
     ],
     "memo": [
@@ -70761,18 +70947,18 @@
     ],
     "tourApi": {
       "contentTypeId": "12",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "추원재(김종직선생생가)는 조선전기 성리학의 거두인 김종직의 생가터로 1389년 김종직의 부친인 김숙자 선생이 지었고 1810년 김종직을 따르던 선비들과 후손들이 합의하여 낡은 건물을 중수·개조해 그 이름을 추원재라 하고 당호를 전심당이라고 지었다. 추원재가 위치한 밀양 제대리는 김종직의 외가였고 그는 이곳에서 태어나 성장했고 일생을 마쳤다. 정원에는 김종직의 흉상이 세워져 있으며 팔각지붕과 7개의 계단이 인상적인 대문 안으로 들어서면 기둥 사이 하얀 벽과 단조로운 멋이 있는 지붕이 드러난다. 강직한 선비의 모습을 닮아 있는 이곳은 전심당이라는 당호로 불리고 있다. 전심당의 뜻은 ‘성리학의 전수자’라는 의미로 이는 김종직을 두고 하는 말이지만 ‘전심’은 동방의 성리학이 포은 정몽주, 야은 길재, 강호 김숙자에서 김종직, 김굉필, 정일두 등에게 전해졌다는 의미로 지어졌다. 뒷산에는 김종직의 묘소가 있다. 그의 묘소는 원래 자리에서 조금 아래로 내려온 것이라고 전해지는데 이는 묘역 정비 과정에서 본래 자리를 확인한 후 지난 2009년 5월 중창을 마친 후 기적비를 건립했다.",
+      "homepage": "https://www.miryang.go.kr/tur/",
+      "mapx": "128.7184608441",
+      "mapy": "35.4838596616",
+      "mlevel": "6",
       "intro": {
         "parking": "가능",
         "restdate": "연중무휴",
         "usetime": "09:00~18:00",
         "infocenter": "밀양시청 문화예술과 055-359-5637~45"
       },
-      "backfilledAt": "2026-07-10T10:51:40.624Z"
+      "backfilledAt": "2026-08-26T07:10:21.663Z"
     },
     "sections": [
       [
@@ -70896,7 +71082,11 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/03/3518903_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/03/3518903_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/03/3518903_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/04/3518904_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/05/3518905_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/06/3518906_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/07/3518907_image2_1.jpg"
     ],
     "alt": "신양선착장 이미지",
     "excerpt": "신양선착장 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -70911,7 +71101,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "금산면사무소 061-830-6506"
       ],
       [
         "요금",
@@ -70919,7 +71109,7 @@
       ],
       [
         "운영 확인",
-        "방문 전 확인 필요"
+        "상시 개방"
       ],
       [
         "방문 포인트",
@@ -70932,6 +71122,10 @@
       [
         "쉬는 날",
         "연중무휴"
+      ],
+      [
+        "좌표",
+        "34.4621668125, 127.0982316709"
       ]
     ],
     "memo": [
@@ -70943,18 +71137,18 @@
     ],
     "tourApi": {
       "contentTypeId": "12",
-      "overview": "",
+      "overview": "연홍도는 전라남도 고흥군 거금도 옆에 있는 섬으로 작지만 아름다운 자연경관을 간직하고 있다. 최근에는 지붕 없는 미술관으로 더욱 유명해졌다. 이곳 연홍도로 가는 길목에 있는 선착장이 바로 신양 선착장이다. 이용자가 많지 않아 화장실이나 대합실 같은 편의시설은 없이 방파제 같은 긴 정박 시설만 있다. 요금도 배에서 직접 받는다. 연홍도와 신양 선착장 간의 거리는 아주 가까운 편으로 건너편 선착장에서 배가 출발하고 도착하는 모습도 눈으로 직접 볼 수 있다.",
       "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "mapx": "127.0982316709",
+      "mapy": "34.4621668125",
+      "mlevel": "6",
       "intro": {
         "parking": "가능",
         "restdate": "연중무휴",
         "usetime": "상시 개방",
         "infocenter": "금산면사무소 061-830-6506"
       },
-      "backfilledAt": "2026-07-10T10:51:41.443Z"
+      "backfilledAt": "2026-08-26T07:10:22.899Z"
     },
     "sections": [
       [
@@ -71086,6 +71280,14 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "예상 시간",
+        "3박4일"
+      ],
+      [
+        "코스 안내",
+        "3박이상"
       ]
     ],
     "memo": [
@@ -71096,13 +71298,18 @@
     ],
     "tourApi": {
       "contentTypeId": "25",
-      "overview": "",
+      "overview": "‘남파랑길’은 부산광역시 오륙도에서 전라남도 해남군 땅 끝까지 이어지는 1,470㎞의 국내 최장 거리 탐방로다. 그 중 해남, 강진 구간은 땅 끝 해남에서 남도 답사 1번지 강진으로 가는 코스이다. 해남 땅끝 탑, 신비하고 아름다운 미황사, 기암괴석에 가려진 작은 암자 도솔암에서 아름다운 자연에 취해볼 수 있다. 자연에 한껏 취해본 후, 다산의 발자취를 따라 정약용의 외가인 해남 윤씨 녹우당을 지나 백련사에서 다산초당에 올라갈 수 있다. 숲 길을 찾고 싶은 날엔, 강진만 생태공원의‘갈대 숲길’, 호남의 3대 정원인 백운동 원림의 ''대나무 숲길''을 걸어볼 수도 있다.",
       "homepage": "",
       "mapx": "",
       "mapy": "",
       "mlevel": "",
-      "intro": {},
-      "backfilledAt": "2026-08-09T13:24:58.120Z"
+      "intro": {
+        "distance": "62.2km",
+        "schedule": "3박이상",
+        "taketime": "3박4일",
+        "theme": "지자체"
+      },
+      "backfilledAt": "2026-08-26T07:10:24.112Z"
     },
     "sections": [
       [
@@ -71203,7 +71410,9 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/16/2838916_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/16/2838916_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/16/2838916_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/14/2838914_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/15/2838915_image2_1.jpg"
     ],
     "alt": "오르디 이미지",
     "excerpt": "오르디 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -71218,7 +71427,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "0507-1374-8669"
       ],
       [
         "요금",
@@ -71226,11 +71435,27 @@
       ],
       [
         "운영 확인",
-        "방문 전 확인 필요"
+        "11:00~23:00"
       ],
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "좌표",
+        "35.1397412458, 128.9791265417"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
+      ],
+      [
+        "대표 메뉴",
+        "오르디슈페너"
       ]
     ],
     "memo": [
@@ -71242,13 +71467,21 @@
     ],
     "tourApi": {
       "contentTypeId": "39",
-      "overview": "",
+      "overview": "오르디는 도심 속 정원에서 휴식과 디저트를 선물하고자 하는 공간이다. 바쁜 일상 속에서 여유를 즐길 수 있도록 깔끔하고 편안한 분위기로 꾸며 놓은 카페이다. 층마다 심플한 가구를 다양한 각도로 배치하였고, 내부 곳곳에 조형물들을 두어 마치 갤러리에 온 듯한 느낌을 준다. 특히 2층에는 테두리 안에 돌이 들어가 있는 독특한 원형 테이블이 있는데 이곳에서 주문한 음료와 디저트를 놓고 사진을 찍은 사람들이 많다. 오르디의 시그니처 메뉴는 떠먹는 커피인 오르디슈페너이다. 또 제주도 고씨곳간에서 재배한 말차가루로 만든 고씨말차라떼와 초당옥수수커피도 인기가 많으며, 라즈베리의 상큼함과 초코의 달콤함이 느껴지는 라즈베리 초코무스 디저트도 준비되어 있다.",
       "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
-      "intro": {},
-      "backfilledAt": "2026-07-10T10:51:44.462Z"
+      "mapx": "128.9791265417",
+      "mapy": "35.1397412458",
+      "mlevel": "6",
+      "intro": {
+        "infocenterfood": "0507-1374-8669",
+        "restdatefood": "연중무휴",
+        "firstmenu": "오르디슈페너",
+        "opentimefood": "11:00~23:00",
+        "packing": "가능",
+        "parkingfood": "가능",
+        "treatmenu": "오르디슈페너 / 초당옥수수커피 / 말차라떼 / 단호박갸또 / 라즈베리 초코무스 외"
+      },
+      "backfilledAt": "2026-08-26T07:10:25.345Z"
     },
     "sections": [
       [
@@ -71365,7 +71598,14 @@
     "read": "약 7분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/63/4073563_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/63/4073563_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/63/4073563_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/59/4073559_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/60/4073560_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/61/4073561_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/62/4073562_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/64/4073564_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/65/4073565_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/66/4073566_image2_1.jpg"
     ],
     "alt": "환상숲곶자왈공원 이미지",
     "excerpt": "환상숲곶자왈공원 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -71380,7 +71620,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "0507-1431-2488"
       ],
       [
         "요금",
@@ -71388,7 +71628,7 @@
       ],
       [
         "운영 확인",
-        "방문 전 확인 필요"
+        "월요일~토요일 09:00~17:00"
       ],
       [
         "방문 포인트",
@@ -71405,6 +71645,14 @@
       [
         "체험 안내",
         "족욕체험 / 나무목걸이 만들기 / 제주 자생식물 화분심기 / 작은 곶자왈 테라리움 만들기 / 석부작 만들기 / 벤치마킹 프로그램 등※ 족욕체험은 1인부터 체험 가능※ 다른 체험프로그램은 15인 이상부터 가능※ 자세한 사항은 홈페이지 참조"
+      ],
+      [
+        "홈페이지",
+        "http://www.jejupark.co.kr/"
+      ],
+      [
+        "좌표",
+        "33.3224018640, 126.2629199720"
       ]
     ],
     "memo": [
@@ -71415,11 +71663,11 @@
     ],
     "tourApi": {
       "contentTypeId": "12",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "곶자왈은 제주도에 위치한 특정한 숲 지대를 일컫는 말로 용암이 분출되어 흐르며 남긴 현무암 사이로 식물이 함께 살면서 형성해 놓은 원시림이다. 용암이 형성해 놓은 공기통로와 요철형의 지형적 특성 때문에 같은 곶자왈 내에서도 다른 기후 환경이 형성되어 남방계 식물과 북방계 식물이 함께 관찰되는 독특한 생태계를 자랑한다. 흙이 아닌 용암 지형 위에 다양한 동식물이 자생하는 이곳은 제주만의 독특한 원시 생태를 잘 보여준다. 양치식물과 거대한 나무의 뿌리가 얽힌 풍경 안으로 들어서면 시간과 공간이 바뀌는 듯한 경험을 하게 된다. 환상숲 곶자왈공원은 1시간마다 숲 해설 투어가 진행되며 사전 예약이 필요하다. 그리고 이곳은 신비로운 분위기로 여러 뮤직비디오 촬영지로 활용된 곳으로 대표적으로 2015년도에 발매된 에프엑스 뮤직비디오 촬영지의 배경이 된 곳이다.",
+      "homepage": "http://www.jejupark.co.kr/",
+      "mapx": "126.2629199720",
+      "mapy": "33.3224018640",
+      "mlevel": "6",
       "intro": {
         "parking": "가능",
         "restdate": "매주 일요일",
@@ -71427,7 +71675,7 @@
         "expguide": "족욕체험 / 나무목걸이 만들기 / 제주 자생식물 화분심기 / 작은 곶자왈 테라리움 만들기 / 석부작 만들기 / 벤치마킹 프로그램 등※ 족욕체험은 1인부터 체험 가능※ 다른 체험프로그램은 15인 이상부터 가능※ 자세한 사항은 홈페이지 참조",
         "infocenter": "0507-1431-2488"
       },
-      "backfilledAt": "2026-07-10T10:51:45.044Z"
+      "backfilledAt": "2026-08-26T07:10:26.568Z"
     },
     "sections": [
       [
@@ -71440,8 +71688,8 @@
       [
         "운영 정보",
         [
-          "위치는 제주특별자치도 제주시 한경면 녹차분재로 594-1 기준입니다. 운영 관련 안내는 방문 전 확인 필요, 요금은 시설별 상이로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
-          "문의처는 방문 전 확인 필요입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
+          "위치는 제주특별자치도 제주시 한경면 녹차분재로 594-1 기준입니다. 운영 관련 안내는 월요일~토요일 09:00~17:00, 요금은 시설별 상이로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
+          "문의처는 0507-1431-2488입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
         ]
       ],
       [
@@ -71485,7 +71733,7 @@
       ],
       [
         "문의는 어디로 하나요?",
-        "환상숲곶자왈공원 관련 문의는 방문 전 확인 필요로 확인하세요."
+        "환상숲곶자왈공원 관련 문의는 0507-1431-2488로 확인하세요."
       ]
     ],
     "aiEnrichedVersion": 1,
@@ -71506,7 +71754,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/30/3038730_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/30/3038730_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/30/3038730_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/16/3038716_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/17/3038717_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/18/3038718_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/19/3038719_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/20/3038720_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/21/3038721_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/22/3038722_image2_1.jpg"
     ],
     "alt": "남매공원 이미지",
     "excerpt": "남매공원 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -71521,7 +71776,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "053-810-6151"
       ],
       [
         "요금",
@@ -71529,7 +71784,7 @@
       ],
       [
         "운영 확인",
-        "방문 전 확인 필요"
+        "상시 개방"
       ],
       [
         "방문 포인트",
@@ -71542,6 +71797,14 @@
       [
         "쉬는 날",
         "연중무휴"
+      ],
+      [
+        "홈페이지",
+        "https://park.gbgs.go.kr/"
+      ],
+      [
+        "좌표",
+        "35.8262000000, 128.7434000000"
       ]
     ],
     "memo": [
@@ -71553,18 +71816,18 @@
     ],
     "tourApi": {
       "contentTypeId": "12",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "경산시청 옆에 위치한 남매공원은 남매지를 중심으로 조성된 시민공원으로, 수변 산책로와 운동시설, 자전거 트랙, 연꽃 식물원, 관찰학습원, 음악분수, 수상광장 등 다양한 휴식·편의시설을 갖춘 도심 속 공원이다. 여름철에는 어린이 물놀이장과 미니 수영장이 운영되며, 야간에는 음악과 조명에 맞춰 연출되는 분수쇼를 감상할 수 있다. 또한 느린 우체통과 시화전, 사진전 등 문화 프로그램이 운영되어 시민들의 문화 활동 공간으로도 활용된다.",
+      "homepage": "https://park.gbgs.go.kr/",
+      "mapx": "128.7434000000",
+      "mapy": "35.8262000000",
+      "mlevel": "6",
       "intro": {
         "parking": "가능",
         "restdate": "연중무휴",
         "usetime": "상시 개방",
         "infocenter": "053-810-6151"
       },
-      "backfilledAt": "2026-07-10T10:51:46.370Z"
+      "backfilledAt": "2026-08-26T07:10:27.783Z"
     },
     "sections": [
       [
@@ -71688,7 +71951,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/44/3013444_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/44/3013444_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/44/3013444_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/35/3013435_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/37/3013437_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/38/3013438_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/39/3013439_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/40/3013440_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/41/3013441_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/42/3013442_image2_1.jpg"
     ],
     "alt": "도곡온천단지 이미지",
     "excerpt": "도곡온천단지 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -71703,7 +71973,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "화순군청 관광개발팀 061-379-3532"
       ],
       [
         "요금",
@@ -71711,7 +71981,7 @@
       ],
       [
         "운영 확인",
-        "방문 전 확인 필요"
+        "점포별로 상이함"
       ],
       [
         "방문 포인트",
@@ -71724,6 +71994,10 @@
       [
         "쉬는 날",
         "점포별로 상이함"
+      ],
+      [
+        "좌표",
+        "35.0296260000, 126.9028750000"
       ]
     ],
     "memo": [
@@ -71735,18 +72009,18 @@
     ],
     "tourApi": {
       "contentTypeId": "12",
-      "overview": "",
+      "overview": "화순 도곡온천단지는 전라남도 와 나주시 인근에 위치하고 있어 시민들이 자주 찾는 온천관광지이다. 20여 개의 온천 이용 숙박업소와 1개의 스파랜드가 운영 중에 있다. 또한 온천단지 내에 60여 개가 넘는 식당들이 밀집해 있는 음식 문화 거리도 조성되어 있어 온천욕과 함께 깔끔하고 맛있는 음식을 즐길 수 있다. 특히 도곡온천의 알칼리성 나트륨 온천수는 피부 미용에 효과가 좋은 것으로 알려져 있다. 온천 단지 인근에는 세계 문화유산 화순 고인돌 유적지, 천불천탑으로 유명한 운주사가 있어 함께 여행하기 좋다.",
       "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "mapx": "126.9028750000",
+      "mapy": "35.0296260000",
+      "mlevel": "6",
       "intro": {
         "parking": "가능",
         "restdate": "점포별로 상이함",
         "usetime": "점포별로 상이함",
         "infocenter": "화순군청 관광개발팀 061-379-3532"
       },
-      "backfilledAt": "2026-07-10T10:51:47.959Z"
+      "backfilledAt": "2026-08-26T07:10:28.978Z"
     },
     "sections": [
       [
@@ -71870,7 +72144,12 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/58/4081258_image2_1.JPG",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/58/4081258_image2_1.JPG"
+      "https://tong.visitkorea.or.kr/cms/resource/58/4081258_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/58/3002058_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/54/4081254_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/55/4081255_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/56/4081256_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/57/4081257_image2_1.JPG"
     ],
     "alt": "이인 벽화마을 이미지",
     "excerpt": "이인 벽화마을 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -71885,7 +72164,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "이인면행정복지센터 041-840-2440"
       ],
       [
         "요금",
@@ -71893,7 +72172,7 @@
       ],
       [
         "운영 확인",
-        "방문 전 확인 필요"
+        "상시 개방"
       ],
       [
         "방문 포인트",
@@ -71902,6 +72181,14 @@
       [
         "쉬는 날",
         "연중무휴"
+      ],
+      [
+        "홈페이지",
+        "공주 문화관광 https://www.gongju.go.kr/prog/</a"
+      ],
+      [
+        "좌표",
+        "36.3623630667, 127.0637792963"
       ]
     ],
     "memo": [
@@ -71913,17 +72200,17 @@
     ],
     "tourApi": {
       "contentTypeId": "12",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "이인 벽화마을은 공주시 이인면 이인리 이인면사무소 앞 골목에 조성되어 있다. 마을은 충청남도 아름다운 마을 활성화의 일환으로 타 지역의 벽화와 차별화하여 이인 지역의 개성과 특색을 살리는 방향으로 조성되었다. 기성세대의 향수를 불러일으키는 1970~1980년대의 풍경도 담겨있다. 주변에는 옛 모습을 그대로 간직한 오래된 가게, 유적 등이 벽화마을을 더욱 빛내고 있다. 이인 벽화마을은 국도 40호선 백제문화로와 금광로, 검바위로를 통해 접근할 수 있으며 천안논산고속도로 남공주 IC, 탄천 IC와도 가깝다. 대중교통은 이인면 소재지를 경유하는 공주 시내버스를 이용할 수 있다.",
+      "homepage": "공주 문화관광 https://www.gongju.go.kr/prog/</a",
+      "mapx": "127.0637792963",
+      "mapy": "36.3623630667",
+      "mlevel": "6",
       "intro": {
         "restdate": "연중무휴",
         "usetime": "상시 개방",
         "infocenter": "이인면행정복지센터 041-840-2440"
       },
-      "backfilledAt": "2026-07-10T10:51:49.389Z"
+      "backfilledAt": "2026-08-26T07:10:30.228Z"
     },
     "sections": [
       [
@@ -72047,7 +72334,14 @@
     "read": "약 7분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/12/3345812_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/12/3345812_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/12/3345812_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/05/3345805_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/06/3345806_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/07/3345807_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/08/3345808_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/09/3345809_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/10/3345810_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/11/3345811_image2_1.jpg"
     ],
     "alt": "남당항 해양분수공원 이미지",
     "excerpt": "남당항 해양분수공원 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -72062,7 +72356,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "041-630-1417"
       ],
       [
         "요금",
@@ -72070,7 +72364,7 @@
       ],
       [
         "운영 확인",
-        "방문 전 확인 필요"
+        "[음악분수]- 11:00~20:40 (회차당 40분 / 1일 9회 운영)※ 운영기관 사정에 따라 가동 일정, 운영회수, 1회 연출시간 등이 변경될 수 있음"
       ],
       [
         "방문 포인트",
@@ -72083,6 +72377,14 @@
       [
         "쉬는 날",
         "매주 월요일 / 동절기 (11월 중순~3월 중순)※ 천재지변, 기상악화 등에 의해 운영시간이 변경될 수 있음"
+      ],
+      [
+        "홈페이지",
+        "홍성군 문화관광 https://www.hongseong.go.kr"
+      ],
+      [
+        "좌표",
+        "36.5375617348, 126.4737358090"
       ]
     ],
     "memo": [
@@ -72093,18 +72395,18 @@
     ],
     "tourApi": {
       "contentTypeId": "12",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "남당항 해양분수공원은 대하, 새조개, 바다송어로 유명한 남당항에 ‘23년도 조성한 핫 플레이스로 공원 총면적이 55,000㎡에 달하며 주간에는 국내 최대의 물놀이형 음악분수를 직접 몸으로 체험하여 즐길 수 있으며 야간에는 천수만 밤바다를 배경으로 레이저쇼 등 다양한 조명 연출의 음악 분수를 감상할 수 있다. 또한 2층 구조의 해양권 최초 네트어드벤처가 조성되어 있어 물놀이와 함께 다양한 레포츠를 체험할 수 있으며 공원 곳곳에 입체 음영 및 색으로 표현한 총 280m 규모의 트릭아트존 등 다양한 포토존들이 조성되어 있어 SNS 인생샷을 남길 수 있다.",
+      "homepage": "홍성군 문화관광 https://www.hongseong.go.kr",
+      "mapx": "126.4737358090",
+      "mapy": "36.5375617348",
+      "mlevel": "6",
       "intro": {
         "parking": "가능 (약 대형 8대 / 일반형 210대)",
         "restdate": "매주 월요일 / 동절기 (11월 중순~3월 중순)※ 천재지변, 기상악화 등에 의해 운영시간이 변경될 수 있음",
         "usetime": "[음악분수]- 11:00~20:40 (회차당 40분 / 1일 9회 운영)※ 운영기관 사정에 따라 가동 일정, 운영회수, 1회 연출시간 등이 변경될 수 있음",
         "infocenter": "041-630-1417"
       },
-      "backfilledAt": "2026-07-10T10:51:49.939Z"
+      "backfilledAt": "2026-08-26T07:10:31.461Z"
     },
     "sections": [
       [
@@ -72117,8 +72419,8 @@
       [
         "운영 정보",
         [
-          "위치는 충청남도 홍성군 서부면 남당항로 171 기준입니다. 운영 관련 안내는 방문 전 확인 필요, 요금은 시설별 상이로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
-          "문의처는 방문 전 확인 필요입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
+          "위치는 충청남도 홍성군 서부면 남당항로 171 기준입니다. 운영 관련 안내는 [음악분수]- 11:00~20:40 (회차당 40분 / 1일 9회 운영)※ 운영기관 사정에 따라 가동 일정, 운영회수, 1회 연출시간 등이 변경될 수 있음, 요금은 시설별 상이로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
+          "문의처는 041-630-1417입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
         ]
       ],
       [
@@ -72162,7 +72464,7 @@
       ],
       [
         "문의는 어디로 하나요?",
-        "남당항 해양분수공원 관련 문의는 방문 전 확인 필요로 확인하세요."
+        "남당항 해양분수공원 관련 문의는 041-630-1417로 확인하세요."
       ]
     ],
     "aiEnrichedVersion": 1,
@@ -72183,7 +72485,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/06/4057406_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/06/4057406_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/06/4057406_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/74/4094574_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/75/4094575_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/76/4094576_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/77/4094577_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/78/4094578_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/80/4094580_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/81/4094581_image2_1.jpg"
     ],
     "alt": "태안해양치유센터 이미지",
     "excerpt": "태안해양치유센터 방문 전 비 오는 날 이용 포인트, 운영 확인, 주차와 주변 동선을 먼저 확인하세요.",
@@ -72218,6 +72527,14 @@
       [
         "방문 포인트",
         "해양치유 체험, 실내 프로그램, 예약 확인"
+      ],
+      [
+        "홈페이지",
+        "공식 홈페이지 https://chiu.taean.go.kr/공식 인스타그램 https://www.instagram.com/taean_thalasso/"
+      ],
+      [
+        "좌표",
+        "36.6490000000, 126.2996000000"
       ]
     ],
     "memo": [
@@ -72229,13 +72546,13 @@
     ],
     "tourApi": {
       "contentTypeId": "14",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
+      "overview": "태안해양치유센터는 태안해안국립공원 내 태안군 남면 달산포 해수욕장에 위치한 해양치유 프로그램 전문 운영 시설로, 서해안의 염지하수와 피트 등 미네랄이 풍부한 해양자원을 기반으로 신체와 정신의 건강 증진을 목적으로 운영되는 공간이다. 센터는 바데풀을 포함한 9종의 기본 프로그램과 페이스·전신 테라피를 포함한 7종의 전문 프로그램 등 다양한 치유 시설과 전문 장비를 갖춘 것이 특징이다. 또한 이용자의 상태와 목적에 따라 선택 가능한 맞춤형 체험 프로그램을 제공하는 시설이다. 아울러 실내 치유 시설뿐만 아니라 해변과 연계한 야외 치유 프로그램을 운영하여 자연 속에서 휴식과 회복을 동시에 경험할 수 있는 환경을 갖춘 공간이다. 관광과 치유 기능을 결합한 복합형 힐링 공간으로서 지역 관광 활성화에도 기여하는 시설이다.",
+      "homepage": "공식 홈페이지 https://chiu.taean.go.kr/공식 인스타그램 https://www.instagram.com/taean_thalasso/",
+      "mapx": "126.2996000000",
+      "mapy": "36.6490000000",
       "mlevel": "",
       "intro": {},
-      "backfilledAt": "2026-07-10T10:51:50.766Z"
+      "backfilledAt": "2026-08-26T07:10:32.710Z"
     },
     "sections": [
       [
@@ -72358,7 +72675,12 @@
     "read": "약 7분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/24/4080924_image2_1.JPG",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/24/4080924_image2_1.JPG"
+      "https://tong.visitkorea.or.kr/cms/resource/24/4080924_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/23/4080923_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/25/4080925_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/26/4080926_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/27/4080927_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/28/4080928_image2_1.jpg"
     ],
     "alt": "감사의 정원 이미지",
     "excerpt": "감사의 정원 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -72373,7 +72695,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "02-2133-7735"
       ],
       [
         "요금",
@@ -72381,7 +72703,7 @@
       ],
       [
         "운영 확인",
-        "방문 전 확인 필요"
+        "[감사의 빛 23] - 상시 개방 [레이저] - 20:00~24:00 [프리덤홀] - 월요일~목요일 10:00~22:00 - 금요일~일요일 10:00~23:00"
       ],
       [
         "방문 포인트",
@@ -72398,6 +72720,14 @@
       [
         "체험 안내",
         "전 연령"
+      ],
+      [
+        "홈페이지",
+        "광화문광장 https://gwanghwamun.seoul.go.kr/"
+      ],
+      [
+        "좌표",
+        "37.5733087047, 126.9764826207"
       ]
     ],
     "memo": [
@@ -72408,10 +72738,10 @@
     ],
     "tourApi": {
       "contentTypeId": "12",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
+      "overview": "광화문광장에 조성된 감사의 정원은 6·25 전쟁 참전용사에 대한 감사와, 도움 받던 나라에서 도움을 드리는 나라로 도약한 대한민국의 성과와 번영을 되새기는 공간이다. ‘감사의 빛 23’은 광화문광장의 중심에 고요하면서도 웅장하게 자리 잡은 23개의 상징 조형물로, 대한민국의 자유와 평화를 수호하기 위해 기꺼이 손을 내밀었던 참전국들의 숭고한 헌신에 바치는 가장 깊은 경의이자 감사의 표상이다. 광화문광장 지하에 마련된 프리덤 홀은 한국전쟁 참전국에 대한 자유, 희생, 평화, 감사의 마음을 입체적으로 체험할 수 있는 복합 미디어 공간이다.",
+      "homepage": "광화문광장 https://gwanghwamun.seoul.go.kr/",
+      "mapx": "126.9764826207",
+      "mapy": "37.5733087047",
       "mlevel": "",
       "intro": {
         "parking": "불가능",
@@ -72420,7 +72750,7 @@
         "expagerange": "전 연령",
         "infocenter": "02-2133-7735"
       },
-      "backfilledAt": "2026-07-10T10:51:51.994Z"
+      "backfilledAt": "2026-08-26T07:10:33.914Z"
     },
     "sections": [
       [
@@ -72433,8 +72763,8 @@
       [
         "운영 정보",
         [
-          "위치는 서울특별시 종로구 세종대로 175 (세종로) 기준입니다. 운영 관련 안내는 방문 전 확인 필요, 요금은 시설별 상이로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
-          "문의처는 방문 전 확인 필요입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
+          "위치는 서울특별시 종로구 세종대로 175 (세종로) 기준입니다. 운영 관련 안내는 [감사의 빛 23] - 상시 개방 [레이저] - 20:00~24:00 [프리덤홀] - 월요일~목요일 10:00~22:00 - 금요일~일요일 10:00~23:00, 요금은 시설별 상이로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
+          "문의처는 02-2133-7735입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
         ]
       ],
       [
@@ -72478,7 +72808,7 @@
       ],
       [
         "문의는 어디로 하나요?",
-        "감사의 정원 관련 문의는 방문 전 확인 필요로 확인하세요."
+        "감사의 정원 관련 문의는 02-2133-7735로 확인하세요."
       ]
     ],
     "aiEnrichedVersion": 1,
@@ -72499,7 +72829,11 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource_photo/11/3474511_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource_photo/11/3474511_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource_photo/11/3474511_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/48/3039648_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource_photo/13/3474513_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource_photo/14/3474514_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource_photo/12/3474512_image2_1.jpg"
     ],
     "alt": "연하계곡 이미지",
     "excerpt": "계곡 바닥 상태와 수량은 사진만으로 판단하기 어렵습니다. 아이 동반 여부와 최근 강수, 안전한 철수 시간을 기준으로 준비 항목을 담았습니다.",
@@ -72520,7 +72854,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "영월군청 1577-0545"
       ],
       [
         "요금",
@@ -72541,6 +72875,14 @@
       [
         "쉬는 날",
         "연중무휴"
+      ],
+      [
+        "홈페이지",
+        "영월군 문화관광 http://www.grandculture.net"
+      ],
+      [
+        "좌표",
+        "37.1869000000, 128.5682000000"
       ]
     ],
     "memo": [
@@ -72551,18 +72893,18 @@
     ],
     "tourApi": {
       "contentTypeId": "12",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "연하계곡은 영월군 응봉산에 형성된 자연 발생 휴양지로 물이 시원하고 계곡을 향해 우거진 나무 숲이 그늘을 막아주는 등의 특유의 자연 환경으로 인해 여름철 피서지로 많이 알려진 계곡이다. 응봉산의 울창한 산림 속에서 흘러내리는 청정한 계곡 물과 규모는 작지만 연하폭포, 용소폭포와 같은 비경을 간직하고 있는 소박한 모습이 인상적이다.",
+      "homepage": "영월군 문화관광 http://www.grandculture.net",
+      "mapx": "128.5682000000",
+      "mapy": "37.1869000000",
+      "mlevel": "6",
       "intro": {
         "parking": "가능",
         "restdate": "연중무휴",
         "usetime": "상시 개방",
         "infocenter": "영월군청 1577-0545"
       },
-      "backfilledAt": "2026-07-10T10:51:54.210Z"
+      "backfilledAt": "2026-08-26T07:10:35.155Z"
     },
     "sections": [
       [
@@ -72715,7 +73057,14 @@
     "read": "약 7분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/84/4080484_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/84/4080484_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/84/4080484_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/09/3035209_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/38/3035238_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/85/4080485_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/86/4080486_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/87/4080487_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/88/4080488_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/89/4080489_image2_1.jpg"
     ],
     "alt": "대전솔로몬로파크 이미지",
     "excerpt": "대전솔로몬로파크 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -72730,7 +73079,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "042-323-8800"
       ],
       [
         "요금",
@@ -72738,7 +73087,7 @@
       ],
       [
         "운영 확인",
-        "방문 전 확인 필요"
+        "10:00~17:00"
       ],
       [
         "방문 포인트",
@@ -72755,6 +73104,14 @@
       [
         "체험 안내",
         "법체험 / 법놀이터 / 법연수"
+      ],
+      [
+        "홈페이지",
+        "https://solomon.lawnorder.go.kr/dj/front/main.do"
+      ],
+      [
+        "좌표",
+        "36.3773585309, 127.4015597328"
       ]
     ],
     "memo": [
@@ -72765,11 +73122,11 @@
     ],
     "tourApi": {
       "contentTypeId": "12",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "대전 솔로몬로파크는 법무부에서 운영하는 법교육 테마 공원이다. 어린이, 청소년, 그리고 일반 국민들이 법을 쉽고 재미있게 배우고 체험할 수 있도록, 법무부가 조성하고 직접 운영하는 법과 정의의 배움터이자 법교육의 장이다. 놀면서 직접 법을 체험할 수 있도록 어린이, 청소년, 지역 시민들에게 다양한 법 체험 및 연수 프로그램을 무료로 제공한다. 솔로몬 왕이 재판을 통해 지혜롭게 정의를 실현했듯, 솔로몬로파크는 법치사회의 자유, 지혜, 정의를 느끼고 체험함으로써 국민 누구나 신뢰하는 법치국가를 만들어가는 데 필요한 민주시민의 자질과 소양을 쌓을 수 있도록 한다. 법체험관에서는 세계의 법 역사와 우리나라의 법제도를 폭넓게 이해하고 직접 체험할 수 있도록 입법체험실, 과학수사실, 모의법정실, 교도소체험 등이 마련되어 있다. 미취학 아동을 위한 ‘법짱마을’도 운영되며, 솔로몬로파크 내 법체험관과 법연수관을 중심으로 다양한 법 체험 및 법연수 프로그램이 국민에게 제공되고 있다.",
+      "homepage": "https://solomon.lawnorder.go.kr/dj/front/main.do",
+      "mapx": "127.4015597328",
+      "mapy": "36.3773585309",
+      "mlevel": "6",
       "intro": {
         "parking": "가능",
         "restdate": "매주 일요일 / 1월 1일 / 설날·추석 연휴 및 명절 대체 휴일",
@@ -72777,7 +73134,7 @@
         "expguide": "법체험 / 법놀이터 / 법연수",
         "infocenter": "042-323-8800"
       },
-      "backfilledAt": "2026-07-10T10:51:54.757Z"
+      "backfilledAt": "2026-08-26T07:10:36.356Z"
     },
     "sections": [
       [
@@ -72790,8 +73147,8 @@
       [
         "운영 정보",
         [
-          "위치는 대전광역시 유성구 엑스포로 219-39 (원촌동) 기준입니다. 운영 관련 안내는 방문 전 확인 필요, 요금은 시설별 상이로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
-          "문의처는 방문 전 확인 필요입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
+          "위치는 대전광역시 유성구 엑스포로 219-39 (원촌동) 기준입니다. 운영 관련 안내는 10:00~17:00, 요금은 시설별 상이로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
+          "문의처는 042-323-8800입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
         ]
       ],
       [
@@ -72835,7 +73192,7 @@
       ],
       [
         "문의는 어디로 하나요?",
-        "대전솔로몬로파크 관련 문의는 방문 전 확인 필요로 확인하세요."
+        "대전솔로몬로파크 관련 문의는 042-323-8800로 확인하세요."
       ]
     ],
     "aiEnrichedVersion": 1,
@@ -72856,7 +73213,14 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/02/4080502_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/02/4080502_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/02/4080502_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/84/3589184_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/85/3589185_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/86/3589186_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/89/3589189_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/99/4080499_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/00/4080500_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/01/4080501_image2_1.jpg"
     ],
     "alt": "광화문광장 이미지",
     "excerpt": "광화문광장의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -72917,7 +73281,7 @@
         "usetime": "상시 개방",
         "infocenter": "광화문 관광안내소 02-735-8688"
       },
-      "backfilledAt": "2026-08-09T13:24:58.326Z"
+      "backfilledAt": "2026-08-26T07:10:37.543Z"
     },
     "sections": [
       [
@@ -73017,7 +73381,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/51/4071751_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/51/4071751_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/51/4071751_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/07/3561907_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/08/3561908_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/09/3561909_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/45/4071745_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/46/4071746_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/47/4071747_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/48/4071748_image2_1.jpg"
     ],
     "alt": "괴산 한지체험박물관 이미지",
     "excerpt": "전시 관람보다 만들기 체험을 할지에 따라 체류 시간과 준비가 달라집니다. 체험 접수와 완성품 보관까지 고려해 일정을 정리했습니다.",
@@ -73052,6 +73423,10 @@
       [
         "방문 포인트",
         "한지 체험, 박물관 관람, 가족 실내 코스"
+      ],
+      [
+        "좌표",
+        "36.7854388515, 128.0148998821"
       ]
     ],
     "memo": [
@@ -73063,13 +73438,13 @@
     ],
     "tourApi": {
       "contentTypeId": "14",
-      "overview": "",
+      "overview": "우리 조상들은 예로부터 다양한 원료를 이용하여 종이를 만들어 왔다. 대표적으로 닥나무 껍질을 비롯하여 대나무, 볏짚, 보릿짚, 귀리를 원료로 한 종이, 마지, 안피지, 면지 등이 있으며 각각의 종이는 그 원료의 특성에 맞는 방법으로 만들어졌다. 우리나라 종이는 주로 닥나무 껍질을 원료로 하였다는 것이 특색이다. 농한기인 11~12월에 닥나무 1년생 가지를 채취해서 삶기-껍질 벗기기-건조하기- 백피를 부드럽게 하기 위해 담그기-충분히 불린 백피를 다시 삶기-표백하기-티 고르기-닥죽 만들기-종이뜨기 과정을 통해 한지가 만들어진다. 신풍한지는 순수 국산 닥나무를 이용하여 한지를 제작한다. 전통적 가치를 소중히 할 기회를 마련코자 전통 한지 뜨기, 야생화지 뜨기, 한지 소원, 한지 컵 받침 만들기, 야생화지뜨기 체험, 한지 뜯어서 장식하기 등 직접 만드는 체험학습장을 운영하고 있다. 예약 후 방문하면 한국 고유전통의 미를 직접 체험할 수 있다. 무형문화재 안치용 한지장인이 관장을 맡고 있는 세계 유일의 한지박물관이 함께 있어 한지의 천년의 기록과 한지 제작 도구 등 한지 관련 유물을 관람할 수 있다. 또한 인근에 도예공방이 있어 도자기, 소품 등도 구입이 가능하다.",
       "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "mapx": "128.0148998821",
+      "mapy": "36.7854388515",
+      "mlevel": "6",
       "intro": {},
-      "backfilledAt": "2026-07-10T10:51:58.218Z"
+      "backfilledAt": "2026-08-26T07:10:38.793Z"
     },
     "sections": [
       [
@@ -73229,7 +73604,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/61/4081461_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/61/4081461_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/61/4081461_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/55/4081455_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/56/4081456_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/57/4081457_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/58/4081458_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/59/4081459_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/60/4081460_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/62/4081462_image2_1.jpg"
     ],
     "alt": "고양호수예술축제 이미지",
     "excerpt": "고양호수예술축제을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -73257,6 +73639,10 @@
       [
         "주요 프로그램",
         "1. 컨템포러리 서커스, 거리극, 거리무용, 인형극, 마술 등 국내외 최정상의 거리예술공연 100여회와 관객 체험 참여 프로그램 2. GSAF초이스(국내 거리예술 공모 선정작) 15편, GSAF글로벌(해외 거리예술 공모 선정작) 5편, 왁자지껄 유랑단(퍼레이드) 3. 개막작, 폐막공연, 불꽃놀이 등 야간 특별 프로그램, 관객 체험 프로그램(서커스 체험, 예술체험 외)"
+      ],
+      [
+        "좌표",
+        "37.6552847261, 126.7689082803"
       ]
     ],
     "memo": [
@@ -73344,11 +73730,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
+      "overview": "일상 속 공간이 특별한 예술의 리듬으로 채워지는 순간이 2026 고양호수예술축제에서 펼쳐진다. 서커스, 마술, 공중 퍼포먼스 등 장르의 경계를 넘나드는 다채로운 거리예술 공연 100여회와, 누구나 함께 즐기는 체험 프로그램이 찾아온다. 일산호수공원 곳곳에서 펼쳐지는 생동감 넘치는 공연은 관객과 예술가가 함께 호흡하며 소통하는 특별한 경험을 선사하고, 호수의 밤을 밝히는 불꽃놀이와 야간 특별 프로그램은 잊지 못할 낭만을 선사할 것이다. 올 가을, 재미와 설렘이 경쾌하게 피어나는 2026 고양호수예술축제에서 특별한 순간을 만날 수 있다.",
       "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "mapx": "126.7689082803",
+      "mapy": "37.6552847261",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20260918",
         "eventenddate": "20260920",
@@ -73357,10 +73743,10 @@
         "program": "1. 컨템포러리 서커스, 거리극, 거리무용, 인형극, 마술 등 국내외 최정상의 거리예술공연 100여회와 관객 체험 참여 프로그램 2. GSAF초이스(국내 거리예술 공모 선정작) 15편, GSAF글로벌(해외 거리예술 공모 선정작) 5편, 왁자지껄 유랑단(퍼레이드) 3. 개막작, 폐막공연, 불꽃놀이 등 야간 특별 프로그램, 관객 체험 프로그램(서커스 체험, 예술체험 외)",
         "usetimefestival": "무료",
         "sponsor1": "고양시",
-        "sponsor1tel": "1588-7766",
+        "sponsor1tel": "1577-7766",
         "sponsor2": "고양문화재단"
       },
-      "backfilledAt": "2026-07-10T10:52:00.255Z"
+      "backfilledAt": "2026-08-26T07:10:40.001Z"
     },
     "editorialStatus": "pending"
   },
@@ -73377,7 +73763,9 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/56/4071256_image2_1.JPG",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/56/4071256_image2_1.JPG"
+      "https://tong.visitkorea.or.kr/cms/resource/56/4071256_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/55/4071255_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/57/4071257_image2_1.jpg"
     ],
     "alt": "정읍 구절초 꽃축제 이미지",
     "excerpt": "정읍 구절초 꽃축제을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -73405,6 +73793,14 @@
       [
         "주요 프로그램",
         "1. 메인프로그램 : 개막식 및 축하공연, 구절초 꽃밭음악회, 광장 한마당 공연, 명사 초청 강연 2. 부대프로그램 : 버스킹 공연, 구절초 깜짝 사진사, 구절초 스토리 홍보 전시 3. 소비자 참여 프로그램 : 목공예 체험, 나무놀이 감성체험, 구절초&축제 사진 공모전, 구절초 족욕체험, 구절초 향기박스, 하늘에서 본 정원풍경(짚와이어/유료), 구절초 꽃열차(유료) 4. 기타 내용 : 꽃멍, 정원멍, 구절초 페이스 페인팅, 특산물먹거리판매장(38개소), 식당(9개소) * 입장료 유료 (금액 중 일부는 정원사랑상품권*으로 사용가능) *정원사랑 상품권은 입장권에 부착된 현금쿠폰으로 축제장에서 현금으로 사용가능 [일반] - 개인 : 성인 7,000원(정원사랑상품권 4,000원), 청소년,군인,경로우대자 5,000원(정원사랑상품권 3,000원), 어린이 3,000원(정원사랑상품권 2,000원) - 단체 : 성인 5,000원(정원사랑상품권 3,000원), 청소년,군인,경로우대자 4,000원(정원사랑상품권 2,000원), 어린이 2,000원(정원사랑상품권 1,000원) [상호결연도시] : 서울특별시, 속초시, 남양주시, 사천시, 대구광역시(수성구) - 개인 : 성인 4,000원(정원사랑상품권 4,000원), 청소년,군인,경로우대자 3,000원(정원사랑상품권 3,000원), 어린이 2,000원(정원사랑상품권 2,000원) - 단체 : 성인 3,000원(정원사랑상품권 3,000원), 청소년,군인,경로우대자 2,000원(정원사랑상품권 2,000원), 어린이 1,000원(정원사랑상품권 1,000원)"
+      ],
+      [
+        "홈페이지",
+        "https://www.jeongeup.go.kr/culture/index.jeongeup?menuCd=DOM_000000602004002001"
+      ],
+      [
+        "좌표",
+        "35.5544107679, 127.0193690153"
       ]
     ],
     "memo": [
@@ -73490,11 +73886,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "정읍 구절초 축제는 청정한 산골하천과 천혜의 자연경관을 자랑하는 솔숲을 배경으로 한 동양 최대의 150,000㎡ 구절초꽃 동산에서 가을의 절정기인 매년 10월에 개최된다. 솔향기와 은은한 꽃향기가 어우러진 산책로를 걸으며 자연 속에서 온전한 치유와 위로를 느낄 수 있다. 안개가 자욱하게 피어오르는 새벽녘이나 따스한 가을 햇살이 내리쬐는 오후 모두 사진작가들이 빼놓지 않고 즐겨찾는 대한민국 최고의 출사명소이기도 하다. 자연이 인간에게 주는 최고의 선물인 순백의 구절초와 함께 지역 향토자원을 테마로 한 다채로운 체험 프로그램, 정읍의 풍성한 지역 농특산물도 가득해 가을의 정취를 오감으로 만끽하기에 안성맞춤이다.",
+      "homepage": "https://www.jeongeup.go.kr/culture/index.jeongeup?menuCd=DOM_000000602004002001",
+      "mapx": "127.0193690153",
+      "mapy": "35.5544107679",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261008",
         "eventenddate": "20261018",
@@ -73506,7 +73902,7 @@
         "sponsor1tel": "063-539-5697",
         "sponsor2": "정읍시구절초축제추진위원회"
       },
-      "backfilledAt": "2026-07-10T10:52:05.075Z"
+      "backfilledAt": "2026-08-26T07:10:41.183Z"
     },
     "editorialStatus": "pending"
   },
@@ -73523,7 +73919,12 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/63/3546463_image2_1.JPG",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/63/3546463_image2_1.JPG"
+      "https://tong.visitkorea.or.kr/cms/resource/63/3546463_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/62/3546462_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/64/3546464_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/65/3546465_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/66/3546466_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/67/3546467_image2_1.JPG"
     ],
     "alt": "여주오곡나루축제 이미지",
     "excerpt": "여주오곡나루축제을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -73551,6 +73952,14 @@
       [
         "주요 프로그램",
         "1. 대표 프로그램- 여주쌀 가마솥 비빔밥 : 대형 가마솥으로 지은 여주 햅쌀 비빔밥을 저렴하게 맛볼 수 있는 프로그램- 군고구마 기네스 : 초대형 군고구마통 10개로 구운 여주 고구마를 다함께 나눠 먹는 대형 퍼포먼스- 진상 퍼레이드 : 조선시대 조포나루에서 여주 농특산물을 한양으로 진상했던 스토리를 구현한 퍼레이드- 소원지길 : 남한강을 바라보며 소원을 빌면 이뤄진다는 설화를 담은 출렁다리 소원지길- 여주 흔암리 쌍용거 줄다리기 : 정월대보름 풍년을 기원하며 점동면 흔암리 마을주민들이 펼치던 전통 줄다리기 행렬- 여주 본두리 낙화놀이 : 불꽃이 남한강 위에 흩날리는 장관을 연출하는 가남읍 본두리 전통 불꽃놀이2. 축제 공간별 프로그램- 오곡마당 : 오곡장터, 여주쌀 홍보관, 조선놀이터, 농촌관광체험- 나루마당 : 군고구마 기네스, 바비큐 꼬치 체험, 나루공연장, 나루터 저잣거리, 짚풀놀이터, 소원지길, 낙화놀이, 별빛 곡창길, 남한강 미디어 라이팅쇼, 나루터 플라잉쇼, 나루터 미디어아트, 몽유도원- 잔치마당 : 가마솥 여주쌀 비빔밥, 먹거리 장터, 가양주 품평회, 떡메치기, 여주 도자 물레"
+      ],
+      [
+        "홈페이지",
+        "https://www.yjfestival.or.kr/"
+      ],
+      [
+        "좌표",
+        "37.29912, 127.655753"
       ]
     ],
     "memo": [
@@ -73636,11 +74045,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "*하기 축제 내용은 전년도(2025년) 축제 내용으로, 2026년도 축제 내용은 업데이트 중에 있습니다.*여주오곡나루축제는 쌀과 고구마 등 여주의 우수한 농특산물을 조선시대 4대 나루터 중 하나인 조포나루를 통해 임금님께 진상하던 역사적 배경을 바탕으로 열리는 전통문화축제이다. 대표 프로그램으로는 진상 퍼레이드, 여주쌀 가마솥 비빔밥, 군고구마 기네스, 소원지길, 낙화놀이 등이 있으며, 다채로운 먹거리와 전통 체험, 야간 프로그램을 통해 남녀노소 모두 즐길 수 있는 가을 대표 축제이다.",
+      "homepage": "https://www.yjfestival.or.kr/",
+      "mapx": "127.655753",
+      "mapy": "37.29912",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261023",
         "eventenddate": "20261025",
@@ -73652,7 +74061,7 @@
         "sponsor1tel": "031-881-9694",
         "sponsor2": "여주세종문화관광재단"
       },
-      "backfilledAt": "2026-07-10T10:52:05.959Z"
+      "backfilledAt": "2026-08-26T07:10:42.430Z"
     },
     "editorialStatus": "pending"
   },
@@ -73669,7 +74078,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/77/4067377_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/77/4067377_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/77/4067377_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/76/4067376_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/78/4067378_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/79/4067379_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/80/4067380_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/81/4067381_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/82/4067382_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/83/4067383_image2_1.jpg"
     ],
     "alt": "부평풍물대축제 이미지",
     "excerpt": "부평풍물대축제을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -73697,6 +74113,14 @@
       [
         "주요 프로그램",
         "1. 메인프로그램 : 개폐막공원, 부평대동퍼레이드 & 부평만만세 등 2. 부대프로그램 : 대한민국창작풍물대전, 부평생활문화축제, 풍물페스타, 전국학생풍물경연대회 등 축제장 내 먹거리 부스가 없으므로 인근 지역 식당 이용 바랍니다."
+      ],
+      [
+        "홈페이지",
+        "https://portal.icbp.go.kr/bpf/"
+      ],
+      [
+        "좌표",
+        "37.4944181127, 126.7229954336"
       ]
     ],
     "memo": [
@@ -73784,11 +74208,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "*하기 축제 먹거리 내용은 전년도(2025년) 축제 내용으로, 2026년도 축제 내용은 업데이트 중에 있습니다.* 제30회 부평풍물대축제는 도심 속에서 울려 퍼지는 서른 번째 신명과 화합의 장이다. 인천을 넘어 대한민국을 대표하는 전통문화 예술 축제인 부평풍물대축제가 어느덧 뜻깊은 30주년을 맞이했다. 1997년 첫발을 내디딘 이래, 부평풍물대축제는 삭막한 도심 한복판에 우리 고유의 전통장단을 불어넣으며 시민과 예술인이 하나 되는 거대한 소통의 장으로 성장해 왔다. 축제의 핵심인 22개 동풍물단이 만들어내는 신명 나는 장단은 구민 모두를 하나로 연결하는 축제의 든든한 근간이 되어왔다. 특히 2026년 10월 2일부터 4일까지 3일간 열리는 이번 제30회 축제는 지난 30년간 이어온 전통의 맥을 되짚어보고, 앞으로 다가올 새로운 미래를 축하하는 특별한 의미를 담아 그 어느 때보다 거대하고 화려한 규모로 펼쳐진다. 또한 부평 도시 재생의 상징인 굴포천 일대까지 축제 공간을 확장하여 새롭고 다채로운 콘텐츠를 선보일 예정이다.",
+      "homepage": "https://portal.icbp.go.kr/bpf/",
+      "mapx": "126.7229954336",
+      "mapy": "37.4944181127",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261002",
         "eventenddate": "20261004",
@@ -73800,7 +74224,7 @@
         "sponsor1tel": "032-509-7516",
         "sponsor2": "부평구 축제위원회, 부평구문화재단, 부평문화원"
       },
-      "backfilledAt": "2026-07-10T10:52:06.528Z"
+      "backfilledAt": "2026-08-26T07:10:43.631Z"
     },
     "editorialStatus": "pending"
   },
@@ -73817,7 +74241,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/77/3541977_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/77/3541977_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/77/3541977_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/96/3561096_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/97/3561097_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/98/3561098_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/99/3561099_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/00/3561100_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/01/3561101_image2_1.png",
+      "https://tong.visitkorea.or.kr/cms/resource/02/3561102_image2_1.jpg"
     ],
     "alt": "강동선사문화축제 이미지",
     "excerpt": "강동선사문화축제을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -73845,6 +74276,14 @@
       [
         "주요 프로그램",
         "1. 메인프로그램 : 개, 폐막식, 축하공연, 개막 드론쇼, 폐막 불꽃쇼, 거리퍼레이드, 강동선사 노래자랑, 자치회관 프로그램 경연대회, 바위절 호상놀이 재연2. 부대프로그램 : 먹거리장터, 지역예술인 공연 등3. 소비자 참여 프로그램 : 선사바비큐체험, 신석기 고고학 체험스쿨, 선사힐링족욕 등4. 기타 내용 : 숲속무대 공연, 거리 공연, 선사숲놀이터, 선사우물보물찾기 등"
+      ],
+      [
+        "홈페이지",
+        "http://www.gdsunsa.com"
+      ],
+      [
+        "좌표",
+        "37.55906143476573, 127.13060065465167"
       ]
     ],
     "memo": [
@@ -73930,11 +74369,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "*하기 축제 내용은 전년도(2025년) 축제 내용으로, 2026년도 축제 내용은 업데이트 중에 있습니다.*올해로 제30회를 맞이한 강동선사문화축제는 서울시 축제 중 유일하게 선사시대를 테마로 열리는 축제로, 선사유적지의 역사적 가치를 알리는 동시에, 선사인들의 삶의 모습을 체험할 수 있는 다채로운 프로그램들을 자랑한다. 올해는 서울 암사동 유적 발견 100주년을 기념하여 ‘6000년의 숨결, 100년의 빛, 30년의 울림’이라는 주제로 ‘물, 불, 흙, 바람’ 4원소를 주제로 한 별개의 공간으로 구성된다. 각 공간은 소재의 특징에 맞는 연출과 다양한 전시·체험 및 야간 프로그램들, 맛있는 먹거리들, 그리고 다채로운 공연들로 축제의 3일을 가득 채워 관람객들에게 과거와 현재를 넘나드는 특별한 즐거움들을 선사할 예정이다.",
+      "homepage": "http://www.gdsunsa.com",
+      "mapx": "127.13060065465167",
+      "mapy": "37.55906143476573",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261016",
         "eventenddate": "20261018",
@@ -73945,7 +74384,7 @@
         "sponsor1": "강동구",
         "sponsor1tel": "02-3425-5240"
       },
-      "backfilledAt": "2026-07-10T10:52:09.134Z"
+      "backfilledAt": "2026-08-26T07:10:44.876Z"
     },
     "editorialStatus": "pending"
   },
@@ -73962,7 +74401,11 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/49/4062849_image2_1.JPG",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/49/4062849_image2_1.JPG"
+      "https://tong.visitkorea.or.kr/cms/resource/49/4062849_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/46/4062846_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/47/4062847_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/48/4062848_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/50/4062850_image2_1.png"
     ],
     "alt": "완주 와일드&로컬푸드축제 이미지",
     "excerpt": "완주 와일드&로컬푸드축제을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -73990,6 +74433,14 @@
       [
         "주요 프로그램",
         "1. 불타는 화덕구이 (물고기, 한우, 꼬치구이) 2. 로컬 부시크래프트(대장간&장작패기 체험, 생존화덕), 감자삼굿 3. 시랑천 워터월드 (물고기잡기, 다슬기&우렁잡기, 수상놀이체험) 4. 선사시대 코스프레 축제장으로 떠나는 모험 '리틀 와푸족' 5. 와일드놀이터 (메뚜기잡기, 볏짚미끄럼틀, 흙놀이 등 자연친화 놀이터) 6. 트리 익스트림 (나무와 밧줄을 활용한 18종 로프체험) 7. 13개읍면 로컬밥상&농특산물 직거래 로컬장터 8. 지역 식재료를 활용해 현대식으로 해석한 퓨전 미식관광팝업레스토랑 9. 와푸 EDM MUSIC PARTY 10. 문화공연 및 관광객 현장 참여 이벤트"
+      ],
+      [
+        "홈페이지",
+        "https://www.wanjufestival.kr/"
+      ],
+      [
+        "좌표",
+        "35.974170146415695, 127.23120952485095"
       ]
     ],
     "memo": [
@@ -74077,11 +74528,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "완주군 대표축제인 '완주 와일드&로컬푸드축제'는 완주의 청정자연속에서 일상에서 경험해보지 못한 와일드(WILD)한 이색 체험과 로컬푸드 1번지로서 건강한 지역(LOCAL) 먹거리(FOOD)를 만날 수 있는 남녀노소 누구나 즐길 수 있는 축제이다. 2026년 축제는 \"불 타오르는 거친 야생\"이라는 슬로건으로 불타는 화덕구이, 로컬 부시크래프트, 감자삼굿, 불 주제 대형 이벤트를 대표 프로그램으로, 이 외에도 시랑천 수상놀이, 볓집미끄럼틀 등 자연을 담은 와일드 놀이터, 13개읍면 부녀회 셰프들이 정성을 담아낸 로컬밥상, 농특산물 직거래 장터, 야생 와푸 EDM 뮤직파티 등 가을날 정취와 함께 추억과 향수, 일탈과 힐링을 한꺼번에 경험할 수 있다.",
+      "homepage": "https://www.wanjufestival.kr/",
+      "mapx": "127.23120952485095",
+      "mapy": "35.974170146415695",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261002",
         "eventenddate": "20261004",
@@ -74093,7 +74544,7 @@
         "sponsor1tel": "063-290-3976~8",
         "sponsor2": "완주와일드&로컬푸드축제추진위원회"
       },
-      "backfilledAt": "2026-07-10T10:52:10.530Z"
+      "backfilledAt": "2026-08-26T07:10:46.098Z"
     },
     "editorialStatus": "pending"
   },
@@ -74110,7 +74561,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/82/4064382_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/82/4064382_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/82/4064382_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/77/4064377_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/78/4064378_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/79/4064379_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/80/4064380_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/81/4064381_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/83/4064383_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/84/4064384_image2_1.jpg"
     ],
     "alt": "세종대왕과 초정약수축제 이미지",
     "excerpt": "세종대왕과 초정약수축제을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -74138,6 +74596,14 @@
       [
         "주요 프로그램",
         "1. 공식행사 - 어가행차: 세종대왕이 초정으로 오는 행렬 재연 - 개장식: 축제의 시작을 알리는 행사 - 영천제: 초정약수의 신묘함과 지역의 안녕·번영을 기원하는 전통 의례 - 양로연: 세종대왕이 노인들을 모시고 공경의 마음으로 베풀었던 잔치 - 개막식: 개막퍼포먼스 및 특별공연 2. 공연마당 - 공연마을 운영(지역 예술단체 릴레이 공연) - 시민 문화예술 공연 - 국가무형유산 줄타기 공연 3. 체험마당 - 전통 공방 체험, 만들기 체험 및 족욕 체험 4. 참여마당 - 전국 청소년 백일장대회, 보물찾기 등 참여 행사 5. 전시마당 - 훈민정음 책자 및 디지털 전시, 초정행궁 미디어 아트 등"
+      ],
+      [
+        "홈페이지",
+        "http://www.cjart21.org/"
+      ],
+      [
+        "좌표",
+        "36.72128130535547, 127.60067592555232"
       ]
     ],
     "memo": [
@@ -74223,11 +74689,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "세종대왕이 초정행궁에 머무르며 120일간 초정약수로 소갈증과 안질을 치료하고, 국정 운영과 한글 창제 등 위대한 업적을 이룩한 역사적 사실을 기념함으로써 세종대왕과 초정약수의 가치를 재조명하고, 세계적으로 희귀한 3대 광천수 중 하나인 초정약수의 역사적·과학적 우수성을 널리 알리고자 한다. 이를 통해 청주의 청정 자연환경과 건강 자원의 가치를 국내외에 확산함으로써 국내를 넘어 세계적인 문화관광축제로 도약할 수 있는 기반을 마련하며, 지난 20년간 이어져 온 축제의 성과를 바탕으로 청주를 대표하는 브랜드 축제로 자리매김하고자 한다.",
+      "homepage": "http://www.cjart21.org/",
+      "mapx": "127.60067592555232",
+      "mapy": "36.72128130535547",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261016",
         "eventenddate": "20261018",
@@ -74239,7 +74705,7 @@
         "sponsor1tel": "043-223-4048",
         "sponsor2": "(사)청주예총"
       },
-      "backfilledAt": "2026-07-10T10:52:11.274Z"
+      "backfilledAt": "2026-08-26T07:10:47.364Z"
     },
     "editorialStatus": "pending"
   },
@@ -74256,7 +74722,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/47/3550747_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/47/3550747_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/47/3550747_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/40/3550740_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/41/3550741_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/42/3550742_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/43/3550743_image2_1.jpeg",
+      "https://tong.visitkorea.or.kr/cms/resource/44/3550744_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/45/3550745_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/46/3550746_image2_1.jpg"
     ],
     "alt": "서산해미읍성축제 이미지",
     "excerpt": "서산해미읍성축제을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -74284,6 +74757,14 @@
       [
         "주요 프로그램",
         "1. 메인프로그램 : 개막식, 개막주제공연, 축하공연, 고성방가EDM파티, 해미 더 클래식, 뮤지컬 갈라쇼, 어린이 뮤지컬, 미디어아트쇼, 블랙이글스 에어쇼 등2. 부대프로그램 : 서산 헤리티지, 공연을 담은 피크닉, 해미해피콘서트, 청허정 힐링 프로그램, 전통혼례체험, 전통놀이체험, 피크닉 쉼터 등3. 소비자 참여 프로그램 어린이 당근마켓, 어린이 놀이터, 해미아트마켓 등4. 지역상생프로그램 : 해미해피데이, 이고지고 이어달리기축제장 내 먹거리 부스가 없으므로 인근 지역 식당 이용 바랍니다."
+      ],
+      [
+        "홈페이지",
+        "http://www.haemifest.com/"
+      ],
+      [
+        "좌표",
+        "36.71355657908334, 126.55038368933553"
       ]
     ],
     "memo": [
@@ -74369,11 +74850,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "*하기 축제 내용은 전년도(2025년) 축제 내용으로, 2026년도 축제 내용은 업데이트 중에 있습니다.*축성 600년의 세월을 간직한 국가유산, 서산 해미읍성. 그 깊은 역사와 전통 위에 오늘의 감성을 더해, 제22회 서산해미읍성축제가 새로운 이야기로 펼쳐진다. 이번 축제는 ‘지혜’를 주제로, 선조들의 슬기로운 삶과 문화를 현대적으로 재해석한 다채로운 공연과 체험 콘텐츠를 선보인다. 세대를 아우르는 문화예술 공연과 클래식 음악, 해미읍성을 수놓을 미디어아트까지— 과거와 현재, 미래를 잇는 색다른 경험이 서산 해미읍성 곳곳에서 펼쳐진다. 어린이부터 어르신까지 3일간 모두가 함께 즐길 수 있는 풍성한 가을 축제이다.",
+      "homepage": "http://www.haemifest.com/",
+      "mapx": "126.55038368933553",
+      "mapy": "36.71355657908334",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261009",
         "eventenddate": "20261011",
@@ -74385,7 +74866,7 @@
         "sponsor1tel": "041-660-2696",
         "sponsor2": "(재)서산문화재단"
       },
-      "backfilledAt": "2026-07-10T10:52:13.225Z"
+      "backfilledAt": "2026-08-26T07:10:48.617Z"
     },
     "editorialStatus": "pending"
   },
@@ -74402,7 +74883,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/06/4040606_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/06/4040606_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/06/4040606_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/05/4040605_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/08/4040608_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/09/4040609_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/10/4040610_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/11/4040611_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/12/4040612_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/90/4071290_image2_1.jpg"
     ],
     "alt": "부산국제록페스티벌 이미지",
     "excerpt": "부산국제록페스티벌을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -74430,6 +74918,14 @@
       [
         "주요 프로그램",
         "1. 메인프로그램 : 부산국제록페스티벌 2. 부대프로그램 : Rookies on the BU-ROCK, Road to BU-ROCK 등 3. 기타 : MD부스, 푸드코트 라운지, 캠핑존 등"
+      ],
+      [
+        "홈페이지",
+        "https://busanrockfestival.com/"
+      ],
+      [
+        "좌표",
+        "35.1728573000, 128.9681914000"
       ]
     ],
     "memo": [
@@ -74515,11 +75011,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "*하기 축제장 먹거리 내용은 전년도(2025년) 축제 내용으로, 2026년도 축제 내용은 업데이트 중에 있습니다.*부산국제록페스티벌은 2000년 첫 개최 이래, 27년 동안 명맥을 꾸준히 지켜온 국내 최초·최장수 국제록페스티벌이다. 2026년에는 10월 2일(금)부터 10월 4일(일)까지 3일간, 삼락생태공원에서 개최되며, 다양한 국내외 아티스트가 참여할 예정이다. 삼락생태공원 곳곳에 조성된 무대에서 신진 아티스트부터 글로벌 최정상급 헤드라이너까지 취향에 따라 다양한 공연을 관람할 수 있으며, 무료 개방형 무대에서 진행되는 관람객 참여형 게임 이벤트와 노래자랑, 부산의 로컬 음식을 담은 푸드코트 라운지, 삼락 오토 캠핑존 등 다양한 부대 이벤트도 즐길 수 있다.",
+      "homepage": "https://busanrockfestival.com/",
+      "mapx": "128.9681914000",
+      "mapy": "35.1728573000",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261002",
         "eventenddate": "20261004",
@@ -74531,7 +75027,7 @@
         "sponsor1tel": "051-713-5000",
         "sponsor2": "부산축제조직위원회"
       },
-      "backfilledAt": "2026-07-10T10:52:15.122Z"
+      "backfilledAt": "2026-08-26T07:10:49.852Z"
     },
     "editorialStatus": "pending"
   },
@@ -74548,7 +75044,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/83/4063783_image2_1.JPG",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/83/4063783_image2_1.JPG"
+      "https://tong.visitkorea.or.kr/cms/resource/83/4063783_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/81/4063781_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/82/4063782_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/84/4063784_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/85/4063785_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/86/4063786_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/87/4063787_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/88/4063788_image2_1.JPG"
     ],
     "alt": "신라문화제 이미지",
     "excerpt": "신라문화제을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -74576,6 +75079,14 @@
       [
         "주요 프로그램",
         "1. 메인 프로그램 - 화백제전 : 신라의 태동, 천년의 역사를 화려한 수상공연과 불꽃 퍼포먼스 - 실크로드페스타 : 거리에서 우연히 마주친 고품격 빅재미 공연 거리예술축제 2. 부대 프로그램 - 화랑힙합페스타(힙합페스티벌) : 고분을 뒤흔들 힙합 비트! 화랑과 힙합이 만나다 (출연진 : 공식 인스타그램 통해 순차 공개 예정) - 달빛난장(낭만야시장) : 도심 속에서 즐기는 감성 한 스푼, 낭만 한 잔. 3. 시민과 함께 만들어가는 신라문화제! - 청소년 그린리더 화랑 원화단 : 축제 플로깅 및 환경 체험 프로그램 기획 - 시민 SNS 서포터즈 : 경주문화재단 주관 축제, 전시, 공연, 문화행사 SNS 홍보 - 시민프로듀서 : 신라문화제 체험, 전시 프로그램 기획 및 실현"
+      ],
+      [
+        "홈페이지",
+        "https://www.gyeongju.go.kr/"
+      ],
+      [
+        "좌표",
+        "35.841281, 129.210644"
       ]
     ],
     "memo": [
@@ -74661,11 +75172,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "신라문화제는 1962년 제1회를 시작으로 올해 제53회를 맞이한다. 월정교를 배경으로 신라의 찬란한 역사를 재현하는 화백제전과 수많은 아티스트가 참여해 화려한 공연을 선보이는 거리예술축제, 실크로드페스타까지 다채로운 콘텐츠가 가득하다. 화랑힙합페스타는 고분을 배경으로 국내 최정상급 힙합 아티스트의 공연이 펼쳐져 경주에서만 볼 수 있는 이색적인 풍경을 선사한다. 즐거움을 더하는 낭만 야시장인 달빛난장은 경주 지역 상인이 직접 참여하여 경주의 맛을 자랑한다. 이처럼 천년고도 경주를 대표하는 축제인 신라문화제에서는 역사와 예술이 하나로 어우러지는 특별한 순간을 만나볼 수 있다.",
+      "homepage": "https://www.gyeongju.go.kr/",
+      "mapx": "129.210644",
+      "mapy": "35.841281",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261009",
         "eventenddate": "20261011",
@@ -74677,7 +75188,7 @@
         "sponsor1tel": "054-776-5265",
         "sponsor2": "(재)경주문화재단"
       },
-      "backfilledAt": "2026-07-10T10:52:17.343Z"
+      "backfilledAt": "2026-08-26T07:10:51.052Z"
     },
     "editorialStatus": "pending"
   },
@@ -74694,7 +75205,13 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/62/4054062_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/62/4054062_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/62/4054062_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/59/4054059_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/60/4054060_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/61/4054061_image2_1.png",
+      "https://tong.visitkorea.or.kr/cms/resource/63/4054063_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/64/4054064_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/65/4054065_image2_1.jpg"
     ],
     "alt": "정조효문화제 이미지",
     "excerpt": "정조효문화제을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -74722,6 +75239,14 @@
       [
         "주요 프로그램",
         "1. 메인 프로그램: 현륭원 천원 행렬 재현, 정조대왕과 효 주제의 대규모 드론쇼 2. 부대 프로그램: 효행상 시상식, 야간 주제공연, 지역예술가 공연 3. 체험/참여 프로그램: 봉심의 체험, 융건릉 역사해설 체험, 전통 무예·전통 놀이·저잣거리 체험 등 4. 기타 먹거리: 푸드트럭 운영"
+      ],
+      [
+        "홈페이지",
+        "http://www.정조효문화제.com"
+      ],
+      [
+        "좌표",
+        "37.2066442866, 126.9950637750"
       ]
     ],
     "memo": [
@@ -74807,11 +75332,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "정조효공원 일원에서 펼쳐지는 정조효문화제는 역사적 가치와 가족 친화적인 요소를 함께 담은 화성특례시의 대표 역사문화축제이다. 다양한 공연과 전통 체험 프로그램을 즐길 수 있으며, 특히 정조대왕이 아버지 사도세자의 묘를 조선 최고 길지로 이름난 화성시 융릉으로 이전하는 대서사시를 재현한 현륭원 천원은 정조대왕의 지극한 효심을 상징적으로 보여주는 대표 프로그램이다. 또한 10월 4일에는 1795 을묘원행을 재현하는 정조대왕 능행차가 동탄 센트럴파크에서 출발해 장대한 행렬을 펼치며 전통과 현대가 어우러진 다채로운 볼거리를 선사한다. 천하의 명당, 효의 도시 \"화성특례시\"에서 펼쳐지는 본 축제는 역사와 문화, 그리고 가족이 함께하는 특별한 시간을 제공할 것이다.",
+      "homepage": "http://www.정조효문화제.com",
+      "mapx": "126.9950637750",
+      "mapy": "37.2066442866",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261003",
         "eventenddate": "20261004",
@@ -74823,7 +75348,7 @@
         "sponsor1tel": "031-290-4679",
         "sponsor2": "화성시문화관광재단"
       },
-      "backfilledAt": "2026-07-10T10:52:19.144Z"
+      "backfilledAt": "2026-08-26T07:10:52.270Z"
     },
     "editorialStatus": "pending"
   },
@@ -74840,7 +75365,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/66/4080666_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/66/4080666_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/66/4080666_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/61/4080661_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/62/4080662_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/63/4080663_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/64/4080664_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/65/4080665_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/68/4080668_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/70/4080670_image2_1.jpg"
     ],
     "alt": "칠곡낙동강평화축제 이미지",
     "excerpt": "칠곡낙동강평화축제을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -74868,6 +75400,10 @@
       [
         "주요 프로그램",
         "1. 공연 프로그램 - 주제공연 및 축하공연 - 피스뮤직페스티벌(PMF) - 군문화공연 및 블랙이글스 에어쇼 - 어린이 공연(유튜버 에그박사) 2. 참여 프로그램 - 낙동강 방어선 테마파크 - 430m 부교 횡단 - 소년병 메모리얼 휴식존 및 만들기 체험 - AI 시스템 활용 투어 프로그램 3. 먹거리 프로그램 - UN참전국, 칠곡군 먹거리 식당 - 칠곡 꿀맥, 분도소시지 펍(PUB) - 칠곡 파머스 마켓"
+      ],
+      [
+        "좌표",
+        "36.0184680000, 128.4010940000"
       ]
     ],
     "memo": [
@@ -74953,11 +75489,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
+      "overview": "칠곡낙동강평화축제는 한국전쟁 당시 최후의 방어선이었던 낙동강 전투의 역사적 의미를 기리고, 호국 정신을 되새기기 위한 축제다. 1950년 평범한 사람들이 목숨을 걸고 지켜낸 대한민국의 가치를 기억하고, 나라를 지킨 이들에게 감사를 전하기 위해 다양한 프로그램을 운영한다. 2026년 열세번째로 개최하는 축제에서는 평화를 주제로 즐길 수 있는 공연, 참여 체험, 먹거리 프로그램을 마련하는 한편 '소년, 소년병이 되다'이라는 슬로건 아래 호국의 상징으로 조명된 학도병 서사 이면에서 상대적으로 주목받지 못했던 어린 소년병들의 존재를 알리고 그들의 넋을 기리기 위한 프로그램을 함께 기획하여 축제의 역사적, 평화적 메세지를 더욱 강화하였다.",
       "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "mapx": "128.4010940000",
+      "mapy": "36.0184680000",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261015",
         "eventenddate": "20261018",
@@ -74968,7 +75504,7 @@
         "sponsor1": "칠곡문화관광재단, 제2작전사령부",
         "sponsor1tel": "054-979-3215"
       },
-      "backfilledAt": "2026-07-10T10:52:19.712Z"
+      "backfilledAt": "2026-08-26T07:10:53.507Z"
     },
     "editorialStatus": "pending"
   },
@@ -74985,7 +75521,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/48/3561448_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/48/3561448_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/48/3561448_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/46/3561446_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/47/3561447_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/49/3561449_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/50/3561450_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/51/3561451_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/52/3561452_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/53/3561453_image2_1.jpg"
     ],
     "alt": "군산시간여행축제 이미지",
     "excerpt": "군산시간여행축제을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -75013,6 +75556,14 @@
       [
         "주요 프로그램",
         "1. 메인프로그램 : 시간여행 퍼레이드, 군산항 밤부두 콩쿠르, 우리 모두 3·5만세, 군산대한독립만세, 시민한마당 등 2. 체험프로그램 : 추억의 로라장, 받아라 미션공중전화, 근대 의상실, 칠판 낙서장, 길바닥 낙서장, 스트릿 마당 등 3. 부대행사 : 모아모아시간, 모아모아 영수증, 텀블러 쿠폰제, 시간여행 뚜벅이, 시민기획 프로그램, 주전부리, 프리마켓, 별별 홍보부스, 특산품 판매장, 먹거리장터 등"
+      ],
+      [
+        "홈페이지",
+        "https://festival.gunsan.go.kr/"
+      ],
+      [
+        "좌표",
+        "35.9877910000, 126.7116710000"
       ]
     ],
     "memo": [
@@ -75100,22 +75651,22 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "군산시간여행축제는 일제강점기 민중의 항거와 치열한 삶의 역사를 간직한 근대 군산을 배경으로, 군산의 과거와 현재, 그리고 미래를 잇는 특별한 시간여행을 선사하는 축제이다. 올해는 더욱 풍성한 콘텐츠와 참여형 프로그램을 통해 시민과 관광객이 함께 만들어가는 축제로 운영된다. 시민들이 직접 참여하는 근대 시기 글로벌적 콘텐츠를 집약적으로 보여주는 대규모 플래시몹 공연, 거리 가득 만세의 함성을 재현하는 우리 모두 3.5만세, 시간을 모아 기념품으로 교환하거나, 다양한 이벤트 참여, 할인권 교환 등 모아모아시간 등 풍성한 프로그램이 마련된다. 다양한 체험 프로그램, 7080 감성을 담은 추억의 놀거리와 먹거리까지 더해져 온 가족이 함께 즐길 수 있는 축제로 운영된다. 역사의 의미를 되새기며 즐거움까지 함께 누릴 수 있는 군산시간여행축제는 세대와 지역을 아우르며 누구나 공감하고 참여할 수 있는 군산의 대표축제로 방문객들에게 특별한 시간여행의 경험을 선사할 예정이다.",
+      "homepage": "https://festival.gunsan.go.kr/",
+      "mapx": "126.7116710000",
+      "mapy": "35.9877910000",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261002",
         "eventenddate": "20261005",
         "eventplace": "구·시청광장 및 시간여행마을 일원",
         "playtime": "10:00~21:00",
-        "program": "1. 메인프로그램 : 시간여행 퍼레이드, 군산항 밤부두 콩쿠르, 우리 모두 3·5만세, 군산대한독립만세, 시민한마당 등 2. 체험프로그램 : 추억의 로라장, 받아라 미션공중전화, 근대 의상실, 칠판 낙서장, 길바닥 낙서장, 스트릿 마당 등 3. 부대행사 : 모아모아시간, 모아모아 영수증, 텀블러 쿠폰제, 시간여행 뚜벅이, 시민기획 프로그램, 주전부리, 프리마켓, 별별 홍보부스, 특산품 판매장, 먹거리장터 등",
+        "program": "1. 메인 프로그램 : 글로벌 모던 플래시몹, 1919,태극기 게양작전, 우리모두 3.5 만세, 모아모아 시간, 군산항 밤부두 콩쿠르 등 2. 체험 프로그램 : 근대의상실, 받아라 미션공중전화, 시간여시간여행공예공작소, 시민기획 프로그램, 향기를 담은 미래 우체통 등 3. 부대행사 : 스트릿마당, 길바닥 낙서장, K-관광섬을 찾아라, 텀블러 쿠폰제, 보부상장터, 실속가득 프리마켓, 홍보부스, 먹거리 장터, 빵야빵야, 숲속 모험 놀이터, 패션쇼 등",
         "usetimefestival": "무료(일부유료)",
         "sponsor1": "군산시",
         "sponsor1tel": "063-454-3300"
       },
-      "backfilledAt": "2026-07-10T10:52:21.274Z"
+      "backfilledAt": "2026-08-26T07:10:54.736Z"
     },
     "editorialStatus": "pending"
   },
@@ -75132,7 +75683,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/16/3553216_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/16/3553216_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/16/3553216_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/15/3553215_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/17/3553217_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/18/3553218_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/19/3553219_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/20/3553220_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/21/3553221_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/22/3553222_image2_1.jpg"
     ],
     "alt": "세종한글축제 이미지",
     "excerpt": "세종한글축제을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -75160,6 +75718,14 @@
       [
         "주요 프로그램",
         "1. 메인프로그램 : (한글) 세종한글놀이터/한글노래 경연대회/한글몸짓 플래시몹/한글 골든벨/충녕 마리오네트 2. 부대프로그램 : (상설) 시민기획 한글 체험 프로그램, 도심 속 정원공간에서 즐기는 독서존, 친환경 팝업 놀이터 등 3. 소비자 참여 프로그램 : 네바퀴식당(푸드트럭), 상점"
+      ],
+      [
+        "홈페이지",
+        "http://sjfestival.kr/"
+      ],
+      [
+        "좌표",
+        "36.49895345303314, 127.27018405937929"
       ]
     ],
     "memo": [
@@ -75245,11 +75811,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "*하기 축제장 먹거리 내용은 전년도(2025년) 축제 내용으로, 2026년도 축제 내용은 업데이트 중에 있습니다.* 국내 유일 ‘한글’을 주제로 한 축제로, 매년 한글날을 기념하는 세종시 대표 축제로 개최되고 있다. 세종대왕의 우수한 업적인 한글의 창제 정신을 기반으로 2013년부터 개최되었으며, 2025년 ‘세종축제’에서 ‘세종한글축제’로 명칭이 변경되었다. 한글의 아름다움과 창의성을 현대적으로 재해석한 공연·전시·체험 프로그램을 통해 세대와 국적을 넘어 남녀노소 누구나 공감하고 즐길 수 있는 축제로 운영되고 있다. 또한, 전통과 현대가 어우러진 다양한 문화예술 프로그램을 통해 한글의 매력과 세종대왕의 정신을 도심 속에서 쉽고 재미있게 경험할 수 있는 세종시만의 차별화된 문화관광축제로 성장하고 있다.",
+      "homepage": "http://sjfestival.kr/",
+      "mapx": "127.27018405937929",
+      "mapy": "36.49895345303314",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261009",
         "eventenddate": "20261011",
@@ -75261,7 +75827,7 @@
         "sponsor1tel": "044-850-0591~0594",
         "sponsor2": "(재)세종시문화관광재단"
       },
-      "backfilledAt": "2026-07-10T10:52:22.561Z"
+      "backfilledAt": "2026-08-26T07:10:55.944Z"
     },
     "editorialStatus": "pending"
   },
@@ -75278,7 +75844,10 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/54/3377054_image2_1.png",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/54/3377054_image2_1.png"
+      "https://tong.visitkorea.or.kr/cms/resource/54/3377054_image2_1.png",
+      "https://tong.visitkorea.or.kr/cms/resource/51/3377051_image2_1.png",
+      "https://tong.visitkorea.or.kr/cms/resource/52/3377052_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/55/3377055_image2_1.JPG"
     ],
     "alt": "임실N치즈축제 이미지",
     "excerpt": "임실N치즈축제을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -75306,6 +75875,14 @@
       [
         "주요 프로그램",
         "1. 대표프로그램1) 임실N치즈 쭉쭉늘려 내치즈 만들기- 임실N치즈축제의 핵심콘 텐츠인“치즈”를 이용하여 건강, 사랑, 행복, 그리고 모든 윤택한 삶의 염원을 담아 스트링치즈 1,000미터 두줄를 한 번에 완성시키는 한마당 프로그램2) 임실N치즈 디저트 퐁뒤체험- 숙성치즈 200KG을 소재로 도시민이 간단하게 체험하고 맛보는 대규모 참여프로그램으로 1일 300여명 4일간 참여가능 프로그램- 체험비 : 사전접수 5,000원 현장접수7,000원3) 국가대표 임실N치즈 대형 쌀피자- 임실N치즈축제의 핵심 콘텐츠인 치즈를 이용하여 대규모 쌀피자 만들기 체험 진행, 가정에서도 쉽게 요리할 수 있는 전문 셰프의 레시피 활용하여 방문객들이 오감만족을 체험할 수 있는 쌀피자 요리 체험- 체험비 : 사전접수 7,000원 현장접수 10,000원2. 이슈프로그램1) 임실N치즈 글로벌 치즈 페어- 임실N치즈만의 우수한 맛과 품질을 축제를 찾은 관광객들이 쉽게 맛보고 체험할 수 있는 대표 프로그램으로 임실N치즈 뿐 아니라 글로벌 치즈- 전시 및 시식 입장료 : 사전접수 5,000원 / 현장접수 6,000원 시간당 100명(선착순 입장)3. 보조프로그램1) 임실N치즈 에끌로 퍼레이드- 한국 치즈의 탄생을 의미하는 지정환신부님의 치즈이야기를 담은 조형물 퍼레이드 임실관내 공연단을 비롯한 군민&관광객 참여형 퍼레이드2) 임실N치즈 경매- 대한민국 치즈를 대표하는 임실N치즈를 맛보고 저렴하게 구입할 수 있는 경매 이벤트 진행_(10월 8일, 10일, 12일-11:30, 15:30), (9일, 11일-13:30, 15:30) / 10월 12일(10:00)- 임실N치즈 숙성치즈 굴리기 &탑쌓기) - 건강한 먹거리 임실N치즈 숙성치즈 홍보를 위해 치즈를 굴리고 탑을 쌓아 숙성치즈 속 순금을 찾아보는 이벤트- 참가비 : 사전접수 5,000원 현장접수 7,000원"
+      ],
+      [
+        "홈페이지",
+        "https://www.imsilfestival.com/"
+      ],
+      [
+        "좌표",
+        "35.63156938109518, 127.30177597177955"
       ]
     ],
     "memo": [
@@ -75391,11 +75968,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "*하기 축제 내용은 전년도(2025년) 축제 내용으로, 2026년도 축제 내용은 업데이트 중에 있습니다.*1967년 임실로 선교활동을 하러 오신 지정환 신부님께서 산양 두 마리를 시작으로, 마을 청년들과 함께 수많은 시행착오와 고생 끝에 대한민국 최초로 치즈를 만들어낸 것을 기념하고, 지역경제 활성화와 치즈산업 발전을 위하여 매년 10월 초 임실치즈테마파크에서 임실군민과 방문객들이 함께 즐기는 대한민국 대표 문화관광축제로 거듭 발전해 나가는 임실N치즈축제이다.",
+      "homepage": "https://www.imsilfestival.com/",
+      "mapx": "127.30177597177955",
+      "mapy": "35.63156938109518",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261008",
         "eventenddate": "20261011",
@@ -75406,7 +75983,7 @@
         "sponsor1": "임실N치즈축제제전위원회",
         "sponsor1tel": "063-643-3900"
       },
-      "backfilledAt": "2026-07-10T10:52:23.933Z"
+      "backfilledAt": "2026-08-26T07:10:57.190Z"
     },
     "editorialStatus": "pending"
   },
@@ -75423,7 +76000,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/43/3366443_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/43/3366443_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/43/3366443_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/87/3535287_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/88/3535288_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/89/3535289_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/90/3535290_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/91/3535291_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/92/3535292_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/93/3535293_image2_1.JPG"
     ],
     "alt": "동래읍성역사축제 이미지",
     "excerpt": "동래읍성역사축제을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -75451,6 +76035,14 @@
       [
         "주요 프로그램",
         "1. 대표 프로그램(3): 동래부사행차 길놀이, 동래세가닥줄다리기, 동래성전투재현 뮤지컬2. 주제 프로그램(2): 1592년 동래를 만나다(관문체험), 1592년 동래를 즐기다(동래장터체험)3. 문화 공연 프로그램(18): 개막공연, 동래읍성가요제, 전통줄타기, 슬기로운 읍성민 체육생활, 버스킹공연, 동래부사집무재현 마당극, 전기수 이야기 버스킹, 마술버스킹, 민속예술공연, 읍성민 솜씨자랑, 기획공연‘뮤지컬 갈라쇼’, 생활문화예술제, 오페라 ‘동래로 온 춘향이’, 발달장애아동 작품전시회, 어린이영어뮤지컬, 한복패션쇼, 북문미디어아트, 축제학술콘서트4. 참여 체험 프로그램(19): 동래읍성역사축제 주제관 체험, 장영실 과학체험, 조선힙쟁이 댄스배틀, 한복디스코파티, 읍성민게임, 읍성오락실, 스탬프 투어, 동래한걸음야행&달빛 티크닉, 동래읍성 따라 걷기, 청소년 어울마당, 동래읍성북페어, 동래 혜민서 체험, 행복마을 도자체험, 송상현 부사 투구 및 갑옷체험, 점자&보치아 체험, 읍성어린이놀이광장, 몰입형 영상체험관, 야외방탈출 ‘동래부사와 마법의씨앗’, 세계전통의상 체험5. 부대행사(9): 임진왜란 433주기 추모 제향, 동래세일대축제, 소원담은 소망등, 주민자치회 프로그램 발표회 및 전시회, 옥토버 페스트, 먹거리장터, 명륜1번가 나이트페스티벌, 혁신어울림센터 뷰티체험, 백투더조선놀이터"
+      ],
+      [
+        "홈페이지",
+        "https://www.dongnae.go.kr/festival/index.dongnae"
+      ],
+      [
+        "좌표",
+        "35.2120802836554, 129.09053553882106"
       ]
     ],
     "memo": [
@@ -75536,11 +76128,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "*하기 축제 내용은 전년도(2025년) 축제 내용으로, 2026년도 축제 내용은 업데이트 중에 있습니다.*동래읍성역사축제는 1995년 제1회 충렬제를 시작으로 31년 동안 이어져온 부산광역시 동래구의 대표적인 역사교육형 체험축제로, 올해는 '동래성 사람들, 역사와 미래를 잇다!'라는 새로운 슬로건으로 개최된다. 2025년 제31회 동래읍성역사축제는 새로운 시작을 위해 대표프로그램인 동래성전투재현 실경뮤지컬을 더욱 업그레이드하여 미디어아트와 접목한 멋진 퍼포먼스를 제공할 예정이며, 야외방탈출, 몰입형영상체험관 등 새로운 콘텐츠를 추가하여 10월 24일부터 10월 26일까지 5개 분야 51개 프로그램으로 알차게 구성될 예정이다.",
+      "homepage": "https://www.dongnae.go.kr/festival/index.dongnae",
+      "mapx": "129.09053553882106",
+      "mapy": "35.2120802836554",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261016",
         "eventenddate": "20261018",
@@ -75552,7 +76144,7 @@
         "sponsor1tel": "051-550-4092",
         "sponsor2": "동래문화원, 동래읍성역사축제추진위원회"
       },
-      "backfilledAt": "2026-07-10T10:52:24.499Z"
+      "backfilledAt": "2026-08-26T07:10:58.396Z"
     },
     "editorialStatus": "pending"
   },
@@ -75569,7 +76161,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/42/4064642_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/42/4064642_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/42/4064642_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/36/4064636_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/37/4064637_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/38/4064638_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/39/4064639_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/41/4064641_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/43/4064643_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/44/4064644_image2_1.jpg"
     ],
     "alt": "횡성한우축제 이미지",
     "excerpt": "횡성한우축제을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -75597,6 +76196,10 @@
       [
         "주요 프로그램",
         "1. 메인프로그램 - 우(牛)아한 뮤직페스타 : 인기가수 및 지역예술단체 공연, 매일 19:00~21:00 메인무대 - 우(牛)주 불꽃쇼 : 대형 멀티미디어 불꽃연출 퍼포먼스, 10월 7일·10일 21:00 (2회) - 개막식·폐막식 : 10월 7일(개막), 10월 11일(폐막) 2. 부대프로그램 - 횡성한우구이터(3개소) : 축협·농협·한우협동조합 운영, 셀프식당 방식, 상시 - 횡성한우판매장(3개소) : 한우 전 부위 판매, 상시 - 횡성 맛마당 푸드존 : 지역 상가 참여 먹거리 부스, 상시 - 횡성 로컬팜 마켓 : 지역 농가 참여 농특산물 직거래 장터, 상시"
+      ],
+      [
+        "좌표",
+        "37.500463, 127.992519"
       ]
     ],
     "memo": [
@@ -75682,11 +76285,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
+      "overview": "제22회 횡성한우축제는 강원특별자치도 횡성군 섬강둔치 일원에서 2026년 10월 7일부터 11일까지 5일간 개최되는 대한민국 대표 체류형 관광축제이다. 본 축제는 '맛있다, 머물다, 빛나다'를 슬로건으로 '머무르는 가을, 빛나는 맛의 도시 횡성!'을 주제로 운영된다. 횡성한우의 우수성과 브랜드 경쟁력을 전국에 알리고 지역경제 활성화를 도모하는 것을 목적으로 하며, (재)횡성문화관광재단이 추최 주관한다. 축제는 먹거리·문화예술·체험 3개 테마, 14개 프로그램으로 구성된다. 주간(10:00~18:00)과 야간(18:00~21:00) 프로그램을 연계하여 체류시간을 확대하는 시간 확장형 축제로 운영되며, 지역 상인·농가·주민이 함께 참여하는 상생형 축제이다.",
       "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "mapx": "127.992519",
+      "mapy": "37.500463",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261007",
         "eventenddate": "20261011",
@@ -75697,7 +76300,7 @@
         "sponsor1": "(재)횡성문화관광재단",
         "sponsor1tel": "033-808-8007033-808-8009"
       },
-      "backfilledAt": "2026-07-10T10:52:25.435Z"
+      "backfilledAt": "2026-08-26T07:10:59.617Z"
     },
     "editorialStatus": "pending"
   },
@@ -75714,7 +76317,14 @@
     "read": "약 8분",
     "image": "http://tong.visitkorea.or.kr/cms/resource/49/3566649_image2_1.png",
     "images": [
-      "http://tong.visitkorea.or.kr/cms/resource/49/3566649_image2_1.png"
+      "http://tong.visitkorea.or.kr/cms/resource/49/3566649_image2_1.png",
+      "http://tong.visitkorea.or.kr/cms/resource/43/3566643_image2_1.jpg",
+      "http://tong.visitkorea.or.kr/cms/resource/44/3566644_image2_1.jpg",
+      "http://tong.visitkorea.or.kr/cms/resource/45/3566645_image2_1.jpg",
+      "http://tong.visitkorea.or.kr/cms/resource/46/3566646_image2_1.jpg",
+      "http://tong.visitkorea.or.kr/cms/resource/48/3566648_image2_1.jpg",
+      "http://tong.visitkorea.or.kr/cms/resource/50/3566650_image2_1.png",
+      "http://tong.visitkorea.or.kr/cms/resource/51/3566651_image2_1.jpg"
     ],
     "alt": "사천에어쇼 이미지",
     "excerpt": "사천에어쇼을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -75742,6 +76352,14 @@
       [
         "주요 프로그램",
         "공연, 체험, 현장 프로그램"
+      ],
+      [
+        "홈페이지",
+        "홈페이지 http://airshow.sacheon.go.kr"
+      ],
+      [
+        "좌표",
+        "35.0911816485, 128.0699132182"
       ]
     ],
     "memo": [
@@ -75827,11 +76445,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "\"사천에어쇼\" 는 남부권 최대 규모의 에어쇼이자 우주항공축제이다. 우주항공청 개청 이후 대한민국 우주항공수도로서의 위상을 강화하고 있는 사천시의 우주항공 생태계 속에서, 2026사천에어쇼가 비행과 체험 중심의 시민 축제를 넘어 우주항공방위산업전으로서의 도약을 선보인다.2026년 10월 22일(목)부터 25일(일)까지 4일간 사천비행장 일원에서 개최되며, 에어쇼 / 우주항공방위산업전 / 항공기·장비 전시 / 우주항공·군사장비 체험 / 학술회의 / 체험비행 / 우주항공 관련 대회 등 B2C·B2B·B2G를 아우르는 다양한 메인프로그램과 부대행사를 만날 수 있다.",
+      "homepage": "홈페이지 http://airshow.sacheon.go.kr",
+      "mapx": "128.0699132182",
+      "mapy": "35.0911816485",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261022",
         "eventenddate": "20261025",
@@ -75842,7 +76460,7 @@
         "sponsor1tel": "055-831-2061",
         "sponsor2": "사천에어쇼 공동운영본부"
       },
-      "backfilledAt": "2026-07-10T10:52:26.165Z"
+      "backfilledAt": "2026-08-26T07:11:00.849Z"
     },
     "editorialStatus": "pending"
   },
@@ -75859,7 +76477,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/17/4073617_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/17/4073617_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/17/4073617_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/12/4073612_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/13/4073613_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/14/4073614_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/15/4073615_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/16/4073616_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/18/4073618_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/19/4073619_image2_1.jpg"
     ],
     "alt": "김해 국가유산 야행 이미지",
     "excerpt": "김해 국가유산 야행을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -75887,6 +76512,10 @@
       [
         "주요 프로그램",
         "1. 메인프로그램 : 미디어파사드, 드론 라이트쇼, 전통공연, 야시장 등 2. 부대프로그램 : 8야프로그램 야경, 야로, 야사, 야화, 야설, 야식, 야시, 야숙 등 3. 소비자 참여 프로그램 : 수로왕릉 바로알기, 비비단 별빛로드, 밤의 고고학자, 나만의 도자기 꾸미기, 손끝으로 만나는 가야 등 4. 기타 내용 : 가꿈예술장터, 실크로드장시, 가치가게청년몰 등"
+      ],
+      [
+        "좌표",
+        "35.2348642516, 128.8772389826"
       ]
     ],
     "memo": [
@@ -75972,11 +76601,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
+      "overview": "김해국가유산야행은 가야의 숨결이 살아있는 대성동고분군, 수로왕릉, 수릉원 일원을 무대로 펼쳐지는 야간 체류형 문화축제로, 야경·공연·체험·먹거리로 ‘빛과 역사를’ 함께 즐기는 행사이다. 가야의 숨결이 닿아 있는 문화유산에서 역사 이야기를 따라 걷는 밤길과 더불어 익숙한 길을 걷는 즐거움을 함께 경험할 수 있다. ‘밤’을 주제로 한 8야(夜) 프로그램(야경·야로·야사·야화·야설·야식·야숙·야시)을 통해 방문객들은 김해의 찬란한 가야 역사와 문화유산을 색다르게 만나볼 수 있다. 각 프로그램은 공연, 전시, 체험, 먹거리, 야간 경관 등 다채로운 콘텐츠로 구성되어 있으며, 국가유산에 담긴 의미와 가치를 자연스럽게 느끼고 김해만의 역사·문화적 정체성을 직접 경험할 수 있는 특별한 시간을 제공한다.",
       "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "mapx": "128.8772389826",
+      "mapy": "35.2348642516",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261016",
         "eventenddate": "20261018",
@@ -75988,7 +76617,7 @@
         "sponsor1tel": "070-8824-0347",
         "sponsor2": "(재)김해문화관광재단"
       },
-      "backfilledAt": "2026-07-10T10:52:26.752Z"
+      "backfilledAt": "2026-08-26T07:11:02.100Z"
     },
     "editorialStatus": "pending"
   },
@@ -76005,7 +76634,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/59/4078459_image2_1.png",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/59/4078459_image2_1.png"
+      "https://tong.visitkorea.or.kr/cms/resource/59/4078459_image2_1.png",
+      "https://tong.visitkorea.or.kr/cms/resource/47/4033347_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/48/4033348_image2_1.png",
+      "https://tong.visitkorea.or.kr/cms/resource/49/4033349_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms2/website/42/3051942.jpg",
+      "https://tong.visitkorea.or.kr/cms2/website/74/3051974.jpg",
+      "https://tong.visitkorea.or.kr/cms2/website/76/3051976.jpg",
+      "https://tong.visitkorea.or.kr/cms2/website/85/3051985.jpg"
     ],
     "alt": "정조대왕 능행차 공동재현 이미지",
     "excerpt": "정조대왕 능행차 공동재현을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -76033,6 +76669,10 @@
       [
         "주요 프로그램",
         "- 서울 : 출궁의식, 시민행렬, 미음다반, 정조역사 콘서트 등 - 수원 : 총리대신 정조맞이, 수원화성퍼레이드, 어린이 능행차 등 - 화성 : 현대구간 행렬, 전통구간 행렬, 화성유수 정조맞이, 격쟁 등"
+      ],
+      [
+        "좌표",
+        "37.5760307000, 126.9767218661"
       ]
     ],
     "memo": [
@@ -76118,23 +76758,23 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
+      "overview": "백성과 함께한 행복한 8일, 시민의 축제로 다가온다. 조선 역사상 가장 성대한 축제이자 백성과 성군이 함께한 동행! 2026년 정조대왕의 능행차 길을 따라 『원행을묘정리의궤』 속 정조의 뜻을 되새긴다. 1795년 정조는 어머니 혜경궁 홍씨의 회갑을 기념하여 수원 화성으로 행차했다. 정조의 8일 간의 여정은 단순한 왕의 이동이 아닌 백성과 즐거운 기억을 공유한 역사적인 사건이었다. 정조의 애민정신은 『원행을묘정리의궤』에 담겨 널리 배포되었다. 2026년, 정조대왕의 정신을 계승하고 백성의 행복한 기억이 시민의 행복한 기억으로 재현된다. 정조대왕 능행차 공동재현은 서울시, 경기도, 수원시, 화성시가 협력해 '을묘년 화성원행'의 원형을 현대에 화려하게 재현하는 축제이다.",
       "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "mapx": "126.9767218661",
+      "mapy": "37.5760307000",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261004",
         "eventenddate": "20261004",
         "eventplace": "경복궁",
-        "playtime": "08:00~20:00",
+        "playtime": "09:00~21:00",
         "program": "- 서울 : 출궁의식, 시민행렬, 미음다반, 정조역사 콘서트 등 - 수원 : 총리대신 정조맞이, 수원화성퍼레이드, 어린이 능행차 등 - 화성 : 현대구간 행렬, 전통구간 행렬, 화성유수 정조맞이, 격쟁 등",
         "usetimefestival": "무료 (일부 프로그램 참가비 유료)",
         "sponsor1": "서울특별시, 경기도, 수원특례시, 화성특례시",
         "sponsor1tel": "서울 02-786-0610수원 031-5191-2367화성 070-4202-1017",
         "sponsor2": "서울특별시, 경기도, 수원특례시, 화성특례시"
       },
-      "backfilledAt": "2026-07-10T10:52:28.075Z"
+      "backfilledAt": "2026-08-26T07:11:03.312Z"
     },
     "editorialStatus": "pending"
   },
@@ -76151,7 +76791,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/31/4073831_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/31/4073831_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/31/4073831_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/23/4073823_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/24/4073824_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/25/4073825_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/26/4073826_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/27/4073827_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/28/4073828_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/29/4073829_image2_1.jpg"
     ],
     "alt": "관악강감찬축제 이미지",
     "excerpt": "관악강감찬축제을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -76179,6 +76826,14 @@
       [
         "주요 프로그램",
         "메인 프로그램 - ‘21 우리동네 한바퀴’. ‘시민 풍류제’, 설민석 강사와 함께하는 ‘강감찬 토크쇼’ 등 주민 참여 프로그램 - 주제공연 ‘낙성연희’, ‘별별 스테이지‘ 등 문화예술 프로그램 - ‘고려장터‘, ‘벽란도 21’ 등 지역경제 활성화 프로그램 - ‘리틀강감찬’, ‘별별 놀이터’, ‘낙성대 야별회’ 등 교육 연계 프로그램"
+      ],
+      [
+        "홈페이지",
+        "https://www.ggcfest.com/"
+      ],
+      [
+        "좌표",
+        "37.4715875501, 126.9587204342"
       ]
     ],
     "memo": [
@@ -76264,11 +76919,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "관악강감찬축제는 역사를 품은 도시 관악에서 귀주대첩의 영웅 강감찬 장군의 호국정신과 위업을 기리고자 개최되는 서울의 대표적인 역사문화 축제이다. 관악강감찬축제는 고려 명장 강감찬 장군의 호국정신을 기리고자 개최되는 서울의 대표적인 역사 문화축제이자, 관악구민이 함께 만들고 즐기는 관악의 대표 축제이다. 강감찬축제는 1998년부터 이어 온 관악구 대표 전통문화축제 ‘관악산 철쭉제’와 1988년부터 이어 온 추모제향 ‘낙성대 인헌제’를 통합하여, 2016년 새롭게 시작되었다. 강감찬축제는 북두칠성의 네 번째 별 문곡성이 떨어진 곳에서 강감찬 장군이 탄생하였다는 낙성대, 장군의 시호를 딴 인헌동, 장군이 송도를 오갈 때 자주 들렀다는 정자가 있는 서원동 등 장군의 얼이 서린 문화유산을 배경으로 오늘날 우리들의 모습으로 다양한 프로그램을 진행하며 그 뜻을 이어가고 있다. 10월 셋째주 '투모로우 강감찬'이 시작된다. 2026년 10주년을 맞이하는 관악강감찬축제는 K-컬처를 품은 서울 대표 고려 역사문화축제로 콘텐츠를 확장시켜 세대를 잇고 지역을 살리는 지속 가능한 상생 축제로 새롭게 발돋움 한다.",
+      "homepage": "https://www.ggcfest.com/",
+      "mapx": "126.9587204342",
+      "mapy": "37.4715875501",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261016",
         "eventenddate": "20261018",
@@ -76280,7 +76935,7 @@
         "sponsor1tel": "02-828-5766",
         "sponsor2": "관악문화재단"
       },
-      "backfilledAt": "2026-07-10T10:52:29.772Z"
+      "backfilledAt": "2026-08-26T07:11:04.586Z"
     },
     "editorialStatus": "pending"
   },
@@ -76325,6 +76980,14 @@
       [
         "주요 프로그램",
         "- 주요 프로그램 : 공모전 수상작, 국내·외 초청장 상영회 - 부대 행사 및 프로그램 : 개막식 / 시상식 / 축하공연 / 레드카펫 행사 / 이벤트 부스 운영 외"
+      ],
+      [
+        "홈페이지",
+        "공식 홈페이지 http://yisff.kr/"
+      ],
+      [
+        "좌표",
+        "36.5715986793, 128.4887513731"
       ]
     ],
     "memo": [
@@ -76410,15 +77073,15 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "예천국제스마트폰영화제는 올해 8회째 개최되는 영화제로서, 스마트폰으로 촬영된 영화 및 영상을 공모받아 심사를 거쳐 수상작을 선정하고 10월 9일(토) 현장에서 시상식 진행과 함께 주민들도 함께 즐길 수 있는 영화축제이다. 천혜의 자연 환경의 도시 경상북도 예천에서 2019년 첫 발을 내딛은 예천국제스마트폰 영화제 (이하 YISFF)는 예천을 상징하고, 경북을 넘어 전국에서 스마트폰 영화제로서 대표적인 영화제이다. ‘누구나’가지고 있는 스마트폰을 가지고 시대의 발자취에 맞추어 영화를 제작함으로서 신선하고 새로운 바람을 불러 일으켰다.",
+      "homepage": "공식 홈페이지 http://yisff.kr/",
+      "mapx": "128.4887513731",
+      "mapy": "36.5715986793",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261009",
         "eventenddate": "20261011",
-        "eventplace": "예천신도시 패밀리파크 내 주차장",
+        "eventplace": "경북도서관 옆 임시공영주차장",
         "playtime": "11:00~20:20",
         "program": "- 주요 프로그램 : 공모전 수상작, 국내·외 초청장 상영회 - 부대 행사 및 프로그램 : 개막식 / 시상식 / 축하공연 / 레드카펫 행사 / 이벤트 부스 운영 외",
         "usetimefestival": "무료",
@@ -76426,7 +77089,7 @@
         "sponsor1tel": "054-655-8082",
         "sponsor2": "사단법인예천국제스마프톤영화제조직위원회"
       },
-      "backfilledAt": "2026-07-10T10:52:30.973Z"
+      "backfilledAt": "2026-08-26T07:11:05.839Z"
     },
     "editorialStatus": "pending"
   },
@@ -76443,7 +77106,11 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/63/4081263_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/63/4081263_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/63/4081263_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/59/4081259_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/60/4081260_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/61/4081261_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/62/4081262_image2_1.JPG"
     ],
     "alt": "2026 화성행궁 야간개장 이미지",
     "excerpt": "2026 화성행궁 야간개장을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -76471,6 +77138,14 @@
       [
         "주요 프로그램",
         "- 주요 프로그램 : 3D 홀로그램 및 레이저 연출 콘텐츠 등 미디어 아트 전시 - 부대 행사 및 프로그램 : 혜경궁 홍씨 다과체험 / 주민배우와 함께하는 고궁산책 / 특별 문화관광해설 1. 혜경궁 홍씨 다과 체험 - 궁중다과(반과) 시식 및 작은 음악회 관람 - 기간 : 2026.09.04.(금)~2026.10.31.(토) 금요일 / 토요일 19:00~20:30 - 관람료 : 2인 50,000원 / 3인 70,000원 - 예매 : 놀티켓 사전예매 2. 주민배우와 함께하는 고궁산책 - 주민배우의 연기와 해설로 듣는 행궁 투어 - 기간 : 2026.09.04.(금)~2026.10.31.(토) 금요일 / 토요일 19:00~20:30 - 관람료 : 무료 - 예매 : 네이버 사전예매 3. 특별 문화관광해설 - 문화관광해설사와 함께 듣는 해설 프로그램 - 기간 : 매주 금요일~일요일 및 공휴일 18:00 / 20:00 - 장소 : 화성행궁 신풍루부터 서장대 - 관람료 : 무료 - 예매 : 수원문화재단 홈페이지 예매"
+      ],
+      [
+        "홈페이지",
+        "공식 홈페이지 https://www.swcf.or.kr/"
+      ],
+      [
+        "좌표",
+        "37.2818163237, 127.0163732353"
       ]
     ],
     "memo": [
@@ -76556,11 +77231,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "정조의 원대한 꿈과 지극한 효심이 깃든 화성행궁은 전국의 수많은 행궁 중에서도 가장 뛰어난 규모와 격식을 자랑하며, 경복궁 못지않은 아름다움을 간직한 궁궐로 손꼽힌다. 수원의 대표 야간 관광 프로그램인 2026 화성행궁 야간개장 「달빛화담(花談)」은 ‘달빛 아래 꽃의 이야기’를 주제로, 다양한 꽃 전시 조형물과 환상적인 조명 콘텐츠를 통해 화려하면서도 고즈넉한 밤의 정취를 선사한다. 은은한 조명 아래 고요히 피어난 꽃길을 따라 걷다 보면, 시간의 흐름을 거슬러 옛 정취와 자연, 그리고 조선의 정신을 느끼게 된다.",
+      "homepage": "공식 홈페이지 https://www.swcf.or.kr/",
+      "mapx": "127.0163732353",
+      "mapy": "37.2818163237",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20260501",
         "eventenddate": "20261101",
@@ -76572,7 +77247,7 @@
         "sponsor1tel": "031-290-3600",
         "sponsor2": "수원문화재단"
       },
-      "backfilledAt": "2026-07-10T10:52:32.366Z"
+      "backfilledAt": "2026-08-26T07:11:07.086Z"
     },
     "editorialStatus": "pending"
   },
@@ -76617,6 +77292,14 @@
       [
         "주요 프로그램",
         "- 주요 프로그램 : 전시 정원 - 부대 행사 및 프로그램 : 개막식 / 정원문화 체험 / 정원산업전 / 컨퍼런스 / 문화·예술 공연 / 푸드트럭(먹거리장터) / 플리마켓 운영 등"
+      ],
+      [
+        "홈페이지",
+        "공식 홈페이지 https://www.gggarden.kr"
+      ],
+      [
+        "좌표",
+        "37.5409386578, 127.3239607947"
       ]
     ],
     "memo": [
@@ -76702,11 +77385,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "2026 제14회 경기정원문화박람회는 남한강과 북한강이 만나는 두물머리와 지방정원 1호 세미원을 배경으로 펼쳐지는 정원문화 축제이다. 이번 박람회의 주제는 '두물머리 사:색'으로, 사계절을 담은 네 가지 색을 통해 자연의 순환을 보여주고, 동시에 삶의 본질을 사색하는 의미를 담고 있다. 두물머리와 세미원을 잇는 정원 속에서 계절의 색을 느끼며 머무르고, 스스로를 돌아보는 특별한 시간을 경험할 수 있다.",
+      "homepage": "공식 홈페이지 https://www.gggarden.kr",
+      "mapx": "127.3239607947",
+      "mapy": "37.5409386578",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261016",
         "eventenddate": "20261019",
@@ -76718,7 +77401,7 @@
         "sponsor1tel": "031-770-2572",
         "sponsor2": "경기도, 양평군, 경기환경에너지진흥원"
       },
-      "backfilledAt": "2026-07-10T10:52:33.658Z"
+      "backfilledAt": "2026-08-26T07:11:08.357Z"
     },
     "editorialStatus": "pending"
   },
