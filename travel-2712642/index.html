@@ -116,6 +116,9 @@ button,input,select{font:inherit}
 .article-info-icon{display:grid;place-items:center;width:32px;height:32px;border-radius:8px;background:var(--soft-teal);color:var(--brand);font-size:13px;font-weight:900}
 .article-info-label{display:block;color:var(--muted);font-size:12px;font-weight:800}
 .article-info-value{display:block;margin-top:2px;color:var(--ink);font-size:15px;font-weight:800;line-height:1.55;white-space:pre-line;word-break:keep-all;overflow-wrap:anywhere}
+.article-info-value-list{display:grid;gap:6px;margin-top:2px}
+.article-info-value-list [role="listitem"]{display:block;position:relative;padding-left:14px}
+.article-info-value-list [role="listitem"]::before{content:"";position:absolute;left:0;top:0.6em;width:5px;height:5px;border-radius:50%;background:currentColor;opacity:.55}
 .article-fact-table{width:100%;margin:0 0 24px;border-collapse:separate;border-spacing:0;border:1px solid var(--line);border-radius:8px;background:var(--card);overflow:hidden;font-size:15px;line-height:1.65}
 .article-fact-table th,.article-fact-table td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
 .article-fact-table th{width:118px;background:color-mix(in srgb,var(--line) 28%,var(--card));color:var(--ink);font-weight:900}
@@ -230,7 +233,7 @@ footer.site-footer{padding:0;color:var(--muted)}
         </div>
       </section>
 
-      <section class="wrap layout"><article class="content"><div class="article-info-grid" aria-label="방문 기본 정보"><div class="article-info-card"><span class="article-info-icon" aria-hidden="true">장</span><span><span class="article-info-label">장소</span><strong class="article-info-value">전라남도 진도군 의신면 사천리 565</strong></span></div><div class="article-info-card"><span class="article-info-icon" aria-hidden="true">문</span><span><span class="article-info-label">문의</span><strong class="article-info-value">진도군청 산림휴양과 061-540-3773</strong></span></div><div class="article-info-card"><span class="article-info-icon" aria-hidden="true">시</span><span><span class="article-info-label">운영 시간</span><strong class="article-info-value">상시 개방</strong></span></div><div class="article-info-card"><span class="article-info-icon" aria-hidden="true">요</span><span><span class="article-info-label">이용 요금</span><strong class="article-info-value">시설별 상이</strong></span></div></div><!-- map-preview:start -->
+      <section class="wrap layout"><article class="content"><div class="article-info-grid" aria-label="방문 기본 정보"><div class="article-info-card"><span class="article-info-icon" aria-hidden="true">장</span><span><span class="article-info-label">장소</span><span class="article-info-value">전라남도 진도군 의신면 사천리 565</span></span></div><div class="article-info-card"><span class="article-info-icon" aria-hidden="true">문</span><span><span class="article-info-label">문의</span><span class="article-info-value">진도군청 산림휴양과 061-540-3773</span></span></div><div class="article-info-card"><span class="article-info-icon" aria-hidden="true">시</span><span><span class="article-info-label">운영 시간</span><span class="article-info-value">상시 개방</span></span></div><div class="article-info-card"><span class="article-info-icon" aria-hidden="true">요</span><span><span class="article-info-label">이용 요금</span><span class="article-info-value">시설별 상이</span></span></div></div><!-- map-preview:start -->
 <section class="map-preview" aria-label="지도 미리보기">
   <h2>지도 미리보기</h2>
   <div class="map-frame">
@@ -254,7 +257,8 @@ footer.site-footer{padding:0;color:var(--muted)}
   <p>글 안의 예약, 숙소, 투어, 상품 링크는 제휴 링크일 수 있으며 예약 또는 구매가 발생할 경우 트립뷰가 일정 수수료를 받을 수 있습니다. 정정 요청은 <a href="/editorial-policy">운영 기준</a>, <a href="/affiliate-disclosure">제휴 안내</a>, <a href="/contact">문의</a>에서 보낼 수 있습니다.</p>
 </aside>
 <!-- TRUST_NOTE_END --></article></section>
-    </main><script src="/assets/topic-filter.js?v=topic-filter-20260706-hardening" defer></script><footer class="site-footer">
+    </main><script src="/assets/topic-filter.js?v=topic-filter-20260706-hardening" defer></script>
+  <footer class="site-footer">
     <div class="site-footer-inner">
       <div class="footer-brand">
         <strong>트립뷰</strong>

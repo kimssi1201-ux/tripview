@@ -118,6 +118,9 @@ button,input,select{font:inherit}
 .article-info-icon{display:grid;place-items:center;width:32px;height:32px;border-radius:8px;background:var(--soft-teal);color:var(--brand);font-size:13px;font-weight:900}
 .article-info-label{display:block;color:var(--muted);font-size:12px;font-weight:800}
 .article-info-value{display:block;margin-top:2px;color:var(--ink);font-size:15px;font-weight:800;line-height:1.55;white-space:pre-line;word-break:keep-all;overflow-wrap:anywhere}
+.article-info-value-list{display:grid;gap:6px;margin-top:2px}
+.article-info-value-list [role="listitem"]{display:block;position:relative;padding-left:14px}
+.article-info-value-list [role="listitem"]::before{content:"";position:absolute;left:0;top:0.6em;width:5px;height:5px;border-radius:50%;background:currentColor;opacity:.55}
 .article-fact-table{width:100%;margin:0 0 24px;border-collapse:separate;border-spacing:0;border:1px solid var(--line);border-radius:8px;background:var(--card);overflow:hidden;font-size:15px;line-height:1.65}
 .article-fact-table th,.article-fact-table td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
 .article-fact-table th{width:118px;background:color-mix(in srgb,var(--line) 28%,var(--card));color:var(--ink);font-weight:900}
@@ -205,7 +208,7 @@ footer.site-footer{padding:0;color:var(--muted)}
       </figure>
 
       <section class="wrap layout">
-        <article class="content">
+        <article class="content"><table class="article-fact-table" aria-label="운영 정보 표"><tbody><tr><th>일정</th><td>2026년 6월 5일~6월 7일</td></tr><tr><th>장소</th><td>전북특별자치도 고창군 애향갯벌로 320, 만돌갯벌체험학습장</td></tr><tr><th>문의</th><td>063-560-2632</td></tr><tr><th>운영 시간</th><td>11:00~19:00</td></tr><tr><th>이용 요금</th><td>입장료 무료. 체험, 농수산물 판매부스, 먹거리부스 등은 유료로 운영될 수 있습니다.</td></tr></tbody></table>
           <p>고창갯벌축제는 2026년 <strong>6월 5일</strong> 부터 6월 7일까지 전북특별자치도 고창군 만돌갯벌체험학습장에서 열리는 초여름 축제입니다.</p><p>6월 첫 주말에 바로 맞는 글감으로, 가족 여행과 체험형 주말 코스를 찾는 사람에게 특히 잘 맞습니다.</p><p>고창갯벌은 유네스코 세계자연유산으로 알려진 생태 공간이고, 축제는 갯벌을 직접 밟고 조개를 캐고 지역 먹거리를 맛보는 참여형 프로그램 중심으로 구성됩니다.</p>
           <p>방문 전 핵심은 날짜와 체험 시간을 먼저 확인하는 것입니다. 축제 전체 운영시간은 <strong>11:00~19:00</strong> 기준이지만, 조개잡기체험은 물때에 맞춰 날짜별 가능 시간이 다릅니다.</p><p><strong>6월 5일</strong> 은 09:00~13:30, 6월 6일은 10:00~14:00, 6월 7일은 11:00~15:00로 안내됩니다.</p><p>축제장 도착 시간을 늦게 잡으면 원하는 체험을 놓칠 수 있으므로, 갯벌 체험을 목표로 한다면 오전 이동이 안전합니다.</p>
 

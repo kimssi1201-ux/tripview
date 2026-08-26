@@ -1771,6 +1771,9 @@ function articleSiteDesignCss() {
 .article-info-icon{display:grid;place-items:center;width:32px;height:32px;border-radius:8px;background:var(--soft-teal);color:var(--brand);font-size:13px;font-weight:900}
 .article-info-label{display:block;color:var(--muted);font-size:12px;font-weight:800}
 .article-info-value{display:block;margin-top:2px;color:var(--ink);font-size:15px;font-weight:800;line-height:1.55;white-space:pre-line;word-break:keep-all;overflow-wrap:anywhere}
+.article-info-value-list{display:grid;gap:6px;margin-top:2px}
+.article-info-value-list [role="listitem"]{display:block;position:relative;padding-left:14px}
+.article-info-value-list [role="listitem"]::before{content:"";position:absolute;left:0;top:0.6em;width:5px;height:5px;border-radius:50%;background:currentColor;opacity:.55}
 .article-fact-table{width:100%;margin:0 0 24px;border-collapse:separate;border-spacing:0;border:1px solid var(--line);border-radius:8px;background:var(--card);overflow:hidden;font-size:15px;line-height:1.65}
 .article-fact-table th,.article-fact-table td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
 .article-fact-table th{width:118px;background:color-mix(in srgb,var(--line) 28%,var(--card));color:var(--ink);font-weight:900}
@@ -2134,7 +2137,12 @@ function cleanFactValue(value = "") {
   return plainFieldValue(value)
     .replace(/https?:\/\/[^\s<>"']+/g, "")
     .replace(/([^\n])※/g, "$1\n※")
-    .replace(/([^\n])\s*-\s*(?=(?:평일|토요일|일요일|월요일|화요일|수요일|목요일|금요일|주말|공휴일|매표|성인|소인|어린이|청소년|경로|주요|부대|전시|공연|\d{1,2}:))/g, "$1\n- ")
+    // tier-group headers like "[시그니처권]" / "[주말]" start a new line
+    .replace(/([^\n\s])\s*(?=\[[^\]]+\])/g, "$1\n")
+    // each "- " row in a raw fee/hours list ends the previous row in 원 or
+    // a bracket close, e.g. "...49,000원 - 소인 37,000원" / "...16:00[주말]"
+    .replace(/(원|\])\s*-\s+/g, "$1\n- ")
+    .replace(/([^\n])\s*-\s*(?=(?:평일|토요일|일요일|월요일|화요일|수요일|목요일|금요일|주말|공휴일|매표|성인|소인|대인|일반|단체|어린이|유아|청소년|경로|주요|부대|전시|공연|\d{1,2}:))/g, "$1\n- ")
     .replace(/\s*\/\s*(?=(?:주차|쉬는 날|이용 시간|행사 장소|행사 기간|프로그램|이용 요금|문의|요금|시간|장소)\s*:)/g, "\n")
     .replace(/\n{2,}/g, "\n")
     .trim();
@@ -2569,10 +2577,25 @@ function articleInfoItems(post) {
     .slice(0, limit);
 }
 
+function articleInfoValueMarkup(value = "") {
+  // cleanFactValue() breaks long multi-tier values (fee tables, seasonal
+  // hours) onto separate lines with \n. Rendered as plain text those lines
+  // just sit flush against each other with only line-height between them,
+  // which reads as one dense, cramped block for anything with more than a
+  // couple of tiers - so render multi-line values as a spaced list instead.
+  // Kept to <span> elements (no <div>/<ul>/<li>): the surrounding
+  // .article-info-card is matched elsewhere with a non-greedy
+  // [\s\S]*?<\/div> regex that assumes no nested <div> inside a card.
+  const cleaned = cleanFactValue(value);
+  const lines = cleaned.split("\n").map((line) => line.trim()).filter(Boolean);
+  if (lines.length <= 1) return `<span class="article-info-value">${html(cleaned)}</span>`;
+  return `<span class="article-info-value"><span class="article-info-value-list" role="list">${lines.map((line) => `<span role="listitem">${html(line)}</span>`).join("")}</span></span>`;
+}
+
 function articleInfoGrid(post) {
   const items = articleInfoItems(post);
   if (!items.length) return "";
-  return `<div class="article-info-grid" aria-label="방문 기본 정보">${items.map((item) => `<div class="article-info-card"><span class="article-info-icon" aria-hidden="true">${html(item.icon)}</span><span><span class="article-info-label">${html(item.label)}</span><strong class="article-info-value">${html(cleanFactValue(item.value))}</strong></span></div>`).join("")}</div>`;
+  return `<div class="article-info-grid" aria-label="방문 기본 정보">${items.map((item) => `<div class="article-info-card"><span class="article-info-icon" aria-hidden="true">${html(item.icon)}</span><span><span class="article-info-label">${html(item.label)}</span>${articleInfoValueMarkup(item.value)}</span></div>`).join("")}</div>`;
 }
 
 function replaceArticleInfoTable(document, post) {

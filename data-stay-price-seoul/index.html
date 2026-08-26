@@ -118,6 +118,9 @@ button,input,select{font:inherit}
 .article-info-icon{display:grid;place-items:center;width:32px;height:32px;border-radius:8px;background:var(--soft-teal);color:var(--brand);font-size:13px;font-weight:900}
 .article-info-label{display:block;color:var(--muted);font-size:12px;font-weight:800}
 .article-info-value{display:block;margin-top:2px;color:var(--ink);font-size:15px;font-weight:800;line-height:1.55;white-space:pre-line;word-break:keep-all;overflow-wrap:anywhere}
+.article-info-value-list{display:grid;gap:6px;margin-top:2px}
+.article-info-value-list [role="listitem"]{display:block;position:relative;padding-left:14px}
+.article-info-value-list [role="listitem"]::before{content:"";position:absolute;left:0;top:0.6em;width:5px;height:5px;border-radius:50%;background:currentColor;opacity:.55}
 .article-fact-table{width:100%;margin:0 0 24px;border-collapse:separate;border-spacing:0;border:1px solid var(--line);border-radius:8px;background:var(--card);overflow:hidden;font-size:15px;line-height:1.65}
 .article-fact-table th,.article-fact-table td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
 .article-fact-table th{width:118px;background:color-mix(in srgb,var(--line) 28%,var(--card));color:var(--ink);font-weight:900}
@@ -322,6 +325,7 @@ footer.site-footer{padding:0;color:var(--muted)}
   </footer>
 
     <script src="/assets/coupang.js?v=coupang-20260708" defer></script><script src="/assets/topic-filter.js?v=topic-filter-20260706-hardening" defer></script>
+
     <script data-site-nav-script>
     (() => {
       const header = document.querySelector("[data-site-header]");
