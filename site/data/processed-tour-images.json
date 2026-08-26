@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-26T21:06:45.968Z",
+  "generatedAt": "2026-08-26T21:11:12.732Z",
   "source": "한국관광공사 공공누리",
   "assetBasePath": "/assets/processed/",
   "items": {
@@ -5622,7 +5622,80 @@
         "posterCanvas": false,
         "bytes": null
       },
-      "images": []
+      "images": [
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/71/4078871_image2_1.jpg",
+          "src": "/assets/processed/yangpyeong-semiwon-lotus-festival-festival-detail-1.webp",
+          "alt": "경기 세미원 연꽃문화제 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/72/4078872_image2_1.jpg",
+          "src": "/assets/processed/yangpyeong-semiwon-lotus-festival-festival-detail-2.webp",
+          "alt": "경기 세미원 연꽃문화제 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/73/4078873_image2_1.jpg",
+          "src": "/assets/processed/yangpyeong-semiwon-lotus-festival-festival-detail-3.webp",
+          "alt": "경기 세미원 연꽃문화제 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/74/4078874_image2_1.jpg",
+          "src": "/assets/processed/yangpyeong-semiwon-lotus-festival-festival-detail-4.webp",
+          "alt": "경기 세미원 연꽃문화제 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/75/4078875_image2_1.JPG",
+          "src": "/assets/processed/yangpyeong-semiwon-lotus-festival-festival-detail-5.webp",
+          "alt": "경기 세미원 연꽃문화제 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/77/4078877_image2_1.jpg",
+          "src": "/assets/processed/yangpyeong-semiwon-lotus-festival-festival-detail-6.webp",
+          "alt": "경기 세미원 연꽃문화제 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        }
+      ]
     },
     "festival-507454": {
       "title": "통영한산대첩축제 2026, 8월 12~16일 야간 일정·교통 체크",
