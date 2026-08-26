@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-26T06:29:38.021Z",
+  "generatedAt": "2026-08-26T06:34:07.844Z",
   "source": "한국관광공사 공공누리",
   "assetBasePath": "/assets/processed/",
   "items": {
@@ -4061,7 +4061,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -4073,7 +4074,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -4085,7 +4087,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -4097,7 +4100,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -4109,7 +4113,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -4121,7 +4126,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -4133,7 +4139,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         }
       ]
     },
@@ -4225,7 +4232,44 @@
         "posterCanvas": false,
         "bytes": null
       },
-      "images": []
+      "images": [
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/32/4086432_image2_1.jpg",
+          "src": "/assets/processed/chuncheon-summer-water-festival-festival-detail-1.webp",
+          "alt": "강원 춘천 썸머워터 페스티벌 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/33/4086433_image2_1.jpg",
+          "src": "/assets/processed/chuncheon-summer-water-festival-festival-detail-2.webp",
+          "alt": "강원 춘천 썸머워터 페스티벌 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/34/4086434_image2_1.jpg",
+          "src": "/assets/processed/chuncheon-summer-water-festival-festival-detail-3.webp",
+          "alt": "강원 춘천 썸머워터 페스티벌 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        }
+      ]
     },
     "travel-2742100": {
       "title": "담양 담빛예술창고 실내 관람, 전시 확인과 주변 산책 코스",
@@ -4270,7 +4314,92 @@
         "posterCanvas": false,
         "bytes": null
       },
-      "images": []
+      "images": [
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/84/3497784_image2_1.jpg",
+          "src": "/assets/processed/damyang-dambit-art-warehouse-indoor-detail-1.webp",
+          "alt": "전남 담빛예술창고 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/85/3497785_image2_1.jpg",
+          "src": "/assets/processed/damyang-dambit-art-warehouse-indoor-detail-2.webp",
+          "alt": "전남 담빛예술창고 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/86/3497786_image2_1.jpg",
+          "src": "/assets/processed/damyang-dambit-art-warehouse-indoor-detail-3.webp",
+          "alt": "전남 담빛예술창고 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/88/3497788_image2_1.jpg",
+          "src": "/assets/processed/damyang-dambit-art-warehouse-indoor-detail-4.webp",
+          "alt": "전남 담빛예술창고 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/15/4086015_image2_1.jpg",
+          "src": "/assets/processed/damyang-dambit-art-warehouse-indoor-detail-5.webp",
+          "alt": "전남 담빛예술창고 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/16/4086016_image2_1.jpg",
+          "src": "/assets/processed/damyang-dambit-art-warehouse-indoor-detail-6.webp",
+          "alt": "전남 담빛예술창고 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/17/4086017_image2_1.jpg",
+          "src": "/assets/processed/damyang-dambit-art-warehouse-indoor-detail-7.webp",
+          "alt": "전남 담빛예술창고 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        }
+      ]
     },
     "travel-125900": {
       "title": "청양 장곡사 관람 가이드, 상·하 대웅전과 칠갑산 동선",
@@ -4328,6 +4457,78 @@
           "overlay": null,
           "posterCanvas": false,
           "bytes": null
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/56/3476656_image2_1.jpg",
+          "src": "/assets/processed/cheongyang-janggoksa-parking-detail-2.webp",
+          "alt": "충남 장곡사(청양) 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/68/3476668_image2_1.jpg",
+          "src": "/assets/processed/cheongyang-janggoksa-parking-detail-3.webp",
+          "alt": "충남 장곡사(청양) 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/60/3476660_image2_1.jpg",
+          "src": "/assets/processed/cheongyang-janggoksa-parking-detail-4.webp",
+          "alt": "충남 장곡사(청양) 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/61/3476661_image2_1.jpg",
+          "src": "/assets/processed/cheongyang-janggoksa-parking-detail-5.webp",
+          "alt": "충남 장곡사(청양) 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/13/3476713_image2_1.jpg",
+          "src": "/assets/processed/cheongyang-janggoksa-parking-detail-6.webp",
+          "alt": "충남 장곡사(청양) 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/57/3476657_image2_1.jpg",
+          "src": "/assets/processed/cheongyang-janggoksa-parking-detail-7.webp",
+          "alt": "충남 장곡사(청양) 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false
         }
       ]
     },
