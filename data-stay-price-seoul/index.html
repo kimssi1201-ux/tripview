@@ -126,6 +126,8 @@ button,input,select{font:inherit}
 .article-fact-table th{width:118px;background:color-mix(in srgb,var(--line) 28%,var(--card));color:var(--ink);font-weight:900}
 .article-fact-table td{color:var(--ink);white-space:pre-line;word-break:keep-all;overflow-wrap:anywhere}
 .article-fact-table tr:last-child th,.article-fact-table tr:last-child td{border-bottom:0}
+.article-fact-value-list{display:grid;gap:6px;margin:0;padding-left:18px}
+.article-fact-value-list li{padding-left:2px}
 .article-check-list{display:grid;gap:8px;list-style:none;padding:0!important}
 .article-check-list li{position:relative;margin:0!important;padding:10px 12px 10px 24px;border:1px solid var(--line);border-radius:8px;background:var(--card)}
 .article-check-list li::before{content:"";position:absolute;left:12px;top:20px;width:4px;height:4px;border-radius:50%;background:var(--brand)}
@@ -245,7 +247,7 @@ footer.site-footer{padding:0;color:var(--muted)}
           <section class="faq"><h2>자주 묻는 질문</h2><details><summary>가격은 어떤 기준인가요?</summary><p>성인 2명 기준 주말 1박 요금으로 비교했습니다.</p></details><details><summary>원가와 판매가가 같으면 어떤 의미인가요?</summary><p>별도 할인이 표시되지 않은 상품으로 보면 됩니다.</p></details><details><summary>주소가 바뀌나요?</summary><p>서울 숙소 가격 비교는 /data-stay-price-seoul/ 주소에서 이어집니다.</p></details></section>
         <!-- COUPANG_AD_START bottom -->
 <section class="coupang-native-ad" aria-label="쿠팡 파트너스 추천" data-coupang-section>
-  <h2>비용과 준비물</h2>
+  <h2>비용과 준비물</h2><table class="article-fact-table" aria-label="운영 정보 표"><tbody><tr><th>장소</th><td>서울</td></tr></tbody></table>
   <p class="affiliate-disclosure" data-coupang-disclosure>이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
   <div class="coupang-native-grid" data-coupang-products data-coupang-intent="travel" data-coupang-keyword="여행 준비물" data-coupang-limit="4">
     <p class="note">추천 상품을 불러오는 중입니다.</p>

@@ -1779,6 +1779,8 @@ function articleSiteDesignCss() {
 .article-fact-table th{width:118px;background:color-mix(in srgb,var(--line) 28%,var(--card));color:var(--ink);font-weight:900}
 .article-fact-table td{color:var(--ink);white-space:pre-line;word-break:keep-all;overflow-wrap:anywhere}
 .article-fact-table tr:last-child th,.article-fact-table tr:last-child td{border-bottom:0}
+.article-fact-value-list{display:grid;gap:6px;margin:0;padding-left:18px}
+.article-fact-value-list li{padding-left:2px}
 .article-check-list{display:grid;gap:8px;list-style:none;padding:0!important}
 .article-check-list li{position:relative;margin:0!important;padding:10px 12px 10px 24px;border:1px solid var(--line);border-radius:8px;background:var(--card)}
 .article-check-list li::before{content:"";position:absolute;left:12px;top:20px;width:4px;height:4px;border-radius:50%;background:var(--brand)}
@@ -2148,6 +2150,21 @@ function cleanFactValue(value = "") {
     .trim();
 }
 
+function factTableCellMarkup(value = "") {
+  // cleanFactValue() breaks long multi-tier values (fee tables, seasonal
+  // hours) onto separate lines with \n. Rendered as plain pre-line text
+  // those lines just sit flush against each other with only line-height
+  // between them, which reads as one dense, cramped block for anything
+  // with more than a couple of tiers - so render multi-line values as a
+  // real spaced list. <ul>/<li> is safe here (unlike in the info-grid
+  // card): this table is matched elsewhere by a regex scoped to
+  // <table>...</table>, so nested block elements inside a <td> don't
+  // confuse it.
+  const lines = value.split("\n").map((line) => line.trim()).filter(Boolean);
+  if (lines.length <= 1) return html(value);
+  return `<ul class="article-fact-value-list">${lines.map((line) => `<li>${html(line)}</li>`).join("")}</ul>`;
+}
+
 function articleFactTable(post) {
   if (isDataPipelinePost(post)) return "";
   const items = articleInfoItems(post)
@@ -2155,7 +2172,7 @@ function articleFactTable(post) {
     .filter((item) => item.value)
     .slice(0, 7);
   if (!items.length) return "";
-  return `<table class="article-fact-table" aria-label="운영 정보 표"><tbody>${items.map((item) => `<tr><th>${html(item.label)}</th><td>${html(item.value)}</td></tr>`).join("")}</tbody></table>`;
+  return `<table class="article-fact-table" aria-label="운영 정보 표"><tbody>${items.map((item) => `<tr><th>${html(item.label)}</th><td>${factTableCellMarkup(item.value)}</td></tr>`).join("")}</tbody></table>`;
 }
 
 function splitProgramItems(value = "") {
@@ -2180,12 +2197,7 @@ function articleProgramList(post) {
 function insertArticleFactBlocks(document, post) {
   return replaceArticleContent(document, (body) => {
     let next = body.replace(/\s*<table\b[^>]*\bclass=["'][^"']*\barticle-fact-table\b[^"']*["'][^>]*>[\s\S]*?<\/table>/gi, "");
-    // articleFactTable() and the article-info-grid card near the top both
-    // read the same articleInfoItems(post), so whenever the grid already
-    // rendered, the table would just repeat the identical 장소/문의/운영
-    // 시간/이용 요금 facts a second time further down the page. Only add
-    // the table as a fallback when there's no info-grid card to show them.
-    const factTable = next.includes("article-info-grid") ? "" : articleFactTable(post);
+    const factTable = articleFactTable(post);
     if (factTable && !next.includes("article-fact-table")) {
       const target = next.match(/<h2[^>]*>\s*(?:운영 정보|일정과 운영 흐름|비용과 준비물)\s*<\/h2>/i);
       next = target
@@ -2577,38 +2589,14 @@ function articleInfoItems(post) {
     .slice(0, limit);
 }
 
-function articleInfoValueMarkup(value = "") {
-  // cleanFactValue() breaks long multi-tier values (fee tables, seasonal
-  // hours) onto separate lines with \n. Rendered as plain text those lines
-  // just sit flush against each other with only line-height between them,
-  // which reads as one dense, cramped block for anything with more than a
-  // couple of tiers - so render multi-line values as a spaced list instead.
-  // Kept to <span> elements (no <div>/<ul>/<li>): the surrounding
-  // .article-info-card is matched elsewhere with a non-greedy
-  // [\s\S]*?<\/div> regex that assumes no nested <div> inside a card.
-  const cleaned = cleanFactValue(value);
-  const lines = cleaned.split("\n").map((line) => line.trim()).filter(Boolean);
-  if (lines.length <= 1) return `<span class="article-info-value">${html(cleaned)}</span>`;
-  return `<span class="article-info-value"><span class="article-info-value-list" role="list">${lines.map((line) => `<span role="listitem">${html(line)}</span>`).join("")}</span></span>`;
-}
-
-function articleInfoGrid(post) {
-  const items = articleInfoItems(post);
-  if (!items.length) return "";
-  return `<div class="article-info-grid" aria-label="방문 기본 정보">${items.map((item) => `<div class="article-info-card"><span class="article-info-icon" aria-hidden="true">${html(item.icon)}</span><span><span class="article-info-label">${html(item.label)}</span>${articleInfoValueMarkup(item.value)}</span></div>`).join("")}</div>`;
-}
-
 function replaceArticleInfoTable(document, post) {
-  const grid = articleInfoGrid(post);
-  const withoutExistingGrid = String(document).replace(/\s*<div class=["']article-info-grid["'] aria-label=["']방문 기본 정보["']>(?:<div class=["']article-info-card["'][\s\S]*?<\/div>)+<\/div>/gi, "");
-  const hasTable = /<table class=["']info-table["']/.test(withoutExistingGrid);
-  let next = hasTable
-    ? withoutExistingGrid.replace(/\s*<table class=["']info-table["'][\s\S]*?<\/table>/i, grid)
-    : withoutExistingGrid;
-  if (!hasTable && grid) {
-    next = next.replace(/<article class=["']content["']>/i, `<article class="content">${grid}`);
-  }
-  return next;
+  // article-fact-table (inserted later by insertArticleFactBlocks) is the
+  // single quick-facts widget now - this just clears out the legacy
+  // <table class="info-table"> and any previously-rendered icon-grid card
+  // so nothing stale or duplicate is left behind.
+  return String(document)
+    .replace(/\s*<div class=["']article-info-grid["'] aria-label=["']방문 기본 정보["']>(?:<div class=["']article-info-card["'][\s\S]*?<\/div>)+<\/div>/gi, "")
+    .replace(/\s*<table class=["']info-table["'][\s\S]*?<\/table>/gi, "");
 }
 
 function articlePhotoGrid(post) {

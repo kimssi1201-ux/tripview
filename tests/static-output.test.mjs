@@ -336,8 +336,9 @@ test("accommodation cards use cached MyRealTrip stay links and stay out of pendi
   ]);
   assert.match(reviewedArticle, /<section class="article-hero-band"/);
   assert.match(reviewedArticle, /<p class="article-affiliate-disclosure"/);
-  assert.match(reviewedArticle, /<div class="article-info-grid"/);
+  assert.match(reviewedArticle, /<table class="article-fact-table"/);
   assert.doesNotMatch(reviewedArticle, /<table class="info-table"/);
+  assert.doesNotMatch(reviewedArticle, /<div class="article-info-grid"/);
   assert.match(reviewedArticle, /<!-- ARTICLE_PRODUCT_START accommodation -->/);
   const articleProductBlock = reviewedArticle.match(/<!-- ARTICLE_PRODUCT_START accommodation -->[\s\S]*?<!-- ARTICLE_PRODUCT_END -->/)?.[0] || "";
   const articleAccommodationCards = articleProductBlock.match(/data-mrt-accommodation-card/g) || [];
