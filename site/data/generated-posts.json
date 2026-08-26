@@ -1942,7 +1942,15 @@
         "sponsor1tel": "053-755-5881",
         "sponsor2": "경상북도, 문경시, 포스코, (재)대한걷기연맹, 대한민국맨발학교, (사)한국산림보호협회"
       },
-      "backfilledAt": "2026-08-26T03:07:10.334Z"
+      "backfilledAt": "2026-08-26T21:02:35.790Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:02:35.790Z",
+        "completed": false,
+        "imageCount": 1,
+        "detailImageCount": 0,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "editorialStatus": "reviewed",
     "editorialReviewedAt": "2026-08-15",
@@ -2217,7 +2225,15 @@
         "sponsor1tel": "031-8035-3141",
         "sponsor2": "동아일보, 퓨잇"
       },
-      "backfilledAt": "2026-08-26T03:07:12.782Z"
+      "backfilledAt": "2026-08-26T21:02:37.061Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:02:37.061Z",
+        "completed": false,
+        "imageCount": 2,
+        "detailImageCount": 1,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "sections": [
       [
@@ -2408,7 +2424,15 @@
         "sponsor1tel": "061-830-6773",
         "sponsor2": "(주)에스알컴퍼니"
       },
-      "backfilledAt": "2026-08-26T03:07:14.002Z"
+      "backfilledAt": "2026-08-26T21:02:38.265Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:02:38.265Z",
+        "completed": false,
+        "imageCount": 1,
+        "detailImageCount": 0,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "sections": [
       [
@@ -7468,7 +7492,15 @@
         "sponsor1tel": "031-230-3268",
         "sponsor2": "(재)경기아트센터"
       },
-      "backfilledAt": "2026-08-26T03:07:49.880Z"
+      "backfilledAt": "2026-08-26T21:02:39.536Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:02:39.536Z",
+        "completed": false,
+        "imageCount": 1,
+        "detailImageCount": 0,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "sections": [
       [
@@ -7622,7 +7654,15 @@
         "sponsor1tel": "070-4111-5620",
         "sponsor2": "KNN, 부산육상연맹"
       },
-      "backfilledAt": "2026-08-26T03:07:51.050Z"
+      "backfilledAt": "2026-08-26T21:02:40.863Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:02:40.863Z",
+        "completed": false,
+        "imageCount": 1,
+        "detailImageCount": 0,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "sections": [
       [
@@ -9730,7 +9770,15 @@
         "taketime": "3박 이상",
         "theme": "자연여행"
       },
-      "backfilledAt": "2026-08-26T03:08:07.007Z"
+      "backfilledAt": "2026-08-26T21:02:42.156Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:02:42.156Z",
+        "completed": false,
+        "imageCount": 1,
+        "detailImageCount": 0,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "sections": [
       [
@@ -11572,7 +11620,15 @@
         "schedule": "1박2일",
         "theme": "----지자체-----"
       },
-      "backfilledAt": "2026-08-26T03:08:20.321Z"
+      "backfilledAt": "2026-08-26T21:02:43.388Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:02:43.388Z",
+        "completed": false,
+        "imageCount": 1,
+        "detailImageCount": 0,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "sections": [
       [
@@ -12036,7 +12092,15 @@
         "schedule": "1박2일",
         "theme": "기타"
       },
-      "backfilledAt": "2026-08-26T03:08:23.971Z"
+      "backfilledAt": "2026-08-26T21:02:44.627Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:02:44.627Z",
+        "completed": false,
+        "imageCount": 1,
+        "detailImageCount": 0,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "sections": [
       [
@@ -15502,7 +15566,15 @@
         "parkingshopping": "가능",
         "saleitem": "안경&렌즈"
       },
-      "backfilledAt": "2026-08-26T03:08:49.257Z"
+      "backfilledAt": "2026-08-26T21:02:45.845Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:02:45.845Z",
+        "completed": false,
+        "imageCount": 1,
+        "detailImageCount": 0,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "sections": [
       [
@@ -16804,7 +16876,15 @@
         "taketime": "3박이상",
         "theme": "자연여행"
       },
-      "backfilledAt": "2026-08-26T03:08:59.017Z"
+      "backfilledAt": "2026-08-26T21:02:47.035Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:02:47.035Z",
+        "completed": false,
+        "imageCount": 1,
+        "detailImageCount": 0,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "sections": [
       [
@@ -16964,7 +17044,15 @@
         "infocenterleports": "010-3561-1103",
         "restdateleports": "연중무휴"
       },
-      "backfilledAt": "2026-08-26T03:09:00.248Z"
+      "backfilledAt": "2026-08-26T21:02:48.253Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:02:48.253Z",
+        "completed": false,
+        "imageCount": 2,
+        "detailImageCount": 1,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "sections": [
       [
@@ -17298,7 +17386,15 @@
         "sponsor1tel": "054-480-6762",
         "sponsor2": "구미코"
       },
-      "backfilledAt": "2026-08-26T03:09:02.698Z"
+      "backfilledAt": "2026-08-26T21:02:49.497Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:02:49.497Z",
+        "completed": false,
+        "imageCount": 2,
+        "detailImageCount": 1,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "sections": [
       [
@@ -17961,7 +18057,15 @@
         "usetimeleports": "- 입실 14:00- 퇴실 13:00",
         "infocenterleports": "0507-1432-4424"
       },
-      "backfilledAt": "2026-08-26T03:09:07.596Z"
+      "backfilledAt": "2026-08-26T21:02:50.722Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:02:50.722Z",
+        "completed": false,
+        "imageCount": 1,
+        "detailImageCount": 0,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "sections": [
       [
@@ -20616,7 +20720,15 @@
         "sponsor1tel": "062-570-7809",
         "sponsor2": "국립광주박물관"
       },
-      "backfilledAt": "2026-08-26T04:41:24.320Z"
+      "backfilledAt": "2026-08-26T21:02:51.989Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:02:51.989Z",
+        "completed": false,
+        "imageCount": 1,
+        "detailImageCount": 0,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "sections": [
       [
@@ -24689,7 +24801,15 @@
         "parkingfood": "가능요금 (무료)",
         "treatmenu": "진안고원 흑돼지 삼겹살 / 흑돼지 석갈비 정식A세트 / 진안고원 흑돼지 양념갈비 등"
       },
-      "backfilledAt": "2026-08-26T04:41:56.808Z"
+      "backfilledAt": "2026-08-26T21:02:53.236Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:02:53.236Z",
+        "completed": false,
+        "imageCount": 2,
+        "detailImageCount": 1,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "sections": [
       [
@@ -25543,7 +25663,15 @@
         "sponsor1tel": "054-955-0808",
         "sponsor2": "(재)고령문화관광재단"
       },
-      "backfilledAt": "2026-08-26T06:12:39.781Z"
+      "backfilledAt": "2026-08-26T21:02:54.473Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:02:54.473Z",
+        "completed": false,
+        "imageCount": 1,
+        "detailImageCount": 0,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "sections": [
       [
@@ -26821,7 +26949,15 @@
         "parkingfood": "가능",
         "treatmenu": "희락양념게장보리밥 / 희락제육보리밥 / 희락보리밥 등"
       },
-      "backfilledAt": "2026-08-26T06:12:50.413Z"
+      "backfilledAt": "2026-08-26T21:02:55.724Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:02:55.724Z",
+        "completed": false,
+        "imageCount": 1,
+        "detailImageCount": 0,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "sections": [
       [
@@ -28930,7 +29066,15 @@
         "sponsor1tel": "070-4266-7078",
         "sponsor2": "㈜무브컬쳐"
       },
-      "backfilledAt": "2026-08-26T06:13:08.554Z"
+      "backfilledAt": "2026-08-26T21:02:56.984Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:02:56.984Z",
+        "completed": false,
+        "imageCount": 2,
+        "detailImageCount": 1,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "sections": [
       [
@@ -29580,7 +29724,15 @@
         "roomtype": "카사스테이 / 카사블랑카 1층 / 카사블랑카 2층",
         "subfacility": "바비큐장 / 여름 풀장 / 정원 등"
       },
-      "backfilledAt": "2026-08-26T06:13:13.851Z"
+      "backfilledAt": "2026-08-26T21:02:58.206Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:02:58.206Z",
+        "completed": false,
+        "imageCount": 2,
+        "detailImageCount": 1,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "sections": [
       [
@@ -29748,7 +29900,15 @@
         "parkingshopping": "가능",
         "saleitem": "기타 서비스"
       },
-      "backfilledAt": "2026-08-26T06:13:15.245Z"
+      "backfilledAt": "2026-08-26T21:02:59.496Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:02:59.496Z",
+        "completed": false,
+        "imageCount": 1,
+        "detailImageCount": 0,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "sections": [
       [
@@ -30404,7 +30564,15 @@
         "sponsor1tel": "052-255-1823",
         "sponsor2": "울산문화관광재단"
       },
-      "backfilledAt": "2026-08-26T06:13:20.772Z"
+      "backfilledAt": "2026-08-26T21:03:00.772Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:03:00.772Z",
+        "completed": false,
+        "imageCount": 1,
+        "detailImageCount": 0,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "sections": [
       [
@@ -31201,7 +31369,15 @@
       "mapy": "",
       "mlevel": "",
       "intro": {},
-      "backfilledAt": "2026-08-26T06:13:27.411Z"
+      "backfilledAt": "2026-08-26T21:03:02.056Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:03:02.056Z",
+        "completed": false,
+        "imageCount": 1,
+        "detailImageCount": 0,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "sections": [
       [
@@ -34021,7 +34197,15 @@
         "taketime": "1박 2일",
         "theme": "지자체"
       },
-      "backfilledAt": "2026-08-26T06:27:44.435Z"
+      "backfilledAt": "2026-08-26T21:03:03.303Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:03:03.303Z",
+        "completed": false,
+        "imageCount": 1,
+        "detailImageCount": 0,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "sections": [
       [
@@ -34492,7 +34676,15 @@
         "parkingshopping": "가능",
         "saleitem": "복합쇼핑몰(백화점, 마트, 편의점, 아울렛 등)"
       },
-      "backfilledAt": "2026-08-26T06:27:48.591Z"
+      "backfilledAt": "2026-08-26T21:03:04.560Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:03:04.560Z",
+        "completed": false,
+        "imageCount": 1,
+        "detailImageCount": 0,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "sections": [
       [
@@ -34651,7 +34843,15 @@
         "parkingshopping": "가능",
         "saleitem": "전통민예품/도자기/목각제품/기타 공예품"
       },
-      "backfilledAt": "2026-08-26T06:27:49.995Z"
+      "backfilledAt": "2026-08-26T21:03:05.845Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:03:05.845Z",
+        "completed": false,
+        "imageCount": 1,
+        "detailImageCount": 0,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "sections": [
       [
@@ -36340,7 +36540,15 @@
         "parkingshopping": "불가능",
         "saleitem": "복합쇼핑몰(백화점, 마트, 편의점, 아울렛 등)"
       },
-      "backfilledAt": "2026-08-26T06:28:04.282Z"
+      "backfilledAt": "2026-08-26T21:03:07.110Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:03:07.110Z",
+        "completed": false,
+        "imageCount": 1,
+        "detailImageCount": 0,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "sections": [
       [
@@ -36501,7 +36709,15 @@
         "parkingshopping": "불가능",
         "saleitem": "복합쇼핑몰(백화점, 마트, 편의점, 아울렛 등)"
       },
-      "backfilledAt": "2026-08-26T06:28:05.737Z"
+      "backfilledAt": "2026-08-26T21:03:08.342Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:03:08.342Z",
+        "completed": false,
+        "imageCount": 1,
+        "detailImageCount": 0,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "sections": [
       [
@@ -38713,7 +38929,15 @@
         "sponsor1tel": "02-927-1438",
         "sponsor2": "(사)한국서점조합연합회"
       },
-      "backfilledAt": "2026-08-26T06:28:24.137Z"
+      "backfilledAt": "2026-08-26T21:03:09.585Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:03:09.585Z",
+        "completed": false,
+        "imageCount": 1,
+        "detailImageCount": 0,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "sections": [
       [
@@ -40373,7 +40597,15 @@
         "sponsor1tel": "070-4006-6849",
         "sponsor2": "부산관광공사, 부산시 중구청"
       },
-      "backfilledAt": "2026-08-26T06:28:38.152Z"
+      "backfilledAt": "2026-08-26T21:03:10.801Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:03:10.801Z",
+        "completed": false,
+        "imageCount": 1,
+        "detailImageCount": 1,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "sections": [
       [
@@ -41004,7 +41236,15 @@
         "infocenterleports": "033-463-0901",
         "restdateleports": "연중무휴"
       },
-      "backfilledAt": "2026-08-26T06:28:43.848Z"
+      "backfilledAt": "2026-08-26T21:03:12.060Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:03:12.060Z",
+        "completed": false,
+        "imageCount": 1,
+        "detailImageCount": 0,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "sections": [
       [
@@ -41512,7 +41752,15 @@
         "parkingshopping": "불가능",
         "saleitem": "복합쇼핑몰(백화점, 마트, 편의점, 아울렛 등)"
       },
-      "backfilledAt": "2026-08-26T06:28:48.040Z"
+      "backfilledAt": "2026-08-26T21:03:13.259Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-26T21:03:13.259Z",
+        "completed": false,
+        "imageCount": 2,
+        "detailImageCount": 1,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "sections": [
       [
