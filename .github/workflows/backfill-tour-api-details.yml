@@ -54,6 +54,7 @@ jobs:
         run: |
           node --check scripts/backfill-tour-api-details.mjs
           node --check scripts/polish-contextual-copy.mjs
+          node --check scripts/report-photo-coverage.mjs
 
       - name: Sample TourAPI gallery images
         if: ${{ github.event_name == 'push' || github.event.inputs.image_mode == 'sample' || github.event.inputs.image_mode == 'full' }}
@@ -103,15 +104,7 @@ jobs:
 
       - name: Report article photo coverage
         if: ${{ github.event.inputs.image_mode == 'full' || github.event.inputs.image_mode == 'off' }}
-        run: |
-          node <<'NODE'
-          const fs = require('node:fs');
-          const dirs = fs.readdirSync('.').filter((name) => /^(travel|festival)-/.test(name) && fs.existsSync(`${name}/index.html`));
-          const articlePhotoGrid = dirs.filter((name) => fs.readFileSync(`${name}/index.html`, 'utf8').includes('article-photo-grid'));
-          const lodgingPhotoGuide = dirs.filter((name) => fs.readFileSync(`${name}/index.html`, 'utf8').includes('lodging-photo-guide'));
-          console.log(`Article photo grid pages: ${articlePhotoGrid.length}/${dirs.length}`);
-          console.log(`Lodging photo guide pages: ${lodgingPhotoGuide.length}/${dirs.length}`);
-          NODE
+        run: node scripts/report-photo-coverage.mjs
 
       - name: Verify enriched article data
         if: ${{ github.event.inputs.image_mode == 'full' || github.event.inputs.image_mode == 'off' }}

@@ -1,5 +1,7 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import os from "node:os";
+import path from "node:path";
 import test from "node:test";
 
 import {
@@ -12,6 +14,10 @@ import {
   summarizeImageSampleResults,
   summarizePhotoGallerySampleResults,
 } from "../scripts/backfill-tour-api-details.mjs";
+import {
+  formatPhotoCoverage,
+  summarizePhotoCoverage,
+} from "../scripts/report-photo-coverage.mjs";
 
 test("TourAPI image backfill merges gallery images without duplicating the cover", () => {
   const cover = "https://tong.visitkorea.or.kr/cms/resource/66/4096566_image2_1.jpg";
@@ -135,9 +141,10 @@ test("backfill workflow keeps PhotoGalleryService1 behind an explicit sample mod
 });
 
 test("full image backfill can merge PhotoGallery images in bounded batches", async () => {
-  const [script, workflow] = await Promise.all([
+  const [script, workflow, report] = await Promise.all([
     readFile("scripts/backfill-tour-api-details.mjs", "utf8"),
     readFile(".github/workflows/backfill-tour-api-details.yml", "utf8"),
+    readFile("scripts/report-photo-coverage.mjs", "utf8"),
   ]);
   assert.match(script, /BACKFILL_REQUEST_RETRIES/);
   assert.match(script, /attempt < API_REQUEST_RETRIES/);
@@ -152,4 +159,47 @@ test("full image backfill can merge PhotoGallery images in bounded batches", asy
   assert.match(workflow, /BACKFILL_INCLUDE_PHOTO_GALLERY=1/);
   assert.match(workflow, /PHOTO_GALLERY_API_KEY: \$\{\{ secrets\.PHOTO_GALLERY_API_KEY \}\}/);
   assert.match(workflow, /Report article photo coverage/);
+  assert.match(workflow, /node scripts\/report-photo-coverage\.mjs/);
+  assert.match(report, /postImageCount/);
+  assert.match(report, /post\.images/);
+  assert.match(report, /section\\\\s\+class/);
+  assert.match(report, /match\(\/<img/);
+  assert.match(report, /imgCount >= 3/);
+  assert.doesNotMatch(workflow, /includes\('article-photo-grid'\)/);
+});
+
+test("photo coverage report counts data images and ignores CSS-only class names", async () => {
+  const root = await mkdtemp(path.join(os.tmpdir(), "tripview-photo-coverage-"));
+  try {
+    const posts = [
+      { slug: "travel-css-only", images: ["a.jpg", "b.jpg", "c.jpg"] },
+      { slug: "travel-grid", images: ["a.jpg", "b.jpg", "c.jpg"] },
+      { slug: "travel-two-images", images: ["a.jpg", "b.jpg"] },
+    ];
+    for (const post of posts) {
+      await mkdir(path.join(root, post.slug), { recursive: true });
+    }
+    await writeFile(
+      path.join(root, "travel-css-only", "index.html"),
+      "<style>.article-photo-grid{margin:0}</style><article>No photo section</article>",
+    );
+    await writeFile(
+      path.join(root, "travel-grid", "index.html"),
+      '<section class="article-photo-grid"><img src="1.jpg"><img src="2.jpg"><img src="3.jpg"></section>',
+    );
+    await writeFile(
+      path.join(root, "travel-two-images", "index.html"),
+      '<section class="article-photo-grid"><img src="1.jpg"><img src="2.jpg"></section>',
+    );
+
+    const summary = summarizePhotoCoverage(posts, root);
+    assert.equal(summary.totalPosts, 3);
+    assert.equal(summary.postsWithThreeImages, 2);
+    assert.equal(summary.articleGridPages, 1);
+    assert.equal(summary.renderedThreeImagePages, 1);
+    assert.equal(summary.missingHtml, 0);
+    assert.match(formatPhotoCoverage(summary), /Posts with post\.images\.length >= 3: 2\/3/);
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
 });
