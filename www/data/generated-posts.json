@@ -54853,7 +54853,13 @@
     "read": "약 7분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/15/3367615_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/15/3367615_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/15/3367615_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/16/3367616_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/17/3367617_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/18/3367618_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/19/3367619_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/20/3367620_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/21/3367621_image2_1.jpg"
     ],
     "alt": "광주광역시 사직도서관 이미지",
     "excerpt": "광주광역시 사직도서관 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -54868,15 +54874,15 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "062-613-7783"
       ],
       [
         "요금",
-        "시설별 상이"
+        "무료"
       ],
       [
         "운영 확인",
-        "방문 전 확인 필요"
+        "[종합자료실]- 평일 09:00~22:00- 주말 09:00~17:00[어린이실/디지털자료실]- 평일 09:00~18:00- 주말 09:00~17:00[열람실]- 07:00~22:00[청소년 상담실]- 평일 10:00~16:00"
       ],
       [
         "방문 포인트",
@@ -54885,6 +54891,14 @@
       [
         "쉬는 날",
         "매월 첫째, 셋째 월요일 / 관공서 공휴일 (단, 설과 추석 공휴일이 아닌 일요일은 제외) / 도서관 사정으로 관장이 지정한 날"
+      ],
+      [
+        "홈페이지",
+        "https://lib.gwangju.go.kr/rpst/citylibGuide/SJ"
+      ],
+      [
+        "좌표",
+        "35.1394794628, 126.9139622402"
       ]
     ],
     "memo": [
@@ -54895,18 +54909,18 @@
     ],
     "tourApi": {
       "contentTypeId": "14",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "전라남도 사직도서관은 지하 2층 지상 5층 건물로 광주사직공원에 맞닿아 있으며 양림미술관과 인접해 있다. 2019년 7월 22일 도서관 3층에 북카페 이음을 개관하였고 열람실 일부를 리모델링하여 지역 주민의 복합문화공간이자 소통의 공간으로 활용하고 있다. 2024년 기준 약 250,000개의 책을 보유하고 있다.",
+      "homepage": "https://lib.gwangju.go.kr/rpst/citylibGuide/SJ",
+      "mapx": "126.9139622402",
+      "mapy": "35.1394794628",
+      "mlevel": "6",
       "intro": {
         "restdateculture": "매월 첫째, 셋째 월요일 / 관공서 공휴일 (단, 설과 추석 공휴일이 아닌 일요일은 제외) / 도서관 사정으로 관장이 지정한 날",
         "usetimeculture": "[종합자료실]- 평일 09:00~22:00- 주말 09:00~17:00[어린이실/디지털자료실]- 평일 09:00~18:00- 주말 09:00~17:00[열람실]- 07:00~22:00[청소년 상담실]- 평일 10:00~16:00",
         "usefee": "무료",
         "infocenterculture": "062-613-7783"
       },
-      "backfilledAt": "2026-07-10T10:50:20.932Z"
+      "backfilledAt": "2026-08-26T06:49:57.234Z"
     },
     "sections": [
       [
@@ -54919,8 +54933,8 @@
       [
         "운영 정보",
         [
-          "위치는 광주광역시 남구 제중로 56 기준입니다. 운영 관련 안내는 방문 전 확인 필요, 요금은 시설별 상이로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
-          "문의처는 방문 전 확인 필요입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
+          "위치는 광주광역시 남구 제중로 56 기준입니다. 운영 관련 안내는 [종합자료실]- 평일 09:00~22:00- 주말 09:00~17:00[어린이실/디지털자료실]- 평일 09:00~18:00- 주말 09:00~17:00[열람실]- 07:00~22:00[청소년 상담실]- 평일 10:00~16:00, 요금은 무료로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
+          "문의처는 062-613-7783입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
         ]
       ],
       [
@@ -54964,7 +54978,7 @@
       ],
       [
         "문의는 어디로 하나요?",
-        "광주광역시 사직도서관 관련 문의는 방문 전 확인 필요로 확인하세요."
+        "광주광역시 사직도서관 관련 문의는 062-613-7783로 확인하세요."
       ]
     ],
     "aiEnrichedVersion": 1,
@@ -55013,6 +55027,18 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "좌표",
+        "35.1860559634, 127.0002306766"
+      ],
+      [
+        "예상 시간",
+        "5시간"
+      ],
+      [
+        "코스 안내",
+        "기타"
       ]
     ],
     "memo": [
@@ -55024,13 +55050,18 @@
     ],
     "tourApi": {
       "contentTypeId": "25",
-      "overview": "",
+      "overview": "유적지를 본다는 것은 그 지역의 땅과 하늘과 숲에 묻힌 역사를 함께 보는 것이다. 따라서 이 코스는 이야기가 담긴 걷기코스라 할 수 있겠다. 특히 광주호 호수생태원은 자연생태학습장이며 시민들의 휴식공간이다. 자연과 역사를 동시에 누려보자.",
       "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
-      "intro": {},
-      "backfilledAt": "2026-07-10T10:49:24.311Z"
+      "mapx": "127.0002306766",
+      "mapy": "35.1860559634",
+      "mlevel": "4",
+      "intro": {
+        "distance": "10.05km",
+        "schedule": "기타",
+        "taketime": "5시간",
+        "theme": "지자체"
+      },
+      "backfilledAt": "2026-08-26T06:49:58.709Z"
     },
     "sections": [
       [
@@ -55175,6 +55206,18 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "좌표",
+        "35.1335295067, 126.8750327406"
+      ],
+      [
+        "예상 시간",
+        "1일"
+      ],
+      [
+        "코스 안내",
+        "기타"
       ]
     ],
     "memo": [
@@ -55186,13 +55229,18 @@
     ],
     "tourApi": {
       "contentTypeId": "25",
-      "overview": "",
+      "overview": "광주하계유니버시아드 주경기장을 중심으로 산책하기 좋은 풍암저수지(호수공원)와 다리를 기점으로 좌우가 연못으로 이루어진 전평제, 호수 및 열린광장, 조각공원 등 각종 조경, 편의시설을 갖춘 상무시민공원 까지 가족, 연인 등 함께 하기 좋은 여행코스 이다.",
       "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
-      "intro": {},
-      "backfilledAt": "2026-07-10T10:49:31.780Z"
+      "mapx": "126.8750327406",
+      "mapy": "35.1335295067",
+      "mlevel": "6",
+      "intro": {
+        "distance": "13.07km",
+        "schedule": "기타",
+        "taketime": "1일",
+        "theme": "지자체"
+      },
+      "backfilledAt": "2026-08-26T06:50:00.145Z"
     },
     "sections": [
       [
@@ -55309,7 +55357,14 @@
     "read": "약 7분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/24/4081224_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/24/4081224_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/24/4081224_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/23/4081223_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/25/4081225_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/26/4081226_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/27/4081227_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/27/4081527_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource_photo/64/4065264_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource_photo/81/4065281_image2_1.jpg"
     ],
     "alt": "통영 삼도수군통제영 이미지",
     "excerpt": "통영 삼도수군통제영 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -55324,7 +55379,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "통영 삼도수군통제영 관리사무소 055-640-5644"
       ],
       [
         "요금",
@@ -55332,7 +55387,7 @@
       ],
       [
         "운영 확인",
-        "방문 전 확인 필요"
+        "- 3월~10월 09:00~18:00 (매표 마감 17:30)- 11월~2월 09:00~17:30 (매표 마감 17:00)"
       ],
       [
         "방문 포인트",
@@ -55345,6 +55400,14 @@
       [
         "쉬는 날",
         "연중무휴"
+      ],
+      [
+        "홈페이지",
+        "https://www.tyhansancf.or.kr"
+      ],
+      [
+        "좌표",
+        "34.8471548607, 128.4234890263"
       ]
     ],
     "memo": [
@@ -55355,18 +55418,18 @@
     ],
     "tourApi": {
       "contentTypeId": "12",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "통제영(統制營)은 삼도수군통제영의 약칭으로 충청·전라·경상도의 삼도수군을 통할하는 통제사가 있는 본진을 말한다. 최초의 통제영은 임란당시 초대 통제사로 제수된 이순신 장군의 한산 진영이였다. 지금의 통영시 관내에 통제영을 짓기 시작한 것은 선조 36년(1603) 때의 일이다. 제6대 이경준 통제사가 이곳에 터를 닦고 2년 뒤인 선조 38년(1605)에 세병관, 백화당, 정해정 등을 세웠다. 이곳은 고종 32년(1895) 각 도의 병영과 수영이 없어질 때까지 292년간 그대로 유지하다가 일제강점기에 일제에 의해 통영성 일부와 세병관을 제외한 많은 건물이 사라졌다. 당시 건물 중 남아있는 것은 세병관뿐이나, 최근 관공서와 주택이 있던 통제영터를 일부 정비 복원하였다.",
+      "homepage": "https://www.tyhansancf.or.kr",
+      "mapx": "128.4234890263",
+      "mapy": "34.8471548607",
+      "mlevel": "6",
       "intro": {
         "parking": "가능",
         "restdate": "연중무휴",
         "usetime": "- 3월~10월 09:00~18:00 (매표 마감 17:30)- 11월~2월 09:00~17:30 (매표 마감 17:00)",
         "infocenter": "통영 삼도수군통제영 관리사무소 055-640-5644"
       },
-      "backfilledAt": "2026-07-10T10:49:53.699Z"
+      "backfilledAt": "2026-08-26T06:50:01.610Z"
     },
     "sections": [
       [
@@ -55379,8 +55442,8 @@
       [
         "운영 정보",
         [
-          "위치는 경상남도 통영시 세병로 27 (문화동) 기준입니다. 운영 관련 안내는 방문 전 확인 필요, 요금은 시설별 상이로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
-          "문의처는 방문 전 확인 필요입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
+          "위치는 경상남도 통영시 세병로 27 (문화동) 기준입니다. 운영 관련 안내는 - 3월~10월 09:00~18:00 (매표 마감 17:30)- 11월~2월 09:00~17:30 (매표 마감 17:00), 요금은 시설별 상이로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
+          "문의처는 통영 삼도수군통제영 관리사무소 055-640-5644입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
         ]
       ],
       [
@@ -55424,7 +55487,7 @@
       ],
       [
         "문의는 어디로 하나요?",
-        "통영 삼도수군통제영 관련 문의는 방문 전 확인 필요로 확인하세요."
+        "통영 삼도수군통제영 관련 문의는 통영 삼도수군통제영 관리사무소 055-640-5644로 확인하세요."
       ]
     ],
     "aiEnrichedVersion": 1,
@@ -55445,7 +55508,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/03/4082503_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/03/4082503_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/03/4082503_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/95/4082495_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/96/4082496_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/97/4082497_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/98/4082498_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/00/4082500_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/01/4082501_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/02/4082502_image2_1.jpg"
     ],
     "alt": "한방바이오 제천몰 이미지",
     "excerpt": "한방바이오 제천몰 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -55460,7 +55530,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "043-648-4510043-921-4510"
       ],
       [
         "요금",
@@ -55468,11 +55538,27 @@
       ],
       [
         "운영 확인",
-        "방문 전 확인 필요"
+        "10:00~19:00"
       ],
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "좌표",
+        "37.1388882948, 128.2106394874"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "매주 일요일~월요일 / 공휴일"
+      ],
+      [
+        "판매 품목",
+        "한방식품 / 비누 / 스킨케어 등"
       ]
     ],
     "memo": [
@@ -55484,13 +55570,19 @@
     ],
     "tourApi": {
       "contentTypeId": "38",
-      "overview": "",
+      "overview": "한방바이오 제천몰은 시민에게 우수한 한방제품을 홍보 및 편리하게 구입할 수 있는 기회를 제공하고 다양한 한방제품이 준비되어 있다. 세트 상품도 있어 선물용으로도 적합하다. 그리고 식품뿐만 아니라 비누, 스킨케어 등의 다양한 한방 미용 제품도 준비되어 있다. 우수 한방상품을 엄격하게 선별하여 소비자들에게 신뢰있는 제품을 공급하고 있다.",
       "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
-      "intro": {},
-      "backfilledAt": "2026-07-10T10:49:53.120Z"
+      "mapx": "128.2106394874",
+      "mapy": "37.1388882948",
+      "mlevel": "6",
+      "intro": {
+        "infocentershopping": "043-648-4510043-921-4510",
+        "restdateshopping": "매주 일요일~월요일 / 공휴일",
+        "opentime": "10:00~19:00",
+        "parkingshopping": "가능",
+        "saleitem": "한방식품 / 비누 / 스킨케어 등"
+      },
+      "backfilledAt": "2026-08-26T06:50:03.068Z"
     },
     "sections": [
       [
@@ -55608,7 +55700,13 @@
     "image": "https://tong.visitkorea.or.kr/cms/resource_photo/85/4080085_image2_1.JPG",
     "images": [
       "https://tong.visitkorea.or.kr/cms/resource_photo/85/4080085_image2_1.JPG",
-      "https://tong.visitkorea.or.kr/cms/resource_photo/85/4080085_image3_1.JPG"
+      "https://tong.visitkorea.or.kr/cms/resource_photo/85/4080085_image3_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource_photo/88/4080088_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource_photo/93/4080093_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource_photo/92/4080092_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource_photo/89/4080089_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms2/website/04/2992704.jpg",
+      "https://tong.visitkorea.or.kr/cms2/website/05/2992705.jpg"
     ],
     "alt": "교동도 대룡시장 이미지",
     "excerpt": "교동도 대룡시장 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -55623,7 +55721,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "032-934-1000"
       ],
       [
         "요금",
@@ -55631,11 +55729,31 @@
       ],
       [
         "운영 확인",
-        "방문 전 확인 필요"
+        "점포별 상이"
       ],
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "홈페이지",
+        "https://www.ganghwa.go.kr/open_content/tour/"
+      ],
+      [
+        "좌표",
+        "37.7802111474, 126.2809281709"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "점포별 상이"
+      ],
+      [
+        "판매 품목",
+        "농산물 / 축산물 / 잡화 등"
       ]
     ],
     "memo": [
@@ -55647,13 +55765,19 @@
     ],
     "tourApi": {
       "contentTypeId": "38",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
-      "intro": {},
-      "backfilledAt": "2026-07-10T10:49:58.788Z"
+      "overview": "대룡시장은 6·25 때 황해도 연백군에서 교동도로 잠시 피난 온 주민들이 한강하구가 분단선이 되어 고향에 다시 돌아갈 수 없게 되자 생계를 유지하기 위해 고향에 있는 연백시장의 모습을 재현한 골목시장이다. 50여 년간 교동도 경제발전의 중심지였으며 지금은 시장을 만든 실향민 어르신 대부분이 돌아가시고 인구가 급격히 줄어들면서 시장의 규모도 상당히 줄었다. 그러나 2014년 7월 교동대교 개통과 함께 1960년대 영화세트장 같은 모습의 대룡시장을 카메라에 담기 위한 관광객들의 필수코스가 되었다.",
+      "homepage": "https://www.ganghwa.go.kr/open_content/tour/",
+      "mapx": "126.2809281709",
+      "mapy": "37.7802111474",
+      "mlevel": "6",
+      "intro": {
+        "infocentershopping": "032-934-1000",
+        "restdateshopping": "점포별 상이",
+        "opentime": "점포별 상이",
+        "parkingshopping": "가능",
+        "saleitem": "농산물 / 축산물 / 잡화 등"
+      },
+      "backfilledAt": "2026-08-26T06:50:04.510Z"
     },
     "sections": [
       [
@@ -55770,7 +55894,14 @@
     "read": "약 7분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/75/4082675_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/75/4082675_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/75/4082675_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/72/3500672_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/73/3500673_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/74/3500674_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/76/3500676_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/78/3500678_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/76/4082676_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/77/4082677_image2_1.jpg"
     ],
     "alt": "남해 상상양떼목장 편백숲 이미지",
     "excerpt": "남해 상상양떼목장 편백숲 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -55785,7 +55916,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "055-862-5300"
       ],
       [
         "요금",
@@ -55793,7 +55924,7 @@
       ],
       [
         "운영 확인",
-        "방문 전 확인 필요"
+        "- 하절기 09:00~18:00 (입장 마감 17:00)- 동절기 09:00~17:00 (입장 마감 16:00)"
       ],
       [
         "방문 포인트",
@@ -55806,6 +55937,10 @@
       [
         "쉬는 날",
         "연중무휴※ 우천 시 전화문의 요망"
+      ],
+      [
+        "좌표",
+        "34.9360437143, 127.8894465807"
       ]
     ],
     "memo": [
@@ -55816,18 +55951,18 @@
     ],
     "tourApi": {
       "contentTypeId": "12",
-      "overview": "",
+      "overview": "남해군에 초지에 둘러싸인 상상양떼목장 편백숲이 2017년 5월 공식적으로 오픈을 하였다. 피톤치드를 내뿜는 편백나무 등 각종 수목이 10만 평 초지를 둘러싸고 있다. 천연 항균물질인 피톤치드는 머리를 맑게 해 주고 피부질환을 완화시켜 준다는 피톤치드를 마시며 목장을 걸으면서 힐링할 수 있다. 산책로가 따로 마련되어 있어 걷기에 좋은 환경이다. 무엇보다 높은 지대에 자리 잡고 있어 탁 트인 전망이 좋아 어느 쪽으로 카메라를 대도 인생사진을 남길 수 있다. 편백숲의 시원한 바람은 초여름 무더위를 잊게 하고 양들과 함께 뛰노는 시간을 가져도 좋다. 양먹이를 주고 만져보고, 안아보고, 같이 사진도 찍을 수 있다. 새끼양은 어린이들에게 인기 만점이다.",
       "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "mapx": "127.8894465807",
+      "mapy": "34.9360437143",
+      "mlevel": "6",
       "intro": {
         "parking": "가능",
         "restdate": "연중무휴※ 우천 시 전화문의 요망",
         "usetime": "- 하절기 09:00~18:00 (입장 마감 17:00)- 동절기 09:00~17:00 (입장 마감 16:00)",
         "infocenter": "055-862-5300"
       },
-      "backfilledAt": "2026-07-10T10:49:37.078Z"
+      "backfilledAt": "2026-08-26T06:50:05.910Z"
     },
     "sections": [
       [
@@ -55840,8 +55975,8 @@
       [
         "운영 정보",
         [
-          "위치는 경상남도 남해군 설천면 설천로775번길 364 기준입니다. 운영 관련 안내는 방문 전 확인 필요, 요금은 시설별 상이로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
-          "문의처는 방문 전 확인 필요입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
+          "위치는 경상남도 남해군 설천면 설천로775번길 364 기준입니다. 운영 관련 안내는 - 하절기 09:00~18:00 (입장 마감 17:00)- 동절기 09:00~17:00 (입장 마감 16:00), 요금은 시설별 상이로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
+          "문의처는 055-862-5300입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
         ]
       ],
       [
@@ -55885,7 +56020,7 @@
       ],
       [
         "문의는 어디로 하나요?",
-        "남해 상상양떼목장 편백숲 관련 문의는 방문 전 확인 필요로 확인하세요."
+        "남해 상상양떼목장 편백숲 관련 문의는 055-862-5300로 확인하세요."
       ]
     ],
     "aiEnrichedVersion": 1,
@@ -55906,7 +56041,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/49/4066249_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/49/4066249_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/49/4066249_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/45/4066245_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/46/4066246_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/47/4066247_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/48/4066248_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/50/4066250_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/51/4066251_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/52/4066252_image2_1.jpg"
     ],
     "alt": "별궁 이미지",
     "excerpt": "별궁 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -55921,7 +56063,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "010-4579-7272"
       ],
       [
         "요금",
@@ -55934,6 +56076,26 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "좌표",
+        "36.9407504113, 126.3013193106"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "체크인",
+        "15:00"
+      ],
+      [
+        "체크아웃",
+        "11:00"
+      ],
+      [
+        "객실 안내",
+        "1월 보병궁 / 2월 쌍어궁 / 3월 백양궁 등"
       ]
     ],
     "memo": [
@@ -55945,13 +56107,23 @@
     ],
     "tourApi": {
       "contentTypeId": "32",
-      "overview": "",
+      "overview": "별궁은 아름다운 서해 바다를 품은 전통 한옥스테이로, KBS 에 소개된 곳이다. 전통한옥을 그대로 재현한 별궁은 나무를 이용하여 서까래, 기둥, 도리, 보, 마루 등 건축의 골조를 세우고 왕겨와 대나무 살대를 이용하여 벽체의 뼈대를 세운 뒤 옛날 방식 그대로 순수 황토와 볏짚을 이용하여 벽, 지붕, 내부 바닥을 만든 숙소이다. 주인장이 정성을 들여 지은 친환경 한옥 펜션으로 고즈넉한 분위기를 느낄 수 있다.",
       "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
-      "intro": {},
-      "backfilledAt": "2026-07-10T10:49:50.316Z"
+      "mapx": "126.3013193106",
+      "mapy": "36.9407504113",
+      "mlevel": "6",
+      "intro": {
+        "infocenterlodging": "010-4579-7272",
+        "checkintime": "15:00",
+        "checkouttime": "11:00",
+        "chkcooking": "가능",
+        "parkinglodging": "가능",
+        "roomcount": "12실",
+        "reservationlodging": "실시간+전화 (상담시간 : 오전 08시 ~ 오후 22시까지)예약전화 010-4579-7272 (홈페이지 참고)",
+        "reservationurl": "https://www.byulgung.com/html/sub6_reser.html",
+        "roomtype": "1월 보병궁 / 2월 쌍어궁 / 3월 백양궁 등"
+      },
+      "backfilledAt": "2026-08-26T06:50:07.367Z"
     },
     "sections": [
       [
@@ -56068,7 +56240,11 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/22/4081622_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/22/4081622_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/22/4081622_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/20/4081620_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/21/4081621_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/23/4081623_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/24/4081624_image2_1.jpg"
     ],
     "alt": "(주)강릉씨티호텔 이미지",
     "excerpt": "(주)강릉씨티호텔 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -56083,7 +56259,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "033-655-8700"
       ],
       [
         "요금",
@@ -56096,6 +56272,26 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "좌표",
+        "37.7643270876, 128.8767180964"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "체크인",
+        "15:00"
+      ],
+      [
+        "체크아웃",
+        "11:00"
+      ],
+      [
+        "객실 안내",
+        "스탠다드 발코니 더블 / 스탠다드 더블 / 디럭스 더블"
       ]
     ],
     "memo": [
@@ -56107,13 +56303,22 @@
     ],
     "tourApi": {
       "contentTypeId": "32",
-      "overview": "",
+      "overview": "(주)강릉씨티호텔은 강원특별자치도 강릉시 교동에 위치한 도심형 호텔로 강릉역과 고속·시외버스터미널에서 접근이 편리해 비즈니스와 관광 모두에 적합한 숙소이다. 모던하고 세련된 객실은 편안한 휴식을 제공하며 일부 객실에서는 발코니와 오션뷰를 즐길 수 있어 여행의 만족도를 높여준다. 호텔 내에는 조식 레스토랑을 비롯해 카페, 루프탑, 키즈존, 셀프 세탁실, 세미나실 등 다양한 부대시설과 편의시설을 갖추고 있어 장기 투숙객과 가족 여행객 모두 편리하게 이용할 수 있다. 또한 무료 무선 인터넷과 주차 서비스를 제공하며 경포 해변, 안목 해변, 오죽헌, 중앙시장 등 강릉의 주요 관광지와도 가까워 여행의 거점으로 이용하기 좋다.",
       "homepage": "",
-      "mapx": "",
-      "mapy": "",
+      "mapx": "128.8767180964",
+      "mapy": "37.7643270876",
       "mlevel": "",
-      "intro": {},
-      "backfilledAt": "2026-07-10T10:49:28.224Z"
+      "intro": {
+        "infocenterlodging": "033-655-8700",
+        "checkintime": "15:00",
+        "checkouttime": "11:00",
+        "chkcooking": "불가능",
+        "parkinglodging": "가능",
+        "roomcount": "155실",
+        "roomtype": "스탠다드 발코니 더블 / 스탠다드 더블 / 디럭스 더블",
+        "subfacility": "세미나실 / 루프탑 / 비즈니스 센터 등"
+      },
+      "backfilledAt": "2026-08-26T06:50:08.867Z"
     },
     "sections": [
       [
@@ -56230,7 +56435,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/94/4082894_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/94/4082894_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/94/4082894_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/77/3571577_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/84/3571584_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/86/3571586_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/93/4082893_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/96/4082896_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/97/4082897_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/98/4082898_image2_1.jpg"
     ],
     "alt": "광양와인동굴 이미지",
     "excerpt": "광양와인동굴 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -56245,7 +56457,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "061-794-7788"
       ],
       [
         "요금",
@@ -56253,7 +56465,7 @@
       ],
       [
         "운영 확인",
-        "방문 전 확인 필요"
+        "09:30~18:00 (매표 마감 17:20)"
       ],
       [
         "방문 포인트",
@@ -56270,6 +56482,14 @@
       [
         "체험 안내",
         "와인 족욕 / 매실와인 만들기 등"
+      ],
+      [
+        "홈페이지",
+        "http://www.wmuseum.co.kr/"
+      ],
+      [
+        "좌표",
+        "34.9613097643, 127.6085985059"
       ]
     ],
     "memo": [
@@ -56281,10 +56501,10 @@
     ],
     "tourApi": {
       "contentTypeId": "12",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
+      "overview": "광양와인동굴은 전라남도 광양시 광양읍 위치한 와인 동굴이다. 2017년 7월에 개장했으며, 1913년부터 1987년까지 광양제철화물운송용 터널을 리모델링한 것으로 총길이 301m, 폭 4.5m, 높이 6m 규모의 석정 1 터널이다. 와인을 낯설어하는 사람들이 와인에 친숙해질 수 있도록 세계의 여러 와인을 한 곳에 만나며 부담 없이 즐길 수 있는 와인 카페테리아, 미디어 파사드 영상쇼, 트릭아트 포토존 등 다양한 시각적 즐거움을 제공한다. 광양 와인동굴은 광양 에코파크도 같이 운영하며, 주차장에 주차 후 와인동굴 입구 좌측 편에 위치해 있다. 이곳은 어린이들을 위한 미디어 생태 체험과 상상력과 창의력을 발휘할 수 있는 공간으로 사계절에 맞는 온도를 유지하고 있어 계절과 상관없이 즐길 수 있는 체험장이다.",
+      "homepage": "http://www.wmuseum.co.kr/",
+      "mapx": "127.6085985059",
+      "mapy": "34.9613097643",
       "mlevel": "",
       "intro": {
         "parking": "가능",
@@ -56293,7 +56513,7 @@
         "expguide": "와인 족욕 / 매실와인 만들기 등",
         "infocenter": "061-794-7788"
       },
-      "backfilledAt": "2026-07-10T10:49:44.551Z"
+      "backfilledAt": "2026-08-26T06:50:10.289Z"
     },
     "sections": [
       [
@@ -56417,7 +56637,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/66/4083266_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/66/4083266_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/66/4083266_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/63/4083263_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/64/4083264_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/65/4083265_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/67/4083267_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/68/4083268_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/69/4083269_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/70/4083270_image2_1.jpg"
     ],
     "alt": "소나무숲아래캠핑장 이미지",
     "excerpt": "소나무숲아래캠핑장 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -56432,7 +56659,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "0507-1302-3713"
       ],
       [
         "요금",
@@ -56440,11 +56667,19 @@
       ],
       [
         "운영 확인",
-        "방문 전 확인 필요"
+        "- 입실 14:00- 퇴실 11:00"
       ],
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "좌표",
+        "36.8238684818, 128.0899130556"
+      ],
+      [
+        "쉬는 날",
+        "동절기 휴장(12월~3월)"
       ]
     ],
     "memo": [
@@ -56456,16 +56691,17 @@
     ],
     "tourApi": {
       "contentTypeId": "28",
-      "overview": "",
+      "overview": "소나무 숲 아래 캠핑장은 충북 충주시 수안보면에 자리했다. 이곳은 도로와 인접해 접근이 쉽고 소나무 숲과 계곡에 조성한 덕분에 자연 친화적인 캠핑을 즐길 수 있다. 캠핑장 옆으로 월악산 자락을 타고 흐르는 깨끗한 계곡이 흐르며 푸른 소나무숲이 만드는 나무그늘에서 힐링되는 시간을 보낼 수 있다. 또한 자연 곰취의 진한 향이 나 캠핑을 하는 내내 자연을 만끽 할 수 있다. 넓은 부지로 아이들과 함께 방문하기 좋은 캠핑 명소이다.",
       "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "mapx": "128.0899130556",
+      "mapy": "36.8238684818",
+      "mlevel": "6",
       "intro": {
         "usetimeleports": "- 입실 14:00- 퇴실 11:00",
-        "infocenterleports": "0507-1302-3713"
+        "infocenterleports": "0507-1302-3713",
+        "restdateleports": "동절기 휴장(12월~3월)"
       },
-      "backfilledAt": "2026-07-10T10:49:48.139Z"
+      "backfilledAt": "2026-08-26T06:50:11.720Z"
     },
     "sections": [
       [
@@ -56589,7 +56825,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/97/4083197_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/97/4083197_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/97/4083197_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/94/4083194_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/95/4083195_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/96/4083196_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/99/4083199_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/00/4083200_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/01/4083201_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/02/4083202_image2_1.jpg"
     ],
     "alt": "현도오토캠핑장 이미지",
     "excerpt": "현도오토캠핑장 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -56604,7 +56847,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "043-270-7388"
       ],
       [
         "요금",
@@ -56612,11 +56855,23 @@
       ],
       [
         "운영 확인",
-        "방문 전 확인 필요"
+        "- 입실 14:00- 퇴실 11:00"
       ],
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "홈페이지",
+        "https://crs.cjsisul.or.kr/"
+      ],
+      [
+        "좌표",
+        "36.4784110856, 127.4062545881"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -56628,16 +56883,17 @@
     ],
     "tourApi": {
       "contentTypeId": "28",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "청주시 현도오토캠핑장은 충북 청주시 서원구에 있다. 넓은 부지가 산으로 둘러싸인 형상이라 더 없이 자연 친화적인 느낌이다. 캠핑장은 사이트 간 간격이 넓어 프라이빗한 캠핑을 즐길 수 있다. 전기, 무선 인터넷을 사용할 수 있으며, 어린이를 위한 놀이터도 갖췄다. 개인 카라반이나 트레일러 동반 입장이 가능하며, 반려견은 대형견도 출입이 가능하다. 캠핑장과 가까운 거리에 대청댐, 청남대 등의 관광지가 있어 연계관광이 쉽다.",
+      "homepage": "https://crs.cjsisul.or.kr/",
+      "mapx": "127.4062545881",
+      "mapy": "36.4784110856",
+      "mlevel": "6",
       "intro": {
         "usetimeleports": "- 입실 14:00- 퇴실 11:00",
-        "infocenterleports": "043-270-7388"
+        "infocenterleports": "043-270-7388",
+        "restdateleports": "연중무휴"
       },
-      "backfilledAt": "2026-07-10T10:49:43.139Z"
+      "backfilledAt": "2026-08-26T06:50:13.155Z"
     },
     "sections": [
       [
@@ -56761,7 +57017,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/60/4083260_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/60/4083260_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/60/4083260_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/52/4083252_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/53/4083253_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/54/4083254_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/55/4083255_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/56/4083256_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/57/4083257_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/58/4083258_image2_1.jpg"
     ],
     "alt": "클럽멤피스글램핑 이미지",
     "excerpt": "클럽멤피스글램핑 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -56776,7 +57039,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "0507-1309-6857"
       ],
       [
         "요금",
@@ -56784,11 +57047,23 @@
       ],
       [
         "운영 확인",
-        "방문 전 확인 필요"
+        "- 입실 15:00- 퇴실 11:00"
       ],
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "홈페이지",
+        "https://www.clubmemphis.kr"
+      ],
+      [
+        "좌표",
+        "36.9134433668, 128.0669709977"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -56800,16 +57075,17 @@
     ],
     "tourApi": {
       "contentTypeId": "28",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "충주호의 풍경이 한눈에 들어오는 럭셔리 글램핑장이다. 캠핑장 진입하는 도로는 봄에는 벚꽃놀이와 가을 단풍구경하기에도 좋다. 충주호를 뒤로 내려다보며 캠핑장 내 수영장에서 물놀이를 즐길 수 있으며, 라운지와 조식 서비스를 이용할 수 있다. 객실 외부에는 바베큐장이 있어 충주호를 바라보며 바비큐를 즐기기 좋다.",
+      "homepage": "https://www.clubmemphis.kr",
+      "mapx": "128.0669709977",
+      "mapy": "36.9134433668",
+      "mlevel": "6",
       "intro": {
         "usetimeleports": "- 입실 15:00- 퇴실 11:00",
-        "infocenterleports": "0507-1309-6857"
+        "infocenterleports": "0507-1309-6857",
+        "restdateleports": "연중무휴"
       },
-      "backfilledAt": "2026-07-10T10:49:55.139Z"
+      "backfilledAt": "2026-08-26T06:50:14.554Z"
     },
     "sections": [
       [
@@ -56933,7 +57209,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/34/4082234_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/34/4082234_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/34/4082234_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/27/4082227_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/28/4082228_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/29/4082229_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/30/4082230_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/31/4082231_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/32/4082232_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/33/4082233_image2_1.jpg"
     ],
     "alt": "엘림펜션오토캠핑장 이미지",
     "excerpt": "엘림펜션오토캠핑장 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -56948,7 +57231,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "0507-1373-7828"
       ],
       [
         "요금",
@@ -56956,11 +57239,23 @@
       ],
       [
         "운영 확인",
-        "방문 전 확인 필요"
+        "[캠핑] - 입실 14:00- 퇴실 12:00[펜션]- 입실 15:00- 퇴실 11:00"
       ],
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "홈페이지",
+        "https://www.instagram.com/elimps1/"
+      ],
+      [
+        "좌표",
+        "36.9125207762, 128.1186253532"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -56972,16 +57267,17 @@
     ],
     "tourApi": {
       "contentTypeId": "28",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "엘림펜션오토캠핑장은 제천에 위치한 오토캠핑장이다. 계곡 인근에 위치해 있어 여름철 방문하기 좋은 캠핑장이며 월악산에 둘러싸여 있어 자연속에서 힐링하며 즐길 수 있는 곳이다. 인근 명소로는 악어봉, 월악산, 충주호, 청풍호 등이 있어 연계하여 관광하기에도 좋다. 캠핑장의 깔끔한 시설과 넓은 규모의 객실을 갖추고 있는 펜션이 있어 아이들과 방문하기에도 좋은 캠핑 명소이다.",
+      "homepage": "https://www.instagram.com/elimps1/",
+      "mapx": "128.1186253532",
+      "mapy": "36.9125207762",
+      "mlevel": "6",
       "intro": {
         "usetimeleports": "[캠핑] - 입실 14:00- 퇴실 12:00[펜션]- 입실 15:00- 퇴실 11:00",
-        "infocenterleports": "0507-1373-7828"
+        "infocenterleports": "0507-1373-7828",
+        "restdateleports": "연중무휴"
       },
-      "backfilledAt": "2026-07-10T10:50:08.276Z"
+      "backfilledAt": "2026-08-26T06:50:15.979Z"
     },
     "sections": [
       [
@@ -57105,7 +57401,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/28/4083228_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/28/4083228_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/28/4083228_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/25/4083225_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/26/4083226_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/27/4083227_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/29/4083229_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/30/4083230_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/31/4083231_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/32/4083232_image2_1.jpg"
     ],
     "alt": "문암생태공원캠핑장 이미지",
     "excerpt": "문암생태공원캠핑장 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -57120,7 +57423,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "043-271-0780"
       ],
       [
         "요금",
@@ -57128,11 +57431,23 @@
       ],
       [
         "운영 확인",
-        "방문 전 확인 필요"
+        "- 입실 14:00- 퇴실 12:00"
       ],
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "홈페이지",
+        "http://munam.cheongju.go.kr/index.jsp"
+      ],
+      [
+        "좌표",
+        "36.6740834663, 127.4511697957"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -57144,16 +57459,17 @@
     ],
     "tourApi": {
       "contentTypeId": "28",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "문암생태공원캠핑장은 청주의 무심천을 옆에 끼고 있어 자연이 어우러져 캠핑을 즐길 수 있는 공간이다. 각종 편의시설이 있어 편리하게 이용이 가능하며 가족 또는 연인들을 위한 도심 속 휴식공간으로 자리잡고 있다. 단순히 캠핑장을 넘어 문암생태공원이 연계되어 있어 가족과 함께 학습할 수 있어 아이와 방문하기 좋은 캠핑장이다.",
+      "homepage": "http://munam.cheongju.go.kr/index.jsp",
+      "mapx": "127.4511697957",
+      "mapy": "36.6740834663",
+      "mlevel": "6",
       "intro": {
         "usetimeleports": "- 입실 14:00- 퇴실 12:00",
-        "infocenterleports": "043-271-0780"
+        "infocenterleports": "043-271-0780",
+        "restdateleports": "연중무휴"
       },
-      "backfilledAt": "2026-07-10T10:49:39.101Z"
+      "backfilledAt": "2026-08-26T06:50:17.417Z"
     },
     "sections": [
       [
@@ -57277,7 +57593,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/33/4083133_image2_1.JPG",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/33/4083133_image2_1.JPG"
+      "https://tong.visitkorea.or.kr/cms/resource/33/4083133_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/31/4083131_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/32/4083132_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/34/4083134_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/35/4083135_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/37/4083137_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/38/4083138_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/39/4083139_image2_1.jpg"
     ],
     "alt": "자연촌 여주 참숯마을 캠핑장 이미지",
     "excerpt": "자연촌 여주 참숯마을 캠핑장 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -57292,7 +57615,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "010-4278-1119"
       ],
       [
         "요금",
@@ -57300,11 +57623,19 @@
       ],
       [
         "운영 확인",
-        "방문 전 확인 필요"
+        "- 입실 14:00- 퇴실 11:00"
       ],
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "홈페이지",
+        "공식 홈페이지http://www.yjcharmsoot.co.kr/공식 인스타그램 www.instagram.com/naturalvillage_resort"
+      ],
+      [
+        "좌표",
+        "37.2887630250, 127.6997936494"
       ]
     ],
     "memo": [
@@ -57316,16 +57647,16 @@
     ],
     "tourApi": {
       "contentTypeId": "28",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "경기도 여주시 강천면에 위치한 펜션 & 캠핑장이다. 캠핑장에서 운영하는 실내외 수영장에는 중탄산나트륨이 함유된 온천수를 사용해 아이들은 물론 성인들도 함께 즐길 수 있다. 또한 1,500도의 고온에서 숯을 생산할 때 방출되는 원적외선 열기를 직접 체험하며 찜질할 수 있는 숯가마를 운영하고 있어 색다른 휴식을 즐길 수 있다. 자연 속에서 캠핑과 물놀이, 찜질을 한곳에서 경험할 수 있어 가족 단위 여행객들에게도 인기가 많다.",
+      "homepage": "공식 홈페이지http://www.yjcharmsoot.co.kr/공식 인스타그램 www.instagram.com/naturalvillage_resort",
+      "mapx": "127.6997936494",
+      "mapy": "37.2887630250",
+      "mlevel": "6",
       "intro": {
         "usetimeleports": "- 입실 14:00- 퇴실 11:00",
         "infocenterleports": "010-4278-1119"
       },
-      "backfilledAt": "2026-07-10T10:49:27.661Z"
+      "backfilledAt": "2026-08-26T06:50:18.868Z"
     },
     "sections": [
       [
@@ -57449,7 +57780,14 @@
     "read": "약 7분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/85/4082885_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/85/4082885_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/85/4082885_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/69/3552369_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/82/4082882_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/83/4082883_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/87/4082887_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/88/4082888_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/89/4082889_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/90/4082890_image2_1.jpg"
     ],
     "alt": "전남도립미술관 이미지",
     "excerpt": "전남도립미술관 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -57464,15 +57802,15 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "061-760-3242~3"
       ],
       [
         "요금",
-        "시설별 상이"
+        "[개인] - 성인 1,000원 - 어린이, 청소년, 대학생, 군인, 예술인 700원 - 전남도민, 전남사랑도민증 소지자: 관람료 50% 할인 [단체(20명 이상)] - 성인 700원 - 어린이, 청소년, 대학생, 군인, 예술인 500원 ※ 매주 수요일(문화가 있는 날) 무료 입장 ※ 성인: 25세 이상 64세 이하, 어린이: 7세 이상 24세 이하, 군인: 하사 이하의 군인 ※ 관련 신분증 및 증명서 지참 필요"
       ],
       [
         "운영 확인",
-        "방문 전 확인 필요"
+        "- 10:00~18:00 (입장 마감 17:30)- 매달 마지막 주 수요일(문화가 있는 날) 10:00~21:00 (입장 마감 20:30)"
       ],
       [
         "방문 포인트",
@@ -57481,6 +57819,14 @@
       [
         "쉬는 날",
         "매주 월요일 / 1월 1일 / 설·추석 당일"
+      ],
+      [
+        "홈페이지",
+        "홈페이지 https://artmuseum.jeonnam.go.kr인스타그램 https://www.instagram.com/jeonnammuseumofart"
+      ],
+      [
+        "좌표",
+        "34.9677753218, 127.5888418626"
       ]
     ],
     "memo": [
@@ -57491,18 +57837,18 @@
     ],
     "tourApi": {
       "contentTypeId": "14",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "2021년 3월 개관한 전남도립미술관은 옛 광양 역사 부지에 지상 3층, 지하 1층 규모로 건립된 현대미술 공간이다. 한국 미술사를 대표하는 작가를 다수 배출한 ‘예향’ 아카이브 사업을 통해 지역 작가 수집, 발굴에 앞장서고 있다. 우수한 전통을 토대로 새로운 현대미술의 미래를 밝히고, 남도 미술의 국제적 위상을 높이기 위해 노력하고 있다. 전체가 6m 전시장으로 구성돼 다양한 전시를 할 수 있으며, 조명도 자연광과 가장 가까운 빛의 조명을 활용하여, 관람객이 머무르다 갈 수 있는 미술관이 되고 있다. 세계 현대미술과의 개방적이고 다양한 교류를 통해 문화예술 기관으로서의 공공성 확립에 앞장서고 있다.",
+      "homepage": "홈페이지 https://artmuseum.jeonnam.go.kr인스타그램 https://www.instagram.com/jeonnammuseumofart",
+      "mapx": "127.5888418626",
+      "mapy": "34.9677753218",
+      "mlevel": "6",
       "intro": {
         "restdateculture": "매주 월요일 / 1월 1일 / 설·추석 당일",
         "usetimeculture": "- 10:00~18:00 (입장 마감 17:30)- 매달 마지막 주 수요일(문화가 있는 날) 10:00~21:00 (입장 마감 20:30)",
         "usefee": "[개인] - 성인 1,000원 - 어린이, 청소년, 대학생, 군인, 예술인 700원 - 전남도민, 전남사랑도민증 소지자: 관람료 50% 할인 [단체(20명 이상)] - 성인 700원 - 어린이, 청소년, 대학생, 군인, 예술인 500원 ※ 매주 수요일(문화가 있는 날) 무료 입장 ※ 성인: 25세 이상 64세 이하, 어린이: 7세 이상 24세 이하, 군인: 하사 이하의 군인 ※ 관련 신분증 및 증명서 지참 필요",
         "infocenterculture": "061-760-3242~3"
       },
-      "backfilledAt": "2026-07-10T10:49:38.108Z"
+      "backfilledAt": "2026-08-26T06:50:20.341Z"
     },
     "sections": [
       [
@@ -57515,8 +57861,8 @@
       [
         "운영 정보",
         [
-          "위치는 전라남도 광양시 광양읍 순광로 660 기준입니다. 운영 관련 안내는 방문 전 확인 필요, 요금은 시설별 상이로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
-          "문의처는 방문 전 확인 필요입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
+          "위치는 전라남도 광양시 광양읍 순광로 660 기준입니다. 운영 관련 안내는 - 10:00~18:00 (입장 마감 17:30)- 매달 마지막 주 수요일(문화가 있는 날) 10:00~21:00 (입장 마감 20:30), 요금은 [개인] - 성인 1,000원 - 어린이, 청소년, 대학생, 군인, 예술인 700원 - 전남도민, 전남사랑도민증 소지자: 관람료 50% 할인 [단체(20명 이상)] - 성인 700원 - 어린이, 청소년, 대학생, 군인, 예술인 500원 ※ 매주 수요일(문화가 있는 날) 무료 입장 ※ 성인: 25세 이상 64세 이하, 어린이: 7세 이상 24세 이하, 군인: 하사 이하의 군인 ※ 관련 신분증 및 증명서 지참 필요로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
+          "문의처는 061-760-3242~3입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
         ]
       ],
       [
@@ -57560,7 +57906,7 @@
       ],
       [
         "문의는 어디로 하나요?",
-        "전남도립미술관 관련 문의는 방문 전 확인 필요로 확인하세요."
+        "전남도립미술관 관련 문의는 061-760-3242~3로 확인하세요."
       ]
     ],
     "aiEnrichedVersion": 1,
@@ -57581,7 +57927,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/22/4082222_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/22/4082222_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/22/4082222_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/15/4082215_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/16/4082216_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/17/4082217_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/18/4082218_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/19/4082219_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/20/4082220_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/21/4082221_image2_1.jpg"
     ],
     "alt": "옥전캠핑장 이미지",
     "excerpt": "옥전캠핑장 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -57596,7 +57949,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "0507-1473-0597"
       ],
       [
         "요금",
@@ -57604,11 +57957,23 @@
       ],
       [
         "운영 확인",
-        "방문 전 확인 필요"
+        "- 입실 14:00- 퇴실 11:00"
       ],
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "홈페이지",
+        "https://m.cafe.naver.com/blue38zoc"
+      ],
+      [
+        "좌표",
+        "37.1798832439, 128.0836517074"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -57620,16 +57985,17 @@
     ],
     "tourApi": {
       "contentTypeId": "28",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "옥전 캠핑장은 충북 제천시 봉양읍 옥전리에 자리 잡고 있다. 월악산 인근에 있어 자연을 즐길 수 있는 캠핑장이다. 또한 맑은 계곡과 안락한 지형으로 머무르는 동안 편안한 시간을 보낼 수 있다. 깔끔한 시설과 놀거리, 볼거리가 다양해 가족들과 함께 방문하기 좋으며 관내 매장을 이용할 수 있어 생수, 장작, 생필품, 주류 등을 편리하게 구매할 수 있다. 넓고 쾌적하여 캠핑하기에 좋은 캠핑 명소이다.",
+      "homepage": "https://m.cafe.naver.com/blue38zoc",
+      "mapx": "128.0836517074",
+      "mapy": "37.1798832439",
+      "mlevel": "6",
       "intro": {
         "usetimeleports": "- 입실 14:00- 퇴실 11:00",
-        "infocenterleports": "0507-1473-0597"
+        "infocenterleports": "0507-1473-0597",
+        "restdateleports": "연중무휴"
       },
-      "backfilledAt": "2026-07-10T10:50:22.954Z"
+      "backfilledAt": "2026-08-26T06:50:21.753Z"
     },
     "sections": [
       [
@@ -57753,7 +58119,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/61/4083061_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/61/4083061_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/61/4083061_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/53/4083053_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/54/4083054_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/55/4083055_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/56/4083056_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/57/4083057_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/58/4083058_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/59/4083059_image2_1.jpg"
     ],
     "alt": "뤁스퀘어 이미지",
     "excerpt": "뤁스퀘어 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -57768,15 +58141,15 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "043-533-7180"
       ],
       [
         "요금",
-        "시설별 상이"
+        "- 도슨트 프로그램 18,000원- 이모농장 무료(일부 유료 25,000원)- 무인키즈놀이터 10,000원"
       ],
       [
         "운영 확인",
-        "방문 전 확인 필요"
+        "10:00~20:00"
       ],
       [
         "방문 포인트",
@@ -57785,6 +58158,14 @@
       [
         "쉬는 날",
         "연중무휴"
+      ],
+      [
+        "홈페이지",
+        "공식 홈페이지 https://rootsquare.co.kr/index공식 인스타그램 https://www.instagram.com/rootsquare/"
+      ],
+      [
+        "좌표",
+        "36.9425633684, 127.4314584744"
       ]
     ],
     "memo": [
@@ -57796,18 +58177,18 @@
     ],
     "tourApi": {
       "contentTypeId": "14",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "뤁스퀘어 (root square)는 카페, 식당을 비롯하여 전시/체험/교육/공연 등 다양한 콘텐츠를 즐길 수 있는 약 6,000평 규모의 미래 농업 복합문화공간이다. IT 농업회사인 만나씨이에이가 건설하고 운영하는 뤁스퀘어는 ‘농업’을 주 테마로 하여 양어장, 텃밭, 스마트팜 재배 시설을 아름다운 경관과 함께 체험할 수 있고 아쿠아포닉스 농장 시스템이 갖춰진 온실과 뤁스퀘어 곳곳에 첨단 농업시설이 위치하고 있다. 뤁스퀘어에서는 생산한 농산물을 활용한 카페 메뉴를 판매하기도 한다.",
+      "homepage": "공식 홈페이지 https://rootsquare.co.kr/index공식 인스타그램 https://www.instagram.com/rootsquare/",
+      "mapx": "127.4314584744",
+      "mapy": "36.9425633684",
+      "mlevel": "6",
       "intro": {
         "restdateculture": "연중무휴",
         "usetimeculture": "10:00~20:00",
         "usefee": "- 도슨트 프로그램 18,000원- 이모농장 무료(일부 유료 25,000원)- 무인키즈놀이터 10,000원",
         "infocenterculture": "043-533-7180"
       },
-      "backfilledAt": "2026-07-10T10:49:42.288Z"
+      "backfilledAt": "2026-08-26T06:50:23.169Z"
     },
     "sections": [
       [
@@ -57931,7 +58312,11 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/96/2902996_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/96/2902996_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/96/2902996_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/97/2902997_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/98/2902998_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/99/2902999_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/00/2903000_image2_1.jpg"
     ],
     "alt": "불로촌식당 이미지",
     "excerpt": "불로촌식당 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -57946,7 +58331,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "0507-1356-6337"
       ],
       [
         "요금",
@@ -57954,11 +58339,27 @@
       ],
       [
         "운영 확인",
-        "방문 전 확인 필요"
+        "10:30~20:00"
       ],
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "좌표",
+        "36.5049541567, 129.1213935161"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
+      ],
+      [
+        "대표 메뉴",
+        "닭불백숙"
       ]
     ],
     "memo": [
@@ -57970,13 +58371,20 @@
     ],
     "tourApi": {
       "contentTypeId": "39",
-      "overview": "",
+      "overview": "불로촌식당은 경상북도 청송군 진보면 경동로에 있는 닭요리 전문점이다. KBS 2TV 시사 교양 프로그램 , SBS 시사 교양 프로그램 등 여러 방송에 소개된 바 있다. 현대적인 감각의 외관과 깔끔한 분위기의 실내가 눈에 띈다. 내부에는 단체석이 마련되어 있어 각종 모임 장소로 이용하기 좋다. 대표 메뉴는 닭불고기와 닭백숙을 함께 맛볼 수 있는 닭불백숙이며, 닭날개와 닭어깨봉도 인기 메뉴다. 동청송·영양 IC에서 가깝고, 주변에 신촌약수탕과 주왕산국립공원이 있다.",
       "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
-      "intro": {},
-      "backfilledAt": "2026-07-10T10:50:16.682Z"
+      "mapx": "129.1213935161",
+      "mapy": "36.5049541567",
+      "mlevel": "6",
+      "intro": {
+        "infocenterfood": "0507-1356-6337",
+        "restdatefood": "연중무휴",
+        "firstmenu": "닭불백숙",
+        "opentimefood": "10:30~20:00",
+        "parkingfood": "가능",
+        "treatmenu": "닭백숙 / 닭어깨봉 / 닭날개구이 등"
+      },
+      "backfilledAt": "2026-08-26T06:50:24.583Z"
     },
     "sections": [
       [
@@ -58093,7 +58501,11 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/20/2903620_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/20/2903620_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/20/2903620_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/19/2903619_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/21/2903621_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/22/2903622_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/23/2903623_image2_1.jpg"
     ],
     "alt": "커피맥아더 이미지",
     "excerpt": "커피맥아더 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -58108,7 +58520,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "031-972-6226"
       ],
       [
         "요금",
@@ -58116,11 +58528,27 @@
       ],
       [
         "운영 확인",
-        "방문 전 확인 필요"
+        "09:30~22:30"
       ],
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "좌표",
+        "37.6062115062, 126.8231521514"
+      ],
+      [
+        "주차",
+        "가능요금 (무료)"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
+      ],
+      [
+        "대표 메뉴",
+        "직화아메리카노"
       ]
     ],
     "memo": [
@@ -58132,13 +58560,20 @@
     ],
     "tourApi": {
       "contentTypeId": "39",
-      "overview": "",
+      "overview": "커피맥아더는 고양시 행주산성에 있는 커피 맛집이다. 이 집은 불을 원두에 직접 닿도록 가열하는 직화 로스팅한 원두를 사용하는데 원두의 외벽이 먼저 코팅되도록 볶아지므로 커피 고유의 아로마가 오랫동안 지속되어 맛과 향이 좋다. 갓 볶은 원두로 내린 신선한 커피와 함께 에이드도 이 집의 인기 메뉴다. 커피맥아더는 행주산성에 온 라이더들이 많이 찾는 카페답게 건물 앞에 자전거 거치대가 설치되어 있으며 라이더에게는 음식 메뉴 할인도 해준다. 1, 2층으로 되어 있고 2층에는 풍금, 레코드판, 스피커 등등 빈티지한 소품들이 진열되어 있다. 건물 앞에 넓은 주차 공간이 있어 주차하기 좋다.",
       "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
-      "intro": {},
-      "backfilledAt": "2026-07-10T10:49:57.233Z"
+      "mapx": "126.8231521514",
+      "mapy": "37.6062115062",
+      "mlevel": "6",
+      "intro": {
+        "infocenterfood": "031-972-6226",
+        "restdatefood": "연중무휴",
+        "firstmenu": "직화아메리카노",
+        "opentimefood": "09:30~22:30",
+        "parkingfood": "가능요금 (무료)",
+        "treatmenu": "크렌베리 스피나치 피자 세트 / 고르곤졸라 피자 세트 / 카프리제 피자 세트 등"
+      },
+      "backfilledAt": "2026-08-26T06:50:25.992Z"
     },
     "sections": [
       [
@@ -58255,7 +58690,8 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/20/2905220_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/20/2905220_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/20/2905220_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/21/2905221_image2_1.jpg"
     ],
     "alt": "화화쿵주마라탕 이미지",
     "excerpt": "화화쿵주마라탕 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -58270,7 +58706,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "0507-1340-3002"
       ],
       [
         "요금",
@@ -58278,11 +58714,27 @@
       ],
       [
         "운영 확인",
-        "방문 전 확인 필요"
+        "11:00~21:30 (마지막 주문 21:00)"
       ],
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "좌표",
+        "37.3797919288, 126.6609546100"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
+      ],
+      [
+        "대표 메뉴",
+        "마라탕"
       ]
     ],
     "memo": [
@@ -58294,13 +58746,20 @@
     ],
     "tourApi": {
       "contentTypeId": "39",
-      "overview": "",
+      "overview": "화화쿵주마라탕은 인천지하철 1호선 테크노파크역 2번 출구 송도트리플스트리트 C동 1층에 있다. 매장이 있는 건물에 주차할 수 있다. 마라탕과 마라샹궈 맛집으로 알려진 마라탕 전문점으로, 외부부터 중식당을 연상시키는 붉은색 외관과 인테리어가 눈에 띈다. 내부는 넓고 깨끗하며 약 20개의 테이블이 마련되어 있고, 테이블마다 칸막이가 설치되어 있다. 마라탕과 마라샹궈는 셀프 코너에서 그릇과 집게를 이용해 원하는 재료를 담은 뒤 계산대에서 매운맛을 0~3단계 중 선택하고, 무게를 재어 계산하는 방식이다. 식당 인근에 송도센트럴파크, 인천상륙작전기념관, 인천시립박물관이 있어 식사 전후 연계 관광을 즐기기 좋다.",
       "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
-      "intro": {},
-      "backfilledAt": "2026-07-10T10:49:29.025Z"
+      "mapx": "126.6609546100",
+      "mapy": "37.3797919288",
+      "mlevel": "6",
+      "intro": {
+        "infocenterfood": "0507-1340-3002",
+        "restdatefood": "연중무휴",
+        "firstmenu": "마라탕",
+        "opentimefood": "11:00~21:30 (마지막 주문 21:00)",
+        "parkingfood": "가능",
+        "treatmenu": "마라샹궈 / 꿔보러우 / 바지락볶음 등"
+      },
+      "backfilledAt": "2026-08-26T06:50:27.386Z"
     },
     "sections": [
       [
@@ -58417,7 +58876,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/03/4083003_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/03/4083003_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/03/4083003_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/00/4083000_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/01/4083001_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/02/4083002_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/04/4083004_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/05/4083005_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/06/4083006_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/07/4083007_image2_1.jpg"
     ],
     "alt": "스타밸리캠핑장 이미지",
     "excerpt": "스타밸리캠핑장 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -58432,7 +58898,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "010-4276-7459"
       ],
       [
         "요금",
@@ -58440,11 +58906,23 @@
       ],
       [
         "운영 확인",
-        "방문 전 확인 필요"
+        "- 입실 14:00- 퇴실 12:00"
       ],
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "홈페이지",
+        "https://cafe.naver.com/starvalleycamp"
+      ],
+      [
+        "좌표",
+        "36.9106442379, 127.3411159385"
+      ],
+      [
+        "쉬는 날",
+        "연중무휴"
       ]
     ],
     "memo": [
@@ -58456,16 +58934,17 @@
     ],
     "tourApi": {
       "contentTypeId": "28",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "스타밸리캠핑장은 백곡면의 수려한 산세가 파노라마처럼 펼쳐져 가만히 앉아 있어도 절로 산멍에 빠지게 되는 캠핑장이다. 청정지역에 위치하여 이름처럼 밤이 되면 하늘 가든 수놓아진 별들을 감상하며 낭만적인 밤을 보낼 수 있다. 캠퍼들의 로망인 사이트 내 개별 화장실과 샤워실을 갖추어 편리하게 이용이 가능하며 사이트 크기 및 간격이 넓어 프라이빗 한 캠핑 시간을 보장한다. 애완견 동반이 가능하여 반려동물 캠퍼들에게 인기가 많은 캠핑 명소이다.",
+      "homepage": "https://cafe.naver.com/starvalleycamp",
+      "mapx": "127.3411159385",
+      "mapy": "36.9106442379",
+      "mlevel": "6",
       "intro": {
         "usetimeleports": "- 입실 14:00- 퇴실 12:00",
-        "infocenterleports": "010-4276-7459"
+        "infocenterleports": "010-4276-7459",
+        "restdateleports": "연중무휴"
       },
-      "backfilledAt": "2026-07-10T10:49:32.939Z"
+      "backfilledAt": "2026-08-26T06:50:28.869Z"
     },
     "sections": [
       [
@@ -58589,7 +59068,11 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/84/4081684_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/84/4081684_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/84/4081684_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/80/4081680_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/81/4081681_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/82/4081682_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/83/4081683_image2_1.jpg"
     ],
     "alt": "팜파스리조트 이미지",
     "excerpt": "팜파스리조트 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -58604,7 +59087,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "1599-0583"
       ],
       [
         "요금",
@@ -58617,6 +59100,26 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "좌표",
+        "38.1890550102, 128.6007551727"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "체크인",
+        "15:00"
+      ],
+      [
+        "체크아웃",
+        "11:00"
+      ],
+      [
+        "객실 안내",
+        "스탠다드 / 골드클래스 A / 골드클래스 B / 슈퍼클래스 등"
       ]
     ],
     "memo": [
@@ -58628,13 +59131,20 @@
     ],
     "tourApi": {
       "contentTypeId": "32",
-      "overview": "",
+      "overview": "팜파스리조트는 강원특별자치도 속초시 조양동에 위치한 리조트형 숙소로 속초해수욕장과 고속버스터미널이 가까워 관광과 휴식을 함께 즐기기에 좋은 곳이다. 객실은 동해를 조망할 수 있는 오션뷰와 설악산 및 도심을 바라보는 시티뷰로 구성되어 있으며 취사가 가능한 주방시설을 갖춰 가족 및 장기 여행객도 편리하게 이용할 수 있다. 리조트에는 야외 바비큐장과 조식 레스토랑, 무료 주차장, 무선 인터넷 등 다양한 편의시설이 마련되어 있으며 해변 이용객을 위한 야외 세족장도 운영한다. 또한 청초호, 속초해변, 외옹치해변 등 주요 관광지와 가까워 속초 여행의 거점으로 이용하기 좋으며 편안한 객실과 실용적인 시설을 바탕으로 여유로운 휴식을 선사한다.",
       "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
-      "intro": {},
-      "backfilledAt": "2026-07-10T10:50:11.991Z"
+      "mapx": "128.6007551727",
+      "mapy": "38.1890550102",
+      "mlevel": "6",
+      "intro": {
+        "infocenterlodging": "1599-0583",
+        "checkintime": "15:00",
+        "checkouttime": "11:00",
+        "parkinglodging": "가능",
+        "roomtype": "스탠다드 / 골드클래스 A / 골드클래스 B / 슈퍼클래스 등",
+        "subfacility": "바비큐 / 연회장 / 무인자판기 등"
+      },
+      "backfilledAt": "2026-08-26T06:50:30.333Z"
     },
     "sections": [
       [
@@ -58751,7 +59261,8 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/89/2914989_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/89/2914989_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/89/2914989_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/87/2914987_image2_1.jpg"
     ],
     "alt": "현래장 이미지",
     "excerpt": "현래장 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -58766,7 +59277,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "0507-1345-0730"
       ],
       [
         "요금",
@@ -58774,11 +59285,27 @@
       ],
       [
         "운영 확인",
-        "방문 전 확인 필요"
+        "11:30~21:30 (마지막 주문 20:40)"
       ],
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "좌표",
+        "37.5384219687, 126.9449866272"
+      ],
+      [
+        "주차",
+        "가능 요금 (무료)"
+      ],
+      [
+        "쉬는 날",
+        "설 당일 / 추석 연휴"
+      ],
+      [
+        "대표 메뉴",
+        "옛날짜장"
       ]
     ],
     "memo": [
@@ -58790,13 +59317,20 @@
     ],
     "tourApi": {
       "contentTypeId": "39",
-      "overview": "",
+      "overview": "현래장은 마포역 4번 출구에서 도보 3분 거리에 위치한 60년 넘는 전통의 중국요리 전문점이다. 대표 메뉴는 옛날짜장이며, 매정탁과 란정탁 등의 코스요리, 간짜장, 삼선짜장, 해물짬뽕 등 다양한 메뉴를 맛볼 수 있다. 넓은 공간에 약 280석의 좌석이 마련되어 있으며, 홀 좌석과 2인부터 최대 100인까지 이용 가능한 다양한 룸을 갖추고 있어 모임과 회식 장소로 적합하다. 건물 지하 1층에 주차장이 마련되어 있어 차량으로 방문하기 편리하며, 포장도 가능하다. 인근에 다양한 카페와 공원이 있어 식사 후 함께 둘러보기 좋다.",
       "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
-      "intro": {},
-      "backfilledAt": "2026-07-10T10:49:43.700Z"
+      "mapx": "126.9449866272",
+      "mapy": "37.5384219687",
+      "mlevel": "6",
+      "intro": {
+        "infocenterfood": "0507-1345-0730",
+        "restdatefood": "설 당일 / 추석 연휴",
+        "firstmenu": "옛날짜장",
+        "opentimefood": "11:30~21:30 (마지막 주문 20:40)",
+        "parkingfood": "가능 요금 (무료)",
+        "treatmenu": "코스요리 / 칠리새우 / 마라우육 / 탕수육 / 해물짬뽕밥 등"
+      },
+      "backfilledAt": "2026-08-26T06:50:31.753Z"
     },
     "sections": [
       [
