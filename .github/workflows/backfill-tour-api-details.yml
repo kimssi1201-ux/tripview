@@ -69,7 +69,7 @@ jobs:
           node --check scripts/sample-durunubi.mjs
 
       - name: Sample TourAPI gallery images
-        if: ${{ github.event_name == 'push' || github.event.inputs.image_mode == 'sample' || github.event.inputs.image_mode == 'full' }}
+        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.image_mode == 'sample' }}
         run: |
           IMAGE_SAMPLE_SIZE="${{ github.event.inputs.image_sample_size || '20' }}"
           BACKFILL_IMAGE_SAMPLE=1 BACKFILL_IMAGE_SAMPLE_SIZE="$IMAGE_SAMPLE_SIZE" BACKFILL_IMAGE_SAMPLE_CONCURRENCY=5 node scripts/backfill-tour-api-details.mjs

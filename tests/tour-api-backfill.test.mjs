@@ -111,7 +111,7 @@ test("PhotoGalleryService1 sample helpers use keyword search results without exp
   assert.deepEqual(summary.matchedImageDistribution, { 0: 1, 2: 1 });
 });
 
-test("backfill workflow runs detailImage2 sample before any full image merge", async () => {
+test("backfill workflow keeps detailImage2 sample behind explicit sample mode", async () => {
   const [script, dailyScript, workflow] = await Promise.all([
     readFile("scripts/backfill-tour-api-details.mjs", "utf8"),
     readFile("scripts/daily-tour-posts.mjs", "utf8"),
@@ -129,7 +129,8 @@ test("backfill workflow runs detailImage2 sample before any full image merge", a
   assert.match(workflow, /image_sample_size \|\| '20'/);
   assert.match(workflow, /BACKFILL_IMAGE_SAMPLE=1/);
   assert.match(workflow, /BACKFILL_INCLUDE_IMAGES=1/);
-  assert.match(workflow, /github.event_name == 'push'/);
+  assert.match(workflow, /github.event_name == 'workflow_dispatch' && github.event.inputs.image_mode == 'sample'/);
+  assert.doesNotMatch(workflow, /github.event.inputs.image_mode == 'sample' \|\| github.event.inputs.image_mode == 'full'/);
   assert.match(workflow, /github.event.inputs.image_mode == 'full' \|\| github.event.inputs.image_mode == 'off'/);
   assert.ok(workflow.indexOf("BACKFILL_IMAGE_SAMPLE=1") < workflow.indexOf("BACKFILL_INCLUDE_IMAGES=1"));
   assert.ok(workflow.indexOf("Sample TourAPI gallery images") < workflow.indexOf("Backfill Tour API details"));
