@@ -58,6 +58,38 @@ const generatedPath = path.join(DATA_DIR, 'generated-posts.json');
 const generated = await readJson(generatedPath, []);
 const manual = await manualPosts();
 
+const generatedBySlug = new Map();
+const generatedByContentId = new Map();
+const generatedByTitle = new Map();
+for (const post of generated) {
+  if (post?.slug) generatedBySlug.set(String(post.slug), post);
+  if (post?.contentid) generatedByContentId.set(String(post.contentid), post);
+  const title = titleKey(post);
+  if (title) generatedByTitle.set(title, post);
+}
+
+function mergedInfoRows(current = [], incoming = []) {
+  if (!Array.isArray(current) || !current.length) return Array.isArray(incoming) ? incoming : [];
+  if (!Array.isArray(incoming) || !incoming.length) return current;
+  const seen = new Set(current.map((item) => String(item?.label || '').trim()).filter(Boolean));
+  return [...current, ...incoming.filter((item) => item?.label && !seen.has(String(item.label).trim()))];
+}
+
+function preserveGeneratedBackfill(manualPost) {
+  const existing = generatedBySlug.get(String(manualPost?.slug || ''))
+    || generatedByContentId.get(String(manualPost?.contentid || ''))
+    || generatedByTitle.get(titleKey(manualPost));
+  if (!existing) return manualPost;
+  const existingImages = Array.isArray(existing.images) ? existing.images : [];
+  const manualImages = Array.isArray(manualPost.images) ? manualPost.images : [];
+  return {
+    ...manualPost,
+    images: existingImages.length > manualImages.length ? existingImages : manualImages,
+    info: mergedInfoRows(manualPost.info, existing.info),
+    tourApi: existing.tourApi ? { ...existing.tourApi, ...(manualPost.tourApi || {}) } : manualPost.tourApi
+  };
+}
+
 const seenKeys = new Set();
 const seenTitles = new Set();
 const seenImages = new Set();
@@ -65,6 +97,7 @@ const merged = [];
 
 for (const post of [...manual, ...generated]) {
   if (!post?.slug || !post?.title || !post?.image) continue;
+  const candidate = manual.includes(post) ? preserveGeneratedBackfill(post) : post;
   const key = postKey(post);
   const title = titleKey(post);
   const image = usesStrictImageDedupe(post) ? imageKey(post) : '';
@@ -72,7 +105,7 @@ for (const post of [...manual, ...generated]) {
   seenKeys.add(key);
   seenTitles.add(title);
   if (image) seenImages.add(image);
-  merged.push(post);
+  merged.push(candidate);
 }
 
 await fs.writeFile(generatedPath, `${JSON.stringify(merged, null, 2)}\n`, 'utf8');
