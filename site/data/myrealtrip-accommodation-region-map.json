@@ -1,6 +1,6 @@
 {
-  "updatedDate": "2026-08-26",
-  "generatedAt": "2026-08-25T16:08:47.119Z",
+  "updatedDate": "2026-08-27",
+  "generatedAt": "2026-08-26T16:36:48.391Z",
   "source": "myrealtrip-accommodation-region-autocomplete",
   "endpoint": "/v1/products/accommodation/region-autocomplete",
   "regions": {
