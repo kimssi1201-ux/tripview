@@ -133,3 +133,23 @@ test("backfill workflow keeps PhotoGalleryService1 behind an explicit sample mod
   assert.match(docs, /PHOTO_GALLERY_API_KEY/);
   assert.ok(workflow.indexOf("Sample PhotoGalleryService1 images") < workflow.indexOf("Backfill Tour API details"));
 });
+
+test("full image backfill can merge PhotoGallery images in bounded batches", async () => {
+  const [script, workflow] = await Promise.all([
+    readFile("scripts/backfill-tour-api-details.mjs", "utf8"),
+    readFile(".github/workflows/backfill-tour-api-details.yml", "utf8"),
+  ]);
+  assert.match(script, /BACKFILL_REQUEST_RETRIES/);
+  assert.match(script, /attempt < API_REQUEST_RETRIES/);
+  assert.match(script, /requestItemsWithKeyFallback/);
+  assert.match(script, /BACKFILL_INCLUDE_PHOTO_GALLERY/);
+  assert.match(script, /PhotoGallery image backfill skipped because PHOTO_GALLERY_API_KEY is not set/);
+  assert.match(script, /combinedImages\.push\(\.\.\.photoGalleryDetailImages\(matchedItems\)\)/);
+  assert.match(script, /BACKFILL_OFFSET/);
+  assert.match(script, /Posts with 3\+ images after merge/);
+  assert.match(workflow, /default: "120"/);
+  assert.match(workflow, /offset:/);
+  assert.match(workflow, /BACKFILL_INCLUDE_PHOTO_GALLERY=1/);
+  assert.match(workflow, /PHOTO_GALLERY_API_KEY: \$\{\{ secrets\.PHOTO_GALLERY_API_KEY \}\}/);
+  assert.match(workflow, /Report article photo coverage/);
+});

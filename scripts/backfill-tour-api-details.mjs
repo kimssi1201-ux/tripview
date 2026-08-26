@@ -12,18 +12,22 @@ const PHOTO_GALLERY_SEARCH_ENDPOINT = "gallerySearchList1";
 const SERVICE_KEY = process.env.TRIPVIEW_API_KEY || process.env.TRIPVIEW_API_KEY_PARAM || "";
 const PHOTO_GALLERY_SERVICE_KEY = process.env.PHOTO_GALLERY_API_KEY || process.env.PHOTO_GALLERY_API_KEY_PARAM || "";
 const LIMIT = Math.max(0, Number.parseInt(process.env.BACKFILL_LIMIT || "300", 10) || 300);
+const OFFSET = Math.max(0, Number.parseInt(process.env.BACKFILL_OFFSET || "0", 10) || 0);
 const ONLY_SHORT = process.env.BACKFILL_ONLY_SHORT === "1";
 const TARGETS = new Set(String(process.env.BACKFILL_TARGETS || "").split(",").map((value) => value.trim()).filter(Boolean));
 const INCLUDE_IMAGES = process.env.BACKFILL_INCLUDE_IMAGES === "1";
+const INCLUDE_PHOTO_GALLERY = process.env.BACKFILL_INCLUDE_PHOTO_GALLERY === "1";
 const IMAGE_SAMPLE = process.env.BACKFILL_IMAGE_SAMPLE === "1";
 const IMAGE_SAMPLE_SIZE = Math.max(20, Math.min(30, Number.parseInt(process.env.BACKFILL_IMAGE_SAMPLE_SIZE || "20", 10) || 20));
 const IMAGE_SAMPLE_CONCURRENCY = Math.max(1, Math.min(6, Number.parseInt(process.env.BACKFILL_IMAGE_SAMPLE_CONCURRENCY || "5", 10) || 5));
 const PHOTO_GALLERY_SAMPLE = process.env.BACKFILL_PHOTO_GALLERY_SAMPLE === "1" || process.argv.includes("--photo-gallery-sample");
 const PHOTO_GALLERY_SAMPLE_SIZE = Math.max(20, Math.min(30, Number.parseInt(process.env.PHOTO_GALLERY_SAMPLE_SIZE || "30", 10) || 30));
 const PHOTO_GALLERY_SAMPLE_CONCURRENCY = Math.max(1, Math.min(5, Number.parseInt(process.env.PHOTO_GALLERY_SAMPLE_CONCURRENCY || "4", 10) || 4));
+const PHOTO_GALLERY_KEYWORD_LIMIT = Math.max(1, Math.min(4, Number.parseInt(process.env.PHOTO_GALLERY_KEYWORD_LIMIT || "1", 10) || 1));
 const PHOTO_GALLERY_ROWS = Math.max(3, Math.min(20, Number.parseInt(process.env.PHOTO_GALLERY_ROWS || "10", 10) || 10));
 const MAX_IMAGES_PER_POST = Math.max(3, Math.min(8, Number.parseInt(process.env.BACKFILL_MAX_IMAGES_PER_POST || "8", 10) || 8));
 const FETCH_TIMEOUT_MS = Math.max(1000, Number.parseInt(process.env.BACKFILL_FETCH_TIMEOUT_MS || "8000", 10) || 8000);
+const API_REQUEST_RETRIES = Math.max(1, Math.min(3, Number.parseInt(process.env.BACKFILL_REQUEST_RETRIES || "1", 10) || 1));
 
 const strip = (value = "") =>
   String(value)
@@ -67,68 +71,50 @@ function responseItems(json) {
   return Array.isArray(item) ? item : item ? [item] : [];
 }
 
-async function tourGet(endpoint, extra = {}) {
+function resultError(json, header = json.response?.header || json) {
+  if (json.resultCode && json.resultCode !== "0000") return `${json.resultCode} ${json.resultMsg || ""}`.trim();
+  if (header?.resultCode && header.resultCode !== "0000") return `${header.resultCode} ${header.resultMsg || ""}`.trim();
+  return "";
+}
+
+async function requestItemsWithKeyFallback(label, build) {
   let lastError = "";
   for (const encodedKey of [false, true]) {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
-    let res;
-    try {
-      res = await fetch(buildUrl(endpoint, extra, encodedKey), { signal: controller.signal });
-    } catch (error) {
-      lastError = error.name === "AbortError" ? `request timed out after ${FETCH_TIMEOUT_MS}ms` : error.message;
-      clearTimeout(timeout);
-      continue;
-    }
-    clearTimeout(timeout);
-    const text = await res.text();
-    try {
-      const json = JSON.parse(text);
-      if (json.resultCode && json.resultCode !== "0000") {
-        lastError = `${json.resultCode} ${json.resultMsg || ""}`.trim();
-        continue;
+    for (let attempt = 0; attempt <= API_REQUEST_RETRIES; attempt += 1) {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+      try {
+        const res = await fetch(build(encodedKey), { signal: controller.signal });
+        const text = await res.text();
+        try {
+          const json = JSON.parse(text);
+          const error = resultError(json);
+          if (error) {
+            lastError = error;
+            break;
+          }
+          return responseItems(json);
+        } catch {
+          lastError = text.slice(0, 120);
+          break;
+        }
+      } catch (error) {
+        lastError = error.name === "AbortError" ? `request timed out after ${FETCH_TIMEOUT_MS}ms` : error.message;
+        if (attempt < API_REQUEST_RETRIES) continue;
+      } finally {
+        clearTimeout(timeout);
       }
-      const header = json.response?.header;
-      if (header && header.resultCode && header.resultCode !== "0000") {
-        lastError = `${header.resultCode} ${header.resultMsg || ""}`.trim();
-        continue;
-      }
-      return responseItems(json);
-    } catch {
-      lastError = text.slice(0, 120);
     }
   }
-  throw new Error(`TourAPI request failed: ${lastError}`);
+  throw new Error(`${label} request failed: ${lastError}`);
+}
+
+async function tourGet(endpoint, extra = {}) {
+  return requestItemsWithKeyFallback("TourAPI", (encodedKey) => buildUrl(endpoint, extra, encodedKey));
 }
 
 async function photoGalleryGet(endpoint, extra = {}) {
-  let lastError = "";
-  for (const encodedKey of [false, true]) {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
-    let res;
-    try {
-      res = await fetch(buildPhotoGalleryUrl(endpoint, extra, encodedKey), { signal: controller.signal });
-    } catch (error) {
-      lastError = error.name === "AbortError" ? `request timed out after ${FETCH_TIMEOUT_MS}ms` : error.message;
-      clearTimeout(timeout);
-      continue;
-    }
-    clearTimeout(timeout);
-    const text = await res.text();
-    try {
-      const json = JSON.parse(text);
-      const header = json.response?.header || json;
-      if (header?.resultCode && header.resultCode !== "0000") {
-        lastError = `${header.resultCode} ${header.resultMsg || ""}`.trim();
-        continue;
-      }
-      return responseItems(json);
-    } catch {
-      lastError = text.slice(0, 120);
-    }
-  }
-  throw new Error(`PhotoGalleryService1 request failed: ${lastError}`);
+  return requestItemsWithKeyFallback("PhotoGalleryService1", (encodedKey) => buildPhotoGalleryUrl(endpoint, extra, encodedKey));
 }
 
 export function imageFamilyKey(src) {
@@ -144,6 +130,10 @@ function imageUrlFromDetail(item = {}) {
 
 export function photoGalleryImageUrl(item = {}) {
   return strip(item.galWebImageUrl || item.galWebImageURL || item.galwebimageurl || item.galWebImgUrl || "");
+}
+
+function photoGalleryDetailImages(items = []) {
+  return items.map((item) => ({ originimgurl: photoGalleryImageUrl(item) })).filter((item) => item.originimgurl);
 }
 
 function addImage(images, seen, src, limit = MAX_IMAGES_PER_POST) {
@@ -311,12 +301,21 @@ async function fetchDetailImages(post) {
 async function fetchPhotoGalleryImages(post) {
   const seen = new Set();
   const items = [];
-  for (const keyword of photoGalleryKeywordsForPost(post)) {
-    const rows = await photoGalleryGet(PHOTO_GALLERY_SEARCH_ENDPOINT, {
-      keyword,
-      pageNo: "1",
-      numOfRows: String(PHOTO_GALLERY_ROWS),
-    });
+  const errors = [];
+  let successCount = 0;
+  for (const keyword of photoGalleryKeywordsForPost(post).slice(0, PHOTO_GALLERY_KEYWORD_LIMIT)) {
+    let rows = [];
+    try {
+      rows = await photoGalleryGet(PHOTO_GALLERY_SEARCH_ENDPOINT, {
+        keyword,
+        pageNo: "1",
+        numOfRows: String(PHOTO_GALLERY_ROWS),
+      });
+      successCount += 1;
+    } catch (error) {
+      errors.push(`${keyword}: ${error.message}`);
+      continue;
+    }
     for (const item of rows) {
       const src = photoGalleryImageUrl(item);
       if (!src || seen.has(src)) continue;
@@ -324,6 +323,7 @@ async function fetchPhotoGalleryImages(post) {
       items.push(item);
     }
   }
+  if (!successCount && errors.length) throw new Error(errors[0]);
   return items;
 }
 
@@ -558,14 +558,31 @@ async function main() {
   }
 
   let checked = 0;
+  let eligibleSeen = 0;
   let updated = 0;
   let imagesUpdated = 0;
+  let imageChecked = 0;
+  let imagesAtLeast3 = 0;
+  let photoGalleryChecked = 0;
+  let photoGalleryMatched = 0;
+  let photoGalleryErrors = 0;
+  let photoGalleryMissingKeyWarned = false;
   const next = [];
 
   for (const post of posts) {
     const selected = (!TARGETS.size || TARGETS.has(post.slug))
       && (!ONLY_SHORT || postBodyLength(post) < MIN_INDEXABLE_BODY_LENGTH);
-    if (!selected || !post.contentid || checked >= LIMIT) {
+    if (!selected || !post.contentid) {
+      next.push(post);
+      continue;
+    }
+    if (eligibleSeen < OFFSET) {
+      eligibleSeen += 1;
+      next.push(post);
+      continue;
+    }
+    eligibleSeen += 1;
+    if (checked >= LIMIT) {
       next.push(post);
       continue;
     }
@@ -590,7 +607,27 @@ async function main() {
       let images = Array.isArray(post.images) ? post.images : [];
       if (INCLUDE_IMAGES) {
         const detailImages = await fetchDetailImages(post);
-        const mergedImages = mergePostImages(post, detailImages, MAX_IMAGES_PER_POST);
+        const combinedImages = [...detailImages];
+        if (INCLUDE_PHOTO_GALLERY) {
+          if (PHOTO_GALLERY_SERVICE_KEY) {
+            photoGalleryChecked += 1;
+            try {
+              const galleryItems = await fetchPhotoGalleryImages(post);
+              const matchedItems = galleryItems.filter((item) => isRelevantPhotoGalleryItem(post, item));
+              photoGalleryMatched += matchedItems.length;
+              combinedImages.push(...photoGalleryDetailImages(matchedItems));
+            } catch (error) {
+              photoGalleryErrors += 1;
+              console.warn(`PhotoGallery skipped ${post.slug}: ${error.message}`);
+            }
+          } else if (!photoGalleryMissingKeyWarned) {
+            console.warn("PhotoGallery image backfill skipped because PHOTO_GALLERY_API_KEY is not set.");
+            photoGalleryMissingKeyWarned = true;
+          }
+        }
+        const mergedImages = mergePostImages(post, combinedImages, MAX_IMAGES_PER_POST);
+        imageChecked += 1;
+        if (mergedImages.length >= 3) imagesAtLeast3 += 1;
         if (JSON.stringify(mergedImages) !== JSON.stringify(images)) {
           images = mergedImages;
           imagesUpdated += 1;
@@ -606,7 +643,15 @@ async function main() {
   }
 
   await writeJson("data/generated-posts.json", next);
-  console.log(`TourAPI backfill complete. Checked ${checked}, updated ${updated}.${INCLUDE_IMAGES ? ` Image sets updated ${imagesUpdated}.` : ""}`);
+  const imageSummary = INCLUDE_IMAGES
+    ? ` Image sets updated ${imagesUpdated}. Posts with 3+ images after merge ${imagesAtLeast3}/${imageChecked} (${imageChecked ? Math.round((imagesAtLeast3 / imageChecked) * 1000) / 10 : 0}%).`
+    : "";
+  const photoGallerySummary = INCLUDE_IMAGES && INCLUDE_PHOTO_GALLERY
+    ? PHOTO_GALLERY_SERVICE_KEY
+      ? ` PhotoGallery checked ${photoGalleryChecked}, matched images ${photoGalleryMatched}, errors ${photoGalleryErrors}.`
+      : " PhotoGallery skipped because PHOTO_GALLERY_API_KEY is not set."
+    : "";
+  console.log(`TourAPI backfill complete. Offset ${OFFSET}, checked ${checked}, updated ${updated}.${imageSummary}${photoGallerySummary}`);
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {
