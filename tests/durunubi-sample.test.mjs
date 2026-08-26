@@ -4,6 +4,7 @@ import test from "node:test";
 import {
   CONFIDENT_MATCH_SCORE,
   REGION_CONFIRMED_MATCH_SCORE,
+  REGION_CONFIRMED_SCORE_BONUS,
   durunubiRouteKeywordsForPost,
   matchDurunubiCourse,
   regionTokensForPost,
@@ -121,7 +122,35 @@ test("Durunubi course matching accepts lower scores only when city or county is 
   const result = matchDurunubiCourse(post, courses, routes);
 
   assert.equal(result.regionConfirmed, true);
+  assert.equal(result.matchThreshold, REGION_CONFIRMED_MATCH_SCORE);
   assert.equal(result.score >= REGION_CONFIRMED_MATCH_SCORE, true);
+  assert.equal(result.matched, true);
+});
+
+test("Durunubi course matching recovers weak text matches only after exact city or county confirmation", () => {
+  const post = {
+    slug: "travel-2712642",
+    title: "진도 운림산림욕장, 숲길 산책 전 확인할 거리와 이동 동선",
+    region: "전라남도 진도군",
+    tags: ["숲길", "산책"],
+  };
+  const routes = [{ routeIdx: "43", themeNm: "서해랑길" }];
+  const courses = [
+    {
+      routeIdx: "43",
+      sigun: "전남 진도군",
+      crsKorNm: "서해랑길 12코스",
+      crsDstnc: "22",
+      crsTotlRqrmHour: "420",
+      crsLevel: "2",
+    },
+  ];
+
+  const result = matchDurunubiCourse(post, courses, routes);
+
+  assert.equal(result.regionConfirmed, true);
+  assert.equal(result.baseScore, REGION_CONFIRMED_MATCH_SCORE - REGION_CONFIRMED_SCORE_BONUS);
+  assert.equal(result.score, REGION_CONFIRMED_MATCH_SCORE);
   assert.equal(result.score < CONFIDENT_MATCH_SCORE, true);
   assert.equal(result.matched, true);
 });
@@ -152,11 +181,11 @@ test("Durunubi course matching rejects province-only false positives", () => {
   assert.equal(result.crsKorNm, undefined);
 });
 
-test("Durunubi course matching requires a confident score", () => {
+test("Durunubi course matching does not use the weak trail fallback when city or county differs", () => {
   const post = {
     slug: "travel-125677",
     title: "동해 무릉계곡 여름 산책과 물놀이, 코스 길이·안전 체크",
-    region: "강원특별자치도 동해시",
+    region: "강원특별자치도 삼척시",
   };
   const routes = [{ routeIdx: "7", themeNm: "해파랑길" }];
   const courses = [
@@ -172,8 +201,9 @@ test("Durunubi course matching requires a confident score", () => {
 
   const result = matchDurunubiCourse(post, courses, routes);
 
-  assert.equal(result.regionConfirmed, true);
-  assert.equal(result.score < REGION_CONFIRMED_MATCH_SCORE, true);
+  assert.equal(result.regionConfirmed, undefined);
+  assert.equal(result.regionExcluded, true);
+  assert.equal(result.score, 0);
   assert.equal(result.matched, false);
 });
 

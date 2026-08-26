@@ -18,6 +18,7 @@ const REQUEST_RETRIES = Math.max(1, Math.min(3, Number.parseInt(process.env.DURU
 const MAX_PAGES = Math.max(1, Math.min(20, Number.parseInt(process.env.DURUNUBI_MAX_PAGES || "10", 10) || 10));
 export const CONFIDENT_MATCH_SCORE = 20;
 export const REGION_CONFIRMED_MATCH_SCORE = 12;
+export const REGION_CONFIRMED_SCORE_BONUS = 6;
 
 const TRAIL_KEYWORDS = [
   "둘레길",
@@ -407,7 +408,11 @@ export function scoreDurunubiCourse(post = {}, course = {}, route = {}) {
   const exactCourseName = courseName && (includesNormalized(postText, courseName) || includesNormalized(courseName, postText));
   const exactRouteName = routeName && includesNormalized(postText, routeName);
   const strongKeywordMatch = keywordMatches.some((keyword) => STRONG_TRAIL_KEYWORDS.has(keyword));
-  const rawScore =
+  const regionConfirmed = specificRegionMatches.length > 0;
+  const regionalTrailFallback = regionConfirmed
+    && durunubiCandidateScore(post) > 0
+    && /길|트레일|올레|코스/.test(`${courseName} ${routeName}`);
+  const baseScore =
     regionMatches.length * 3
     + titleMatches.length * 4
     + keywordMatches.length * 2
@@ -415,19 +420,20 @@ export function scoreDurunubiCourse(post = {}, course = {}, route = {}) {
     + (exactRouteName ? 8 : 0)
     + (strongKeywordMatch ? 3 : 0);
 
-  const hasCourseTextMatch = Boolean(titleMatches.length || exactCourseName || exactRouteName || strongKeywordMatch);
+  const hasCourseTextMatch = Boolean(titleMatches.length || exactCourseName || exactRouteName || strongKeywordMatch || regionalTrailFallback);
   const regionExcluded = strip(post.region) !== "국내" && specificRegionTokens.length > 0 && !specificRegionMatches.length;
+  const rawScore = baseScore + (regionConfirmed && hasCourseTextMatch ? REGION_CONFIRMED_SCORE_BONUS : 0);
   const score = regionExcluded ? 0 : rawScore;
   const hasRegionMatch = strip(post.region) === "국내"
     ? true
     : specificRegionTokens.length
       ? Boolean(specificRegionMatches.length)
       : Boolean(regionMatches.length);
-  const regionConfirmed = specificRegionMatches.length > 0;
   const matchThreshold = regionConfirmed ? REGION_CONFIRMED_MATCH_SCORE : CONFIDENT_MATCH_SCORE;
   return {
     score,
     rawScore,
+    baseScore,
     matched: score >= matchThreshold && hasCourseTextMatch && hasRegionMatch && !regionExcluded,
     matchThreshold,
     regionConfirmed,
@@ -436,6 +442,7 @@ export function scoreDurunubiCourse(post = {}, course = {}, route = {}) {
     specificRegionMatches,
     titleMatches,
     keywordMatches,
+    regionalTrailFallback,
   };
 }
 
@@ -460,6 +467,7 @@ export function matchDurunubiCourse(post = {}, courses = [], routes = []) {
     matched: best.score.matched,
     score: best.score.score,
     rawScore: best.score.rawScore,
+    baseScore: best.score.baseScore,
     regionExcluded: best.score.regionExcluded,
     matchThreshold: best.score.matchThreshold,
     regionConfirmed: best.score.regionConfirmed,
@@ -467,6 +475,7 @@ export function matchDurunubiCourse(post = {}, courses = [], routes = []) {
     specificRegionMatches: best.score.specificRegionMatches,
     titleMatches: best.score.titleMatches,
     keywordMatches: best.score.keywordMatches,
+    regionalTrailFallback: best.score.regionalTrailFallback,
     routeIdx: strip(best.course.routeIdx),
     themeNm: strip(best.route.themeNm),
     crsKorNm: strip(best.course.crsKorNm),
