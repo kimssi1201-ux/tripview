@@ -77548,7 +77548,7 @@
         "sponsor1": "행정안전부, 전라남도 , 여수시",
         "sponsor1tel": "02-2058-1070"
       },
-      "backfilledAt": "2026-07-10T10:52:34.397Z"
+      "backfilledAt": "2026-08-26T07:22:28.566Z"
     },
     "editorialStatus": "pending"
   },
@@ -77565,7 +77565,12 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/03/4081503_image2_1.JPG",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/03/4081503_image2_1.JPG"
+      "https://tong.visitkorea.or.kr/cms/resource/03/4081503_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/98/4081498_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/99/4081499_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/00/4081500_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/01/4081501_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/02/4081502_image2_1.JPG"
     ],
     "alt": "웰컴투신관동 이미지",
     "excerpt": "웰컴투신관동을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -77593,6 +77598,10 @@
       [
         "주요 프로그램",
         "1. 메인 공연 2. 거리 퍼포먼스 - 전국 단위 퍼포먼스팀, 전문 버스킹(30팀 내외), 충남 공주시의 청소년 공연단, 공주대 동아리 학생들의 무대 3. 지역연계 상권활성화(aka 마켓꼼) - 지역상인 참여 : 상가 앞 가두판매/ 열린화장실 운영 - 비활성점포 연계 : 휴대폰, 의류, 마사지샵 등 행사 수혜 취약 점포 대상 SNS 운영 - 지역화폐 쿠폰 배포 : 행사 참여자 대상 쿠폰 이벤트 운영 4. 웰컴투맥주페스타"
+      ],
+      [
+        "좌표",
+        "36.4731467766, 127.1378517748"
       ]
     ],
     "memo": [
@@ -77678,11 +77687,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
+      "overview": "웰컴투신관동은 공주시 신관동 대학로 일원에서 개최되는 청년문화 중심의 거리축제이다. 공주시와 공주문화관광재단이 추진하는 문화도시 조성사업의 일환으로, 신관동을 청년 문화거점으로 육성하고 지역 문화생태계와 상권 활성화를 도모하는 것을 목적으로 한다. 축제는 2022년부터 개최되어 거리공연 중심의 축제로 운영되어 왔으며, 버스킹 경연대회, 거리 퍼포먼스, 맥주페스타, 플리마켓, 체험 프로그램 등 다양한 콘텐츠를 단계적으로 확대해 왔다. 2025년에는 거리 이정표와 조형물 설치, 내비게이션 서비스 표기 등을 통해 '웰컴투신관동' 브랜드를 구축하였으며, 2026년에는 주민·상인·대학·청소년이 함께 참여하는 협력 운영체계를 기반으로 지속 가능한 축제 모델을 마련하는 것을 목표로 한다. 2026년 축제는 10월 9일부터 11일까지 신관동 대학로 일원에서 개최될 예정이며, 메인공연과 전국 단위 거리 퍼포먼스, 지역 청소년 및 청년 공연단 공연, 지역 상권 연계 프로그램, 지역화폐 쿠폰 이벤트 등이 운영된다. 또한 백제문화제와 연계하여 방문객의 체류를 유도하고 신관동 일대의 문화·경제 활성화를 도모하는 지역 대표 거리축제로 운영될 계획이다.",
       "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "mapx": "127.1378517748",
+      "mapy": "36.4731467766",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261009",
         "eventenddate": "20261010",
@@ -77694,7 +77703,7 @@
         "sponsor1tel": "041-852-1321",
         "sponsor2": "공주문화관광재단"
       },
-      "backfilledAt": "2026-07-10T10:52:35.742Z"
+      "backfilledAt": "2026-08-26T07:22:30.007Z"
     },
     "editorialStatus": "pending"
   },
@@ -77711,7 +77720,12 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/72/4058672_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/72/4058672_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/72/4058672_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/73/4058673_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/74/4058674_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/75/4058675_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/76/4058676_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/33/4098133_image2_1.jpg"
     ],
     "alt": "영동난계국악축제 이미지",
     "excerpt": "영동난계국악축제을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -77739,6 +77753,14 @@
       [
         "주요 프로그램",
         "1. 메인프로그램 : 개막식 및 폐막식, 정통국악 공연, 퓨전국악공연, 세계민속춤 공연, 어린이 공연 2. 부대 및 연계 프로그램 : 제21회 추풍령가요제, 전국풍물경연대회, 영동군 읍면 풍물경연대회, 국악방송국, 한복체험, 나도가수 노래방 등 3. 소비자 참여 및 체험 프로그램 : 전통놀이 힐링한마당, 도전!국악골든벨, 친환경 키즈놀이터, 국악기 제작 및 연주 체험 4. 기타 내용 : 디지털 국악박물관, 국악테마파크, 국악포토존 등"
+      ],
+      [
+        "홈페이지",
+        "http://ydnan-gye.co.kr/"
+      ],
+      [
+        "좌표",
+        "36.1563534107, 127.7865136910"
       ]
     ],
     "memo": [
@@ -77824,23 +77846,23 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "*하기 축제장 먹거리 정보는 전년도(2025년) 축제 내용으로, 2026년도 축제 내용은 업데이트 중에 있습니다.*영동군의 문화유산이자 전통문화예술인 국악을 주제로 하여 난계 박연선생의 음악적 업적을 기리고 전통문화예술 진흥에 기여하기 매년 개최되고 있는 문화예술 공연 축제이다. 제57회 영동난계국악축제는 2025 영동세계국악엑스포의 성과를 계승하여 국악이라는 대한민국 유산을 전세계적으로 홍보하고 제2의 한류문화 부흥에 이바지 하고자 한다. 또한 대한민국 유일의 국악축제로 다양한 국악공연과 체험 프로그램을 통한 전통문화예술을 현대적으로 계승하고 지역 특성에 맞는 프로그램으로 축제의 지역관광자원화에 힘쓰고 있다. 지역민의 문화적 수준 향상과 자발적 참여를 통한 군민 화합의 한마당 자리 마련한다.",
+      "homepage": "http://ydnan-gye.co.kr/",
+      "mapx": "127.7865136910",
+      "mapy": "36.1563534107",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261015",
         "eventenddate": "20261018",
         "eventplace": "영동 레인보우힐링광장 일원",
         "playtime": "10:00 ~20:00",
         "program": "1. 메인프로그램 : 개막식 및 폐막식, 정통국악 공연, 퓨전국악공연, 세계민속춤 공연, 어린이 공연 2. 부대 및 연계 프로그램 : 제21회 추풍령가요제, 전국풍물경연대회, 영동군 읍면 풍물경연대회, 국악방송국, 한복체험, 나도가수 노래방 등 3. 소비자 참여 및 체험 프로그램 : 전통놀이 힐링한마당, 도전!국악골든벨, 친환경 키즈놀이터, 국악기 제작 및 연주 체험 4. 기타 내용 : 디지털 국악박물관, 국악테마파크, 국악포토존 등",
-        "usetimefestival": "무료 (일부 체험프로그램의 경우 5,000원 ~15,000원 )",
+        "usetimefestival": "무료 (일부 체험프로그램의 경우 5,000원 ~15,000원)",
         "sponsor1": "(재)영동군 문화관광재단, (사)난계기념사업회",
         "sponsor1tel": "043-745-8917",
         "sponsor2": "영동군"
       },
-      "backfilledAt": "2026-07-10T10:52:36.416Z"
+      "backfilledAt": "2026-08-26T07:22:31.411Z"
     },
     "editorialStatus": "pending"
   },
@@ -77885,6 +77907,14 @@
       [
         "주요 프로그램",
         "1. 전 세계 개성 넘치는 뮤지션들이 참여하는 버스킹 경연대회 - 기간 : 2026.10.07.~2026.10.11. - 장소 : 5·18 민주광장 2. 버스킹 라이브 경연 - 기간 : 2026.10.10.(8강) / 2026.10.11.(결선) - 장소 : 5·18 민주광장 3. 뮤지션 초청공연 / 전년도 수상팀 공연 등 초청공연 - 기간 : 2026.10.11 - 장소 : 5·18 민주광장 4. 버스킹프린지 - 거리에서 펼치는 버스킹 공연 - 기간 : 2026.10.07.~2026.10.11 - 장소 : 5·18 민주광장 5. 외국인 유학생 버스킹 - 전국 유학생들이 펼치는 버스킹 공연 - 기간 : 2026.10.08. / 15:00 - 장소 : 5·18 민주광장 6. 스트릿 댄스배틀 - 전 세계 춤꾼들의 한판 승부 - 기간 : 2026.10.09. / 14:00 - 장소 : 5·18 민주광장 7. 스탬프 투어 - 공연과 골목관광을 연계한 이색투어 - 기간 : 2026.10.08~2026.10.11. - 장소 : 충장로 일원 (5·18 민주광장 등) - 사전 신청자 500명 참여 가능 8. 푸드트럭 - 피크닉풍 음악축제로의 변신 - 기간 : 2026.10.07.~2026.10.11. - 장소 : 충장로 일원 (5·18 민주광장 등) 9. 웰컴파티 - 전 세계 뮤지션들의 교류의 장 - 기간 : 2026.10.09 / 16:00 - 장소 : 국립아시아문화전당"
+      ],
+      [
+        "홈페이지",
+        "공식 홈페이지 https://www.buskingworldcup.com/kor/ 공식 인스타그램 https://www.instagram.com/gwbf2026/"
+      ],
+      [
+        "좌표",
+        "35.1474913381, 126.9198016528"
       ]
     ],
     "memo": [
@@ -77970,11 +78000,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "광주버스킹월드컵은 광주광역시 동구 충장로 일원에서 개최되는 국제 거리공연 음악축제이다. 본 행사는 국내외 거리공연 예술가들이 참여하여 다양한 음악 공연을 선보이는 경연형 축제로 보컬, 밴드, 어쿠스틱, 퍼포먼스 등 다양한 장르의 무대를 만날 수 있다. 참가팀은 예선과 본선을 거쳐 결선에서 최종 우승팀을 가리며 전문 심사위원의 심사를 통해 수상팀을 선정한다. 광주 도심 곳곳을 무대로 개최되는 본 행사는 도시 공간을 활용한 문화예술 활성화와 거리공연 문화 확산을 도모하고 글로벌 문화교류와 관광 활성화에 기여하는 국제 문화 행사이다.",
+      "homepage": "공식 홈페이지 https://www.buskingworldcup.com/kor/ 공식 인스타그램 https://www.instagram.com/gwbf2026/",
+      "mapx": "126.9198016528",
+      "mapy": "35.1474913381",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261007",
         "eventenddate": "20261011",
@@ -77986,7 +78016,7 @@
         "sponsor1tel": "062-228-9812",
         "sponsor2": "(재)광주광역시동구문화관광재단"
       },
-      "backfilledAt": "2026-07-10T10:52:37.728Z"
+      "backfilledAt": "2026-08-26T07:22:32.821Z"
     },
     "editorialStatus": "pending"
   },
@@ -78003,7 +78033,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/40/4063740_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/40/4063740_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/40/4063740_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms2/website/53/3462553.jpg",
+      "https://tong.visitkorea.or.kr/cms2/website/54/3462554.jpg",
+      "https://tong.visitkorea.or.kr/cms2/website/55/3462555.jpg",
+      "https://tong.visitkorea.or.kr/cms2/website/56/3462556.jpg",
+      "https://tong.visitkorea.or.kr/cms2/website/57/3462557.jpg",
+      "https://tong.visitkorea.or.kr/cms2/website/58/3462558.jpg",
+      "https://tong.visitkorea.or.kr/cms2/website/59/3462559.jpg"
     ],
     "alt": "전주페스타 이미지",
     "excerpt": "전주페스타을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -78133,7 +78170,7 @@
         "sponsor1": "전주시",
         "sponsor1tel": "063-281-2960"
       },
-      "backfilledAt": "2026-07-10T10:52:39.740Z"
+      "backfilledAt": "2026-08-26T07:22:34.223Z"
     },
     "editorialStatus": "pending"
   },
@@ -78150,7 +78187,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/50/4063650_image2_1.JPG",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/50/4063650_image2_1.JPG"
+      "https://tong.visitkorea.or.kr/cms/resource/50/4063650_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/45/4063645_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/46/4063646_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/47/4063647_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/48/4063648_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/51/4063651_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/52/4063652_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/53/4063653_image2_1.jpg"
     ],
     "alt": "구미푸드페스티벌 이미지",
     "excerpt": "구미푸드페스티벌을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -78178,6 +78222,14 @@
       [
         "주요 프로그램",
         "1. 낭만구미(볼거리) : 개막 퍼포먼스, 초청가수 및 버스킹, 레크레이션(마술쇼, 풍선아트) 등 다채로운 공연 2. 맛난구미(먹거리) : 구미에서 맛보는 9가지 특별한 순간, 9味*존 운영 * 9味존 : 식품대전(1), 구미먹거리장터(2), 베이커리카페존(3), 아시아미식존(4), 로컬맛집존(5)향토막걸리존(6), 구미당김치맥존(7), 어린이 먹거리존(8), 삼겹굽굽존(9) 3. 꿀잼구미(놀거리) : 가족단위 쿠킹클래스, 코스튬 콘테스트, 체험프로그램, 먹빵대회(구미빵·구미당김라거) 등"
+      ],
+      [
+        "홈페이지",
+        "https://gumifoodfestival.com/"
+      ],
+      [
+        "좌표",
+        "36.1160790000, 128.3494610000"
       ]
     ],
     "memo": [
@@ -78263,11 +78315,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "2022년 10월 마스크를 쓰고 ‘코로나’라는 길고 긴 터널을 힘겹게 지나온 시민들과 소상공인들을 위로하고, 경기에 활력을 불어넣고자 하는 취지로 시작된 구미시 음식 축제이다. 기분 좋게 불어오는 가을바람을 느끼며 많은 시민은 구미 도심 중심에 있는 송정맛길(송정동 광평주차장)로 모였고, 흥과 낭만이 넘치는 공간에서 가족과 연인, 친구들과 함께 맛있는 음식을 먹고 재미있는 공연을 보며 웃음꽃을 피웠다. 200여 가지 최다 메뉴로 다양한 구미(口味)를 느낄 수 있고, 아이들이 즐길 수 있는 컨텐츠도 다채롭게 준비되어 모든 연령대가 즐길 수 있는 구미시 대표축제 중 하나이다.",
+      "homepage": "https://gumifoodfestival.com/",
+      "mapx": "128.3494610000",
+      "mapy": "36.1160790000",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261017",
         "eventenddate": "20261018",
@@ -78278,7 +78330,7 @@
         "sponsor1": "구미시",
         "sponsor1tel": "054-480-5593"
       },
-      "backfilledAt": "2026-07-10T10:52:40.283Z"
+      "backfilledAt": "2026-08-26T07:22:35.617Z"
     },
     "editorialStatus": "pending"
   },
@@ -78295,7 +78347,13 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/40/3497640_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/40/3497640_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/40/3497640_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/38/3497638_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/39/3497639_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/41/3497641_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/42/3497642_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/43/3497643_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/22/4095622_image2_1.png"
     ],
     "alt": "구미라면 축제 이미지",
     "excerpt": "구미라면 축제을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -78323,6 +78381,14 @@
       [
         "주요 프로그램",
         "1. 메인프로그램 : 이색라면 레스토랑 및 `갓 튀긴 라면` 팝업스토어 운영 등 2. 부대프로그램 : 스트릿댄스파이터, MSG팝업, 뉴타운라면빠 3. 소비자 참여 프로그램 : 나만의 라면 만들기, 라믈리에 선발대회, 농심산업투어, 라면테마 체험 등 4. 기타 내용 : 라면쉼터 등 라면테마 각종 체험 부스 및 프로그램 운영"
+      ],
+      [
+        "홈페이지",
+        "https://www.gumiramyun.com/"
+      ],
+      [
+        "좌표",
+        "36.1294040000, 128.3314220000"
       ]
     ],
     "memo": [
@@ -78408,11 +78474,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "*하기 축제 내용은 전년도(2025년) 축제 내용으로, 2026년도 축제 내용은 업데이트 중에 있습니다.*국내 유일 도심 속 라면축제가 구미에서 개최된다. 농심 구미공장에서 생산된 갓 튀긴 라면을 현장판매하여 구입할 수 있고, 또한 다양한 이색라면 요리를 맛볼 수 있다. 그 외 라면테마 전시, 체험, 포토존, 무대프로그램, 각종 이벤트 등을 즐길 수 있다.",
+      "homepage": "https://www.gumiramyun.com/",
+      "mapx": "128.3314220000",
+      "mapy": "36.1294040000",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261106",
         "eventenddate": "20261108",
@@ -78423,7 +78489,7 @@
         "sponsor1": "구미시",
         "sponsor1tel": "054-480-2652"
       },
-      "backfilledAt": "2026-07-10T10:52:41.344Z"
+      "backfilledAt": "2026-08-26T07:22:37.053Z"
     },
     "editorialStatus": "pending"
   },
@@ -78440,7 +78506,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/27/3544627_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/27/3544627_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/27/3544627_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/26/3544626_image2_1.png",
+      "https://tong.visitkorea.or.kr/cms/resource/28/3544628_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/29/3544629_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/30/3544630_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/31/3544631_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/32/3544632_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/33/3544633_image2_1.png"
     ],
     "alt": "김천김밥축제 이미지",
     "excerpt": "김천김밥축제을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -78468,6 +78541,14 @@
       [
         "주요 프로그램",
         "1. 메인프로그램 : 김밥플레이리스트(축하공연), 꼬달이 돌잡이 등2. 부대프로그램 : 김밥 미로 탈출, 김밥 에어바운스 등3. 소비자 참여 프로그램 : 김밥판매부스(로컬/일반), 나만의 김밥만들기, 프랜들리(분식), 플리마켓 등4. 기타 내용 : 김밥 체험부스(김밥캐릭터만들기, 김밥 보드게임 등)"
+      ],
+      [
+        "홈페이지",
+        "http://gimbapcity.kr/main/main.html"
+      ],
+      [
+        "좌표",
+        "36.102930074676955, 127.99484429506171"
       ]
     ],
     "memo": [
@@ -78553,11 +78634,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "*하기 축제 내용은 전년도(2025년) 축제 내용으로, 2026년도 축제 내용은 업데이트 중에 있습니다.*김천김밥축제는 경상북도 김천시에서 개최되는 지역 문화관광 축제이다. 김천의 대표적인 특산품이 김밥은 아니지만, ‘김밥천국 김천’이라는 지역의 상징적 이미지를 기반으로 기획된 행사이다. 축제는 김천 시민과 관광객이 함께 즐길 수 있도록 김밥을 소재로 한 체험, 전시, 공연, 놀이 콘텐츠를 중심으로 운영된다. 김밥을 직접 만들고 맛보는 체험 프로그램이 마련되며, 다양한 세대가 참여할 수 있는 공연과 체험존이 조성된다.",
+      "homepage": "http://gimbapcity.kr/main/main.html",
+      "mapx": "127.99484429506171",
+      "mapy": "36.102930074676955",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261023",
         "eventenddate": "20261025",
@@ -78568,7 +78649,7 @@
         "sponsor1": "김천시",
         "sponsor1tel": "053-965-0910"
       },
-      "backfilledAt": "2026-07-10T10:52:42.413Z"
+      "backfilledAt": "2026-08-26T07:22:38.460Z"
     },
     "editorialStatus": "pending"
   },
@@ -78585,7 +78666,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/73/4066273_image2_1.JPG",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/73/4066273_image2_1.JPG"
+      "https://tong.visitkorea.or.kr/cms/resource/73/4066273_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/65/4066265_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/66/4066266_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/67/4066267_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/68/4066268_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/69/4066269_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/70/4066270_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/71/4066271_image2_1.jpg"
     ],
     "alt": "고양행주한우 숯불구이축제 이미지",
     "excerpt": "고양행주한우 숯불구이축제을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -78613,6 +78701,14 @@
       [
         "주요 프로그램",
         "1. 메인프로그램 : 초청가수 댄수공연, 행주한우 구이터 운영(1,000석) 2. 부대프로그램 : 한우, 한돈, 계란, 닭고기, 꿀, 서울우유 축산물 전품목 20~50% 할인 및 무료시식, 시음 3. 소비자 참여 프로그램 : 버블쇼, 마술쇼, 경품지급, 무료체험부스(페이스페인팅, 풍선아트)"
+      ],
+      [
+        "홈페이지",
+        "http://gyfestival.kr/"
+      ],
+      [
+        "좌표",
+        "37.654669772497314, 126.83276387204035"
       ]
     ],
     "memo": [
@@ -78698,11 +78794,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "행주한우 숯불구이 축제는 고양특례시를 대표하는 명품 한우 브랜드 ‘행주한우’의 우수성을 널리 알리고 시민과 함께 즐거움을 나누기 위해 마련된 지역 축제이다. 철저한 품질관리로 생산된 안전하고 건강한 축산물을 직접 맛볼 수 있으며, 숯불 위에서 구워낸 행주한우의 깊은 풍미를 통해 특별한 미식 경험을 선사하는 행사이다. 또한 지역 농가와 소비자가 함께 소통하며 화합과 풍요로움을 나누는 뜻깊은 축제이다.",
+      "homepage": "http://gyfestival.kr/",
+      "mapx": "126.83276387204035",
+      "mapy": "37.654669772497314",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261031",
         "eventenddate": "20261101",
@@ -78713,7 +78809,7 @@
         "sponsor1": "고양축산농협",
         "sponsor1tel": "031-960-3034,3050"
       },
-      "backfilledAt": "2026-07-10T10:52:43.096Z"
+      "backfilledAt": "2026-08-26T07:22:39.883Z"
     },
     "editorialStatus": "pending"
   },
@@ -78730,7 +78826,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/74/4078274_image2_1.JPG",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/74/4078274_image2_1.JPG"
+      "https://tong.visitkorea.or.kr/cms/resource/74/4078274_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/68/4078268_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/69/4078269_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/70/4078270_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/71/4078271_image2_1.png",
+      "https://tong.visitkorea.or.kr/cms/resource/72/4078272_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/73/4078273_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/75/4078275_image2_1.JPG"
     ],
     "alt": "성남동 커피페스티벌 이미지",
     "excerpt": "성남동 커피페스티벌을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -78758,6 +78861,14 @@
       [
         "주요 프로그램",
         "1. 커피대회(브루잉, 라떼아트) 2. 커피 홍보 시음, 판매 3. 추출, 로스팅, 라떼아트 등 커피 체험 행사 4. 기타 체험 행사(페이스페인팅, 풍선아트, 커피박 등 참여형 이벤트) 5. 경품행사 및 음악공연 등"
+      ],
+      [
+        "홈페이지",
+        "https://www.uscoffeefest.com/"
+      ],
+      [
+        "좌표",
+        "35.5572230000, 129.3214690000"
       ]
     ],
     "memo": [
@@ -78843,11 +78954,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "과거 공업도시지구 지정 이후 청춘들이 모여들어 다방을 중심으로 문학과 낭만의 문화를 꽃피웠던 성남동에서, 커피를 주제로 한 특별한 축제가 열립니다. 성남동 커피페스티벌은 커피를 사랑하는 모든 이들을 위한 시민 참여형 문화축제이다. 매년 가을 개최되는 본 축제는 성남동 지역 상인과 커피 업계 종사자들이 함께 기획하고 운영하며, 핸드드립 시연, 라떼아트 체험, 브루잉 대회, 다양한 커피 브랜드 시음 행사 등 풍성한 프로그램을 제공한다. 또한 전국의 실력 있는 바리스타들이 참여하는 커피 퍼포먼스 대회를 비롯해, 가족 단위 방문객도 함께 즐길 수 있는 체험 부스, 라이브 공연, 먹거리 마켓 등 다채로운 즐길 거리가 마련되어 남녀노소 누구나 참여할 수 있는 열린 축제로 자리매김하고 있다.",
+      "homepage": "https://www.uscoffeefest.com/",
+      "mapx": "129.3214690000",
+      "mapy": "35.5572230000",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261030",
         "eventenddate": "20261101",
@@ -78858,7 +78969,7 @@
         "sponsor1": "성남동 커피사업추진협의체",
         "sponsor1tel": "052-290-3541"
       },
-      "backfilledAt": "2026-07-10T10:52:43.633Z"
+      "backfilledAt": "2026-08-26T07:22:41.291Z"
     },
     "editorialStatus": "pending"
   },
@@ -78903,6 +79014,14 @@
       [
         "주요 프로그램",
         "- 주요 프로그램 : 리그오브레전드 / 발로란트 / 브롤스타즈 / 로블록스 등 e스포츠 게임 대회 본선 진행 - 부대 행사 및 프로그램 : 드론체험 / vr체험 / e스포츠 코칭 / 아빠들의 도전! / 코스프레존 / 퍼스널컬러 / pc게임 체험 / 나만의 시그니처 향 만들기 / 진로상담 등"
+      ],
+      [
+        "홈페이지",
+        "공식 홈페이지 https://www.hccf.or.kr/"
+      ],
+      [
+        "좌표",
+        "37.7087429269, 127.9082310793"
       ]
     ],
     "memo": [
@@ -78990,10 +79109,10 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
+      "overview": "홍천군에서 여름 휴가기간 축제와 연계하여 가족 단위 방문객 유입을 도모하고 지역경제 활성화를 위한 가족 체험형 행사가 개최된다. 2026 홍천 e스포츠 페스티벌은 새로운 문화산업 기반의 축제를 통한 홍천군 e스포츠 브랜드를 강화하고 새로운 문화콘텐츠를 개발하는 목적으로 운영된다. 총 상금 2,000만원으로 아마추어 대회 최고 상금을 내걸었으며, 종목 또한 4개의 종목으로 확대하여 전 연령층이 함꼐 즐길 수 있는 페스티벌로 기획되었다. 단순히 게임 경쟁을 떠나 vr 체험존, 게임 체험존, 코스프레존, 드론 체험존, e스포츠 코칭, 진로상담 등 다양한 프로그램을 통해 온 가족이 즐기고 볼 수 있는 참여형 행사이다.",
+      "homepage": "공식 홈페이지 https://www.hccf.or.kr/",
+      "mapx": "127.9082310793",
+      "mapy": "37.7087429269",
       "mlevel": "",
       "intro": {
         "eventstartdate": "20260725",
@@ -79006,7 +79125,7 @@
         "sponsor1tel": "033-439-5812",
         "sponsor2": "홍천군, (재)홍천문화재단, (사)대한생활체육회 e스포츠협회"
       },
-      "backfilledAt": "2026-07-10T10:52:44.723Z"
+      "backfilledAt": "2026-08-26T07:22:42.719Z"
     },
     "editorialStatus": "pending"
   },
@@ -79023,7 +79142,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/27/4069627_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/27/4069627_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/27/4069627_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/55/3524155_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/57/3524157_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/60/3524160_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/67/4062967_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/28/4069628_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/29/4069629_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/30/4069630_image2_1.jpg"
     ],
     "alt": "금산세계인삼축제 이미지",
     "excerpt": "금산세계인삼축제을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -79051,6 +79177,14 @@
       [
         "주요 프로그램",
         "1. 메인프로그램 : 인삼캐기체험여행, 홍삼족욕체험 등 2. 부대프로그램 : 인삼왕 선발대회, 인삼제전, 야간 드론 라이팅 쇼 3. 소비자 참여 프로그램 : 금산인삼아트체험, 금산인삼 민속촌, 가족전통놀이 체험 등"
+      ],
+      [
+        "홈페이지",
+        "www.insamfestival.co.kr"
+      ],
+      [
+        "좌표",
+        "36.1001535022, 127.5005221346"
       ]
     ],
     "memo": [
@@ -79136,11 +79270,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "*하기 축제 먹거리 내용은 전년도(2025년) 축제 내용으로, 2026년도 축제 내용은 업데이트 중에 있습니다.*1,500여년의 역사가 깃든 인삼의 본고장 충남 금산에서 개최되는 금산세계인삼축제에서는 인삼캐기체험과 홍삼팩 마사지, 홍삼족욕, 국제인삼교역전, 전통인삼문화체험 등 온 계층이 즐기는 다채로운 체험과 볼거리, 알뜰 쇼핑으로 관광객 만족도를 높여가고 있으며, 행사장 곳곳에서는 인삼과 약초를 활용한 건강 음식을 맛볼 수 있다. 1981년부터 매년 개최되어 온 금산세계인삼축제는 문화체육관광부가 선정하는 전국 최우수 축제 10회 지정의 경력과 2024년 세계축제협회(IFEA World) 아시아 특산물 축제 선정 등 명실공히 한국을 대표하는 산업형 축제로 숱한 명성을 쌓아오고 있으며, 세계인과 함께하는 글로벌 축제로 거듭나고 있다.",
+      "homepage": "www.insamfestival.co.kr",
+      "mapx": "127.5005221346",
+      "mapy": "36.1001535022",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261002",
         "eventenddate": "20261011",
@@ -79152,7 +79286,7 @@
         "sponsor1tel": "041-750-2316",
         "sponsor2": "금산문화관광축제재단"
       },
-      "backfilledAt": "2026-07-10T10:52:45.614Z"
+      "backfilledAt": "2026-08-26T07:22:44.148Z"
     },
     "editorialStatus": "pending"
   },
@@ -79169,7 +79303,13 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/88/3523088_image2_1.JPG",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/88/3523088_image2_1.JPG"
+      "https://tong.visitkorea.or.kr/cms/resource/88/3523088_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/89/3523089_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/90/3523090_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/91/3523091_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/92/3523092_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/93/3523093_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/94/3523094_image2_1.JPG"
     ],
     "alt": "산청한방약초축제 이미지",
     "excerpt": "산청한방약초축제을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -79197,6 +79337,14 @@
       [
         "주요 프로그램",
         "- 공식행사 : 개막식, 폐막식- 주제행사 : 산청혜민서, 내몸의 보약체험, 항노화뷰티관- 전시행사 : (상설전시) - 엑스포 주제관, 산청한의학박물관, 산청약초관 / (특별전시) - 2025 산청한의학박물관 특별전. 웰니스전시홍보관, 산청문인시화전, 플랜트정원조성- 공연행사 : 상설 퍼레이드 주제공연, 무대별 연계행사 공연- 체험행사 : 산청문화체험존, 가족힐링체험존, 자연친화체험존, 동의보감상설체험- 판매행사 : 약초판매장터, 농특산물판매장, 산청공예전시판매장, 산청음식관, 푸드트럭존- 학술행사 : 향약집성방 및 신찬벽온방 학술대회"
+      ],
+      [
+        "홈페이지",
+        "홈페이지 http://scherb.or.kr/"
+      ],
+      [
+        "좌표",
+        "35.44106596986498, 127.82935943935597"
       ]
     ],
     "memo": [
@@ -79282,11 +79430,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "*하기 축제 내용은 전년도(2025년) 축제 내용으로, 2026년도 축제 내용은 업데이트 중에 있습니다.*제25회를 맞이한 대한민국 대표 약초축제이다. 지리산 청정지역의 약초자원과 소설 동의보감을 기반으로, 2001년 전국최초의 한의약 테마관광지 조성 등 역사와 문화, 자연 조건을 최대한 활용하여 축제를 통해 산청한방약초의 우수성을 홍보하고 현대인들의 최대 관심사인 웰니스, 항노화 관련 산업을 연계한 산업형 축제이다. 산청의 우수한 약초의 효능을 직접 체험해 보는 산청한약방체험, 내몸의 보약체험, 웰니스헬스투어 등이 준비되어 있다.",
+      "homepage": "홈페이지 http://scherb.or.kr/",
+      "mapx": "127.82935943935597",
+      "mapy": "35.44106596986498",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261002",
         "eventenddate": "20261011",
@@ -79297,7 +79445,7 @@
         "sponsor1": "산청축제관광재단",
         "sponsor1tel": "055-970-6670"
       },
-      "backfilledAt": "2026-07-10T10:52:46.263Z"
+      "backfilledAt": "2026-08-26T07:22:45.550Z"
     },
     "editorialStatus": "pending"
   },
@@ -79314,7 +79462,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/11/4039211_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/11/4039211_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/11/4039211_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/04/4039204_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/05/4039205_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/06/4039206_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/07/4039207_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/08/4039208_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/09/4039209_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/10/4039210_image2_1.jpg"
     ],
     "alt": "서귀포칠십리축제 이미지",
     "excerpt": "서귀포칠십리축제을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -79342,6 +79497,14 @@
       [
         "주요 프로그램",
         "메인프로그램: 길거리 퍼레이드 경연프로그램: 청소년 페스타, 칠십리 가요제 타 부서 연계 프로그램(추진예정): 드론쇼, 지붕없는 도서관, 방방곡곡 콘서트 지역 상권 연계 프로그램(추진예정): 칠십리 영수증 패스, 칠십리 파트너스"
+      ],
+      [
+        "홈페이지",
+        "https://www.seogwipo.go.kr/tourismculture/destination/festival/70ri.htm"
+      ],
+      [
+        "좌표",
+        "33.243863, 126.560563"
       ]
     ],
     "memo": [
@@ -79427,11 +79590,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "서귀포 칠십리축제는 서귀포의 원도심과 바다를 배경으로, 지역 문화예술과 시민 참여 프로그램을 한데 모아 즐기는 서귀포 대표 축제이다. 보통 천지연폭포 주차장 및 서귀포 원도심(구 시가지) 일대에서 진행되며, 거리 전체가 무대가 되는 거리 퍼레이드, 다양한 장르의 공연·버스킹, 지역 예술인 참여 무대, 먹거리·플리마켓 등으로 축제 분위기를 더한다. 특히 퍼레이드는 시민과 단체가 함께 참여해 서귀포의 정체성과 활기를 보여주는 핵심 프로그램으로, 축제 기간 원도심 일대를 걸으며 볼거리와 즐길 거리를 동시에 체험할 수 있다는 점이 특징이다. 이 축제는 과거와 현재, 미래가 만나는 무대이자 시민과 관객이 하나 되어 즐기는 신명나는 축제이다. 자연과 문화, 사람이 어우러진 서귀포 칠십리축제에서 특별한 추억을 만들 수 있다.",
+      "homepage": "https://www.seogwipo.go.kr/tourismculture/destination/festival/70ri.htm",
+      "mapx": "126.560563",
+      "mapy": "33.243863",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261023",
         "eventenddate": "20261025",
@@ -79443,7 +79606,7 @@
         "sponsor1tel": "064-760-3942",
         "sponsor2": "서귀포칠십리축제추진위원회"
       },
-      "backfilledAt": "2026-07-10T10:52:46.798Z"
+      "backfilledAt": "2026-08-26T07:22:46.960Z"
     },
     "editorialStatus": "pending"
   },
@@ -79460,7 +79623,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/54/3540554_image2_1.JPG",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/54/3540554_image2_1.JPG"
+      "https://tong.visitkorea.or.kr/cms/resource/54/3540554_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/53/3540553_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/57/3540557_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/82/4091582_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/92/4091592_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/95/4091595_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/96/4091596_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/98/4091598_image2_1.jpg"
     ],
     "alt": "안성맞춤 남사당 바우덕이축제 이미지",
     "excerpt": "안성맞춤 남사당 바우덕이축제을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -79488,6 +79658,14 @@
       [
         "주요 프로그램",
         "1. 공식행사: 추모제, 전야제, 개장식, 개․폐막식2. 체 험: 바우덕이테마파크, 안성옛장터, 안성문화장, 동아시아문화도시 체험3. 전시․홍보: 안성축산물구이존, 농‧축산물 판매, 안성명장전, 동아시아빛축제4. 공 연: 남사당놀이, 쌍줄타기, 전통혼례, 마당놀이, 동아시아 전통연희페스티벌, 초청가수, 드론쇼5. 시민무대: THE NEXT 바우덕이 경연대회, 시민대합창, 100인색소폰, 시민동호회 및 시민예술공연"
+      ],
+      [
+        "홈페이지",
+        "https://www.anseong.go.kr/"
+      ],
+      [
+        "좌표",
+        "37.0336344681, 127.3054103868"
       ]
     ],
     "memo": [
@@ -79573,23 +79751,23 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "*하기 축제 먹거리 내용은 전년도(2025년) 축제 내용으로, 2026년도 축제 내용은 업데이트 중에 있습니다.*안성맞춤 남사당 바우덕이축제는 유네스코 인류무형문화유산으로 지정된 남사당놀이를 소재로 한 축제이다. 조선 최초 여성 꼭두쇠 바우덕이의 예술혼과 안성 남사당패의 흥과 멋을 계승·발전시키며, 조선시대 전국 3대 장터의 풍성한 모습을 재현한 안성 옛장터를 비롯해 전통문화 체험, 국내외 전통예술 공연, 해외 민속공연 등 남녀노소 모두가 함께 즐길 수 있는 다채로운 프로그램을 선보인다. 특히 줄타기와 남사당놀이의 진수를 가까이에서 만나고, 전통과 현대가 어우러진 공연을 통해 한국 전통문화의 매력을 생생하게 경험할 수 있다. 역사와 문화, 공연, 관광이 어우러진 안성맞춤 남사당 바우덕이축제는 국내외 관광객이 함께 즐기는 문화관광축제로 자리매김하며, 대한민국을 대표하는 전통문화축제로 발전하고 있다.",
+      "homepage": "https://www.anseong.go.kr/",
+      "mapx": "127.3054103868",
+      "mapy": "37.0336344681",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261002",
         "eventenddate": "20261005",
         "eventplace": "안성맞춤랜드 및 안성천 일원",
         "playtime": "10:00~21:00",
-        "program": "1. 공식행사: 추모제, 전야제, 개장식, 개․폐막식2. 체 험: 바우덕이테마파크, 안성옛장터, 안성문화장, 동아시아문화도시 체험3. 전시․홍보: 안성축산물구이존, 농‧축산물 판매, 안성명장전, 동아시아빛축제4. 공 연: 남사당놀이, 쌍줄타기, 전통혼례, 마당놀이, 동아시아 전통연희페스티벌, 초청가수, 드론쇼5. 시민무대: THE NEXT 바우덕이 경연대회, 시민대합창, 100인색소폰, 시민동호회 및 시민예술공연",
+        "program": "1. 공식행사: 추모제, 전야제, 개장식, 개·폐막식 2. 체험: 바우덕이테마파크, 바우덕이culture투어, 안성옛장터, 안성문화장 3. 전시·홍보: 안성축산물구이존, 농‧축산물 판매, 안성명장전, 바우덕이빛축제, 글로벌스튜디오 4. 공연: 남사당놀이, 전통혼례, 극놀이, 세계유산마스터클래스 5. 시민무대: THE NEXT 바우덕이 경연대회, 시민합창페스티벌, 100인색소폰, 시민예술무대",
         "usetimefestival": "무료",
         "sponsor1": "안성시",
         "sponsor1tel": "031-678-5414",
         "sponsor2": "안성맞춤 남사당 바우덕이축제위원회"
       },
-      "backfilledAt": "2026-07-10T10:52:48.154Z"
+      "backfilledAt": "2026-08-26T07:22:48.364Z"
     },
     "editorialStatus": "pending"
   },
@@ -79606,7 +79784,11 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/55/3563955_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/55/3563955_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/55/3563955_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/51/3563951_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/52/3563952_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/53/3563953_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/54/3563954_image2_1.jpg"
     ],
     "alt": "경북영주 풍기인삼축제 이미지",
     "excerpt": "경북영주 풍기인삼축제을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -79634,6 +79816,14 @@
       [
         "주요 프로그램",
         "1. 메인프로그램 : 개삼터 고유제, 인삼대제, 주세붕군수 행차재현, 우량인삼 선발대회 및 전시2. 부대프로그램 : 개폐막식 및 축하공연, 청소년 문화공연, 환경 노래자랑, 덴동어미 화전놀이 마당극, 청소년 락 페스티벌, 지역문화예술인 공연, 전국 파워풀 댄스페스티벌, 소백산 풍기인삼가요제, 한마음 체육대회 등3. 소비자 참여 프로그램 : 인삼깎기 경연대회, 인삼병주 만들기, 인삼 인절미 떡메치기, 관광객 노래자랑, 풍기인삼 경매, 황금인삼을 찾아라 !4. 기타 내용 : 영주 농특산물 판매장 운영 등"
+      ],
+      [
+        "홈페이지",
+        "http://pgginsengfestival.co.kr"
+      ],
+      [
+        "좌표",
+        "36.868718, 128.521518"
       ]
     ],
     "memo": [
@@ -79719,11 +79909,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "*하기 축제 내용은 전년도(2025년) 축제 내용으로, 2026년도 축제 내용은 업데이트 중에 있습니다.*인삼은 기력 회복과 면연력 증진에 도움이 되는 한국의 대표적인 보양식품이다. 인삼의 영양분이 가장 많은 시기인 10월 한국에서 손꼽히는 인삼 산지 중 하나인 영주에서 풍기인삼축제가 열린다. 건강을 상징하는 인삼을 테마로 하는 축제답게 건강관련 전시와 체험 위주로 진행된다. 영양만점 풍기인삼으로 만든 인삼요리를 맛볼수 있으며 인삼깎기, 인삼병주 만들기, 황금인삼을 찾아라! 등 풍기인삼과 관련된 재미있는 체험도 할 수 있다. 또한 지역 인삼 농민들이 정성껏 수확한 수삼과 홍삼, 인삼으로 만든 가공식품도 저렴하게 구입할 수 있다.",
+      "homepage": "http://pgginsengfestival.co.kr",
+      "mapx": "128.521518",
+      "mapy": "36.868718",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261003",
         "eventenddate": "20261011",
@@ -79735,7 +79925,7 @@
         "sponsor1tel": "054-635-0020",
         "sponsor2": "영주풍기인삼축제조직위원회"
       },
-      "backfilledAt": "2026-07-10T10:52:48.757Z"
+      "backfilledAt": "2026-08-26T07:22:49.798Z"
     },
     "editorialStatus": "pending"
   },
@@ -79752,7 +79942,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/93/4074893_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/93/4074893_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/93/4074893_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/91/4074891_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/92/4074892_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/94/4074894_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/95/4074895_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/96/4074896_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/97/4074897_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/98/4074898_image2_1.jpg"
     ],
     "alt": "소래포구축제 이미지",
     "excerpt": "소래포구축제을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -79780,6 +79977,14 @@
       [
         "주요 프로그램",
         "1. 메인프로그램 : 드론 퍼포먼스, 수산물 음식 경연대회, 뷰티 페스티벌, 소래왕 선발대회 왕중왕 콘서트 등 2. 부대프로그램 : 소래포구 플로깅 스탬프 투어, 소래 청소년 그림 그리기 대회 3. 소비자 참여 프로그램 : 먹거리 부스 및 푸드트럭, 소래 아트 플리마켓 등 4. 기타 내용 : 어린이 보트 낚시 놀이터, 어린이 갯벌 놀이터, 어린이 소금 놀이터, 오징어 게임, 2026인분 어죽시식회 등"
+      ],
+      [
+        "홈페이지",
+        "https://blog.naver.com/soraefestival"
+      ],
+      [
+        "좌표",
+        "37.3979276988, 126.7393126807"
       ]
     ],
     "memo": [
@@ -79865,11 +80070,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "소래포구축제는 소래포구가 지닌 풍부한 생태자원과 역사·문화적 가치를 바탕으로 지역의 정체성을 담아내는 대표 축제이다. 축제장은 메인무대존, 체험존, 부스존, 아트존, 역사존, 타워존, 경관존 등 다양한 테마 공간으로 구성되어 남녀노소 누구나 즐길 수 있는 다채로운 프로그램을 선보인다. 어린이 갯벌 놀이터, 어린이 소금 놀이터, 대하 잡기 체험 등 소래의 자연환경을 직접 체험할 수 있는 생태 프로그램을 비롯하여 구민 참여 어등 만들기, 소래 청소년 그림그리기 대회 등 지역 주민, 상인, 예술인, 유관기관이 함께 만들어가는 주민참여 프로그램이 운영된다. 또한 화려한 드론쇼, 가족 모두가 즐길 수 있는 오징어게임, 문화예술 공연과 전시, 야간 경관 콘텐츠 등 풍성한 즐길 거리를 제공한다. 소래포구의 과거와 현재, 그리고 미래를 잇는 소래포구축제는 생태와 역사, 문화와 예술, 사람과 지역이 어우러지는 특별한 축제로서 방문객들에게 잊지 못할 추억과 감동을 선사한다.",
+      "homepage": "https://blog.naver.com/soraefestival",
+      "mapx": "126.7393126807",
+      "mapy": "37.3979276988",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261002",
         "eventenddate": "20261004",
@@ -79881,7 +80086,7 @@
         "sponsor1tel": "070-8820-4038",
         "sponsor2": "(재)남동문화재단"
       },
-      "backfilledAt": "2026-07-10T10:52:50.815Z"
+      "backfilledAt": "2026-08-26T07:22:51.234Z"
     },
     "editorialStatus": "pending"
   },
@@ -79898,7 +80103,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/47/3535847_image2_1.JPG",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/47/3535847_image2_1.JPG"
+      "https://tong.visitkorea.or.kr/cms/resource/47/3535847_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/48/4082648_image2_1.png",
+      "https://tong.visitkorea.or.kr/cms/resource/49/4082649_image2_1.png",
+      "https://tong.visitkorea.or.kr/cms/resource/50/4082650_image2_1.png",
+      "https://tong.visitkorea.or.kr/cms/resource/51/4082651_image2_1.png",
+      "https://tong.visitkorea.or.kr/cms/resource/52/4082652_image2_1.png",
+      "https://tong.visitkorea.or.kr/cms/resource/53/4082653_image2_1.png",
+      "https://tong.visitkorea.or.kr/cms/resource/54/4082654_image2_1.png"
     ],
     "alt": "진주남강유등축제 이미지",
     "excerpt": "진주남강유등축제을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -79926,6 +80138,14 @@
       [
         "주요 프로그램",
         "1. 메인프로그램 : 유등2. 부대프로그램 : 남가람 어울마당, 버스킹 공연3. 소비자 참여 프로그램 : 사랑다리 건너기 체험, 소망등 달기 체험, 유등 띄우기 체험, 유람선4. 기타 내용 : 스탬프 & 트레져 투어, 유등 도슨트, 진주음식큰잔치, 농특산품 판매[이용요금]- 사랑다리 건너기 체험(편도:2,000,종일이용권6,000원)- 소망등 달기 체험(10,000원)- 유등 띄우기 체험(3,000원)"
+      ],
+      [
+        "홈페이지",
+        "https://yudeung.com/"
+      ],
+      [
+        "좌표",
+        "35.1904937892, 128.0800831631"
       ]
     ],
     "memo": [
@@ -80011,11 +80231,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "*하기 축제 내용은 전년도(2025년) 축제 내용으로, 2026년도 축제 내용은 업데이트 중에 있습니다.* 진주남강유등축제는 임진왜란 진주성 전투에서 왜군이 강을 건너는 것을 저지하고, 가족에게 안부를 전하기 위해 남강에 유등을 띄운 데에서 유래되었다. 문화체육관광부 지정 대한민국 대표 축제였음과 동시에 5년 연속 대한민국 글로벌 육성 축제로 선정된 해외로 진출하는 명품 축제이다.",
+      "homepage": "https://yudeung.com/",
+      "mapx": "128.0800831631",
+      "mapy": "35.1904937892",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261003",
         "eventenddate": "20261018",
@@ -80027,7 +80247,7 @@
         "sponsor1tel": "055-755-9111,761-9111",
         "sponsor2": "진주남강유등축제 제전위원회"
       },
-      "backfilledAt": "2026-07-10T10:52:51.387Z"
+      "backfilledAt": "2026-08-26T07:22:52.666Z"
     },
     "editorialStatus": "pending"
   },
@@ -80072,6 +80292,14 @@
       [
         "주요 프로그램",
         "1. 판매 및 전시(산양삼 원물, 산양삼 가공품, 농특산품 판매전시 및 각종 마켓존) 2. 체험(산삼캐기, 산양삼 경매, 황금산삼을 찾아라, 건강&항노화체험 등) 3. 공연 및 행사(개폐막식 공연, 산막나이트, 지역가수 및 동아리 공연) 4. 부대시설(향토먹거리관, 푸드트럭, 패밀리존 등) 5. 연계행사(한우한돈 시식, 아내사랑 부침개, 함양 오락실, 벼룩시장 등)"
+      ],
+      [
+        "홈페이지",
+        "www.sansamfestival.or.kr"
+      ],
+      [
+        "좌표",
+        "35.5236812446, 127.7218508587"
       ]
     ],
     "memo": [
@@ -80157,11 +80385,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "500m 이상의 게르마늄 토양에서 자란 함양산삼은 치밀하고 단단한 조직, 높은 사포닌 함량 등 매우 뛰어난 품질로 명품산삼으로 불리고 있으며, 전국 최초 산삼이력제를 실시하여 소비자가 생산정보를 정확히 알 수 있고, 산양삼지킴이 활동으로 지속적인 품질 관리를 하여 명품산삼으로써 차별화된 특성을 유지하고 있다. 천년의 신비가 살아 숨 쉬는 천연기념물 제154호 함양 상림공원에서 잊혀져가는 산삼과 심마니의 역사문화 등을 계승할 수 있는 콘텐츠를 활용한 축제 프로그램 운영으로 산삼의 의미와 역사적 가치를 재조명 하고, 군의 대표 브랜드인 청정임산물 산삼의 이미지를 활용하여 지역농특산물의 판로를 확대, 산림·문화·관광 자원과의 연계 프로그램 운영으로 지역경제를 활성화하고자 마련되었으며, 매년 9~10월경 개최되고 있다.",
+      "homepage": "www.sansamfestival.or.kr",
+      "mapx": "127.7218508587",
+      "mapy": "35.5236812446",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261007",
         "eventenddate": "20261011",
@@ -80173,7 +80401,7 @@
         "sponsor1tel": "055-960-6432",
         "sponsor2": "함양산삼축제위원회"
       },
-      "backfilledAt": "2026-07-10T10:52:54.023Z"
+      "backfilledAt": "2026-08-26T07:22:53.887Z"
     },
     "editorialStatus": "pending"
   },
@@ -80218,6 +80446,14 @@
       [
         "주요 프로그램",
         "1. 메인프로그램 : 파시 해상 퍼레이드, 파시장터, 파시 경매2. 부대프로그램 : 도깨비장터, 시민노젓기대회, 어등 터널3. 소비자 참여 프로그램 : 파시장터 구이터, 파시 수랏간, 1897 건맥, 낭만한끼, 범선 승선 체험, 노젓기 대회4. 공연 프로그램 : 난영가요제, 바다콘서트, 목포항구 문화공연, 항구 디스코파티, 파시 노래자랑"
+      ],
+      [
+        "홈페이지",
+        "https://www.mokpo.go.kr/tour/festival/harbor"
+      ],
+      [
+        "좌표",
+        "34.7865334008, 126.3936724331"
       ]
     ],
     "memo": [
@@ -80303,11 +80539,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "*하기 축제 내용은 전년도(2025년) 축제 내용으로, 2026년도 축제 내용은 업데이트 중에 있습니다.*목포는 1897년 개항하여 교역, 물류 교통의 중심지로서 과거 전국 3대항, 6대 도시의 영광을 누리면서, 지역경제의 부흥을 주도했으며 현재에는 서남해안의 배후 중심 도시이다. 목포항구축제는 설화가 공존하는 삼학도에서 항구 내음 가득한 목포항의 전통 파시(波市)를 전국에서 유일하게 축제로 재현하여 역사적인 가치를 널리 알린다. 또한 제철 수산물을 활용한 파시 경매, 경매 받은 수산물을 즉석해서 구워먹고 요리 해먹는 등 풍요로운 목포항의 낭만을 가득 담은 행사가 마련되어 있는 가을 축제이다.",
+      "homepage": "https://www.mokpo.go.kr/tour/festival/harbor",
+      "mapx": "126.3936724331",
+      "mapy": "34.7865334008",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261016",
         "eventenddate": "20261018",
@@ -80319,7 +80555,7 @@
         "sponsor1tel": "061-270-8441",
         "sponsor2": "목포시축제추진위원회"
       },
-      "backfilledAt": "2026-07-10T10:52:55.338Z"
+      "backfilledAt": "2026-08-26T07:22:55.616Z"
     },
     "editorialStatus": "pending"
   },
@@ -80336,7 +80572,9 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/88/3484788_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/88/3484788_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/88/3484788_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms2/website/23/2504223.jpg",
+      "https://tong.visitkorea.or.kr/cms2/website/35/2504335.jpg"
     ],
     "alt": "포항국제불빛축제 이미지",
     "excerpt": "포항국제불빛축제을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -80364,6 +80602,14 @@
       [
         "주요 프로그램",
         "1. 메인프로그램 : 국제불꽃쇼(한국, 캐나다, 이탈리아), 드론라이트쇼, 라이트 아트웨이, 거리 퍼레이드, 데일리불꽃쇼2. 부대프로그램 : 불빛 뮤직 페스타, 프린지 공연, 불빛까날마켓, 불빛테마존, 불맛 미식로드, 퐝스토랑, 농특산물 판매존"
+      ],
+      [
+        "홈페이지",
+        "https://festival.phcf.or.kr/fireWorks/intro.do"
+      ],
+      [
+        "좌표",
+        "36.0530051077193, 129.377594275323"
       ]
     ],
     "memo": [
@@ -80449,11 +80695,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "*하기 축제 내용은 전년도(2025년) 축제 내용으로, 2026년도 축제 내용은 업데이트 중에 있습니다.*‘불과 빛의 도시’ 포항에서는 해마다 대표적인 문화관광축제 '포항국제불빛축제'가 열린다. 포항국제불빛축제는 세계적인 철강 도시 포항을 상징하는 ‘빛’과 뜨거운 용광로를 상징하는 ‘불’의 이미지를 테마로 지난 2004년 포항시민의 날을 기념해 불꽃쇼를 개최한 것이 시작이다. 이후 국제규모 축제행사로 확대됐고 해외 유명한 불꽃팀들이 매년 참가하고 있다. 축제콘텐츠도 단순한 ‘불꽃’중심에서 탈피, 제작 공연과 불빛 퍼레이드 등 산업과 문화적 요소를 융합해 다채롭게 펼치는 화합의 축제이다.",
+      "homepage": "https://festival.phcf.or.kr/fireWorks/intro.do",
+      "mapx": "129.377594275323",
+      "mapy": "36.0530051077193",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261120",
         "eventenddate": "20261122",
@@ -80465,7 +80711,7 @@
         "sponsor1tel": "054-289-7852~5",
         "sponsor2": "(재)포항문화재단"
       },
-      "backfilledAt": "2026-07-10T10:52:59.263Z"
+      "backfilledAt": "2026-08-26T07:22:56.980Z"
     },
     "editorialStatus": "pending"
   },
@@ -80482,7 +80728,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/32/3545732_image2_1.JPG",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/32/3545732_image2_1.JPG"
+      "https://tong.visitkorea.or.kr/cms/resource/32/3545732_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms2/website/06/839406.jpg",
+      "https://tong.visitkorea.or.kr/cms2/website/04/839504.jpg",
+      "https://tong.visitkorea.or.kr/cms2/website/02/904902.jpg",
+      "https://tong.visitkorea.or.kr/cms2/website/09/904909.jpg",
+      "https://tong.visitkorea.or.kr/cms2/website/53/904953.jpg",
+      "https://tong.visitkorea.or.kr/cms2/website/66/905066.jpg",
+      "https://tong.visitkorea.or.kr/cms2/website/69/905069.jpg"
     ],
     "alt": "광주김치축제 이미지",
     "excerpt": "광주김치축제을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -80510,6 +80763,14 @@
       [
         "주요 프로그램",
         "1. 메인프로그램 : 천인의밥상(음식먹거리 부스), K-김치파티, 광주스타셰프 푸드쇼, 김치명인 푸드스테이지, 김치마켓2. 부대프로그램 : 김치전시, 판매, 체험, 문화공연 등3. 소비자 참여 프로그램 : 김치체험관, 김치놀이터, 김장운동회, 김치키즈랜드, 소금체험관 등4. 기타 내용 : 도시농부축제"
+      ],
+      [
+        "홈페이지",
+        "https://kimchi.gwangju.go.kr"
+      ],
+      [
+        "좌표",
+        "35.1590033102, 126.8530264839"
       ]
     ],
     "memo": [
@@ -80595,11 +80856,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "*하기 축제 내용은 전년도(2025년) 축제 내용으로, 2026년도 축제 내용은 업데이트 중에 있습니다.*전라남도 는 예로부터 영산강을 중심으로 펼쳐진 평야와 산, 들, 바다가 한데 어우러져 오랫동안 자연의 혜택을 받으며 맛의 고장으로 자리 잡았다. 그중에서도 전라남도 김치는 가장 풍요로운 맛과 정취를 담고 있어 전라도 김치, 전라남도 김치 라는 고유명사로 알려질 정도다. 전라남도 김치는 갖은 채소를 비롯해 멸치액젓과 찹쌀풀죽, 통깨 등 양념을 듬뿍 넣는 것이 특징이다. 신선한 재료를 골라 정성스럽게 손질하고 가장 기본적인 방법으로 담그는 것, 그리고 거기에 손맛을 더하는 것. 이것이 바로 전라남도 김치의 특별 레시피다. 광주세계김치축제는 김치에 담긴 우리 고유의 음식문화와 전통이 만나는 시민 체험의 장이며, 대한민국 김치 대표 축제로서 모두가 함께 즐기는 축제이다. 김치관련 생산자와 소비자간의 거래와 홍보가 함께 이루어지는 알짜베기 축제라고 할 수 있다.",
+      "homepage": "https://kimchi.gwangju.go.kr",
+      "mapx": "126.8530264839",
+      "mapy": "35.1590033102",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261023",
         "eventenddate": "20261025",
@@ -80611,7 +80872,7 @@
         "sponsor1tel": "062-613-3955~6",
         "sponsor2": "광주김치축제위원회"
       },
-      "backfilledAt": "2026-07-10T10:53:02.470Z"
+      "backfilledAt": "2026-08-26T07:22:58.319Z"
     },
     "editorialStatus": "pending"
   },
@@ -80656,6 +80917,14 @@
       [
         "주요 프로그램",
         "1. 메인프로그램 - 답성놀이, 야간 답성놀이, 강강술래 달BAM, 거리퍼레이드, 리턴즈1453 2. 부대프로그램 - 플리마켓, 드론쇼, 패밀리존, 먹거리부스, 직거래장터, 주막 3. 소비자 참여 프로그램 - 어린이 당근마켓, 전통놀이 체험, 체험프로그램"
+      ],
+      [
+        "홈페이지",
+        "https://www.xn--v52bo3j80dp4c.com/"
+      ],
+      [
+        "좌표",
+        "35.43314793158578, 126.70350182663505"
       ]
     ],
     "memo": [
@@ -80741,11 +81010,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "고창모양성제는 국내에서 가장 원형이 잘 보존된 모양성을 주제로 한 역사문화축제이다. 대표프로그램은 답성놀이로서 한바퀴 돌면 다릿병이 낫고, 두바퀴돌면 무병장수하며, 세 바퀴돌면 극락승천 한다는 전설을 체험형 프로그램으로 개발했다. 이 외에도, 답성놀이와 강강술래를 혼합하여 군민과 관광객이 함께 어우러진 야간답성강강술래달밤, 과거현재미래를 표현한 주민 1,000여명이 참여하는 거리 퍼레이드, 과거로의 여행을 주제로 하여 고창읍성 내부를 누비며 즐길 수 있는 리턴즈1453, 그리고 고창지역의 특산물을 활용한 먹거리와 직거래장터 등을 운영한다.",
+      "homepage": "https://www.xn--v52bo3j80dp4c.com/",
+      "mapx": "126.70350182663505",
+      "mapy": "35.43314793158578",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261015",
         "eventenddate": "20261019",
@@ -80755,7 +81024,7 @@
         "sponsor1": "고창군",
         "sponsor1tel": "063-560-2949"
       },
-      "backfilledAt": "2026-07-10T10:53:03.261Z"
+      "backfilledAt": "2026-08-26T07:22:59.661Z"
     },
     "editorialStatus": "pending"
   },
@@ -80800,6 +81069,10 @@
       [
         "주요 프로그램",
         "1.공식프로그램: 개장식, 개막식, 축하공연, 불꽃놀이, 폐막식 등 2.공연프로그램: 슈퍼콘서트, 레이저쇼, 지역예술단체, 버스킹 등 3.참여프로그램: 시민화합 라디엔티어링, 레트로 DJ 박스, 고구마수확체험, 전통농업문화제험, 어린이&가족체험 4.판매프로그램: 농·축산물 판매, 사회적기업·청년창업기업 생산제품 판매 5.먹거리 프로그램: 모닥불 꼬치구이존, 청원골 막걸리 주막, 푸드트럭 등"
+      ],
+      [
+        "좌표",
+        "36.7332002013, 127.4073645226"
       ]
     ],
     "memo": [
@@ -80887,23 +81160,23 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
+      "overview": "청원생명축제는 2008년부터 친환경을 테마로 구성된 대표적인 축제이다. 순수자연으로 더욱 빛나는 명품농산물인 청원생명브랜드를 홍보하고, 테마가 있는 전시와 다양한 체험행사 및 문화공연을 통해 관람객의 다양한 볼거리를 제공하며, 자라나는 학생들에게는 농업의 현재와 미래, 다양한 문화를 느낄 수 있는 교육의 장을 마련하고자 노력하고 있다. 또한 지역 농업인과 소비자가 직접 만나 소통할 수 있는 교류의 장을 조성하여 지역 농산물의 우수성과 친환경 농업의 가치를 널리 알리고 있으며, 가족 단위 관람객이 함께 참여할 수 있는 다채로운 프로그램 운영을 통해 농업과 농촌에 대한 이해를 높이고 있다. 아울러 건강한 먹거리와 지속가능한 농업의 중요성을 체험할 수 있는 기회를 제공함으로써 농업의 공익적 가치를 확산하고, 지역경제 활성화와 농촌문화 발전에 기여하는 청주시 대표 축제로 자리매김하고 있다.",
       "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "mapx": "127.4073645226",
+      "mapy": "36.7332002013",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261002",
         "eventenddate": "20261011",
         "eventplace": "오창미래지농촌테마공원",
         "playtime": "10:00~20:00",
-        "program": "1.공식프로그램: 개장식, 개막식, 축하공연, 불꽃놀이, 폐막식 등 2.공연프로그램: 슈퍼콘서트, 레이저쇼, 지역예술단체, 버스킹 등 3.참여프로그램: 시민화합 라디엔티어링, 레트로 DJ 박스, 고구마수확체험, 전통농업문화제험, 어린이&가족체험 4.판매프로그램: 농·축산물 판매, 사회적기업·청년창업기업 생산제품 판매 5.먹거리 프로그램: 모닥불 꼬치구이존, 청원골 막걸리 주막, 푸드트럭 등",
+        "program": "1.공식프로그램 : 개장식, 개막식, 축하공연, 불꽃놀이, 폐막식 등 2.공연프로그램 : 슈퍼콘서트, 레이저쇼, 지역예술단체, 버스킹 등 3.참여프로그램 : 시민화합 라디엔티어링, 레트로 DJ 박스, 고구마수확체험, 전통농업문화제험, 어린이&가족체험 4.판매프로그램 : 농·축산물 판매, 사회적기업·청년창업기업 생산제품 판매 5.먹거리 프로그램 : 청원 모닥불 구이존, 청주미식존, 청원골 막걸리 주막, 푸드트럭 등",
         "usetimefestival": "유료 (5,000)※어린이 및 청소년, 임산부, 노인 무료 입장",
         "sponsor1": "청주시",
         "sponsor1tel": "043-201-0254",
         "sponsor2": "청원생명축제추진위원회"
       },
-      "backfilledAt": "2026-07-10T10:53:03.846Z"
+      "backfilledAt": "2026-08-26T07:23:01.033Z"
     },
     "editorialStatus": "pending"
   },
@@ -80920,7 +81193,9 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/59/3535559_image2_1.JPG",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/59/3535559_image2_1.JPG"
+      "https://tong.visitkorea.or.kr/cms/resource/59/3535559_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms2/website/50/2027650.jpg",
+      "https://tong.visitkorea.or.kr/cms2/website/52/2027652.jpg"
     ],
     "alt": "순창장류축제 이미지",
     "excerpt": "순창장류축제을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -80948,6 +81223,14 @@
       [
         "주요 프로그램",
         "1. 메인프로그램 : 임금님 진상행렬, 발효나라 1997, 다함께 고추장 만들자, 전통장문화학교, 콩, 삶고 찧고 메주만들자2. 부대프로그램 : 매운맛대회, 장맛나라에 온 캐치! 티니핑, 발효청춘 광끼 경연대회, 장추왕을 찾아라, 황금메주를 찾아라, 성년을 맞은 너와나, DJ&EDM 불빛쇼 장류마을 \"좀비야 놀자\" 등3. 소비자 참여 프로그램 : 장류제품 할인 이벤트 20%할인 + 영수증 인증 시 10% 상당 상품권 지급4. 기타 내용 : 민속놀이 경연대회, 읍면 농악 경연대회, 순창예술제 등 지역민들의 참여 프로그램[이용요금]무료- 공연, 행사프로그램 일부 체험부스유료- 먹거리부스, 푸드트럭, 체험판매부스"
+      ],
+      [
+        "홈페이지",
+        "http://www.jangfestival.co.kr"
+      ],
+      [
+        "좌표",
+        "35.36875547170213, 127.11232141891857"
       ]
     ],
     "memo": [
@@ -81033,11 +81316,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
-      "homepage": "",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "overview": "*하기 축제 내용은 전년도(2025년) 축제 내용으로, 2026년도 축제 내용은 업데이트 중에 있습니다.*한국의 장담그기 문화 유네스코 인류무형문화유산 등재 기념과 제20회 성년을 맞은 장류축제를 전통장류의 고장으로서의 정체성 확립 및 K-푸드 우수성을 세계에 알리는 대한민국 대표 발효 음식 축제로 전통장류를 소재로 한 체험 프로그램과문화공연, 전시 및 판매 등 8개 분야 50여개의 다양한 프로그램들이 진행되며, 순창고추장으로 만든 매콤하고 감칠맛 넘치는 음식들을 맛볼 수 있다. 특히 '순창고추장 임금님 진상행렬' 퍼포먼스와 발효나라 1997, 콩, 삶고 찧고 메주만들자 등 순창장류축제만의 차별화된 특별한 체험 프로그램들도 선보일 예정이다. 올해는 20주년을 맞아 '황금메주를 찾아라', '성년을 맞은 너와 나' 장류제품 할인이벤트 등 다채로운 프로그램도 진행될 예정이다.",
+      "homepage": "http://www.jangfestival.co.kr",
+      "mapx": "127.11232141891857",
+      "mapy": "35.36875547170213",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20261015",
         "eventenddate": "20261018",
@@ -81049,7 +81332,7 @@
         "sponsor1tel": "063-650-1624",
         "sponsor2": "순창장류축제추진위원회"
       },
-      "backfilledAt": "2026-07-10T10:53:05.273Z"
+      "backfilledAt": "2026-08-26T07:23:02.400Z"
     },
     "editorialStatus": "pending"
   },

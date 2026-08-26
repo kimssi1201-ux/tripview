@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-26T07:11:47.195Z",
+  "generatedAt": "2026-08-26T07:23:42.593Z",
   "source": "한국관광공사 공공누리",
   "assetBasePath": "/assets/processed/",
   "items": {
@@ -5398,7 +5398,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -5410,7 +5411,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -5422,7 +5424,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -5434,7 +5437,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         }
       ]
     },
@@ -5492,7 +5496,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -5504,7 +5509,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -5516,7 +5522,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -5528,7 +5535,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -5540,7 +5548,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -5552,7 +5561,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -5564,7 +5574,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         }
       ]
     },
