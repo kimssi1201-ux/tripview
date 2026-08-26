@@ -1804,6 +1804,14 @@
       [
         "주요 프로그램",
         "- 주요 프로그램 : 문경새재 황톳길을 맨발로 걷는 완주 프로그램 - 부대 행사 및 프로그램 : 숲속 음악회 / 노래자랑 / 초대가수 공연프로그램 / 경품 추첨 / 전통놀이 / 구간별 게임 / 포토존 / 완주 인증 이벤트 / 먹거리존 등"
+      ],
+      [
+        "홈페이지",
+        "공식 홈페이지 https://cafe.naver.com 공식 인스타그램 https://www.instagram.com/dghankooki/"
+      ],
+      [
+        "좌표",
+        "36.7616034611, 128.0769891081"
       ]
     ],
     "memo": [
@@ -1918,11 +1926,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
+      "overview": "매년 만 명 이상이 모이는 문경새재 제1관문~3관문 사이 황톳길 7㎞를 맨발로 걷는 행사이다. 인기 가수 초청 공연과 행사장 곳곳 맨발로 참여할 수 있는 게임이 다수 마련되어 있다. 다양한 종류의 부스 운영을 통해 맨발 걷기 뿐만 아니라 다채로운 프로그램에 참여할 수 있다. 또한 일반인 노래자랑과 아이들을 위한 프로그램 마련으로 남녀노소 불문하고 가족과 연인 친구가 함께 문경새재의 풍경을 즐기면서 건강까지 챙길 수 있다. 3관문에 완주하는 사람에게는 선착순으로 메달도 증정한다.",
       "homepage": "https://inseri.gb.go.kr/Main/saemaul/page.do?BD_CODE=bbs_bodo&B_LEVEL=0&B_NUM=510155301&B_STEP=510155300&Start=10&V_NUM=14582&bdName=&cmd=2&dept_code=&dept_name=&key=4&mnu_uid=6792&p1=0&p2=0&tbbscode1=bbs_bodo&word=",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "mapx": "128.0769891081",
+      "mapy": "36.7616034611",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20260822",
         "eventenddate": "20260822",
@@ -1934,7 +1942,7 @@
         "sponsor1tel": "053-755-5881",
         "sponsor2": "경상북도, 문경시, 포스코, (재)대한걷기연맹, 대한민국맨발학교, (사)한국산림보호협회"
       },
-      "backfilledAt": "2026-07-10T10:53:49.762Z"
+      "backfilledAt": "2026-08-26T03:07:10.334Z"
     },
     "editorialStatus": "reviewed",
     "editorialReviewedAt": "2026-08-15",
@@ -1959,7 +1967,10 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/75/4059475_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/75/4059475_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/75/4059475_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/72/4059472_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/73/4059473_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/74/4059474_image2_1.JPG"
     ],
     "alt": "K-일러스트레이션페어 마곡 2026 이미지",
     "excerpt": "8월 20일부터 나흘간 열리는 실내 전시입니다. 2차 사전예매 마감과 현장 가격의 차이, 오후 5시 30분 입장 마감, 넓은 부스를 덜 지치게 보는 순서를 중심으로 확인했습니다.",
@@ -1987,6 +1998,14 @@
       [
         "주요 프로그램",
         "- 주요 프로그램 : 일러스트레이션 관련 개인 및 기업 브랜드 전시 부스 / 작품 전시 공간 - 부대 행사 및 프로그램 : 특별 기획전 / 관련 세미나"
+      ],
+      [
+        "홈페이지",
+        "공식 홈페이지 http://www.k-illustrationfair.com"
+      ],
+      [
+        "좌표",
+        "37.566727291186524, 126.82539429651213"
       ]
     ],
     "memo": [
@@ -2094,11 +2113,11 @@
     "copyPolishedVersion": 3,
     "tourApi": {
       "contentTypeId": "15",
-      "overview": "",
+      "overview": "K-일러스트레이션 페어 마곡 2026은 2026년 8월 20일부터 8월 23일까지 4일간 코엑스 마곡 전시장에서 개최된다. 본 행사는 산업 전시 전문 주최사 ㈜한국국제전시가 개최하는 국내 전문 일러스트레이션페어로 일러스트레이션 작품을 통해 일상에 특별함과 에너지를 개최 도시와 관람객에게 제공한다. 온라인과 오프라인을 넘나들며 일러스트레이션 산업은 영화, 음악, 패션 등 모든 문화 예술계 뿐만 아니라 각종 브랜드 마케팅 수단으로도 활용되며 넓은 분야에서 성장하고 있다. 'K-일러스트레이션페어' 에서는 하나의 필수 산업으로 자리 잡은 일러스트레이션 산업의 트렌드를 조망하고 다양한 작가들이 그려내는 다양한 세계관과 작품들을 만나볼 수 있다.",
       "homepage": "https://www.k-illustrationfair.com/magok/page/51",
-      "mapx": "",
-      "mapy": "",
-      "mlevel": "",
+      "mapx": "126.82539429651213",
+      "mapy": "37.566727291186524",
+      "mlevel": "6",
       "intro": {
         "eventstartdate": "20260820",
         "eventenddate": "20260823",
@@ -2109,7 +2128,7 @@
         "sponsor1": "㈜한국국제전시",
         "sponsor1tel": "02-761-2512"
       },
-      "backfilledAt": "2026-07-04T17:36:44.216Z"
+      "backfilledAt": "2026-08-26T03:07:11.549Z"
     },
     "editorialStatus": "reviewed",
     "editorialReviewedAt": "2026-08-15",
@@ -2134,7 +2153,8 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/08/4096408_image2_1.jpeg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/08/4096408_image2_1.jpeg"
+      "https://tong.visitkorea.or.kr/cms/resource/08/4096408_image2_1.jpeg",
+      "https://tong.visitkorea.or.kr/cms/resource/09/4096409_image2_1.png"
     ],
     "alt": "트레저헌터 in 진안 이미지",
     "excerpt": "전시장 한 곳만 보는 축제가 아니라 앱과 헌터 패스를 이용해 진안 7개 명소를 이동하는 참여형 행사입니다. 8월 28일까지의 사전등록, QR 인증, 여러 권역을 나눠 방문하는 방법을 중심으로 정리했습니다.",
@@ -2188,7 +2208,7 @@
       "mlevel": "",
       "intro": {
         "eventstartdate": "20260829",
-        "eventenddate": "20260919",
+        "eventenddate": "20260829",
         "eventplace": "마이산북부관광단지",
         "playtime": "10:00~18:00",
         "program": "- 주요 프로그램 : 진안 권역 여의주 찾기 미션 / 로컬바이브 앱 QR 인증 미션 / 빛나는 여의주 획득자 최종 결선 / 권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루) - 부대 행사 및 프로그램 : 버스킹 공연 / 에코가드 플로깅 / 포토헌터 미션 / 보드게임 존 / 페이퍼토이 만들기 / 헌터포토존 / 인형뽑기 / 룰렛 / 페이스 페인팅 / 결선 프로그램 (빛나는 여의주 획득자 대상 최종 결선 운영)",
@@ -2197,7 +2217,7 @@
         "sponsor1tel": "031-8035-3141",
         "sponsor2": "동아일보, 퓨잇"
       },
-      "backfilledAt": "2026-08-09T13:50:29.305Z"
+      "backfilledAt": "2026-08-26T03:07:12.782Z"
     },
     "sections": [
       [
@@ -2388,7 +2408,7 @@
         "sponsor1tel": "061-830-6773",
         "sponsor2": "(주)에스알컴퍼니"
       },
-      "backfilledAt": "2026-08-09T13:50:27.845Z"
+      "backfilledAt": "2026-08-26T03:07:14.002Z"
     },
     "sections": [
       [
@@ -2495,7 +2515,13 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/39/4096539_image2_1.png",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/39/4096539_image2_1.png"
+      "https://tong.visitkorea.or.kr/cms/resource/39/4096539_image2_1.png",
+      "https://tong.visitkorea.or.kr/cms/resource/38/4096538_image2_1.png",
+      "https://tong.visitkorea.or.kr/cms/resource/40/4096540_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/41/4096541_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/42/4096542_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/43/4096543_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/44/4096544_image2_1.png"
     ],
     "alt": "새싹동산 청려수련원 이미지",
     "excerpt": "새싹동산 청려수련원의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -2551,7 +2577,7 @@
         "infocenterleports": "031-375-5785~6",
         "restdateleports": "연중무휴"
       },
-      "backfilledAt": "2026-08-09T13:50:32.710Z"
+      "backfilledAt": "2026-08-26T03:07:15.196Z"
     },
     "sections": [
       [
@@ -2644,7 +2670,12 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/89/4096589_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/89/4096589_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/89/4096589_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/90/4096590_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/91/4096591_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/92/4096592_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/93/4096593_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/96/4096596_image2_1.jpg"
     ],
     "alt": "완도청소년수련원 이미지",
     "excerpt": "완도청소년수련원의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -2700,7 +2731,7 @@
         "infocenterleports": "061-553-3844",
         "restdateleports": "1월 1일 / 설·추석 연휴 / 법정공휴일"
       },
-      "backfilledAt": "2026-08-09T13:50:29.782Z"
+      "backfilledAt": "2026-08-26T03:07:16.389Z"
     },
     "sections": [
       [
@@ -2800,7 +2831,14 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/66/4096566_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/66/4096566_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/66/4096566_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/61/4096561_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/62/4096562_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/63/4096563_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/64/4096564_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/65/4096565_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/67/4096567_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/68/4096568_image2_1.jpg"
     ],
     "alt": "그랜드 하얏트 서울 이미지",
     "excerpt": "그랜드 하얏트 서울의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -2870,7 +2908,7 @@
         "roomtype": "스탠다드 / 디럭스 코너 / 트윈 등",
         "subfacility": "비즈니스센터 / 휘트니스센터 / 사우나실 등"
       },
-      "backfilledAt": "2026-08-09T13:50:30.285Z"
+      "backfilledAt": "2026-08-26T03:07:17.652Z"
     },
     "sections": [
       [
@@ -2964,7 +3002,14 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/40/3586540_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/40/3586540_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/40/3586540_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/41/3586541_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/42/3586542_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/43/3586543_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/44/3586544_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/45/3586545_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/46/3586546_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/47/3586547_image2_1.jpg"
     ],
     "alt": "구룡포과메기문화관 이미지",
     "excerpt": "구룡포의 지역 음식과 생활사를 실내에서 이해한 뒤 주변 거리로 이동하기 좋습니다. 전시 관람과 바깥 산책을 나눠 구성했습니다.",
@@ -3025,7 +3070,7 @@
         "usefee": "무료",
         "infocenterculture": "054-270-2865"
       },
-      "backfilledAt": "2026-08-09T13:50:32.226Z"
+      "backfilledAt": "2026-08-26T03:07:18.892Z"
     },
     "sections": [
       [
@@ -3154,7 +3199,13 @@
     "read": "약 5분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/53/3553853_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/53/3553853_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/53/3553853_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/54/3553854_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/55/3553855_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/56/3553856_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/57/3553857_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/58/3553858_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/59/3553859_image2_1.jpg"
     ],
     "alt": "영암곤충박물관 이미지",
     "excerpt": "아이의 관심사에 따라 관람 시간이 크게 달라지는 곳입니다. 체험 운영 여부와 휴식, 주변 이동을 기준으로 짧은 가족 일정을 정리했습니다.",
@@ -3215,7 +3266,7 @@
         "usefee": "- 28개월~성인 8,000원 - 영암군민/65세이상 6,000원 ※ 자세한 사항은 홈페이지 참조 및 전화 문의 요망",
         "infocenterculture": "0507-1371-4300"
       },
-      "backfilledAt": "2026-08-09T13:50:28.818Z"
+      "backfilledAt": "2026-08-26T03:07:20.114Z"
     },
     "sections": [
       [
@@ -3315,7 +3366,14 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/77/2988777_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/77/2988777_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/77/2988777_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/68/2988768_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/69/2988769_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/70/2988770_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/71/2988771_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/72/2988772_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/73/2988773_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/74/2988774_image2_1.jpg"
     ],
     "alt": "광야 서울 이미지",
     "excerpt": "광야 서울의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -3381,7 +3439,7 @@
         "parkingshopping": "가능",
         "saleitem": "OFFICIAL GOODS / OFFICIAL FANLIGHT / 음반 / 화보 등"
       },
-      "backfilledAt": "2026-08-09T13:50:31.245Z"
+      "backfilledAt": "2026-08-26T03:07:21.353Z"
     },
     "sections": [
       [
@@ -3481,7 +3539,14 @@
     "read": "약 5분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/30/3530930_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/30/3530930_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/30/3530930_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/26/3530926_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/27/3530927_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/28/3530928_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/29/3530929_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/31/3530931_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/32/3530932_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/33/3530933_image2_1.jpg"
     ],
     "alt": "하동케이블카 이미지",
     "excerpt": "금오산 전망을 보는 시간이 핵심이므로 왕복권만 확인하지 말고 당일 운행 여부와 탑승장 주차, 정상 체류 시간을 한 일정으로 잡았습니다.",
@@ -3546,7 +3611,7 @@
         "usetime": "- 평일 09:00~18:00- 토요일 09:00~18:30- 일요일 09:00~18:00※ 매표마감은 운행 30분 전",
         "infocenter": "055-883-2000"
       },
-      "backfilledAt": "2026-08-09T13:50:28.331Z"
+      "backfilledAt": "2026-08-26T03:07:22.563Z"
     },
     "sections": [
       [
@@ -3646,7 +3711,11 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/81/2990381_image2_1.JPG",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/81/2990381_image2_1.JPG"
+      "https://tong.visitkorea.or.kr/cms/resource/81/2990381_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/82/2990382_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/83/2990383_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/84/2990384_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/85/2990385_image2_1.JPG"
     ],
     "alt": "농심테마공원 이미지",
     "excerpt": "농심테마공원의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -3698,7 +3767,7 @@
         "usetime": "- 4월~6월 09:00~18:00 - 11월~3월 09:00~17:00※ 개방시간 이후 출입문 폐쇄 주의",
         "infocenter": "043-730-4961"
       },
-      "backfilledAt": "2026-08-09T13:50:31.728Z"
+      "backfilledAt": "2026-08-26T03:07:23.771Z"
     },
     "sections": [
       [
@@ -3798,7 +3867,13 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/17/4096117_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/17/4096117_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/17/4096117_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/12/4096112_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/13/4096113_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/14/4096114_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/15/4096115_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/16/4096116_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/18/4096118_image2_1.jpg"
     ],
     "alt": "몽과 이미지",
     "excerpt": "몽과의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -3861,7 +3936,7 @@
         "parkingfood": "가능",
         "treatmenu": "소금빵 / 피자빵 / 흑임자크림라떼 등"
       },
-      "backfilledAt": "2026-08-09T13:50:30.768Z"
+      "backfilledAt": "2026-08-26T03:07:25.021Z"
     },
     "sections": [
       [
@@ -3961,7 +4036,14 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/66/4096266_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/66/4096266_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/66/4096266_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/40/3494840_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/36/3583336_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/62/4096262_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/64/4096264_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/67/4096267_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/68/4096268_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/70/4096270_image2_1.jpg"
     ],
     "alt": "부산타워 이미지",
     "excerpt": "부산타워의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -4022,7 +4104,7 @@
         "usetime": "10:00~22:00 (발권 마감 21:30)",
         "infocenter": "051-601-1800"
       },
-      "backfilledAt": "2026-08-09T13:50:36.104Z"
+      "backfilledAt": "2026-08-26T03:07:26.297Z"
     },
     "sections": [
       [
@@ -4122,7 +4204,14 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/93/4096293_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/93/4096293_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/93/4096293_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/41/3032341_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/42/3032342_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/43/3032343_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/94/4096294_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/95/4096295_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/96/4096296_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/97/4096297_image2_1.jpg"
     ],
     "alt": "부산자유회관(부산통일관) 이미지",
     "excerpt": "부산자유회관(부산통일관)의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -4183,7 +4272,7 @@
         "usefee": "무료",
         "infocenterculture": "051-808-7960"
       },
-      "backfilledAt": "2026-08-09T13:50:33.684Z"
+      "backfilledAt": "2026-08-26T03:07:27.379Z"
     },
     "sections": [
       [
@@ -4277,7 +4366,12 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/24/2997124_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/24/2997124_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/24/2997124_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/25/2997125_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/26/2997126_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/27/2997127_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/28/2997128_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/29/2997129_image2_1.jpg"
     ],
     "alt": "롯데백화점 본점 이미지",
     "excerpt": "롯데백화점 본점의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -4343,7 +4437,7 @@
         "parkingshopping": "가능요금 (시간별 상이하므로 홈페이지 확인)",
         "saleitem": "식품, 리빙/가전, 해외패션, 아동/유아, 레져/스포츠, 남성패션, 화장품, 패션액세서리, 영패션, 여성패션 등"
       },
-      "backfilledAt": "2026-08-09T13:50:35.579Z"
+      "backfilledAt": "2026-08-26T03:07:28.611Z"
     },
     "sections": [
       [
@@ -4443,7 +4537,14 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/11/4096311_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/11/4096311_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/11/4096311_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/02/3496802_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/19/3496819_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/04/4096304_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/06/4096306_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/07/4096307_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/08/4096308_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/09/4096309_image2_1.jpg"
     ],
     "alt": "이기대 이미지",
     "excerpt": "이기대의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -4504,7 +4605,7 @@
         "usetime": "상시 개방",
         "infocenter": "부산 남구청 공원녹지과 051-607-4544"
       },
-      "backfilledAt": "2026-08-09T13:50:33.207Z"
+      "backfilledAt": "2026-08-26T03:07:29.790Z"
     },
     "sections": [
       [
@@ -4604,7 +4705,11 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/10/4096210_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/10/4096210_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/10/4096210_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/51/2460351_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/53/2460353_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/62/2460362_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/11/4096211_image2_1.jpg"
     ],
     "alt": "평창이야기펜션 이미지",
     "excerpt": "평창이야기펜션의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -4668,7 +4773,7 @@
         "roomtype": "블루스카이 / 레몬트리 / 그린로즈 등",
         "subfacility": "스파 / 원형화로"
       },
-      "backfilledAt": "2026-08-09T13:50:34.622Z"
+      "backfilledAt": "2026-08-26T03:07:30.862Z"
     },
     "sections": [
       [
@@ -4775,7 +4880,14 @@
     "read": "약 6분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/08/3584408_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/08/3584408_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/08/3584408_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/05/3584405_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/06/3584406_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/07/3584407_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/09/3584409_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/10/3584410_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/11/3584411_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/12/3584412_image2_1.jpg"
     ],
     "alt": "뮤지엄산 이미지",
     "excerpt": "실내 전시와 야외 건축 공간을 함께 보는 곳이라 비의 양에 따라 관람 순서를 바꾸는 것이 좋습니다. 예약 전시와 기본 관람을 구분했습니다.",
@@ -4836,7 +4948,7 @@
         "usefee": "[시그니처권] - 대인 59,000원 - 소인 47,000원 [스페셜 패스권] - 스페셜 패스권3·스페셜 패스권2 대인 49,000원 - 스페셜 패스권3·스페셜 패스권2 소인 37,000원 - 스페셜 패스권1 대인 46,000원 - 스페셜 패스권1 소인 34,000원 [단일 패스권] - 그라운드 패스권·제임스 터렐 패스권·명상 패스권 대인 39,000원 - 그라운드 패스권·제임스 터렐 패스권·명상 패스권 소인 29,000원 - 그라운드 패스권·제임스 터렐 패스권 어린이 5,000원 [기본 패스권] - 대인 23,000원 - 소인(초·중·고) 15,000원 - 어린이 5,000원 - 유아 무료 ※ 자세한 사항은 홈페이지 참조",
         "infocenterculture": "033-730-9000~1"
       },
-      "backfilledAt": "2026-08-09T13:50:36.586Z"
+      "backfilledAt": "2026-08-26T03:07:32.096Z"
     },
     "sections": [
       [
@@ -4936,7 +5048,14 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/44/4096244_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/44/4096244_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/44/4096244_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/40/4096240_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/41/4096241_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/42/4096242_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/45/4096245_image2_1.jpg",
+      "http://tong.visitkorea.or.kr/cms2/website/49/1862649.jpg",
+      "http://tong.visitkorea.or.kr/cms2/website/51/1862651.jpg",
+      "http://tong.visitkorea.or.kr/cms2/website/53/1862653.jpg"
     ],
     "alt": "[대부해솔길] 6코스 이미지",
     "excerpt": "[대부해솔길] 6코스의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -4992,7 +5111,7 @@
         "infocenterleports": "031-481-3408",
         "restdateleports": "연중무휴"
       },
-      "backfilledAt": "2026-08-09T13:50:37.065Z"
+      "backfilledAt": "2026-08-26T03:07:33.197Z"
     },
     "sections": [
       [
@@ -5092,7 +5211,14 @@
     "read": "약 5분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/91/4096191_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/91/4096191_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/91/4096191_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/80/4096180_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/81/4096181_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/82/4096182_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/83/4096183_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/84/4096184_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/85/4096185_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/87/4096187_image2_1.jpg"
     ],
     "alt": "[횡성호수길] 5구간 이미지",
     "excerpt": "호숫길은 출발점과 돌아오는 지점이 어긋나면 일정이 길어집니다. 걷는 거리와 휴식 시간, 차량 회수 동선을 먼저 판단할 수 있게 정리했습니다.",
@@ -5152,7 +5278,7 @@
         "infocenterleports": "횡성호수길 관광안내소 033-343-3432횡성호수길 매표소 033-343-3431",
         "restdateleports": "연중무휴※ 횡성댐 수위 상승 예상 시 호수길 출입 통제"
       },
-      "backfilledAt": "2026-08-09T13:50:34.159Z"
+      "backfilledAt": "2026-08-26T03:07:34.290Z"
     },
     "sections": [
       [
@@ -5252,7 +5378,11 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/14/3576214_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/14/3576214_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/14/3576214_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/13/3576213_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/15/3576215_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/16/3576216_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/17/3576217_image2_1.jpg"
     ],
     "alt": "악어떡볶이 이미지",
     "excerpt": "악어떡볶이의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -5315,7 +5445,7 @@
         "parkingfood": "불가능",
         "treatmenu": "순대 / 김밥 / 라면 등"
       },
-      "backfilledAt": "2026-08-09T13:50:35.108Z"
+      "backfilledAt": "2026-08-26T03:07:35.469Z"
     },
     "sections": [
       [
@@ -5415,7 +5545,11 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/34/3548234_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/34/3548234_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/34/3548234_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/74/2792974_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/75/2792975_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/80/2792980_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/35/3548235_image2_1.jpg"
     ],
     "alt": "꽃밥 이미지",
     "excerpt": "꽃밥의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -5478,7 +5612,7 @@
         "parkingfood": "가능",
         "treatmenu": "삼색들깨수제비 / 야채비빔밥"
       },
-      "backfilledAt": "2026-08-09T13:50:37.547Z"
+      "backfilledAt": "2026-08-26T03:07:36.674Z"
     },
     "sections": [
       [
@@ -5578,7 +5712,14 @@
     "read": "약 5분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/96/4094596_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/96/4094596_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/96/4094596_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/23/3445523_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/24/3445524_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/25/3445525_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/98/4094598_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/99/4094599_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/00/4094600_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/01/4094601_image2_1.jpg"
     ],
     "alt": "전북특별자치도 산림박물관 이미지",
     "excerpt": "산림 주제 전시는 날씨가 좋지 않을 때도 볼 수 있지만 야외 구간과 운영 여부는 별도로 확인해야 합니다. 실내 중심 체류 기준을 담았습니다.",
@@ -5639,7 +5780,7 @@
         "usefee": "무료",
         "infocenterculture": "063-290-5517"
       },
-      "backfilledAt": "2026-08-09T13:50:38.491Z"
+      "backfilledAt": "2026-08-26T03:07:37.876Z"
     },
     "sections": [
       [
@@ -5739,7 +5880,14 @@
     "read": "약 5분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/35/4094635_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/35/4094635_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/35/4094635_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/27/1602927_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/33/4094633_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/34/4094634_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/36/4094636_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/37/4094637_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/38/4094638_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/39/4094639_image2_1.jpg"
     ],
     "alt": "고창 신재효판소리박물관 이미지",
     "excerpt": "판소리 인물과 작품의 배경을 알고 보면 전시 이해가 쉬워집니다. 짧은 실내 관람 뒤 고창 문화유산 일정으로 잇는 기준을 정리했습니다.",
@@ -5800,7 +5948,7 @@
         "usefee": "무료",
         "infocenterculture": "063-560-8061"
       },
-      "backfilledAt": "2026-08-09T13:50:40.895Z"
+      "backfilledAt": "2026-08-26T03:07:39.064Z"
     },
     "sections": [
       [
@@ -5900,7 +6048,13 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/10/4096010_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/10/4096010_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/10/4096010_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/04/4096004_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/05/4096005_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/07/4096007_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/08/4096008_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/09/4096009_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/11/4096011_image2_1.jpg"
     ],
     "alt": "중랑숲캠핑장 이미지",
     "excerpt": "중랑숲캠핑장의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -5952,7 +6106,7 @@
         "infocenterleports": "0507-1348-8138",
         "restdateleports": "연중무휴"
       },
-      "backfilledAt": "2026-08-09T13:50:38.965Z"
+      "backfilledAt": "2026-08-26T03:07:40.264Z"
     },
     "sections": [
       [
@@ -6059,7 +6213,13 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/36/4095936_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/36/4095936_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/36/4095936_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/34/4095934_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/35/4095935_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/37/4095937_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/38/4095938_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/39/4095939_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/40/4095940_image2_1.jpg"
     ],
     "alt": "연서시장 이미지",
     "excerpt": "연서시장의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -6121,7 +6281,7 @@
         "parkingshopping": "불가능",
         "saleitem": "농수산물 / 축산물 / 과채류 / 가공식품 등"
       },
-      "backfilledAt": "2026-08-09T13:50:40.423Z"
+      "backfilledAt": "2026-08-26T03:07:41.497Z"
     },
     "sections": [
       [
@@ -6228,7 +6388,11 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/15/4096015_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/15/4096015_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/15/4096015_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/12/4096012_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/13/4096013_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/14/4096014_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/16/4096016_image2_1.jpg"
     ],
     "alt": "화성해양아카데미연구회 이미지",
     "excerpt": "화성해양아카데미연구회의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -6289,7 +6453,7 @@
         "restdateleports": "매주 월요일~화요일",
         "expagerangeleports": "프로그램별로 상이함"
       },
-      "backfilledAt": "2026-08-09T13:50:41.360Z"
+      "backfilledAt": "2026-08-26T03:07:42.694Z"
     },
     "sections": [
       [
@@ -6396,7 +6560,13 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/67/3075667_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/67/3075667_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/67/3075667_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/63/2796963_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/64/2796964_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/65/2796965_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/67/2796967_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/66/3075666_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/69/3075669_image2_1.jpg"
     ],
     "alt": "옛날집 이미지",
     "excerpt": "옛날집의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -6459,7 +6629,7 @@
         "parkingfood": "가능",
         "treatmenu": "더덕무침 등"
       },
-      "backfilledAt": "2026-08-09T13:50:39.940Z"
+      "backfilledAt": "2026-08-26T03:07:43.928Z"
     },
     "sections": [
       [
@@ -6566,7 +6736,14 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/10/2795210_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/10/2795210_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/10/2795210_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/64/2795164_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/76/2795176_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/05/2795205_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/11/2795211_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/17/3461717_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/18/3461718_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/19/3461719_image2_1.jpg"
     ],
     "alt": "오대산 달빛미소 이미지",
     "excerpt": "오대산 달빛미소의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -6629,7 +6806,7 @@
         "parkingfood": "가능요금 (무료)",
         "treatmenu": "황태구이정식 / 곤드레나물밥 / 산나물비빔밥 / 감자옹심이 / 오징어순대 등"
       },
-      "backfilledAt": "2026-08-09T13:50:41.831Z"
+      "backfilledAt": "2026-08-26T03:07:45.149Z"
     },
     "sections": [
       [
@@ -6729,7 +6906,12 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/16/2953016_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/16/2953016_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/16/2953016_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/71/4095871_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/72/4095872_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/73/4095873_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/74/4095874_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/75/4095875_image2_1.jpg"
     ],
     "alt": "제주수울 (JEJUSUUL) 이미지",
     "excerpt": "제주수울 (JEJUSUUL)의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -6795,7 +6977,7 @@
         "parkingshopping": "가능(성내지구주차장)요금(최초 30분 무료)",
         "saleitem": "제주전통주 / 증류주 / 막걸리 / 전통주 선물세트 등"
       },
-      "backfilledAt": "2026-08-09T13:50:42.298Z"
+      "backfilledAt": "2026-08-26T03:07:46.362Z"
     },
     "sections": [
       [
@@ -6889,7 +7071,14 @@
     "read": "약 5분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/85/3589785_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/85/3589785_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/85/3589785_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/74/3589774_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/76/3589776_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/78/3589778_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/79/3589779_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/81/3589781_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/82/3589782_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/83/3589783_image2_1.jpg"
     ],
     "alt": "송도스카이파크 이미지",
     "excerpt": "송도 해안 풍경을 짧게 볼지 주변 산책까지 이어갈지에 따라 체류 시간이 달라집니다. 주차와 전망 구간을 기준으로 이동 순서를 잡았습니다.",
@@ -6954,7 +7143,7 @@
         "usetime": "[1월~2월] 09:00~20:00 (매표 마감 19:30)[3월~6월] 09:00~21:00 (매표 마감 20:30)[7월~8월] 09:00~22:00 (매표 마감 21:30)[9월~11월] 09:00~21:00 (매표 마감 20:30)[12월] 09:00~20:00 (매표 마감 19:30)",
         "infocenter": "051-247-9900"
       },
-      "backfilledAt": "2026-08-09T13:50:38.024Z"
+      "backfilledAt": "2026-08-26T03:07:47.548Z"
     },
     "sections": [
       [
@@ -7054,7 +7243,12 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/05/3082605_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/05/3082605_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/05/3082605_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/06/3082606_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/07/3082607_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/08/3082608_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/09/3082609_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/10/3082610_image2_1.jpg"
     ],
     "alt": "원주시티호텔 혁신도시점 이미지",
     "excerpt": "원주시티호텔 혁신도시점의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -7117,7 +7311,7 @@
         "roomtype": "스탠다드 / 슈페리어 / 디럭스 / 로얄",
         "subfacility": "세미나실"
       },
-      "backfilledAt": "2026-08-09T13:50:39.460Z"
+      "backfilledAt": "2026-08-26T03:07:48.693Z"
     },
     "sections": [
       [
@@ -7274,7 +7468,7 @@
         "sponsor1tel": "031-230-3268",
         "sponsor2": "(재)경기아트센터"
       },
-      "backfilledAt": "2026-08-09T13:50:47.095Z"
+      "backfilledAt": "2026-08-26T03:07:49.880Z"
     },
     "sections": [
       [
@@ -7413,7 +7607,7 @@
     "tourApi": {
       "contentTypeId": "15",
       "overview": "부산브릿지마라톤은 아름다운 해양 도시 부산의 매력을 만끽할 수 있는 러닝 축제이다. 행사 집결지는 부산의 랜드마크인 벡스코 제1전시장이며, 전국의 러너들이 모여 활기찬 열기를 나누는 화합의 장이다. 대회 종목은 자신의 체력과 목표에 맞추어 선택할 수 있도록 구성되어 있다. 자신의 한계에 도전하는 풀코스와 누구나 건강하게 즐길 수 있는 10㎞로 운영된다. 특히 풀코스의 경우, 안전하고 내실 있는 대회를 위해 타 대회 공식 기록증 기준 4시간 30분 이내의 완주 기록을 소지해야하며 10㎞ 코스는 만 18세 이상의 건강한 남녀라면 누구나 참여할 수 있다.",
-      "homepage": "공식 홈페이지 https://busanmarathon.com/",
+      "homepage": "공식 홈페이지 https://busanmarathon.com/ 예매처 https://ticket.yes24.com/Perf/59670",
       "mapx": "129.1360182683",
       "mapy": "35.1690637155",
       "mlevel": "",
@@ -7426,9 +7620,9 @@
         "usetimefestival": "- 풀코스 80,000원- 10㎞ 60,000원",
         "sponsor1": "부산광역시, 대한육상연맹, KNN",
         "sponsor1tel": "070-4111-5620",
-        "sponsor2": "부산육상연맹"
+        "sponsor2": "KNN, 부산육상연맹"
       },
-      "backfilledAt": "2026-08-09T13:50:43.722Z"
+      "backfilledAt": "2026-08-26T03:07:51.050Z"
     },
     "sections": [
       [
@@ -7519,7 +7713,12 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/27/4095527_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/27/4095527_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/27/4095527_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/28/4095528_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/29/4095529_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/30/4095530_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/31/4095531_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/32/4095532_image2_1.jpg"
     ],
     "alt": "입화산참살이숲제2오토캠핑장 이미지",
     "excerpt": "입화산참살이숲제2오토캠핑장의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -7570,7 +7769,7 @@
         "usetimeleports": "[오토캠핑]- 입실 14:00- 퇴실 13:00[카라반]- 입실 14:00- 퇴실 11:00",
         "infocenterleports": "052-211-2832"
       },
-      "backfilledAt": "2026-08-09T13:50:44.215Z"
+      "backfilledAt": "2026-08-26T03:07:52.247Z"
     },
     "sections": [
       [
@@ -7670,7 +7869,14 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/85/2875485_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/85/2875485_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/85/2875485_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/17/4095517_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/18/4095518_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/19/4095519_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/20/4095520_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/23/4095523_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/24/4095524_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/25/4095525_image2_1.jpg"
     ],
     "alt": "웨스턴베이마리나호텔 이미지",
     "excerpt": "웨스턴베이마리나호텔의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -7732,7 +7938,7 @@
         "parkinglodging": "가능",
         "roomtype": "스탠다드 더블 / 스텐다드 트 / 주니어 스위트"
       },
-      "backfilledAt": "2026-08-09T13:50:44.687Z"
+      "backfilledAt": "2026-08-26T03:07:53.438Z"
     },
     "sections": [
       [
@@ -7832,7 +8038,14 @@
     "read": "약 5분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/38/3106038_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/38/3106038_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/38/3106038_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/39/3106039_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/40/3106040_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/41/3106041_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/42/3106042_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/43/3106043_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/44/3106044_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/46/3106046_image2_1.JPG"
     ],
     "alt": "국립나주숲체원 이미지",
     "excerpt": "자유 산책과 예약 프로그램, 숙박 이용은 준비 방식이 다릅니다. 아이의 체력과 체험 시간에 맞춰 필요한 장비와 이동 범위를 정리했습니다.",
@@ -7903,7 +8116,7 @@
         "expagerange": "프로그램마다 연령 상이",
         "infocenter": "061-338-8400"
       },
-      "backfilledAt": "2026-08-09T13:50:42.771Z"
+      "backfilledAt": "2026-08-26T03:07:54.706Z"
     },
     "sections": [
       [
@@ -8003,7 +8216,12 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/93/2996093_image2_1.JPG",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/93/2996093_image2_1.JPG"
+      "https://tong.visitkorea.or.kr/cms/resource/93/2996093_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/92/2996092_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/94/2996094_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/95/2996095_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/96/2996096_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/97/2996097_image2_1.JPG"
     ],
     "alt": "청산공원 이미지",
     "excerpt": "청산공원의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -8060,7 +8278,7 @@
         "usetime": "상시 개방",
         "infocenter": "옥천군 관광안내소 043-730-3430"
       },
-      "backfilledAt": "2026-08-09T13:50:46.122Z"
+      "backfilledAt": "2026-08-26T03:07:55.930Z"
     },
     "sections": [
       [
@@ -8167,7 +8385,11 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/67/2996467_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/67/2996467_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/67/2996467_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/68/2996468_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/69/2996469_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/70/2996470_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/71/2996471_image2_1.jpg"
     ],
     "alt": "메종쥬 성수 부티끄 이미지",
     "excerpt": "메종쥬 성수 부티끄의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -8233,7 +8455,7 @@
         "parkingshopping": "불가",
         "saleitem": "향수 / 센티드캔들"
       },
-      "backfilledAt": "2026-08-09T13:50:45.643Z"
+      "backfilledAt": "2026-08-26T03:07:57.149Z"
     },
     "sections": [
       [
@@ -8333,7 +8555,14 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/83/3570483_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/83/3570483_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/83/3570483_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/82/3570482_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/84/3570484_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/85/3570485_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/86/3570486_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/87/3570487_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/88/3570488_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/89/3570489_image2_1.jpg"
     ],
     "alt": "카페 폭포 이미지",
     "excerpt": "카페 폭포의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -8397,7 +8626,7 @@
         "parkingfood": "가능",
         "treatmenu": "에스프레소 / 카페라떼 / 아이스티 등"
       },
-      "backfilledAt": "2026-08-09T13:50:45.175Z"
+      "backfilledAt": "2026-08-26T03:07:58.383Z"
     },
     "sections": [
       [
@@ -8497,7 +8726,11 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/29/3537729_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/29/3537729_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/29/3537729_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/30/3537730_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/31/3537731_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/32/3537732_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/33/3537733_image2_1.jpg"
     ],
     "alt": "살롱헤리티지 이미지",
     "excerpt": "살롱헤리티지의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -8558,7 +8791,7 @@
         "usefee": "[경주엑스포대공원 통합 입장권]- 성인 12,000원- 소인 10,000원",
         "infocenterculture": "054-748-3011"
       },
-      "backfilledAt": "2026-08-09T13:50:43.244Z"
+      "backfilledAt": "2026-08-26T03:07:59.629Z"
     },
     "sections": [
       [
@@ -8658,7 +8891,11 @@
     "read": "약 7분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/98/3537798_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/98/3537798_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/98/3537798_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/99/3537799_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/00/3537800_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/01/3537801_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/02/3537802_image2_1.jpg"
     ],
     "alt": "천마의 궁전 이미지",
     "excerpt": "천마의 궁전 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -8719,7 +8956,7 @@
         "usefee": "[경주엑스포대공원 통합 입장권] - 성인 12,000원- 소인 10,000원※ 자세한 사항은 전화문의 요망",
         "infocenterculture": "054-748-3011"
       },
-      "backfilledAt": "2026-08-09T13:50:46.614Z"
+      "backfilledAt": "2026-08-26T03:08:00.864Z"
     },
     "sections": [
       [
@@ -8796,7 +9033,14 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/25/4095325_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/25/4095325_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/25/4095325_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/21/4095321_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/23/4095323_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/24/4095324_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/26/4095326_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/27/4095327_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/28/4095328_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/29/4095329_image2_1.jpg"
     ],
     "alt": "장령산자연휴양림 이미지",
     "excerpt": "장령산자연휴양림의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -8862,7 +9106,7 @@
         "chkpet": "불가",
         "infocenter": "043-733-9615"
       },
-      "backfilledAt": "2026-08-09T13:50:49.015Z"
+      "backfilledAt": "2026-08-26T03:08:02.085Z"
     },
     "sections": [
       [
@@ -8962,7 +9206,10 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/70/4093670_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/70/4093670_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/70/4093670_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/34/3406834_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/35/3406835_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/71/4093671_image2_1.jpg"
     ],
     "alt": "양주별산대놀이전수교육관 이미지",
     "excerpt": "양주별산대놀이전수교육관의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -9023,7 +9270,7 @@
         "usefee": "무료",
         "infocenterculture": "031-840-9986"
       },
-      "backfilledAt": "2026-08-09T13:50:49.502Z"
+      "backfilledAt": "2026-08-26T03:08:03.320Z"
     },
     "sections": [
       [
@@ -9123,7 +9370,11 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/88/2800688_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/88/2800688_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/88/2800688_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/90/2800690_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/71/4093971_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/72/4093972_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/73/4093973_image2_1.jpg"
     ],
     "alt": "불란지야시장 이미지",
     "excerpt": "불란지야시장의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -9185,7 +9436,7 @@
         "parkingshopping": "가능",
         "saleitem": "활어회 / 토스트 / 파전 / 두루치기 등"
       },
-      "backfilledAt": "2026-08-09T13:50:51.469Z"
+      "backfilledAt": "2026-08-26T03:08:04.509Z"
     },
     "sections": [
       [
@@ -9285,7 +9536,14 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/17/4095317_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/17/4095317_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/17/4095317_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/07/2797607_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/10/4095310_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/11/4095311_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/12/4095312_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/13/4095313_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/14/4095314_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/18/4095318_image2_1.jpg"
     ],
     "alt": "큐브빌리지글램핑 이미지",
     "excerpt": "큐브빌리지글램핑의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -9331,7 +9589,7 @@
       "intro": {
         "usetimeleports": "- 입실 15:00- 퇴실 11:00"
       },
-      "backfilledAt": "2026-08-09T13:50:50.486Z"
+      "backfilledAt": "2026-08-26T03:08:05.753Z"
     },
     "sections": [
       [
@@ -9472,7 +9730,7 @@
         "taketime": "3박 이상",
         "theme": "자연여행"
       },
-      "backfilledAt": "2026-08-09T13:50:49.989Z"
+      "backfilledAt": "2026-08-26T03:08:07.007Z"
     },
     "sections": [
       [
@@ -9579,7 +9837,13 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/06/2856706_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/06/2856706_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/06/2856706_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/02/2856702_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/03/2856703_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/04/2856704_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/05/2856705_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/63/3409763_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/65/3409765_image2_1.jpg"
     ],
     "alt": "이솔라 레스토랑 이미지",
     "excerpt": "이솔라 레스토랑의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -9642,7 +9906,7 @@
         "parkingfood": "가능",
         "treatmenu": "스테이크세트 / 구운 알배추 샐러드 / 광어 샤프란 리조또 등"
       },
-      "backfilledAt": "2026-08-09T13:50:48.535Z"
+      "backfilledAt": "2026-08-26T03:08:08.229Z"
     },
     "sections": [
       [
@@ -9742,7 +10006,12 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/62/3491462_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/62/3491462_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/62/3491462_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/63/3491463_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/64/3491464_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/65/3491465_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/66/3491466_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/67/3491467_image2_1.JPG"
     ],
     "alt": "초정명가횟집 물회 이미지",
     "excerpt": "초정명가횟집 물회의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -9810,7 +10079,7 @@
         "parkingfood": "가능요금 (무료)",
         "treatmenu": "초정물회 / 초정낙지장덮밥 / 초정돌문어 탕수육 등"
       },
-      "backfilledAt": "2026-08-09T13:50:50.979Z"
+      "backfilledAt": "2026-08-26T03:08:09.463Z"
     },
     "sections": [
       [
@@ -9910,7 +10179,12 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/06/4095306_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/06/4095306_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/06/4095306_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/04/4095304_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/05/4095305_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/07/4095307_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/08/4095308_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/09/4095309_image2_1.jpg"
     ],
     "alt": "궁평항광장 이미지",
     "excerpt": "궁평항광장의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -9967,7 +10241,7 @@
         "usetime": "상시 개방",
         "infocenter": "화성시 해양수산과 031-5189-3812"
       },
-      "backfilledAt": "2026-08-09T13:50:51.955Z"
+      "backfilledAt": "2026-08-26T03:08:10.692Z"
     },
     "sections": [
       [
@@ -10074,7 +10348,14 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/58/3500658_image2_1.jpeg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/58/3500658_image2_1.jpeg"
+      "https://tong.visitkorea.or.kr/cms/resource/58/3500658_image2_1.jpeg",
+      "https://tong.visitkorea.or.kr/cms/resource/59/3500659_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/60/3500660_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/61/3500661_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/62/3500662_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/63/3500663_image2_1.jpeg",
+      "https://tong.visitkorea.or.kr/cms/resource/64/3500664_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/65/3500665_image2_1.jpg"
     ],
     "alt": "레포밸리 이미지",
     "excerpt": "레포밸리의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -10130,7 +10411,7 @@
         "infocenterleports": "033-673-2468",
         "restdateleports": "매주 화요일※ 7월 18일~8월 23일 성수기 기간에는 휴무 없이 정상 운영함"
       },
-      "backfilledAt": "2026-08-09T13:50:47.582Z"
+      "backfilledAt": "2026-08-26T03:08:11.923Z"
     },
     "sections": [
       [
@@ -10230,7 +10511,14 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/58/4094558_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/58/4094558_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/58/4094558_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/54/4094554_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/55/4094555_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/56/4094556_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/57/4094557_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/59/4094559_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/61/4094561_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/62/4094562_image2_1.jpg"
     ],
     "alt": "용오름stay 이미지",
     "excerpt": "용오름stay의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -10295,7 +10583,7 @@
         "roomtype": "1번방 / 2번방 / 3번방 / 4번방",
         "subfacility": "비즈니스센터"
       },
-      "backfilledAt": "2026-08-09T13:50:48.046Z"
+      "backfilledAt": "2026-08-26T03:08:13.150Z"
     },
     "sections": [
       [
@@ -10395,7 +10683,13 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/38/4095038_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/38/4095038_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/38/4095038_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/34/4095034_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/35/4095035_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/36/4095036_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/37/4095037_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/39/4095039_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/40/4095040_image2_1.jpg"
     ],
     "alt": "목도시장 이미지",
     "excerpt": "목도시장의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -10457,7 +10751,7 @@
         "parkingshopping": "가능",
         "saleitem": "곡물류 / 고추 / 사과 / 배 / 오이 / 방울토마토 등"
       },
-      "backfilledAt": "2026-08-09T13:50:52.921Z"
+      "backfilledAt": "2026-08-26T03:08:14.362Z"
     },
     "sections": [
       [
@@ -10557,7 +10851,14 @@
     "read": "약 5분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/64/4095364_image2_1.png",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/64/4095364_image2_1.png"
+      "https://tong.visitkorea.or.kr/cms/resource/64/4095364_image2_1.png",
+      "https://tong.visitkorea.or.kr/cms/resource/65/4095365_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/66/4095366_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/67/4095367_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/68/4095368_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource_photo/30/1496730_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource_photo/45/1496745_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource_photo/58/1496758_image2_1.jpg"
     ],
     "alt": "곡성섬진강천문대 이미지",
     "excerpt": "천문대는 실내 전시가 열려도 실제 관측은 구름과 날씨에 따라 달라집니다. 예약과 관측 가능 여부, 늦은 시간 귀가를 따로 확인했습니다.",
@@ -10627,7 +10928,7 @@
         "expguide": "자이로 VR 가상현실 체험 ※ 체험비 2,000원 별도 ※ 신장 140cm 이상 / 몸무게 40kg이상만 이용 가능",
         "infocenter": "061-363-8528"
       },
-      "backfilledAt": "2026-08-09T13:50:53.384Z"
+      "backfilledAt": "2026-08-26T03:08:15.559Z"
     },
     "sections": [
       [
@@ -10727,7 +11028,11 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/13/4095213_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/13/4095213_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/13/4095213_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/11/4095211_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/12/4095212_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/14/4095214_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/15/4095215_image2_1.jpg"
     ],
     "alt": "광암막국수 이미지",
     "excerpt": "광암막국수의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -10790,7 +11095,7 @@
         "parkingfood": "불가능",
         "treatmenu": "메밀간장비빔 막국수 / 명태비빔막국수 / 수육 등"
       },
-      "backfilledAt": "2026-08-09T13:50:52.434Z"
+      "backfilledAt": "2026-08-26T03:08:16.608Z"
     },
     "sections": [
       [
@@ -10890,7 +11195,14 @@
     "read": "약 5분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/40/4095340_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/40/4095340_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/40/4095340_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/38/4095338_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/39/4095339_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/41/4095341_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/42/4095342_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/43/4095343_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/44/4095344_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/45/4095345_image2_1.JPG"
     ],
     "alt": "액티브파크 제주 이미지",
     "excerpt": "체험 시설은 현장 도착보다 이용 조건 확인이 먼저입니다. 동행자의 연령과 체력, 예약 시간, 장비 준비 범위를 기준으로 방문 여부를 판단했습니다.",
@@ -10961,7 +11273,7 @@
         "expagerange": "6세 이상",
         "infocenter": "064-796-0880"
       },
-      "backfilledAt": "2026-08-09T13:50:55.748Z"
+      "backfilledAt": "2026-08-26T03:08:17.857Z"
     },
     "sections": [
       [
@@ -11061,7 +11373,11 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/41/2907841_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/41/2907841_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/41/2907841_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/38/2907838_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/39/2907839_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/40/2907840_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/42/2907842_image2_1.jpg"
     ],
     "alt": "더오창호 이미지",
     "excerpt": "더오창호의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -11113,7 +11429,7 @@
         "infocenterleports": "0507-1386-8058",
         "restdateleports": "연중무휴"
       },
-      "backfilledAt": "2026-08-09T13:50:54.803Z"
+      "backfilledAt": "2026-08-26T03:08:19.090Z"
     },
     "sections": [
       [
@@ -11256,7 +11572,7 @@
         "schedule": "1박2일",
         "theme": "----지자체-----"
       },
-      "backfilledAt": "2026-08-09T13:50:54.334Z"
+      "backfilledAt": "2026-08-26T03:08:20.321Z"
     },
     "sections": [
       [
@@ -11363,7 +11679,12 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/88/2945688_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/88/2945688_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/88/2945688_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/03/2947703_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/04/2947704_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/05/2947705_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/06/2947706_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/07/2947707_image2_1.jpg"
     ],
     "alt": "경희대학교 국제캠퍼스 노천극장 이미지",
     "excerpt": "경희대학교 국제캠퍼스 노천극장의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -11415,7 +11736,7 @@
         "usetimeculture": "상시 개방",
         "infocenterculture": "031-201-2114"
       },
-      "backfilledAt": "2026-08-09T13:50:53.871Z"
+      "backfilledAt": "2026-08-26T03:08:21.518Z"
     },
     "sections": [
       [
@@ -11515,7 +11836,11 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/27/3300727_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/27/3300727_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/27/3300727_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/77/2947177_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/79/2947179_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/25/3300725_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/26/3300726_image2_1.jpg"
     ],
     "alt": "대오서점 이미지",
     "excerpt": "대오서점의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -11567,7 +11892,7 @@
         "usetimeculture": "12:00~21:00",
         "infocenterculture": "02-735-1349"
       },
-      "backfilledAt": "2026-08-09T13:50:56.224Z"
+      "backfilledAt": "2026-08-26T03:08:22.738Z"
     },
     "sections": [
       [
@@ -11711,7 +12036,7 @@
         "schedule": "1박2일",
         "theme": "기타"
       },
-      "backfilledAt": "2026-08-09T13:50:56.721Z"
+      "backfilledAt": "2026-08-26T03:08:23.971Z"
     },
     "sections": [
       [
@@ -11818,7 +12143,14 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/52/4093852_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/52/4093852_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/52/4093852_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/51/4093851_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/53/4093853_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/54/4093854_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/55/4093855_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/56/4093856_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/57/4093857_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/58/4093858_image2_1.jpg"
     ],
     "alt": "조은가 제빵소 이미지",
     "excerpt": "조은가 제빵소의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -11881,7 +12213,7 @@
         "parkingfood": "불가능",
         "treatmenu": "보은대추차 / 수제대추라떼 / 대추아포카토 등"
       },
-      "backfilledAt": "2026-08-09T13:50:55.279Z"
+      "backfilledAt": "2026-08-26T03:08:25.160Z"
     },
     "sections": [
       [
@@ -11981,7 +12313,14 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/05/4095405_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/05/4095405_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/05/4095405_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/06/4095406_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/08/4095408_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/09/4095409_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/11/4095411_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/12/4095412_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/13/4095413_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/14/4095414_image2_1.jpg"
     ],
     "alt": "곡성향교 이미지",
     "excerpt": "곡성향교의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -12042,7 +12381,7 @@
         "chkpet": "없음",
         "infocenter": "곡성군청 문화체육과 061-360-8481"
       },
-      "backfilledAt": "2026-08-09T13:50:57.202Z"
+      "backfilledAt": "2026-08-26T03:08:26.389Z"
     },
     "sections": [
       [
@@ -12143,7 +12482,12 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/47/4095147_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/47/4095147_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/47/4095147_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/52/4095152_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/53/4095153_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/54/4095154_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/55/4095155_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/56/4095156_image2_1.jpg"
     ],
     "alt": "초록바다펜션 이미지",
     "excerpt": "초록바다펜션의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -12208,7 +12552,7 @@
         "roomtype": "강바람 / 맑은소리 / 푸른하늘 / 은하수 / 넓은뚜루 / 솔향기",
         "subfacility": "바비큐장 / 카페 / 잔디정원"
       },
-      "backfilledAt": "2026-08-09T13:50:58.670Z"
+      "backfilledAt": "2026-08-26T03:08:27.568Z"
     },
     "sections": [
       [
@@ -12308,7 +12652,13 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/36/4095336_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/36/4095336_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/36/4095336_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/49/2731449_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/53/2731453_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/55/2731455_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/33/4095333_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/34/4095334_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/37/4095337_image2_1.jpg"
     ],
     "alt": "화적연캠핑장 이미지",
     "excerpt": "화적연캠핑장의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -12359,7 +12709,7 @@
         "usetimeleports": "- 입실 12:00- 퇴실 11:00",
         "infocenterleports": "031-531-0575"
       },
-      "backfilledAt": "2026-08-09T13:51:01.052Z"
+      "backfilledAt": "2026-08-26T03:08:28.780Z"
     },
     "sections": [
       [
@@ -12466,7 +12816,11 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/76/4095376_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/76/4095376_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/76/4095376_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/74/4095374_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/75/4095375_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/77/4095377_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/78/4095378_image2_1.jpg"
     ],
     "alt": "DMZ 라운지 이미지",
     "excerpt": "DMZ 라운지의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -12523,7 +12877,7 @@
         "opentime": "10:30~17:30",
         "parkingshopping": "가능"
       },
-      "backfilledAt": "2026-08-09T13:50:59.642Z"
+      "backfilledAt": "2026-08-26T03:08:29.983Z"
     },
     "sections": [
       [
@@ -12630,7 +12984,12 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/88/4095388_image2_1.jpeg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/88/4095388_image2_1.jpeg"
+      "https://tong.visitkorea.or.kr/cms/resource/88/4095388_image2_1.jpeg",
+      "https://tong.visitkorea.or.kr/cms/resource/87/4095387_image2_1.jpeg",
+      "https://tong.visitkorea.or.kr/cms/resource/89/4095389_image2_1.jpeg",
+      "https://tong.visitkorea.or.kr/cms/resource/90/4095390_image2_1.jpeg",
+      "https://tong.visitkorea.or.kr/cms/resource/91/4095391_image2_1.jpeg",
+      "https://tong.visitkorea.or.kr/cms/resource/23/4095723_image2_1.jpeg"
     ],
     "alt": "영흥도십리포캠핑장 이미지",
     "excerpt": "영흥도십리포캠핑장의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -12681,7 +13040,7 @@
         "usetimeleports": "- 입실 14:00- 퇴실 11:00",
         "restdateleports": "연중무휴"
       },
-      "backfilledAt": "2026-08-09T13:50:58.161Z"
+      "backfilledAt": "2026-08-26T03:08:31.169Z"
     },
     "sections": [
       [
@@ -12781,7 +13140,14 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/99/4095399_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/99/4095399_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/99/4095399_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/92/4095392_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/93/4095393_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/94/4095394_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/95/4095395_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/96/4095396_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/97/4095397_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/98/4095398_image2_1.jpg"
     ],
     "alt": "청천수변공원 이미지",
     "excerpt": "청천수변공원의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -12838,7 +13204,7 @@
         "usetime": "상시 개방",
         "infocenter": "괴산군청 043-830-3114"
       },
-      "backfilledAt": "2026-08-09T13:51:00.108Z"
+      "backfilledAt": "2026-08-26T03:08:32.401Z"
     },
     "sections": [
       [
@@ -12945,7 +13311,11 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/06/4095106_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/06/4095106_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/06/4095106_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/02/4095102_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/03/4095103_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/04/4095104_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/05/4095105_image2_1.jpg"
     ],
     "alt": "S& 나봄호텔 이미지",
     "excerpt": "S& 나봄호텔의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -13010,7 +13380,7 @@
         "roomtype": "비즈니스 슈페리어 / 비즈니스 디럭스 / 비즈니스 로얄 / 부띠끄 디럭스 / 부띠끄 슈페리어 / 부띠끄 로얄 / 아마르 스위트",
         "subfacility": "비즈니스센터"
       },
-      "backfilledAt": "2026-08-09T13:51:01.527Z"
+      "backfilledAt": "2026-08-26T03:08:33.567Z"
     },
     "sections": [
       [
@@ -13110,7 +13480,14 @@
     "read": "약 5분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/08/3548808_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/08/3548808_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/08/3548808_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/06/3548806_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/07/3548807_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/09/3548809_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/10/3548810_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/11/3548811_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/13/3548813_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/14/3548814_image2_1.jpg"
     ],
     "alt": "빛의 벙커 이미지",
     "excerpt": "영상 전시는 시작 직후보다 내부에서 머무는 시간과 어두운 환경 적응이 중요합니다. 제주 우천 일정에 넣을 때 필요한 이동 여유를 담았습니다.",
@@ -13171,7 +13548,7 @@
         "usefee": "- 성인 19,000원 - 청소년 14,000원 - 어린이 11,000원 ※ 무료 : 36개월 미만 영유아 ※ 자세한 사항은 홈페이지 참조",
         "infocenterculture": "1522-2653"
       },
-      "backfilledAt": "2026-08-09T13:50:57.680Z"
+      "backfilledAt": "2026-08-26T03:08:34.745Z"
     },
     "sections": [
       [
@@ -13271,7 +13648,14 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/79/3549079_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/79/3549079_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/79/3549079_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/81/3549081_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/82/3549082_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/83/3549083_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/84/3549084_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/85/3549085_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/86/3549086_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/87/3549087_image2_1.jpg"
     ],
     "alt": "더에이 이미지",
     "excerpt": "더에이의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -13334,7 +13718,7 @@
         "parkingfood": "가능",
         "treatmenu": "아메리카노 / 생 자몽에이드 / 말차라떼 등"
       },
-      "backfilledAt": "2026-08-09T13:50:59.155Z"
+      "backfilledAt": "2026-08-26T03:08:35.967Z"
     },
     "sections": [
       [
@@ -13434,7 +13818,14 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/26/2947626_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/26/2947626_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/26/2947626_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/27/2947627_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/28/2947628_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/29/2947629_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/30/2947630_image2_1.jpg",
+      "http://tong.visitkorea.or.kr/cms2/website/72/1959172.jpg",
+      "http://tong.visitkorea.or.kr/cms2/website/10/1959210.jpg",
+      "http://tong.visitkorea.or.kr/cms2/website/15/1959215.jpg"
     ],
     "alt": "새만금홍보관 이미지",
     "excerpt": "새만금홍보관의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -13495,7 +13886,7 @@
         "usefee": "무료",
         "infocenterculture": "063-584-6822"
       },
-      "backfilledAt": "2026-08-09T13:51:00.588Z"
+      "backfilledAt": "2026-08-26T03:08:37.189Z"
     },
     "sections": [
       [
@@ -13595,7 +13986,11 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/83/4094783_image2_1.png",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/83/4094783_image2_1.png"
+      "https://tong.visitkorea.or.kr/cms/resource/83/4094783_image2_1.png",
+      "https://tong.visitkorea.or.kr/cms/resource/79/4094779_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/80/4094780_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/81/4094781_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/82/4094782_image2_1.jpg"
     ],
     "alt": "컨템포러리 아티스트 프로젝트 《이완 - 나는 쓴다》 이미지",
     "excerpt": "컨템포러리 아티스트 프로젝트 《이완 - 나는 쓴다》을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -13658,7 +14053,7 @@
         "sponsor1tel": "02-580-1655",
         "sponsor2": "예술의전당"
       },
-      "backfilledAt": "2026-08-09T13:51:02.978Z"
+      "backfilledAt": "2026-08-26T03:08:38.249Z"
     },
     "sections": [
       [
@@ -13749,7 +14144,13 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/83/4094683_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/83/4094683_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/83/4094683_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/77/4094677_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/78/4094678_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/79/4094679_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/80/4094680_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/81/4094681_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/82/4094682_image2_1.jpg"
     ],
     "alt": "피아골단풍펜션 이미지",
     "excerpt": "피아골단풍펜션의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -13814,7 +14215,7 @@
         "roomtype": "꽃방 / 거북이 / 대박 등",
         "subfacility": "바비큐장 / 텃밭 등"
       },
-      "backfilledAt": "2026-08-09T13:51:03.951Z"
+      "backfilledAt": "2026-08-26T03:08:39.442Z"
     },
     "sections": [
       [
@@ -13914,7 +14315,13 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/73/4094873_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/73/4094873_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/73/4094873_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/52/2734152_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/74/4094874_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/75/4094875_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/76/4094876_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/77/4094877_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/78/4094878_image2_1.jpg"
     ],
     "alt": "속초밤하늘글램핑 이미지",
     "excerpt": "속초밤하늘글램핑의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -13970,7 +14377,7 @@
         "infocenterleports": "033-633-5055",
         "restdateleports": "연중무휴"
       },
-      "backfilledAt": "2026-08-09T13:51:06.382Z"
+      "backfilledAt": "2026-08-26T03:08:40.648Z"
     },
     "sections": [
       [
@@ -14077,7 +14484,13 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/13/3533913_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/13/3533913_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/13/3533913_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/10/3533910_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/11/3533911_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/12/3533912_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/14/3533914_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/15/3533915_image2_1.jpg",
+      "http://tong.visitkorea.or.kr/cms2/website/96/2534496.jpg"
     ],
     "alt": "아산호 이미지",
     "excerpt": "아산호의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -14134,7 +14547,7 @@
         "usetime": "상시 개방",
         "infocenter": "평택호 관광안내소 031-8024-8687"
       },
-      "backfilledAt": "2026-08-09T13:51:02.026Z"
+      "backfilledAt": "2026-08-26T03:08:41.895Z"
     },
     "sections": [
       [
@@ -14234,7 +14647,14 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/92/4094892_image2_1.png",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/92/4094892_image2_1.png"
+      "https://tong.visitkorea.or.kr/cms/resource/92/4094892_image2_1.png",
+      "https://tong.visitkorea.or.kr/cms/resource/71/2762471_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/77/2762477_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/80/2762480_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/84/2762484_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/90/4094890_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/91/4094891_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/93/4094893_image2_1.png"
     ],
     "alt": "솔방울 펜션캠핑장 이미지",
     "excerpt": "솔방울 펜션캠핑장의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -14285,7 +14705,7 @@
         "usetimeleports": "- 입실 12:00- 퇴실 12:00",
         "infocenterleports": "010-6606-9322"
       },
-      "backfilledAt": "2026-08-09T13:51:03.460Z"
+      "backfilledAt": "2026-08-26T03:08:43.131Z"
     },
     "sections": [
       [
@@ -14385,7 +14805,11 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/28/2987028_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/28/2987028_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/28/2987028_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/29/2987029_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/30/2987030_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/31/2987031_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/32/2987032_image2_1.jpg"
     ],
     "alt": "봄날의 책방 이미지",
     "excerpt": "봄날의 책방의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -14441,7 +14865,7 @@
         "usetimeculture": "10:30~18:30 (휴게시간 12:00~13:00)※ 주말에는 휴게시간 없이 영업함",
         "infocenterculture": "055-646-0511"
       },
-      "backfilledAt": "2026-08-09T13:51:05.888Z"
+      "backfilledAt": "2026-08-26T03:08:44.321Z"
     },
     "sections": [
       [
@@ -14548,7 +14972,14 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/26/2987926_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/26/2987926_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/26/2987926_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/17/2987917_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/18/2987918_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/20/2987920_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/21/2987921_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/22/2987922_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/23/2987923_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/24/2987924_image2_1.jpg"
     ],
     "alt": "에베레스트커리월드 이미지",
     "excerpt": "에베레스트커리월드의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -14611,7 +15042,7 @@
         "parkingfood": "가능",
         "treatmenu": "인디안탈리세트 / 네팔리 탈리 세트 / 탄두리 치킨 / 치킨말라이 티카 등"
       },
-      "backfilledAt": "2026-08-09T13:51:04.439Z"
+      "backfilledAt": "2026-08-26T03:08:45.572Z"
     },
     "sections": [
       [
@@ -14711,7 +15142,14 @@
     "read": "약 7분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/47/4094547_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/47/4094547_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/47/4094547_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/90/3081790_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/44/4094544_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/45/4094545_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/46/4094546_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/48/4094548_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/49/4094549_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/50/4094550_image2_1.jpg"
     ],
     "alt": "화순 고인돌선사체험장 이미지",
     "excerpt": "화순 고인돌선사체험장 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -14781,7 +15219,7 @@
         "expguide": "무드등 만들기 체험 / VR활쏘기 / 불피우기 체험 등",
         "infocenter": "0507-1434-8848"
       },
-      "backfilledAt": "2026-08-09T13:51:05.406Z"
+      "backfilledAt": "2026-08-26T03:08:46.825Z"
     },
     "sections": [
       [
@@ -14858,7 +15296,14 @@
     "read": "약 7분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/35/4094535_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/35/4094535_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/35/4094535_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/50/3489550_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/51/3489551_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/52/3489552_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/53/3489553_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/54/3489554_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/31/4094531_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/32/4094532_image2_1.jpg"
     ],
     "alt": "화순군립 운주사문화관 이미지",
     "excerpt": "화순군립 운주사문화관 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -14919,7 +15364,7 @@
         "usefee": "무료",
         "infocenterculture": "061-379-5893"
       },
-      "backfilledAt": "2026-08-09T13:51:02.497Z"
+      "backfilledAt": "2026-08-26T03:08:48.056Z"
     },
     "sections": [
       [
@@ -15057,7 +15502,7 @@
         "parkingshopping": "가능",
         "saleitem": "안경&렌즈"
       },
-      "backfilledAt": "2026-08-09T13:51:04.921Z"
+      "backfilledAt": "2026-08-26T03:08:49.257Z"
     },
     "sections": [
       [
@@ -15157,7 +15602,13 @@
     "read": "약 5분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/28/3383428_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/28/3383428_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/28/3383428_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/29/3383429_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/30/3383430_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/31/3383431_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/33/3383433_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/40/3383440_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/42/3383442_image2_1.jpg"
     ],
     "alt": "분당 어린이천문대 이미지",
     "excerpt": "아이의 연령과 관심에 맞는 수업인지 확인하고, 실제 밤하늘 관측이 날씨에 따라 달라진다는 점을 반영해 예약 전 질문을 정리했습니다.",
@@ -15227,7 +15678,7 @@
         "expguide": "체험교실 / 탐구교실 / 테마교실 / 관측교실 / 일일천문교실",
         "infocenter": "031-322-3245"
       },
-      "backfilledAt": "2026-08-09T13:51:06.868Z"
+      "backfilledAt": "2026-08-26T03:08:50.452Z"
     },
     "sections": [
       [
@@ -15327,7 +15778,11 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/04/3077204_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/04/3077204_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/04/3077204_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/05/3077205_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/06/3077206_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/07/3077207_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/08/3077208_image2_1.jpg"
     ],
     "alt": "스파라스파 (곤지암리조트) 이미지",
     "excerpt": "스파라스파 (곤지암리조트)의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -15383,7 +15838,7 @@
         "usetime": "11:00~20:00 (입장 마감 18:30 / 수영장 마감 19:30)",
         "infocenter": "031-8026-5600"
       },
-      "backfilledAt": "2026-08-09T13:51:09.726Z"
+      "backfilledAt": "2026-08-26T03:08:51.677Z"
     },
     "sections": [
       [
@@ -15483,7 +15938,14 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/22/4094222_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/22/4094222_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/22/4094222_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/20/4094220_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/21/4094221_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/23/4094223_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/24/4094224_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/25/4094225_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/26/4094226_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/27/4094227_image2_1.jpg"
     ],
     "alt": "무극시장 이미지",
     "excerpt": "무극시장의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -15549,7 +16011,7 @@
         "parkingshopping": "가능",
         "saleitem": "농산물 / 수산물 / 생활필수품 등"
       },
-      "backfilledAt": "2026-08-09T13:51:09.256Z"
+      "backfilledAt": "2026-08-26T03:08:52.902Z"
     },
     "sections": [
       [
@@ -15656,7 +16118,14 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/28/3507828_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/28/3507828_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/28/3507828_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/29/3507829_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/30/3507830_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/32/3507832_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/35/3507835_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/58/3530358_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/64/3530364_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/66/3530366_image2_1.jpg"
     ],
     "alt": "밀양의열기념관 이미지",
     "excerpt": "밀양의열기념관의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -15717,7 +16186,7 @@
         "usefee": "무료",
         "infocenterculture": "055-351-0815"
       },
-      "backfilledAt": "2026-08-09T13:51:07.338Z"
+      "backfilledAt": "2026-08-26T03:08:54.141Z"
     },
     "sections": [
       [
@@ -15817,7 +16286,14 @@
     "read": "약 7분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/74/4068374_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/74/4068374_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/74/4068374_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/93/3351493_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/94/3351494_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/70/4068370_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/71/4068371_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/72/4068372_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/73/4068373_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/75/4068375_image2_1.jpg"
     ],
     "alt": "남원다움관 이미지",
     "excerpt": "남원다움관 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -15878,7 +16354,7 @@
         "usefee": "무료",
         "infocenterculture": "063-620-5671"
       },
-      "backfilledAt": "2026-08-09T13:51:10.197Z"
+      "backfilledAt": "2026-08-26T03:08:55.372Z"
     },
     "sections": [
       [
@@ -15955,7 +16431,12 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/10/4094210_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/10/4094210_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/10/4094210_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/06/4094206_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/07/4094207_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/08/4094208_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/09/4094209_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/11/4094211_image2_1.jpg"
     ],
     "alt": "월포해수욕장야영장 이미지",
     "excerpt": "월포해수욕장야영장의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -16007,7 +16488,7 @@
         "infocenterleports": "055-862-8287",
         "restdateleports": "연중무휴"
       },
-      "backfilledAt": "2026-08-09T13:51:11.217Z"
+      "backfilledAt": "2026-08-26T03:08:56.569Z"
     },
     "sections": [
       [
@@ -16107,7 +16588,14 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/16/4094316_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/16/4094316_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/16/4094316_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/15/4094315_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/17/4094317_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/18/4094318_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/19/4094319_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/20/4094320_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/21/4094321_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/22/4094322_image2_1.jpg"
     ],
     "alt": "갤러리밥스 이미지",
     "excerpt": "갤러리밥스의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -16175,7 +16663,7 @@
         "parkingfood": "가능",
         "treatmenu": "초옥이커피밀크티 / 소금빵 / 뉴욕 초콜릿 바브카 등"
       },
-      "backfilledAt": "2026-08-09T13:51:08.767Z"
+      "backfilledAt": "2026-08-26T03:08:57.780Z"
     },
     "sections": [
       [
@@ -16316,7 +16804,7 @@
         "taketime": "3박이상",
         "theme": "자연여행"
       },
-      "backfilledAt": "2026-08-09T13:51:10.735Z"
+      "backfilledAt": "2026-08-26T03:08:59.017Z"
     },
     "sections": [
       [
@@ -16423,7 +16911,8 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/65/2908665_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/65/2908665_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/65/2908665_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/62/2908662_image2_1.jpg"
     ],
     "alt": "에코팜 부설 오토캠핑장 이미지",
     "excerpt": "에코팜 부설 오토캠핑장의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -16475,7 +16964,7 @@
         "infocenterleports": "010-3561-1103",
         "restdateleports": "연중무휴"
       },
-      "backfilledAt": "2026-08-09T13:51:07.812Z"
+      "backfilledAt": "2026-08-26T03:09:00.248Z"
     },
     "sections": [
       [
@@ -16575,7 +17064,12 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/02/4063902_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/02/4063902_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/02/4063902_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/18/3107318_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/98/4063898_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/99/4063899_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/01/4063901_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/03/4063903_image2_1.jpg"
     ],
     "alt": "고결 이미지",
     "excerpt": "고결의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -16640,7 +17134,7 @@
         "roomtype": "독채",
         "subfacility": "티클래스"
       },
-      "backfilledAt": "2026-08-09T13:51:08.283Z"
+      "backfilledAt": "2026-08-26T03:09:01.479Z"
     },
     "sections": [
       [
@@ -16740,7 +17234,8 @@
     "read": "약 8분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/30/4093830_image2_1.png",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/30/4093830_image2_1.png"
+      "https://tong.visitkorea.or.kr/cms/resource/30/4093830_image2_1.png",
+      "https://tong.visitkorea.or.kr/cms/resource/06/4097306_image2_1.jpg"
     ],
     "alt": "2026 구미 로컬푸드 페스타 이미지",
     "excerpt": "2026 구미 로컬푸드 페스타을 방문하기 전 일정, 운영 흐름, 프로그램 선택법, 준비물과 귀가 동선까지 한 번에 확인해보세요.",
@@ -16803,7 +17298,7 @@
         "sponsor1tel": "054-480-6762",
         "sponsor2": "구미코"
       },
-      "backfilledAt": "2026-08-09T13:51:16.026Z"
+      "backfilledAt": "2026-08-26T03:09:02.698Z"
     },
     "sections": [
       [
@@ -16894,7 +17389,14 @@
     "read": "약 5분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/02/4093802_image2_1.JPG",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/02/4093802_image2_1.JPG"
+      "https://tong.visitkorea.or.kr/cms/resource/02/4093802_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/97/4093797_image2_1.png",
+      "https://tong.visitkorea.or.kr/cms/resource/98/4093798_image2_1.png",
+      "https://tong.visitkorea.or.kr/cms/resource/99/4093799_image2_1.png",
+      "https://tong.visitkorea.or.kr/cms/resource/00/4093800_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/01/4093801_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/03/4093803_image2_1.JPG",
+      "https://tong.visitkorea.or.kr/cms/resource/04/4093804_image2_1.JPG"
     ],
     "alt": "홍성 국가유산 야행 이미지",
     "excerpt": "홍주읍성 일원에서 저녁 6시부터 진행되는 행사라 밝을 때 입구와 귀가 방향을 먼저 확인해야 합니다. 야간 프로그램을 놓치지 않는 순서로 정리했습니다.",
@@ -16957,7 +17459,7 @@
         "sponsor1tel": "041-634-8707",
         "sponsor2": "(재)홍주문화관광재단"
       },
-      "backfilledAt": "2026-08-09T13:51:12.649Z"
+      "backfilledAt": "2026-08-26T03:09:03.929Z"
     },
     "sections": [
       [
@@ -17064,7 +17566,11 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/55/4092955_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/55/4092955_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/55/4092955_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/53/4092953_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/54/4092954_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/60/4092960_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/62/4092962_image2_1.jpg"
     ],
     "alt": "왕의지밀 이미지",
     "excerpt": "왕의지밀의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -17129,7 +17635,7 @@
         "roomtype": "양실",
         "subfacility": "세미나실"
       },
-      "backfilledAt": "2026-08-09T13:51:13.619Z"
+      "backfilledAt": "2026-08-26T03:09:05.172Z"
     },
     "sections": [
       [
@@ -17236,7 +17742,14 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/46/4059446_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/46/4059446_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/46/4059446_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/45/4059445_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/85/4093885_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/86/4093886_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/87/4093887_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/83/4093883_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/82/4093882_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/84/4093884_image2_1.jpg"
     ],
     "alt": "금강보행교(이응다리) 이미지",
     "excerpt": "금강보행교(이응다리)의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -17297,7 +17810,7 @@
         "usetime": "06:00~23:00",
         "infocenter": "관리사무소 044-868-9127"
       },
-      "backfilledAt": "2026-08-09T13:51:11.691Z"
+      "backfilledAt": "2026-08-26T03:09:06.403Z"
     },
     "sections": [
       [
@@ -17448,7 +17961,7 @@
         "usetimeleports": "- 입실 14:00- 퇴실 13:00",
         "infocenterleports": "0507-1432-4424"
       },
-      "backfilledAt": "2026-08-09T13:51:13.113Z"
+      "backfilledAt": "2026-08-26T03:09:07.596Z"
     },
     "sections": [
       [
@@ -17548,7 +18061,14 @@
     "read": "약 5분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/81/4093881_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/81/4093881_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/81/4093881_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/10/3082310_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/13/3082313_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/73/4093873_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/74/4093874_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/76/4093876_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/77/4093877_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/78/4093878_image2_1.jpg"
     ],
     "alt": "국립어린이박물관 이미지",
     "excerpt": "어린이 전시는 연령에 맞는 체험과 회차 예약이 핵심입니다. 아이의 집중 시간과 식사·휴식까지 포함해 방문 준비를 정리했습니다.",
@@ -17609,7 +18129,7 @@
         "usefee": "[상설전시] - 무료 [기획전시] - 개인 2,000원 - 단체(20인 이상) 1,000원",
         "infocenterculture": "044-251-3000"
       },
-      "backfilledAt": "2026-08-09T13:51:12.172Z"
+      "backfilledAt": "2026-08-26T03:09:08.850Z"
     },
     "sections": [
       [
@@ -17709,7 +18229,11 @@
     "read": "약 7분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/12/4093312_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/12/4093312_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/12/4093312_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/10/4093310_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/11/4093311_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/13/4093313_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/14/4093314_image2_1.jpg"
     ],
     "alt": "KF아세안문화원 이미지",
     "excerpt": "KF아세안문화원 방문 전 위치, 운영 확인, 현장 포인트와 주변 동선을 한 번에 확인해보세요.",
@@ -17770,7 +18294,7 @@
         "usefee": "[전시 관람] - 무료 [교육·체험·공연] - 프로그램별 상이 ※ 유료 프로그램은 홈페이지에서 참가비 확인",
         "infocenterculture": "051-775-2000"
       },
-      "backfilledAt": "2026-08-09T13:51:15.549Z"
+      "backfilledAt": "2026-08-26T03:09:10.044Z"
     },
     "sections": [
       [
@@ -17847,7 +18371,11 @@
     "read": "약 9분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/31/4093331_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/31/4093331_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/31/4093331_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/27/4093327_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/28/4093328_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/29/4093329_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/30/4093330_image2_1.jpg"
     ],
     "alt": "부산 우암동 소막마을 주택 이미지",
     "excerpt": "부산 우암동 소막마을 주택의 위치와 운영 정보부터 주차, 준비물, 주변 이동 순서까지 방문 전에 확인하세요.",
@@ -17908,7 +18436,7 @@
         "usetime": "09:00~18:00",
         "infocenter": "070-8830-0010"
       },
-      "backfilledAt": "2026-08-09T13:51:15.067Z"
+      "backfilledAt": "2026-08-26T03:09:11.257Z"
     },
     "sections": [
       [
