@@ -11,6 +11,7 @@ Use this when scheduled jobs or post generation scripts need an API key.
 3. Click `New repository secret`.
 4. Add these names as needed:
    - `TRIPVIEW_API_KEY`: Korea TourAPI service key.
+   - `PHOTO_GALLERY_API_KEY`: data.go.kr `PhotoGalleryService1` key for the Korea Tourism Organization tourism photo gallery. Keep this separate from `TRIPVIEW_API_KEY`.
    - `BEACH_INFO_API_KEY`: data.go.kr key for the Ministry of Oceans beach information API. `TRIPVIEW_API_KEY` is used as a fallback.
    - `OPENAI_API_KEY`: OpenAI API key for AI-assisted content generation.
    - `OPENAI_MODEL`: optional repository variable. Defaults to `gpt-5.5`.
@@ -18,7 +19,7 @@ Use this when scheduled jobs or post generation scripts need an API key.
    - `OPENAI_TIMEOUT_MS`: optional repository variable. Defaults to `90000`.
 5. Save the secret.
 
-The code should read keys from `process.env.TRIPVIEW_API_KEY` or `process.env.OPENAI_API_KEY`.
+The code should read keys from environment variables such as `process.env.TRIPVIEW_API_KEY`, `process.env.PHOTO_GALLERY_API_KEY`, or `process.env.OPENAI_API_KEY`.
 
 ## Cloudflare Pages
 

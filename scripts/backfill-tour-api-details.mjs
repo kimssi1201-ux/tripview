@@ -7,7 +7,10 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, "..");
 const API_BASE = "https://apis.data.go.kr/B551011/KorService2";
+const PHOTO_GALLERY_API_BASE = "https://apis.data.go.kr/B551011/PhotoGalleryService1";
+const PHOTO_GALLERY_SEARCH_ENDPOINT = "gallerySearchList1";
 const SERVICE_KEY = process.env.TRIPVIEW_API_KEY || process.env.TRIPVIEW_API_KEY_PARAM || "";
+const PHOTO_GALLERY_SERVICE_KEY = process.env.PHOTO_GALLERY_API_KEY || process.env.PHOTO_GALLERY_API_KEY_PARAM || "";
 const LIMIT = Math.max(0, Number.parseInt(process.env.BACKFILL_LIMIT || "300", 10) || 300);
 const ONLY_SHORT = process.env.BACKFILL_ONLY_SHORT === "1";
 const TARGETS = new Set(String(process.env.BACKFILL_TARGETS || "").split(",").map((value) => value.trim()).filter(Boolean));
@@ -15,6 +18,10 @@ const INCLUDE_IMAGES = process.env.BACKFILL_INCLUDE_IMAGES === "1";
 const IMAGE_SAMPLE = process.env.BACKFILL_IMAGE_SAMPLE === "1";
 const IMAGE_SAMPLE_SIZE = Math.max(20, Math.min(30, Number.parseInt(process.env.BACKFILL_IMAGE_SAMPLE_SIZE || "20", 10) || 20));
 const IMAGE_SAMPLE_CONCURRENCY = Math.max(1, Math.min(6, Number.parseInt(process.env.BACKFILL_IMAGE_SAMPLE_CONCURRENCY || "5", 10) || 5));
+const PHOTO_GALLERY_SAMPLE = process.env.BACKFILL_PHOTO_GALLERY_SAMPLE === "1" || process.argv.includes("--photo-gallery-sample");
+const PHOTO_GALLERY_SAMPLE_SIZE = Math.max(20, Math.min(30, Number.parseInt(process.env.PHOTO_GALLERY_SAMPLE_SIZE || "30", 10) || 30));
+const PHOTO_GALLERY_SAMPLE_CONCURRENCY = Math.max(1, Math.min(5, Number.parseInt(process.env.PHOTO_GALLERY_SAMPLE_CONCURRENCY || "4", 10) || 4));
+const PHOTO_GALLERY_ROWS = Math.max(3, Math.min(20, Number.parseInt(process.env.PHOTO_GALLERY_ROWS || "10", 10) || 10));
 const MAX_IMAGES_PER_POST = Math.max(3, Math.min(8, Number.parseInt(process.env.BACKFILL_MAX_IMAGES_PER_POST || "8", 10) || 8));
 const FETCH_TIMEOUT_MS = Math.max(1000, Number.parseInt(process.env.BACKFILL_FETCH_TIMEOUT_MS || "8000", 10) || 8000);
 
@@ -49,6 +56,17 @@ function buildUrl(endpoint, extra, encodedKey) {
   return `${API_BASE}/${endpoint}?serviceKey=${key}&${params.toString()}`;
 }
 
+function buildPhotoGalleryUrl(endpoint, extra, encodedKey) {
+  const params = new URLSearchParams({ MobileOS: "ETC", MobileApp: "TripView", _type: "json", ...extra });
+  const key = encodedKey ? encodeURIComponent(PHOTO_GALLERY_SERVICE_KEY) : PHOTO_GALLERY_SERVICE_KEY;
+  return `${PHOTO_GALLERY_API_BASE}/${endpoint}?serviceKey=${key}&${params.toString()}`;
+}
+
+function responseItems(json) {
+  const item = json.response?.body?.items?.item;
+  return Array.isArray(item) ? item : item ? [item] : [];
+}
+
 async function tourGet(endpoint, extra = {}) {
   let lastError = "";
   for (const encodedKey of [false, true]) {
@@ -75,13 +93,42 @@ async function tourGet(endpoint, extra = {}) {
         lastError = `${header.resultCode} ${header.resultMsg || ""}`.trim();
         continue;
       }
-      const item = json.response?.body?.items?.item;
-      return Array.isArray(item) ? item : item ? [item] : [];
+      return responseItems(json);
     } catch {
       lastError = text.slice(0, 120);
     }
   }
   throw new Error(`TourAPI request failed: ${lastError}`);
+}
+
+async function photoGalleryGet(endpoint, extra = {}) {
+  let lastError = "";
+  for (const encodedKey of [false, true]) {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+    let res;
+    try {
+      res = await fetch(buildPhotoGalleryUrl(endpoint, extra, encodedKey), { signal: controller.signal });
+    } catch (error) {
+      lastError = error.name === "AbortError" ? `request timed out after ${FETCH_TIMEOUT_MS}ms` : error.message;
+      clearTimeout(timeout);
+      continue;
+    }
+    clearTimeout(timeout);
+    const text = await res.text();
+    try {
+      const json = JSON.parse(text);
+      const header = json.response?.header || json;
+      if (header?.resultCode && header.resultCode !== "0000") {
+        lastError = `${header.resultCode} ${header.resultMsg || ""}`.trim();
+        continue;
+      }
+      return responseItems(json);
+    } catch {
+      lastError = text.slice(0, 120);
+    }
+  }
+  throw new Error(`PhotoGalleryService1 request failed: ${lastError}`);
 }
 
 export function imageFamilyKey(src) {
@@ -93,6 +140,10 @@ export function imageFamilyKey(src) {
 
 function imageUrlFromDetail(item = {}) {
   return strip(item.originimgurl || item.smallimageurl || item.imageUrl || item.imageurl);
+}
+
+export function photoGalleryImageUrl(item = {}) {
+  return strip(item.galWebImageUrl || item.galWebImageURL || item.galwebimageurl || item.galWebImgUrl || "");
 }
 
 function addImage(images, seen, src, limit = MAX_IMAGES_PER_POST) {
@@ -160,12 +211,120 @@ export function summarizeImageSampleResults(results = []) {
   };
 }
 
+function textTokens(value = "") {
+  return strip(value)
+    .replace(/[()[\]{}"'“”‘’·:|/\\_-]/g, " ")
+    .split(/\s+/)
+    .map((token) => token.replace(/(?:특별자치도|특별자치시|특별시|광역시|자치구|시|군|구|읍|면|동|리)$/u, ""))
+    .filter((token) => /^[가-힣A-Za-z0-9]{2,}$/u.test(token));
+}
+
+function uniqueStrings(values = []) {
+  const seen = new Set();
+  const next = [];
+  for (const value of values.map(strip).filter(Boolean)) {
+    const key = value.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    next.push(value);
+  }
+  return next;
+}
+
+export function photoGalleryKeywordsForPost(post = {}) {
+  const title = strip(post.sourceTitle || post.title || "")
+    .replace(/\[[^\]]+\]/g, " ")
+    .replace(/\([^)]*\)/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  const region = strip(post.region || post.city || "").split(/[,\s>·/]+/)[0] || "";
+  const tokens = textTokens(title).filter((token) => !["여행", "가이드", "정리", "추천", "방문", "예약", "비교"].includes(token));
+  return uniqueStrings([
+    title,
+    region && title && !title.includes(region) ? `${region} ${title}` : "",
+    tokens[0] || "",
+    region && tokens[0] ? `${region} ${tokens[0]}` : "",
+    region,
+  ]).slice(0, 4);
+}
+
+function galleryItemText(item = {}) {
+  return strip([
+    item.galTitle,
+    item.galPhotographyLocation,
+    item.galSearchKeyword,
+    item.galContentTypeId,
+  ].filter(Boolean).join(" "));
+}
+
+export function isRelevantPhotoGalleryItem(post = {}, item = {}) {
+  const haystack = galleryItemText(item);
+  if (!haystack || !photoGalleryImageUrl(item)) return false;
+  const region = strip(post.region || post.city || "").split(/[,\s>·/]+/)[0] || "";
+  if (region && haystack.includes(region.replace(/(?:특별자치도|특별자치시|특별시|광역시)$/u, ""))) return true;
+  const titleTokens = textTokens(post.sourceTitle || post.title || "").filter((token) => token.length >= 3);
+  return titleTokens.some((token) => haystack.includes(token));
+}
+
+export function summarizePhotoGallerySampleResults(results = []) {
+  const distributions = { raw: {}, matched: {}, merged: {} };
+  const byType = {};
+  for (const result of results) {
+    const rawKey = String(result.rawCount || 0);
+    const matchedKey = String(result.matchedCount || 0);
+    const mergedKey = String(result.mergedCount || 0);
+    distributions.raw[rawKey] = (distributions.raw[rawKey] || 0) + 1;
+    distributions.matched[matchedKey] = (distributions.matched[matchedKey] || 0) + 1;
+    distributions.merged[mergedKey] = (distributions.merged[mergedKey] || 0) + 1;
+    const typeId = result.typeId || "unknown";
+    byType[typeId] ||= { checked: 0, success: 0, anyMatched: 0, atLeast3: 0 };
+    byType[typeId].checked += 1;
+    if (!result.error) byType[typeId].success += 1;
+    if ((result.matchedCount || 0) > 0) byType[typeId].anyMatched += 1;
+    if ((result.mergedCount || 0) >= 3) byType[typeId].atLeast3 += 1;
+  }
+  const success = results.filter((result) => !result.error).length;
+  const anyMatched = results.filter((result) => (result.matchedCount || 0) > 0).length;
+  const atLeast3 = results.filter((result) => (result.mergedCount || 0) >= 3).length;
+  const sortEntries = (value) => Object.fromEntries(Object.entries(value).sort((a, b) => Number(a[0]) - Number(b[0])));
+  return {
+    checked: results.length,
+    success,
+    anyMatched,
+    atLeast3,
+    atLeast3Ratio: results.length ? atLeast3 / results.length : 0,
+    rawImageDistribution: sortEntries(distributions.raw),
+    matchedImageDistribution: sortEntries(distributions.matched),
+    mergedImageDistribution: sortEntries(distributions.merged),
+    byType,
+  };
+}
+
 async function fetchDetailImages(post) {
   return tourGet("detailImage2", {
     contentId: post.contentid,
     imageYN: "Y",
     numOfRows: "50",
   });
+}
+
+async function fetchPhotoGalleryImages(post) {
+  const seen = new Set();
+  const items = [];
+  for (const keyword of photoGalleryKeywordsForPost(post)) {
+    const rows = await photoGalleryGet(PHOTO_GALLERY_SEARCH_ENDPOINT, {
+      keyword,
+      pageNo: "1",
+      numOfRows: String(PHOTO_GALLERY_ROWS),
+    });
+    for (const item of rows) {
+      const src = photoGalleryImageUrl(item);
+      if (!src || seen.has(src)) continue;
+      seen.add(src);
+      items.push(item);
+    }
+  }
+  return items;
 }
 
 async function mapLimit(items, limit, mapper) {
@@ -219,6 +378,61 @@ async function runImageSample(posts) {
   const errors = results.filter((result) => result.error);
   if (errors.length) {
     console.log(`detailImage2 sample errors: ${errors.length}`);
+    for (const item of errors.slice(0, 5)) console.log(`- ${item.slug}: ${item.error}`);
+  }
+}
+
+async function runPhotoGallerySample(posts) {
+  if (!PHOTO_GALLERY_SERVICE_KEY) {
+    throw new Error("PHOTO_GALLERY_API_KEY is required for PhotoGalleryService1 sample. Add it as a GitHub Actions secret.");
+  }
+  const sample = sampleImageBackfillPosts(posts, PHOTO_GALLERY_SAMPLE_SIZE);
+  const results = await mapLimit(sample, PHOTO_GALLERY_SAMPLE_CONCURRENCY, async (post) => {
+    const typeId = contentTypeId(post);
+    try {
+      const galleryItems = await fetchPhotoGalleryImages(post);
+      const matchedItems = galleryItems.filter((item) => isRelevantPhotoGalleryItem(post, item));
+      const merged = mergePostImages(
+        post,
+        matchedItems.map((item) => ({ originimgurl: photoGalleryImageUrl(item) })),
+        MAX_IMAGES_PER_POST,
+      );
+      return {
+        slug: post.slug,
+        contentId: post.contentid,
+        typeId,
+        keywordCount: photoGalleryKeywordsForPost(post).length,
+        rawCount: galleryItems.map(photoGalleryImageUrl).filter(Boolean).length,
+        matchedCount: matchedItems.length,
+        mergedCount: merged.length,
+      };
+    } catch (error) {
+      return {
+        slug: post.slug,
+        contentId: post.contentid,
+        typeId,
+        keywordCount: photoGalleryKeywordsForPost(post).length,
+        rawCount: 0,
+        matchedCount: 0,
+        mergedCount: mergePostImages(post, [], MAX_IMAGES_PER_POST).length,
+        error: error.message,
+      };
+    }
+  });
+  const summary = summarizePhotoGallerySampleResults(results);
+  const percent = summary.checked ? Math.round(summary.atLeast3Ratio * 1000) / 10 : 0;
+  console.log(`PhotoGalleryService1 ${PHOTO_GALLERY_SEARCH_ENDPOINT} sample complete. Checked ${summary.checked} post(s).`);
+  console.log(`Successful post checks: ${summary.success}/${summary.checked}.`);
+  console.log(`Raw gallery image distribution: ${JSON.stringify(summary.rawImageDistribution)}`);
+  console.log(`Matched gallery image distribution: ${JSON.stringify(summary.matchedImageDistribution)}`);
+  console.log(`Merged image count distribution: ${JSON.stringify(summary.mergedImageDistribution)}`);
+  console.log(`Posts with 3+ renderable images: ${summary.atLeast3}/${summary.checked} (${percent}%).`);
+  for (const [typeId, row] of Object.entries(summary.byType).sort((a, b) => Number(a[0]) - Number(b[0]))) {
+    console.log(`Type ${typeId}: ${row.anyMatched}/${row.checked} with matched PhotoGallery image, ${row.atLeast3}/${row.checked} with 3+ renderable images.`);
+  }
+  const errors = results.filter((result) => result.error);
+  if (errors.length) {
+    console.log(`PhotoGalleryService1 sample errors: ${errors.length}`);
     for (const item of errors.slice(0, 5)) console.log(`- ${item.slug}: ${item.error}`);
   }
 }
@@ -328,11 +542,16 @@ function mergeInfo(post, common, intro) {
 }
 
 async function main() {
+  const posts = await readJson("data/generated-posts.json", []);
+  if (PHOTO_GALLERY_SAMPLE) {
+    await runPhotoGallerySample(posts);
+    return;
+  }
+
   if (!SERVICE_KEY) {
     throw new Error("TRIPVIEW_API_KEY is required for TourAPI detail backfill.");
   }
 
-  const posts = await readJson("data/generated-posts.json", []);
   if (IMAGE_SAMPLE) {
     await runImageSample(posts);
     return;
