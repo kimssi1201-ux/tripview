@@ -410,13 +410,11 @@ function renderRelatedPosts(post, posts) {
 
 function renderArticle(post, counts, allPosts) {
   const rows = (post.info || []).map(([k, v]) => `<tr><th>${esc(k)}</th><td>${esc(v)}</td></tr>`).join("");
-  const gallery = (post.images || [post.image])
-    .filter(Boolean)
-    .map(
-      (src, index) =>
-        `<figure class="${index === 0 ? "cover-figure" : "inline-figure"}"><img class="${index === 0 ? "cover" : ""}" src="${esc(src)}" alt="${esc(`${sourceTitle(post)} 이미지 ${index + 1}`)}"${index === 0 ? "" : ' loading="lazy"'} /><figcaption>출처: 한국관광공사</figcaption></figure>`
-    )
-    .join("\n");
+  // 대표 이미지만 여기서 렌더링한다. 나머지 post.images는 build-www.mjs의
+  // article-photo-grid / article-inline-figure 렌더링에 맡겨 중복 이미지 벽을 피한다.
+  const gallery = post.image
+    ? `<figure class="cover-figure"><img class="cover" src="${esc(post.image)}" alt="${esc(`${sourceTitle(post)} 대표 이미지`)}" /><figcaption>출처: 한국관광공사</figcaption></figure>`
+    : "";
   const sectionBlocks = (post.sections || []).map(([heading, paragraphs]) => `<h2>${esc(heading)}</h2>${paragraphs.map((p) => `<p>${esc(p)}</p>`).join("")}`);
   const sections = sectionBlocks.join("");
   const faqs = (post.faq || []).map(([q, a]) => `<details open><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join("");

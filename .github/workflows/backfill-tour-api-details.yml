@@ -50,6 +50,9 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Install Pillow for image processing
+        run: pip install --quiet Pillow
+
       - name: Validate backfill scripts
         run: |
           node --check scripts/backfill-tour-api-details.mjs

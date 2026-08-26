@@ -156,6 +156,8 @@ test("full image backfill can merge PhotoGallery images in bounded batches", asy
   assert.match(script, /Posts with 3\+ images after merge/);
   assert.match(workflow, /default: "120"/);
   assert.match(workflow, /offset:/);
+  assert.match(workflow, /Install Pillow for image processing/);
+  assert.match(workflow, /pip install --quiet Pillow/);
   assert.match(workflow, /BACKFILL_INCLUDE_PHOTO_GALLERY=1/);
   assert.match(workflow, /PHOTO_GALLERY_API_KEY: \$\{\{ secrets\.PHOTO_GALLERY_API_KEY \}\}/);
   assert.match(workflow, /Report article photo coverage/);
@@ -166,6 +168,15 @@ test("full image backfill can merge PhotoGallery images in bounded batches", asy
   assert.match(report, /match\(\/<img/);
   assert.match(report, /imgCount >= 3/);
   assert.doesNotMatch(workflow, /includes\('article-photo-grid'\)/);
+});
+
+test("contextual copy renders only the cover image before photo grid processing", async () => {
+  const script = await readFile("scripts/polish-contextual-copy.mjs", "utf8");
+  assert.match(script, /const gallery = post\.image/);
+  assert.match(script, /대표 이미지/);
+  assert.match(script, /article-photo-grid \/ article-inline-figure/);
+  assert.doesNotMatch(script, /const gallery = \(post\.images \|\| \[post\.image\]\)/);
+  assert.doesNotMatch(script, /index === 0 \? "cover-figure" : "inline-figure"/);
 });
 
 test("photo coverage report counts data images and ignores CSS-only class names", async () => {
