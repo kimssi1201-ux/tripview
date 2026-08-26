@@ -368,6 +368,14 @@ export function matchDurunubiCourse(post = {}, courses = [], routes = []) {
     if (!best || score.score > best.score.score) best = { course, route, score };
   }
   if (!best) return { matched: false, score: 0 };
+  if (best.score.score <= 0) {
+    return {
+      matched: false,
+      score: 0,
+      rawScore: best.score.rawScore,
+      regionExcluded: best.score.regionExcluded,
+    };
+  }
   return {
     matched: best.score.matched,
     score: best.score.score,

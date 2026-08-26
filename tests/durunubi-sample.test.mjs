@@ -103,6 +103,7 @@ test("Durunubi course matching rejects province-only false positives", () => {
   assert.equal(result.matched, false);
   assert.equal(result.score, 0);
   assert.equal(result.regionExcluded, true);
+  assert.equal(result.crsKorNm, undefined);
 });
 
 test("Durunubi course matching requires a confident score", () => {
@@ -150,6 +151,9 @@ test("Durunubi course matching avoids partial district-name matches", () => {
   const result = matchDurunubiCourse(post, courses, routes);
 
   assert.equal(result.matched, false);
+  assert.equal(result.score, 0);
+  assert.equal(result.regionExcluded, true);
+  assert.equal(result.crsKorNm, undefined);
 });
 
 test("Durunubi sample summary reports match and failure rates", () => {
