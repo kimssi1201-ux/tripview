@@ -96,6 +96,8 @@ const REGION_ALIASES = new Map([
   ["충청북도", "충북"],
 ]);
 
+const BROAD_REGION_TOKENS = new Set(["강원", "경기", "경남", "경북", "광주", "대구", "대전", "부산", "서울", "세종", "울산", "인천", "전남", "전북", "제주", "충남", "충북"]);
+
 const strip = (value = "") =>
   String(value)
     .replace(/<[^>]*>/g, " ")
@@ -220,10 +222,11 @@ function unique(values = []) {
 function compactPlaceToken(value = "") {
   const raw = strip(value);
   const alias = REGION_ALIASES.get(raw) || raw;
-  return alias
+  const compacted = alias
     .replace(/특별자치도|특별자치시|특별시|광역시|자치구/u, "")
     .replace(/시|군|구|읍|면|동|리$/u, "")
     .trim();
+  return compacted.length >= 2 ? compacted : alias.replace(/특별자치도|특별자치시|특별시|광역시|자치구/u, "").trim();
 }
 
 export function textTokens(value = "") {
@@ -263,6 +266,10 @@ export function selectDurunubiSamplePosts(posts = [], size = SAMPLE_SIZE) {
 
 export function regionTokensForPost(post = {}) {
   return unique(textTokens(post.region || post.city || "").map(compactPlaceToken));
+}
+
+function specificRegionTokensForPost(post = {}) {
+  return regionTokensForPost(post).filter((token) => !BROAD_REGION_TOKENS.has(token) && token !== "국내");
 }
 
 export function titleTokensForPost(post = {}) {
@@ -307,6 +314,8 @@ export function scoreDurunubiCourse(post = {}, course = {}, route = {}) {
     route.themedescs,
   ].filter(Boolean).join(" "));
   const regionMatches = regionTokens.filter((token) => includesNormalized(`${sigun} ${haystack}`, token));
+  const specificRegionTokens = specificRegionTokensForPost(post);
+  const specificRegionMatches = specificRegionTokens.filter((token) => includesNormalized(`${sigun} ${haystack}`, token));
   const titleMatches = titleTokens.filter((token) => includesNormalized(haystack, token));
   const keywordMatches = TRAIL_KEYWORDS.filter((keyword) => postText.includes(keyword) && haystack.includes(keyword));
   const exactCourseName = courseName && (includesNormalized(postText, courseName) || includesNormalized(courseName, postText));
@@ -321,11 +330,16 @@ export function scoreDurunubiCourse(post = {}, course = {}, route = {}) {
     + (strongKeywordMatch ? 3 : 0);
 
   const hasCourseTextMatch = Boolean(titleMatches.length || exactCourseName || exactRouteName || strongKeywordMatch);
-  const hasRegionMatch = Boolean(regionMatches.length || strip(post.region) === "국내");
+  const hasRegionMatch = strip(post.region) === "국내"
+    ? true
+    : specificRegionTokens.length
+      ? Boolean(specificRegionMatches.length)
+      : Boolean(regionMatches.length);
   return {
     score,
     matched: score >= 6 && hasCourseTextMatch && hasRegionMatch,
     regionMatches,
+    specificRegionMatches,
     titleMatches,
     keywordMatches,
   };
@@ -344,6 +358,7 @@ export function matchDurunubiCourse(post = {}, courses = [], routes = []) {
     matched: best.score.matched,
     score: best.score.score,
     regionMatches: best.score.regionMatches,
+    specificRegionMatches: best.score.specificRegionMatches,
     titleMatches: best.score.titleMatches,
     keywordMatches: best.score.keywordMatches,
     routeIdx: strip(best.course.routeIdx),

@@ -3,6 +3,7 @@ import test from "node:test";
 
 import {
   matchDurunubiCourse,
+  regionTokensForPost,
   selectDurunubiSamplePosts,
   summarizeDurunubiResults,
 } from "../scripts/sample-durunubi.mjs";
@@ -48,6 +49,10 @@ test("Durunubi course matching uses route, course name, and sigun text", () => {
   assert.equal(result.hasGpx, true);
 });
 
+test("Durunubi region tokens keep one-syllable district names matchable", () => {
+  assert.deepEqual(regionTokensForPost({ region: "부산광역시 서구" }), ["부산", "서구"]);
+});
+
 test("Durunubi course matching does not pass on region-only overlap", () => {
   const post = {
     slug: "travel-127722",
@@ -62,6 +67,29 @@ test("Durunubi course matching does not pass on region-only overlap", () => {
       crsKorNm: "해파랑길 39코스",
       crsDstnc: "16.1km",
       crsTotlRqrmHour: "5시간",
+      crsLevel: "2",
+    },
+  ];
+
+  const result = matchDurunubiCourse(post, courses, routes);
+
+  assert.equal(result.matched, false);
+});
+
+test("Durunubi course matching rejects province-only false positives", () => {
+  const post = {
+    slug: "travel-2774026",
+    title: "횡성호수길 5구간 걷기 전 확인할 거리·난이도·귀환 동선",
+    region: "강원특별자치도 횡성군",
+  };
+  const routes = [{ routeIdx: "47", themeNm: "DMZ 평화의 길" }];
+  const courses = [
+    {
+      routeIdx: "47",
+      sigun: "강원 철원군",
+      crsKorNm: "DMZ 평화의 길 16코스",
+      crsDstnc: "21",
+      crsTotlRqrmHour: "420",
       crsLevel: "2",
     },
   ];
