@@ -28,10 +28,10 @@ const IS_DOMESTIC = String(process.env.MYREALTRIP_ACCOMMODATION_IS_DOMESTIC || "
 const NIGHTS = 2;
 const ADULT_COUNT = 2;
 const CHILD_COUNT = 0;
-const SIZE = Math.max(1, Math.min(50, Number.parseInt(process.env.MYREALTRIP_ACCOMMODATION_SIZE || "20", 10) || 20));
-const REGION_LIMIT = Math.max(1, Math.min(120, Number.parseInt(process.env.MYREALTRIP_ACCOMMODATION_REGION_LIMIT || "60", 10) || 60));
-const PER_REGION_LIMIT = Math.max(3, Math.min(8, Number.parseInt(process.env.MYREALTRIP_ACCOMMODATION_PER_REGION_LIMIT || "6", 10) || 6));
-const LIMIT = Math.max(12, Math.min(240, Number.parseInt(process.env.MYREALTRIP_ACCOMMODATION_LIMIT || "180", 10) || 180));
+const SIZE = Math.max(1, Math.min(50, Number.parseInt(process.env.MYREALTRIP_ACCOMMODATION_SIZE || "30", 10) || 30));
+const REGION_LIMIT = Math.max(1, Math.min(120, Number.parseInt(process.env.MYREALTRIP_ACCOMMODATION_REGION_LIMIT || "100", 10) || 100));
+const PER_REGION_LIMIT = Math.max(3, Math.min(8, Number.parseInt(process.env.MYREALTRIP_ACCOMMODATION_PER_REGION_LIMIT || "8", 10) || 8));
+const LIMIT = Math.max(12, Math.min(240, Number.parseInt(process.env.MYREALTRIP_ACCOMMODATION_LIMIT || "240", 10) || 240));
 const STAR_RATINGS = {
   default: "threestar,fourstar,fivestar",
   family: "fourstar,fivestar",

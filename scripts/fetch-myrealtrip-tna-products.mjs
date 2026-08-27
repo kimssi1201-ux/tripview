@@ -23,10 +23,10 @@ const CATEGORY = process.env.MYREALTRIP_TNA_CATEGORY || "";
 const MIN_PRICE = process.env.MYREALTRIP_TNA_MIN_PRICE || "10000";
 const MAX_PRICE = process.env.MYREALTRIP_TNA_MAX_PRICE || "200000";
 const SORT = process.env.MYREALTRIP_TNA_SORT || "price_asc";
-const SIZE = Math.max(1, Math.min(100, Number.parseInt(process.env.MYREALTRIP_TNA_SIZE || "20", 10) || 20));
-const QUERY_LIMIT = Math.max(1, Math.min(80, Number.parseInt(process.env.MYREALTRIP_TNA_QUERY_LIMIT || "40", 10) || 40));
-const PER_QUERY_LIMIT = Math.max(1, Math.min(8, Number.parseInt(process.env.MYREALTRIP_TNA_PER_QUERY_LIMIT || "4", 10) || 4));
-const LIMIT = Math.max(1, Math.min(240, Number.parseInt(process.env.MYREALTRIP_TNA_LIMIT || "120", 10) || 120));
+const SIZE = Math.max(1, Math.min(100, Number.parseInt(process.env.MYREALTRIP_TNA_SIZE || "30", 10) || 30));
+const QUERY_LIMIT = Math.max(1, Math.min(80, Number.parseInt(process.env.MYREALTRIP_TNA_QUERY_LIMIT || "70", 10) || 70));
+const PER_QUERY_LIMIT = Math.max(1, Math.min(8, Number.parseInt(process.env.MYREALTRIP_TNA_PER_QUERY_LIMIT || "6", 10) || 6));
+const LIMIT = Math.max(1, Math.min(240, Number.parseInt(process.env.MYREALTRIP_TNA_LIMIT || "200", 10) || 200));
 
 function formatWon(value) {
   const number = Number(value);
