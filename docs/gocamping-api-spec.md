@@ -20,6 +20,7 @@ Source: https://www.data.go.kr/data/15101933/openapi.do
 
 - Prefer a dedicated GitHub Actions secret named `GOCAMPING_API_KEY` for this service.
 - The sample script can also try the existing `TRIPVIEW_API_KEY` because the service belongs to the same Korea Tourism Organization gateway family, but access must be verified by an actual call.
+- The Swagger lists `serviceKey`; the sample script also tries `ServiceKey` because gateway-family services sometimes differ between current and legacy operation URLs.
 - Do not log or commit the secret value. Logs should only show which secret name worked.
 - If both `GOCAMPING_API_KEY` and `TRIPVIEW_API_KEY` are unavailable or rejected with a service access error, add `GOCAMPING_API_KEY` in GitHub Actions secrets before running the sample.
 

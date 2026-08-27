@@ -131,7 +131,7 @@ function serviceKeyCandidates() {
   ].filter((candidate, index, values) => candidate.value && values.findIndex((item) => item.value === candidate.value) === index);
 }
 
-function buildUrl(base, endpoint, extra, keyValue, encodedKey) {
+function buildUrl(base, endpoint, extra, keyValue, encodedKey, keyParamName) {
   const params = new URLSearchParams({
     MobileOS: "ETC",
     MobileApp: "Tripview",
@@ -139,7 +139,7 @@ function buildUrl(base, endpoint, extra, keyValue, encodedKey) {
     ...extra,
   });
   const key = encodedKey ? encodeURIComponent(keyValue) : keyValue;
-  return `${base.replace(/\/$/u, "")}/${endpoint}?serviceKey=${key}&${params.toString()}`;
+  return `${base.replace(/\/$/u, "")}/${endpoint}?${keyParamName}=${key}&${params.toString()}`;
 }
 
 function responseBody(json = {}) {
@@ -161,6 +161,12 @@ function responseTotalCount(json = {}) {
 }
 
 function resultError(json = {}) {
+  const gatewayHeader = json.OpenAPI_ServiceResponse?.cmmMsgHeader;
+  if (gatewayHeader) {
+    return `${gatewayHeader.returnReasonCode || gatewayHeader.errMsg || ""} ${
+      gatewayHeader.returnAuthMsg || gatewayHeader.errMsg || ""
+    }`.trim();
+  }
   const header = responseHeader(json);
   const code = String(json.resultCode || header?.resultCode || "").trim();
   if (!code || ["0", "00", "0000"].includes(code)) return "";
@@ -176,48 +182,60 @@ async function requestGocamping(endpoint, extra = {}) {
   }
 
   let lastError = "";
+  const errors = [];
   for (const candidate of candidates) {
-    for (const base of GOCAMPING_API_BASES) {
-      for (const encodedKey of [false, true]) {
-        for (let attempt = 0; attempt <= REQUEST_RETRIES; attempt += 1) {
-          const controller = new AbortController();
-          const timeout = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
-          try {
-            const res = await fetch(buildUrl(base, endpoint, extra, candidate.value, encodedKey), {
-              headers: { Accept: "application/json" },
-              signal: controller.signal,
-            });
-            const text = await res.text();
+    const bases = candidate.base ? [candidate.base] : GOCAMPING_API_BASES;
+    const keyParamNames = candidate.keyParamName ? [candidate.keyParamName] : ["serviceKey", "ServiceKey"];
+    const encodedModes = typeof candidate.encodedKey === "boolean" ? [candidate.encodedKey] : [false, true];
+    for (const base of bases) {
+      for (const keyParamName of keyParamNames) {
+        for (const encodedKey of encodedModes) {
+          for (let attempt = 0; attempt <= REQUEST_RETRIES; attempt += 1) {
+            const controller = new AbortController();
+            const timeout = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
             try {
-              const json = JSON.parse(text);
-              const error = resultError(json);
-              if (error) {
-                lastError = `${candidate.name} ${endpoint}: ${error}`;
+              const res = await fetch(buildUrl(base, endpoint, extra, candidate.value, encodedKey, keyParamName), {
+                headers: { Accept: "application/json" },
+                signal: controller.signal,
+              });
+              const text = await res.text();
+              try {
+                const json = JSON.parse(text);
+                const error = resultError(json);
+                if (error) {
+                  lastError = `${candidate.name} ${endpoint} ${keyParamName}: ${error}`;
+                  errors.push(lastError);
+                  break;
+                }
+                activeKey = { ...candidate, base, encodedKey, keyParamName };
+                return {
+                  items: responseItems(json),
+                  totalCount: responseTotalCount(json),
+                  keyName: candidate.name,
+                  base,
+                };
+              } catch {
+                lastError = `${candidate.name} ${endpoint} ${keyParamName}: ${text.slice(0, 160)}`;
+                errors.push(lastError);
                 break;
               }
-              activeKey = { ...candidate, base, encodedKey };
-              return {
-                items: responseItems(json),
-                totalCount: responseTotalCount(json),
-                keyName: candidate.name,
-                base,
-              };
-            } catch {
-              lastError = `${candidate.name} ${endpoint}: ${text.slice(0, 160)}`;
-              break;
+            } catch (error) {
+              lastError =
+                error.name === "AbortError"
+                  ? `${candidate.name} ${endpoint} ${keyParamName}: request timed out after ${FETCH_TIMEOUT_MS}ms`
+                  : `${candidate.name} ${endpoint} ${keyParamName}: ${error.message}`;
+              if (attempt < REQUEST_RETRIES) continue;
+              errors.push(lastError);
+            } finally {
+              clearTimeout(timeout);
             }
-          } catch (error) {
-            lastError =
-              error.name === "AbortError" ? `${candidate.name} ${endpoint}: request timed out after ${FETCH_TIMEOUT_MS}ms` : `${candidate.name} ${endpoint}: ${error.message}`;
-            if (attempt < REQUEST_RETRIES) continue;
-          } finally {
-            clearTimeout(timeout);
           }
         }
       }
     }
   }
-  throw new Error(`GoCamping ${endpoint} request failed: ${lastError}`);
+  const recentErrors = [...new Set(errors)].slice(-6).join(" | ");
+  throw new Error(`GoCamping ${endpoint} request failed: ${recentErrors || lastError}`);
 }
 
 async function fetchAllGocampingItems(endpoint, extra = {}) {
