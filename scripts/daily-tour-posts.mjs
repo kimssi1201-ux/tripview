@@ -10,6 +10,7 @@ const SITE_URL = 'https://tripview.kr';
 const API_BASE = 'https://apis.data.go.kr/B551011/KorService2';
 const POST_LIMIT = Math.max(1, Number.parseInt(process.env.POST_LIMIT || '10', 10) || 10);
 const MAX_IMAGES_PER_POST = Math.max(1, Math.min(3, Number.parseInt(process.env.MAX_IMAGES_PER_POST || '3', 10) || 3));
+const SEASONAL_WINDOW_DAYS = Math.max(30, Math.min(180, Number.parseInt(process.env.SEASONAL_WINDOW_DAYS || '90', 10) || 90));
 const SERVICE_KEY = process.env.TRIPVIEW_API_KEY || process.env.TRIPVIEW_API_KEY_PARAM || '';
 const REQUEST_ATTEMPTS = Math.max(1, Math.min(5, Number.parseInt(process.env.TOUR_API_RETRIES || '3', 10) || 3));
 const REQUEST_TIMEOUT_MS = Math.max(5000, Math.min(60000, Number.parseInt(process.env.TOUR_API_TIMEOUT_MS || '20000', 10) || 20000));
@@ -65,6 +66,77 @@ function addDays(date, days) {
   const next = new Date(date);
   next.setDate(next.getDate() + days);
   return next;
+}
+
+function parseTourDate(raw) {
+  const value = String(raw || '');
+  if (!/^\d{8}$/.test(value)) return null;
+  return new Date(Number(value.slice(0, 4)), Number(value.slice(4, 6)) - 1, Number(value.slice(6, 8)));
+}
+
+function daysFromToday(raw, today) {
+  const date = parseTourDate(raw);
+  if (!date) return null;
+  const start = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+  return Math.round((date.getTime() - start.getTime()) / 86400000);
+}
+
+function seasonProfile(date) {
+  const month = date.getMonth() + 1;
+  if (month === 8 || month === 9) {
+    return {
+      label: '늦여름·초가을',
+      keywords: ['가을', '초가을', '늦여름', '야간', '밤', '강변', '호수', '바다', '해변', '숲', '수목원', '산책', '걷기', '트레킹', '억새', '코스모스', '갈대', '포도', '와인', '맥주', '불꽃'],
+      note: '한낮 더위와 저녁 선선함을 함께 고려해야 하는 시기입니다'
+    };
+  }
+  if (month >= 10 && month <= 11) {
+    return {
+      label: '가을',
+      keywords: ['가을', '단풍', '억새', '갈대', '코스모스', '국화', '사과', '밤', '와인', '숲', '수목원', '산책', '트레킹', '둘레길', '축제'],
+      note: '단풍과 수확철 행사, 걷기 좋은 야외 동선이 돋보이는 시기입니다'
+    };
+  }
+  if (month === 12 || month <= 2) {
+    return {
+      label: '겨울',
+      keywords: ['겨울', '눈', '얼음', '빛축제', '온천', '실내', '전시', '시장', '해돋이', '스키', '썰매'],
+      note: '추위와 해가 짧은 시간을 고려해 실내와 짧은 동선을 함께 잡기 좋은 시기입니다'
+    };
+  }
+  if (month >= 3 && month <= 5) {
+    return {
+      label: '봄',
+      keywords: ['봄', '벚꽃', '매화', '유채', '튤립', '철쭉', '수목원', '정원', '산책', '축제', '피크닉'],
+      note: '꽃과 산책 코스를 중심으로 야외 체류 시간을 잡기 좋은 시기입니다'
+    };
+  }
+  return {
+    label: '여름',
+    keywords: ['여름', '물놀이', '계곡', '폭포', '해변', '바다', '야간', '강변', '호수', '수국', '숲', '실내', '냉방'],
+    note: '더위와 소나기, 물가 안전을 함께 확인해야 하는 시기입니다'
+  };
+}
+
+function seasonalScore(candidate, today) {
+  const profile = seasonProfile(today);
+  const text = norm([candidate.title, candidate.addr1, candidate.addr2, candidate.areacode, candidate.cat1, candidate.cat2, candidate.cat3].filter(Boolean).join(' '));
+  let score = 0;
+  for (const keyword of profile.keywords) {
+    if (text.includes(norm(keyword))) score += 12;
+  }
+  const startDelta = daysFromToday(candidate.eventstartdate, today);
+  const endDelta = daysFromToday(candidate.eventenddate, today);
+  if (startDelta !== null) {
+    if (startDelta >= 0 && startDelta <= 14) score += 55;
+    else if (startDelta <= 45) score += 42;
+    else if (startDelta <= SEASONAL_WINDOW_DAYS) score += 30;
+    else if (startDelta <= 180) score += 10;
+  }
+  if (endDelta !== null && endDelta >= 0) score += 18;
+  if (candidate.firstimage || candidate.firstimage2) score += 6;
+  if (String(candidate.contentTypeId || candidate.contenttypeid) === '15') score += 10;
+  return score;
 }
 
 function ymd(date) {
@@ -233,9 +305,10 @@ function safeText(value, fallback) {
   return text || fallback;
 }
 
-function buildDescription(title, category, region) {
-  if (category === '공연/축제') return `${title} 일정, 장소, 운영정보, 요금, 방문 전 체크포인트를 정리했습니다.`;
-  return `${title} 위치, 관람 포인트, 이동 동선, 방문 전 체크포인트를 정리했습니다.`;
+function buildDescription(title, category, region, seasonLabel = '') {
+  const season = seasonLabel ? `${seasonLabel} 기준으로 ` : '';
+  if (category === '공연/축제') return `${title} ${season}일정, 장소, 운영정보, 요금, 방문 전 체크포인트를 정리했습니다.`;
+  return `${title} ${season}위치, 관람 포인트, 이동 동선, 방문 전 체크포인트를 정리했습니다.`;
 }
 
 function pickIntroFields(intro = {}) {
@@ -272,6 +345,7 @@ function pickIntroFields(intro = {}) {
 }
 
 function makeArticle(candidate, common, intro, images, category, today) {
+  const profile = seasonProfile(today);
   const title = safeText(candidate.title || common.title, '국내 여행지');
   const region = regionFromAddr(common.addr1 || candidate.addr1 || '');
   const isFestival = category === '공연/축제';
@@ -285,7 +359,7 @@ function makeArticle(candidate, common, intro, images, category, today) {
   const playtime = stripHtml(intro.playtime) || '방문 전 확인 필요';
   const program = stripHtml([intro.program, intro.subevent].filter(Boolean).join(', ')) || (isFestival ? '공연, 체험, 현장 프로그램' : '관람, 산책, 주변 여행 동선');
   const overview = stripHtml(common.overview) || `${title}은 ${region}에서 방문하기 좋은 ${isFestival ? '공연/축제' : '국내여행'} 글감입니다.`;
-  const articleTitle = isFestival ? `${title} ${today.getFullYear()}, 방문 전 알아둘 일정과 운영정보` : `${title}, 방문 전 알아둘 위치와 여행 동선`;
+  const articleTitle = isFestival ? `${title} ${today.getFullYear()}, ${profile.label} 방문 전 일정과 운영정보` : `${title}, ${profile.label}에 보기 좋은 여행 동선`;
   const info = isFestival
     ? [['기간', dateRange(start, end)], ['시간', playtime], ['장소', place], ['요금', fee], ['문의', tel], ['주요 프로그램', program]]
     : [['장소', place], ['주소', addr || place], ['문의', tel], ['요금', fee], ['운영 확인', playtime], ['방문 포인트', program]];
@@ -296,7 +370,7 @@ function makeArticle(candidate, common, intro, images, category, today) {
   const sections = isFestival ? [
     ['이번 일정에서 먼저 볼 점', [
       `${overview} 축제 방문 전에는 일정과 운영 시간을 먼저 확인하는 것이 좋습니다. 같은 행사라도 공연, 체험, 판매 부스의 운영 시간이 다를 수 있어 도착 시간을 넉넉히 잡는 편이 안전합니다.`,
-      `${title}을 제대로 보려면 대표 프로그램을 하나 정하고 그 앞뒤로 식사와 이동 시간을 붙이는 방식이 좋습니다. 특히 주말에는 입장 자체보다 주차, 대기, 귀가 시간이 더 길어질 수 있습니다.`
+      `${title}을 제대로 보려면 대표 프로그램을 하나 정하고 그 앞뒤로 식사와 이동 시간을 붙이는 방식이 좋습니다. ${profile.label}에는 ${profile.note} 특히 주말에는 입장 자체보다 주차, 대기, 귀가 시간이 더 길어질 수 있습니다.`
     ]],
     ['운영정보를 자세히 보면', [
       `장소는 ${place} 기준입니다. 요금 기준은 ${fee}이며, 체험이나 먹거리, 판매 부스는 별도 비용이 생길 수 있습니다. 문의처는 ${tel}이며 출발 전 당일 운영 여부를 확인하면 일정 실패를 줄일 수 있습니다.`,
@@ -304,11 +378,11 @@ function makeArticle(candidate, common, intro, images, category, today) {
     ]],
     ['방문 팁과 동선', [
       `${region}으로 이동하는 주말 일정이라면 오전 도착 또는 늦은 오후 도착처럼 혼잡 시간을 피하는 전략이 필요합니다. 아이와 함께라면 화장실, 그늘, 휴식 지점을 먼저 확인하세요.`,
-      `행사 일정은 날씨와 현장 사정에 따라 조정될 수 있습니다. 실외 프로그램이 많은 날에는 모자, 물, 편한 신발을 준비하고, 야간까지 머문다면 귀가 교통을 미리 정해두는 편이 좋습니다.`
+      `행사 일정은 날씨와 현장 사정에 따라 조정될 수 있습니다. ${profile.label} 실외 프로그램이 많은 날에는 모자, 물, 편한 신발을 준비하고, 야간까지 머문다면 귀가 교통을 미리 정해두는 편이 좋습니다.`
     ]]
   ] : [
     ['어떤 곳인가', [
-      `${overview} 여행지 글을 볼 때는 사진만 보고 이동하기보다 실제 위치, 운영 여부, 주변 동선을 함께 확인해야 만족도가 높습니다.`,
+      `${overview} ${profile.label} 여행지 글을 볼 때는 사진만 보고 이동하기보다 실제 위치, 운영 여부, 주변 동선을 함께 확인해야 만족도가 높습니다.`,
       `${title}은 ${region} 여행 중 한 코스로 넣기 좋습니다. 오래 머무는 일정인지, 주변 식사와 카페를 붙일 일정인지에 따라 체류 시간이 달라집니다.`
     ]],
     ['방문 전 확인할 정보', [
@@ -317,7 +391,7 @@ function makeArticle(candidate, common, intro, images, category, today) {
     ]],
     ['동선과 준비물', [
       `차량 이동 시에는 주차 위치를 먼저 정하고, 대중교통 이용 시에는 마지막 귀가 시간을 확인하세요. 주말에는 주변 도로와 식당 대기가 길어질 수 있습니다.`,
-      `편한 신발, 물, 날씨에 맞는 겉옷을 준비하면 현장에서 덜 지칩니다. 비가 오거나 바람이 강한 날에는 일부 야외 관람 구간을 줄이고 실내 또는 짧은 동선 위주로 조정하세요.`
+      `편한 신발, 물, 날씨에 맞는 겉옷을 준비하면 현장에서 덜 지칩니다. ${profile.label}에는 ${profile.note} 비가 오거나 바람이 강한 날에는 일부 야외 관람 구간을 줄이고 실내 또는 짧은 동선 위주로 조정하세요.`
     ]]
   ];
 
@@ -330,16 +404,18 @@ function makeArticle(candidate, common, intro, images, category, today) {
     slug,
     title: articleTitle,
     sourceTitle: title,
-    description: buildDescription(title, category, region),
+    description: buildDescription(title, category, region, profile.label),
     category,
     region,
+    seasonalFocus: profile.label,
+    seasonalKeywords: profile.keywords.slice(0, 10),
     date: koreanDate(today),
     sortDate: hyphenDate(today),
     read: '약 5분',
     image: images[0],
     images,
     alt: `${title} 이미지`,
-    excerpt: isFestival ? `${title}의 일정, 장소, 요금, 프로그램, 방문 전 체크포인트를 정리했습니다.` : `${title}의 위치, 운영 확인 포인트, 주변 동선을 정리했습니다.`,
+    excerpt: isFestival ? `${title}의 ${profile.label} 일정, 장소, 요금, 프로그램, 방문 전 체크포인트를 정리했습니다.` : `${title}의 ${profile.label} 위치, 운영 확인 포인트, 주변 동선을 정리했습니다.`,
     info,
     memo,
     tourApi: {
@@ -507,6 +583,10 @@ async function fetchCandidates(today) {
         }
         if (pool.items.length >= bucketTarget) break;
     }
+  }
+
+  for (const bucket of buckets) {
+    bucket.items.sort((a, b) => seasonalScore(b, today) - seasonalScore(a, today));
   }
 
   const candidates = [];

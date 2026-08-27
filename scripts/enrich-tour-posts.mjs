@@ -8,11 +8,34 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, '..');
 const SITE_URL = 'https://tripview.kr';
-const TODAY = '2026-06-06';
 const OPENAI_API_URL = 'https://api.openai.com/v1/responses';
-const AI_PROMPT_VERSION = 1;
+const AI_PROMPT_VERSION = 2;
 const RAW_OPENAI_TIMEOUT_MS = Number.parseInt(process.env.OPENAI_TIMEOUT_MS ?? '90000', 10);
 const OPENAI_TIMEOUT_MS = Math.max(15000, Number.isFinite(RAW_OPENAI_TIMEOUT_MS) ? RAW_OPENAI_TIMEOUT_MS : 90000);
+
+function kstNow() {
+  return new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Seoul' }));
+}
+
+function hyphenDate(date) {
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, '0');
+  const d = String(date.getDate()).padStart(2, '0');
+  return `${y}-${m}-${d}`;
+}
+
+function currentSeasonLabel(date = TODAY_DATE) {
+  const month = date.getMonth() + 1;
+  if (month === 8 || month === 9) return '늦여름·초가을';
+  if (month >= 10 && month <= 11) return '가을';
+  if (month === 12 || month <= 2) return '겨울';
+  if (month >= 3 && month <= 5) return '봄';
+  return '여름';
+}
+
+const TODAY_DATE = kstNow();
+const TODAY = hyphenDate(TODAY_DATE);
+const CURRENT_SEASON_LABEL = currentSeasonLabel(TODAY_DATE);
 
 const MANUAL_POSTS = [
   'gochang-tidal-flat-festival-2026',
@@ -29,6 +52,10 @@ const MANUAL_POSTS = [
 
 const esc = (value = '') => String(value).replace(/[&<>"']/g, (m) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
 const strip = (value = '') => String(value).replace(/<[^>]*>/g, ' ').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim();
+
+function postSeasonLabel(post) {
+  return strip(post.seasonalFocus || '') || CURRENT_SEASON_LABEL;
+}
 
 async function readJson(file, fallback) {
   try {
@@ -92,15 +119,17 @@ function sourceTitle(post) {
 
 function titleWithYear(post) {
   const base = sourceTitle(post);
+  const season = postSeasonLabel(post);
   if (post.category === '공연/축제') {
-    return /20\d{2}/.test(base) ? `${base}, 방문 전 알아둘 일정과 운영정보` : `${base} 2026, 방문 전 알아둘 일정과 운영정보`;
+    return /20\d{2}/.test(base) ? `${base}, ${season} 방문 전 일정과 운영정보` : `${base} ${TODAY_DATE.getFullYear()}, ${season} 방문 전 일정과 운영정보`;
   }
-  return `${base}, 방문 전 알아둘 위치와 여행 동선`;
+  return `${base}, ${season}에 보기 좋은 위치와 여행 동선`;
 }
 
 function buildFestivalSections(post) {
   const title = sourceTitle(post);
   const region = strip(post.region || '국내');
+  const season = postSeasonLabel(post);
   const period = infoValue(post, '기간') || '방문 전 확인 필요';
   const time = infoValue(post, '시간') || '방문 전 확인 필요';
   const place = infoValue(post, '장소') || '방문 전 위치 확인 필요';
@@ -110,8 +139,8 @@ function buildFestivalSections(post) {
 
   return [
     ['한눈에 보는 방문 포인트', [
-      `${title}은 ${region}에서 일정과 체험을 함께 챙겨볼 수 있는 공연/축제 방문 안내입니다. 처음 방문하는 사람에게 중요한 건 이름보다 실제로 언제 가야 하는지, 어디에서 열리는지, 비용이 어떻게 나뉘는지입니다. 이 글은 그 부분을 먼저 볼 수 있게 정리했습니다.`,
-      `축제는 현장 분위기가 좋아도 동선이 꼬이면 만족도가 금방 떨어집니다. 대표 프로그램을 하나 정하고, 그 앞뒤로 도착 시간, 식사 시간, 귀가 시간을 붙여두면 짧은 일정에서도 훨씬 여유 있게 움직일 수 있습니다.`
+      `${title}은 ${region}에서 ${season} 일정과 체험을 함께 챙겨볼 수 있는 공연/축제 방문 안내입니다. 처음 방문하는 사람에게 중요한 건 이름보다 실제로 언제 가야 하는지, 어디에서 열리는지, 비용이 어떻게 나뉘는지입니다. 이 글은 그 부분을 먼저 볼 수 있게 정리했습니다.`,
+      `${season} 축제는 현장 분위기가 좋아도 동선이 꼬이면 만족도가 금방 떨어집니다. 대표 프로그램을 하나 정하고, 그 앞뒤로 도착 시간, 식사 시간, 귀가 시간을 붙여두면 짧은 일정에서도 훨씬 여유 있게 움직일 수 있습니다.`
     ]],
     ['일정과 운영 흐름', [
       `기간은 ${period}이며 운영 시간은 ${time} 기준입니다. 같은 행사 안에서도 공연, 체험, 판매 부스의 시작 시간이 다를 수 있으니 도착 후에는 전체 시간표부터 확인하는 편이 좋습니다.`,
@@ -123,7 +152,7 @@ function buildFestivalSections(post) {
     ]],
     ['비용과 준비물', [
       `요금 기준은 ${fee}입니다. 무료 행사라도 체험, 먹거리, 판매 부스는 별도 비용이 생길 수 있으니 현금과 카드 결제 가능 여부를 함께 생각해두는 것이 좋습니다.`,
-      `야외 축제라면 편한 신발, 물, 모자, 얇은 겉옷을 기본으로 챙기세요. 물놀이 또는 체험형 프로그램이 있는 행사라면 수건과 여벌 옷까지 준비하면 현장에서 훨씬 편합니다.`
+      `${season} 야외 축제라면 편한 신발, 물, 모자, 얇은 겉옷을 기본으로 챙기세요. 물놀이 또는 체험형 프로그램이 있는 행사라면 수건과 여벌 옷까지 준비하면 현장에서 훨씬 편합니다.`
     ]],
     ['교통과 현장 동선', [
       `${region} 주말 일정은 도착보다 귀가가 더 오래 걸리는 경우가 많습니다. 차량 이동이라면 행사장 바로 앞 주차만 고집하지 말고, 조금 떨어진 주차 후 도보 이동까지 선택지에 넣어두세요.`,
@@ -139,6 +168,7 @@ function buildFestivalSections(post) {
 function buildTravelSections(post) {
   const title = sourceTitle(post);
   const region = strip(post.region || '국내');
+  const season = postSeasonLabel(post);
   const place = infoValue(post, '장소') || infoValue(post, '주소') || '방문 전 위치 확인 필요';
   const fee = infoValue(post, '요금') || '시설별 상이';
   const tel = infoValue(post, '문의') || '방문 전 확인 필요';
@@ -146,8 +176,8 @@ function buildTravelSections(post) {
 
   return [
     ['어떤 일정에 넣기 좋은 곳인가', [
-      `${title}은 ${region} 여행 중 한 코스로 넣기 좋은 국내여행 일정 안내입니다. 사진만 보고 정하기보다 실제 위치, 이동 시간, 주변 식사 동선을 함께 보면 훨씬 안정적인 일정이 됩니다.`,
-      `오래 머무는 목적지인지, 다른 장소와 묶어 짧게 들를 곳인지에 따라 만족도가 달라집니다. 처음 방문한다면 무리하게 여러 곳을 넣기보다 핵심 구간을 하나 정하고 주변 코스를 붙이는 편이 좋습니다.`
+      `${title}은 ${region}에서 ${season} 여행 코스로 넣기 좋은 국내여행 일정 안내입니다. 사진만 보고 정하기보다 실제 위치, 이동 시간, 주변 식사 동선을 함께 보면 훨씬 안정적인 일정이 됩니다.`,
+      `${season}에는 한낮 날씨와 저녁 체감온도가 달라질 수 있습니다. 오래 머무는 목적지인지, 다른 장소와 묶어 짧게 들를 곳인지에 따라 만족도가 달라지므로 핵심 구간을 하나 정하고 주변 코스를 붙이는 편이 좋습니다.`
     ]],
     ['위치와 운영 확인', [
       `위치는 ${place} 기준입니다. 문의처는 ${tel}이며, 요금은 ${fee}로 정리됩니다. 현장 운영이나 휴무, 입장 가능 여부는 계절과 요일에 따라 달라질 수 있습니다.`,
@@ -162,7 +192,7 @@ function buildTravelSections(post) {
       `차량 이동이라면 주차 위치를 사진으로 남겨두세요. 대중교통 이동이라면 돌아오는 시간표를 먼저 확인하고, 막차나 배차 간격이 긴 노선은 여유를 두는 것이 좋습니다.`
     ]],
     ['준비물과 체크포인트', [
-      `편한 신발, 물, 날씨에 맞는 겉옷은 기본입니다. 비가 오거나 바람이 강한 날에는 야외 구간을 줄이고 실내 또는 짧은 동선 위주로 바꾸는 편이 안전합니다.`,
+      `${season}에는 편한 신발, 물, 날씨에 맞는 겉옷이 기본입니다. 비가 오거나 바람이 강한 날에는 야외 구간을 줄이고 실내 또는 짧은 동선 위주로 바꾸는 편이 안전합니다.`,
       `방문 직전에는 운영 여부와 요금을 한 번 더 확인하세요. 작은 차이처럼 보여도 휴무, 공사, 현장 통제 여부에 따라 실제 일정은 크게 달라질 수 있습니다.`
     ]]
   ];
@@ -199,14 +229,15 @@ function enrichPost(post) {
 
   const title = titleWithYear(post);
   const base = sourceTitle(post);
+  const season = postSeasonLabel(post);
   const isFestival = post.category === '공연/축제';
   const fallback = {
     description: isFestival
-      ? `${base} 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.`
-      : `${base} 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자세히 정리했습니다.`,
+      ? `${base} ${season} 일정, 장소, 운영시간, 비용, 프로그램 선택법, 교통과 방문 준비물을 자세히 정리했습니다.`
+      : `${base} ${season} 위치, 운영 확인, 관람 포인트, 주변 동선과 준비물을 자세히 정리했습니다.`,
     excerpt: isFestival
-      ? `${base} 방문 전 필요한 일정, 운영정보, 프로그램 고르는 법, 준비물과 귀가 동선까지 한 번에 정리했습니다.`
-      : `${base} 방문 전 필요한 위치, 운영 확인, 관람 포인트와 주변 동선을 한 번에 정리했습니다.`,
+      ? `${base} ${season} 방문 전 필요한 일정, 운영정보, 프로그램 고르는 법, 준비물과 귀가 동선까지 한 번에 정리했습니다.`
+      : `${base} ${season} 방문 전 필요한 위치, 운영 확인, 관람 포인트와 주변 동선을 한 번에 정리했습니다.`,
     sections: isFestival ? buildFestivalSections(post) : buildTravelSections(post),
     faq: buildFaq(post)
   };
@@ -293,6 +324,8 @@ function aiPrompt(post) {
     category: post.category,
     region: post.region,
     date: post.date,
+    today: TODAY,
+    currentSeason: postSeasonLabel(post),
     info: Object.fromEntries((post.info || []).map(([key, value]) => [key, value])),
     memo: post.memo || [],
     imageCount: (post.images || []).filter(Boolean).length
@@ -300,6 +333,7 @@ function aiPrompt(post) {
   return `트립뷰 여행 매거진 글을 한국어로 보강해줘.
 
 조건:
+- 오늘은 ${TODAY}(한국시간)이고 현재 여행 시즌은 ${postSeasonLabel(post)}이다. 제목, 서문, 동선, 준비물에 이 계절감을 자연스럽게 반영한다.
 - 독자가 방문 전 궁금해할 운영 정보, 동선, 준비물, 혼잡 회피, 가족/커플/혼자 방문 팁을 구체적으로 쓴다.
 - 입력 데이터에 없는 확정 일정, 가격, 주차 가능 여부를 지어내지 않는다. 모르면 "방문 전 공식 공지 확인"처럼 쓴다.
 - TourAPI, API, OpenAI, 자동 생성, 검색 결과 같은 내부 제작 과정은 절대 쓰지 않는다.
@@ -349,7 +383,7 @@ async function openAiEnrichPost(post) {
         input: [
           {
             role: 'developer',
-            content: [{ type: 'input_text', text: 'You write practical Korean travel magazine articles. Return valid JSON only.' }]
+            content: [{ type: 'input_text', text: 'You write practical Korean travel magazine articles with current seasonal context. Return valid JSON only.' }]
           },
           {
             role: 'user',
