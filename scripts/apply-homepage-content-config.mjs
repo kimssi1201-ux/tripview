@@ -902,7 +902,7 @@ const HOMEPAGE_CSS = `
 @media(max-width:900px){.home-hero{padding:24px 0 32px}.home-hero-grid,.home-hero-rail{grid-template-columns:1fr}.home-hero-rail{grid-template-rows:none}.home-hero-main strong{font-size:22px}.home-hero-main .story-card-body{padding:16px}}
 `;
 
-function html(posts, accommodations = [], tnaProducts = []) {
+function html(posts, accommodations = [], tnaProducts = [], flights = []) {
   const editorialPosts = posts.filter((post) => !post?.dataPipeline?.generated);
   const hero = homepageHeroPost(editorialPosts) || posts[0];
   const ogImage = cardImageOf(hero);
@@ -922,6 +922,7 @@ function html(posts, accommodations = [], tnaProducts = []) {
     homeSection({ id: "season", title: `${FEATURE_MONTH_LABEL} 시즌 추천`, href: "/travel/#tag-weekend", cards: seasonCards }),
     homeSection({ id: "festival", title: "축제·행사", href: "/festival/", cards: festivalCards }),
     homeSection({ id: "stay", title: "숙소·예약", href: "/stay/", cards: stayCards }),
+    flightDealSection(flights),
   ].join("\n");
 
   return `<!doctype html>
