@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-27T13:46:03.059Z",
+  "generatedAt": "2026-08-27T14:40:47.978Z",
   "source": "한국관광공사 공공누리",
   "assetBasePath": "/assets/processed/",
   "items": {
@@ -18,7 +18,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -42,7 +43,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": [
         {
@@ -55,7 +57,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         }
       ]
     },
@@ -74,7 +77,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -98,7 +102,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": []
     },
@@ -162,7 +167,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -186,7 +192,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": []
     },
@@ -205,7 +212,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -229,7 +237,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": []
     },
@@ -248,7 +257,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -272,7 +282,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": []
     },
@@ -291,7 +302,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -315,7 +327,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": []
     },
@@ -334,7 +347,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -358,7 +372,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": []
     },
@@ -377,7 +392,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -401,7 +417,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": []
     },
@@ -420,7 +437,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -444,7 +462,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": []
     },
@@ -463,7 +482,8 @@
         "height": 500,
         "processorVersion": "blurred-poster-canvas-20260827",
         "overlay": null,
-        "posterCanvas": true
+        "posterCanvas": true,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -487,7 +507,8 @@
         "height": 675,
         "processorVersion": "blurred-poster-canvas-20260827",
         "overlay": null,
-        "posterCanvas": true
+        "posterCanvas": true,
+        "bytes": null
       },
       "images": []
     },
@@ -877,7 +898,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -901,7 +923,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": [
         {
@@ -914,7 +937,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -926,7 +950,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -938,7 +963,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -950,7 +976,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -962,7 +989,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -974,7 +1002,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         }
       ]
     },
@@ -993,7 +1022,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -1017,7 +1047,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": [
         {
@@ -1265,7 +1296,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -1289,7 +1321,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": [
         {
@@ -1400,7 +1433,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -1424,7 +1458,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": [
         {
@@ -1535,7 +1570,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -1559,7 +1595,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": [
         {
@@ -1572,7 +1609,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -1584,7 +1622,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -1596,7 +1635,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -1608,7 +1648,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -1620,7 +1661,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -1632,7 +1674,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -1644,7 +1687,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         }
       ]
     },
@@ -1663,7 +1707,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -1687,7 +1732,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": [
         {
@@ -1798,7 +1844,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -1822,7 +1869,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": [
         {
@@ -1835,7 +1883,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -1847,7 +1896,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -1859,7 +1909,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -1871,7 +1922,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -1883,7 +1935,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -1895,7 +1948,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -1907,7 +1961,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         }
       ]
     },
@@ -1926,7 +1981,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -1950,7 +2006,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": [
         {
@@ -1963,7 +2020,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -1975,7 +2033,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -1987,7 +2046,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -1999,7 +2059,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -2011,7 +2072,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -2023,7 +2085,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -2035,7 +2098,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         }
       ]
     },
@@ -2054,7 +2118,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -2078,7 +2143,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": [
         {
@@ -2091,7 +2157,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -2103,7 +2170,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -2115,7 +2183,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -2127,7 +2196,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -2139,7 +2209,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -2151,7 +2222,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -2163,7 +2235,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         }
       ]
     },
@@ -2182,7 +2255,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -2206,7 +2280,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": [
         {
@@ -2317,7 +2392,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -2341,7 +2417,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": [
         {
@@ -2354,7 +2431,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -2366,7 +2444,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -2378,7 +2457,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -2390,7 +2470,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -2402,7 +2483,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -2414,7 +2496,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         }
       ]
     },
@@ -2570,7 +2653,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -2594,7 +2678,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": [
         {
@@ -2607,7 +2692,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -2619,7 +2705,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -2631,7 +2718,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -2643,7 +2731,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -2655,7 +2744,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -2667,7 +2757,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -2679,7 +2770,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         }
       ]
     },
@@ -2698,7 +2790,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -2722,7 +2815,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": [
         {
@@ -3629,7 +3723,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -3653,7 +3748,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": [
         {
@@ -3666,7 +3762,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -3678,7 +3775,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -3690,7 +3788,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -3702,7 +3801,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -3714,7 +3814,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         }
       ]
     },
@@ -3733,7 +3834,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -3757,7 +3859,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": [
         {
@@ -3770,7 +3873,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -3782,7 +3886,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -3794,7 +3899,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -3806,7 +3912,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -3818,7 +3925,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -3830,7 +3938,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -3842,7 +3951,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         }
       ]
     },
@@ -3965,7 +4075,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -3989,7 +4100,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": [
         {
@@ -4100,7 +4212,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -4124,7 +4237,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": [
         {
@@ -4137,7 +4251,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -4149,7 +4264,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -4161,7 +4277,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -4173,7 +4290,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -4185,7 +4303,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -4197,7 +4316,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -4209,7 +4329,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         }
       ]
     },
@@ -4228,7 +4349,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -4252,7 +4374,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": [
         {
@@ -4363,7 +4486,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -4387,7 +4511,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": [
         {
@@ -4628,7 +4753,8 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -4652,7 +4778,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": [
         {
@@ -4665,7 +4792,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -4677,7 +4805,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -4689,7 +4818,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -4701,7 +4831,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -4713,7 +4844,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -4725,7 +4857,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         },
         {
           "kind": "inline",
@@ -4737,7 +4870,8 @@
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false
+          "posterCanvas": false,
+          "bytes": null
         }
       ]
     },
