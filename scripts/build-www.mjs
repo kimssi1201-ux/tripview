@@ -726,9 +726,10 @@ function articleAccommodationCard(item = {}) {
   if (!product) return "";
   const stayLabel = accommodationStayLabel();
   const discount = accommodationDiscountRate(product);
+  const type = accommodationStarLabel(product.starRating) || product.category || "숙소";
   const rating = product.reviewScore ? `평점 ${product.reviewScore}` : "";
   const reviews = numericValue(product.reviewCount);
-  const meta = [accommodationStarLabel(product.starRating), rating, reviews ? `리뷰 ${reviews.toLocaleString("ko-KR")}개` : ""]
+  const meta = [type, rating, reviews ? `리뷰 ${reviews.toLocaleString("ko-KR")}개` : ""]
     .filter(Boolean)
     .join(" · ");
   const original = numericValue(product.originalPrice);
@@ -744,9 +745,10 @@ function articleAccommodationCard(item = {}) {
       ${discount > 0 ? `<span class="mrt-accommodation-badge">${discount}% 할인</span>` : ""}
       <strong>${html(product.title)}</strong>
       <span class="mrt-accommodation-meta">${html(meta || product.region)}</span>
-      <span class="mrt-accommodation-price">${price}<small>${html(stayLabel)}</small></span>
-      <span class="article-product-cta">예약하기</span>
+      <span class="article-accommodation-condition">${html(stayLabel)}</span>
     </span>
+    <span class="mrt-accommodation-price">${price}<small>예약 화면에서 조건 확인</small></span>
+    <span class="article-product-cta">예약하기</span>
   </a>`;
 }
 
@@ -1902,6 +1904,14 @@ function articleSiteDesignCss() {
 .article-product-section .mrt-accommodation-price del{color:var(--muted);font-size:12px;font-weight:400}
 .article-product-section .mrt-accommodation-price small{flex-basis:100%;color:var(--muted);font-size:11px;font-weight:400}
 .article-product-section .article-product-cta{justify-self:start;display:inline-flex;align-items:center;min-height:28px;margin-top:2px;padding:0 9px;border-radius:999px;background:var(--cta);color:var(--card);font-size:12px;font-weight:900}
+.article-product-section[data-article-product-type="accommodation"] .mrt-accommodation-grid{grid-template-columns:1fr;gap:10px}
+.article-product-section[data-article-product-type="accommodation"] .article-product-card{display:grid;grid-template-columns:132px minmax(0,1fr) minmax(112px,max-content) auto;gap:14px;align-items:center;padding:10px 12px}
+.article-product-section[data-article-product-type="accommodation"] .mrt-accommodation-thumb{border-radius:6px}
+.article-product-section[data-article-product-type="accommodation"] .mrt-accommodation-body{padding:0;gap:5px;min-width:0}
+.article-product-section[data-article-product-type="accommodation"] .mrt-accommodation-price{justify-self:end;display:grid;gap:2px;min-width:112px;color:var(--cta);text-align:right}
+.article-product-section[data-article-product-type="accommodation"] .mrt-accommodation-price small{flex-basis:auto;color:var(--muted);font-size:11px;font-weight:400}
+.article-accommodation-condition{display:block;color:var(--muted);font-size:12px;line-height:1.45}
+.article-product-section[data-article-product-type="accommodation"] .article-product-cta{justify-self:end;white-space:nowrap}
 .mrt-rating-badge{position:absolute;left:8px;top:8px;border-radius:999px;background:color-mix(in srgb,var(--ink) 82%,transparent);color:var(--card);padding:3px 7px;font-size:11px;font-weight:900}
 .article-official-box{margin:22px 0 0}
 .article-official-button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 16px;border-radius:8px;background:var(--brand);color:var(--card);font-weight:900;transition:background-color 150ms ease}
@@ -1910,7 +1920,7 @@ function articleSiteDesignCss() {
 .related-posts,.region-related,.trust-note{border-top:1px solid var(--line)}
 footer.site-footer{padding:0;color:var(--muted)}
 @media(max-width:640px){.article-product-compare-wrap{overflow-x:visible}.article-product-compare{display:block;width:100%;min-width:0}.article-product-compare thead{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}.article-product-compare tbody{display:grid;gap:8px}.article-product-compare tr{display:grid;gap:6px;padding:12px;border-bottom:1px solid var(--line)}.article-product-compare tr:last-child{border-bottom:0}.article-product-compare td{display:grid;grid-template-columns:74px minmax(0,1fr);gap:8px;padding:0;border-bottom:0;overflow-wrap:anywhere}.article-product-compare td::before{content:attr(data-label);color:var(--muted);font-size:11px;font-weight:800;line-height:1.55}.article-product-compare td:first-child{font-weight:800}}
-@media(max-width:820px){.hero{padding-top:32px}.layout{padding-top:24px}.layout.wrap{width:calc(100% - 40px)}.content{font-size:15px;line-height:1.8}.content h2{margin:36px 0 16px;font-size:20px}.article-lodging-layout{display:block}.lodging-booking-aside{position:static;margin:28px 0 0}.article-info-grid,.article-product-section .mrt-accommodation-grid,.article-product-section .mrt-ticket-grid{grid-template-columns:1fr}.article-fact-table th{width:96px}.article-photo-items{grid-template-columns:1fr}.article-hero-band,.article-hero-inner{min-height:240px}.article-affiliate-disclosure{width:var(--site-wrap)}}/* end-tripview-site-design */`;
+@media(max-width:820px){.hero{padding-top:32px}.layout{padding-top:24px}.layout.wrap{width:calc(100% - 40px)}.content{font-size:15px;line-height:1.8}.content h2{margin:36px 0 16px;font-size:20px}.article-lodging-layout{display:block}.lodging-booking-aside{position:static;margin:28px 0 0}.article-info-grid,.article-product-section .mrt-accommodation-grid,.article-product-section .mrt-ticket-grid{grid-template-columns:1fr}.article-product-section[data-article-product-type="accommodation"] .article-product-card{grid-template-columns:96px minmax(0,1fr);align-items:start}.article-product-section[data-article-product-type="accommodation"] .mrt-accommodation-price{grid-column:2;justify-self:start;min-width:0;text-align:left}.article-product-section[data-article-product-type="accommodation"] .article-product-cta{grid-column:2;justify-self:start}.article-fact-table th{width:96px}.article-photo-items{grid-template-columns:1fr}.article-hero-band,.article-hero-inner{min-height:240px}.article-affiliate-disclosure{width:var(--site-wrap)}}/* end-tripview-site-design */`;
 }
 
 function articleAccommodationCss() {
@@ -2914,8 +2924,7 @@ function articleProductSection(post) {
 <section class="article-product-section" aria-label="지역 인기 숙소" data-article-product-type="accommodation">
   <div class="article-product-head"><h2>${html(compactRegion(post?.region))} 인기 숙소</h2><span>마이리얼트립 숙소</span></div>
   <p class="article-product-note">성인 2명 기준 주말 1박 요금입니다. 예약 화면에서 날짜와 취소 조건을 다시 확인하세요.</p>
-  ${articleProductComparisonTable(products, "accommodation")}
-  <div class="mrt-accommodation-grid" data-count="${cards.length}">${cards.join("")}</div>
+  <div class="mrt-accommodation-grid article-accommodation-list" data-count="${cards.length}">${cards.join("")}</div>
 </section>
 <!-- ${ARTICLE_PRODUCT_END}`;
 }

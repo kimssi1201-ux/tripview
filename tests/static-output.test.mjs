@@ -281,12 +281,12 @@ test("common site design clamps mobile page overflow", async () => {
   assert.doesNotMatch(dataPage, /transform:translateX\(100%\)/);
 });
 
-test("article product comparison tables stay inside mobile content width", async () => {
-  const [buildScript, dataArticle, travelArticle, festivalArticle] = await Promise.all([
+test("article product sections stay inside mobile content width", async () => {
+  const [buildScript, paidArticle, travelArticle, currentArticle] = await Promise.all([
     readFile("scripts/build-www.mjs", "utf8"),
-    readFile("data-stay-ticket-seoul/index.html", "utf8"),
+    readFile("travel-2994364/index.html", "utf8"),
     readFile("travel-126078/index.html", "utf8"),
-    readFile("festival-1939183/index.html", "utf8"),
+    readFile("travel-2706344/index.html", "utf8"),
   ]);
 
   assert.match(buildScript, /\.article-product-compare-wrap\{[^}]*max-width:100%[^}]*overflow-x:auto[^}]*-webkit-overflow-scrolling:touch/);
@@ -295,14 +295,24 @@ test("article product comparison tables stay inside mobile content width", async
   assert.match(buildScript, /\.article-product-compare td\{[^}]*overflow-wrap:anywhere/);
   assert.match(buildScript, /<td data-label="상품명">/);
   assert.match(buildScript, /<td data-label="조건">/);
+  assert.match(buildScript, /\.article-product-section\[data-article-product-type="accommodation"\] \.mrt-accommodation-grid\{grid-template-columns:1fr;gap:10px\}/);
+  assert.match(buildScript, /class="mrt-accommodation-grid article-accommodation-list"/);
+  assert.match(buildScript, /class="article-accommodation-condition"/);
 
-  for (const document of [dataArticle, travelArticle, festivalArticle]) {
-    assert.match(document, /class="article-product-compare-wrap"/);
-    assert.match(document, /class="article-product-compare"/);
-    assert.match(document, /<td data-label="상품명">/);
-    assert.match(document, /<td data-label="조건">/);
-    assert.match(document, /\.article-product-compare-wrap\{[^}]*max-width:100%[^}]*overflow-x:auto/);
-    assert.match(document, /\.article-product-compare\{display:block;width:100%;min-width:0\}/);
+  const ticketBlock = paidArticle.match(/<!-- ARTICLE_PRODUCT_START ticket -->[\s\S]*?<!-- ARTICLE_PRODUCT_END -->/)?.[0] || "";
+  assert.match(ticketBlock, /class="article-product-compare-wrap"/);
+  assert.match(ticketBlock, /class="article-product-compare"/);
+  assert.match(ticketBlock, /<td data-label="상품명">/);
+  assert.match(ticketBlock, /<td data-label="조건">/);
+  assert.match(paidArticle, /\.article-product-compare-wrap\{[^}]*max-width:100%[^}]*overflow-x:auto/);
+  assert.match(paidArticle, /\.article-product-compare\{display:block;width:100%;min-width:0\}/);
+
+  for (const document of [travelArticle, currentArticle]) {
+    const accommodationBlock = document.match(/<!-- ARTICLE_PRODUCT_START accommodation -->[\s\S]*?<!-- ARTICLE_PRODUCT_END -->/)?.[0] || "";
+    assert.match(accommodationBlock, /class="mrt-accommodation-grid article-accommodation-list"/);
+    assert.match(accommodationBlock, /class="article-accommodation-condition"/);
+    assert.doesNotMatch(accommodationBlock, /class="article-product-compare-wrap"/);
+    assert.doesNotMatch(accommodationBlock, /class="article-product-compare"/);
   }
 });
 
@@ -419,9 +429,10 @@ test("accommodation cards use cached MyRealTrip stay links and stay out of pendi
   const articleProductBlock = reviewedArticle.match(/<!-- ARTICLE_PRODUCT_START accommodation -->[\s\S]*?<!-- ARTICLE_PRODUCT_END -->/)?.[0] || "";
   const articleAccommodationCards = articleProductBlock.match(/data-mrt-accommodation-card/g) || [];
   assert.ok(articleAccommodationCards.length > 0 && articleAccommodationCards.length <= 6);
-  assert.match(articleProductBlock, /class="article-product-compare-wrap"/);
-  assert.match(articleProductBlock, /class="article-product-compare"/);
-  assert.match(articleProductBlock, /<td data-label="상품명">/);
+  assert.match(articleProductBlock, /class="mrt-accommodation-grid article-accommodation-list"/);
+  assert.match(articleProductBlock, /class="article-accommodation-condition"/);
+  assert.doesNotMatch(articleProductBlock, /class="article-product-compare-wrap"/);
+  assert.doesNotMatch(articleProductBlock, /class="article-product-compare"/);
   assert.match(articleProductBlock, /class="mrt-accommodation-thumb"><img src="https:\/\/[^\"]+"[^>]*loading="lazy"[^>]*decoding="async"/);
   assert.match(articleProductBlock, /class="mrt-rating-badge"/);
   assert.match(articleProductBlock, /<del>[\d,]+원<\/del><strong>[\d,]+원<\/strong>|<strong>[\d,]+원<\/strong>/);
