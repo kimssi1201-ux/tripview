@@ -14,7 +14,7 @@ const GOCAMPING_API_BASES = [
 const SAMPLE_SIZE = Math.max(20, Math.min(30, Number.parseInt(process.env.GOCAMPING_SAMPLE_SIZE || "25", 10) || 25));
 const PAGE_SIZE = Math.max(20, Math.min(200, Number.parseInt(process.env.GOCAMPING_PAGE_SIZE || "100", 10) || 100));
 const MAX_PAGES = Math.max(1, Math.min(80, Number.parseInt(process.env.GOCAMPING_MAX_PAGES || "50", 10) || 50));
-const FETCH_TIMEOUT_MS = Math.max(1000, Number.parseInt(process.env.GOCAMPING_FETCH_TIMEOUT_MS || "8000", 10) || 8000);
+const FETCH_TIMEOUT_MS = Math.max(1000, Number.parseInt(process.env.GOCAMPING_FETCH_TIMEOUT_MS || "15000", 10) || 15000);
 const REQUEST_RETRIES = Math.max(1, Math.min(3, Number.parseInt(process.env.GOCAMPING_REQUEST_RETRIES || "1", 10) || 1));
 const IMAGE_SAMPLE_LIMIT = Math.max(1, Math.min(30, Number.parseInt(process.env.GOCAMPING_IMAGE_SAMPLE_LIMIT || "25", 10) || 25));
 
@@ -243,12 +243,20 @@ async function fetchAllGocampingItems(endpoint, extra = {}) {
   let expectedTotal = 0;
   let keyName = "";
   let base = "";
+  let warning = "";
   for (let pageNo = 1; pageNo <= MAX_PAGES; pageNo += 1) {
-    const result = await requestGocamping(endpoint, {
-      ...extra,
-      numOfRows: String(PAGE_SIZE),
-      pageNo: String(pageNo),
-    });
+    let result;
+    try {
+      result = await requestGocamping(endpoint, {
+        ...extra,
+        numOfRows: String(PAGE_SIZE),
+        pageNo: String(pageNo),
+      });
+    } catch (error) {
+      warning = `${endpoint} page ${pageNo} stopped: ${error.message}`;
+      if (!all.length) throw error;
+      break;
+    }
     if (!expectedTotal && result.totalCount) expectedTotal = result.totalCount;
     keyName ||= result.keyName;
     base ||= result.base;
@@ -256,7 +264,7 @@ async function fetchAllGocampingItems(endpoint, extra = {}) {
     if (!result.items.length) break;
     if (expectedTotal && all.length >= expectedTotal) break;
   }
-  return { items: all, expectedTotal, keyName, base };
+  return { items: all, expectedTotal, keyName, base, warning };
 }
 
 export function selectGocampingSamplePosts(posts = [], limit = SAMPLE_SIZE) {
@@ -353,6 +361,41 @@ function titleTokens(post = {}) {
       ),
     ),
   ];
+}
+
+export function gocampingKeywordForPost(post = {}) {
+  const source = strip(post.sourceTitle || post.title || "");
+  const withoutSubtitle = source.split(/[,.，·|]/u)[0] || source;
+  const withoutRegionPrefix = withoutSubtitle
+    .replace(/^(?:서울|부산|대구|인천|광주|대전|울산|세종|경기|강원|충북|충남|전북|전남|경북|경남|제주)(?:\s+[가-힣]+[시군구])?\s+/u, "")
+    .replace(/^(?:[가-힣]+[시군구])\s+/u, "")
+    .trim();
+  const keyword = withoutRegionPrefix
+    .split(/\s+(?:방문|예약|이용시간|개장|수량|주차|위치|여행|확인|전)(?:\s|$)/u)[0]
+    .trim();
+  return keyword.length >= 3 ? keyword : "";
+}
+
+async function fetchSearchItemsForPosts(posts = []) {
+  const all = [];
+  const seenKeywords = new Set();
+  const errors = [];
+  for (const post of posts) {
+    const keyword = gocampingKeywordForPost(post);
+    if (!keyword || seenKeywords.has(keyword)) continue;
+    seenKeywords.add(keyword);
+    try {
+      const result = await requestGocamping("searchList", {
+        keyword,
+        numOfRows: "20",
+        pageNo: "1",
+      });
+      all.push(...result.items);
+    } catch (error) {
+      errors.push(`${keyword}: ${error.message}`);
+    }
+  }
+  return { items: all, keywords: [...seenKeywords], errors };
 }
 
 export function scoreGocampingItem(post = {}, item = {}) {
@@ -515,13 +558,28 @@ export async function runSample() {
   const coordinatePosts = samplePosts.filter((post) => postCoordinates(post)).length;
   console.log(`GoCamping sample candidates: ${samplePosts.length}/${posts.length} selected; coordinate-capable posts: ${coordinatePosts}`);
 
-  const { items, expectedTotal, keyName, base } = await fetchAllGocampingItems("basedList");
-  const uniqueItems = [...new Map(items.filter((item) => item.contentId).map((item) => [String(item.contentId), item])).values()];
+  let basedResult = { items: [], expectedTotal: 0, keyName: "", base: "", warning: "" };
+  try {
+    basedResult = await fetchAllGocampingItems("basedList");
+  } catch (error) {
+    console.log(`GoCamping basedList warning: ${error.message}`);
+  }
+  const searchResult = await fetchSearchItemsForPosts(samplePosts);
+  const uniqueItems = [
+    ...new Map(
+      [...basedResult.items, ...searchResult.items].filter((item) => item.contentId).map((item) => [String(item.contentId), item]),
+    ).values(),
+  ];
   const itemsWithCoordinates = uniqueItems.filter((item) => itemCoordinates(item)).length;
   const itemsWithFirstImage = uniqueItems.filter((item) => item.firstImageUrl).length;
 
-  console.log(`GoCamping key accepted: ${keyName}; base: ${base}`);
-  console.log(`GoCamping basedList fetched: ${uniqueItems.length}/${expectedTotal || "unknown"} unique rows`);
+  console.log(`GoCamping key accepted: ${basedResult.keyName || activeKey?.name || "unknown"}; base: ${basedResult.base || activeKey?.base || "unknown"}`);
+  console.log(`GoCamping basedList fetched: ${basedResult.items.length}/${basedResult.expectedTotal || "unknown"} rows${basedResult.warning ? `; warning: ${basedResult.warning}` : ""}`);
+  console.log(`GoCamping searchList fetched: ${searchResult.items.length} rows from ${searchResult.keywords.length} keywords`);
+  if (searchResult.errors.length) {
+    console.log(`GoCamping searchList warnings: ${searchResult.errors.slice(0, 5).join(" | ")}`);
+  }
+  console.log(`GoCamping merged candidate rows: ${uniqueItems.length}`);
   console.log(`Rows with coordinates: ${itemsWithCoordinates}/${uniqueItems.length}; rows with firstImageUrl: ${itemsWithFirstImage}/${uniqueItems.length}`);
 
   const matches = samplePosts.map((post) => matchGocampingItem(post, uniqueItems));

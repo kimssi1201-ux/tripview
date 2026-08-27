@@ -3,6 +3,7 @@ import test from "node:test";
 
 import {
   distanceKm,
+  gocampingKeywordForPost,
   matchGocampingItem,
   postCoordinates,
   regionTokensForPost,
@@ -54,6 +55,22 @@ test("GoCamping direct contentId matching wins first", () => {
   assert.equal(result.method, "contentId");
   assert.equal(result.contentId, "2709615");
   assert.equal(result.hasFirstImage, true);
+});
+
+test("GoCamping keyword extraction removes region and article suffixes", () => {
+  assert.equal(
+    gocampingKeywordForPost({
+      title: "경기 양평군 천사봉오토캠핑장, 이용시간·예약과 준비물",
+    }),
+    "천사봉오토캠핑장",
+  );
+  assert.equal(
+    gocampingKeywordForPost({
+      sourceTitle: "월포해수욕장야영장",
+      title: "경남 남해군 월포해수욕장야영장, 개장 여부·주차와 편의시설 확인",
+    }),
+    "월포해수욕장야영장",
+  );
 });
 
 test("GoCamping text fallback requires confirmed city or county", () => {

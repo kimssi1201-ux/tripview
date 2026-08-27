@@ -284,10 +284,12 @@ Do not run full enrichment before this sample is reviewed.
 
 1. Add a sample-only workflow dispatch path or standalone workflow.
 2. Select about 25 existing Tripview posts whose title, source title, or tags imply camping, campground, glamping, caravan, recreation forest, or beach camping.
-3. Fetch GoCamping `basedList` pages and match in this order:
+3. Fetch GoCamping `basedList` pages when the gateway responds reliably. If a later page times out, keep the partial result instead of failing the sample.
+4. For each sample post, call `searchList` with the extracted campground name to add exact-name candidates. This keeps the sample useful even when full `basedList` pagination is slow.
+5. Match in this order:
    - direct `contentid` to `contentId`;
    - coordinate match only if a Tripview post exposes usable coordinates;
    - text fallback using facility name plus exact city/county region confirmation.
-4. For matched rows, call `imageList` by `contentId` to confirm additional image availability.
-5. Log checked count, direct-id match count, text match count, coordinate candidate count, failures, region consistency, coordinate availability, and sample response examples.
-6. Stop after the sample report. Full application needs a separate user instruction.
+6. For matched rows, call `imageList` by `contentId` to confirm additional image availability.
+7. Log checked count, direct-id match count, text match count, coordinate candidate count, failures, region consistency, coordinate availability, and sample response examples.
+8. Stop after the sample report. Full application needs a separate user instruction.
