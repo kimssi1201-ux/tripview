@@ -1,0 +1,47 @@
+name: GoCamping API Sample
+
+on:
+  workflow_dispatch:
+    inputs:
+      sample_size:
+        description: "Number of camping-like Tripview posts to sample"
+        required: false
+        default: "25"
+      page_size:
+        description: "GoCamping basedList rows per page"
+        required: false
+        default: "100"
+      max_pages:
+        description: "Maximum basedList pages to fetch"
+        required: false
+        default: "50"
+
+permissions:
+  contents: read
+
+jobs:
+  sample:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Validate GoCamping sample script
+        run: node --check scripts/sample-gocamping.mjs
+
+      - name: Run GoCamping sample
+        run: |
+          GOCAMPING_SAMPLE_SIZE="${{ github.event.inputs.sample_size || '25' }}"
+          GOCAMPING_PAGE_SIZE="${{ github.event.inputs.page_size || '100' }}"
+          GOCAMPING_MAX_PAGES="${{ github.event.inputs.max_pages || '50' }}"
+          GOCAMPING_SAMPLE_SIZE="$GOCAMPING_SAMPLE_SIZE" GOCAMPING_PAGE_SIZE="$GOCAMPING_PAGE_SIZE" GOCAMPING_MAX_PAGES="$GOCAMPING_MAX_PAGES" node scripts/sample-gocamping.mjs
+        env:
+          GOCAMPING_API_KEY: ${{ secrets.GOCAMPING_API_KEY }}
+          GOCAMPING_API_KEY_PARAM: ${{ secrets.GOCAMPING_API_KEY_PARAM }}
+          TRIPVIEW_API_KEY: ${{ secrets.TRIPVIEW_API_KEY }}
+          TRIPVIEW_API_KEY_PARAM: ${{ secrets.TRIPVIEW_API_KEY_PARAM }}
