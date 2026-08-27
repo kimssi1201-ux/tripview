@@ -2541,7 +2541,7 @@ function articleInlineInsertionPoints(body = "") {
   for (let index = 0; index < headings.length; index += 1) {
     const heading = headings[index];
     const label = normalizeArticleHeadingText(heading[0]);
-    if (/^(?:사진으로 확인하기|자주 묻는 질문|작성·검수 정보|함께 볼 글|이 지역 입장권·투어|지역 인기 숙소)/.test(label)) continue;
+    if (/^(?:지도 미리보기|사진으로 확인하기|자주 묻는 질문|작성·검수 정보|함께 볼 글|이 지역 입장권·투어|지역 인기 숙소)/.test(label)) continue;
     const sectionStart = heading.index + heading[0].length;
     const sectionEnd = index + 1 < headings.length ? headings[index + 1].index : contentEnd;
     const section = body.slice(sectionStart, sectionEnd);
@@ -2616,8 +2616,8 @@ function lodgingPhotoGuideBlock(post) {
 <section class="lodging-photo-guide" aria-labelledby="lodging-photo-guide-title">
   <h2 id="lodging-photo-guide-title">숙소 사진으로 확인할 부분</h2>
   ${assets.map((asset, index) => `<div class="lodging-photo-item">
-    <figure><img src="${html(asset.src)}" alt="${html(asset.alt)}" loading="lazy" decoding="async"><figcaption>${html(asset.caption)}</figcaption></figure>
     <p>${html(lodgingPhotoGuideParagraph(post, index))}</p>
+    <figure><img src="${html(asset.src)}" alt="${html(asset.alt)}" loading="lazy" decoding="async"><figcaption>${html(asset.caption)}</figcaption></figure>
   </div>`).join("")}
 </section>
 <!-- ${LODGING_GUIDE_END}`;
