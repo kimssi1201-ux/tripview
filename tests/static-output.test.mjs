@@ -781,7 +781,7 @@ test("data post pipeline outputs validated data pages", async () => {
     assert.ok(post.dataPipeline.validation.affiliateTextRatio <= 0.3);
   }
   for (const post of dataPosts.filter((post) => latestRunSlugs.has(post.slug) && isIndexablePost(post))) {
-    assert.match(sitemap, new RegExp(`<loc>https://tripview\\\\.kr/${post.slug}/</loc>`));
+    assert.ok(sitemap.includes(`<loc>https://tripview.kr/${post.slug}/</loc>`));
   }
 
   const dataDocumentsWithAffiliateLinks = [stay, ticket].filter((document) => /<a\b[^>]*data-affiliate-link[^>]*>/.test(document));
