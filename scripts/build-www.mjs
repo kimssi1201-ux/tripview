@@ -1860,6 +1860,10 @@ function articleSiteDesignCss() {
 .article-product-compare td{color:var(--ink)}
 .article-product-compare td:first-child{font-weight:800}
 .article-product-compare tr:last-child td{border-bottom:0}
+.article-product-link{color:var(--ink);text-decoration:none}
+.article-product-link:hover,.article-product-link:focus-visible{color:var(--brand)}
+.article-product-reserve{display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:0 10px;border-radius:999px;background:var(--cta);color:var(--card);font-size:12px;font-weight:900;white-space:nowrap;transition:background-color 150ms ease}
+.article-product-reserve:hover,.article-product-reserve:focus-visible{background:var(--cta-hover);color:var(--card)}
 .article-product-section .mrt-accommodation-grid,.article-product-section .mrt-ticket-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .article-product-section .mrt-accommodation-grid[data-count="1"],.article-product-section .mrt-ticket-grid[data-count="1"]{grid-template-columns:minmax(0,1fr)}
 .article-product-section .mrt-accommodation-grid[data-count="2"],.article-product-section .mrt-ticket-grid[data-count="2"]{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -2873,6 +2877,12 @@ function productComparisonCondition(product = {}, type = "ticket") {
   return [instant, rating, product.region || product.city].filter(Boolean).join(" · ") || "예약 화면에서 조건 확인";
 }
 
+function productComparisonUrl(product = {}, type = "ticket") {
+  if (type === "accommodation") return normalizeAccommodationProduct(product)?.url || "";
+  const url = safeMyRealTripUrl(product.url || product.productUrl);
+  return url ? url.toString() : "";
+}
+
 function articleProductComparisonTable(items = [], type = "ticket") {
   const rows = items.slice(0, 6)
     .map((product) => ({
@@ -2880,13 +2890,22 @@ function articleProductComparisonTable(items = [], type = "ticket") {
       type: productComparisonType(product, type),
       price: productComparisonPrice(product, type),
       condition: productComparisonCondition(product, type),
+      url: productComparisonUrl(product, type),
     }))
     .filter((row) => row.title && row.price);
   if (!rows.length) return "";
   return `<div class="article-product-compare-wrap">
     <table class="article-product-compare" aria-label="예약 상품 비교">
-      <thead><tr><th>상품명</th><th>유형</th><th>가격</th><th>확인할 조건</th></tr></thead>
-      <tbody>${rows.map((row) => `<tr><td data-label="상품명">${html(row.title)}</td><td data-label="유형">${html(row.type)}</td><td data-label="가격">${html(row.price)}</td><td data-label="조건">${html(row.condition)}</td></tr>`).join("")}</tbody>
+      <thead><tr><th>상품명</th><th>유형</th><th>가격</th><th>확인할 조건</th><th>예약</th></tr></thead>
+      <tbody>${rows.map((row) => {
+        const title = row.url
+          ? `<a class="article-product-link" href="${html(row.url)}" rel="sponsored nofollow" target="_blank">${html(row.title)}</a>`
+          : html(row.title);
+        const booking = row.url
+          ? `<a class="article-product-reserve" href="${html(row.url)}" rel="sponsored nofollow" target="_blank">예약하기</a>`
+          : "";
+        return `<tr><td data-label="상품명">${title}</td><td data-label="유형">${html(row.type)}</td><td data-label="가격">${html(row.price)}</td><td data-label="조건">${html(row.condition)}</td><td data-label="예약">${booking}</td></tr>`;
+      }).join("")}</tbody>
     </table>
   </div>`;
 }
@@ -2898,7 +2917,7 @@ function articleProductSection(post) {
     if (!cards.length) return "";
     return `${ARTICLE_PRODUCT_START} ticket -->
 <section class="article-product-section" aria-label="입장권·투어 카드" data-article-product-type="ticket">
-  <div class="article-product-head"><h2>이 지역 입장권·투어</h2><span>마이리얼트립</span></div>
+  <div class="article-product-head"><h2>이 지역 입장권·투어</h2></div>
   <p class="article-product-note">방문지 성격과 지역 기준으로 연결한 제휴 상품입니다. 가격과 이용 조건은 예약 화면에서 다시 확인해야 합니다.</p>
   ${articleProductComparisonTable(products, "ticket")}
   <div class="mrt-ticket-grid" data-count="${cards.length}">${cards.join("")}</div>
@@ -2910,8 +2929,9 @@ function articleProductSection(post) {
   if (!cards.length) return "";
   return `${ARTICLE_PRODUCT_START} accommodation -->
 <section class="article-product-section" aria-label="지역 인기 숙소" data-article-product-type="accommodation">
-  <div class="article-product-head"><h2>${html(compactRegion(post?.region))} 인기 숙소</h2><span>마이리얼트립 숙소</span></div>
+  <div class="article-product-head"><h2>${html(compactRegion(post?.region))} 인기 숙소</h2></div>
   <p class="article-product-note">성인 2명 기준 주말 1박 요금입니다. 예약 화면에서 날짜와 취소 조건을 다시 확인하세요.</p>
+  ${articleProductComparisonTable(products, "accommodation")}
   <div class="mrt-accommodation-grid article-accommodation-list" data-count="${cards.length}">${cards.join("")}</div>
 </section>
 <!-- ${ARTICLE_PRODUCT_END}`;
@@ -3368,7 +3388,7 @@ function articleAccommodationBlock(items = [], slot = "bottom") {
   const label = slot === "mid" ? "본문 중간 숙소 추천" : "본문 하단 숙소 추천";
   return `${MRT_ACCOMMODATION_START} ${slot} -->
 <section class="mrt-accommodation-block" aria-label="${html(label)}">
-  <div class="mrt-accommodation-head"><h2>${html(title)}</h2><span>마이리얼트립 숙소</span></div>
+  <div class="mrt-accommodation-head"><h2>${html(title)}</h2></div>
   <p class="mrt-accommodation-note">성인 2명 기준 주말 1박 요금입니다. 예약 화면에서 날짜와 취소 조건을 다시 확인하세요.</p>
   <div class="mrt-accommodation-grid" data-count="${cards.length}">${cards.join("")}</div>
 </section>

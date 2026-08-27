@@ -106,6 +106,46 @@ function formatDateInKorea(date = new Date()) {
   const values = Object.fromEntries(parts.map((part) => [part.type, part.value]));
   return `${values.year}-${values.month}-${values.day}`;
 }
+
+function addDays(date, days) {
+  const next = new Date(date);
+  next.setUTCDate(next.getUTCDate() + days);
+  return next;
+}
+
+function dateText(date) {
+  return date.toISOString().slice(0, 10);
+}
+
+function defaultStayWindow(reference = new Date()) {
+  const today = new Date(`${formatDateInKorea(reference)}T00:00:00Z`);
+  const day = today.getUTCDay();
+  let daysUntilFriday = (5 - day + 7) % 7;
+  if (daysUntilFriday === 0) daysUntilFriday = 7;
+  const checkInDate = addDays(today, daysUntilFriday);
+  return {
+    checkIn: dateText(checkInDate),
+    checkOut: dateText(addDays(checkInDate, 2)),
+  };
+}
+
+const ACCOMMODATION_STAY = defaultStayWindow();
+
+function normalizeAccommodationUrl(rawUrl = "") {
+  if (!rawUrl) return "";
+  try {
+    const url = new URL(String(rawUrl));
+    if (url.protocol !== "https:" || url.hostname !== "accommodation.myrealtrip.com") return "";
+    url.searchParams.set("checkIn", ACCOMMODATION_STAY.checkIn);
+    url.searchParams.set("checkOut", ACCOMMODATION_STAY.checkOut);
+    url.searchParams.set("adultCount", "2");
+    url.searchParams.set("childCount", "0");
+    if (!url.searchParams.has("childAges")) url.searchParams.set("childAges", "");
+    return url.toString();
+  } catch {
+    return "";
+  }
+}
 const BEACH_POST_SLUGS = new Set([
   "travel-126078",
   "travel-126302",
@@ -855,7 +895,7 @@ function homeRegionCard(group) {
 
 function homeAffiliateCard(product = {}) {
   const title = normalize(product.title || product.name || product.itemName || "");
-  const url = normalize(product.url || product.productUrl || "");
+  const url = normalizeAccommodationUrl(product.url || product.productUrl);
   if (!title || !url) return "";
   const imageUrl = affiliateProductImage(product);
   if (!imageUrl) return "";
