@@ -343,7 +343,11 @@ function itemCoordinates(item = {}) {
 }
 
 function titleTokens(post = {}) {
-  return [...new Set(words(textBlob(post)).filter((word) => !CAMPING_KEYWORDS.includes(word)))];
+  return [
+    ...new Set(
+      words(textBlob(post)).filter((word) => !CAMPING_KEYWORDS.some((keyword) => word.includes(keyword) || keyword.includes(word))),
+    ),
+  ];
 }
 
 export function scoreGocampingItem(post = {}, item = {}) {

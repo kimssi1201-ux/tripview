@@ -100,6 +100,28 @@ test("GoCamping text fallback rejects different city or county", () => {
   assert.equal(result.score, 0);
 });
 
+test("GoCamping text fallback does not match only on generic camping words", () => {
+  const post = {
+    slug: "travel-2731167",
+    title: "경기 포천시 화적연캠핑장, 이용시간·예약과 준비물",
+    region: "경기도 포천시",
+  };
+  const items = [
+    {
+      contentId: "1057",
+      facltNm: "캠핑플래닛2",
+      doNm: "경기도",
+      sigunguNm: "포천시",
+    },
+  ];
+
+  const result = matchGocampingItem(post, items);
+
+  assert.equal(result.regionConfirmed, true);
+  assert.equal(result.exactFacilityName, false);
+  assert.equal(result.matched, false);
+});
+
 test("GoCamping coordinate matching can be used when Tripview posts later expose coordinates", () => {
   const post = {
     slug: "camp-coord",
