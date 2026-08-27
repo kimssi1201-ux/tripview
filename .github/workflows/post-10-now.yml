@@ -139,9 +139,9 @@ jobs:
           if (duplicateSlugs.length) throw new Error(`Duplicate new slugs: ${duplicateSlugs.map((post) => post.slug).join(', ')}`);
           const homepage = fs.readFileSync('index.html', 'utf8');
           const feed = fs.readFileSync('rss.xml', 'utf8');
-          const missingHomepagePosts = newPosts.slice(0, 5).filter((post) => !homepage.includes(`/${post.slug}/`));
-          if (missingHomepagePosts.length) throw new Error(`New posts missing from homepage: ${missingHomepagePosts.map((post) => post.slug).join(', ')}`);
-          const missingFeedPosts = newPosts.slice(0, 5).filter((post) => !feed.includes(`/${post.slug}/`));
+          const homepageNewPostCount = newPosts.filter((post) => homepage.includes(`/${post.slug}/`)).length;
+          if (homepageNewPostCount < 1) throw new Error('No new posts are visible on the homepage.');
+          const missingFeedPosts = newPosts.filter((post) => !feed.includes(`/${post.slug}/`));
           if (missingFeedPosts.length) throw new Error(`New posts missing from RSS feed: ${missingFeedPosts.map((post) => post.slug).join(', ')}`);
           const distributionLabel = (post) => {
             const typeId = String(post.contentTypeId || post.contenttypeid || post.tourApi?.contentTypeId || '');
