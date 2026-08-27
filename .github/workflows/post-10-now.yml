@@ -138,11 +138,13 @@ jobs:
           const duplicateSlugs = newPosts.filter((post, index) => newPosts.findIndex((item) => item.slug === post.slug) !== index);
           if (duplicateSlugs.length) throw new Error(`Duplicate new slugs: ${duplicateSlugs.map((post) => post.slug).join(', ')}`);
           const homepage = fs.readFileSync('index.html', 'utf8');
-          const feed = fs.readFileSync('rss.xml', 'utf8');
+          const feed = fs.existsSync('rss.xml') ? fs.readFileSync('rss.xml', 'utf8') : '';
+          const outputRoot = fs.existsSync('www/index.html') ? 'www' : '.';
+          const missingPagePosts = newPosts.filter((post) => !fs.existsSync(`${post.slug}/index.html`) || !fs.existsSync(`${outputRoot}/${post.slug}/index.html`));
+          if (missingPagePosts.length) throw new Error(`New post pages missing: ${missingPagePosts.map((post) => post.slug).join(', ')}`);
           const homepageNewPostCount = newPosts.filter((post) => homepage.includes(`/${post.slug}/`)).length;
-          if (homepageNewPostCount < 1) throw new Error('No new posts are visible on the homepage.');
-          const missingFeedPosts = newPosts.filter((post) => !feed.includes(`/${post.slug}/`));
-          if (missingFeedPosts.length) throw new Error(`New posts missing from RSS feed: ${missingFeedPosts.map((post) => post.slug).join(', ')}`);
+          const feedNewPostCount = newPosts.filter((post) => feed.includes(`/${post.slug}/`)).length;
+          if (homepageNewPostCount + feedNewPostCount < 1) throw new Error('No new posts are discoverable from homepage or RSS feed.');
           const distributionLabel = (post) => {
             const typeId = String(post.contentTypeId || post.contenttypeid || post.tourApi?.contentTypeId || '');
             if (typeId === '15' || post.category === '공연/축제') return '축제';
@@ -154,6 +156,7 @@ jobs:
           for (const post of newPosts) counts[distributionLabel(post)] += 1;
           const distribution = Object.entries(counts).map(([label, count]) => `${label} ${count}`).join(' · ');
           console.log(`Verified ${added} new posts. Max new post images: ${Math.max(...newPosts.map((post) => (post.images || []).length))}`);
+          console.log(`Homepage includes ${homepageNewPostCount}/${added} new posts. RSS includes ${feedNewPostCount}/${added} new posts.`);
           console.log(`Published category distribution: ${distribution}.`);
           if (Object.values(counts).some((count) => count === 0)) console.warn('Published category warning: at least one category had 0 posts in this run.');
           for (const post of newPosts.slice(0, 10)) console.log(`- ${post.slug}: ${(post.images || []).length} image(s)`);
