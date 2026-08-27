@@ -2087,6 +2087,61 @@ function cssImageUrl(value = "") {
     .replaceAll(")", "%29");
 }
 
+function imageIdentity(value = "") {
+  const src = normalizeText(value).replaceAll("\\", "/");
+  if (!src) return "";
+  try {
+    const url = new URL(src, baseUrl);
+    url.hash = "";
+    return url.origin === baseUrl ? `${url.pathname}${url.search}` : `${url.protocol}//${url.hostname.toLowerCase()}${url.pathname}${url.search}`;
+  } catch {
+    return src;
+  }
+}
+
+function imageIdentitySet(values = []) {
+  const keys = new Set();
+  for (const value of values) {
+    const key = imageIdentity(value);
+    if (key) keys.add(key);
+    const publicKey = imageIdentity(publicImageUrl(value));
+    if (publicKey) keys.add(publicKey);
+  }
+  return keys;
+}
+
+function articleHeroImageKeys(post) {
+  const entry = tourImageEntry(processedTourImages, post);
+  return imageIdentitySet([
+    post?.image,
+    postImage(post),
+    entry?.cover?.original,
+    entry?.cover?.src,
+    entry?.hero?.original,
+    entry?.hero?.src,
+  ]);
+}
+
+function isArticleHeroImage(post, src) {
+  const heroKeys = articleHeroImageKeys(post);
+  const asset = tourImageAssetForSource(processedTourImages, post, src);
+  const sourceKeys = imageIdentitySet([src, asset?.original, asset?.src]);
+  return [...sourceKeys].some((key) => heroKeys.has(key));
+}
+
+function articleContentImages(post) {
+  const seen = new Set();
+  return postImagesWithProcessed(processedTourImages, post)
+    .filter(Boolean)
+    .filter((src) => !isArticleHeroImage(post, src))
+    .filter((src) => {
+      const key = imageIdentity(src);
+      if (!key || seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+}
+
 function ensureLazyImages(document) {
   return String(document).replace(/<img\b(?![^>]*\bloading=)([^>]*?)>/gi, "<img loading=\"lazy\"$1>");
 }
@@ -2455,17 +2510,16 @@ function removeDeletedArticleSections(document) {
 }
 
 function articleInlineAssets(post) {
-  const entry = tourImageEntry(processedTourImages, post);
-  const assets = [
-    ...(Array.isArray(entry?.images) ? entry.images : []),
-    entry?.cover,
-  ].filter((asset) => asset?.src);
-  const seen = new Set();
-  return assets.filter((asset) => {
-    if (seen.has(asset.src)) return false;
-    seen.add(asset.src);
-    return true;
-  }).slice(0, 3);
+  const images = articleContentImages(post);
+  if (images.length >= 3) return [];
+  return images.slice(0, 3).map((src) => {
+    const asset = tourImageAssetForSource(processedTourImages, post, src);
+    return asset || {
+      src,
+      alt: postTitle(post),
+      caption: `출처: ${TOUR_IMAGE_SOURCE_LABEL} · 트립뷰 편집 이미지`,
+    };
+  });
 }
 
 function lodgingPhotoAssets(post) {
@@ -2709,7 +2763,7 @@ function replaceArticleInfoTable(document, post) {
 
 function articlePhotoGrid(post) {
   if (isLodgingPost(post)) return "";
-  const images = postImagesWithProcessed(processedTourImages, post).filter(Boolean).slice(0, 6);
+  const images = articleContentImages(post).slice(0, 6);
   if (images.length < 3) return "";
   const figures = images.map((src) => {
     const asset = tourImageAssetForSource(processedTourImages, post, src) || { src, alt: postTitle(post), caption: "" };
