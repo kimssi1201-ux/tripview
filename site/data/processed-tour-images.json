@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-27T01:27:50.988Z",
+  "generatedAt": "2026-08-27T10:03:06.590Z",
   "source": "한국관광공사 공공누리",
   "assetBasePath": "/assets/processed/",
   "items": {
@@ -139,6 +139,49 @@
           "bytes": null
         }
       ]
+    },
+    "data-festival-schedule-seoul": {
+      "title": "서울 축제 일정 정리",
+      "sourceTitle": "서울 축제 일정 정리",
+      "region": "서울",
+      "source": "한국관광공사 공공누리",
+      "cover": {
+        "kind": "cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/01/4060301_image2_1.png",
+        "src": "/assets/processed/seoul-festival-iljeong-jeongri-festival.webp",
+        "alt": "서울 서울 축제 일정 정리 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 800,
+        "height": 500,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": true
+      },
+      "hero": {
+        "kind": "hero-cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/01/4060301_image2_1.png",
+        "src": "/assets/processed/seoul-festival-iljeong-jeongri-festival-hero.webp",
+        "alt": "서울 서울 축제 일정 정리 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 1200,
+        "height": 900,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": true
+      },
+      "banner": {
+        "kind": "hub-banner",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/01/4060301_image2_1.png",
+        "src": "/assets/processed/seoul-festival-iljeong-jeongri-festival-banner.webp",
+        "alt": "서울 서울 축제 일정 정리 축제 일정 정보를 담은 트립뷰 지역 허브 배너",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
+        "width": 1200,
+        "height": 675,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": true
+      },
+      "images": []
     },
     "festival-1939183": {
       "title": "문경새재 맨발페스티벌 2026 준비물, 황톳길 완주·발 관리·귀가 동선",

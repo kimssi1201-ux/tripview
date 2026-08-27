@@ -1,6 +1,6 @@
 {
   "updatedDate": "2026-08-27",
-  "generatedAt": "2026-08-26T16:36:48.391Z",
+  "generatedAt": "2026-08-27T10:01:00.727Z",
   "source": "myrealtrip-accommodation-region-autocomplete",
   "endpoint": "/v1/products/accommodation/region-autocomplete",
   "regions": {
@@ -163,6 +163,630 @@
       "regionId": "149085",
       "type": "CITY",
       "sourceName": "안동"
+    },
+    "제천": {
+      "keyword": "제천",
+      "name": "제천",
+      "slug": "제천",
+      "regionId": "119625",
+      "type": "CITY",
+      "sourceName": "제천"
+    },
+    "경주": {
+      "keyword": "경주",
+      "name": "경주",
+      "slug": "경주",
+      "regionId": "21951",
+      "type": "CITY",
+      "sourceName": "경주"
+    },
+    "남해": {
+      "keyword": "남해",
+      "name": "남해",
+      "slug": "남해",
+      "regionId": "41570",
+      "type": "CITY",
+      "sourceName": "남해"
+    },
+    "양양": {
+      "keyword": "양양",
+      "name": "양양",
+      "slug": "양양",
+      "regionId": "57809",
+      "type": "CITY",
+      "sourceName": "양양"
+    },
+    "원주": {
+      "keyword": "원주",
+      "name": "원주",
+      "slug": "원주",
+      "regionId": "57811",
+      "type": "CITY",
+      "sourceName": "원주"
+    },
+    "포항": {
+      "keyword": "포항",
+      "name": "포항",
+      "slug": "포항",
+      "regionId": "1558",
+      "type": "CITY",
+      "sourceName": "포항"
+    },
+    "고창": {
+      "keyword": "고창",
+      "name": "고창",
+      "slug": "고창",
+      "regionId": "102749",
+      "type": "CITY",
+      "sourceName": "고창"
+    },
+    "동해": {
+      "keyword": "동해",
+      "name": "동해",
+      "slug": "동해",
+      "regionId": "86278",
+      "type": "CITY",
+      "sourceName": "동해"
+    },
+    "무주": {
+      "keyword": "무주",
+      "name": "무주",
+      "slug": "무주",
+      "regionId": "119536",
+      "type": "CITY",
+      "sourceName": "무주"
+    },
+    "횡성": {
+      "keyword": "횡성",
+      "name": "횡성",
+      "slug": "횡성",
+      "regionId": "201724",
+      "type": "CITY",
+      "sourceName": "횡성"
+    },
+    "군산": {
+      "keyword": "군산",
+      "name": "군산",
+      "slug": "군산",
+      "regionId": "1609",
+      "type": "CITY",
+      "sourceName": "군산"
+    },
+    "삼척": {
+      "keyword": "삼척",
+      "name": "삼척",
+      "slug": "삼척",
+      "regionId": "57807",
+      "type": "CITY",
+      "sourceName": "삼척"
+    },
+    "속초": {
+      "keyword": "속초",
+      "name": "속초",
+      "slug": "속초",
+      "regionId": "84852",
+      "type": "CITY",
+      "sourceName": "속초"
+    },
+    "영월": {
+      "keyword": "영월",
+      "name": "영월",
+      "slug": "영월",
+      "regionId": "191800",
+      "type": "CITY",
+      "sourceName": "영월"
+    },
+    "옥천": {
+      "keyword": "옥천",
+      "name": "옥천",
+      "slug": "옥천",
+      "regionId": "211290",
+      "type": "CITY",
+      "sourceName": "옥천"
+    },
+    "홍천": {
+      "keyword": "홍천",
+      "name": "홍천",
+      "slug": "홍천",
+      "regionId": "132263",
+      "type": "CITY",
+      "sourceName": "홍천"
+    },
+    "고양": {
+      "keyword": "고양",
+      "name": "고양",
+      "slug": "고양",
+      "regionId": "109357",
+      "type": "CITY",
+      "sourceName": "고양"
+    },
+    "보은": {
+      "keyword": "보은",
+      "name": "보은",
+      "slug": "보은",
+      "regionId": "119414",
+      "type": "CITY",
+      "sourceName": "보은"
+    },
+    "양평": {
+      "keyword": "양평",
+      "name": "양평",
+      "slug": "양평",
+      "regionId": "132262",
+      "type": "CITY",
+      "sourceName": "양평"
+    },
+    "여수": {
+      "keyword": "여수",
+      "name": "여수",
+      "slug": "여수",
+      "regionId": "2508",
+      "type": "CITY",
+      "sourceName": "여수"
+    },
+    "영덕": {
+      "keyword": "영덕",
+      "name": "영덕",
+      "slug": "영덕",
+      "regionId": "191803",
+      "type": "CITY",
+      "sourceName": "영덕"
+    },
+    "음성": {
+      "keyword": "음성",
+      "name": "음성",
+      "slug": "음성",
+      "regionId": "201305",
+      "type": "CITY",
+      "sourceName": "음성"
+    },
+    "장수": {
+      "keyword": "장수",
+      "name": "장수",
+      "slug": "장수",
+      "regionId": "211311",
+      "type": "CITY",
+      "sourceName": "장수"
+    },
+    "정선": {
+      "keyword": "정선",
+      "name": "정선",
+      "slug": "정선",
+      "regionId": "86272",
+      "type": "CITY",
+      "sourceName": "정선"
+    },
+    "진안": {
+      "keyword": "진안",
+      "name": "진안",
+      "slug": "진안",
+      "regionId": "86299",
+      "type": "CITY",
+      "sourceName": "진안"
+    },
+    "진천": {
+      "keyword": "진천",
+      "name": "진천",
+      "slug": "진천",
+      "regionId": "211280",
+      "type": "CITY",
+      "sourceName": "진천"
+    },
+    "통영": {
+      "keyword": "통영",
+      "name": "통영",
+      "slug": "통영",
+      "regionId": "137039",
+      "type": "CITY",
+      "sourceName": "통영"
+    },
+    "파주": {
+      "keyword": "파주",
+      "name": "파주",
+      "slug": "파주",
+      "regionId": "157830",
+      "type": "CITY",
+      "sourceName": "파주"
+    },
+    "공주": {
+      "keyword": "공주",
+      "name": "공주",
+      "slug": "공주",
+      "regionId": "84743",
+      "type": "CITY",
+      "sourceName": "공주"
+    },
+    "구미": {
+      "keyword": "구미",
+      "name": "구미",
+      "slug": "구미",
+      "regionId": "39346",
+      "type": "CITY",
+      "sourceName": "구미"
+    },
+    "김천": {
+      "keyword": "김천",
+      "name": "김천",
+      "slug": "김천",
+      "regionId": "199897",
+      "type": "CITY",
+      "sourceName": "김천"
+    },
+    "단양": {
+      "keyword": "단양",
+      "name": "단양",
+      "slug": "단양",
+      "regionId": "86273",
+      "type": "CITY",
+      "sourceName": "단양"
+    },
+    "daejeon": {
+      "keyword": "대전",
+      "name": "대전",
+      "slug": "daejeon",
+      "regionId": "8330",
+      "type": "CITY",
+      "sourceName": "대전"
+    },
+    "무안": {
+      "keyword": "무안",
+      "name": "무안",
+      "slug": "무안",
+      "regionId": "211325",
+      "type": "CITY",
+      "sourceName": "무안"
+    },
+    "안산": {
+      "keyword": "안산",
+      "name": "안산",
+      "slug": "안산",
+      "regionId": "192769",
+      "type": "CITY",
+      "sourceName": "안산"
+    },
+    "안성": {
+      "keyword": "안성",
+      "name": "안성",
+      "slug": "안성",
+      "regionId": "86316",
+      "type": "CITY",
+      "sourceName": "안성"
+    },
+    "완도": {
+      "keyword": "완도",
+      "name": "완도",
+      "slug": "완도",
+      "regionId": "102724",
+      "type": "CITY",
+      "sourceName": "완도"
+    },
+    "장흥": {
+      "keyword": "장흥",
+      "name": "장흥",
+      "slug": "장흥",
+      "regionId": "191484",
+      "type": "CITY",
+      "sourceName": "장흥"
+    },
+    "천안": {
+      "keyword": "천안",
+      "name": "천안",
+      "slug": "천안",
+      "regionId": "44359",
+      "type": "CITY",
+      "sourceName": "천안"
+    },
+    "춘천": {
+      "keyword": "춘천",
+      "name": "춘천",
+      "slug": "춘천",
+      "regionId": "86275",
+      "type": "CITY",
+      "sourceName": "춘천"
+    },
+    "평택": {
+      "keyword": "평택",
+      "name": "평택",
+      "slug": "평택",
+      "regionId": "79600",
+      "type": "CITY",
+      "sourceName": "평택"
+    },
+    "하동": {
+      "keyword": "하동",
+      "name": "하동",
+      "slug": "하동",
+      "regionId": "191724",
+      "type": "CITY",
+      "sourceName": "하동"
+    },
+    "화순": {
+      "keyword": "화순",
+      "name": "화순",
+      "slug": "화순",
+      "regionId": "119619",
+      "type": "CITY",
+      "sourceName": "화순"
+    },
+    "강진": {
+      "keyword": "강진",
+      "name": "강진",
+      "slug": "강진",
+      "regionId": "211324",
+      "type": "CITY",
+      "sourceName": "강진"
+    },
+    "곡성": {
+      "keyword": "곡성",
+      "name": "곡성",
+      "slug": "곡성",
+      "regionId": "191714",
+      "type": "CITY",
+      "sourceName": "곡성"
+    },
+    "금산": {
+      "keyword": "금산",
+      "name": "금산",
+      "slug": "금산",
+      "regionId": "211293",
+      "type": "CITY",
+      "sourceName": "금산"
+    },
+    "김해": {
+      "keyword": "김해",
+      "name": "김해",
+      "slug": "김해",
+      "regionId": "84746",
+      "type": "CITY",
+      "sourceName": "김해"
+    },
+    "나주": {
+      "keyword": "나주",
+      "name": "나주",
+      "slug": "나주",
+      "regionId": "191723",
+      "type": "CITY",
+      "sourceName": "나주"
+    },
+    "목포": {
+      "keyword": "목포",
+      "name": "목포",
+      "slug": "목포",
+      "regionId": "1980",
+      "type": "CITY",
+      "sourceName": "목포"
+    },
+    "밀양": {
+      "keyword": "밀양",
+      "name": "밀양",
+      "slug": "밀양",
+      "regionId": "139747",
+      "type": "CITY",
+      "sourceName": "밀양"
+    },
+    "성남": {
+      "keyword": "성남",
+      "name": "성남",
+      "slug": "성남",
+      "regionId": "86269",
+      "type": "CITY",
+      "sourceName": "성남"
+    },
+    "순창": {
+      "keyword": "순창",
+      "name": "순창",
+      "slug": "순창",
+      "regionId": "211309",
+      "type": "CITY",
+      "sourceName": "순창"
+    },
+    "신안": {
+      "keyword": "신안",
+      "name": "신안",
+      "slug": "신안",
+      "regionId": "211472",
+      "type": "CITY",
+      "sourceName": "신안"
+    },
+    "영암": {
+      "keyword": "영암",
+      "name": "영암",
+      "slug": "영암",
+      "regionId": "211473",
+      "type": "CITY",
+      "sourceName": "영암"
+    },
+    "영주": {
+      "keyword": "영주",
+      "name": "영주",
+      "slug": "영주",
+      "regionId": "119578",
+      "type": "CITY",
+      "sourceName": "영주"
+    },
+    "완주": {
+      "keyword": "완주",
+      "name": "완주",
+      "slug": "완주",
+      "regionId": "211295",
+      "type": "CITY",
+      "sourceName": "완주"
+    },
+    "용인": {
+      "keyword": "용인",
+      "name": "용인",
+      "slug": "용인",
+      "regionId": "62865",
+      "type": "CITY",
+      "sourceName": "용인"
+    },
+    "진주": {
+      "keyword": "진주",
+      "name": "진주",
+      "slug": "진주",
+      "regionId": "1212",
+      "type": "CITY",
+      "sourceName": "진주"
+    },
+    "태안": {
+      "keyword": "태안",
+      "name": "태안",
+      "slug": "태안",
+      "regionId": "119582",
+      "type": "CITY",
+      "sourceName": "태안"
+    },
+    "홍성": {
+      "keyword": "홍성",
+      "name": "홍성",
+      "slug": "홍성",
+      "regionId": "211299",
+      "type": "CITY",
+      "sourceName": "홍성"
+    },
+    "거제": {
+      "keyword": "거제",
+      "name": "거제",
+      "slug": "거제",
+      "regionId": "86271",
+      "type": "CITY",
+      "sourceName": "거제"
+    },
+    "경산": {
+      "keyword": "경산",
+      "name": "경산",
+      "slug": "경산",
+      "regionId": "146655",
+      "type": "CITY",
+      "sourceName": "경산"
+    },
+    "고성": {
+      "keyword": "고성",
+      "name": "고성",
+      "slug": "고성",
+      "regionId": "197081",
+      "type": "CITY",
+      "sourceName": "고성"
+    },
+    "광양": {
+      "keyword": "광양",
+      "name": "광양",
+      "slug": "광양",
+      "regionId": "191718",
+      "type": "CITY",
+      "sourceName": "광양"
+    },
+    "김제": {
+      "keyword": "김제",
+      "name": "김제",
+      "slug": "김제",
+      "regionId": "211306",
+      "type": "CITY",
+      "sourceName": "김제"
+    },
+    "남양주": {
+      "keyword": "남양주",
+      "name": "남양주",
+      "slug": "남양주",
+      "regionId": "193117",
+      "type": "CITY",
+      "sourceName": "남양주"
+    },
+    "논산": {
+      "keyword": "논산",
+      "name": "논산",
+      "slug": "논산",
+      "regionId": "191479",
+      "type": "CITY",
+      "sourceName": "논산"
+    },
+    "담양": {
+      "keyword": "담양",
+      "name": "담양",
+      "slug": "담양",
+      "regionId": "191076",
+      "type": "CITY",
+      "sourceName": "담양"
+    },
+    "보령": {
+      "keyword": "보령",
+      "name": "보령",
+      "slug": "보령",
+      "regionId": "83390",
+      "type": "CITY",
+      "sourceName": "보령"
+    },
+    "부안": {
+      "keyword": "부안",
+      "name": "부안",
+      "slug": "부안",
+      "regionId": "200908",
+      "type": "CITY",
+      "sourceName": "부안"
+    },
+    "부여": {
+      "keyword": "부여",
+      "name": "부여",
+      "slug": "부여",
+      "regionId": "84744",
+      "type": "CITY",
+      "sourceName": "부여"
+    },
+    "순천": {
+      "keyword": "순천",
+      "name": "순천",
+      "slug": "순천",
+      "regionId": "57806",
+      "type": "CITY",
+      "sourceName": "순천"
+    },
+    "시흥": {
+      "keyword": "시흥",
+      "name": "시흥",
+      "slug": "시흥",
+      "regionId": "195796",
+      "type": "CITY",
+      "sourceName": "시흥"
+    },
+    "양주": {
+      "keyword": "양주",
+      "name": "양주",
+      "slug": "양주",
+      "regionId": "201786",
+      "type": "CITY",
+      "sourceName": "양주"
+    },
+    "여주": {
+      "keyword": "여주",
+      "name": "여주",
+      "slug": "여주",
+      "regionId": "119575",
+      "type": "CITY",
+      "sourceName": "여주"
+    },
+    "연천": {
+      "keyword": "연천",
+      "name": "연천",
+      "slug": "연천",
+      "regionId": "201766",
+      "type": "CITY",
+      "sourceName": "연천"
+    },
+    "인제": {
+      "keyword": "인제",
+      "name": "인제",
+      "slug": "인제",
+      "regionId": "192749",
+      "type": "CITY",
+      "sourceName": "인제"
+    },
+    "정읍": {
+      "keyword": "정읍",
+      "name": "정읍",
+      "slug": "정읍",
+      "regionId": "211308",
+      "type": "CITY",
+      "sourceName": "정읍"
     }
   }
 }

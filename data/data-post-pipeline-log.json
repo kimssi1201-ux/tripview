@@ -509,6 +509,63 @@
         }
       ],
       "rerunCount": 6
+    },
+    {
+      "runAt": "2026-08-27T10:02:34.086Z",
+      "runDate": "2026-08-27",
+      "generatedCount": 3,
+      "discardedCount": 2,
+      "generated": [
+        {
+          "slug": "data-stay-price-jeju",
+          "type": "stay-price",
+          "region": "제주",
+          "rowCount": 6,
+          "affiliateLinkCount": 6
+        },
+        {
+          "slug": "data-festival-schedule-seoul",
+          "type": "festival-schedule",
+          "region": "서울",
+          "rowCount": 8,
+          "affiliateLinkCount": 0
+        },
+        {
+          "slug": "data-ticket-price-seoul",
+          "type": "ticket-price",
+          "region": "서울",
+          "rowCount": 6,
+          "affiliateLinkCount": 6
+        }
+      ],
+      "refreshedCount": 1,
+      "refreshed": [
+        {
+          "slug": "data-ticket-price-busan",
+          "type": "ticket-price",
+          "region": "부산",
+          "rowCount": 6,
+          "affiliateLinkCount": 6
+        }
+      ],
+      "discarded": [
+        {
+          "slug": "data-stay-price-seoul",
+          "type": "stay-price",
+          "region": "서울",
+          "reasons": [
+            "unmatched_number:4.5"
+          ]
+        },
+        {
+          "slug": "data-stay-price-busan",
+          "type": "stay-price",
+          "region": "부산",
+          "reasons": [
+            "unmatched_number:4.5"
+          ]
+        }
+      ]
     }
   ]
 }
