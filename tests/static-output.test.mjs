@@ -314,7 +314,16 @@ test("homepage is aligned to August and avoids expired seasonal or Coupang revie
 test("accommodation cards use cached MyRealTrip stay links and stay out of pending articles", async () => {
   const stayPage = await readFile("stay/index.html", "utf8");
   const cards = [...stayPage.matchAll(/<a[^>]*data-mrt-accommodation-card[^>]*>/g)].map((match) => match[0]);
-  assert.ok(cards.length >= 3 && cards.length <= 12, "stay page should keep a focused accommodation card set");
+  // /stay/ browses region-first: one <section id="region-..."> per province
+  // with up to 6 cards each (see bookingProvinceSections()), not one flat
+  // capped list - so the total scales with how many regions have stock.
+  const regionSections = [...stayPage.matchAll(/<section class="block" id="region-[^"]+"[\s\S]*?<\/section>/g)].map((match) => match[0]);
+  assert.ok(regionSections.length >= 3, "stay page should group accommodation cards under region sections");
+  for (const section of regionSections) {
+    const sectionCards = (section.match(/data-mrt-accommodation-card/g) || []).length;
+    assert.ok(sectionCards >= 1 && sectionCards <= 6, "each region section should keep a focused card set");
+  }
+  assert.ok(cards.length >= 3, "stay page should have accommodation cards");
 
   const urls = cards.map((card) => card.match(/href="([^"]+)"/)?.[1]).filter(Boolean);
   const stay = expectedStayWindow();
@@ -330,7 +339,7 @@ test("accommodation cards use cached MyRealTrip stay links and stay out of pendi
   assert.match(stayPage, /class="booking-condition"/);
   assert.match(stayPage, /class="booking-affiliate-box"/);
   assert.match(stayPage, /class="booking-city-grid"/);
-  assert.match(stayPage, /id="accommodation-cards"/);
+  assert.match(stayPage, /id="region-seoul"/);
   assert.match(stayPage, /class="booking-product-price">[\d,]+원부터<\/span>/);
   assert.doesNotMatch(stayPage, /checkIn=2026-08-24|checkOut=2026-08-26/);
   const productCards = [...stayPage.matchAll(/<a class="booking-product-card"[^>]*data-mrt-accommodation-card[^>]*>[\s\S]*?<\/a>/g)]

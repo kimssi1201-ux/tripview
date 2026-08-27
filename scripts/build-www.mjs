@@ -49,6 +49,53 @@ const BOOKING_CONDITIONS = {
     { label: "교통·패스", point: "이용 범위와 수령 방법", description: "사용 가능 구간, 수령 위치, 모바일 바우처 여부를 봅니다." },
   ],
 };
+// City/county -> province lookup for grouping booking products (MyRealTrip
+// accommodation entries carry a bare city name like "수원" or "청주" in
+// product.region, not a province) into region sections on /stay/. Falls
+// back to compactRegion() in bookingProductProvince() for anything not
+// listed here - the site's other province matching already recognizes
+// full province names/substrings, just not bare city names.
+const CITY_TO_PROVINCE = new Map([
+  ["수원", "경기"], ["화성", "경기"], ["성남", "경기"], ["고양", "경기"], ["용인", "경기"],
+  ["부천", "경기"], ["안산", "경기"], ["안양", "경기"], ["남양주", "경기"], ["평택", "경기"],
+  ["시흥", "경기"], ["파주", "경기"], ["김포", "경기"], ["광명", "경기"], ["광주시", "경기"],
+  ["군포", "경기"], ["이천", "경기"], ["양주", "경기"], ["오산", "경기"], ["구리", "경기"],
+  ["안성", "경기"], ["포천", "경기"], ["의왕", "경기"], ["하남", "경기"], ["여주", "경기"],
+  ["동두천", "경기"], ["과천", "경기"], ["가평", "경기"], ["양평", "경기"], ["연천", "경기"],
+  ["강릉", "강원"], ["평창", "강원"], ["속초", "강원"], ["춘천", "강원"], ["원주", "강원"],
+  ["동해", "강원"], ["삼척", "강원"], ["태백", "강원"], ["홍천", "강원"], ["횡성", "강원"],
+  ["영월", "강원"], ["정선", "강원"], ["철원", "강원"], ["화천", "강원"], ["양구", "강원"],
+  ["인제", "강원"], ["고성군", "강원"], ["양양", "강원"],
+  ["청주", "충북"], ["충주", "충북"], ["제천", "충북"], ["보은", "충북"], ["옥천", "충북"],
+  ["영동", "충북"], ["증평", "충북"], ["진천", "충북"], ["괴산", "충북"], ["음성", "충북"], ["단양", "충북"],
+  ["천안", "충남"], ["아산", "충남"], ["공주", "충남"], ["보령", "충남"], ["서산", "충남"],
+  ["논산", "충남"], ["계룡", "충남"], ["당진", "충남"], ["금산", "충남"], ["부여", "충남"],
+  ["서천", "충남"], ["청양", "충남"], ["홍성", "충남"], ["예산", "충남"], ["태안", "충남"],
+  ["전주", "전북"], ["군산", "전북"], ["익산", "전북"], ["정읍", "전북"], ["남원", "전북"],
+  ["김제", "전북"], ["완주", "전북"], ["진안", "전북"], ["무주", "전북"], ["장수", "전북"],
+  ["임실", "전북"], ["순창", "전북"], ["고창", "전북"], ["부안", "전북"],
+  ["여수", "전남"], ["순천", "전남"], ["나주", "전남"], ["목포", "전남"], ["광양", "전남"],
+  ["담양", "전남"], ["곡성", "전남"], ["구례", "전남"], ["고흥", "전남"], ["보성", "전남"],
+  ["화순", "전남"], ["장흥", "전남"], ["강진", "전남"], ["해남", "전남"], ["영암", "전남"],
+  ["무안", "전남"], ["함평", "전남"], ["영광", "전남"], ["장성", "전남"], ["완도", "전남"],
+  ["진도", "전남"], ["신안", "전남"],
+  ["경주", "경북"], ["포항", "경북"], ["안동", "경북"], ["구미", "경북"], ["문경", "경북"],
+  ["영주", "경북"], ["영천", "경북"], ["상주", "경북"], ["김천", "경북"], ["경산", "경북"],
+  ["의성", "경북"], ["청송", "경북"], ["영양", "경북"], ["영덕", "경북"], ["청도", "경북"],
+  ["고령", "경북"], ["성주", "경북"], ["칠곡", "경북"], ["예천", "경북"], ["봉화", "경북"],
+  ["울진", "경북"], ["울릉", "경북"],
+  ["창원", "경남"], ["진주", "경남"], ["통영", "경남"], ["사천", "경남"], ["김해", "경남"],
+  ["밀양", "경남"], ["거제", "경남"], ["양산", "경남"], ["의령", "경남"], ["함안", "경남"],
+  ["창녕", "경남"], ["고성", "경남"], ["남해", "경남"], ["하동", "경남"], ["산청", "경남"],
+  ["함양", "경남"], ["거창", "경남"], ["합천", "경남"],
+  ["제주시", "제주"], ["서귀포", "제주"],
+]);
+
+function bookingProductProvince(product = {}) {
+  const cityLabel = normalizeText(product.region || product.city || "");
+  return CITY_TO_PROVINCE.get(cityLabel) || compactRegion(product.region || product.city || product.location);
+}
+
 const REGION_SLUGS = new Map([
   ["서울", "seoul"],
   ["경기", "gyeonggi"],
@@ -1210,7 +1257,7 @@ function normalizeBookingProduct(product = {}, type = "stay") {
   };
 }
 
-function bookingProducts(products = [], type = "stay", limit = 18) {
+function dedupedBookingProducts(products = [], type = "stay") {
   const seen = new Set();
   const items = [];
   for (const product of products) {
@@ -1221,17 +1268,23 @@ function bookingProducts(products = [], type = "stay", limit = 18) {
     seen.add(key);
     items.push(normalized);
   }
-  return items
-    .sort((a, b) => {
-      const ratingDiff = bookingRatingValue(b) - bookingRatingValue(a);
-      if (ratingDiff) return ratingDiff;
-      const reviewDiff = bookingReviewCount(b) - bookingReviewCount(a);
-      if (reviewDiff) return reviewDiff;
-      const priceDiff = bookingPriceValue(a) - bookingPriceValue(b);
-      if (priceDiff) return priceDiff;
-      return a.title.localeCompare(b.title, "ko");
-    })
-    .slice(0, limit);
+  return items;
+}
+
+function sortBookingProducts(items = []) {
+  return [...items].sort((a, b) => {
+    const ratingDiff = bookingRatingValue(b) - bookingRatingValue(a);
+    if (ratingDiff) return ratingDiff;
+    const reviewDiff = bookingReviewCount(b) - bookingReviewCount(a);
+    if (reviewDiff) return reviewDiff;
+    const priceDiff = bookingPriceValue(a) - bookingPriceValue(b);
+    if (priceDiff) return priceDiff;
+    return a.title.localeCompare(b.title, "ko");
+  });
+}
+
+function bookingProducts(products = [], type = "stay", limit = 18) {
+  return sortBookingProducts(dedupedBookingProducts(products, type)).slice(0, limit);
 }
 
 function bookingProductListId(type = "stay") {
@@ -1239,13 +1292,16 @@ function bookingProductListId(type = "stay") {
 }
 
 function bookingQuickSearch(type = "stay") {
-  const listId = bookingProductListId(type);
+  // Stay browses region-first now (see bookingCategoryPageHtml), so there's
+  // no single flat product list to jump to - point at the region grid instead.
+  const listId = type === "stay" ? "popular-cities" : bookingProductListId(type);
+  const jumpLabel = type === "stay" ? "지역별 상품 보기로 이동" : "조건에 맞는 상품 목록으로 이동";
   const conditions = BOOKING_CONDITIONS[type] || [];
   if (!conditions.length) return "";
   const items = conditions.map((condition, index) => `<details class="booking-condition"${index === 0 ? " open" : ""}>
       <summary><span class="booking-condition-title"><strong>${html(condition.label)}</strong><em>${html(condition.point)}</em></span><span class="booking-condition-toggle">보기</span></summary>
       <p>${html(condition.description)}</p>
-      <a href="#${html(listId)}">조건에 맞는 상품 목록으로 이동</a>
+      <a href="#${html(listId)}">${html(jumpLabel)}</a>
     </details>`).join("");
   return `<section class="block booking-conditions" id="quick-search" aria-labelledby="quick-search-title">
     <div class="block-head"><div><span class="kicker">CHECK</span><h2 id="quick-search-title">조건별 빠른 검색</h2></div><p class="block-note">예약 전 확인 기준</p></div>
@@ -1290,6 +1346,46 @@ function bookingCityGrid(products = [], type = "stay") {
   </section>`;
 }
 
+function bookingProvinceGroups(normalizedProducts = []) {
+  const groups = new Map();
+  for (const product of normalizedProducts) {
+    const province = bookingProductProvince(product);
+    if (!province || province === "기타") continue;
+    if (!groups.has(province)) groups.set(province, []);
+    groups.get(province).push(product);
+  }
+  const order = [...REGION_SLUGS.keys()].filter((label) => label !== "기타");
+  const ordered = [
+    ...order.filter((label) => groups.has(label)),
+    ...[...groups.keys()].filter((label) => !order.includes(label)).sort((a, b) => a.localeCompare(b, "ko")),
+  ];
+  return ordered.map((label) => ({
+    label,
+    slug: REGION_SLUGS.get(label) || fallbackSlug(label),
+    products: sortBookingProducts(groups.get(label)),
+  }));
+}
+
+function bookingProvinceJumpGrid(groups = []) {
+  if (!groups.length) return "";
+  const cards = groups.map((group) => `<a class="booking-city-card" href="#region-${html(group.slug)}"><strong>${html(group.label)}</strong><span>${html(group.products.length.toLocaleString("ko-KR"))}개 상품</span></a>`).join("");
+  return `<section class="block" id="popular-cities" aria-labelledby="popular-cities-title">
+    <div class="block-head"><div><span class="kicker">REGION</span><h2 id="popular-cities-title">지역별로 보기</h2></div><p class="block-note">상품이 있는 지역만 표시</p></div>
+    <div class="booking-city-grid">${cards}</div>
+  </section>`;
+}
+
+function bookingProvinceSections(groups = [], type = "stay", perProvinceLimit = 6) {
+  return groups.map((group) => {
+    const cards = group.products.slice(0, perProvinceLimit).map((product) => bookingProductCard(product, type)).join("");
+    if (!cards) return "";
+    return `<section class="block" id="region-${html(group.slug)}" aria-labelledby="region-${html(group.slug)}-title">
+      <div class="block-head"><div><span class="kicker">REGION</span><h2 id="region-${html(group.slug)}-title">${html(group.label)}</h2></div><p class="block-note">평점순 · 성인 2명 기준 주말 1박 요금입니다</p></div>
+      <div class="booking-product-list">${cards}</div>
+    </section>`;
+  }).join("");
+}
+
 function bookingRatingText(product = {}) {
   const rating = bookingRatingValue(product);
   const reviews = bookingReviewCount(product);
@@ -1331,15 +1427,33 @@ function bookingProductSection(products = [], type = "stay") {
 }
 
 function bookingCategoryPageHtml({ path, type, title, description, products = [] }) {
-  const normalized = bookingProducts(products, type, type === "ticket" ? 18 : 12);
-  const body = [
-    `<div class="booking-page">`,
-    bookingQuickSearch(type),
-    bookingAffiliateNotice(type),
-    bookingCityGrid(normalized, type),
-    bookingProductSection(normalized, type),
-    `</div>`,
-  ].join("");
+  // Stay browses region-first (지역별로 보기 -> a real section per province,
+  // not just a jump link to one flat list) since accommodation demand is
+  // inherently regional. Ticket/tour products keep the flat rating-sorted
+  // list - there isn't the same "which city" browsing need for those.
+  const body = type === "stay"
+    ? (() => {
+        const groups = bookingProvinceGroups(dedupedBookingProducts(products, type));
+        return [
+          `<div class="booking-page">`,
+          bookingQuickSearch(type),
+          bookingAffiliateNotice(type),
+          bookingProvinceJumpGrid(groups),
+          bookingProvinceSections(groups, type),
+          `</div>`,
+        ].join("");
+      })()
+    : (() => {
+        const normalized = bookingProducts(products, type, 18);
+        return [
+          `<div class="booking-page">`,
+          bookingQuickSearch(type),
+          bookingAffiliateNotice(type),
+          bookingCityGrid(normalized, type),
+          bookingProductSection(normalized, type),
+          `</div>`,
+        ].join("");
+      })();
   return pageShell({
     path,
     title,
