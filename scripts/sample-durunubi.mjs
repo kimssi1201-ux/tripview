@@ -16,6 +16,7 @@ const PAGE_SIZE = Math.max(20, Math.min(200, Number.parseInt(process.env.DURUNUB
 const FETCH_TIMEOUT_MS = Math.max(1000, Number.parseInt(process.env.DURUNUBI_FETCH_TIMEOUT_MS || "8000", 10) || 8000);
 const REQUEST_RETRIES = Math.max(1, Math.min(3, Number.parseInt(process.env.DURUNUBI_REQUEST_RETRIES || "1", 10) || 1));
 const MAX_PAGES = Math.max(1, Math.min(20, Number.parseInt(process.env.DURUNUBI_MAX_PAGES || "10", 10) || 10));
+const FETCH_ROUTE_LIST = process.env.DURUNUBI_FETCH_ROUTE_LIST === "1";
 export const CONFIDENT_MATCH_SCORE = 20;
 export const REGION_CONFIRMED_MATCH_SCORE = 12;
 export const REGION_CONFIRMED_SCORE_BONUS = 6;
@@ -537,13 +538,17 @@ async function runSample() {
   }
 
   const routeKeywords = durunubiRouteKeywordsForPosts(sample);
-  console.log(`Durunubi routeList keyword candidates: ${routeKeywords.join(", ") || "-"}.`);
-  const routes = await fetchRoutesForKeywords(routeKeywords);
-  console.log(`Durunubi routeList fetched ${routes.length} route(s).`);
-  if (!routes.length) throw new Error("Durunubi routeList returned no routes.");
-  for (const route of routes.slice(0, 3)) console.log(`routeList example: ${routeExample(route)}`);
+  let routes = [];
+  if (FETCH_ROUTE_LIST && routeKeywords.length) {
+    console.log(`Durunubi routeList keyword candidates: ${routeKeywords.join(", ")}.`);
+    routes = await fetchRoutesForKeywords(routeKeywords);
+    console.log(`Durunubi routeList fetched ${routes.length} route(s).`);
+    for (const route of routes.slice(0, 3)) console.log(`routeList example: ${routeExample(route)}`);
+  } else {
+    console.log("Durunubi routeList skipped; matching directly against full courseList rows.");
+  }
 
-  const courses = await fetchCoursesForRoutes(routes);
+  const courses = await fetchAllDurunubiItems("courseList");
   console.log(`Durunubi courseList fetched ${courses.length} course(s).`);
   if (!courses.length) throw new Error("Durunubi courseList returned no courses.");
   for (const course of courses.slice(0, 3)) console.log(`courseList example: ${courseExample(course)}`);

@@ -91,6 +91,7 @@ jobs:
 
       - name: Sample Durunubi walking courses
         if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.durunubi_mode == 'sample' }}
+        continue-on-error: true
         run: |
           if [ -z "$DURUNUBI_API_KEY" ]; then
             echo "::error::DURUNUBI_API_KEY is required for Durunubi sample. Add it in Settings > Secrets and variables > Actions."

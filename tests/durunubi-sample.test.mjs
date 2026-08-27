@@ -155,6 +155,33 @@ test("Durunubi course matching recovers weak text matches only after exact city 
   assert.equal(result.matched, true);
 });
 
+test("Durunubi course matching does not require routeList metadata", () => {
+  const post = {
+    slug: "travel-2712642",
+    title: "진도 운림산림욕장, 숲길 산책 전 확인할 거리와 이동 동선",
+    region: "전라남도 진도군",
+    tags: ["숲길", "산책"],
+  };
+  const courses = [
+    {
+      routeIdx: "43",
+      sigun: "전남 진도군",
+      crsKorNm: "서해랑길 12코스",
+      crsDstnc: "22",
+      crsTotlRqrmHour: "420",
+      crsLevel: "2",
+    },
+  ];
+
+  const result = matchDurunubiCourse(post, courses, []);
+
+  assert.equal(result.regionConfirmed, true);
+  assert.equal(result.matchThreshold, REGION_CONFIRMED_MATCH_SCORE);
+  assert.equal(result.score, REGION_CONFIRMED_MATCH_SCORE);
+  assert.equal(result.matched, true);
+  assert.equal(result.themeNm, "");
+});
+
 test("Durunubi course matching rejects province-only false positives", () => {
   const post = {
     slug: "travel-2774026",

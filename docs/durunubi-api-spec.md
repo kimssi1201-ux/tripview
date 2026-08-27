@@ -85,7 +85,7 @@ Parameters:
 | `MobileOS` | yes | string | OS value such as `IOS`, `AND`, `WIN`, `ETC` |
 | `MobileApp` | yes | string | App or service name |
 | `serviceKey` | yes | string | data.go.kr service key |
-| `themeNm` | no in Swagger, required in the current sample path | Route name |
+| `themeNm` | no in Swagger, not reliable in the current GitHub Actions sample path | Route name |
 | `brdDiv` | no | string | Walking or bicycle division. The spec notes `DNWW` for walking routes currently provided. |
 
 Response item fields:
@@ -102,7 +102,7 @@ Response item fields:
 
 Notes:
 
-- `routeList` looks broader than an individual course lookup, but the 2026-08-26 GitHub Actions sample returned `NO_MANDATORY_REQUEST_PARAMETERS_ERROR(SG_APIM)` when called without a route-name search term. The sample script therefore derives route-name candidates from existing Tripview titles and calls `routeList` with `themeNm` before calling `courseList` by `routeIdx`.
+- `routeList` looks broader than an individual course lookup, but the 2026-08-26 GitHub Actions samples returned `NO_MANDATORY_REQUEST_PARAMETERS_ERROR(SG_APIM)` both without a route-name search term and with `themeNm` keyword searches. The sample script now treats `routeList` as optional route metadata only and matches directly against full `courseList` rows by default.
 - This response also has no image URL or coordinate fields.
 
 ## Official Swagger example
@@ -149,7 +149,7 @@ Do not run full enrichment before this sample is reviewed.
 
 1. Add a workflow dispatch option such as `durunubi_mode: sample|off`.
 2. Select 10 to 20 existing Tripview posts whose title or tags imply walking trails, dulle-gil, forest paths, beaches with walking paths, arboretums, parks, or natural courses.
-3. Query `routeList` first with `themeNm` candidates and `brdDiv=DNWW`.
-4. Use matching `routeIdx` values to call `courseList`.
+3. Query full `courseList` with `brdDiv=DNWW`, then match Tripview title/region text against `sigun` and `crsKorNm`.
+4. Optionally query `routeList` only when `DURUNUBI_FETCH_ROUTE_LIST=1`; do not require it for sample completion because the gateway can reject `routeList` with missing-parameter errors.
 5. Log match count, failure count, and the number of matched rows with distance, time, difficulty, and GPX path.
 6. Stop after the sample report. Full application needs a separate user instruction.
