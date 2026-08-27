@@ -138,7 +138,11 @@ jobs:
           const duplicateSlugs = newPosts.filter((post, index) => newPosts.findIndex((item) => item.slug === post.slug) !== index);
           if (duplicateSlugs.length) throw new Error(`Duplicate new slugs: ${duplicateSlugs.map((post) => post.slug).join(', ')}`);
           const homepage = fs.readFileSync('index.html', 'utf8');
-          if (!homepage.includes('class="news-section"') || !homepage.includes('id="booking"')) throw new Error('Homepage topic sections missing from index');
+          const feed = fs.readFileSync('rss.xml', 'utf8');
+          const missingHomepagePosts = newPosts.slice(0, 5).filter((post) => !homepage.includes(`/${post.slug}/`));
+          if (missingHomepagePosts.length) throw new Error(`New posts missing from homepage: ${missingHomepagePosts.map((post) => post.slug).join(', ')}`);
+          const missingFeedPosts = newPosts.slice(0, 5).filter((post) => !feed.includes(`/${post.slug}/`));
+          if (missingFeedPosts.length) throw new Error(`New posts missing from RSS feed: ${missingFeedPosts.map((post) => post.slug).join(', ')}`);
           const distributionLabel = (post) => {
             const typeId = String(post.contentTypeId || post.contenttypeid || post.tourApi?.contentTypeId || '');
             if (typeId === '15' || post.category === '공연/축제') return '축제';
