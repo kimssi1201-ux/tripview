@@ -600,7 +600,8 @@
       "distance": 10,
       "requiredTime": 240,
       "level": "중",
-      "source": "두루누비(Durunubi) - 문화체육관광부/한국관광공사, 시범 적용"
+      "source": "두루누비(Durunubi) - 문화체육관광부/한국관광공사, 시범 적용",
+      "crsIdx": "T_CRS_MNG0000004211"
     }
   },
   {
@@ -10418,7 +10419,8 @@
       "distance": 21,
       "requiredTime": 420,
       "level": "중",
-      "source": "두루누비(Durunubi) - 문화체육관광부/한국관광공사, 시범 적용"
+      "source": "두루누비(Durunubi) - 문화체육관광부/한국관광공사, 시범 적용",
+      "crsIdx": "T_CRS_MNG0000005317"
     }
   },
   {
@@ -24107,7 +24109,8 @@
       "distance": 16,
       "requiredTime": 330,
       "level": "하",
-      "source": "두루누비(Durunubi) - 문화체육관광부/한국관광공사, 시범 적용"
+      "source": "두루누비(Durunubi) - 문화체육관광부/한국관광공사, 시범 적용",
+      "crsIdx": "T_CRS_MNG0000004219"
     }
   },
   {
@@ -64536,7 +64539,8 @@
       "distance": 8,
       "requiredTime": 180,
       "level": "중",
-      "source": "두루누비(Durunubi) - 문화체육관광부/한국관광공사, 시범 적용"
+      "source": "두루누비(Durunubi) - 문화체육관광부/한국관광공사, 시범 적용",
+      "crsIdx": "T_CRS_MNG0000005170"
     }
   },
   {
@@ -65980,7 +65984,8 @@
       "distance": 14,
       "requiredTime": 270,
       "level": "하",
-      "source": "두루누비(Durunubi) - 문화체육관광부/한국관광공사, 시범 적용"
+      "source": "두루누비(Durunubi) - 문화체육관광부/한국관광공사, 시범 적용",
+      "crsIdx": "T_CRS_MNG0000004205"
     }
   },
   {
@@ -67227,7 +67232,8 @@
       "distance": 20,
       "requiredTime": 390,
       "level": "하",
-      "source": "두루누비(Durunubi) - 문화체육관광부/한국관광공사, 시범 적용"
+      "source": "두루누비(Durunubi) - 문화체육관광부/한국관광공사, 시범 적용",
+      "crsIdx": "T_CRS_MNG0000004193"
     }
   },
   {
@@ -110551,7 +110557,8 @@
       "distance": 15,
       "requiredTime": 300,
       "level": "중",
-      "source": "두루누비(Durunubi) - 문화체육관광부/한국관광공사, 시범 적용"
+      "source": "두루누비(Durunubi) - 문화체육관광부/한국관광공사, 시범 적용",
+      "crsIdx": "T_CRS_MNG0000005177"
     }
   },
   {

@@ -1785,6 +1785,7 @@ function articleSiteDesignCss() {
 .article-durunubi-label{font-weight:900;color:var(--brand,var(--ink))}
 .article-durunubi-name{font-weight:700}
 .article-durunubi-meta{color:var(--muted,var(--ink));opacity:.75}
+.article-durunubi-link{margin-left:auto;color:var(--brand,var(--ink));font-weight:800;text-decoration:underline;text-underline-offset:2px}
 .article-check-list{display:grid;gap:8px;list-style:none;padding:0!important}
 .article-check-list li{position:relative;margin:0!important;padding:10px 12px 10px 24px;border:1px solid var(--line);border-radius:8px;background:var(--card)}
 .article-check-list li::before{content:"";position:absolute;left:12px;top:20px;width:4px;height:4px;border-radius:50%;background:var(--brand)}
@@ -2186,10 +2187,21 @@ function durunubiDurationLabel(minutes) {
   return `약 ${hours}시간`;
 }
 
+function durunubiCourseUrl(course = {}) {
+  // course-detail-view.do?crs_idx=... is the standard course page for the
+  // 서해랑길/남파랑길/해파랑길 (코리아둘레길) themes - confirmed by checking
+  // live durunubi.kr pages for each theme. DMZ 평화의 길 uses a different
+  // path/param (dmz-course-view.do?crsIdx=) and is NOT covered by this -
+  // only link out when we have a crsIdx we've actually verified belongs to
+  // one of the confirmed themes (see durunubiCourse.crsIdx on the post).
+  if (!course?.crsIdx) return "";
+  return safeHttpUrl(`https://www.durunubi.kr/course-detail-view.do?crs_idx=${encodeURIComponent(course.crsIdx)}`);
+}
+
 function articleDurunubiSection(post) {
   // Trial-only: rendered solely for the handful of posts that carry a
   // manually-reviewed post.durunubiCourse (see docs/durunubi-api-spec.md).
-  // All-<span> markup by design - insertArticleFactBlocks() strips and
+  // All-<span>/<a> markup by design - insertArticleFactBlocks() strips and
   // reinserts this block by a <div>...</div> regex scoped to this single
   // class, so no nested block elements belong inside it.
   if (isDataPipelinePost(post)) return "";
@@ -2201,7 +2213,9 @@ function articleDurunubiSection(post) {
     durunubiDurationLabel(course.requiredTime),
     course.level ? `난이도 ${course.level}` : "",
   ].filter(Boolean).join(" · ");
-  return `<div class="article-durunubi-course" aria-label="인근 두루누비 걷기 코스"><span class="article-durunubi-label">인근 걷기 코스</span><span class="article-durunubi-name">${html(course.crsKorNm)}</span>${meta ? `<span class="article-durunubi-meta">${html(meta)}</span>` : ""}</div>`;
+  const courseUrl = durunubiCourseUrl(course);
+  const link = courseUrl ? `<a class="article-durunubi-link" href="${html(courseUrl)}" target="_blank" rel="noopener">공식 코스 상세보기</a>` : "";
+  return `<div class="article-durunubi-course" aria-label="인근 두루누비 걷기 코스"><span class="article-durunubi-label">인근 걷기 코스</span><span class="article-durunubi-name">${html(course.crsKorNm)}</span>${meta ? `<span class="article-durunubi-meta">${html(meta)}</span>` : ""}${link}</div>`;
 }
 
 function splitProgramItems(value = "") {
