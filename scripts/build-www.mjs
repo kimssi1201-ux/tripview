@@ -1781,6 +1781,10 @@ function articleSiteDesignCss() {
 .article-fact-table tr:last-child th,.article-fact-table tr:last-child td{border-bottom:0}
 .article-fact-value-list{display:grid;gap:6px;margin:0;padding-left:18px}
 .article-fact-value-list li{padding-left:2px}
+.article-durunubi-course{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 24px;padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:var(--card);font-size:14px;line-height:1.5}
+.article-durunubi-label{font-weight:900;color:var(--brand,var(--ink))}
+.article-durunubi-name{font-weight:700}
+.article-durunubi-meta{color:var(--muted,var(--ink));opacity:.75}
 .article-check-list{display:grid;gap:8px;list-style:none;padding:0!important}
 .article-check-list li{position:relative;margin:0!important;padding:10px 12px 10px 24px;border:1px solid var(--line);border-radius:8px;background:var(--card)}
 .article-check-list li::before{content:"";position:absolute;left:12px;top:20px;width:4px;height:4px;border-radius:50%;background:var(--brand)}
@@ -2175,6 +2179,31 @@ function articleFactTable(post) {
   return `<table class="article-fact-table" aria-label="운영 정보 표"><tbody>${items.map((item) => `<tr><th>${html(item.label)}</th><td>${factTableCellMarkup(item.value)}</td></tr>`).join("")}</tbody></table>`;
 }
 
+function durunubiDurationLabel(minutes) {
+  const value = Number.parseInt(minutes, 10);
+  if (!Number.isFinite(value) || value <= 0) return "";
+  const hours = Math.round((value / 60) * 10) / 10;
+  return `약 ${hours}시간`;
+}
+
+function articleDurunubiSection(post) {
+  // Trial-only: rendered solely for the handful of posts that carry a
+  // manually-reviewed post.durunubiCourse (see docs/durunubi-api-spec.md).
+  // All-<span> markup by design - insertArticleFactBlocks() strips and
+  // reinserts this block by a <div>...</div> regex scoped to this single
+  // class, so no nested block elements belong inside it.
+  if (isDataPipelinePost(post)) return "";
+  const course = post.durunubiCourse;
+  if (!course?.crsKorNm) return "";
+  const meta = [
+    course.sigun,
+    course.distance ? `${course.distance}km` : "",
+    durunubiDurationLabel(course.requiredTime),
+    course.level ? `난이도 ${course.level}` : "",
+  ].filter(Boolean).join(" · ");
+  return `<div class="article-durunubi-course" aria-label="인근 두루누비 걷기 코스"><span class="article-durunubi-label">인근 걷기 코스</span><span class="article-durunubi-name">${html(course.crsKorNm)}</span>${meta ? `<span class="article-durunubi-meta">${html(meta)}</span>` : ""}</div>`;
+}
+
 function splitProgramItems(value = "") {
   const normalized = plainFieldValue(value)
     .replace(/\d+\.\s*/g, " ")
@@ -2197,12 +2226,15 @@ function articleProgramList(post) {
 function insertArticleFactBlocks(document, post) {
   return replaceArticleContent(document, (body) => {
     let next = body.replace(/\s*<table\b[^>]*\bclass=["'][^"']*\barticle-fact-table\b[^"']*["'][^>]*>[\s\S]*?<\/table>/gi, "");
+    next = next.replace(/\s*<div\b[^>]*\bclass=["'][^"']*\barticle-durunubi-course\b[^"']*["'][^>]*>[\s\S]*?<\/div>/gi, "");
     const factTable = articleFactTable(post);
-    if (factTable && !next.includes("article-fact-table")) {
+    const durunubiSection = articleDurunubiSection(post);
+    const factInsertion = `${factTable}${durunubiSection}`;
+    if (factInsertion && !next.includes("article-fact-table") && !next.includes("article-durunubi-course")) {
       const target = next.match(/<h2[^>]*>\s*(?:운영 정보|일정과 운영 흐름|비용과 준비물)\s*<\/h2>/i);
       next = target
-        ? `${next.slice(0, target.index + target[0].length)}${factTable}${next.slice(target.index + target[0].length)}`
-        : `${factTable}${next}`;
+        ? `${next.slice(0, target.index + target[0].length)}${factInsertion}${next.slice(target.index + target[0].length)}`
+        : `${factInsertion}${next}`;
     }
     const programList = articleProgramList(post);
     if (programList && !next.includes("article-program-list")) {
