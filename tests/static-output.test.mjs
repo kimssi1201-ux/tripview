@@ -472,6 +472,10 @@ test("Korea Tourism images render through processed WebP assets", async () => {
   assert.match(manifest.items["travel-2774026"].banner.src, /-banner\.webp$/);
   assert.equal(manifest.items["travel-2774026"].banner.overlay, null);
   assert.equal(manifest.items["travel-2774026"].banner.processorVersion, "fixed-size-thumbnail-canvas-20260825");
+  assert.equal(manifest.items["festival-1939183"].cover.posterCanvas, true);
+  assert.equal(manifest.items["festival-1939183"].cover.processorVersion, "blurred-poster-canvas-20260827");
+  assert.equal(manifest.items["festival-1939183"].hero.processorVersion, "blurred-poster-canvas-20260827");
+  assert.equal(manifest.items["festival-1939183"].banner.processorVersion, "blurred-poster-canvas-20260827");
   for (const entry of Object.values(manifest.items || {})) {
     for (const asset of [entry.cover, entry.hero, entry.banner, ...(Array.isArray(entry.images) ? entry.images : [])].filter(Boolean)) {
       assert.equal(asset.overlay, null);

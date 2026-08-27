@@ -22,6 +22,7 @@ const ASSET_DIR = join(ROOT, "assets", "processed");
 const CACHE_DIR = join(ROOT, ".cache", "tour-images");
 const HELPER_PATH = join(ROOT, "scripts", "lib", "render_tour_image.py");
 const PROCESSOR_VERSION = "fixed-size-thumbnail-canvas-20260825";
+const POSTER_PROCESSOR_VERSION = "blurred-poster-canvas-20260827";
 const DOWNLOAD_TIMEOUT_MS = 12_000;
 const FORCE = process.argv.includes("--force");
 const LIMIT = Number.parseInt(process.env.TOUR_IMAGE_LIMIT || "", 10);
@@ -487,10 +488,11 @@ async function processAsset({ python, post, source, kind, outputName, previous }
     }
   }
   const portraitSource = Boolean(dimensions && dimensions.height > dimensions.width);
+  asset.processorVersion = portraitSource ? POSTER_PROCESSOR_VERSION : PROCESSOR_VERSION;
   const renderedDimensions = outputExists && isCoverLike ? await existingOutputDimensions(output) : null;
   const outputMatchesTarget = Boolean(renderedDimensions && renderedDimensions.width === width && renderedDimensions.height === height);
   asset.posterCanvas = portraitSource;
-  if (!FORCE && outputExists && (!requiresVersionedRender || (prior?.processorVersion === PROCESSOR_VERSION && outputMatchesTarget))) {
+  if (!FORCE && outputExists && (!requiresVersionedRender || (prior?.processorVersion === asset.processorVersion && outputMatchesTarget))) {
     return { ...asset, bytes: null };
   }
 
