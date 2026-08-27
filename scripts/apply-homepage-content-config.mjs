@@ -8,7 +8,6 @@ import { isTourApiImage, postImageWithProcessed, readTourImageManifest, tourImag
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const POSTS_PATH = path.join(ROOT, "data", "generated-posts.json");
-const MYREALTRIP_PRODUCTS_PATH = path.join(ROOT, "data", "myrealtrip-products.json");
 const MYREALTRIP_ACCOMMODATIONS_PATH = path.join(ROOT, "data", "myrealtrip-accommodations.json");
 const MYREALTRIP_TNA_PATH = path.join(ROOT, "data", "myrealtrip-tna-products.json");
 const MYREALTRIP_FLIGHTS_PATH = path.join(ROOT, "data", "myrealtrip-flight-deals.json");
@@ -409,18 +408,6 @@ function flightAdCard(deal) {
   </a>`;
 }
 
-function myRealTripAdSection(products = []) {
-  const cards = products.filter(Boolean).map(productCard).join("");
-
-  if (!cards) return "";
-  const title = "여행지별 숙소·투어";
-  return `<section class="news-section check-section mrt-ad-section" id="myrealtrip-deals" aria-labelledby="myrealtrip-deals-title" data-headline="${title}">
-    <h2 id="myrealtrip-deals-title">${title}</h2>
-    <p class="affiliate-disclosure">\uC77C\uBD80 \uB9C1\uD06C\uB97C \uD1B5\uD574 \uC608\uC57D\uD558\uBA74 \uC0AC\uC774\uD2B8 \uC6B4\uC601\uC790\uAC00 \uC218\uC218\uB8CC\uB97C \uC81C\uACF5\uBC1B\uC744 \uC218 \uC788\uC2B5\uB2C8\uB2E4. \uAC00\uACA9\uACFC \uC608\uC57D \uC870\uAC74\uC740 \uC608\uC57D\uCC98\uC5D0\uC11C \uCD5C\uC885 \uD655\uC778\uD558\uC138\uC694.</p>
-    <div class="check-grid">${cards}</div>
-  </section>`;
-}
-
 function bookingSearch() {
   return `<div class="booking-search" aria-label="예약 상품 검색">
     <div class="booking-launchers" aria-label="예약 검색 선택">
@@ -541,15 +528,6 @@ function unusedAffiliateProducts({ sectionId, posts, products, used, limit }) {
   return picked;
 }
 
-function interleaveListItems(posts, products = []) {
-  const rows = [];
-  posts.forEach((post, index) => {
-    rows.push(listItem(post));
-    if (index === 1 && products[0]) rows.push(productCard(products[0]));
-  });
-  return rows.join("");
-}
-
 function leadArticle(post) {
   if (!post) return "";
   const summary = summaryOf(post);
@@ -641,23 +619,6 @@ function takeFresh(posts, used, count = 10) {
     if (items.length >= count) break;
   }
   return items;
-}
-
-function newsSection({ id, title, posts, inlineProducts = [] }) {
-  const count = id === "popular" ? 9 : id === "water" ? 12 : 6;
-  const items = uniquePosts(posts).slice(0, count);
-  if (!items.length) return "";
-  return `<section class="news-section" id="${esc(id)}" aria-labelledby="${esc(id)}-title" data-headline="${esc(title)}">
-    <div class="section-headline">
-      <div><span class="section-kicker">${esc(sectionKicker(id))}</span><h2 id="${esc(id)}-title">${esc(title)}</h2></div>
-      <a class="section-more" href="#${esc(id)}" data-filter="${esc(id)}">\uB354\uBCF4\uAE30 +</a>
-    </div>
-    <div class="category-top">
-      ${leadArticle(items[0])}
-      <div class="category-picks">${items.slice(1, 4).map(pickCard).join("")}</div>
-    </div>
-    ${items.length > 4 ? `<div class="news-list category-list">${interleaveListItems(items.slice(4), inlineProducts)}</div>` : ""}
-  </section>`;
 }
 
 function heroSection({ id, title, posts }) {
@@ -756,15 +717,6 @@ function categoryNav() {
     '<a href="/festival/">\uCD95\uC81C</a>',
     '<a href="/stay/">\uC219\uC18C\u00B7\uC608\uC57D</a>',
   ].join("");
-}
-
-async function readMyRealTripProducts() {
-  try {
-    const products = JSON.parse(await fs.readFile(MYREALTRIP_PRODUCTS_PATH, "utf8"));
-    return Array.isArray(products) ? products : [];
-  } catch {
-    return [];
-  }
 }
 
 async function readMyRealTripAccommodations() {
@@ -950,7 +902,7 @@ const HOMEPAGE_CSS = `
 @media(max-width:900px){.home-hero{padding:24px 0 32px}.home-hero-grid,.home-hero-rail{grid-template-columns:1fr}.home-hero-rail{grid-template-rows:none}.home-hero-main strong{font-size:22px}.home-hero-main .story-card-body{padding:16px}}
 `;
 
-function html(posts, products = [], accommodations = [], tnaProducts = []) {
+function html(posts, accommodations = [], tnaProducts = []) {
   const editorialPosts = posts.filter((post) => !post?.dataPipeline?.generated);
   const hero = homepageHeroPost(editorialPosts) || posts[0];
   const ogImage = cardImageOf(hero);
@@ -961,7 +913,7 @@ function html(posts, products = [], accommodations = [], tnaProducts = []) {
   const latestCards = sortLatest(posts).filter((post) => cardImageOf(post)).slice(0, 6).map((post) => homeStoryCard(post));
   const seasonCards = seasonPosts.filter((post) => cardImageOf(post)).slice(0, 6).map((post) => homeStoryCard(post));
   const festivalCards = festivals.filter((post) => cardImageOf(post)).slice(0, 6).map((post) => homeStoryCard(post));
-  const stayProducts = [...accommodations, ...tnaProducts, ...products].filter((item) => item?.title && item?.url).slice(0, 6);
+  const stayProducts = [...accommodations, ...tnaProducts].filter((item) => item?.title && item?.url).slice(0, 6);
   const stayCards = stayProducts.map(homeAffiliateCard);
   const regionLinks = homeRegionGroups(posts).map((group) => ({ href: `/region/${group.slug}/`, label: group.label }));
   const sections = [
@@ -1012,10 +964,9 @@ const posts = allPosts
   .filter(isIndexablePost)
   .sort((a, b) => String(b.sortDate || "").localeCompare(String(a.sortDate || "")));
 
-const myrealtripProducts = await readMyRealTripProducts();
 const myrealtripAccommodations = await readMyRealTripAccommodations();
 const myrealtripTnaProducts = await readMyRealTripTnaProducts();
 const myrealtripFlights = await readMyRealTripFlights();
 
-await fs.writeFile(INDEX_PATH, html(posts, myrealtripProducts, myrealtripAccommodations, myrealtripTnaProducts, myrealtripFlights), "utf8");
-console.log(`Homepage rebuilt with ${posts.length} indexable post(s) from ${allPosts.length} total, ${myrealtripProducts.length} MyRealTrip product(s), ${myrealtripAccommodations.length} accommodation(s), ${myrealtripTnaProducts.length} TNA product(s), ${myrealtripFlights.length} flight deal(s).`);
+await fs.writeFile(INDEX_PATH, html(posts, myrealtripAccommodations, myrealtripTnaProducts, myrealtripFlights), "utf8");
+console.log(`Homepage rebuilt with ${posts.length} indexable post(s) from ${allPosts.length} total, ${myrealtripAccommodations.length} accommodation(s), ${myrealtripTnaProducts.length} TNA product(s), ${myrealtripFlights.length} flight deal(s).`);
