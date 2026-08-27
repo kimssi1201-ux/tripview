@@ -1,355 +1,5 @@
 [
   {
-    "id": "tna-6117848",
-    "type": "tna",
-    "title": "[부평] 스카이 롤러스케이트장",
-    "url": "https://experiences.myrealtrip.com/products/6117848",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/06/22/dKti/BFJsM8Pdlo.jpg",
-    "price": 10200,
-    "priceText": "10,200원부터",
-    "region": "인천",
-    "city": "인천",
-    "category": "액티비티",
-    "description": "인천 ∙ 액티비티 · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "인천",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "activity"
-    ],
-    "gid": "6117848",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/6117848",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-6117318",
-    "type": "tna",
-    "title": "[인천]월미도 유람선 해양관광 행복&관광크루즈",
-    "url": "https://experiences.myrealtrip.com/products/6117318",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/25/DN4J/T0DvsPq9mw",
-    "price": 11000,
-    "priceText": "11,000원부터",
-    "region": "인천",
-    "city": "인천",
-    "category": "액티비티",
-    "description": "인천 ∙ 액티비티 · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "인천",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "activity"
-    ],
-    "gid": "6117318",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/6117318",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-6114823",
-    "type": "tna",
-    "title": "[인천 청라] 청라국제롤러스케이트장 주중 이용권",
-    "url": "https://experiences.myrealtrip.com/products/6114823",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/06/11/i9Tu/2LX1etIhyu.jpg",
-    "price": 16000,
-    "priceText": "16,000원부터",
-    "region": "인천",
-    "city": "인천",
-    "category": "액티비티",
-    "description": "인천 ∙ 액티비티 · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "인천",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "activity"
-    ],
-    "gid": "6114823",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/6114823",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-6372675",
-    "type": "tna",
-    "title": "[서울크루즈] 아라뱃길크루즈 (아라김포여객터미널 출발)",
-    "url": "https://experiences.myrealtrip.com/products/6372675",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/25/ChZQ/fMIdXL7Q0p",
-    "price": 16200,
-    "priceText": "16,200원부터",
-    "region": "인천",
-    "city": "인천",
-    "category": "액티비티",
-    "description": "인천 ∙ 액티비티 · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "인천",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "activity"
-    ],
-    "gid": "6372675",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/6372675",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-6117099",
-    "type": "tna",
-    "title": "[인천 부평구] 방탈출 카페 : 방탈출고 (평일한정특가)",
-    "url": "https://experiences.myrealtrip.com/products/6117099",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/25/2a5T/DcSSszpIa4",
-    "price": 16900,
-    "priceText": "16,900원부터",
-    "region": "인천",
-    "city": "인천",
-    "category": "액티비티",
-    "description": "인천 ∙ 액티비티 · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "인천",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "activity"
-    ],
-    "gid": "6117099",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/6117099",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-6117319",
-    "type": "tna",
-    "title": "[인천]월미도 유람선 해양관광 썬셋&불꽃크루즈",
-    "url": "https://experiences.myrealtrip.com/products/6117319",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/25/wd7j/U9yjjpHcNw",
-    "price": 28000,
-    "priceText": "28,000원부터",
-    "region": "인천",
-    "city": "인천",
-    "category": "액티비티",
-    "description": "인천 ∙ 액티비티 · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "인천",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "activity"
-    ],
-    "gid": "6117319",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/6117319",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-5542880",
-    "type": "tna",
-    "title": "동나이 어메이징 베이 워터파크 티켓",
-    "url": "https://experiences.myrealtrip.com/products/5542880",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/12/11/Dswx/bu2fv3o9yd.jpg",
-    "price": 12041,
-    "priceText": "12,041원부터",
-    "region": "서울",
-    "city": "서울",
-    "category": "입장권",
-    "description": "서울 ∙ 입장권 · 평점 5(1개) · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "서울",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "transport",
-      "water"
-    ],
-    "gid": "5542880",
-    "reviewScore": 5,
-    "reviewCount": 1,
-    "deepLink": "mrt://experiences/detail/5542880",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-6131869",
-    "type": "tna",
-    "title": "[얼리버드] 빛의 시어터 : 딥 블루, 다시 흐르는 바다",
-    "url": "https://experiences.myrealtrip.com/products/6131869",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/06/18/4vsq/xzKWzBhu76.jpg",
-    "price": 13500,
-    "priceText": "13,500원부터",
-    "region": "서울",
-    "city": "서울",
-    "category": "입장권",
-    "description": "서울 ∙ 입장권 · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "서울",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "transport",
-      "water"
-    ],
-    "gid": "6131869",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/6131869",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-5915959",
-    "type": "tna",
-    "title": "[즉시확정]AREX 에이렉스 인천공항↔서울 공항철도 편도 티켓+올리브영 전자상품권",
-    "url": "https://experiences.myrealtrip.com/products/5915959",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/04/03/1GDc/oweMTwMyt0.jpg",
-    "price": 14188,
-    "priceText": "14,188원부터",
-    "region": "인천",
-    "city": "인천",
-    "category": "이동/교통편의",
-    "description": "인천 ∙ 이동/교통편의",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "인천"
-    ],
-    "intents": [
-      "booking",
-      "transport"
-    ],
-    "gid": "5915959",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/5915959",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-5868673",
-    "type": "tna",
-    "title": "아케아리오 디 리보르노: 입장권",
-    "url": "https://experiences.myrealtrip.com/products/5868673",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/26/krJ3/Kc8mJp4o4u.jpg",
-    "price": 16636,
-    "priceText": "16,636원부터",
-    "region": "서울",
-    "city": "서울",
-    "category": "티켓·입장권",
-    "description": "서울 ∙ 티켓·입장권 · 평점 4.4(82개) · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "서울",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "transport"
-    ],
-    "gid": "5868673",
-    "reviewScore": 4.4,
-    "reviewCount": 82,
-    "deepLink": "mrt://experiences/detail/5868673",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-6117267",
-    "type": "tna",
-    "title": "옐레드 더북한산점 애견유치원 애견호텔 이용권",
-    "url": "https://experiences.myrealtrip.com/products/6117267",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/25/6TS8/18S9dovC0U",
-    "price": 20000,
-    "priceText": "20,000원부터",
-    "region": "서울",
-    "city": "서울",
-    "category": "입장권",
-    "description": "서울 ∙ 입장권 · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "서울",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "transport"
-    ],
-    "gid": "6117267",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/6117267",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-6117969",
-    "type": "tna",
-    "title": "[경기] 시흥 공룡월드&키즈카페 그랜드오픈특가",
-    "url": "https://experiences.myrealtrip.com/products/6117969",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/06/22/NbWZ/cev7jtsaFA.jpg",
-    "price": 22000,
-    "priceText": "22,000원부터",
-    "region": "서울",
-    "city": "서울",
-    "category": "입장권",
-    "description": "서울 ∙ 입장권 · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "서울",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "transport",
-      "family"
-    ],
-    "gid": "6117969",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/6117969",
-    "source": "myrealtrip-tna"
-  },
-  {
     "id": "tna-3885193",
     "type": "tna",
     "title": "[서울/종로 가족체험] 술술 풀리는 창경궁 별빛 나들이 with 청사초롱",
@@ -1174,6 +824,182 @@
     "source": "myrealtrip-tna"
   },
   {
+    "id": "tna-5542880",
+    "type": "tna",
+    "title": "동나이 어메이징 베이 워터파크 티켓",
+    "url": "https://experiences.myrealtrip.com/products/5542880",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/12/11/Dswx/bu2fv3o9yd.jpg",
+    "price": 12041,
+    "priceText": "12,041원부터",
+    "region": "서울",
+    "city": "서울",
+    "category": "입장권",
+    "description": "서울 ∙ 입장권 · 평점 5(1개) · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "서울",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport",
+      "water"
+    ],
+    "gid": "5542880",
+    "reviewScore": 5,
+    "reviewCount": 1,
+    "deepLink": "mrt://experiences/detail/5542880",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6131869",
+    "type": "tna",
+    "title": "[얼리버드] 빛의 시어터 : 딥 블루, 다시 흐르는 바다",
+    "url": "https://experiences.myrealtrip.com/products/6131869",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/06/18/4vsq/xzKWzBhu76.jpg",
+    "price": 13500,
+    "priceText": "13,500원부터",
+    "region": "서울",
+    "city": "서울",
+    "category": "입장권",
+    "description": "서울 ∙ 입장권 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "서울",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport",
+      "water"
+    ],
+    "gid": "6131869",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/6131869",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-5915959",
+    "type": "tna",
+    "title": "[즉시확정]AREX 에이렉스 인천공항↔서울 공항철도 편도 티켓+올리브영 전자상품권",
+    "url": "https://experiences.myrealtrip.com/products/5915959",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/04/03/1GDc/oweMTwMyt0.jpg",
+    "price": 14188,
+    "priceText": "14,188원부터",
+    "region": "인천",
+    "city": "인천",
+    "category": "이동/교통편의",
+    "description": "인천 ∙ 이동/교통편의",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "인천"
+    ],
+    "intents": [
+      "booking",
+      "transport"
+    ],
+    "gid": "5915959",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/5915959",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-5868673",
+    "type": "tna",
+    "title": "아케아리오 디 리보르노: 입장권",
+    "url": "https://experiences.myrealtrip.com/products/5868673",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/26/krJ3/Kc8mJp4o4u.jpg",
+    "price": 16636,
+    "priceText": "16,636원부터",
+    "region": "서울",
+    "city": "서울",
+    "category": "티켓·입장권",
+    "description": "서울 ∙ 티켓·입장권 · 평점 4.4(82개) · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "서울",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport"
+    ],
+    "gid": "5868673",
+    "reviewScore": 4.4,
+    "reviewCount": 82,
+    "deepLink": "mrt://experiences/detail/5868673",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6117267",
+    "type": "tna",
+    "title": "옐레드 더북한산점 애견유치원 애견호텔 이용권",
+    "url": "https://experiences.myrealtrip.com/products/6117267",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/25/6TS8/18S9dovC0U",
+    "price": 20000,
+    "priceText": "20,000원부터",
+    "region": "서울",
+    "city": "서울",
+    "category": "입장권",
+    "description": "서울 ∙ 입장권 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "서울",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport"
+    ],
+    "gid": "6117267",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/6117267",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6117969",
+    "type": "tna",
+    "title": "[경기] 시흥 공룡월드&키즈카페 그랜드오픈특가",
+    "url": "https://experiences.myrealtrip.com/products/6117969",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/06/22/NbWZ/cev7jtsaFA.jpg",
+    "price": 22000,
+    "priceText": "22,000원부터",
+    "region": "서울",
+    "city": "서울",
+    "category": "입장권",
+    "description": "서울 ∙ 입장권 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "서울",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport",
+      "family"
+    ],
+    "gid": "6117969",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/6117969",
+    "source": "myrealtrip-tna"
+  },
+  {
     "id": "tna-6211683",
     "type": "tna",
     "title": "[울산] 찜질방 태화강참숯가마(울산 가볼만한곳~!)",
@@ -1287,6 +1113,180 @@
     "reviewScore": "",
     "reviewCount": "",
     "deepLink": "mrt://experiences/detail/6264569",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6117848",
+    "type": "tna",
+    "title": "[부평] 스카이 롤러스케이트장",
+    "url": "https://experiences.myrealtrip.com/products/6117848",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/06/22/dKti/BFJsM8Pdlo.jpg",
+    "price": 10200,
+    "priceText": "10,200원부터",
+    "region": "인천",
+    "city": "인천",
+    "category": "액티비티",
+    "description": "인천 ∙ 액티비티 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "인천",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "activity"
+    ],
+    "gid": "6117848",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/6117848",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6117318",
+    "type": "tna",
+    "title": "[인천]월미도 유람선 해양관광 행복&관광크루즈",
+    "url": "https://experiences.myrealtrip.com/products/6117318",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/25/DN4J/T0DvsPq9mw",
+    "price": 11000,
+    "priceText": "11,000원부터",
+    "region": "인천",
+    "city": "인천",
+    "category": "액티비티",
+    "description": "인천 ∙ 액티비티 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "인천",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "activity"
+    ],
+    "gid": "6117318",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/6117318",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6114823",
+    "type": "tna",
+    "title": "[인천 청라] 청라국제롤러스케이트장 주중 이용권",
+    "url": "https://experiences.myrealtrip.com/products/6114823",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/06/11/i9Tu/2LX1etIhyu.jpg",
+    "price": 16000,
+    "priceText": "16,000원부터",
+    "region": "인천",
+    "city": "인천",
+    "category": "액티비티",
+    "description": "인천 ∙ 액티비티 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "인천",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "activity"
+    ],
+    "gid": "6114823",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/6114823",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6372675",
+    "type": "tna",
+    "title": "[서울크루즈] 아라뱃길크루즈 (아라김포여객터미널 출발)",
+    "url": "https://experiences.myrealtrip.com/products/6372675",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/25/ChZQ/fMIdXL7Q0p",
+    "price": 16200,
+    "priceText": "16,200원부터",
+    "region": "인천",
+    "city": "인천",
+    "category": "액티비티",
+    "description": "인천 ∙ 액티비티 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "인천",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "activity"
+    ],
+    "gid": "6372675",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/6372675",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6117099",
+    "type": "tna",
+    "title": "[인천 부평구] 방탈출 카페 : 방탈출고 (평일한정특가)",
+    "url": "https://experiences.myrealtrip.com/products/6117099",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/25/2a5T/DcSSszpIa4",
+    "price": 16900,
+    "priceText": "16,900원부터",
+    "region": "인천",
+    "city": "인천",
+    "category": "액티비티",
+    "description": "인천 ∙ 액티비티 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "인천",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "activity"
+    ],
+    "gid": "6117099",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/6117099",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6117319",
+    "type": "tna",
+    "title": "[인천]월미도 유람선 해양관광 썬셋&불꽃크루즈",
+    "url": "https://experiences.myrealtrip.com/products/6117319",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/25/wd7j/U9yjjpHcNw",
+    "price": 28000,
+    "priceText": "28,000원부터",
+    "region": "인천",
+    "city": "인천",
+    "category": "액티비티",
+    "description": "인천 ∙ 액티비티 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "인천",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "activity"
+    ],
+    "gid": "6117319",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/6117319",
     "source": "myrealtrip-tna"
   },
   {

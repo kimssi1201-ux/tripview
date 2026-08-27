@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="naver-site-verification" content="38616b4b4209994ed384d0d2439bddcbec2cc711" />
+    <meta name="description" content="광주 지역의 여행지와 축제 글을 최신순으로 모았습니다. 지역 소개와 함께 관련 글, 추천 숙소를 한 번에 확인하세요.">
+    <link rel="canonical" href="https://tripview.kr/region/gwangju/">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
+    <title>광주 여행 허브 - 트립뷰</title>
+    <style>
+
+:root{--brand:#0F5C5C;--brand-hover:#147A7A;--bg:#FAFAF8;--card:#FFFFFF;--ink:#1A1A1A;--muted:#6B6B6B;--line:#E5E5E0;--cta:#E8A33D;--cta-hover:#D18F2A;--soft-teal:color-mix(in srgb,var(--brand) 9%,var(--card));--soft-cta:color-mix(in srgb,var(--cta) 16%,var(--card));--site-wrap:min(1180px,calc(100% - 32px))}
+*{box-sizing:border-box}
+html{scroll-padding-top:96px;overflow-x:hidden}
+body{margin:0;overflow-x:hidden;background:var(--bg);color:var(--ink);font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;font-size:16px;line-height:1.7;letter-spacing:0}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%;object-fit:cover;background:var(--card)}
+button,input,select{font:inherit}
+:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.site-header{position:sticky;top:0;z-index:300;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:saturate(180%) blur(12px)}
+.site-header-inner{width:var(--site-wrap);margin:0 auto;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:24px;min-height:72px}
+.site-brand{display:inline-flex;align-items:center;min-height:44px;color:var(--ink);font-size:22px;font-weight:900;line-height:1}
+.site-nav{display:flex;align-items:center;justify-content:center;gap:8px}
+.site-nav-main{display:flex;align-items:center;gap:8px}
+.site-home-link,.nav-summary{display:inline-flex;align-items:center;min-height:36px;padding:0 12px;border:0;border-radius:999px;background:transparent;color:var(--muted);font-size:14px;font-weight:800;cursor:pointer;transition:color 150ms ease,background-color 150ms ease}
+.site-home-link.is-active,.nav-group.is-active>.nav-summary{background:var(--soft-teal);color:var(--brand)}
+.nav-group.is-affiliate.is-active>.nav-summary{background:var(--soft-cta);color:var(--ink)}
+.nav-group{position:relative}
+.nav-group>summary{list-style:none}
+.nav-group>summary::-webkit-details-marker{display:none}
+.nav-summary::after{content:"";width:5px;height:5px;margin-left:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px)}
+.nav-dropdown{position:absolute;left:0;top:calc(100% + 10px);z-index:420;display:none;width:300px;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--card);box-shadow:0 12px 28px color-mix(in srgb,var(--ink) 14%,transparent)}
+.nav-group[open] .nav-dropdown{display:grid}
+.nav-dropdown a{display:flex;align-items:flex-start;gap:12px;padding:10px;border-radius:8px;transition:background-color 150ms ease}
+.nav-dropdown a:hover,.nav-dropdown a:focus-visible{background:var(--soft-teal)}
+.nav-item-icon{display:inline-grid;flex:0 0 32px;place-items:center;width:32px;height:32px;border:1px solid var(--line);border-radius:8px;color:var(--brand);font-size:12px;font-weight:900}
+.nav-group.is-affiliate .nav-item-icon{color:var(--cta)}
+.nav-item-text{display:grid;flex:1 1 auto;min-width:0;gap:2px}
+.nav-item-label{color:var(--ink);font-size:14px;font-weight:800;line-height:1.35}
+.nav-item-desc{color:var(--muted);font-size:12px;line-height:1.45}
+.nav-item-count{color:var(--muted);font-size:11px;font-weight:800;line-height:1.35}
+.site-search{position:relative}
+.site-search>summary{list-style:none;cursor:pointer}
+.site-search>summary::-webkit-details-marker{display:none}
+.site-search-link{display:grid;place-items:center;min-width:44px;min-height:44px;border:1px solid transparent;border-radius:999px;color:var(--ink);font-size:23px;line-height:1;transition:background-color 150ms ease,border-color 150ms ease}
+.site-search-link:hover,.site-search-link:focus-visible{border-color:var(--line);background:var(--card)}
+.site-search-panel{position:absolute;right:0;top:calc(100% + 10px);z-index:420;display:none;width:340px;max-width:calc(100vw - 32px);padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--card);box-shadow:0 12px 28px color-mix(in srgb,var(--ink) 14%,transparent)}
+.site-search[open] .site-search-panel{display:block}
+.site-search-input{width:100%;min-height:40px;padding:0 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font-size:14px}
+.site-search-results{display:grid;gap:2px;margin-top:8px;max-height:360px;overflow-y:auto}
+.site-search-results a{display:grid;gap:2px;padding:8px 10px;border-radius:8px;transition:background-color 150ms ease}
+.site-search-results a:hover,.site-search-results a:focus-visible{background:var(--soft-teal)}
+.site-search-result-title{display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;color:var(--ink);font-size:14px;font-weight:800;line-height:1.35}
+.site-search-result-meta{color:var(--muted);font-size:12px;line-height:1.4}
+.site-search-empty,.site-search-hint{margin:4px 2px 0;color:var(--muted);font-size:13px}
+.site-mobile-categories{display:none}
+.site-page{width:var(--site-wrap);margin:0 auto;padding:48px 0 64px}
+.site-section{padding:48px 0}
+.site-section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:16px}
+.site-section-head h2{margin:0;font-size:20px;line-height:1.35;font-weight:800}
+.site-section-more{color:var(--brand);font-size:14px;font-weight:800}
+.story-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.story-card{display:block;min-width:0;border:1px solid var(--line);border-radius:8px;background:var(--card);overflow:hidden;transition:border-color 150ms ease}
+.story-card:hover,.story-card:focus-visible{border-color:var(--brand)}
+.story-thumb{position:relative;display:block;width:100%;aspect-ratio:16/10;overflow:hidden;background:var(--card)}
+.story-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.story-card-body{display:grid;gap:8px;padding:16px}
+.story-label{color:var(--brand);font-size:12px;font-weight:800;line-height:1.3}
+.story-card strong{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin:0;color:var(--ink);font-size:18px;line-height:1.35;font-weight:800}
+.story-card p{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin:0;color:var(--muted);font-size:14px;line-height:1.55}
+.story-meta{color:var(--muted);font-size:12px;line-height:1.4}
+.site-footer{border-top:1px solid var(--line);background:var(--card)}
+.site-footer-inner{width:var(--site-wrap);margin:0 auto;display:grid;grid-template-columns:1.2fr repeat(4,minmax(0,.8fr));gap:24px;padding:40px 0}
+.footer-brand strong{display:block;margin-bottom:8px;color:var(--ink);font-size:22px;font-weight:900}
+.footer-brand p,.footer-business,.site-footer a{color:var(--muted);font-size:13px;line-height:1.65}
+.footer-col{display:grid;align-content:start;gap:7px}
+.footer-col b{margin-bottom:4px;color:var(--ink);font-size:14px}
+.footer-bottom{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px 12px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
+.cta-link{display:inline-flex;align-items:center;justify-content:center;min-height:44px;border-radius:8px;background:var(--cta);color:var(--card);font-weight:800;transition:background-color 150ms ease}
+.cta-link:hover,.cta-link:focus-visible{background:var(--cta-hover)}
+@media(max-width:900px){
+  :root{--site-wrap:min(720px,calc(100% - 32px))}
+  .site-header-inner{grid-template-columns:1fr auto;gap:8px;min-height:64px}
+  .site-nav{display:none}
+  .site-mobile-categories{display:flex;gap:8px;width:100%;padding:0 16px 12px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .site-mobile-categories::-webkit-scrollbar{display:none}
+  .site-mobile-category{flex:0 0 auto;display:inline-flex;align-items:center;min-height:34px;padding:0 14px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--muted);font-size:13px;font-weight:800;white-space:nowrap;transition:color 150ms ease,background-color 150ms ease,border-color 150ms ease}
+  .site-mobile-category.is-current{background:var(--soft-teal);color:var(--brand);border-color:transparent}
+  .site-page{padding:32px 0 48px}
+  .site-section{padding:32px 0}
+  .story-grid{grid-template-columns:1fr;gap:16px}
+  .site-footer-inner{grid-template-columns:1fr;gap:20px;padding:32px 0}
+  .site-search-link{font-size:22px}
+  .site-search-panel{position:fixed;left:16px;right:16px;top:64px;width:auto;max-width:none}
+  .data-table{background:linear-gradient(to right,var(--card) 30%,color-mix(in srgb,var(--card) 0%,transparent)),linear-gradient(to left,var(--card) 30%,color-mix(in srgb,var(--card) 0%,transparent)) 100% 0,radial-gradient(farthest-side at 0 50%,color-mix(in srgb,var(--ink) 14%,transparent),transparent),radial-gradient(farthest-side at 100% 50%,color-mix(in srgb,var(--ink) 14%,transparent),transparent) 100% 0;background-attachment:local,local,scroll,scroll;background-repeat:no-repeat;background-size:36px 100%,36px 100%,14px 100%,14px 100%}
+}
+@media(max-width:520px){body{font-size:15px}.site-section-head h2{font-size:19px}.story-card strong{font-size:17px}.story-card-body{padding:14px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:0.01ms!important;animation-duration:0.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+.hub-page{padding-top:32px}
+.hub-banner{display:grid;gap:10px;margin-bottom:24px;padding:24px;border:1px solid var(--line);border-radius:8px;background:var(--soft-teal)}
+.hub-banner.has-image{grid-template-columns:minmax(0,1fr) minmax(280px,.42fr);align-items:center;gap:20px}
+.hub-banner-copy{display:grid;gap:10px;min-width:0}
+.hub-banner-image{margin:0;overflow:hidden;border-radius:8px;background:var(--card)}
+.hub-banner-image img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:center}
+.hub-banner-image figcaption{padding:8px 10px;color:var(--muted);font-size:11px;line-height:1.45}
+.hub-banner h1{margin:0;font-size:28px;line-height:1.35;font-weight:900}
+.hub-banner p{max-width:720px;margin:0;color:var(--muted);line-height:1.7}
+.kicker{display:block;color:var(--brand);font-size:12px;font-weight:900}
+.banner-count{justify-self:start;color:var(--brand);font-size:13px;font-weight:900}
+.tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.tag-row a,.tag-row span{display:inline-flex;align-items:center;min-height:36px;border:1px solid var(--line);border-radius:999px;padding:0 12px;background:var(--card);color:var(--muted);font-size:13px;font-weight:800}
+.block{padding:48px 0;border-bottom:1px solid var(--line)}
+.block-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:16px}
+.block h2{margin:0;font-size:20px;line-height:1.35;font-weight:800}
+.block-note,.affiliate-note{margin:0;color:var(--muted);font-size:13px}
+.story-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.story-list .story-card{height:100%}
+.stay-slot{margin-right:calc((100vw - min(1180px,calc(100vw - 32px))) / -2);margin-left:calc((100vw - min(1180px,calc(100vw - 32px))) / -2);padding-right:calc((100vw - min(1180px,calc(100vw - 32px))) / 2);padding-left:calc((100vw - min(1180px,calc(100vw - 32px))) / 2);background:color-mix(in srgb,var(--brand) 5%,var(--bg))}
+.mrt-accommodation-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.mrt-accommodation-grid[data-count="1"]{grid-template-columns:minmax(0,1fr)}
+.mrt-accommodation-grid[data-count="2"]{grid-template-columns:repeat(2,minmax(0,1fr))}
+.mrt-accommodation-card{position:relative;display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;align-items:center;min-width:0;padding:12px;border:1px solid var(--line);border-left:3px solid var(--cta);border-radius:8px;background:var(--card);transition:border-color 150ms ease}
+.mrt-accommodation-card:hover,.mrt-accommodation-card:focus-visible{border-color:var(--brand);border-left-color:var(--cta)}
+.mrt-accommodation-thumb{position:relative;display:block;width:100%;aspect-ratio:16/10;overflow:hidden;background:var(--card)}
+.mrt-accommodation-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.mrt-accommodation-body{display:grid;gap:4px;min-width:0}
+.mrt-accommodation-body strong{font-size:15px;line-height:1.35;font-weight:800}
+.mrt-accommodation-body em,.mrt-accommodation-meta{display:block;color:var(--muted);font-size:12px;font-style:normal}
+.mrt-accommodation-badge{justify-self:start;border-radius:999px;background:var(--cta);color:var(--card);padding:2px 7px;font-size:11px;font-weight:900;line-height:1.35}
+.mrt-accommodation-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:5px}
+.mrt-accommodation-price del{color:var(--muted);font-size:12px}
+.mrt-accommodation-price strong{font-size:16px;color:var(--ink)}
+.mrt-accommodation-price small{flex-basis:100%;color:var(--muted);font-size:11px}
+.article-product-cta{justify-self:start;display:inline-flex;align-items:center;min-height:28px;margin-top:2px;padding:0 9px;border-radius:999px;background:var(--cta);color:var(--card);font-size:12px;font-weight:900}
+.mrt-ticket-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.mrt-ticket-card{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;align-items:center;min-width:0;padding:12px;border:1px solid var(--line);border-left:3px solid var(--cta);border-radius:8px;background:var(--card);transition:border-color 150ms ease}
+.mrt-ticket-card:hover,.mrt-ticket-card:focus-visible{border-color:var(--brand);border-left-color:var(--cta)}
+.mrt-ticket-thumb{position:relative;display:block;width:100%;aspect-ratio:16/10;overflow:hidden;background:var(--card)}
+.mrt-ticket-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.product-thumb{position:relative;display:block;width:100%;aspect-ratio:16/10;overflow:hidden;background:var(--card)}
+.product-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.mrt-ticket-body{display:grid;gap:4px;min-width:0}
+.mrt-ticket-body strong{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:15px;line-height:1.35;font-weight:800}
+.mrt-ticket-body em{color:var(--muted);font-size:12px;font-style:normal}
+.mrt-ticket-price{color:var(--ink);font-size:16px;font-weight:900}
+.booking-page{display:grid;gap:0}
+.booking-conditions{padding-top:24px}
+.booking-condition-list{display:grid;gap:10px}
+.booking-condition{border:1px solid var(--line);border-radius:8px;background:var(--card);overflow:hidden}
+.booking-condition summary{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:56px;padding:0 16px;cursor:pointer;list-style:none}
+.booking-condition summary::-webkit-details-marker{display:none}
+.booking-condition-title{display:grid;gap:2px;min-width:0}
+.booking-condition-title strong{font-size:16px;line-height:1.35;font-weight:900}
+.booking-condition-title em{color:var(--muted);font-size:13px;font-style:normal;line-height:1.35}
+.booking-condition-toggle{color:var(--muted);font-size:12px;font-weight:900}
+.booking-condition p{margin:0;padding:0 16px 12px;color:var(--muted);font-size:14px}
+.booking-condition a{display:inline-flex;align-items:center;min-height:40px;margin:0 16px 16px;color:var(--brand);font-size:13px;font-weight:900}
+.booking-affiliate-box{padding:18px 16px;border:1px solid color-mix(in srgb,var(--cta) 28%,var(--line));border-radius:8px;background:var(--soft-cta)}
+.booking-affiliate-box strong{display:block;margin-bottom:4px;font-size:17px;line-height:1.35}
+.booking-affiliate-box p{margin:0;color:var(--muted);font-size:14px}
+.booking-checklist{display:grid;gap:6px;margin:14px 0 0;padding:0;list-style:none;color:var(--muted);font-size:14px}
+.booking-checklist li{padding-left:14px;position:relative}
+.booking-checklist li::before{content:"";position:absolute;left:0;top:.75em;width:4px;height:4px;border-radius:999px;background:var(--cta)}
+.booking-city-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.booking-city-card{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:64px;padding:14px 16px;border:1px solid var(--line);border-radius:8px;background:var(--card);transition:border-color 150ms ease}
+.booking-city-card:hover,.booking-city-card:focus-visible{border-color:var(--brand)}
+.booking-city-card strong{font-size:17px;line-height:1.35;font-weight:900}
+.booking-city-card span{color:var(--muted);font-size:13px;font-weight:800}
+.booking-product-list{display:grid;gap:12px}
+.booking-product-card{display:grid;grid-template-columns:132px minmax(0,1fr);gap:14px;align-items:center;min-height:132px;padding:12px;border:1px solid var(--line);border-radius:8px;background:var(--card);transition:border-color 150ms ease}
+.booking-product-card:hover,.booking-product-card:focus-visible{border-color:var(--brand)}
+.booking-product-thumb{position:relative;display:block;width:100%;aspect-ratio:16/10;overflow:hidden;border-radius:8px;background:var(--card)}
+.booking-product-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.booking-product-body{display:grid;gap:5px;min-width:0}
+.booking-product-region{color:var(--brand);font-size:12px;font-weight:900;line-height:1.35}
+.booking-product-title{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:17px;line-height:1.35;font-weight:900}
+.booking-product-rating{color:var(--muted);font-size:13px;line-height:1.4}
+.booking-product-price{color:var(--cta);font-size:18px;font-weight:900;line-height:1.25}
+.booking-product-meta{color:var(--muted);font-size:12px;line-height:1.35}
+.booking-product-cta{display:flex;justify-content:center;margin-top:18px}
+.booking-product-cta a{display:inline-flex;align-items:center;justify-content:center;min-width:220px;min-height:48px;padding:0 18px;border-radius:8px;background:var(--cta);color:var(--card);font-weight:900;transition:background-color 150ms ease}
+.booking-product-cta a:hover,.booking-product-cta a:focus-visible{background:var(--cta-hover)}
+.subregion-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.subregion-card{display:block;border:1px solid var(--line);border-radius:8px;background:var(--card);padding:16px;transition:border-color 150ms ease}
+.subregion-card:hover,.subregion-card:focus-visible{border-color:var(--brand)}
+.subregion-card strong{display:block;font-size:17px;line-height:1.35}
+.subregion-card span{display:block;margin-top:6px;color:var(--muted);font-size:13px}
+.empty-slot{margin:0;padding:16px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--muted)}
+@media(max-width:900px){.hub-page{padding-top:24px}.hub-banner,.hub-banner.has-image{grid-template-columns:1fr;padding:18px}.hub-banner h1{font-size:25px}.block{padding:32px 0}.block-head{display:block}.block-note{margin-top:4px}.story-list,.subregion-grid,.mrt-accommodation-grid,.mrt-ticket-grid{grid-template-columns:1fr}.mrt-accommodation-card,.mrt-ticket-card{grid-template-columns:90px minmax(0,1fr)}.booking-product-card{grid-template-columns:104px minmax(0,1fr);min-height:116px}.booking-city-grid{gap:8px}}
+@media(max-width:520px){.booking-city-grid{grid-template-columns:1fr}.booking-product-card{grid-template-columns:96px minmax(0,1fr);gap:12px;padding:10px}.booking-product-title{font-size:15px}.booking-product-price{font-size:16px}}</style>
+  </head>
+  <body>
+    <header class="site-header" data-site-header>
+    <div class="site-header-inner">
+      <a class="site-brand" href="/">트립뷰</a>
+      <nav class="site-nav site-nav-desktop" aria-label="주요 메뉴">
+        <div class="site-nav-main">
+          <a class="site-home-link" href="/">홈</a>
+          <details class="nav-group is-active">
+      <summary class="nav-summary">여행지</summary>
+      <div class="nav-dropdown">
+        <a href="/region/"><span class="nav-item-icon" aria-hidden="true">지</span><span class="nav-item-text"><span class="nav-item-label">지역별</span><span class="nav-item-desc">지역 허브에서 글과 숙소를 함께 봅니다.</span></span></a><a href="/travel/#tag-water"><span class="nav-item-icon" aria-hidden="true">테</span><span class="nav-item-text"><span class="nav-item-label">테마별</span><span class="nav-item-desc">물놀이·실내·아이와 태그를 모았습니다.</span></span></a><a href="/travel/#all-posts"><span class="nav-item-icon" aria-hidden="true">전</span><span class="nav-item-text"><span class="nav-item-label">전국 관광지</span><span class="nav-item-desc">검수된 전국 여행지 글 목록입니다.</span></span></a>
+      </div>
+    </details><details class="nav-group">
+      <summary class="nav-summary">축제·행사</summary>
+      <div class="nav-dropdown">
+        <a href="/festival/#ongoing"><span class="nav-item-icon" aria-hidden="true">진</span><span class="nav-item-text"><span class="nav-item-label">진행 중</span><span class="nav-item-desc">오늘 기준 진행 중인 축제입니다.</span></span></a><a href="/festival/#upcoming"><span class="nav-item-icon" aria-hidden="true">예</span><span class="nav-item-text"><span class="nav-item-label">예정</span><span class="nav-item-desc">방문 계획을 잡기 좋은 예정 축제입니다.</span></span></a><a href="/festival/#past"><span class="nav-item-icon" aria-hidden="true">종</span><span class="nav-item-text"><span class="nav-item-label">지난 축제</span><span class="nav-item-desc">종료된 축제는 목록 하단에 둡니다.</span></span></a>
+      </div>
+    </details><details class="nav-group is-affiliate">
+      <summary class="nav-summary">숙소·예약</summary>
+      <div class="nav-dropdown">
+        <a href="/stay/"><span class="nav-item-icon" aria-hidden="true">숙</span><span class="nav-item-text"><span class="nav-item-label">숙소</span><span class="nav-item-desc">위치와 취소 조건을 비교합니다.</span></span></a><a href="/ticket/"><span class="nav-item-icon" aria-hidden="true">권</span><span class="nav-item-text"><span class="nav-item-label">입장권·투어</span><span class="nav-item-desc">운영 시간과 포함 사항을 비교합니다.</span></span></a><a href="/data-stay-price-seoul/"><span class="nav-item-icon" aria-hidden="true">가</span><span class="nav-item-text"><span class="nav-item-label">숙소 가격 비교</span><span class="nav-item-desc">주말 숙소 요금을 비교합니다.</span></span></a>
+      </div>
+    </details>
+        </div>
+      </nav>
+      <details class="site-search" data-site-search>
+        <summary class="site-search-link" aria-label="검색">⌕</summary>
+        <div class="site-search-panel">
+          <input type="search" class="site-search-input" data-site-search-input placeholder="여행지·축제·지역 검색" autocomplete="off" aria-label="검색어 입력">
+          <div class="site-search-results" data-site-search-results><p class="site-search-hint">여행지, 축제, 지역 이름으로 검색해보세요.</p></div>
+        </div>
+      </details>
+    </div>
+    <nav class="site-mobile-categories" aria-label="카테고리"><a class="site-mobile-category" href="/">홈</a><a class="site-mobile-category" href="/travel/">여행지</a><a class="site-mobile-category" href="/festival/">축제·행사</a><a class="site-mobile-category" href="/stay/">숙소</a><a class="site-mobile-category" href="/ticket/">입장권·투어</a></nav>
+  </header>
+    <main class="site-page hub-page">
+      <section class="hub-banner has-image">
+        <div class="hub-banner-copy">
+          <span class="kicker">REGION HUB</span>
+          <h1>광주 여행 허브</h1>
+          <p>광주 지역의 여행지와 축제 글을 최신순으로 모았습니다. 지역 소개와 함께 관련 글, 추천 숙소를 한 번에 확인하세요.</p>
+          <span class="banner-count">1개 글</span>
+          <div class="tag-row"><a href="/travel/">여행지</a><a href="/festival/">축제</a><a href="/stay/">숙소</a><a href="/ticket/">입장권·투어</a></div>
+        </div>
+        <figure class="hub-banner-image"><img src="/assets/processed/gwangju-naju-dang-parking-banner.webp" alt="광주 나주당 주차·동선 정보를 담은 트립뷰 지역 허브 배너" loading="lazy"><figcaption>출처: 한국관광공사 공공누리 · 트립뷰 편집 배너</figcaption></figure>
+      </section>
+      <section class="block" id="region-intro" aria-labelledby="region-intro-title"><div class="block-head"><div><span class="kicker">REGION</span><h2 id="region-intro-title">광주 여행 소개</h2></div><p class="block-note">1개 글</p></div><p>광주 여행은 계절 행사, 실내 명소, 자연 여행지를 함께 보면 동선 선택이 쉬워집니다. 아래 목록에서 방문 목적에 맞는 글을 먼저 확인하고, 숙소는 일정이 정해진 뒤 비교용으로 활용하세요.</p></section><section class="block stay-slot" id="accommodation-cards" aria-labelledby="accommodation-cards-title">
+    <div class="block-head">
+      <div><span class="kicker">STAY</span><h2 id="accommodation-cards-title">광주 추천 숙소</h2></div>
+      <p class="block-note">광주 글 기준 추천</p>
+    </div>
+    <p class="affiliate-note">성인 2명 기준 주말 1박 요금입니다. 예약 화면에서 날짜와 취소 조건을 다시 확인하세요.</p>
+    <div class="mrt-accommodation-grid" data-count="6"><a class="mrt-accommodation-card" data-mrt-accommodation-card href="https://accommodation.myrealtrip.com/union/products/4419170?checkIn=2026-08-28&amp;checkOut=2026-08-30&amp;adultCount=2&amp;childCount=0&amp;childAges=" rel="sponsored nofollow" target="_blank">
+    <span class="mrt-accommodation-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/06/06/hV0t/kusQP92f8f.jpg?width=720" alt="메종 드 온유 호텔 광주 첨단점" loading="lazy"></span>
+    <span class="mrt-accommodation-body">
+
+      <strong>메종 드 온유 호텔 광주 첨단점</strong>
+      <span class="mrt-accommodation-meta">3성급 · 평점 4.9 · 리뷰 37개</span>
+      <span class="mrt-accommodation-price"><strong>90,675원</strong><small>성인 2인 · 8월 28일 체크인</small></span>
+      <span class="article-product-cta">예약하기</span>
+    </span>
+  </a><a class="mrt-accommodation-card" data-mrt-accommodation-card href="https://accommodation.myrealtrip.com/union/products/1636437?checkIn=2026-08-28&amp;checkOut=2026-08-30&amp;adultCount=2&amp;childCount=0&amp;childAges=" rel="sponsored nofollow" target="_blank">
+    <span class="mrt-accommodation-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2023/09/07/HnVQ/5qYVVEkjKz.jpg?width=720" alt="호텔 써밋" loading="lazy"></span>
+    <span class="mrt-accommodation-body">
+
+      <strong>호텔 써밋</strong>
+      <span class="mrt-accommodation-meta">3성급 · 평점 4.7 · 리뷰 141개</span>
+      <span class="mrt-accommodation-price"><strong>78,363원</strong><small>성인 2인 · 8월 28일 체크인</small></span>
+      <span class="article-product-cta">예약하기</span>
+    </span>
+  </a><a class="mrt-accommodation-card" data-mrt-accommodation-card href="https://accommodation.myrealtrip.com/union/products/1244239?checkIn=2026-08-28&amp;checkOut=2026-08-30&amp;adultCount=2&amp;childCount=0&amp;childAges=" rel="sponsored nofollow" target="_blank">
+    <span class="mrt-accommodation-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/05/11/4xzN/uFbiRY4HbQ.jpg?width=720" alt="하운드호텔 광주 첨단점" loading="lazy"></span>
+    <span class="mrt-accommodation-body">
+      <span class="mrt-accommodation-badge">49% 할인</span>
+      <strong>하운드호텔 광주 첨단점</strong>
+      <span class="mrt-accommodation-meta">3성급 · 평점 4.7 · 리뷰 120개</span>
+      <span class="mrt-accommodation-price"><del>170,000원</del><strong>87,500원</strong><small>성인 2인 · 8월 28일 체크인</small></span>
+      <span class="article-product-cta">예약하기</span>
+    </span>
+  </a><a class="mrt-accommodation-card" data-mrt-accommodation-card href="https://accommodation.myrealtrip.com/union/products/1553400?checkIn=2026-08-28&amp;checkOut=2026-08-30&amp;adultCount=2&amp;childCount=0&amp;childAges=" rel="sponsored nofollow" target="_blank">
+    <span class="mrt-accommodation-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/11/12/l3Co/d9YESvT9Kv.jpg?width=720" alt="CS 호텔" loading="lazy"></span>
+    <span class="mrt-accommodation-body">
+
+      <strong>CS 호텔</strong>
+      <span class="mrt-accommodation-meta">3성급 · 평점 4.7 · 리뷰 776개</span>
+      <span class="mrt-accommodation-price"><strong>125,147원</strong><small>성인 2인 · 8월 28일 체크인</small></span>
+      <span class="article-product-cta">예약하기</span>
+    </span>
+  </a><a class="mrt-accommodation-card" data-mrt-accommodation-card href="https://accommodation.myrealtrip.com/union/products/3604294?checkIn=2026-08-28&amp;checkOut=2026-08-30&amp;adultCount=2&amp;childCount=0&amp;childAges=" rel="sponsored nofollow" target="_blank">
+    <span class="mrt-accommodation-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/05/11/H7LE/mx9wdsrKg7.jpg?width=720" alt="브라운도트 호텔 풍암점" loading="lazy"></span>
+    <span class="mrt-accommodation-body">
+
+      <strong>브라운도트 호텔 풍암점</strong>
+      <span class="mrt-accommodation-meta">3성급 · 평점 4.6 · 리뷰 104개</span>
+      <span class="mrt-accommodation-price"><strong>60,500원</strong><small>성인 2인 · 8월 28일 체크인</small></span>
+      <span class="article-product-cta">예약하기</span>
+    </span>
+  </a><a class="mrt-accommodation-card" data-mrt-accommodation-card href="https://accommodation.myrealtrip.com/union/products/1273713?checkIn=2026-08-28&amp;checkOut=2026-08-30&amp;adultCount=2&amp;childCount=0&amp;childAges=" rel="sponsored nofollow" target="_blank">
+    <span class="mrt-accommodation-thumb"><img src="https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/05/11/SCX2/G7rCdBwEpI.jpg?width=720" alt="마드리드 호텔 광주" loading="lazy"></span>
+    <span class="mrt-accommodation-body">
+
+      <strong>마드리드 호텔 광주</strong>
+      <span class="mrt-accommodation-meta">3성급 · 평점 4.6 · 리뷰 672개</span>
+      <span class="mrt-accommodation-price"><strong>92,622원</strong><small>성인 2인 · 8월 28일 체크인</small></span>
+      <span class="article-product-cta">예약하기</span>
+    </span>
+  </a></div>
+  </section>
+    </main>
+    <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="footer-brand">
+        <strong>트립뷰</strong>
+        <p>국내 여행지, 축제, 숙소 예약 정보를 지역과 목적별로 정리합니다.</p>
+      </div>
+      <div class="footer-col">
+        <b>카테고리</b>
+        <a href="/travel/">여행지</a>
+        <a href="/festival/">축제·행사</a>
+        <a href="/stay/">숙소</a>
+        <a href="/ticket/">입장권·투어</a>
+      </div>
+      <div class="footer-col">
+        <b>지역 허브</b>
+        <a href="/region/gangwon/">강원</a><a href="/region/gyeonggi/">경기</a><a href="/region/gyeongnam/">경남</a><a href="/region/gyeongbuk/">경북</a><a href="/region/gwangju/">광주</a><a href="/region/busan/">부산</a><a href="/region/seoul/">서울</a><a href="/region/sejong/">세종</a>
+      </div>
+      <div class="footer-col">
+        <b>운영</b>
+        <a href="/editorial-team">편집팀</a>
+        <a href="/editorial-policy">콘텐츠 운영 기준</a>
+        <a href="/affiliate-disclosure">제휴 안내</a>
+      </div>
+      <div class="footer-col">
+        <b>정책</b>
+        <a href="/privacy">개인정보처리방침</a>
+        <a href="/terms">이용약관</a>
+        <a href="/sitemap.xml">사이트맵</a>
+        <a href="/contact">문의</a>
+      </div>
+      <div class="footer-bottom">
+        <span>사업자 정보: 트립뷰 콘텐츠 운영</span>
+        <span>Copyright 2026 Tripview.</span>
+      </div>
+    </div>
+  </footer>
+    <script data-site-nav-script>
+    (() => {
+      const header = document.querySelector("[data-site-header]");
+      if (!header) return;
+      const groups = Array.from(header.querySelectorAll(".site-nav-desktop .nav-group"));
+      const closeGroups = (except) => {
+        groups.forEach((group) => {
+          if (group !== except) {
+            group.removeAttribute("open");
+            delete group.dataset.openedByHover;
+          }
+        });
+      };
+      const openGroup = (group, byHover = false) => {
+        closeGroups(group);
+        closeSearch();
+        group.setAttribute("open", "");
+        group.dataset.openedByHover = byHover ? "true" : "false";
+      };
+      groups.forEach((group) => {
+        const summary = group.querySelector(".nav-summary");
+        group.addEventListener("mouseenter", () => openGroup(group, true));
+        group.addEventListener("toggle", () => {
+          if (group.open) closeGroups(group);
+        });
+        summary?.addEventListener("click", (event) => {
+          event.preventDefault();
+          const openedByHover = group.dataset.openedByHover === "true";
+          if (group.open && !openedByHover) {
+            group.removeAttribute("open");
+            delete group.dataset.openedByHover;
+          } else {
+            openGroup(group);
+          }
+        });
+      });
+
+      const searchDetails = header.querySelector("[data-site-search]");
+      const closeSearch = () => searchDetails?.removeAttribute("open");
+      if (searchDetails) {
+        const input = searchDetails.querySelector("[data-site-search-input]");
+        const results = searchDetails.querySelector("[data-site-search-results]");
+        const escapeHtml = (value) => String(value ?? "").replace(/[&<>"']/g, (match) => ({
+          "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
+        }[match]));
+        const HINT_HTML = '<p class="site-search-hint">여행지, 축제, 지역 이름으로 검색해보세요.</p>';
+        let indexPromise = null;
+        let debounceTimer = null;
+        const loadIndex = () => {
+          if (!indexPromise) {
+            indexPromise = fetch("/assets/search-index.json")
+              .then((response) => (response.ok ? response.json() : []))
+              .catch(() => []);
+          }
+          return indexPromise;
+        };
+        const render = (items, query) => {
+          if (!results) return;
+          if (!query) {
+            results.innerHTML = HINT_HTML;
+          } else if (!items.length) {
+            results.innerHTML = '<p class="site-search-empty">검색 결과가 없습니다.</p>';
+          } else {
+            results.innerHTML = items.map((item) => {
+              const meta = [item.region, item.category].filter(Boolean).join(" · ");
+              return '<a href="/' + encodeURIComponent(item.slug) + '/"><span class="site-search-result-title">' + escapeHtml(item.title) + '</span><span class="site-search-result-meta">' + escapeHtml(meta) + '</span></a>';
+            }).join("");
+          }
+        };
+        const runSearch = async (rawQuery) => {
+          const query = String(rawQuery || "").trim().toLowerCase();
+          if (!query) {
+            render([], "");
+            return;
+          }
+          const items = await loadIndex();
+          const matches = items
+            .map((item) => {
+              const title = String(item.title || "").toLowerCase();
+              const region = String(item.region || "").toLowerCase();
+              const category = String(item.category || "").toLowerCase();
+              let score = 0;
+              if (title.startsWith(query)) score = 4;
+              else if (title.includes(query)) score = 3;
+              else if (region.includes(query)) score = 2;
+              else if (category.includes(query)) score = 1;
+              return { item, score };
+            })
+            .filter((entry) => entry.score > 0)
+            .sort((a, b) => b.score - a.score)
+            .slice(0, 8)
+            .map((entry) => entry.item);
+          render(matches, query);
+        };
+        searchDetails.addEventListener("toggle", () => {
+          if (searchDetails.open) {
+            closeGroups();
+            loadIndex();
+            requestAnimationFrame(() => input?.focus());
+          }
+        });
+        input?.addEventListener("input", (event) => {
+          clearTimeout(debounceTimer);
+          const value = event.target.value;
+          debounceTimer = setTimeout(() => runSearch(value), 120);
+        });
+        input?.addEventListener("keydown", (event) => {
+          if (event.key === "Escape") {
+            event.stopPropagation();
+            closeSearch();
+          }
+        });
+      }
+
+      header.addEventListener("mouseleave", () => closeGroups());
+      document.addEventListener("click", (event) => {
+        if (!header.contains(event.target)) {
+          closeGroups();
+          closeSearch();
+        }
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeGroups();
+          closeSearch();
+        }
+      });
+    })();
+  </script>
+    <script src="/assets/homepage.js?v=booking-search-20260712-flight-links" defer></script>
+
+    <script src="/assets/topic-filter.js?v=topic-filter-20260712-no-hero" defer></script>
+  </body>
+</html>
