@@ -182,6 +182,58 @@ test("Durunubi course matching does not require routeList metadata", () => {
   assert.equal(result.themeNm, "");
 });
 
+test("Durunubi course matching keeps nationwide route segment matches without routeList metadata", () => {
+  const post = {
+    slug: "travel-2804863",
+    title: "남파랑길 여수 구간 방문 전 알아둘 위치와 여행 동선",
+    sourceTitle: "남파랑길(여수 구간)",
+    region: "국내",
+    tags: ["트레일"],
+  };
+  const courses = [
+    {
+      routeIdx: "36",
+      sigun: "전남 여수시",
+      crsKorNm: "남파랑길 56코스 여수",
+      crsDstnc: "14",
+      crsTotlRqrmHour: "300",
+      crsLevel: "2",
+    },
+  ];
+
+  const result = matchDurunubiCourse(post, courses, []);
+
+  assert.equal(result.matched, true);
+  assert.equal(result.themeNm, "");
+  assert.equal(result.exactRouteName, true);
+  assert.equal(result.score >= CONFIDENT_MATCH_SCORE, true);
+});
+
+test("Durunubi course matching still rejects broad nationwide route-only matches", () => {
+  const post = {
+    slug: "travel-broad-route",
+    title: "남파랑길 방문 전 알아둘 준비물",
+    sourceTitle: "남파랑길",
+    region: "국내",
+  };
+  const courses = [
+    {
+      routeIdx: "36",
+      sigun: "전남 여수시",
+      crsKorNm: "남파랑길 56코스 여수",
+      crsDstnc: "14",
+      crsTotlRqrmHour: "300",
+      crsLevel: "2",
+    },
+  ];
+
+  const result = matchDurunubiCourse(post, courses, []);
+
+  assert.equal(result.matched, false);
+  assert.equal(result.exactRouteName, true);
+  assert.equal(result.score < CONFIDENT_MATCH_SCORE, true);
+});
+
 test("Durunubi course matching rejects province-only false positives", () => {
   const post = {
     slug: "travel-2774026",

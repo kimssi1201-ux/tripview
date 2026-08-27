@@ -390,6 +390,7 @@ export function scoreDurunubiCourse(post = {}, course = {}, route = {}) {
   const regionTokens = regionTokensForPost(post);
   const titleTokens = titleTokensForPost(post);
   const postText = searchablePostText(post);
+  const explicitRouteKeywords = durunubiRouteKeywordsForPost(post);
   const courseName = strip(course.crsKorNm);
   const routeName = strip(route.themeNm);
   const sigun = strip(course.sigun);
@@ -407,7 +408,9 @@ export function scoreDurunubiCourse(post = {}, course = {}, route = {}) {
   const titleMatches = titleTokens.filter((token) => tokenMatchesText(token, courseTokens, haystack));
   const keywordMatches = TRAIL_KEYWORDS.filter((keyword) => postText.includes(keyword) && haystack.includes(keyword));
   const exactCourseName = courseName && (includesNormalized(postText, courseName) || includesNormalized(courseName, postText));
-  const exactRouteName = routeName && includesNormalized(postText, routeName);
+  const exactRouteName = routeName
+    ? includesNormalized(postText, routeName)
+    : explicitRouteKeywords.some((keyword) => includesNormalized(haystack, keyword));
   const strongKeywordMatch = keywordMatches.some((keyword) => STRONG_TRAIL_KEYWORDS.has(keyword));
   const regionConfirmed = specificRegionMatches.length > 0;
   const regionalTrailFallback = regionConfirmed
@@ -443,6 +446,8 @@ export function scoreDurunubiCourse(post = {}, course = {}, route = {}) {
     specificRegionMatches,
     titleMatches,
     keywordMatches,
+    exactCourseName,
+    exactRouteName,
     regionalTrailFallback,
   };
 }
@@ -476,6 +481,8 @@ export function matchDurunubiCourse(post = {}, courses = [], routes = []) {
     specificRegionMatches: best.score.specificRegionMatches,
     titleMatches: best.score.titleMatches,
     keywordMatches: best.score.keywordMatches,
+    exactCourseName: best.score.exactCourseName,
+    exactRouteName: best.score.exactRouteName,
     regionalTrailFallback: best.score.regionalTrailFallback,
     routeIdx: strip(best.course.routeIdx),
     themeNm: strip(best.route.themeNm),
