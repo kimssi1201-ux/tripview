@@ -760,10 +760,13 @@ test("data post pipeline outputs validated data pages", async () => {
     readFile("scripts/daily-tour-posts.mjs", "utf8"),
   ]);
   const posts = JSON.parse(postsText);
+  const log = JSON.parse(logText);
   const dataPosts = posts.filter((post) => post?.dataPipeline?.generated);
   const allowedKinds = new Set(["stay-price", "festival-schedule", "ticket-price"]);
-  assert.ok(dataPosts.length > 0 && dataPosts.length <= 3);
-  assert.equal(new Set(dataPosts.map((post) => post.dataPipeline.kind)).size, dataPosts.length);
+  const latestPublishedRun = [...log.runs].reverse().find((run) => !run.stoppedReason && Array.isArray(run.generated));
+  assert.ok(dataPosts.length > 0);
+  assert.ok(latestPublishedRun.generatedCount > 0 && latestPublishedRun.generatedCount <= 3);
+  assert.equal(new Set(latestPublishedRun.generated.map((item) => item.type)).size, latestPublishedRun.generated.length);
   assert.ok(dataPosts.every((post) => allowedKinds.has(post.dataPipeline.kind)));
   assert.ok(dataPosts.every((post) => /^data-(stay-price|festival-schedule|ticket-price)-[a-z0-9-]+$/.test(post.slug)));
   for (const post of dataPosts) {
@@ -792,7 +795,6 @@ test("data post pipeline outputs validated data pages", async () => {
   assert.match(festival, /data-tripview-article/);
   assert.doesNotMatch(festival, /data-tripview-event/);
   assert.doesNotMatch(visibleText(`${stay}\n${festival}\n${ticket}`), /\[[^\]]+\]/);
-  const log = JSON.parse(logText);
   assert.ok(log.runs.some((run) => run.generatedCount === 3 && run.generated.some((item) => item.slug === "data-stay-price-seoul")));
   for (const run of log.runs) {
     assert.ok(run.generatedCount <= 3);
