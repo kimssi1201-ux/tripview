@@ -156,7 +156,7 @@ test("homepage categories use real URLs and travel keeps old topics as tags", as
 
   assert.match(ticketPage, /<link rel="canonical" href="https:\/\/tripview\.kr\/ticket\/">/);
   assert.match(ticketPage, /입장권·투어/);
-  assert.match(ticketPage, /id="regional-tickets"|id="ticket-cards"/);
+  assert.match(ticketPage, /id="region-[a-z]+"/);
   assert.match(ticketPage, /data-mrt-ticket-card/);
 });
 
@@ -356,7 +356,7 @@ test("accommodation cards use cached MyRealTrip stay links and stay out of pendi
   assert.match(ticketPage, /운영 시간과 매표 마감/);
   assert.match(ticketPage, /class="booking-affiliate-box"/);
   assert.match(ticketPage, /class="booking-city-grid"/);
-  assert.match(ticketPage, /id="ticket-cards"/);
+  assert.match(ticketPage, /id="region-seoul"/);
   assert.match(ticketPage, /전체 입장권·투어 보기/);
   assert.ok(ticketCards.every((card) => /rel="sponsored nofollow"/.test(card)));
   assert.ok(ticketCards.every((card) => /target="_blank"/.test(card)));

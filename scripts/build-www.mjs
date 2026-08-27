@@ -1283,19 +1283,11 @@ function sortBookingProducts(items = []) {
   });
 }
 
-function bookingProducts(products = [], type = "stay", limit = 18) {
-  return sortBookingProducts(dedupedBookingProducts(products, type)).slice(0, limit);
-}
-
-function bookingProductListId(type = "stay") {
-  return type === "ticket" ? "ticket-cards" : "accommodation-cards";
-}
-
 function bookingQuickSearch(type = "stay") {
-  // Stay browses region-first now (see bookingCategoryPageHtml), so there's
-  // no single flat product list to jump to - point at the region grid instead.
-  const listId = type === "stay" ? "popular-cities" : bookingProductListId(type);
-  const jumpLabel = type === "stay" ? "지역별 상품 보기로 이동" : "조건에 맞는 상품 목록으로 이동";
+  // Both stay and ticket browse region-first (see bookingCategoryPageHtml) -
+  // there's no single flat product list to jump to, so point at the region grid.
+  const listId = "popular-cities";
+  const jumpLabel = "지역별 상품 보기로 이동";
   const conditions = BOOKING_CONDITIONS[type] || [];
   if (!conditions.length) return "";
   const items = conditions.map((condition, index) => `<details class="booking-condition"${index === 0 ? " open" : ""}>
@@ -1322,27 +1314,6 @@ function bookingAffiliateNotice(type = "stay") {
       <p>${html(intro)} 가격과 조건은 예약 화면에서 변경될 수 있습니다.</p>
     </div>
     <ul class="booking-checklist">${notes.map((note) => `<li>${html(note)}</li>`).join("")}</ul>
-  </section>`;
-}
-
-function bookingCityGrid(products = [], type = "stay") {
-  if (!products.length) return "";
-  const counts = new Map();
-  for (const product of products) {
-    const label = bookingProductRegion(product);
-    if (!label || label === "기타") continue;
-    counts.set(label, (counts.get(label) || 0) + 1);
-  }
-  const ordered = [
-    ...BOOKING_CITY_ORDER.filter((city) => counts.has(city)),
-    ...[...counts.keys()].filter((city) => !BOOKING_CITY_ORDER.includes(city)).sort((a, b) => a.localeCompare(b, "ko")),
-  ];
-  if (!ordered.length) return "";
-  const listId = bookingProductListId(type);
-  const cards = ordered.map((city) => `<a class="booking-city-card" href="#${html(listId)}"><strong>${html(city)}</strong><span>${html(counts.get(city).toLocaleString("ko-KR"))}개 상품</span></a>`).join("");
-  return `<section class="block" id="popular-cities" aria-labelledby="popular-cities-title">
-    <div class="block-head"><div><span class="kicker">CITY</span><h2 id="popular-cities-title">인기 도시</h2></div><p class="block-note">상품이 있는 국내 도시만 표시</p></div>
-    <div class="booking-city-grid">${cards}</div>
   </section>`;
 }
 
@@ -1410,50 +1381,27 @@ function bookingProductCard(product = {}, type = "stay") {
   </a>`;
 }
 
-function bookingProductSection(products = [], type = "stay") {
-  const normalized = bookingProducts(products, type, type === "ticket" ? 18 : 12);
-  if (!normalized.length) return "";
-  const id = bookingProductListId(type);
-  const title = type === "ticket" ? "평점순 입장권·투어" : "평점순 숙소";
-  const note = type === "ticket" ? "가격과 이용 조건은 예약 화면에서 확인" : "성인 2명 기준 주말 1박 요금입니다";
+function bookingCatalogCta(type = "stay") {
   const ctaUrl = type === "ticket" ? "https://experiences.myrealtrip.com/" : "https://accommodation.myrealtrip.com/";
   const ctaText = type === "ticket" ? "전체 입장권·투어 보기" : "전체 숙소 보기";
-  const cards = normalized.map((product) => bookingProductCard(product, type)).join("");
-  return `<section class="block" id="${html(id)}" aria-labelledby="${html(id)}-title">
-    <div class="block-head"><div><span class="kicker">RATING</span><h2 id="${html(id)}-title">${html(title)}</h2></div><p class="block-note">${html(note)}</p></div>
-    <div class="booking-product-list">${cards}</div>
-    <div class="booking-product-cta"><a href="${html(ctaUrl)}" rel="sponsored nofollow" target="_blank">${html(ctaText)}</a></div>
-  </section>`;
+  return `<div class="booking-product-cta"><a href="${html(ctaUrl)}" rel="sponsored nofollow" target="_blank">${html(ctaText)}</a></div>`;
 }
 
 function bookingCategoryPageHtml({ path, type, title, description, products = [] }) {
-  // Stay browses region-first (지역별로 보기 -> a real section per province,
-  // not just a jump link to one flat list) since accommodation demand is
-  // inherently regional. Ticket/tour products keep the flat rating-sorted
-  // list - there isn't the same "which city" browsing need for those.
-  const body = type === "stay"
-    ? (() => {
-        const groups = bookingProvinceGroups(dedupedBookingProducts(products, type));
-        return [
-          `<div class="booking-page">`,
-          bookingQuickSearch(type),
-          bookingAffiliateNotice(type),
-          bookingProvinceJumpGrid(groups),
-          bookingProvinceSections(groups, type),
-          `</div>`,
-        ].join("");
-      })()
-    : (() => {
-        const normalized = bookingProducts(products, type, 18);
-        return [
-          `<div class="booking-page">`,
-          bookingQuickSearch(type),
-          bookingAffiliateNotice(type),
-          bookingCityGrid(normalized, type),
-          bookingProductSection(normalized, type),
-          `</div>`,
-        ].join("");
-      })();
+  // Both stay and ticket browse region-first: a real <section> per province
+  // (see bookingProvinceSections()), not a single flat rating-sorted list -
+  // demand for both is inherently regional (which city's accommodation,
+  // which city's tour/ticket).
+  const groups = bookingProvinceGroups(dedupedBookingProducts(products, type));
+  const body = [
+    `<div class="booking-page">`,
+    bookingQuickSearch(type),
+    bookingAffiliateNotice(type),
+    bookingProvinceJumpGrid(groups),
+    bookingProvinceSections(groups, type),
+    bookingCatalogCta(type),
+    `</div>`,
+  ].join("");
   return pageShell({
     path,
     title,
