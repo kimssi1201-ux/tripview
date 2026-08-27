@@ -343,9 +343,14 @@ function itemCoordinates(item = {}) {
 }
 
 function titleTokens(post = {}) {
+  const postRegionTokens = regionTokensForPost(post);
   return [
     ...new Set(
-      words(textBlob(post)).filter((word) => !CAMPING_KEYWORDS.some((keyword) => word.includes(keyword) || keyword.includes(word))),
+      words(textBlob(post)).filter(
+        (word) =>
+          !CAMPING_KEYWORDS.some((keyword) => word.includes(keyword) || keyword.includes(word)) &&
+          !postRegionTokens.some((token) => containsCompact(word, token) || containsCompact(token, word)),
+      ),
     ),
   ];
 }

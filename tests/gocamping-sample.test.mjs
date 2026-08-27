@@ -110,6 +110,7 @@ test("GoCamping text fallback does not match only on generic camping words", () 
     {
       contentId: "1057",
       facltNm: "캠핑플래닛2",
+      lineIntro: "경기도 포천시에서 이용 가능한 캠핑장",
       doNm: "경기도",
       sigunguNm: "포천시",
     },
