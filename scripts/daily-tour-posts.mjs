@@ -134,7 +134,8 @@ function seasonalScore(candidate, today) {
     else if (startDelta <= 180) score += 10;
   }
   if (endDelta !== null && endDelta >= 0) score += 18;
-  if (candidate.firstimage || candidate.firstimage2) score += 6;
+  if (candidate.firstimage || candidate.firstimage2) score += 35;
+  else score -= 20;
   if (String(candidate.contentTypeId || candidate.contenttypeid) === '15') score += 10;
   return score;
 }
@@ -379,6 +380,14 @@ function makeArticle(candidate, common, intro, images, category, today) {
     ['방문 팁과 동선', [
       `${region}으로 이동하는 주말 일정이라면 오전 도착 또는 늦은 오후 도착처럼 혼잡 시간을 피하는 전략이 필요합니다. 아이와 함께라면 화장실, 그늘, 휴식 지점을 먼저 확인하세요.`,
       `행사 일정은 날씨와 현장 사정에 따라 조정될 수 있습니다. ${profile.label} 실외 프로그램이 많은 날에는 모자, 물, 편한 신발을 준비하고, 야간까지 머문다면 귀가 교통을 미리 정해두는 편이 좋습니다.`
+    ]],
+    ['동행자별로 보는 방법', [
+      `가족과 함께라면 대표 프로그램을 하나만 먼저 고르고, 나머지는 현장 상황에 맞춰 붙이는 방식이 편합니다. 커플이나 친구끼리라면 사진을 찍는 시간과 식사 시간을 분리해두면 일정이 덜 급해집니다.`,
+      `혼자 방문한다면 사람이 몰리는 시간보다 이동이 쉬운 시간대를 고르는 편이 좋습니다. 특히 처음 가는 지역이라면 귀가 교통과 마지막 입장 시간을 먼저 확인해야 당일 선택지가 줄어들지 않습니다.`
+    ]],
+    ['방문 전 마지막 확인', [
+      `출발 전에는 공식 공지, 현장 운영 여부, 우천 시 변경 사항을 한 번 더 확인하세요. 같은 축제라도 날짜별 프로그램이 다르거나 일부 체험은 조기 마감될 수 있습니다.`,
+      `${title}을 일정에 넣을 때는 행사장 체류 시간만 보지 말고 이동, 주차, 식사, 귀가까지 한 번에 계산하는 것이 좋습니다. 그렇게 잡아두면 사람이 많아도 일정 전체가 흔들리지 않습니다.`
     ]]
   ] : [
     ['어떤 곳인가', [
@@ -392,6 +401,14 @@ function makeArticle(candidate, common, intro, images, category, today) {
     ['동선과 준비물', [
       `차량 이동 시에는 주차 위치를 먼저 정하고, 대중교통 이용 시에는 마지막 귀가 시간을 확인하세요. 주말에는 주변 도로와 식당 대기가 길어질 수 있습니다.`,
       `편한 신발, 물, 날씨에 맞는 겉옷을 준비하면 현장에서 덜 지칩니다. ${profile.label}에는 ${profile.note} 비가 오거나 바람이 강한 날에는 일부 야외 관람 구간을 줄이고 실내 또는 짧은 동선 위주로 조정하세요.`
+    ]],
+    ['함께 묶기 좋은 흐름', [
+      `${title}만 보고 돌아오기보다 같은 권역의 식사, 카페, 산책 코스를 하나 정도 함께 잡으면 이동 시간이 덜 아깝습니다. 다만 장소를 너무 많이 넣으면 사진을 찍거나 쉬는 시간이 줄어듭니다.`,
+      `처음 방문하는 곳이라면 목적지에 도착한 뒤 바로 움직일 수 있게 입구, 화장실, 가까운 휴식 지점을 먼저 확인하세요. 동행자가 있다면 중간 합류 지점도 미리 정해두는 편이 좋습니다.`
+    ]],
+    ['방문 전 마지막 확인', [
+      `운영 시간, 휴무, 요금, 현장 통제 여부는 계절과 날씨에 따라 달라질 수 있습니다. 출발 전 공식 안내와 지도 정보를 함께 확인하면 불필요한 이동을 줄일 수 있습니다.`,
+      `${profile.label} 일정에서는 한낮의 더위나 저녁의 선선함처럼 시간대별 체감이 달라질 수 있습니다. 오전, 오후, 야간 중 어느 시간대가 목적에 맞는지 먼저 정하면 코스 선택이 훨씬 쉬워집니다.`
     ]]
   ];
 
@@ -409,6 +426,10 @@ function makeArticle(candidate, common, intro, images, category, today) {
     region,
     seasonalFocus: profile.label,
     seasonalKeywords: profile.keywords.slice(0, 10),
+    editorialStatus: 'reviewed',
+    editorialReviewedAt: hyphenDate(today),
+    editorialReviewer: '트립뷰 편집팀',
+    editorialAuthorProfile: '/editorial-team',
     date: koreanDate(today),
     sortDate: hyphenDate(today),
     read: '약 5분',
