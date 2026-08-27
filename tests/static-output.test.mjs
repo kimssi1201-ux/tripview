@@ -390,7 +390,7 @@ test("accommodation cards use cached MyRealTrip stay links and stay out of pendi
   assert.ok(cards.every((card) => /rel="sponsored nofollow"/.test(card)));
   assert.ok(cards.every((card) => /target="_blank"/.test(card)));
   assert.match(stayPage, /가격보다 위치와 취소 조건을 먼저 비교하세요/);
-  assert.match(stayPage, /class="booking-condition"/);
+  assert.doesNotMatch(stayPage, /id="quick-search"|quick-search-title|조건별 빠른 검색|class="booking-condition"/);
   assert.match(stayPage, /class="booking-affiliate-box"/);
   assert.match(stayPage, /class="booking-city-grid"/);
   assert.match(stayPage, /id="region-seoul"/);
@@ -407,7 +407,7 @@ test("accommodation cards use cached MyRealTrip stay links and stay out of pendi
   const ticketCards = [...ticketPage.matchAll(/<a class="booking-product-card"[^>]*data-mrt-ticket-card[^>]*>/g)].map((match) => match[0]);
   assert.ok(ticketCards.length >= 3, "ticket page should render rating-sorted ticket products");
   assert.match(ticketPage, /일정 확정 전에 운영 조건을 먼저 비교하세요/);
-  assert.match(ticketPage, /운영 시간과 매표 마감/);
+  assert.doesNotMatch(ticketPage, /id="quick-search"|quick-search-title|조건별 빠른 검색|class="booking-condition"/);
   assert.match(ticketPage, /class="booking-affiliate-box"/);
   assert.match(ticketPage, /class="booking-city-grid"/);
   assert.match(ticketPage, /id="region-seoul"/);

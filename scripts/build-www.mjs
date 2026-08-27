@@ -36,19 +36,6 @@ const CATEGORY_PAGES = [
   { path: "/ticket/", title: "입장권·투어", description: "지역별 입장권 가격 모음과 여행지별 체험·투어 상품을 분리해 확인합니다." },
 ];
 const BOOKING_CITY_ORDER = ["제주", "부산", "강원", "여수", "경주", "속초", "서울", "경기", "전남"];
-const BOOKING_CONDITIONS = {
-  stay: [
-    { label: "가족 여행", point: "객실 인원과 조식", description: "객실 정원, 침대 구성, 조식 포함 여부를 먼저 확인합니다." },
-    { label: "커플 여행", point: "위치와 뷰", description: "이동 동선, 주변 식당, 객실 전망 조건을 비교합니다." },
-    { label: "출장", point: "체크인 시간과 접근성", description: "늦은 체크인, 역·공항 접근성, 업무 동선을 함께 봅니다." },
-  ],
-  ticket: [
-    { label: "입장권", point: "운영 시간과 매표 마감", description: "입장 가능 시간, 현장 매표 마감, 재입장 조건을 확인합니다." },
-    { label: "현지투어", point: "집결지와 포함 사항", description: "집결 장소, 포함·불포함 항목, 취소 조건을 비교합니다." },
-    { label: "체험", point: "소요 시간과 준비물", description: "체험 시간, 준비물, 연령 제한을 예약 전에 확인합니다." },
-    { label: "교통·패스", point: "이용 범위와 수령 방법", description: "사용 가능 구간, 수령 위치, 모바일 바우처 여부를 봅니다." },
-  ],
-};
 // City/county -> province lookup for grouping booking products (MyRealTrip
 // accommodation entries carry a bare city name like "수원" or "청주" in
 // product.region, not a province) into region sections on /stay/. Falls
@@ -1285,24 +1272,6 @@ function sortBookingProducts(items = []) {
   });
 }
 
-function bookingQuickSearch(type = "stay") {
-  // Both stay and ticket browse region-first (see bookingCategoryPageHtml) -
-  // there's no single flat product list to jump to, so point at the region grid.
-  const listId = "popular-cities";
-  const jumpLabel = "지역별 상품 보기로 이동";
-  const conditions = BOOKING_CONDITIONS[type] || [];
-  if (!conditions.length) return "";
-  const items = conditions.map((condition, index) => `<details class="booking-condition"${index === 0 ? " open" : ""}>
-      <summary><span class="booking-condition-title"><strong>${html(condition.label)}</strong><em>${html(condition.point)}</em></span><span class="booking-condition-toggle">보기</span></summary>
-      <p>${html(condition.description)}</p>
-      <a href="#${html(listId)}">${html(jumpLabel)}</a>
-    </details>`).join("");
-  return `<section class="block booking-conditions" id="quick-search" aria-labelledby="quick-search-title">
-    <div class="block-head"><div><span class="kicker">CHECK</span><h2 id="quick-search-title">조건별 빠른 검색</h2></div><p class="block-note">예약 전 확인 기준</p></div>
-    <div class="booking-condition-list">${items}</div>
-  </section>`;
-}
-
 function bookingAffiliateNotice(type = "stay") {
   const intro = type === "ticket"
     ? "트립뷰의 입장권·투어 링크는 제휴 링크일 수 있습니다."
@@ -1397,7 +1366,6 @@ function bookingCategoryPageHtml({ path, type, title, description, products = []
   const groups = bookingProvinceGroups(dedupedBookingProducts(products, type));
   const body = [
     `<div class="booking-page">`,
-    bookingQuickSearch(type),
     bookingAffiliateNotice(type),
     bookingProvinceJumpGrid(groups),
     bookingProvinceSections(groups, type),
