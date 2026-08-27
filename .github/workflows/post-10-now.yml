@@ -129,9 +129,10 @@ jobs:
           const { execFileSync } = require('node:child_process');
           const before = JSON.parse(execFileSync('git', ['show', 'HEAD:data/generated-posts.json'], { encoding: 'utf8', maxBuffer: 32 * 1024 * 1024 }));
           const after = JSON.parse(fs.readFileSync('data/generated-posts.json', 'utf8'));
-          const added = after.length - before.length;
+          const beforeSlugs = new Set(before.map((post) => post.slug).filter(Boolean));
+          const newPosts = after.filter((post) => post?.slug && !beforeSlugs.has(post.slug));
+          const added = newPosts.length;
           if (added < 10) throw new Error(`Expected 10 new posts, got ${added}`);
-          const newPosts = after.slice(0, added);
           const tooManyImages = newPosts.filter((post) => (post.images || []).length > 3);
           if (tooManyImages.length) throw new Error(`Posts over image limit: ${tooManyImages.map((post) => post.slug).join(', ')}`);
           const duplicateSlugs = newPosts.filter((post, index) => newPosts.findIndex((item) => item.slug === post.slug) !== index);
