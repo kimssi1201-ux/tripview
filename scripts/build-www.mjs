@@ -1751,6 +1751,8 @@ const ARTICLE_PHOTO_START = "<!-- ARTICLE_PHOTO_START";
 const ARTICLE_PHOTO_END = "ARTICLE_PHOTO_END -->";
 const ARTICLE_INLINE_PHOTO_START = "<!-- ARTICLE_INLINE_PHOTO_START";
 const ARTICLE_INLINE_PHOTO_END = "ARTICLE_INLINE_PHOTO_END -->";
+const ARTICLE_INLINE_IMAGE_MIN = 3;
+const ARTICLE_INLINE_IMAGE_MAX = 5;
 const LODGING_GUIDE_START = "<!-- LODGING_GUIDE_START";
 const LODGING_GUIDE_END = "LODGING_GUIDE_END -->";
 const LODGING_BOOKING_START = "<!-- LODGING_BOOKING_START";
@@ -2118,10 +2120,22 @@ function isArticleHeroImage(post, src) {
   return [...sourceKeys].some((key) => heroKeys.has(key));
 }
 
-function articleContentImages(post) {
+function articleContentImageCandidates(post) {
+  const entry = tourImageEntry(processedTourImages, post);
+  const processedInlineImages = Array.isArray(entry?.images)
+    ? entry.images.map((asset) => asset?.src || asset?.original).filter(Boolean)
+    : [];
+  return [
+    ...postImagesWithProcessed(processedTourImages, post),
+    ...processedInlineImages,
+  ];
+}
+
+function articleContentImages(post, { excludeHero = false } = {}) {
   const seen = new Set();
-  return postImagesWithProcessed(processedTourImages, post)
+  return articleContentImageCandidates(post)
     .filter(Boolean)
+    .filter((src) => !excludeHero || !isArticleHeroImage(post, src))
     .filter((src) => {
       const key = articleImageFamilyKey(post, src);
       if (!key || seen.has(key)) return false;
@@ -2498,8 +2512,11 @@ function removeDeletedArticleSections(document) {
 }
 
 function articleInlineAssets(post) {
-  const images = articleContentImages(post);
-  return images.slice(0, 3).map((src) => {
+  const images = articleContentImages(post, { excludeHero: true });
+  const limit = images.length >= ARTICLE_INLINE_IMAGE_MIN
+    ? Math.min(images.length, ARTICLE_INLINE_IMAGE_MAX)
+    : images.length;
+  return images.slice(0, limit).map((src) => {
     const asset = tourImageAssetForSource(processedTourImages, post, src);
     return asset || {
       src,
@@ -2534,17 +2551,20 @@ function articleInlineInsertionPoints(body = "") {
     const sectionStart = heading.index + heading[0].length;
     const sectionEnd = index + 1 < headings.length ? headings[index + 1].index : contentEnd;
     const section = body.slice(sectionStart, sectionEnd);
-    const paragraphEnd = section.search(/<\/p>/i);
+    const paragraphEnds = [...section.matchAll(/<\/p>/gi)].map((match) => sectionStart + match.index + match[0].length);
     const tableEnd = section.search(/<\/table>/i);
-    if (paragraphEnd >= 0) {
-      points.push(sectionStart + paragraphEnd + "</p>".length);
+    if (paragraphEnds.length) {
+      points.push(paragraphEnds[0]);
     } else if (tableEnd >= 0) {
       points.push(sectionStart + tableEnd + "</table>".length);
     } else {
       points.push(sectionStart);
     }
+    for (const position of paragraphEnds.slice(1)) {
+      points.push(position);
+    }
   }
-  return points;
+  return [...new Set(points)].sort((a, b) => a - b);
 }
 
 function selectArticleInlineInsertionPoints(points = [], count = 0) {

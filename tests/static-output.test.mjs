@@ -600,6 +600,17 @@ test("article inline images do not repeat the same Korea Tourism content id", as
   assert.deepEqual(failures, []);
 });
 
+test("article body uses three to five inline images when enough photos are available", async () => {
+  const article = await readFile("travel-125900/index.html", "utf8");
+  const body = articleBodyHtml(article);
+  const sources = articleInlineImageSources(body);
+
+  assert.equal(sources.length, 5);
+  assert.ok(sources.length >= 3 && sources.length <= 5);
+  assert.doesNotMatch(body, /src="\/assets\/processed\/cheongyang-janggoksa-parking\.webp"/);
+  assert.match(body, /ARTICLE_INLINE_PHOTO_START 5/);
+});
+
 test("article schema, festival schema, lodging schema, and language policy are applied", async () => {
   const [festivalArticle, endedFestivalArticle, lodgingArticle, homepage, topicFilter] = await Promise.all([
     readFile("festival-3351451/index.html", "utf8"),
@@ -626,7 +637,7 @@ test("article schema, festival schema, lodging schema, and language policy are a
   assert.equal((festivalBody.match(/ARTICLE_INLINE_PHOTO_START/g) || []).length, 3);
   assert.match(festivalBody, /ARTICLE_INLINE_PHOTO_START 1[\s\S]*seoul-k-illustration-fair-magok-parking-detail-1\.webp[\s\S]*ARTICLE_INLINE_PHOTO_START 2[\s\S]*seoul-k-illustration-fair-magok-parking-detail-2\.webp[\s\S]*ARTICLE_INLINE_PHOTO_START 3[\s\S]*seoul-k-illustration-fair-magok-parking-detail-3\.webp/);
   assert.ok(festivalBody.indexOf("ARTICLE_INLINE_PHOTO_START 1") > festivalBody.indexOf("<h2>관람 포인트</h2>"));
-  assert.ok(festivalBody.indexOf("ARTICLE_INLINE_PHOTO_START 1") < festivalBody.indexOf("<h2>사전예매와 현장 구매 중 무엇이 나을까</h2>"));
+  assert.ok(festivalBody.indexOf("ARTICLE_INLINE_PHOTO_START 3") < festivalBody.indexOf("<h2>자주 묻는 질문</h2>"));
   assert.match(endedFestivalArticle, /<span class="festival-status is-ended">종료<\/span>/);
   assert.match(lodgingArticle, /data-tripview-lodging/);
   assert.match(lodgingArticle, /"@type":"LodgingBusiness"/);
