@@ -529,8 +529,11 @@ test("article schema, festival schema, lodging schema, and language policy are a
   const festivalBody = festivalArticle.match(/<article\b[^>]*\bclass=["'][^"']*\bcontent\b[^"']*["'][^>]*>([\s\S]*?)<\/article>/i)?.[1] || "";
   assert.match(festivalArticle, /--article-hero-image:url\('\/assets\/processed\/seoul-k-illustration-fair-magok-parking\.webp'\)/);
   assert.equal(festivalBody.includes('src="/assets/processed/seoul-k-illustration-fair-magok-parking.webp"'), false);
-  assert.match(festivalBody, /<section class="article-photo-grid"[\s\S]*seoul-k-illustration-fair-magok-parking-detail-1\.webp[\s\S]*seoul-k-illustration-fair-magok-parking-detail-2\.webp[\s\S]*seoul-k-illustration-fair-magok-parking-detail-3\.webp/);
-  assert.equal((festivalBody.match(/ARTICLE_INLINE_PHOTO_START/g) || []).length, 0);
+  assert.doesNotMatch(festivalBody, /<section class="article-photo-grid"/);
+  assert.equal((festivalBody.match(/ARTICLE_INLINE_PHOTO_START/g) || []).length, 3);
+  assert.match(festivalBody, /ARTICLE_INLINE_PHOTO_START 1[\s\S]*seoul-k-illustration-fair-magok-parking-detail-1\.webp[\s\S]*ARTICLE_INLINE_PHOTO_START 2[\s\S]*seoul-k-illustration-fair-magok-parking-detail-2\.webp[\s\S]*ARTICLE_INLINE_PHOTO_START 3[\s\S]*seoul-k-illustration-fair-magok-parking-detail-3\.webp/);
+  assert.ok(festivalBody.indexOf("ARTICLE_INLINE_PHOTO_START 1") > festivalBody.indexOf("<h2>관람 포인트</h2>"));
+  assert.ok(festivalBody.indexOf("ARTICLE_INLINE_PHOTO_START 1") < festivalBody.indexOf("<h2>사전예매와 현장 구매 중 무엇이 나을까</h2>"));
   assert.match(endedFestivalArticle, /<span class="festival-status is-ended">종료<\/span>/);
   assert.match(lodgingArticle, /data-tripview-lodging/);
   assert.match(lodgingArticle, /"@type":"LodgingBusiness"/);

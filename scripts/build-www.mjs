@@ -2511,7 +2511,6 @@ function removeDeletedArticleSections(document) {
 
 function articleInlineAssets(post) {
   const images = articleContentImages(post);
-  if (images.length >= 3) return [];
   return images.slice(0, 3).map((src) => {
     const asset = tourImageAssetForSource(processedTourImages, post, src);
     return asset || {
@@ -2520,6 +2519,56 @@ function articleInlineAssets(post) {
       caption: `출처: ${TOUR_IMAGE_SOURCE_LABEL} · 트립뷰 편집 이미지`,
     };
   });
+}
+
+function articleInlineContentEnd(body = "") {
+  const markerIndexes = [
+    COUPANG_AD_START,
+    REGION_RELATED_START,
+    ARTICLE_OFFICIAL_START,
+    ARTICLE_SOURCE_START,
+    TRUST_NOTE_START,
+    ARTICLE_PRODUCT_START,
+    MRT_ACCOMMODATION_START,
+  ].map((marker) => body.indexOf(marker)).filter((index) => index >= 0);
+  return markerIndexes.length ? Math.min(...markerIndexes) : body.length;
+}
+
+function articleInlineInsertionPoints(body = "") {
+  const contentEnd = articleInlineContentEnd(body);
+  const content = body.slice(0, contentEnd);
+  const headings = [...content.matchAll(/<h2\b[^>]*>[\s\S]*?<\/h2>/gi)];
+  const points = [];
+  for (let index = 0; index < headings.length; index += 1) {
+    const heading = headings[index];
+    const label = normalizeArticleHeadingText(heading[0]);
+    if (/^(?:사진으로 확인하기|자주 묻는 질문|작성·검수 정보|함께 볼 글|이 지역 입장권·투어|지역 인기 숙소)/.test(label)) continue;
+    const sectionStart = heading.index + heading[0].length;
+    const sectionEnd = index + 1 < headings.length ? headings[index + 1].index : contentEnd;
+    const section = body.slice(sectionStart, sectionEnd);
+    const paragraphEnd = section.search(/<\/p>/i);
+    const tableEnd = section.search(/<\/table>/i);
+    if (paragraphEnd >= 0) {
+      points.push(sectionStart + paragraphEnd + "</p>".length);
+    } else if (tableEnd >= 0) {
+      points.push(sectionStart + tableEnd + "</table>".length);
+    } else {
+      points.push(sectionStart);
+    }
+  }
+  return points;
+}
+
+function selectArticleInlineInsertionPoints(points = [], count = 0) {
+  if (!points.length || count <= 0) return [];
+  if (points.length <= count) return points;
+  if (count === 1) return [points[Math.floor(points.length / 2)]];
+  const selected = [];
+  for (let index = 0; index < count; index += 1) {
+    const pointIndex = Math.round((index / (count - 1)) * (points.length - 1));
+    selected.push(points[pointIndex]);
+  }
+  return [...new Set(selected)].slice(0, count);
 }
 
 function lodgingPhotoAssets(post) {
@@ -2591,19 +2640,19 @@ function ensureLodgingPhotoGuide(document, post) {
 function injectArticleInlinePhotos(document, post) {
   return replaceArticleContent(document, (body) => {
     let next = body
+      .replace(new RegExp(`${ARTICLE_PHOTO_START}[\\s\\S]*?${ARTICLE_PHOTO_END}`, "g"), "")
       .replace(new RegExp(`${ARTICLE_INLINE_PHOTO_START}[\\s\\S]*?${ARTICLE_INLINE_PHOTO_END}`, "g"), "")
       .replace(/\s*<figure class=["'][^"']*\barticle-inline-figure\b[\s\S]*?<\/figure>/gi, "");
     const figures = articleInlineAssets(post).map((asset, index) => `${ARTICLE_INLINE_PHOTO_START} ${index + 1} -->${processedFigure(asset, "inline-figure article-inline-figure")}<!-- ${ARTICLE_INLINE_PHOTO_END}`);
     if (!figures.length) return next;
-    const headings = [...next.matchAll(/<h2\b[^>]*>[\s\S]*?<\/h2>/gi)];
-    if (!headings.length) return `${figures[0]}${next}`;
-    let offset = 0;
-    figures.forEach((figure, index) => {
-      const headingIndex = Math.min((index + 1) * 3 - 1, headings.length);
-      const insertAt = headingIndex < headings.length ? headings[headingIndex].index + offset : next.length;
-      next = `${next.slice(0, insertAt)}${figure}${next.slice(insertAt)}`;
-      offset += figure.length;
-    });
+    const points = selectArticleInlineInsertionPoints(articleInlineInsertionPoints(next), figures.length);
+    if (!points.length) return `${figures[0]}${next}`;
+    points
+      .map((position, index) => ({ position, figure: figures[index] }))
+      .sort((a, b) => b.position - a.position)
+      .forEach(({ position, figure }) => {
+        next = `${next.slice(0, position)}${figure}${next.slice(position)}`;
+      });
     return next;
   });
 }
@@ -2763,18 +2812,7 @@ function replaceArticleInfoTable(document, post) {
 
 function articlePhotoGrid(post) {
   if (isLodgingPost(post)) return "";
-  const images = articleContentImages(post).slice(0, 6);
-  if (images.length < 3) return "";
-  const figures = images.map((src) => {
-    const asset = tourImageAssetForSource(processedTourImages, post, src) || { src, alt: postTitle(post), caption: "" };
-    return `<figure><img src="${html(src)}" alt="${html(tourImageAlt(asset, post))}" loading="lazy" decoding="async"><figcaption>${html(tourImageCaption(asset))}</figcaption></figure>`;
-  }).join("");
-  return `${ARTICLE_PHOTO_START} -->
-<section class="article-photo-grid" aria-labelledby="article-photo-title">
-  <h2 id="article-photo-title">사진으로 확인하기</h2>
-  <div class="article-photo-items">${figures}</div>
-</section>
-<!-- ${ARTICLE_PHOTO_END}`;
+  return "";
 }
 
 function injectArticlePhotoGrid(document, post) {
