@@ -4,6 +4,12 @@ on:
   schedule:
     - cron: "20 18 * * *"
   workflow_dispatch:
+    inputs:
+      refresh_accommodation_cache:
+        description: "Clear MyRealTrip accommodation cache before fetching"
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -30,6 +36,12 @@ jobs:
       - name: Sync latest main
         run: git pull --rebase origin main
 
+      - name: Clear accommodation cache
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.refresh_accommodation_cache }}
+        run: |
+          rm -f data/myrealtrip-accommodation-cache.json data/myrealtrip-accommodation-region-map.json
+          echo "Cleared MyRealTrip accommodation cache files before refresh."
+
       - name: Refresh accommodation cache
         run: node scripts/fetch-myrealtrip-accommodations.mjs
         env:
@@ -38,7 +50,15 @@ jobs:
           MYREALTRIP_ACCOMMODATION_REGION_URL: ${{ vars.MYREALTRIP_ACCOMMODATION_REGION_URL || secrets.MYREALTRIP_ACCOMMODATION_REGION_URL }}
           MYREALTRIP_ACCOMMODATION_SEARCH_URL: ${{ vars.MYREALTRIP_ACCOMMODATION_SEARCH_URL || secrets.MYREALTRIP_ACCOMMODATION_SEARCH_URL }}
           MYREALTRIP_ACCOMMODATION_KEYWORDS: ${{ vars.MYREALTRIP_ACCOMMODATION_KEYWORDS }}
+          MYREALTRIP_ACCOMMODATION_KEYWORD: ${{ vars.MYREALTRIP_ACCOMMODATION_KEYWORD }}
           MYREALTRIP_ACCOMMODATION_IS_DOMESTIC: ${{ vars.MYREALTRIP_ACCOMMODATION_IS_DOMESTIC || 'true' }}
+          MYREALTRIP_ACCOMMODATION_NIGHTS: ${{ vars.MYREALTRIP_ACCOMMODATION_NIGHTS || '2' }}
+          MYREALTRIP_ACCOMMODATION_ADULT_COUNT: ${{ vars.MYREALTRIP_ACCOMMODATION_ADULT_COUNT || '2' }}
+          MYREALTRIP_ACCOMMODATION_CHILD_COUNT: ${{ vars.MYREALTRIP_ACCOMMODATION_CHILD_COUNT || '0' }}
+          MYREALTRIP_ACCOMMODATION_STAR_RATING: ${{ vars.MYREALTRIP_ACCOMMODATION_STAR_RATING }}
+          MYREALTRIP_ACCOMMODATION_REGION_LIMIT: ${{ vars.MYREALTRIP_ACCOMMODATION_REGION_LIMIT || '100' }}
+          MYREALTRIP_ACCOMMODATION_PER_REGION_LIMIT: ${{ vars.MYREALTRIP_ACCOMMODATION_PER_REGION_LIMIT || '8' }}
+          MYREALTRIP_ACCOMMODATION_LIMIT: ${{ vars.MYREALTRIP_ACCOMMODATION_LIMIT || '240' }}
 
       - name: Refresh ticket cache
         run: node scripts/fetch-myrealtrip-tna-products.mjs
