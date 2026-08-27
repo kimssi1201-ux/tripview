@@ -2133,7 +2133,6 @@ function articleContentImages(post) {
   const seen = new Set();
   return postImagesWithProcessed(processedTourImages, post)
     .filter(Boolean)
-    .filter((src) => !isArticleHeroImage(post, src))
     .filter((src) => {
       const key = imageIdentity(src);
       if (!key || seen.has(key)) return false;
