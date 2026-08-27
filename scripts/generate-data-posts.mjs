@@ -1126,6 +1126,31 @@ function canPublishMore(existingPosts, plannedNewCount) {
   return total === 0 || dataPostCount / total <= MAX_AUTO_SHARE;
 }
 
+async function refreshExistingDataPosts(candidates, posts, manifest, generatedCandidates = []) {
+  const existingDataSlugs = new Set(posts
+    .filter((post) => post?.dataPipeline?.generated && post?.slug)
+    .map((post) => post.slug));
+  const generatedSlugs = new Set(generatedCandidates.map((candidate) => candidate.post.slug));
+  const refreshed = [];
+  const discarded = [];
+  for (const candidate of candidates.flat()) {
+    const slug = candidate?.post?.slug;
+    if (!existingDataSlugs.has(slug) || generatedSlugs.has(slug)) continue;
+    const reasons = await validateCandidate(candidate, posts, manifest);
+    if (reasons.length) {
+      discarded.push({ slug, type: candidate.type, region: candidate.region, reasons });
+      continue;
+    }
+    candidate.post.dataPipeline.validation = candidateValidationMetadata(
+      candidate,
+      String(process.env.DATA_PIPELINE_VALIDATE_LIVE_URLS || "").toLowerCase() === "true",
+    );
+    refreshed.push(candidate);
+    generatedSlugs.add(slug);
+  }
+  return { refreshed, discarded };
+}
+
 async function appendLog(run) {
   const existing = await readJson(LOG_PATH, { runs: [] });
   const runs = Array.isArray(existing?.runs) ? existing.runs : [];
@@ -1199,10 +1224,14 @@ async function main() {
     }
   }
 
-  for (const candidate of generated) await writePost(candidate);
-  const mergedPosts = mergePosts(posts, generated, manifest);
+  const { refreshed, discarded: refreshDiscarded } = await refreshExistingDataPosts(allCandidateGroups, posts, manifest, generated);
+  discarded.push(...refreshDiscarded);
+
+  const candidatesToWrite = [...generated, ...refreshed];
+  for (const candidate of candidatesToWrite) await writePost(candidate);
+  const mergedPosts = mergePosts(posts, candidatesToWrite, manifest);
   await writeJson(POSTS_PATH, mergedPosts);
-  await writeJson(MANIFEST_PATH, updateManifest(manifest, generated));
+  await writeJson(MANIFEST_PATH, updateManifest(manifest, candidatesToWrite));
   const run = {
     runAt: new Date().toISOString(),
     runDate: STAY.today,
@@ -1215,11 +1244,21 @@ async function main() {
       rowCount: candidate.tableRows.length,
       affiliateLinkCount: candidate.affiliateLinkCount,
     })),
+    refreshedCount: refreshed.length,
+    refreshed: refreshed.map((candidate) => ({
+      slug: candidate.post.slug,
+      type: candidate.type,
+      region: candidate.region,
+      rowCount: candidate.tableRows.length,
+      affiliateLinkCount: candidate.affiliateLinkCount,
+    })),
     discarded,
   };
   await appendLog(run);
   console.log(`Data post pipeline generated ${generated.length} post(s), discarded ${discarded.length} candidate(s).`);
+  if (refreshed.length) console.log(`Data post pipeline refreshed ${refreshed.length} existing data post(s).`);
   for (const item of generated) console.log(`- ${item.post.slug}: ${item.post.title}`);
+  for (const item of refreshed) console.log(`- refreshed ${item.post.slug}: ${item.post.title}`);
   for (const item of discarded) console.log(`- discarded ${item.slug}: ${item.reasons.join(", ")}`);
 }
 
