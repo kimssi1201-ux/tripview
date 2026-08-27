@@ -76,6 +76,50 @@ function visibleText(document = "") {
     .trim();
 }
 
+function articleBodyHtml(document = "") {
+  return String(document).match(/<article\b[^>]*\bclass=["'][^"']*\bcontent\b[^"']*["'][^>]*>([\s\S]*?)<\/article>/i)?.[1] || "";
+}
+
+function imageIdentity(value = "") {
+  const src = String(value || "").trim().replaceAll("\\", "/");
+  if (!src) return "";
+  try {
+    const url = new URL(src, "https://tripview.kr");
+    url.hash = "";
+    return url.origin === "https://tripview.kr"
+      ? `${url.pathname}${url.search}`
+      : `${url.protocol}//${url.hostname.toLowerCase()}${url.pathname}${url.search}`;
+  } catch {
+    return src;
+  }
+}
+
+function tourismImageContentKey(value = "") {
+  const clean = String(value || "").split("?")[0];
+  const resource = clean.match(/\/resource(?:_photo)?\/\d+\/([^/_]+)_image\d+_\d+/i);
+  return resource ? `tour:${resource[1].toLowerCase()}` : "";
+}
+
+function processedImageAssets(manifest, post) {
+  const entry = manifest.items?.[post.slug] || {};
+  return [entry.cover, entry.hero, entry.banner, ...(Array.isArray(entry.images) ? entry.images : [])].filter(Boolean);
+}
+
+function articleImageOriginal(manifest, post, src) {
+  const key = imageIdentity(src);
+  const asset = processedImageAssets(manifest, post).find((item) => (
+    imageIdentity(item.src) === key || imageIdentity(item.original) === key
+  ));
+  return asset?.original || src;
+}
+
+function articleInlineImageSources(body = "") {
+  const figures = [...String(body).matchAll(/<figure\b[^>]*\bclass=["'][^"']*\barticle-inline-figure\b[^"']*["'][^>]*>[\s\S]*?<\/figure>/gi)];
+  return figures
+    .map((figure) => figure[0].match(/<img\b[^>]*\bsrc=["']([^"']+)["'][^>]*>/i)?.[1])
+    .filter(Boolean);
+}
+
 function addDays(date, days) {
   const next = new Date(date);
   next.setUTCDate(next.getUTCDate() + days);
@@ -509,6 +553,40 @@ test("Korea Tourism images render through processed WebP assets", async () => {
   assert.doesNotMatch(busanHub, /tong\.visitkorea\.or\.kr/);
   assert.match(topicFilter, /processed-tour-images\.json/);
   assert.match(topicFilter, /processedImage\(post\)/);
+});
+
+test("article inline images do not repeat the same Korea Tourism content id", async () => {
+  const [manifestText, postsText] = await Promise.all([
+    readFile("data/processed-tour-images.json", "utf8"),
+    readFile("data/generated-posts.json", "utf8"),
+  ]);
+  const manifest = JSON.parse(manifestText);
+  const posts = JSON.parse(postsText);
+  const failures = [];
+
+  for (const post of posts.filter(isIndexablePost)) {
+    let document = "";
+    try {
+      document = await readFile(`${post.slug}/index.html`, "utf8");
+    } catch {
+      continue;
+    }
+    const body = articleBodyHtml(document);
+    const seen = new Map();
+    for (const src of articleInlineImageSources(body)) {
+      const original = articleImageOriginal(manifest, post, src);
+      const key = tourismImageContentKey(original) || tourismImageContentKey(src);
+      if (!key) continue;
+      const images = seen.get(key) || [];
+      images.push(src);
+      seen.set(key, images);
+    }
+    for (const [key, images] of seen) {
+      if (images.length > 1) failures.push({ slug: post.slug, contentKey: key, images });
+    }
+  }
+
+  assert.deepEqual(failures, []);
 });
 
 test("article schema, festival schema, lodging schema, and language policy are applied", async () => {

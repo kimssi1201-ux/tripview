@@ -262,7 +262,7 @@ function hasExistingTitle(existing, candidateTitle) {
 
 function imageFamilyKey(src) {
   const clean = String(src || '').split('?')[0];
-  const resource = clean.match(/\/resource\/\d+\/([^/_]+)_image\d+_\d+/i);
+  const resource = clean.match(/\/resource(?:_photo)?\/\d+\/([^/_]+)_image\d+_\d+/i);
   if (resource) return resource[1];
   return clean.toLowerCase();
 }

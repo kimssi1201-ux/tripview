@@ -2110,6 +2110,17 @@ function imageIdentitySet(values = []) {
   return keys;
 }
 
+function tourismImageContentKey(value = "") {
+  const clean = normalizeText(value).split("?")[0];
+  const resource = clean.match(/\/resource(?:_photo)?\/\d+\/([^/_]+)_image\d+_\d+/i);
+  return resource ? `tour:${resource[1].toLowerCase()}` : "";
+}
+
+function articleImageFamilyKey(post, src) {
+  const asset = tourImageAssetForSource(processedTourImages, post, src);
+  return tourismImageContentKey(src) || tourismImageContentKey(asset?.original) || imageIdentity(src);
+}
+
 function articleHeroImageKeys(post) {
   const entry = tourImageEntry(processedTourImages, post);
   return imageIdentitySet([
@@ -2134,7 +2145,7 @@ function articleContentImages(post) {
   return postImagesWithProcessed(processedTourImages, post)
     .filter(Boolean)
     .filter((src) => {
-      const key = imageIdentity(src);
+      const key = articleImageFamilyKey(post, src);
       if (!key || seen.has(key)) return false;
       seen.add(key);
       return true;
