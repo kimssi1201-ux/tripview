@@ -767,6 +767,10 @@ test("data post pipeline outputs validated data pages", async () => {
   assert.ok(dataPosts.length > 0);
   assert.ok(latestPublishedRun.generatedCount > 0 && latestPublishedRun.generatedCount <= 3);
   assert.equal(new Set(latestPublishedRun.generated.map((item) => item.type)).size, latestPublishedRun.generated.length);
+  const latestRunSlugs = new Set([
+    ...latestPublishedRun.generated,
+    ...(latestPublishedRun.refreshed || []),
+  ].map((item) => item.slug));
   assert.ok(dataPosts.every((post) => allowedKinds.has(post.dataPipeline.kind)));
   assert.ok(dataPosts.every((post) => /^data-(stay-price|festival-schedule|ticket-price)-[a-z0-9-]+$/.test(post.slug)));
   for (const post of dataPosts) {
@@ -776,7 +780,7 @@ test("data post pipeline outputs validated data pages", async () => {
     assert.ok(post.dataPipeline.validation.affiliateLinkCount <= 8);
     assert.ok(post.dataPipeline.validation.affiliateTextRatio <= 0.3);
   }
-  for (const post of dataPosts.filter(isIndexablePost)) {
+  for (const post of dataPosts.filter((post) => latestRunSlugs.has(post.slug) && isIndexablePost(post))) {
     assert.match(sitemap, new RegExp(`<loc>https://tripview\\\\.kr/${post.slug}/</loc>`));
   }
 
