@@ -126,9 +126,11 @@ test("backfill workflow keeps detailImage2 sample behind explicit sample mode", 
   assert.match(script, /BACKFILL_INCLUDE_IMAGES/);
   assert.match(script, /originimgurl/);
   assert.match(workflow, /image_mode/);
+  assert.match(workflow, /retry_image_incomplete/);
   assert.match(workflow, /image_sample_size \|\| '20'/);
   assert.match(workflow, /BACKFILL_IMAGE_SAMPLE=1/);
   assert.match(workflow, /BACKFILL_INCLUDE_IMAGES=1/);
+  assert.match(workflow, /BACKFILL_RETRY_IMAGE_INCOMPLETE=1/);
   assert.match(workflow, /github.event_name == 'workflow_dispatch' && github.event.inputs.image_mode == 'sample'/);
   assert.doesNotMatch(workflow, /github.event.inputs.image_mode == 'sample' \|\| github.event.inputs.image_mode == 'full'/);
   assert.match(workflow, /Sample Durunubi walking courses[\s\S]*continue-on-error: true/);

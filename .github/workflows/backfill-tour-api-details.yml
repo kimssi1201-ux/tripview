@@ -25,6 +25,10 @@ on:
         description: "Number of posts for detailImage2 sample test"
         required: false
         default: "20"
+      retry_image_incomplete:
+        description: "Retry posts that already attempted image backfill but still have fewer than 3 images"
+        required: false
+        default: "false"
       photo_gallery_mode:
         description: "PhotoGalleryService1 mode: sample or off"
         required: false
@@ -108,8 +112,13 @@ jobs:
           IMAGE_MODE="${{ github.event.inputs.image_mode }}"
           BACKFILL_BATCH_LIMIT="${{ github.event.inputs.limit || '120' }}"
           BACKFILL_BATCH_OFFSET="${{ github.event.inputs.offset || '0' }}"
+          BACKFILL_RETRY_INCOMPLETE="${{ github.event.inputs.retry_image_incomplete || 'false' }}"
           if [ "$IMAGE_MODE" = "full" ]; then
-            BACKFILL_INCLUDE_IMAGES=1 BACKFILL_INCLUDE_PHOTO_GALLERY=1 BACKFILL_LIMIT="$BACKFILL_BATCH_LIMIT" BACKFILL_OFFSET="$BACKFILL_BATCH_OFFSET" node scripts/backfill-tour-api-details.mjs
+            if [ "$BACKFILL_RETRY_INCOMPLETE" = "true" ]; then
+              BACKFILL_RETRY_IMAGE_INCOMPLETE=1 BACKFILL_INCLUDE_IMAGES=1 BACKFILL_INCLUDE_PHOTO_GALLERY=1 BACKFILL_LIMIT="$BACKFILL_BATCH_LIMIT" BACKFILL_OFFSET="$BACKFILL_BATCH_OFFSET" node scripts/backfill-tour-api-details.mjs
+            else
+              BACKFILL_INCLUDE_IMAGES=1 BACKFILL_INCLUDE_PHOTO_GALLERY=1 BACKFILL_LIMIT="$BACKFILL_BATCH_LIMIT" BACKFILL_OFFSET="$BACKFILL_BATCH_OFFSET" node scripts/backfill-tour-api-details.mjs
+            fi
           elif [ "$IMAGE_MODE" = "off" ]; then
             BACKFILL_LIMIT="$BACKFILL_BATCH_LIMIT" BACKFILL_OFFSET="$BACKFILL_BATCH_OFFSET" node scripts/backfill-tour-api-details.mjs
           fi
