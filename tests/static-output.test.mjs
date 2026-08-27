@@ -193,7 +193,30 @@ test("homepage thumbnails use fixed ratios without gray placeholders", async () 
   assert.match(homepage, /\.home-hero-main p\{-webkit-line-clamp:2\}/);
   assert.match(homepage, /\.home-hero-small p\{-webkit-line-clamp:2;font-size:13px;line-height:1\.45\}/);
   assert.doesNotMatch(homepage, /\.story-thumb\{[^}]*background:var\(--line\)/);
-  assert.doesNotMatch(homepage, /object-fit:(?:contain|scale-down)|height:auto|max-height|class="thumb empty"/);
+  // Scoped to the thumbnail rules themselves (not the whole document) so
+  // unrelated CSS elsewhere on the page - e.g. a max-height on a dropdown -
+  // can't trip this thumbnail-regression guard.
+  assert.doesNotMatch(homepage, /\.story-thumb(?: img)?\{[^}]*(?:object-fit:(?:contain|scale-down)|height:auto|max-height)[^}]*\}/);
+  assert.doesNotMatch(homepage, /class="thumb empty"/);
+});
+
+test("header search box has a client-side index covering every generated post", async () => {
+  const [homepage, generatedPosts, searchIndexRaw] = await Promise.all([
+    readFile("index.html", "utf8"),
+    readFile("data/generated-posts.json", "utf8").then(JSON.parse),
+    readFile("assets/search-index.json", "utf8"),
+  ]);
+  assert.match(homepage, /<details class="site-search" data-site-search>/);
+  assert.match(homepage, /data-site-search-input/);
+  assert.match(homepage, /fetch\("\/assets\/search-index\.json"\)/);
+
+  const searchIndex = JSON.parse(searchIndexRaw);
+  assert.equal(searchIndex.length, generatedPosts.length);
+  for (const entry of searchIndex.slice(0, 20)) {
+    assert.equal(typeof entry.slug, "string");
+    assert.equal(typeof entry.title, "string");
+    assert.ok(entry.slug.length > 0 && entry.title.length > 0);
+  }
 });
 
 test("common site design clamps mobile page overflow", async () => {

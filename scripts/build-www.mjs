@@ -3452,6 +3452,21 @@ async function polishStaticPages() {
   }
 }
 
+async function writeSearchIndex() {
+  // Compact client-side search index for the header search box (see
+  // siteHeader()/siteNavScript() in lib/site-design.mjs) - fetched once per
+  // page-view and filtered entirely in the browser, no server/API needed.
+  const entries = posts
+    .filter((post) => post?.slug && post?.title)
+    .map((post) => ({
+      slug: post.slug,
+      title: stripTags(post.title),
+      region: normalizeText(post.region || ""),
+      category: normalizeText(post.category || ""),
+    }));
+  await writeFile(join(root, "assets", "search-index.json"), JSON.stringify(entries), "utf8");
+}
+
 async function copySite(targetDir) {
   console.log(`Copying static output to ${targetDir === outDir ? "www" : "site"}...`);
   await rm(targetDir, { recursive: true, force: true });
@@ -3484,6 +3499,7 @@ console.log("Polishing legacy article shells...");
 await polishLegacyArticleShells();
 console.log("Polishing static pages...");
 await polishStaticPages();
+await writeSearchIndex();
 await copySite(outDir);
 await copySite(siteDir);
 

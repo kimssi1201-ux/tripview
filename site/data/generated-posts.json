@@ -593,7 +593,15 @@
       ]
     ],
     "manualValleyPostVersion": 1,
-    "editorialStatus": "pending"
+    "editorialStatus": "pending",
+    "durunubiCourse": {
+      "crsKorNm": "해파랑길 42코스",
+      "sigun": "강원 양양군",
+      "distance": 10,
+      "requiredTime": 240,
+      "level": "중",
+      "source": "두루누비(Durunubi) - 문화체육관광부/한국관광공사, 시범 적용"
+    }
   },
   {
     "contentid": "252587",
@@ -10403,7 +10411,15 @@
     "contentDepthVersion": "verified-detail-v3-20260809",
     "contentDepthUpdatedAt": "2026-08-09",
     "updatedAt": "2026-08-09",
-    "editorialStatus": "pending"
+    "editorialStatus": "pending",
+    "durunubiCourse": {
+      "crsKorNm": "서해랑길 43코스",
+      "sigun": "전북 고창군",
+      "distance": 21,
+      "requiredTime": 420,
+      "level": "중",
+      "source": "두루누비(Durunubi) - 문화체육관광부/한국관광공사, 시범 적용"
+    }
   },
   {
     "contentid": "2856707",
@@ -17509,7 +17525,15 @@
     "contentDepthVersion": "verified-detail-v3-20260809",
     "contentDepthUpdatedAt": "2026-08-09",
     "updatedAt": "2026-08-09",
-    "editorialStatus": "pending"
+    "editorialStatus": "pending",
+    "durunubiCourse": {
+      "crsKorNm": "서해랑길 12코스",
+      "sigun": "전남 진도군",
+      "distance": 22,
+      "requiredTime": 420,
+      "level": "중",
+      "source": "두루누비(Durunubi) - 문화체육관광부/한국관광공사, 시범 적용"
+    }
   },
   {
     "contentid": "2908683",
@@ -24076,7 +24100,15 @@
     "editorialTopics": [
       "water"
     ],
-    "editorialAngle": "안목해변은 본격적인 물놀이보다 바다 산책과 카페거리를 묶는 일정에 잘 맞습니다. 주차 혼잡과 해변 체류 시간을 분리해 판단했습니다."
+    "editorialAngle": "안목해변은 본격적인 물놀이보다 바다 산책과 카페거리를 묶는 일정에 잘 맞습니다. 주차 혼잡과 해변 체류 시간을 분리해 판단했습니다.",
+    "durunubiCourse": {
+      "crsKorNm": "해파랑길 39코스 바우길 05구간",
+      "sigun": "강원 강릉시",
+      "distance": 16,
+      "requiredTime": 330,
+      "level": "하",
+      "source": "두루누비(Durunubi) - 문화체육관광부/한국관광공사, 시범 적용"
+    }
   },
   {
     "contentid": "127764",
@@ -64497,7 +64529,15 @@
     "copyPolishedVersion": 3,
     "contentDepthVersion": "short-post-top30-20260710",
     "contentDepthUpdatedAt": "2026-07-10",
-    "editorialStatus": "pending"
+    "editorialStatus": "pending",
+    "durunubiCourse": {
+      "crsKorNm": "남파랑길 54코스",
+      "sigun": "전남 여수시",
+      "distance": 8,
+      "requiredTime": 180,
+      "level": "중",
+      "source": "두루누비(Durunubi) - 문화체육관광부/한국관광공사, 시범 적용"
+    }
   },
   {
     "contentid": "2931073",
@@ -65933,7 +65973,15 @@
       "water"
     ],
     "editorialAngle": "무릉계곡은 짧은 물놀이와 긴 산책의 준비가 다릅니다. 동행자의 체력과 비 온 뒤 계곡 상태를 기준으로 코스 선택법을 정리했습니다.",
-    "updatedAt": "2026-08-10"
+    "updatedAt": "2026-08-10",
+    "durunubiCourse": {
+      "crsKorNm": "해파랑길 33코스",
+      "sigun": "강원 동해시",
+      "distance": 14,
+      "requiredTime": 270,
+      "level": "하",
+      "source": "두루누비(Durunubi) - 문화체육관광부/한국관광공사, 시범 적용"
+    }
   },
   {
     "contentid": "125838",
@@ -67172,7 +67220,15 @@
     "copyPolishedVersion": 3,
     "contentDepthVersion": "short-post-top30-20260710",
     "contentDepthUpdatedAt": "2026-07-10",
-    "editorialStatus": "pending"
+    "editorialStatus": "pending",
+    "durunubiCourse": {
+      "crsKorNm": "해파랑길 13코스",
+      "sigun": "경북 포항시",
+      "distance": 20,
+      "requiredTime": 390,
+      "level": "하",
+      "source": "두루누비(Durunubi) - 문화체육관광부/한국관광공사, 시범 적용"
+    }
   },
   {
     "contentid": "127934",
@@ -71209,7 +71265,15 @@
     "copyPolishedVersion": 3,
     "contentDepthVersion": "short-post-top30-20260710",
     "contentDepthUpdatedAt": "2026-07-10",
-    "editorialStatus": "pending"
+    "editorialStatus": "pending",
+    "durunubiCourse": {
+      "crsKorNm": "서해랑길 12코스",
+      "sigun": "전남 진도군",
+      "distance": 22,
+      "requiredTime": 420,
+      "level": "중",
+      "source": "두루누비(Durunubi) - 문화체육관광부/한국관광공사, 시범 적용"
+    }
   },
   {
     "contentid": "2729938",
@@ -72288,7 +72352,15 @@
     "contentDepthVersion": "verified-detail-v3-20260809",
     "contentDepthUpdatedAt": "2026-08-09",
     "updatedAt": "2026-08-09",
-    "editorialStatus": "pending"
+    "editorialStatus": "pending",
+    "durunubiCourse": {
+      "crsKorNm": "남파랑길 81코스",
+      "sigun": "전남 강진군",
+      "distance": 15,
+      "requiredTime": 300,
+      "level": "하",
+      "source": "두루누비(Durunubi) - 문화체육관광부/한국관광공사, 시범 적용"
+    }
   },
   {
     "contentid": "2838922",
@@ -110472,7 +110544,15 @@
         "photoGalleryMatchedCount": 0
       }
     },
-    "editorialStatus": "pending"
+    "editorialStatus": "pending",
+    "durunubiCourse": {
+      "crsKorNm": "남파랑길 61코스",
+      "sigun": "전남 순천시",
+      "distance": 15,
+      "requiredTime": 300,
+      "level": "중",
+      "source": "두루누비(Durunubi) - 문화체육관광부/한국관광공사, 시범 적용"
+    }
   },
   {
     "contentid": "4070513",

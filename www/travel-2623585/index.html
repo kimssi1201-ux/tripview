@@ -43,8 +43,20 @@ button,input,select{font:inherit}
 .nav-item-label{color:var(--ink);font-size:14px;font-weight:800;line-height:1.35}
 .nav-item-desc{color:var(--muted);font-size:12px;line-height:1.45}
 .nav-item-count{color:var(--muted);font-size:11px;font-weight:800;line-height:1.35}
+.site-search{position:relative}
+.site-search>summary{list-style:none;cursor:pointer}
+.site-search>summary::-webkit-details-marker{display:none}
 .site-search-link{display:grid;place-items:center;min-width:44px;min-height:44px;border:1px solid transparent;border-radius:999px;color:var(--ink);font-size:23px;line-height:1;transition:background-color 150ms ease,border-color 150ms ease}
 .site-search-link:hover,.site-search-link:focus-visible{border-color:var(--line);background:var(--card)}
+.site-search-panel{position:absolute;right:0;top:calc(100% + 10px);z-index:420;display:none;width:340px;max-width:calc(100vw - 32px);padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--card);box-shadow:0 12px 28px color-mix(in srgb,var(--ink) 14%,transparent)}
+.site-search[open] .site-search-panel{display:block}
+.site-search-input{width:100%;min-height:40px;padding:0 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font-size:14px}
+.site-search-results{display:grid;gap:2px;margin-top:8px;max-height:360px;overflow-y:auto}
+.site-search-results a{display:grid;gap:2px;padding:8px 10px;border-radius:8px;transition:background-color 150ms ease}
+.site-search-results a:hover,.site-search-results a:focus-visible{background:var(--soft-teal)}
+.site-search-result-title{display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;color:var(--ink);font-size:14px;font-weight:800;line-height:1.35}
+.site-search-result-meta{color:var(--muted);font-size:12px;line-height:1.4}
+.site-search-empty,.site-search-hint{margin:4px 2px 0;color:var(--muted);font-size:13px}
 .site-mobile-categories{display:none}
 .site-page{width:var(--site-wrap);margin:0 auto;padding:48px 0 64px}
 .site-section{padding:48px 0}
@@ -83,6 +95,7 @@ button,input,select{font:inherit}
   .story-grid{grid-template-columns:1fr;gap:16px}
   .site-footer-inner{grid-template-columns:1fr;gap:20px;padding:32px 0}
   .site-search-link{font-size:22px}
+  .site-search-panel{position:fixed;left:16px;right:16px;top:64px;width:auto;max-width:none}
   .data-table{background:linear-gradient(to right,var(--card) 30%,color-mix(in srgb,var(--card) 0%,transparent)),linear-gradient(to left,var(--card) 30%,color-mix(in srgb,var(--card) 0%,transparent)) 100% 0,radial-gradient(farthest-side at 0 50%,color-mix(in srgb,var(--ink) 14%,transparent),transparent),radial-gradient(farthest-side at 100% 50%,color-mix(in srgb,var(--ink) 14%,transparent),transparent) 100% 0;background-attachment:local,local,scroll,scroll;background-repeat:no-repeat;background-size:36px 100%,36px 100%,14px 100%,14px 100%}
 }
 @media(max-width:520px){body{font-size:15px}.site-section-head h2{font-size:19px}.story-card strong{font-size:17px}.story-card-body{padding:14px}}
@@ -126,6 +139,10 @@ button,input,select{font:inherit}
 .article-fact-table tr:last-child th,.article-fact-table tr:last-child td{border-bottom:0}
 .article-fact-value-list{display:grid;gap:6px;margin:0;padding-left:18px}
 .article-fact-value-list li{padding-left:2px}
+.article-durunubi-course{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 24px;padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:var(--card);font-size:14px;line-height:1.5}
+.article-durunubi-label{font-weight:900;color:var(--brand,var(--ink))}
+.article-durunubi-name{font-weight:700}
+.article-durunubi-meta{color:var(--muted,var(--ink));opacity:.75}
 .article-check-list{display:grid;gap:8px;list-style:none;padding:0!important}
 .article-check-list li{position:relative;margin:0!important;padding:10px 12px 10px 24px;border:1px solid var(--line);border-radius:8px;background:var(--card)}
 .article-check-list li::before{content:"";position:absolute;left:12px;top:20px;width:4px;height:4px;border-radius:50%;background:var(--brand)}
@@ -220,7 +237,13 @@ footer.site-footer{padding:0;color:var(--muted)}
     </details>
         </div>
       </nav>
-      <a class="site-search-link" href="/travel/#all-posts" aria-label="검색">⌕</a>
+      <details class="site-search" data-site-search>
+        <summary class="site-search-link" aria-label="검색">⌕</summary>
+        <div class="site-search-panel">
+          <input type="search" class="site-search-input" data-site-search-input placeholder="여행지·축제·지역 검색" autocomplete="off" aria-label="검색어 입력">
+          <div class="site-search-results" data-site-search-results><p class="site-search-hint">여행지, 축제, 지역 이름으로 검색해보세요.</p></div>
+        </div>
+      </details>
     </div>
     <nav class="site-mobile-categories" aria-label="카테고리"><a class="site-mobile-category" href="/">홈</a><a class="site-mobile-category" href="/travel/">여행지</a><a class="site-mobile-category" href="/festival/">축제·행사</a><a class="site-mobile-category is-current" href="/stay/">숙소</a><a class="site-mobile-category" href="/ticket/">입장권·투어</a></nav>
   </header>
@@ -284,7 +307,8 @@ footer.site-footer{padding:0;color:var(--muted)}
   <a class="lodging-booking-button" href="/stay/">숙소 예약처 보기</a>
 </aside>
 <!-- LODGING_BOOKING_END --></section>
-    </main><script src="/assets/topic-filter.js?v=topic-filter-20260706-hardening" defer></script><footer class="site-footer">
+    </main><script src="/assets/topic-filter.js?v=topic-filter-20260706-hardening" defer></script>
+  <footer class="site-footer">
     <div class="site-footer-inner">
       <div class="footer-brand">
         <strong>트립뷰</strong>
@@ -336,6 +360,7 @@ footer.site-footer{padding:0;color:var(--muted)}
       };
       const openGroup = (group, byHover = false) => {
         closeGroups(group);
+        closeSearch();
         group.setAttribute("open", "");
         group.dataset.openedByHover = byHover ? "true" : "false";
       };
@@ -356,12 +381,96 @@ footer.site-footer{padding:0;color:var(--muted)}
           }
         });
       });
+
+      const searchDetails = header.querySelector("[data-site-search]");
+      const closeSearch = () => searchDetails?.removeAttribute("open");
+      if (searchDetails) {
+        const input = searchDetails.querySelector("[data-site-search-input]");
+        const results = searchDetails.querySelector("[data-site-search-results]");
+        const escapeHtml = (value) => String(value ?? "").replace(/[&<>"']/g, (match) => ({
+          "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
+        }[match]));
+        const HINT_HTML = '<p class="site-search-hint">여행지, 축제, 지역 이름으로 검색해보세요.</p>';
+        let indexPromise = null;
+        let debounceTimer = null;
+        const loadIndex = () => {
+          if (!indexPromise) {
+            indexPromise = fetch("/assets/search-index.json")
+              .then((response) => (response.ok ? response.json() : []))
+              .catch(() => []);
+          }
+          return indexPromise;
+        };
+        const render = (items, query) => {
+          if (!results) return;
+          if (!query) {
+            results.innerHTML = HINT_HTML;
+          } else if (!items.length) {
+            results.innerHTML = '<p class="site-search-empty">검색 결과가 없습니다.</p>';
+          } else {
+            results.innerHTML = items.map((item) => {
+              const meta = [item.region, item.category].filter(Boolean).join(" · ");
+              return '<a href="/' + encodeURIComponent(item.slug) + '/"><span class="site-search-result-title">' + escapeHtml(item.title) + '</span><span class="site-search-result-meta">' + escapeHtml(meta) + '</span></a>';
+            }).join("");
+          }
+        };
+        const runSearch = async (rawQuery) => {
+          const query = String(rawQuery || "").trim().toLowerCase();
+          if (!query) {
+            render([], "");
+            return;
+          }
+          const items = await loadIndex();
+          const matches = items
+            .map((item) => {
+              const title = String(item.title || "").toLowerCase();
+              const region = String(item.region || "").toLowerCase();
+              const category = String(item.category || "").toLowerCase();
+              let score = 0;
+              if (title.startsWith(query)) score = 4;
+              else if (title.includes(query)) score = 3;
+              else if (region.includes(query)) score = 2;
+              else if (category.includes(query)) score = 1;
+              return { item, score };
+            })
+            .filter((entry) => entry.score > 0)
+            .sort((a, b) => b.score - a.score)
+            .slice(0, 8)
+            .map((entry) => entry.item);
+          render(matches, query);
+        };
+        searchDetails.addEventListener("toggle", () => {
+          if (searchDetails.open) {
+            closeGroups();
+            loadIndex();
+            requestAnimationFrame(() => input?.focus());
+          }
+        });
+        input?.addEventListener("input", (event) => {
+          clearTimeout(debounceTimer);
+          const value = event.target.value;
+          debounceTimer = setTimeout(() => runSearch(value), 120);
+        });
+        input?.addEventListener("keydown", (event) => {
+          if (event.key === "Escape") {
+            event.stopPropagation();
+            closeSearch();
+          }
+        });
+      }
+
       header.addEventListener("mouseleave", () => closeGroups());
       document.addEventListener("click", (event) => {
-        if (!header.contains(event.target)) closeGroups();
+        if (!header.contains(event.target)) {
+          closeGroups();
+          closeSearch();
+        }
       });
       document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") closeGroups();
+        if (event.key === "Escape") {
+          closeGroups();
+          closeSearch();
+        }
       });
     })();
   </script>
