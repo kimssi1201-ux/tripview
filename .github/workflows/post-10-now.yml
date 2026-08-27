@@ -127,7 +127,7 @@ jobs:
           node <<'NODE'
           const fs = require('node:fs');
           const { execFileSync } = require('node:child_process');
-          const before = JSON.parse(execFileSync('git', ['show', 'HEAD:data/generated-posts.json'], { encoding: 'utf8' }));
+          const before = JSON.parse(execFileSync('git', ['show', 'HEAD:data/generated-posts.json'], { encoding: 'utf8', maxBuffer: 32 * 1024 * 1024 }));
           const after = JSON.parse(fs.readFileSync('data/generated-posts.json', 'utf8'));
           const added = after.length - before.length;
           if (added < 10) throw new Error(`Expected 10 new posts, got ${added}`);
