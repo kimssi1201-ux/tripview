@@ -167,6 +167,13 @@ async function collectHtmlFiles(dir = ".", files = []) {
   return files;
 }
 
+test("Coupang product images keep the site referrer policy", async () => {
+  const script = await readFile("assets/coupang.js", "utf8");
+
+  assert.doesNotMatch(script, /referrerPolicy\s*=\s*["']no-referrer["']/);
+  assert.match(script, /referrerPolicy\s*=\s*["']strict-origin-when-cross-origin["']/);
+});
+
 test("homepage categories use real URLs and travel keeps old topics as tags", async () => {
   const [homepage, travelPage, ticketPage] = await Promise.all([
     readFile("index.html", "utf8"),

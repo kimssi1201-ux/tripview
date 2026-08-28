@@ -18,7 +18,7 @@
       image.src = item.image;
       image.alt = item.title || "쿠팡 추천 상품";
       image.loading = "lazy";
-      image.referrerPolicy = "no-referrer";
+      image.referrerPolicy = "strict-origin-when-cross-origin";
       image.addEventListener("error", () => thumb.remove(), { once: true });
       thumb.appendChild(image);
       link.appendChild(thumb);
