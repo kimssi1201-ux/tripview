@@ -120,6 +120,13 @@ function articleInlineImageSources(body = "") {
     .filter(Boolean);
 }
 
+function articlePhotoGridImageSources(body = "") {
+  const section = String(body).match(/<section\b[^>]*\bclass=["'][^"']*\barticle-photo-grid\b[^"']*["'][^>]*>[\s\S]*?<\/section>/i)?.[0] || "";
+  return [...section.matchAll(/<img\b[^>]*\bsrc=["']([^"']+)["'][^>]*>/gi)]
+    .map((match) => match[1])
+    .filter(Boolean);
+}
+
 function addDays(date, days) {
   const next = new Date(date);
   next.setUTCDate(next.getUTCDate() + days);
@@ -621,6 +628,19 @@ test("article body uses three to five inline images when enough photos are avail
   assert.ok(sources.length >= 3 && sources.length <= 5);
   assert.doesNotMatch(body, /src="\/assets\/processed\/cheongyang-janggoksa-parking\.webp"/);
   assert.match(body, /ARTICLE_INLINE_PHOTO_START 5/);
+});
+
+test("article photo grid renders remaining processed images without repeating inline photos", async () => {
+  const article = await readFile("travel-125837/index.html", "utf8");
+  const body = articleBodyHtml(article);
+  const inlineSources = articleInlineImageSources(body);
+  const gridSources = articlePhotoGridImageSources(body);
+
+  assert.equal(inlineSources.length, 5);
+  assert.equal(gridSources.length, 2);
+  assert.match(body, /<section class="article-photo-grid"[^>]*data-count="2"/);
+  assert.deepEqual(gridSources.filter((src) => inlineSources.includes(src)), []);
+  assert.ok([...inlineSources, ...gridSources].every((src) => src.startsWith("/assets/processed/")));
 });
 
 test("article schema, festival schema, lodging schema, and language policy are applied", async () => {

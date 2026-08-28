@@ -180,6 +180,9 @@ test("full image backfill can merge PhotoGallery images in bounded batches", asy
   assert.match(script, /Posts with 3\+ images after merge/);
   assert.match(workflow, /default: "120"/);
   assert.match(workflow, /offset:/);
+  assert.match(workflow, /targets:/);
+  assert.match(workflow, /BACKFILL_TARGETS_INPUT/);
+  assert.match(workflow, /BACKFILL_TARGETS="\$BACKFILL_TARGETS_INPUT"/);
   assert.match(workflow, /Install Pillow for image processing/);
   assert.match(workflow, /pip install --quiet Pillow/);
   assert.match(workflow, /BACKFILL_INCLUDE_PHOTO_GALLERY=1/);

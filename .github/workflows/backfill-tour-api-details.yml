@@ -29,6 +29,10 @@ on:
         description: "Retry posts that already attempted image backfill but still have fewer than 3 images"
         required: false
         default: "false"
+      targets:
+        description: "Comma-separated post slugs to refresh before offset/limit batching"
+        required: false
+        default: ""
       photo_gallery_mode:
         description: "PhotoGalleryService1 mode: sample or off"
         required: false
@@ -113,14 +117,15 @@ jobs:
           BACKFILL_BATCH_LIMIT="${{ github.event.inputs.limit || '120' }}"
           BACKFILL_BATCH_OFFSET="${{ github.event.inputs.offset || '0' }}"
           BACKFILL_RETRY_INCOMPLETE="${{ github.event.inputs.retry_image_incomplete || 'false' }}"
+          BACKFILL_TARGETS_INPUT="${{ github.event.inputs.targets || '' }}"
           if [ "$IMAGE_MODE" = "full" ]; then
             if [ "$BACKFILL_RETRY_INCOMPLETE" = "true" ]; then
-              BACKFILL_RETRY_IMAGE_INCOMPLETE=1 BACKFILL_INCLUDE_IMAGES=1 BACKFILL_INCLUDE_PHOTO_GALLERY=1 BACKFILL_LIMIT="$BACKFILL_BATCH_LIMIT" BACKFILL_OFFSET="$BACKFILL_BATCH_OFFSET" node scripts/backfill-tour-api-details.mjs
+              BACKFILL_TARGETS="$BACKFILL_TARGETS_INPUT" BACKFILL_RETRY_IMAGE_INCOMPLETE=1 BACKFILL_INCLUDE_IMAGES=1 BACKFILL_INCLUDE_PHOTO_GALLERY=1 BACKFILL_LIMIT="$BACKFILL_BATCH_LIMIT" BACKFILL_OFFSET="$BACKFILL_BATCH_OFFSET" node scripts/backfill-tour-api-details.mjs
             else
-              BACKFILL_INCLUDE_IMAGES=1 BACKFILL_INCLUDE_PHOTO_GALLERY=1 BACKFILL_LIMIT="$BACKFILL_BATCH_LIMIT" BACKFILL_OFFSET="$BACKFILL_BATCH_OFFSET" node scripts/backfill-tour-api-details.mjs
+              BACKFILL_TARGETS="$BACKFILL_TARGETS_INPUT" BACKFILL_INCLUDE_IMAGES=1 BACKFILL_INCLUDE_PHOTO_GALLERY=1 BACKFILL_LIMIT="$BACKFILL_BATCH_LIMIT" BACKFILL_OFFSET="$BACKFILL_BATCH_OFFSET" node scripts/backfill-tour-api-details.mjs
             fi
           elif [ "$IMAGE_MODE" = "off" ]; then
-            BACKFILL_LIMIT="$BACKFILL_BATCH_LIMIT" BACKFILL_OFFSET="$BACKFILL_BATCH_OFFSET" node scripts/backfill-tour-api-details.mjs
+            BACKFILL_TARGETS="$BACKFILL_TARGETS_INPUT" BACKFILL_LIMIT="$BACKFILL_BATCH_LIMIT" BACKFILL_OFFSET="$BACKFILL_BATCH_OFFSET" node scripts/backfill-tour-api-details.mjs
           fi
           node scripts/polish-contextual-copy.mjs
           node scripts/build-homepage.mjs

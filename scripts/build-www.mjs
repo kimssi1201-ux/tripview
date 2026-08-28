@@ -1758,6 +1758,8 @@ const ARTICLE_INLINE_PHOTO_START = "<!-- ARTICLE_INLINE_PHOTO_START";
 const ARTICLE_INLINE_PHOTO_END = "ARTICLE_INLINE_PHOTO_END -->";
 const ARTICLE_INLINE_IMAGE_MIN = 3;
 const ARTICLE_INLINE_IMAGE_MAX = 5;
+const ARTICLE_PHOTO_GRID_MIN = 1;
+const ARTICLE_PHOTO_GRID_MAX = 6;
 const LODGING_GUIDE_START = "<!-- LODGING_GUIDE_START";
 const LODGING_GUIDE_END = "LODGING_GUIDE_END -->";
 const LODGING_BOOKING_START = "<!-- LODGING_BOOKING_START";
@@ -2829,7 +2831,20 @@ function replaceArticleInfoTable(document, post) {
 
 function articlePhotoGrid(post) {
   if (isLodgingPost(post)) return "";
-  return "";
+  const inlineCount = articleInlineAssets(post).length;
+  const images = articleContentImages(post, { excludeHero: true }).slice(inlineCount);
+  if (images.length < ARTICLE_PHOTO_GRID_MIN) return "";
+  const assets = images
+    .map((src) => tourImageAssetForSource(processedTourImages, post, src))
+    .filter((asset) => asset?.src)
+    .slice(0, ARTICLE_PHOTO_GRID_MAX);
+  if (assets.length < ARTICLE_PHOTO_GRID_MIN) return "";
+  return `${ARTICLE_PHOTO_START} -->
+<section class="article-photo-grid" aria-labelledby="article-photo-grid-title" data-count="${assets.length}">
+  <h2 id="article-photo-grid-title">사진으로 확인하기</h2>
+  <div class="article-photo-items">${assets.map((asset) => `<figure><img src="${html(asset.src)}" alt="${html(tourImageAlt(asset, post))}" loading="lazy" decoding="async"><figcaption>${html(tourImageCaption(asset))}</figcaption></figure>`).join("")}</div>
+</section>
+<!-- ${ARTICLE_PHOTO_END}`;
 }
 
 function injectArticlePhotoGrid(document, post) {
