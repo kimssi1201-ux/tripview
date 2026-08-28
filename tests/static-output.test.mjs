@@ -157,6 +157,30 @@ test("site publishes a branded favicon and manifest", async () => {
   assert.ok(appleTouchIcon.length > 1000);
 });
 
+test("article pages render a share toolbar with copy and font controls", async () => {
+  const [article, script, builder] = await Promise.all([
+    readFile("travel-2706344/index.html", "utf8"),
+    readFile("assets/article-share.js", "utf8"),
+    readFile("scripts/build-www.mjs", "utf8"),
+  ]);
+
+  assert.match(article, /<!-- ARTICLE_SHARE_START -->/);
+  assert.match(article, /class="article-share-bar"[^>]*data-article-share-bar/);
+  assert.match(article, /story\.kakao\.com\/share/);
+  assert.match(article, /share\.naver\.com\/web\/shareView/);
+  assert.match(article, /facebook\.com\/sharer\/sharer\.php/);
+  assert.match(article, /twitter\.com\/intent\/tweet/);
+  assert.match(article, /band\.us\/plugin\/share/);
+  assert.match(article, /data-share-copy/);
+  assert.match(article, /class="article-share-badge"[^>]*>0<\/span>/);
+  assert.match(article, /data-font-delta="-1"/);
+  assert.match(article, /data-font-delta="1"/);
+  assert.match(article, /\/assets\/article-share\.js\?v=article-share-/);
+  assert.match(script, /navigator\.clipboard\.writeText/);
+  assert.match(script, /tripview\.articleFontScale/);
+  assert.match(builder, /ARTICLE_SHARE_START/);
+});
+
 function addDays(date, days) {
   const next = new Date(date);
   next.setUTCDate(next.getUTCDate() + days);

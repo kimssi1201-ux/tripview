@@ -1769,6 +1769,8 @@ const REGION_RELATED_END = "REGION_RELATED_END -->";
 const REGION_RELATED_STYLE_MARK = "/* tripview-region-related */";
 const ARTICLE_DISCLOSURE_START = "<!-- ARTICLE_DISCLOSURE_START";
 const ARTICLE_DISCLOSURE_END = "ARTICLE_DISCLOSURE_END -->";
+const ARTICLE_SHARE_START = "<!-- ARTICLE_SHARE_START";
+const ARTICLE_SHARE_END = "ARTICLE_SHARE_END -->";
 const ARTICLE_PHOTO_START = "<!-- ARTICLE_PHOTO_START";
 const ARTICLE_PHOTO_END = "ARTICLE_PHOTO_END -->";
 const ARTICLE_INLINE_PHOTO_START = "<!-- ARTICLE_INLINE_PHOTO_START";
@@ -1793,6 +1795,7 @@ const COUPANG_WIDGET_START = "<!-- COUPANG_WIDGET_START";
 const COUPANG_WIDGET_END = "COUPANG_WIDGET_END -->";
 const COUPANG_STYLE_MARK = "/* tripview-coupang-native-ad */";
 const COUPANG_SCRIPT = '<script src="/assets/coupang.js?v=coupang-20260829-image-fallback" defer></script>';
+const ARTICLE_SHARE_SCRIPT = '<script src="/assets/article-share.js?v=article-share-20260829" defer></script>';
 
 function articleAdCss() {
   return `${MRT_STYLE_MARK}.mrt-native-ad{margin:34px 0;padding:18px 0 20px;border-top:2px solid #111;border-bottom:1px solid var(--line)}.mrt-native-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:6px}.mrt-native-head strong{font-size:20px;line-height:1.25}.mrt-native-head span{color:var(--muted);font-size:13px}.mrt-affiliate-note{margin:0 0 12px;color:var(--muted);font-size:12px;line-height:1.55}.mrt-native-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px;border-top:1px solid var(--line)}.mrt-card{display:grid;grid-template-columns:88px minmax(0,1fr);gap:12px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}.mrt-card.no-image{grid-template-columns:1fr}.mrt-thumb{grid-row:1/3;position:relative;display:block;width:100%;aspect-ratio:16/10;overflow:hidden;background:var(--card)}.mrt-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}.mrt-card strong{font-size:16px;line-height:1.35}.mrt-card em{display:block;color:var(--muted);font-size:12px;font-style:normal}.mrt-card.no-image strong,.mrt-card.no-image em{grid-column:1}@media(max-width:640px){.mrt-native-grid{grid-template-columns:1fr}.mrt-card{grid-template-columns:84px minmax(0,1fr)}}/* end-tripview-mrt-native-ad */`;
@@ -1824,6 +1827,26 @@ function articleSiteDesignCss() {
 .article-hero-credit{margin-top:8px;color:color-mix(in srgb,var(--card) 72%,transparent);font-size:11px;line-height:1.45}
 .article-hero-image-alt{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .article-affiliate-disclosure{width:var(--site-wrap);margin:18px auto 0;padding:12px 14px;border:1px solid color-mix(in srgb,var(--cta) 28%,var(--line));border-radius:8px;background:color-mix(in srgb,var(--cta) 13%,var(--card));color:var(--ink);font-size:13px;line-height:1.55}
+.article-share-bar{position:relative;width:var(--site-wrap);margin:18px auto 0;padding:12px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:14px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.article-share-buttons,.article-share-tools{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+.article-share-tools{margin-left:auto}
+.article-share-button,.article-font-button,.article-share-comment{position:relative;display:inline-grid;place-items:center;flex:0 0 48px;width:48px;height:48px;border:0;border-radius:8px;background:color-mix(in srgb,var(--line) 42%,var(--card));color:var(--ink);font:inherit;font-weight:900;line-height:1;text-decoration:none}
+.article-share-button,.article-font-button{cursor:pointer}
+.article-share-button:hover,.article-share-button:focus-visible,.article-font-button:hover,.article-font-button:focus-visible{filter:brightness(.96)}
+.article-share-button.is-kakao{background:#fee500;color:#191600;font-size:13px}
+.article-share-button.is-naver{background:#03c75a;color:#fff;font-size:22px}
+.article-share-button.is-facebook{background:#1877f2;color:#fff;font-family:Arial,sans-serif;font-size:26px}
+.article-share-button.is-x{background:#000;color:#fff;font-size:20px}
+.article-share-button.is-band{background:#1ec800;color:#fff;font-size:24px}
+.article-share-button.is-copy{background:#666;color:#fff;font-size:12px}
+.article-share-button.is-copy.is-copied{background:var(--brand);color:var(--card)}
+.article-share-comment{cursor:default}
+.article-comment-icon{position:relative;display:block;width:22px;height:17px;border:3px solid currentColor;border-radius:5px}
+.article-comment-icon::after{content:"";position:absolute;left:4px;bottom:-7px;width:8px;height:8px;border-left:3px solid currentColor;border-bottom:3px solid currentColor;transform:skew(-20deg)}
+.article-share-badge{position:absolute;right:-5px;top:-8px;display:grid;place-items:center;min-width:22px;height:22px;padding:0 5px;border-radius:999px;background:#1f6fd1;color:#fff;font-size:12px;font-weight:900}
+.article-font-button{font-size:20px}
+.article-font-button.is-large{font-size:25px}
+.article-share-status{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 .article-info-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:0 0 30px}
 .article-info-card{display:grid;grid-template-columns:32px minmax(0,1fr);gap:10px;padding:14px;border:1px solid var(--line);border-radius:8px;background:var(--card)}
 .article-info-icon{display:grid;place-items:center;width:32px;height:32px;border-radius:8px;background:var(--soft-teal);color:var(--brand);font-size:13px;font-weight:900}
@@ -1918,7 +1941,8 @@ function articleSiteDesignCss() {
 .related-posts,.region-related,.trust-note{border-top:1px solid var(--line)}
 footer.site-footer{padding:0;color:var(--muted)}
 @media(max-width:640px){.article-product-compare-wrap{overflow-x:visible}.article-product-compare{display:block;width:100%;min-width:0}.article-product-compare thead{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}.article-product-compare tbody{display:grid;gap:8px}.article-product-compare tr{display:grid;gap:6px;padding:12px;border-bottom:1px solid var(--line)}.article-product-compare tr:last-child{border-bottom:0}.article-product-compare td{display:grid;grid-template-columns:74px minmax(0,1fr);gap:8px;padding:0;border-bottom:0;overflow-wrap:anywhere}.article-product-compare td::before{content:attr(data-label);color:var(--muted);font-size:11px;font-weight:800;line-height:1.55}.article-product-compare td:first-child{font-weight:800}}
-@media(max-width:820px){.hero{padding-top:32px}.layout{padding-top:24px}.layout.wrap{width:calc(100% - 40px)}.content{font-size:15px;line-height:1.8}.content h2{margin:36px 0 16px;font-size:20px}.article-lodging-layout{display:block}.lodging-booking-aside{position:static;margin:28px 0 0}.article-info-grid,.article-product-section .mrt-accommodation-grid,.article-product-section .mrt-ticket-grid{grid-template-columns:1fr}.article-product-section[data-article-product-type="accommodation"] .article-product-card{grid-template-columns:96px minmax(0,1fr);align-items:start}.article-product-section[data-article-product-type="accommodation"] .mrt-accommodation-price{grid-column:2;justify-self:start;min-width:0;text-align:left}.article-product-section[data-article-product-type="accommodation"] .article-product-cta{grid-column:2;justify-self:start}.article-fact-table th{width:96px}.article-photo-items{grid-template-columns:1fr}.article-hero-band,.article-hero-inner{min-height:240px}.article-affiliate-disclosure{width:var(--site-wrap)}}/* end-tripview-site-design */`;
+@media(max-width:820px){.hero{padding-top:32px}.layout{padding-top:24px}.layout.wrap{width:calc(100% - 40px)}.content{font-size:15px;line-height:1.8}.content h2{margin:36px 0 16px;font-size:20px}.article-lodging-layout{display:block}.lodging-booking-aside{position:static;margin:28px 0 0}.article-info-grid,.article-product-section .mrt-accommodation-grid,.article-product-section .mrt-ticket-grid{grid-template-columns:1fr}.article-product-section[data-article-product-type="accommodation"] .article-product-card{grid-template-columns:96px minmax(0,1fr);align-items:start}.article-product-section[data-article-product-type="accommodation"] .mrt-accommodation-price{grid-column:2;justify-self:start;min-width:0;text-align:left}.article-product-section[data-article-product-type="accommodation"] .article-product-cta{grid-column:2;justify-self:start}.article-fact-table th{width:96px}.article-photo-items{grid-template-columns:1fr}.article-hero-band,.article-hero-inner{min-height:240px}.article-affiliate-disclosure,.article-share-bar{width:var(--site-wrap)}}
+@media(max-width:640px){.article-share-bar{gap:10px}.article-share-tools{margin-left:0}.article-share-button,.article-font-button,.article-share-comment{flex-basis:44px;width:44px;height:44px}}/* end-tripview-site-design */`;
 }
 
 function articleAccommodationCss() {
@@ -1944,6 +1968,7 @@ function stripExistingArticleAds(document) {
     .replace(new RegExp(`${TRUST_NOTE_START}[\\s\\S]*?${TRUST_NOTE_END}`, "g"), "")
     .replace(new RegExp(`${REGION_RELATED_START}[\\s\\S]*?${REGION_RELATED_END}`, "g"), "")
     .replace(new RegExp(`${ARTICLE_DISCLOSURE_START}[\\s\\S]*?${ARTICLE_DISCLOSURE_END}`, "g"), "")
+    .replace(new RegExp(`${ARTICLE_SHARE_START}[\\s\\S]*?${ARTICLE_SHARE_END}`, "g"), "")
     .replace(new RegExp(`${ARTICLE_PHOTO_START}[\\s\\S]*?${ARTICLE_PHOTO_END}`, "g"), "")
     .replace(new RegExp(`${ARTICLE_INLINE_PHOTO_START}[\\s\\S]*?${ARTICLE_INLINE_PHOTO_END}`, "g"), "")
     .replace(new RegExp(`${LODGING_GUIDE_START}[\\s\\S]*?${LODGING_GUIDE_END}`, "g"), "")
@@ -1964,6 +1989,7 @@ function stripExistingArticleAds(document) {
     .replace(/\/\* tripview-coupang-native-ad \*\/[\s\S]*?\/\* end-tripview-coupang-native-ad \*\//g, "")
     .replace(/\s*class=["']wrap layout article-lodging-layout["']/g, ' class="wrap layout"')
     .replace(/\s*<script\s+src=["']\/assets\/coupang\.js\?v=[^"']+["']\s+defer><\/script>/g, "")
+    .replace(/\s*<script\s+src=["']\/assets\/article-share\.js\?v=[^"']+["']\s+defer><\/script>/g, "")
     .replace(/\s*<script\s+src=["']https:\/\/ads-partners\.coupang\.com\/g\.js["']><\/script>/g, "")
     .replace(/\s*<script\s+src=["']\/assets\/beach-(?:info|weather)\.js\?v=[^"']+["']\s+defer><\/script>/g, "");
 }
@@ -2772,6 +2798,44 @@ function injectArticleAffiliateDisclosure(document, enabled) {
     : next;
 }
 
+function articleShareBar(post) {
+  const url = canonicalUrl(`/${post?.slug || ""}/`);
+  const title = postTitle(post);
+  const encodedUrl = encodeURIComponent(url);
+  const encodedTitle = encodeURIComponent(title);
+  const encodedBandBody = encodeURIComponent(`${title}\n${url}`);
+  return `${ARTICLE_SHARE_START} -->
+<nav class="article-share-bar" aria-label="글 공유" data-article-share-bar data-share-url="${html(url)}" data-share-title="${html(title)}">
+  <div class="article-share-buttons">
+    <a class="article-share-button is-kakao" href="https://story.kakao.com/share?url=${encodedUrl}" target="_blank" rel="noopener" aria-label="카카오로 공유"><span aria-hidden="true">톡</span></a>
+    <a class="article-share-button is-naver" href="https://share.naver.com/web/shareView?url=${encodedUrl}&amp;title=${encodedTitle}" target="_blank" rel="noopener" aria-label="네이버로 공유"><span aria-hidden="true">N</span></a>
+    <a class="article-share-button is-facebook" href="https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}" target="_blank" rel="noopener" aria-label="페이스북으로 공유"><span aria-hidden="true">f</span></a>
+    <a class="article-share-button is-x" href="https://twitter.com/intent/tweet?url=${encodedUrl}&amp;text=${encodedTitle}" target="_blank" rel="noopener" aria-label="X로 공유"><span aria-hidden="true">X</span></a>
+    <a class="article-share-button is-band" href="https://band.us/plugin/share?body=${encodedBandBody}&amp;route=tripview.kr" target="_blank" rel="noopener" aria-label="밴드로 공유"><span aria-hidden="true">b</span></a>
+    <button class="article-share-button is-copy" type="button" data-share-copy aria-label="링크 복사"><span aria-hidden="true">URL</span></button>
+  </div>
+  <div class="article-share-tools">
+    <span class="article-share-comment" aria-label="댓글 0개"><span class="article-comment-icon" aria-hidden="true"></span><span class="article-share-badge" aria-hidden="true">0</span></span>
+    <button class="article-font-button is-small" type="button" data-font-delta="-1" aria-label="글자 작게"><span aria-hidden="true">가</span></button>
+    <button class="article-font-button is-large" type="button" data-font-delta="1" aria-label="글자 크게"><span aria-hidden="true">가</span></button>
+  </div>
+  <span class="article-share-status" data-share-status role="status" aria-live="polite"></span>
+</nav>
+<!-- ${ARTICLE_SHARE_END}`;
+}
+
+function injectArticleShareBar(document, post) {
+  let next = String(document)
+    .replace(new RegExp(`${ARTICLE_SHARE_START}[\\s\\S]*?${ARTICLE_SHARE_END}`, "g"), "")
+    .replace(/\s*<nav class=["']article-share-bar["'][\s\S]*?<\/nav>/gi, "");
+  if (!next.includes('<article class="content"')) return next;
+  const marker = '<section class="wrap layout">';
+  if (next.includes(marker)) return next.replace(marker, `${articleShareBar(post)}\n      ${marker}`);
+  return next.includes("<article")
+    ? next.replace(/(<article\b)/i, `${articleShareBar(post)}\n      $1`)
+    : next;
+}
+
 function plainFieldValue(value = "") {
   return normalizeText(String(value || "")
     .replace(/<[^>]+>/g, " ")
@@ -3555,6 +3619,14 @@ function injectCoupangScript(document) {
   return next;
 }
 
+function ensureArticleShareScript(document) {
+  let next = String(document).replace(/\s*<script\s+src=["']\/assets\/article-share\.js\?v=[^"']+["']\s+defer><\/script>/g, "");
+  if (!next.includes("data-article-share-bar")) return next;
+  return next.includes("</body>")
+    ? next.replace("</body>", `\n    ${ARTICLE_SHARE_SCRIPT}\n  </body>`)
+    : next;
+}
+
 function ensureAccommodationLinkScript(document) {
   if (!document.includes("accommodation.myrealtrip.com/union/products/") || document.includes("/assets/homepage.js")) {
     return document;
@@ -3588,6 +3660,7 @@ async function polishGeneratedArticles() {
     next = applyProcessedArticleImages(next, post);
     next = applyArticleHeroBand(next, post);
     next = injectArticleAffiliateDisclosure(next, Boolean(productBlock));
+    next = injectArticleShareBar(next, post);
     next = replaceArticleInfoTable(next, post);
     next = ensureLodgingPlaceIntro(next, post);
     next = stripTourOverviewSection(next, post);
@@ -3608,6 +3681,7 @@ async function polishGeneratedArticles() {
     next = ensureArticleAdsense(next, indexable);
     next = alignArticleFooter(next);
     next = ensureSiteNavigationScript(next);
+    next = ensureArticleShareScript(next);
     next = ensureAccommodationLinkScript(next);
     if (coupangBlock) next = injectCoupangScript(next);
     next = ensureLazyImages(next);
@@ -3640,8 +3714,12 @@ async function polishLegacyArticleShells() {
     next = ensureSiteIconLinks(next);
     next = ensureLegacyArticleSchema(next, entry.name, legacyRendererPosts[entry.name]);
     if (next.includes("data-site-header")) next = alignSiteHeader(next, articleActivePath(legacyPost));
-    if (legacyStaticArticle) next = refreshArticleSiteDesignCss(improveArticleReadability(next, legacyPost));
+    if (legacyStaticArticle) {
+      next = refreshArticleSiteDesignCss(improveArticleReadability(next, legacyPost));
+      next = injectArticleShareBar(next, legacyPost);
+    }
     next = ensureSiteNavigationScript(next);
+    next = ensureArticleShareScript(next);
     next = cleanGeneratedHtml(next);
     if (next !== document) await writeFile(file, next, "utf8");
   }
