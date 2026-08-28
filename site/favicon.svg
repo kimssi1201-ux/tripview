@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="트립뷰">
+  <rect width="512" height="512" rx="112" fill="#0F5C5C"/>
+  <path d="M124 166c50-53 129-62 189-22 49 33 70 88 55 143" fill="none" stroke="#E8A33D" stroke-width="30" stroke-linecap="round"/>
+  <circle cx="121" cy="169" r="26" fill="#FFFFFF"/>
+  <circle cx="365" cy="286" r="26" fill="#FFFFFF"/>
+  <text x="256" y="318" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="174" font-weight="900" fill="#FFFFFF">TV</text>
+</svg>

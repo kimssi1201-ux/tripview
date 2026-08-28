@@ -3,7 +3,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { affiliateProductImage, selectAffiliateProducts } from "./lib/affiliate-matching.mjs";
 import { isIndexablePost } from "./lib/content-quality.mjs";
-import { PRETENDARD_LINK, SITE_CSS, siteFooter, siteHeader, siteNavScript } from "./lib/site-design.mjs";
+import { PRETENDARD_LINK, SITE_CSS, SITE_ICON_LINKS, siteFooter, siteHeader, siteNavScript } from "./lib/site-design.mjs";
 import {
   TOUR_IMAGE_SOURCE_LABEL,
   isTourApiImage,
@@ -184,6 +184,11 @@ const files = [
   "main.js",
   "privacy.html",
   "terms.html",
+  "favicon.svg",
+  "favicon.ico",
+  "icon-192.png",
+  "icon-512.png",
+  "apple-touch-icon.png",
   "manifest.webmanifest",
   "package.json",
   "README.md",
@@ -812,6 +817,16 @@ function ensurePretendardLink(document) {
     : document;
 }
 
+function ensureSiteIconLinks(document) {
+  const withoutExisting = String(document)
+    .replace(/\s*<link\s+rel=["'][^"']*\b(?:apple-touch-icon|icon)\b[^"']*["'][^>]*>/gi, "")
+    .replace(/\s*<link\s+rel=["']manifest["'][^>]*>/gi, "")
+    .replace(/\s*<meta\s+name=["']theme-color["'][^>]*>/gi, "");
+  return withoutExisting.includes("</head>")
+    ? withoutExisting.replace("</head>", `    ${SITE_ICON_LINKS}\n  </head>`)
+    : withoutExisting;
+}
+
 function removeLegacyArticleHeaderScript(document) {
   return String(document).replace(
     /\s*<script>const header=document\.querySelector\(['"]\.top['"]\);const syncHeader=[\s\S]*?<\/script>/,
@@ -843,7 +858,7 @@ function alignArticleNavigation(document, post = {}) {
   if (next === withoutExistingSiteHeader) {
     next = next.replace(/<body>/i, `<body>\n    ${header}`);
   }
-  return removeLegacyArticleHeaderScript(ensurePretendardLink(next));
+  return removeLegacyArticleHeaderScript(ensurePretendardLink(ensureSiteIconLinks(next)));
 }
 
 function alignArticleFooter(document) {
@@ -946,6 +961,7 @@ function flightPageHtml(deal) {
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    ${SITE_ICON_LINKS}
     <meta name="robots" content="noindex, follow">
     ${NAVER_VERIFICATION_META}
     <meta name="description" content="${html(description)}">
@@ -998,7 +1014,7 @@ function flightIndexHtml(deals) {
     .sort((a, b) => Number(a.price || 0) - Number(b.price || 0))
     .map((deal) => `<a class="product-card flight-card" href="${publicFlightUrl(deal)}"><strong>${html(deal.title)}</strong><span>${html(flightMeta(deal))}</span></a>`)
     .join("");
-  return `<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, follow">${NAVER_VERIFICATION_META}<meta name="description" content="항공권 가격을 기준으로 여행지를 비교하고 함께 볼 숙소와 투어 정보를 확인하세요."><title>항공권 최저가 여행지 - 트립뷰</title><style>body{margin:0;font-family:Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:#111}.wrap{width:min(760px,calc(100% - 32px));margin:auto}a{color:inherit;text-decoration:none}.top{border-bottom:1px solid #e1e1e1}.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{display:block;padding:22px 0;font-size:26px;font-weight:900}.hero{padding:30px 0}.hero h1{margin:0;font-size:38px;line-height:1.15}.products{border-top:1px solid #e1e1e1}.product-card{display:grid;gap:6px;align-items:center;padding:16px 0;border-bottom:1px solid #e1e1e1}strong{font-size:19px;line-height:1.35}span{color:#707070;font-size:13px}${LANGUAGE_SWITCH_CSS}@media(max-width:520px){.top .wrap{align-items:flex-start;flex-direction:column;padding:14px 0}.brand{padding:0}}</style></head><body><header class="top"><div class="wrap"><a class="brand" href="/">트립뷰</a>${LANGUAGE_SWITCH}</div></header><main class="wrap"><section class="hero"><h1>항공권 최저가 여행지</h1><p>항공권 가격을 기준으로 여행지를 고르고, 상세 페이지에서 함께 볼 숙소와 투어 정보를 확인하세요.</p></section><section class="products">${rows}</section></main>${I18N_SCRIPT}${TOPIC_FILTER_SCRIPT}</body></html>`;
+  return `<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">${SITE_ICON_LINKS}<meta name="robots" content="noindex, follow">${NAVER_VERIFICATION_META}<meta name="description" content="항공권 가격을 기준으로 여행지를 비교하고 함께 볼 숙소와 투어 정보를 확인하세요."><title>항공권 최저가 여행지 - 트립뷰</title><style>body{margin:0;font-family:Arial,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:#111}.wrap{width:min(760px,calc(100% - 32px));margin:auto}a{color:inherit;text-decoration:none}.top{border-bottom:1px solid #e1e1e1}.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{display:block;padding:22px 0;font-size:26px;font-weight:900}.hero{padding:30px 0}.hero h1{margin:0;font-size:38px;line-height:1.15}.products{border-top:1px solid #e1e1e1}.product-card{display:grid;gap:6px;align-items:center;padding:16px 0;border-bottom:1px solid #e1e1e1}strong{font-size:19px;line-height:1.35}span{color:#707070;font-size:13px}${LANGUAGE_SWITCH_CSS}@media(max-width:520px){.top .wrap{align-items:flex-start;flex-direction:column;padding:14px 0}.brand{padding:0}}</style></head><body><header class="top"><div class="wrap"><a class="brand" href="/">트립뷰</a>${LANGUAGE_SWITCH}</div></header><main class="wrap"><section class="hero"><h1>항공권 최저가 여행지</h1><p>항공권 가격을 기준으로 여행지를 고르고, 상세 페이지에서 함께 볼 숙소와 투어 정보를 확인하세요.</p></section><section class="products">${rows}</section></main>${I18N_SCRIPT}${TOPIC_FILTER_SCRIPT}</body></html>`;
 }
 
 function primaryNavigation(activePath = "") {
@@ -1416,6 +1432,7 @@ function pageShell({ path, title, description, kicker = "TRIPVIEW", tags = [], c
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     ${NAVER_VERIFICATION_META}
+    ${SITE_ICON_LINKS}
     <meta name="description" content="${html(description)}">
     <link rel="canonical" href="${html(canonical)}">
     ${PRETENDARD_LINK}
@@ -3620,6 +3637,7 @@ async function polishLegacyArticleShells() {
       ? legacyRendererPost(entry.name, legacyRendererPosts[entry.name])
       : legacyDocumentPost(entry.name, next);
     next = ensureCanonical(next, `/${entry.name}/`);
+    next = ensureSiteIconLinks(next);
     next = ensureLegacyArticleSchema(next, entry.name, legacyRendererPosts[entry.name]);
     if (next.includes("data-site-header")) next = alignSiteHeader(next, articleActivePath(legacyPost));
     if (legacyStaticArticle) next = refreshArticleSiteDesignCss(improveArticleReadability(next, legacyPost));
@@ -3659,7 +3677,7 @@ async function polishStaticPages() {
         .replace(/href=(["'])\/#festival\1/g, 'href="/festival/"')
         .replace(/href=(["'])\/#(?:booking|myrealtrip-deals)\1/g, 'href="/stay/"')
         .replace(/href=(["'])\/#(?:popular|water|weekend|indoor|family)\1/g, 'href="/travel/"');
-      const next = cleanGeneratedHtml(ensureSiteNavigationScript(ensureCanonical(alignStaticInternalLinks(alignSiteHeader(alignedNavigation, pathname)), pathname)));
+      const next = cleanGeneratedHtml(ensureSiteNavigationScript(ensureSiteIconLinks(ensureCanonical(alignStaticInternalLinks(alignSiteHeader(alignedNavigation, pathname)), pathname))));
       if (next !== document) await writeFile(file, next, "utf8");
     } catch (error) {
       if (error.code !== "ENOENT") throw error;

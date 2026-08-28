@@ -1,4 +1,11 @@
 export const PRETENDARD_LINK = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">';
+export const SITE_ICON_LINKS = [
+  '<link rel="icon" href="/favicon.svg" type="image/svg+xml">',
+  '<link rel="alternate icon" href="/favicon.ico">',
+  '<link rel="apple-touch-icon" href="/apple-touch-icon.png">',
+  '<link rel="manifest" href="/manifest.webmanifest">',
+  '<meta name="theme-color" content="#0F5C5C">',
+].join("\n    ");
 
 const DEFAULT_REGION_LINKS = [
   { href: "/region/seoul/", label: "서울" },

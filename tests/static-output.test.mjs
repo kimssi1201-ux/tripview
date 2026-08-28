@@ -127,6 +127,36 @@ function articlePhotoGridImageSources(body = "") {
     .filter(Boolean);
 }
 
+test("site publishes a branded favicon and manifest", async () => {
+  const [homepage, article, manifestText, favicon, ico, icon192, icon512, appleTouchIcon] = await Promise.all([
+    readFile("index.html", "utf8"),
+    readFile("travel-2706344/index.html", "utf8"),
+    readFile("manifest.webmanifest", "utf8"),
+    readFile("favicon.svg", "utf8"),
+    readFile("favicon.ico"),
+    readFile("icon-192.png"),
+    readFile("icon-512.png"),
+    readFile("apple-touch-icon.png"),
+  ]);
+  const manifest = JSON.parse(manifestText);
+
+  for (const document of [homepage, article]) {
+    assert.match(document, /<link rel="icon" href="\/favicon\.svg" type="image\/svg\+xml">/);
+    assert.match(document, /<link rel="alternate icon" href="\/favicon\.ico">/);
+    assert.match(document, /<link rel="apple-touch-icon" href="\/apple-touch-icon\.png">/);
+    assert.match(document, /<link rel="manifest" href="\/manifest\.webmanifest">/);
+    assert.match(document, /<meta name="theme-color" content="#0F5C5C">/);
+  }
+  assert.equal(manifest.name, "트립뷰 - 여행 뉴스 피드");
+  assert.equal(manifest.short_name, "트립뷰");
+  assert.deepEqual(manifest.icons.map((icon) => icon.src), ["/favicon.svg", "/icon-192.png", "/icon-512.png"]);
+  assert.match(favicon, /aria-label="트립뷰"/);
+  assert.ok(ico.length > 100);
+  assert.ok(icon192.length > 1000);
+  assert.ok(icon512.length > 3000);
+  assert.ok(appleTouchIcon.length > 1000);
+});
+
 function addDays(date, days) {
   const next = new Date(date);
   next.setUTCDate(next.getUTCDate() + days);
