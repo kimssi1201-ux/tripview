@@ -2714,7 +2714,10 @@
     "read": "약 5분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/21/4090921_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/21/4090921_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/21/4090921_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/20/4090920_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/22/4090922_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/23/4090923_image2_1.gif"
     ],
     "alt": "동대문구 맥주축제 이미지",
     "excerpt": "도심 야외 축제는 운영 시간, 주류 이용 조건, 귀가 교통을 먼저 맞춰야 합니다. 동대문구 맥주축제를 방문하기 전 확인할 일정과 이동 기준을 정리했습니다.",
@@ -2742,6 +2745,14 @@
       [
         "주요 프로그램",
         "1. 메인프로그램 : 메인 스테이지(개막식, 공연 프로그램 등), 브루&푸드 스트리트(브루어리 및 푸드트럭 부스) 2. 부대프로그램 : 비어 테라스(주류 등 섭취 공간) 3. 소비자 참여 프로그램 : 웰컴 플레이(입장 게이트, 포토존 등) 4. 기타 내용 : 미드나잇 콘텐츠(무성영화 상영, 캠핑 휴게, 관람 취식 공간)"
+      ],
+      [
+        "홈페이지",
+        "https://www.ddmac.or.kr/"
+      ],
+      [
+        "좌표",
+        "37.5665910000, 127.0753330000"
       ]
     ],
     "memo": [
@@ -2768,6 +2779,15 @@
         "sponsor1": "동대문구",
         "sponsor1tel": "02-3291-5506",
         "sponsor2": "동대문문화재단"
+      },
+      "backfilledAt": "2026-08-28T04:10:41.835Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-28T04:10:41.835Z",
+        "completed": true,
+        "imageCount": 4,
+        "detailImageCount": 3,
+        "photoGalleryMatchedCount": 0
       }
     },
     "sections": [
@@ -3052,7 +3072,10 @@
     "read": "약 6분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/75/1577575_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/75/1577575_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/75/1577575_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/74/1577574_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/76/1577576_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/77/1577577_image2_1.jpg"
     ],
     "alt": "라마다송도호텔 이미지",
     "excerpt": "송도 숙박 일정은 체크인 시간과 주변 이동 거리를 함께 봐야 합니다. 호텔을 기준으로 인천 연수구 일정을 묶을 때 확인할 위치와 예약 전 체크 항목을 정리했습니다.",
@@ -3067,7 +3090,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "032-832-2000"
       ],
       [
         "요금",
@@ -3080,6 +3103,26 @@
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "좌표",
+        "37.4142013724, 126.6554100445"
+      ],
+      [
+        "주차",
+        "주차가능"
+      ],
+      [
+        "체크인",
+        "15:00"
+      ],
+      [
+        "체크아웃",
+        "11:00"
+      ],
+      [
+        "객실 안내",
+        "Deluxe Room, Ondol Room, Suite Room"
       ]
     ],
     "memo": [
@@ -3095,14 +3138,34 @@
       "mapx": "126.6554100445",
       "mapy": "37.4142013724",
       "mlevel": "6",
-      "intro": {}
+      "intro": {
+        "infocenterlodging": "032-832-2000",
+        "checkintime": "15:00",
+        "checkouttime": "11:00",
+        "chkcooking": "불가",
+        "parkinglodging": "주차가능",
+        "roomcount": "204실",
+        "reservationlodging": "032-832-2000",
+        "reservationurl": "http://www.ramada-songdo.co.kr",
+        "roomtype": "Deluxe Room, Ondol Room, Suite Room",
+        "subfacility": "바디케어샵, 편의점, 웨딩홀, 연회장"
+      },
+      "backfilledAt": "2026-08-28T04:10:43.306Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-28T04:10:43.306Z",
+        "completed": true,
+        "imageCount": 4,
+        "detailImageCount": 3,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "sections": [
       [
         "관람 포인트",
         [
           "송도 숙박 일정은 체크인 시간과 주변 이동 거리를 함께 봐야 합니다. 호텔을 기준으로 인천 연수구 일정을 묶을 때 확인할 위치와 예약 전 체크 항목을 정리했습니다.",
-          "방문 전에는 운영 확인, 요금, 문의 순서로 살피면 일정 판단이 쉽습니다. 날짜와 운영 조건은 바뀔 수 있으니 출발 당일 공식 안내를 한 번 더 확인하세요.",
+          "방문 전에는 운영 확인, 요금, 주차, 문의 순서로 살피면 일정 판단이 쉽습니다. 날짜와 운영 조건은 바뀔 수 있으니 출발 당일 공식 안내를 한 번 더 확인하세요.",
           "한 장소를 고를 때는 이름과 대표 사진보다 실제 방문 날짜, 운영 시간, 이동 거리, 귀가 방법을 함께 보는 편이 좋습니다. 같은 지역 안에서도 입구와 주차 위치가 다르면 체류 시간이 달라질 수 있으므로, 출발 전에 지도와 공식 안내를 같이 열어 두세요."
         ]
       ],
@@ -3110,7 +3173,7 @@
         "운영 정보",
         [
           "위치는 인천광역시 연수구 능허대로267번길 29 기준입니다. 운영 관련 안내는 방문 전 확인 필요, 요금은 시설별 상이로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
-          "문의처는 방문 전 확인 필요입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
+          "문의처는 032-832-2000입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
         ]
       ],
       [
@@ -3176,7 +3239,7 @@
       ],
       [
         "문의는 어디로 하나요?",
-        "라마다송도호텔 관련 문의는 방문 전 확인 필요로 확인하세요."
+        "라마다송도호텔 관련 문의는 032-832-2000로 확인하세요."
       ]
     ],
     "copyPolishedVersion": 3,
@@ -3554,7 +3617,14 @@
     "read": "약 6분",
     "image": "https://tong.visitkorea.or.kr/cms/resource_photo/20/3581320_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource_photo/20/3581320_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource_photo/20/3581320_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource_photo/80/3581280_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource_photo/18/3581318_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource_photo/58/3581358_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource_photo/35/3581335_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource_photo/59/3581359_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms2/website/89/3580789.jpg",
+      "https://tong.visitkorea.or.kr/cms2/website/07/3580807.jpg"
     ],
     "alt": "월미바다열차 이미지",
     "excerpt": "월미도와 인천항 주변을 짧게 둘러보는 일정은 탑승 위치와 운행 여부가 먼저입니다. 바다열차 이용 전 확인할 이동 순서와 주변 체류 시간을 중심으로 정리했습니다.",
@@ -3569,7 +3639,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "032-450-7600"
       ],
       [
         "요금",
@@ -3577,11 +3647,27 @@
       ],
       [
         "운영 확인",
-        "방문 전 확인 필요"
+        "[성수기(4월~10월)]- 주중(화/수/목) 10:00~18:00- 주말(금/토/일/공휴일) 10:00~19:00[비수기(11월~3월)]10:00~18:00"
       ],
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "홈페이지",
+        "http://www.ictr.or.kr/main/wst/intro.jsp"
+      ],
+      [
+        "좌표",
+        "37.4765930859, 126.6170898216"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "매주 월요일"
       ]
     ],
     "memo": [
@@ -3602,6 +3688,15 @@
         "restdate": "매주 월요일",
         "usetime": "[성수기(4월~10월)]- 주중(화/수/목) 10:00~18:00- 주말(금/토/일/공휴일) 10:00~19:00[비수기(11월~3월)]10:00~18:00",
         "infocenter": "032-450-7600"
+      },
+      "backfilledAt": "2026-08-28T04:10:44.775Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-28T04:10:44.775Z",
+        "completed": true,
+        "imageCount": 8,
+        "detailImageCount": 5,
+        "photoGalleryMatchedCount": 10
       }
     },
     "sections": [
@@ -3609,15 +3704,15 @@
         "관람 포인트",
         [
           "월미도와 인천항 주변을 짧게 둘러보는 일정은 탑승 위치와 운행 여부가 먼저입니다. 바다열차 이용 전 확인할 이동 순서와 주변 체류 시간을 중심으로 정리했습니다.",
-          "방문 전에는 운영 확인, 요금, 문의 순서로 살피면 일정 판단이 쉽습니다. 날짜와 운영 조건은 바뀔 수 있으니 출발 당일 공식 안내를 한 번 더 확인하세요.",
+          "방문 전에는 운영 확인, 요금, 주차, 문의 순서로 살피면 일정 판단이 쉽습니다. 날짜와 운영 조건은 바뀔 수 있으니 출발 당일 공식 안내를 한 번 더 확인하세요.",
           "한 장소를 고를 때는 이름과 대표 사진보다 실제 방문 날짜, 운영 시간, 이동 거리, 귀가 방법을 함께 보는 편이 좋습니다. 같은 지역 안에서도 입구와 주차 위치가 다르면 체류 시간이 달라질 수 있으므로, 출발 전에 지도와 공식 안내를 같이 열어 두세요."
         ]
       ],
       [
         "운영 정보",
         [
-          "위치는 인천광역시 제물포구 제물량로 269 기준입니다. 운영 관련 안내는 방문 전 확인 필요, 요금은 시설별 상이로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
-          "문의처는 방문 전 확인 필요입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
+          "위치는 인천광역시 제물포구 제물량로 269 기준입니다. 운영 관련 안내는 [성수기(4월~10월)]- 주중(화/수/목) 10:00~18:00- 주말(금/토/일/공휴일) 10:00~19:00[비수기(11월~3월)]10:00~18:00, 요금은 시설별 상이로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
+          "문의처는 032-450-7600입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
         ]
       ],
       [
@@ -3683,7 +3778,7 @@
       ],
       [
         "문의는 어디로 하나요?",
-        "월미바다열차 관련 문의는 방문 전 확인 필요로 확인하세요."
+        "월미바다열차 관련 문의는 032-450-7600로 확인하세요."
       ]
     ],
     "copyPolishedVersion": 3,
@@ -3723,7 +3818,14 @@
     "read": "약 6분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/44/3517744_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/44/3517744_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/44/3517744_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/40/3517740_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/41/3517741_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/42/3517742_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/43/3517743_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/45/3517745_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/46/3517746_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/47/3517747_image2_1.jpg"
     ],
     "alt": "신흥시장(인천) 이미지",
     "excerpt": "전통시장 방문은 영업 시간과 주변 주차, 식사 동선을 먼저 확인해야 합니다. 신흥시장 방문 전 살펴볼 이동 순서와 주변 일정 연결 방법을 정리했습니다.",
@@ -3738,7 +3840,7 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "인천종합관광안내소 032-832-3031"
       ],
       [
         "요금",
@@ -3746,11 +3848,31 @@
       ],
       [
         "운영 확인",
-        "방문 전 확인 필요"
+        "점포 별로 상이함"
       ],
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "홈페이지",
+        "인천투어 https://itour.incheon.go.kr/"
+      ],
+      [
+        "좌표",
+        "37.4666129834, 126.6366430099"
+      ],
+      [
+        "주차",
+        "가능"
+      ],
+      [
+        "쉬는 날",
+        "점포 별로 상이함"
+      ],
+      [
+        "판매 품목",
+        "채소 / 청과 / 과일 / 수산물 / 의류 / 침구류 등"
       ]
     ],
     "memo": [
@@ -3766,22 +3888,37 @@
       "mapx": "126.6366430099",
       "mapy": "37.4666129834",
       "mlevel": "6",
-      "intro": {}
+      "intro": {
+        "infocentershopping": "인천종합관광안내소 032-832-3031",
+        "restdateshopping": "점포 별로 상이함",
+        "opentime": "점포 별로 상이함",
+        "parkingshopping": "가능",
+        "saleitem": "채소 / 청과 / 과일 / 수산물 / 의류 / 침구류 등"
+      },
+      "backfilledAt": "2026-08-28T04:10:46.186Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-28T04:10:46.186Z",
+        "completed": true,
+        "imageCount": 8,
+        "detailImageCount": 7,
+        "photoGalleryMatchedCount": 0
+      }
     },
     "sections": [
       [
         "관람 포인트",
         [
           "전통시장 방문은 영업 시간과 주변 주차, 식사 동선을 먼저 확인해야 합니다. 신흥시장 방문 전 살펴볼 이동 순서와 주변 일정 연결 방법을 정리했습니다.",
-          "방문 전에는 운영 확인, 요금, 문의 순서로 살피면 일정 판단이 쉽습니다. 날짜와 운영 조건은 바뀔 수 있으니 출발 당일 공식 안내를 한 번 더 확인하세요.",
+          "방문 전에는 운영 확인, 요금, 주차, 문의 순서로 살피면 일정 판단이 쉽습니다. 날짜와 운영 조건은 바뀔 수 있으니 출발 당일 공식 안내를 한 번 더 확인하세요.",
           "한 장소를 고를 때는 이름과 대표 사진보다 실제 방문 날짜, 운영 시간, 이동 거리, 귀가 방법을 함께 보는 편이 좋습니다. 같은 지역 안에서도 입구와 주차 위치가 다르면 체류 시간이 달라질 수 있으므로, 출발 전에 지도와 공식 안내를 같이 열어 두세요."
         ]
       ],
       [
         "운영 정보",
         [
-          "위치는 인천광역시 제물포구 도원로 23-13 (선화동) 기준입니다. 운영 관련 안내는 방문 전 확인 필요, 요금은 시설별 상이로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
-          "문의처는 방문 전 확인 필요입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
+          "위치는 인천광역시 제물포구 도원로 23-13 (선화동) 기준입니다. 운영 관련 안내는 점포 별로 상이함, 요금은 시설별 상이로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
+          "문의처는 인천종합관광안내소 032-832-3031입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
         ]
       ],
       [
@@ -3847,7 +3984,7 @@
       ],
       [
         "문의는 어디로 하나요?",
-        "신흥시장(인천) 관련 문의는 방문 전 확인 필요로 확인하세요."
+        "신흥시장(인천) 관련 문의는 인천종합관광안내소 032-832-3031로 확인하세요."
       ]
     ],
     "copyPolishedVersion": 3,
@@ -4056,7 +4193,14 @@
     "read": "약 6분",
     "image": "https://tong.visitkorea.or.kr/cms/resource/42/4098842_image2_1.jpg",
     "images": [
-      "https://tong.visitkorea.or.kr/cms/resource/42/4098842_image2_1.jpg"
+      "https://tong.visitkorea.or.kr/cms/resource/42/4098842_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/99/3526399_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/03/3526403_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/04/3526404_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/06/3526406_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/40/4098840_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/43/4098843_image2_1.jpg",
+      "https://tong.visitkorea.or.kr/cms/resource/44/4098844_image2_1.jpg"
     ],
     "alt": "아중호수도서관 이미지",
     "excerpt": "전주 아중호수 주변 일정은 도서관 이용 시간과 호수 산책 동선을 함께 봐야 합니다. 실내 휴식과 짧은 산책을 이어갈 때 필요한 방문 순서를 정리했습니다.",
@@ -4071,19 +4215,31 @@
       ],
       [
         "문의",
-        "방문 전 확인 필요"
+        "063-281-8617"
       ],
       [
         "요금",
-        "시설별 상이"
+        "무료"
       ],
       [
         "운영 확인",
-        "방문 전 확인 필요"
+        "[하절기(3월~10월)]- 평일 09:00~21:00- 주말 09:00~18:00[동절기(11월~2월)]- 평일 09:00~19:00- 주말 09:00~18:00"
       ],
       [
         "방문 포인트",
         "관람, 산책, 주변 여행 동선"
+      ],
+      [
+        "홈페이지",
+        "전주도서관 https://lib.jeonju.go.kr/index.jeonju비짓전주 https://tour.jeonju.go.kr"
+      ],
+      [
+        "좌표",
+        "35.8238110000, 127.1746240000"
+      ],
+      [
+        "쉬는 날",
+        "매주 월요일 / 법정공휴일"
       ]
     ],
     "memo": [
@@ -4104,6 +4260,15 @@
         "usetimeculture": "[하절기(3월~10월)]- 평일 09:00~21:00- 주말 09:00~18:00[동절기(11월~2월)]- 평일 09:00~19:00- 주말 09:00~18:00",
         "usefee": "무료",
         "infocenterculture": "063-281-8617"
+      },
+      "backfilledAt": "2026-08-28T04:10:47.625Z",
+      "imageBackfill": {
+        "campaign": "detail-photo-gallery-v1",
+        "attemptedAt": "2026-08-28T04:10:47.625Z",
+        "completed": true,
+        "imageCount": 8,
+        "detailImageCount": 16,
+        "photoGalleryMatchedCount": 0
       }
     },
     "sections": [
@@ -4118,8 +4283,8 @@
       [
         "운영 정보",
         [
-          "위치는 전북특별자치도 전주시 덕진구 아중호수길 132 기준입니다. 운영 관련 안내는 방문 전 확인 필요, 요금은 시설별 상이로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
-          "문의처는 방문 전 확인 필요입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
+          "위치는 전북특별자치도 전주시 덕진구 아중호수길 132 기준입니다. 운영 관련 안내는 [하절기(3월~10월)]- 평일 09:00~21:00- 주말 09:00~18:00[동절기(11월~2월)]- 평일 09:00~19:00- 주말 09:00~18:00, 요금은 무료로 정리됩니다. 다만 현장 운영은 계절, 날씨, 시설 사정에 따라 달라질 수 있습니다.",
+          "문의처는 063-281-8617입니다. 출발 전에는 지도 앱에서 실제 입구와 주차 지점, 가까운 정류장을 함께 확인하세요. 목적지 이름만 보고 이동하면 입구가 먼 지점에 도착할 수 있습니다."
         ]
       ],
       [
@@ -4185,7 +4350,7 @@
       ],
       [
         "문의는 어디로 하나요?",
-        "아중호수도서관 관련 문의는 방문 전 확인 필요로 확인하세요."
+        "아중호수도서관 관련 문의는 063-281-8617로 확인하세요."
       ]
     ],
     "copyPolishedVersion": 3,
