@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 import { affiliateProductImage, selectAffiliateProducts } from "./lib/affiliate-matching.mjs";
 import { isIndexablePost } from "./lib/content-quality.mjs";
 import { PRETENDARD_LINK, SITE_CSS, siteFooter, siteHeader, siteNavScript } from "./lib/site-design.mjs";
-import { postImageWithProcessed, readTourImageManifest, tourImageBannerAssetForPost, tourImageEntry, tourImageHeroAssetForPost } from "./lib/tour-image-assets.mjs";
+import { isTourApiImage, postImageWithProcessed, readTourImageManifest, tourImageBannerAssetForPost, tourImageEntry, tourImageHeroAssetForPost } from "./lib/tour-image-assets.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const POSTS_PATH = path.join(ROOT, "data", "generated-posts.json");
@@ -176,6 +176,10 @@ const CURRENT_TRAVEL_KEYWORDS = [
 ];
 const hrefOf = (post) => (post?.slug ? `/${post.slug}/` : "#");
 const imageOf = (post) => postImageWithProcessed(processedTourImages, post);
+const cardImageOf = (post) => {
+  const image = imageOf(post);
+  return isTourApiImage(image) ? "" : image;
+};
 const regionCardImageOf = (post) => tourImageEntry(processedTourImages, post)?.cover?.src || "";
 const titleOf = (post) => normalize(post?.title || post?.sourceTitle || TEXT.articleFallback);
 const categoryOf = (post) => normalize(post?.category || TEXT.infoFallback);
@@ -305,7 +309,7 @@ function takePosts(posts, count = 10) {
 }
 
 function articleImage(post, className) {
-  const image = imageOf(post);
+  const image = cardImageOf(post);
   if (!image) return `<span class="${className} no-image"></span>`;
   return `<span class="${className}"><img src="${esc(image)}" alt="${esc(titleOf(post))}" loading="lazy"></span>`;
 }
@@ -316,11 +320,11 @@ function isPosterImagePost(post) {
 }
 
 function homepageHeroPost(posts = []) {
-  const candidates = uniquePosts(posts).filter((post) => imageOf(post));
+  const candidates = uniquePosts(posts).filter((post) => cardImageOf(post));
   const landscape = candidates.filter((post) => !isPosterImagePost(post));
   const preferred = landscape.length ? landscape : candidates;
   return preferred.find((post) => tourImageBannerAssetForPost(processedTourImages, post)?.src)
-    || preferred.find((post) => String(imageOf(post) || "").startsWith("/assets/processed/"))
+    || preferred.find((post) => String(cardImageOf(post) || "").startsWith("/assets/processed/"))
     || preferred[0]
     || null;
 }
@@ -837,7 +841,8 @@ function homeStoryLabel(post) {
 
 function homeStoryCard(post, className = "") {
   const isMainHero = String(className || "").split(/\s+/).includes("home-hero-main");
-  const image = isMainHero ? tourImageHeroAssetForPost(processedTourImages, post)?.src || imageOf(post) : imageOf(post);
+  const heroImage = tourImageHeroAssetForPost(processedTourImages, post)?.src || "";
+  const image = isMainHero ? heroImage || cardImageOf(post) : cardImageOf(post);
   if (!image) return "";
   const thumb = `<span class="story-thumb"><img src="${esc(image)}" alt="${esc(titleOf(post))}" loading="lazy"></span>`;
   return `<a class="story-card${className ? ` ${esc(className)}` : ""}" href="${esc(hrefOf(post))}">
@@ -852,7 +857,7 @@ function homeStoryCard(post, className = "") {
 }
 
 function homeHeroSection(posts = []) {
-  const imagePosts = uniquePosts(posts).filter((post) => imageOf(post));
+  const imagePosts = uniquePosts(posts).filter((post) => cardImageOf(post));
   const lead = homepageHeroPost(imagePosts);
   const items = uniquePosts([lead, ...imagePosts.filter((post) => (post?.slug || post?.title) !== (lead?.slug || lead?.title))]).filter(Boolean).slice(0, 5);
   if (items.length < 5) return "";
@@ -948,14 +953,14 @@ const HOMEPAGE_CSS = `
 function html(posts, products = [], accommodations = [], tnaProducts = []) {
   const editorialPosts = posts.filter((post) => !post?.dataPipeline?.generated);
   const hero = homepageHeroPost(editorialPosts) || posts[0];
-  const ogImage = imageOf(hero);
+  const ogImage = cardImageOf(hero);
   const domestic = sortLatest(posts.filter((post) => categoryOf(post) === CAT_DOMESTIC && !isFestival(post)));
   const festivals = posts.filter(isFestival).sort((a, b) => festivalOrder(a).localeCompare(festivalOrder(b)));
   const seasonPosts = sortCurrentPlaces(domestic);
   const regionCards = homeRegionGroups(posts).slice(0, 6).map(homeRegionCard);
-  const latestCards = sortLatest(posts).slice(0, 6).map((post) => homeStoryCard(post));
-  const seasonCards = seasonPosts.slice(0, 6).map((post) => homeStoryCard(post));
-  const festivalCards = festivals.slice(0, 6).map((post) => homeStoryCard(post));
+  const latestCards = sortLatest(posts).filter((post) => cardImageOf(post)).slice(0, 6).map((post) => homeStoryCard(post));
+  const seasonCards = seasonPosts.filter((post) => cardImageOf(post)).slice(0, 6).map((post) => homeStoryCard(post));
+  const festivalCards = festivals.filter((post) => cardImageOf(post)).slice(0, 6).map((post) => homeStoryCard(post));
   const stayProducts = [...accommodations, ...tnaProducts, ...products].filter((item) => item?.title && item?.url).slice(0, 6);
   const stayCards = stayProducts.map(homeAffiliateCard);
   const regionLinks = homeRegionGroups(posts).map((group) => ({ href: `/region/${group.slug}/`, label: group.label }));

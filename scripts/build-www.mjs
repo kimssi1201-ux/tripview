@@ -435,6 +435,11 @@ function postImage(post) {
   return postImageWithProcessed(processedTourImages, post);
 }
 
+function postCardImage(post) {
+  const image = postImage(post);
+  return isTourApiImage(image) ? "" : image;
+}
+
 function regionCardImage(post) {
   return tourImageEntry(processedTourImages, post)?.cover?.src || "";
 }
@@ -1104,7 +1109,7 @@ function hubPageStyle() {
 }
 
 function storyCard(post) {
-  const image = postImage(post);
+  const image = postCardImage(post);
   if (!image) return "";
   const thumb = `<span class="story-thumb"><img src="${html(image)}" alt="${html(postTitle(post))}" loading="lazy"></span>`;
   const meta = [formatDate(postDate(post)), `${Math.max(2, Math.ceil((postSummary(post, 220).length + postTitle(post).length) / 120))}분 읽기`].filter(Boolean).join(" · ");
@@ -1387,7 +1392,7 @@ function bookingCategoryPageHtml({ path, type, title, description, products = []
 }
 
 function sectionBlock({ id, title, posts, note = "" }) {
-  const items = sortedPosts(posts).slice(0, 9);
+  const items = sortedPosts(posts).filter((post) => postCardImage(post)).slice(0, 9);
   const cards = items.map(storyCard).filter(Boolean);
   if (cards.length < 3) return "";
   return `<section class="block" id="${html(id)}" aria-labelledby="${html(id)}-title">
@@ -1442,7 +1447,7 @@ function pageShell({ path, title, description, kicker = "TRIPVIEW", tags = [], c
 }
 
 function categoryPageHtml({ path, title, description, posts, tags = [], sections = [], products = [], affiliateSlot = "stay" }) {
-  const rows = sortedPosts(posts).slice(0, 48);
+  const rows = sortedPosts(posts).filter((post) => postCardImage(post)).slice(0, 48);
   const rowCards = rows.map(storyCard).filter(Boolean);
   const allPostsSection = rowCards.length >= 3
     ? `<section class="block" id="all-posts" aria-labelledby="all-posts-title">
@@ -3431,7 +3436,7 @@ function articleRegionRelatedItems(post) {
 
 function articleRegionRelatedCard(post) {
   const asset = tourImageEntry(processedTourImages, post)?.cover || null;
-  const image = asset?.src || postImage(post);
+  const image = asset?.src || postCardImage(post);
   const meta = [compactRegion(post?.region), formatDate(postDate(post))].filter(Boolean).join(" · ");
   const body = `<span class="region-related-body"><strong>${html(postTitle(post))}</strong><span>${html(meta)}</span></span>`;
   if (!image) {

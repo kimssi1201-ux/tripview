@@ -947,7 +947,7 @@ test("data post pipeline outputs validated data pages", async () => {
   assert.match(postNowWorkflow, /여행정보/);
 });
 
-test("editorial review manifest selects 51 unique, traceable articles", async () => {
+test("editorial review manifest selects 61 unique, traceable articles", async () => {
   const [manifestText, postsText] = await Promise.all([
     readFile("data/editorial-review.json", "utf8"),
     readFile("data/generated-posts.json", "utf8"),
@@ -960,9 +960,9 @@ test("editorial review manifest selects 51 unique, traceable articles", async ()
     return counts;
   }, {});
 
-  assert.equal(manifest.posts.length, 51);
+  assert.equal(manifest.posts.length, 61);
   assert.equal(new Set(slugs).size, slugs.length);
-  assert.deepEqual(topicCounts, { popular: 6, weekend: 6, festival: 13, water: 12, indoor: 8, family: 6 });
+  assert.deepEqual(topicCounts, { popular: 7, weekend: 10, festival: 14, water: 12, indoor: 10, family: 8 });
   for (const entry of manifest.posts) {
     const post = posts.find((candidate) => candidate.slug === entry.slug);
     assert.ok(post, `reviewed post ${entry.slug} should exist`);
@@ -976,7 +976,8 @@ test("editorial review manifest selects 51 unique, traceable articles", async ()
     assert.ok(entry.angle.length >= 40);
     if (entry.publishedAt) {
       assert.equal(post.sortDate, entry.publishedAt);
-      assert.equal(post.date, "2026년 8월 15일");
+      const [, year, month, day] = entry.publishedAt.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+      assert.equal(post.date, `${year}년 ${Number(month)}월 ${Number(day)}일`);
       assert.ok(post.sections.length >= 7);
       assert.ok(post.faq.length >= 5);
       if (entry.officialUrl) assert.equal(post.tourApi.homepage, entry.officialUrl);
