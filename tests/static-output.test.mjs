@@ -181,6 +181,19 @@ test("Coupang product images keep the site referrer policy", async () => {
   assert.match(script, /referrerPolicy\s*=\s*["']strict-origin-when-cross-origin["']/);
 });
 
+test("Coupang product image failures keep the thumbnail fallback", async () => {
+  const [script, builder] = await Promise.all([
+    readFile("assets/coupang.js", "utf8"),
+    readFile("scripts/build-www.mjs", "utf8"),
+  ]);
+
+  assert.doesNotMatch(script, /thumb\.remove\(\)/);
+  assert.match(script, /thumb\.classList\.add\(["']is-image-failed["']\)/);
+  assert.match(script, /image\.remove\(\)/);
+  assert.match(builder, /\.coupang-card \.booking-thumb\.is-image-failed/);
+  assert.match(builder, /content:attr\(data-fallback\)/);
+});
+
 test("homepage categories use real URLs and travel keeps old topics as tags", async () => {
   const [homepage, travelPage, ticketPage] = await Promise.all([
     readFile("index.html", "utf8"),

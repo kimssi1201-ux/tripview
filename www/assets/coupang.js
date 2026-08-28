@@ -14,12 +14,18 @@
     if (item.image) {
       const thumb = document.createElement("span");
       thumb.className = "booking-thumb";
+      thumb.dataset.fallback = "상품 이미지";
       const image = document.createElement("img");
       image.src = item.image;
       image.alt = item.title || "쿠팡 추천 상품";
       image.loading = "lazy";
+      image.decoding = "async";
       image.referrerPolicy = "strict-origin-when-cross-origin";
-      image.addEventListener("error", () => thumb.remove(), { once: true });
+      image.addEventListener("load", () => thumb.classList.remove("is-image-failed"), { once: true });
+      image.addEventListener("error", () => {
+        image.remove();
+        thumb.classList.add("is-image-failed");
+      }, { once: true });
       thumb.appendChild(image);
       link.appendChild(thumb);
     }
