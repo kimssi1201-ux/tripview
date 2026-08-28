@@ -1759,34 +1759,6 @@
     "source": "myrealtrip-tna"
   },
   {
-    "id": "tna-3880304",
-    "type": "tna",
-    "title": "[당일/차량/구례] 현지인 가이드와 함께하는 구례 헤리티지 도슨트 투어",
-    "url": "https://experiences.myrealtrip.com/products/3880304",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/25/4gl1/QeZ0lPxP81.jpg",
-    "price": 30000,
-    "priceText": "30,000원부터",
-    "region": "구례",
-    "city": "구례",
-    "category": "투어",
-    "description": "구례 ∙ 투어 · 평점 5(14개)",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "구례"
-    ],
-    "intents": [
-      "booking",
-      "tour"
-    ],
-    "gid": "3880304",
-    "reviewScore": 5,
-    "reviewCount": 14,
-    "deepLink": "mrt://experiences/detail/3880304",
-    "source": "myrealtrip-tna"
-  },
-  {
     "id": "tna-3884942",
     "type": "tna",
     "title": "[제주스냅] 제주 여행 특별한 하루 (개인/커플/우정/가족/웨딩 등)",
@@ -1881,7 +1853,7 @@
     "region": "제주도",
     "city": "제주도",
     "category": "스냅",
-    "description": "제주도 ∙ 스냅 · 평점 5(1,050개) · 즉시 확정",
+    "description": "제주도 ∙ 스냅 · 평점 5(1,051개) · 즉시 확정",
     "tags": [
       "투어티켓",
       "액티비티",
@@ -1894,7 +1866,7 @@
     ],
     "gid": "3852590",
     "reviewScore": 5,
-    "reviewCount": 1050,
+    "reviewCount": 1051,
     "deepLink": "mrt://experiences/detail/3852590",
     "source": "myrealtrip-tna"
   },
@@ -1952,6 +1924,184 @@
     "reviewScore": "",
     "reviewCount": "",
     "deepLink": "mrt://experiences/detail/4212320",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6117761",
+    "type": "tna",
+    "title": "[제주] 노형수퍼마켙 입장권 + 조안베어뮤지엄&낙타트래킹&족욕체험 추가증정 + 고흐의정원",
+    "url": "https://experiences.myrealtrip.com/products/6117761",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/07/29/TyoD/VCeULctrj5.jpg",
+    "price": 10000,
+    "priceText": "10,000원부터",
+    "region": "제주도",
+    "city": "제주도",
+    "category": "입장권",
+    "description": "제주도 ∙ 입장권 · 평점 4.4(419개) · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "제주도",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport",
+      "activity"
+    ],
+    "gid": "6117761",
+    "reviewScore": 4.4,
+    "reviewCount": 419,
+    "deepLink": "mrt://experiences/detail/6117761",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6117192",
+    "type": "tna",
+    "title": "[제주] 노형수퍼마켙",
+    "url": "https://experiences.myrealtrip.com/products/6117192",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/25/TISR/plRB26PGbX",
+    "price": 10000,
+    "priceText": "10,000원부터",
+    "region": "제주도",
+    "city": "제주도",
+    "category": "입장권",
+    "description": "제주도 ∙ 입장권 · 평점 4(1개) · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "제주도",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport"
+    ],
+    "gid": "6117192",
+    "reviewScore": 4,
+    "reviewCount": 1,
+    "deepLink": "mrt://experiences/detail/6117192",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6118017",
+    "type": "tna",
+    "title": "[★혜택증정] 제주 더마파크 이용권 +조안베어뮤지엄&자연인족욕체험&낙타트래킹 + 고흐의정원",
+    "url": "https://experiences.myrealtrip.com/products/6118017",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/12/2lZy/QESQHnHj5Q.jpg",
+    "price": 10000,
+    "priceText": "10,000원부터",
+    "region": "제주도",
+    "city": "제주도",
+    "category": "입장권",
+    "description": "제주도 ∙ 입장권 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "제주도",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport",
+      "activity"
+    ],
+    "gid": "6118017",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/6118017",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-4747211",
+    "type": "tna",
+    "title": "제주민속촌 민속놀이 & 민화체험",
+    "url": "https://experiences.myrealtrip.com/products/4747211",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/07/24/hSlT/hQnZiyEhRM.jpeg",
+    "price": 10000,
+    "priceText": "10,000원부터",
+    "region": "제주도",
+    "city": "제주도",
+    "category": "입장권",
+    "description": "제주도 ∙ 입장권 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "제주도",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport",
+      "activity"
+    ],
+    "gid": "4747211",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/4747211",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6310162",
+    "type": "tna",
+    "title": "[제주] 곱은달 감귤체험농장 이용권",
+    "url": "https://experiences.myrealtrip.com/products/6310162",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/24/nusy/mho1zeOVIo.jpg",
+    "price": 10000,
+    "priceText": "10,000원부터",
+    "region": "제주도",
+    "city": "제주도",
+    "category": "티켓·입장권",
+    "description": "제주도 ∙ 티켓·입장권 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "제주도",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport",
+      "activity"
+    ],
+    "gid": "6310162",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/6310162",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6117760",
+    "type": "tna",
+    "title": "[당일사용] 제주 파더스가든 입장권",
+    "url": "https://experiences.myrealtrip.com/products/6117760",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/06/24/dgPx/Lr67FZF5I1.jpg",
+    "price": 10500,
+    "priceText": "10,500원부터",
+    "region": "제주도",
+    "city": "제주도",
+    "category": "입장권",
+    "description": "제주도 ∙ 입장권 · 평점 4.5(17개) · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "제주도",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport"
+    ],
+    "gid": "6117760",
+    "reviewScore": 4.5,
+    "reviewCount": 17,
+    "deepLink": "mrt://experiences/detail/6117760",
     "source": "myrealtrip-tna"
   },
   {
@@ -2271,36 +2421,6 @@
     "reviewScore": "",
     "reviewCount": "",
     "deepLink": "mrt://experiences/detail/4433162",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-6117761",
-    "type": "tna",
-    "title": "[제주] 노형수퍼마켙 입장권 + 조안베어뮤지엄&낙타트래킹&족욕체험 추가증정 + 고흐의정원",
-    "url": "https://experiences.myrealtrip.com/products/6117761",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/07/29/TyoD/VCeULctrj5.jpg",
-    "price": 10000,
-    "priceText": "10,000원부터",
-    "region": "제주도",
-    "city": "제주도",
-    "category": "입장권",
-    "description": "제주도 ∙ 입장권 · 평점 4.4(419개) · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "제주도",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "transport",
-      "activity"
-    ],
-    "gid": "6117761",
-    "reviewScore": 4.4,
-    "reviewCount": 419,
-    "deepLink": "mrt://experiences/detail/6117761",
     "source": "myrealtrip-tna"
   },
   {
@@ -3302,6 +3422,34 @@
     "reviewScore": 4.7,
     "reviewCount": 6,
     "deepLink": "mrt://experiences/detail/6117831",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-3880304",
+    "type": "tna",
+    "title": "[당일/차량/구례] 현지인 가이드와 함께하는 구례 헤리티지 도슨트 투어",
+    "url": "https://experiences.myrealtrip.com/products/3880304",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/25/4gl1/QeZ0lPxP81.jpg",
+    "price": 30000,
+    "priceText": "30,000원부터",
+    "region": "구례",
+    "city": "구례",
+    "category": "투어",
+    "description": "구례 ∙ 투어 · 평점 5(14개)",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "구례"
+    ],
+    "intents": [
+      "booking",
+      "tour"
+    ],
+    "gid": "3880304",
+    "reviewScore": 5,
+    "reviewCount": 14,
+    "deepLink": "mrt://experiences/detail/3880304",
     "source": "myrealtrip-tna"
   },
   {
@@ -4373,6 +4521,68 @@
     "source": "myrealtrip-tna"
   },
   {
+    "id": "tna-6118154",
+    "type": "tna",
+    "title": "[전남] 나주 중흥 골드스파 우주드림 미디어아트 전시관 이용권",
+    "url": "https://experiences.myrealtrip.com/products/6118154",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/07/04/xiDw/ausRB9ZsiM.jpg",
+    "price": 13500,
+    "priceText": "13,500원부터",
+    "region": "나주",
+    "city": "나주",
+    "category": "입장권",
+    "description": "나주 ∙ 입장권 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "나주",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport",
+      "activity",
+      "indoor"
+    ],
+    "gid": "6118154",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/6118154",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6241589",
+    "type": "tna",
+    "title": "(당일구매사용불가) 나주 중흥골드스파 워터락 8월 이용권",
+    "url": "https://experiences.myrealtrip.com/products/6241589",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/24/dbzJ/8bITb75nsf.jpg",
+    "price": 39600,
+    "priceText": "39,600원부터",
+    "region": "나주",
+    "city": "나주",
+    "category": "입장권",
+    "description": "나주 ∙ 입장권 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "나주",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport",
+      "activity",
+      "water"
+    ],
+    "gid": "6241589",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/6241589",
+    "source": "myrealtrip-tna"
+  },
+  {
     "id": "tna-6117958",
     "type": "tna",
     "title": "[강릉또강릉] 삼척투어패스",
@@ -4694,150 +4904,6 @@
     "reviewScore": 5,
     "reviewCount": 1,
     "deepLink": "mrt://experiences/detail/6118110",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-3827454",
-    "type": "tna",
-    "title": "[강원/영월] 동강서바이벌게임 (전용필드장) 페인트볼 전투 체험",
-    "url": "https://experiences.myrealtrip.com/products/3827454",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/04/dd1j/Dz6eOa6AIK.jpg",
-    "price": 25000,
-    "priceText": "25,000원부터",
-    "region": "강원도",
-    "city": "강원도",
-    "category": "액티비티",
-    "description": "강원도 ∙ 액티비티 · 무료취소",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "강원도",
-      "무료취소"
-    ],
-    "intents": [
-      "booking",
-      "activity"
-    ],
-    "gid": "3827454",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/3827454",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-6117060",
-    "type": "tna",
-    "title": "[강월 영월] 동강 통나무래프팅 레포츠 패키지(서바이벌/ATV/패러글라이딩)",
-    "url": "https://experiences.myrealtrip.com/products/6117060",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/25/gwwH/zTWlhQBYI9",
-    "price": 30000,
-    "priceText": "30,000원부터",
-    "region": "영월",
-    "city": "영월",
-    "category": "액티비티",
-    "description": "영월 ∙ 액티비티 · 평점 5(1개) · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "영월",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "activity"
-    ],
-    "gid": "6117060",
-    "reviewScore": 5,
-    "reviewCount": 1,
-    "deepLink": "mrt://experiences/detail/6117060",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-3827452",
-    "type": "tna",
-    "title": "더 늦기전에~ 영월 동강래프팅 작전명 동강상류 어라연코스 급류체험+온수샤워 [강원/영월]",
-    "url": "https://experiences.myrealtrip.com/products/3827452",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/04/gsRA/5fNV2qE6ex.jpg",
-    "price": 35000,
-    "priceText": "35,000원부터",
-    "region": "영월",
-    "city": "영월",
-    "category": "액티비티",
-    "description": "영월 ∙ 액티비티 · 평점 4.7(6개)",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "영월"
-    ],
-    "intents": [
-      "booking",
-      "activity"
-    ],
-    "gid": "3827452",
-    "reviewScore": 4.7,
-    "reviewCount": 6,
-    "deepLink": "mrt://experiences/detail/3827452",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-6117272",
-    "type": "tna",
-    "title": "[강원 영월] 동강래프팅 어라연코스 패키지",
-    "url": "https://experiences.myrealtrip.com/products/6117272",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/26/6xt2/58oBaBdZc4",
-    "price": 44900,
-    "priceText": "44,900원부터",
-    "region": "강원도",
-    "city": "강원도",
-    "category": "액티비티",
-    "description": "강원도 ∙ 액티비티 · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "강원도",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "activity"
-    ],
-    "gid": "6117272",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/6117272",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-3827809",
-    "type": "tna",
-    "title": "[강원영월]  삼돌이로 살아보기  1박2일",
-    "url": "https://experiences.myrealtrip.com/products/3827809",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/04/lbyn/cdcZeRpVY0.jpg",
-    "price": 115000,
-    "priceText": "115,000원부터",
-    "region": "강원도",
-    "city": "강원도",
-    "category": "투어",
-    "description": "강원도 ∙ 투어 · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "강원도",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "tour"
-    ],
-    "gid": "3827809",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/3827809",
     "source": "myrealtrip-tna"
   }
 ]
