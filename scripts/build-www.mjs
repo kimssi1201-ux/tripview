@@ -1835,7 +1835,6 @@ function articleSiteDesignCss() {
 .article-share-button:hover,.article-share-button:focus-visible,.article-font-button:hover,.article-font-button:focus-visible{filter:brightness(.96)}
 .article-share-button.is-kakao{background:#fee500;color:#191600;font-size:13px}
 .article-share-button.is-naver{background:#03c75a;color:#fff;font-size:22px}
-.article-share-button.is-facebook{background:#1877f2;color:#fff;font-family:Arial,sans-serif;font-size:26px}
 .article-share-button.is-x{background:#000;color:#fff;font-size:20px}
 .article-share-button.is-band{background:#1ec800;color:#fff;font-size:24px}
 .article-share-button.is-copy{background:#666;color:#fff;font-size:12px}
@@ -2809,7 +2808,6 @@ function articleShareBar(post) {
   <div class="article-share-buttons">
     <a class="article-share-button is-kakao" href="https://story.kakao.com/share?url=${encodedUrl}" target="_blank" rel="noopener" aria-label="카카오로 공유"><span aria-hidden="true">톡</span></a>
     <a class="article-share-button is-naver" href="https://share.naver.com/web/shareView?url=${encodedUrl}&amp;title=${encodedTitle}" target="_blank" rel="noopener" aria-label="네이버로 공유"><span aria-hidden="true">N</span></a>
-    <a class="article-share-button is-facebook" href="https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}" target="_blank" rel="noopener" aria-label="페이스북으로 공유"><span aria-hidden="true">f</span></a>
     <a class="article-share-button is-x" href="https://twitter.com/intent/tweet?url=${encodedUrl}&amp;text=${encodedTitle}" target="_blank" rel="noopener" aria-label="X로 공유"><span aria-hidden="true">X</span></a>
     <a class="article-share-button is-band" href="https://band.us/plugin/share?body=${encodedBandBody}&amp;route=tripview.kr" target="_blank" rel="noopener" aria-label="밴드로 공유"><span aria-hidden="true">b</span></a>
     <button class="article-share-button is-copy" type="button" data-share-copy aria-label="링크 복사"><span aria-hidden="true">URL</span></button>

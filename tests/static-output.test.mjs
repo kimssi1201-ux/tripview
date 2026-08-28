@@ -168,7 +168,7 @@ test("article pages render a share toolbar with copy and font controls", async (
   assert.match(article, /class="article-share-bar"[^>]*data-article-share-bar/);
   assert.match(article, /story\.kakao\.com\/share/);
   assert.match(article, /share\.naver\.com\/web\/shareView/);
-  assert.match(article, /facebook\.com\/sharer\/sharer\.php/);
+  assert.doesNotMatch(article, /facebook\.com\/sharer\/sharer\.php/);
   assert.match(article, /twitter\.com\/intent\/tweet/);
   assert.match(article, /band\.us\/plugin\/share/);
   assert.match(article, /data-share-copy/);
