@@ -1,31 +1,30 @@
 {
-  "generatedAt": "2026-08-27T14:59:32.766Z",
+  "generatedAt": "2026-08-28T00:32:20.863Z",
   "source": "한국관광공사 공공누리",
   "assetBasePath": "/assets/processed/",
   "items": {
-    "travel-2706344": {
-      "title": "월미바다열차, 늦여름·초가을에 보기 좋은 위치와 여행 동선",
-      "sourceTitle": "월미바다열차",
-      "region": "인천",
+    "travel-125837": {
+      "title": "괴산 수옥폭포 여름 방문, 수량·통제 여부와 안전한 동선",
+      "sourceTitle": "수옥폭포",
+      "region": "충북",
       "source": "한국관광공사 공공누리",
       "cover": {
         "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource_photo/20/3581320_image2_1.jpg",
-        "src": "/assets/processed/incheon-wolmibadayeolcha-parking.webp",
-        "alt": "인천 월미바다열차 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/01/4084901_image2_1.jpg",
+        "src": "/assets/processed/goesan-suok-waterfall-parking.webp",
+        "alt": "충북 수옥폭포 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 800,
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false,
-        "bytes": null
+        "posterCanvas": false
       },
       "hero": {
         "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource_photo/20/3581320_image2_1.jpg",
-        "src": "/assets/processed/incheon-wolmibadayeolcha-parking-hero.webp",
-        "alt": "인천 월미바다열차 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/01/4084901_image2_1.jpg",
+        "src": "/assets/processed/goesan-suok-waterfall-parking-hero.webp",
+        "alt": "충북 수옥폭포 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 900,
@@ -35,23 +34,100 @@
       },
       "banner": {
         "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource_photo/20/3581320_image2_1.jpg",
-        "src": "/assets/processed/incheon-wolmibadayeolcha-parking-banner.webp",
-        "alt": "인천 월미바다열차 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/01/4084901_image2_1.jpg",
+        "src": "/assets/processed/goesan-suok-waterfall-parking-banner.webp",
+        "alt": "충북 수옥폭포 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
         "width": 1200,
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false,
-        "bytes": null
+        "posterCanvas": false
       },
       "images": [
         {
           "kind": "inline",
-          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/20/3581320_image3_1.jpg",
-          "src": "/assets/processed/incheon-wolmibadayeolcha-parking-detail-1.webp",
-          "alt": "인천 월미바다열차 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/82/3494982_image2_1.jpg",
+          "src": "/assets/processed/goesan-suok-waterfall-parking-detail-1.webp",
+          "alt": "충북 수옥폭포 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false,
+          "bytes": null
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/83/3494983_image2_1.jpg",
+          "src": "/assets/processed/goesan-suok-waterfall-parking-detail-2.webp",
+          "alt": "충북 수옥폭포 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false,
+          "bytes": null
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/84/3494984_image2_1.jpg",
+          "src": "/assets/processed/goesan-suok-waterfall-parking-detail-3.webp",
+          "alt": "충북 수옥폭포 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false,
+          "bytes": null
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/85/3494985_image2_1.jpg",
+          "src": "/assets/processed/goesan-suok-waterfall-parking-detail-4.webp",
+          "alt": "충북 수옥폭포 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false,
+          "bytes": null
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/97/4084897_image2_1.jpg",
+          "src": "/assets/processed/goesan-suok-waterfall-parking-detail-5.webp",
+          "alt": "충북 수옥폭포 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false,
+          "bytes": null
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/99/4084899_image2_1.jpg",
+          "src": "/assets/processed/goesan-suok-waterfall-parking-detail-6.webp",
+          "alt": "충북 수옥폭포 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false,
+          "bytes": null
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/00/4084900_image2_1.jpg",
+          "src": "/assets/processed/goesan-suok-waterfall-parking-detail-7.webp",
+          "alt": "충북 수옥폭포 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
           "height": null,
@@ -61,411 +137,6 @@
           "bytes": null
         }
       ]
-    },
-    "travel-3526568": {
-      "title": "아중호수도서관, 늦여름·초가을에 보기 좋은 위치와 여행 동선",
-      "sourceTitle": "아중호수도서관",
-      "region": "전북",
-      "source": "한국관광공사 공공누리",
-      "cover": {
-        "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/42/4098842_image2_1.jpg",
-        "src": "/assets/processed/jeonju-ajung-lake-doseogwan-parking.webp",
-        "alt": "전북 아중호수도서관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 800,
-        "height": 500,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false,
-        "bytes": null
-      },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/42/4098842_image2_1.jpg",
-        "src": "/assets/processed/jeonju-ajung-lake-doseogwan-parking-hero.webp",
-        "alt": "전북 아중호수도서관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "banner": {
-        "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/42/4098842_image2_1.jpg",
-        "src": "/assets/processed/jeonju-ajung-lake-doseogwan-parking-banner.webp",
-        "alt": "전북 아중호수도서관 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
-        "width": 1200,
-        "height": 675,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false,
-        "bytes": null
-      },
-      "images": []
-    },
-    "festival-3351268": {
-      "title": "동대문구 맥주축제 2026, 늦여름·초가을 방문 전 일정과 운영정보",
-      "sourceTitle": "동대문구 맥주축제",
-      "region": "서울",
-      "source": "한국관광공사 공공누리",
-      "cover": {
-        "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/21/4090921_image2_1.jpg",
-        "src": "/assets/processed/seoul-dongdaemungu-maekju-festival-parking.webp",
-        "alt": "서울 동대문구 맥주축제 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 800,
-        "height": 500,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false,
-        "bytes": null
-      },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/21/4090921_image2_1.jpg",
-        "src": "/assets/processed/seoul-dongdaemungu-maekju-festival-parking-hero.webp",
-        "alt": "서울 동대문구 맥주축제 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "banner": {
-        "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/21/4090921_image2_1.jpg",
-        "src": "/assets/processed/seoul-dongdaemungu-maekju-festival-parking-banner.webp",
-        "alt": "서울 동대문구 맥주축제 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
-        "width": 1200,
-        "height": 675,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false,
-        "bytes": null
-      },
-      "images": []
-    },
-    "travel-142801": {
-      "title": "라마다송도호텔, 늦여름·초가을에 보기 좋은 위치와 여행 동선",
-      "sourceTitle": "라마다송도호텔",
-      "region": "인천",
-      "source": "한국관광공사 공공누리",
-      "cover": {
-        "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/75/1577575_image2_1.jpg",
-        "src": "/assets/processed/incheon-ramadasongdohotel-parking.webp",
-        "alt": "인천 라마다송도호텔 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 800,
-        "height": 500,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false,
-        "bytes": null
-      },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/75/1577575_image2_1.jpg",
-        "src": "/assets/processed/incheon-ramadasongdohotel-parking-hero.webp",
-        "alt": "인천 라마다송도호텔 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "banner": {
-        "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/75/1577575_image2_1.jpg",
-        "src": "/assets/processed/incheon-ramadasongdohotel-parking-banner.webp",
-        "alt": "인천 라마다송도호텔 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
-        "width": 1200,
-        "height": 675,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false,
-        "bytes": null
-      },
-      "images": []
-    },
-    "travel-2769502": {
-      "title": "신흥시장(인천), 늦여름·초가을에 보기 좋은 위치와 여행 동선",
-      "sourceTitle": "신흥시장(인천)",
-      "region": "인천",
-      "source": "한국관광공사 공공누리",
-      "cover": {
-        "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/44/3517744_image2_1.jpg",
-        "src": "/assets/processed/incheon-sinheung-market-parking.webp",
-        "alt": "인천 신흥시장(인천) 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 800,
-        "height": 500,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false,
-        "bytes": null
-      },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/44/3517744_image2_1.jpg",
-        "src": "/assets/processed/incheon-sinheung-market-parking-hero.webp",
-        "alt": "인천 신흥시장(인천) 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "banner": {
-        "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/44/3517744_image2_1.jpg",
-        "src": "/assets/processed/incheon-sinheung-market-parking-banner.webp",
-        "alt": "인천 신흥시장(인천) 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
-        "width": 1200,
-        "height": 675,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false,
-        "bytes": null
-      },
-      "images": []
-    },
-    "travel-2875134": {
-      "title": "산정호수 조각공원, 늦여름·초가을에 보기 좋은 위치와 여행 동선",
-      "sourceTitle": "산정호수 조각공원",
-      "region": "경기",
-      "source": "한국관광공사 공공누리",
-      "cover": {
-        "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/78/4100878_image2_1.jpg",
-        "src": "/assets/processed/pocheon-sanjeong-lake-jogak-park-parking.webp",
-        "alt": "경기 산정호수 조각공원 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 800,
-        "height": 500,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false,
-        "bytes": null
-      },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/78/4100878_image2_1.jpg",
-        "src": "/assets/processed/pocheon-sanjeong-lake-jogak-park-parking-hero.webp",
-        "alt": "경기 산정호수 조각공원 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "banner": {
-        "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/78/4100878_image2_1.jpg",
-        "src": "/assets/processed/pocheon-sanjeong-lake-jogak-park-parking-banner.webp",
-        "alt": "경기 산정호수 조각공원 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
-        "width": 1200,
-        "height": 675,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false,
-        "bytes": null
-      },
-      "images": []
-    },
-    "travel-4104682": {
-      "title": "나주당, 늦여름·초가을에 보기 좋은 위치와 여행 동선",
-      "sourceTitle": "나주당",
-      "region": "광주",
-      "source": "한국관광공사 공공누리",
-      "cover": {
-        "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/20/4104020_image2_1.jpg",
-        "src": "/assets/processed/gwangju-naju-dang-parking.webp",
-        "alt": "광주 나주당 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 800,
-        "height": 500,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false,
-        "bytes": null
-      },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/20/4104020_image2_1.jpg",
-        "src": "/assets/processed/gwangju-naju-dang-parking-hero.webp",
-        "alt": "광주 나주당 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "banner": {
-        "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/20/4104020_image2_1.jpg",
-        "src": "/assets/processed/gwangju-naju-dang-parking-banner.webp",
-        "alt": "광주 나주당 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
-        "width": 1200,
-        "height": 675,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false,
-        "bytes": null
-      },
-      "images": []
-    },
-    "travel-132742": {
-      "title": "인천 종합어시장, 늦여름·초가을에 보기 좋은 위치와 여행 동선",
-      "sourceTitle": "인천 종합어시장",
-      "region": "인천",
-      "source": "한국관광공사 공공누리",
-      "cover": {
-        "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/71/3395971_image2_1.JPG",
-        "src": "/assets/processed/incheon-jonghapeo-market-parking.webp",
-        "alt": "인천 인천 종합어시장 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 800,
-        "height": 500,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false,
-        "bytes": null
-      },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/71/3395971_image2_1.JPG",
-        "src": "/assets/processed/incheon-jonghapeo-market-parking-hero.webp",
-        "alt": "인천 인천 종합어시장 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "banner": {
-        "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/71/3395971_image2_1.JPG",
-        "src": "/assets/processed/incheon-jonghapeo-market-parking-banner.webp",
-        "alt": "인천 인천 종합어시장 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
-        "width": 1200,
-        "height": 675,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false,
-        "bytes": null
-      },
-      "images": []
-    },
-    "travel-2660019": {
-      "title": "철길숲 & 불의정원, 늦여름·초가을에 보기 좋은 위치와 여행 동선",
-      "sourceTitle": "철길숲 & 불의정원",
-      "region": "경북",
-      "source": "한국관광공사 공공누리",
-      "cover": {
-        "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/56/3042856_image2_1.jpg",
-        "src": "/assets/processed/pohang-cheol-trail-sup-bului-garden-parking.webp",
-        "alt": "경북 철길숲 & 불의정원 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 800,
-        "height": 500,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false,
-        "bytes": null
-      },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/56/3042856_image2_1.jpg",
-        "src": "/assets/processed/pohang-cheol-trail-sup-bului-garden-parking-hero.webp",
-        "alt": "경북 철길숲 & 불의정원 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "banner": {
-        "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/56/3042856_image2_1.jpg",
-        "src": "/assets/processed/pohang-cheol-trail-sup-bului-garden-parking-banner.webp",
-        "alt": "경북 철길숲 & 불의정원 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
-        "width": 1200,
-        "height": 675,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false,
-        "bytes": null
-      },
-      "images": []
-    },
-    "travel-2613675": {
-      "title": "미술관 자작나무숲, 늦여름·초가을에 보기 좋은 위치와 여행 동선",
-      "sourceTitle": "미술관 자작나무숲",
-      "region": "강원",
-      "source": "한국관광공사 공공누리",
-      "cover": {
-        "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/45/4099445_image2_1.JPG",
-        "src": "/assets/processed/hoengseong-museum-jajaknamusup-parking.webp",
-        "alt": "강원 미술관 자작나무숲 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 800,
-        "height": 500,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false,
-        "bytes": null
-      },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/45/4099445_image2_1.JPG",
-        "src": "/assets/processed/hoengseong-museum-jajaknamusup-parking-hero.webp",
-        "alt": "강원 미술관 자작나무숲 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "banner": {
-        "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/45/4099445_image2_1.JPG",
-        "src": "/assets/processed/hoengseong-museum-jajaknamusup-parking-banner.webp",
-        "alt": "강원 미술관 자작나무숲 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
-        "width": 1200,
-        "height": 675,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false,
-        "bytes": null
-      },
-      "images": []
     },
     "data-festival-schedule-seoul": {
       "title": "서울 축제 일정 정리, 늦여름·초가을에 보기 좋은 위치와 여행 동선",
@@ -513,7 +184,7 @@
       "images": []
     },
     "festival-1939183": {
-      "title": "오감만족 문경새재맨발페스티벌 2026, 늦여름·초가을 방문 전 일정과 운영정보",
+      "title": "문경새재 맨발페스티벌 2026 준비물, 황톳길 완주·발 관리·귀가 동선",
       "sourceTitle": "오감만족 문경새재맨발페스티벌",
       "region": "경북",
       "source": "한국관광공사 공공누리",
@@ -558,7 +229,7 @@
       "images": []
     },
     "festival-3351451": {
-      "title": "K-일러스트레이션페어 마곡 2026, 늦여름·초가을 방문 전 일정과 운영정보",
+      "title": "K-일러스트레이션페어 마곡 2026 관람 가이드, 사전예매·입장 마감·부스 동선",
       "sourceTitle": "K-일러스트레이션페어 마곡 2026",
       "region": "서울",
       "source": "한국관광공사 공공누리",
@@ -643,14 +314,14 @@
       ]
     },
     "festival-4096371": {
-      "title": "트레저헌터 in 진안 2026, 늦여름·초가을 방문 전 일정과 운영정보",
+      "title": "트레저헌터 in 진안 2026 참여법, 앱 설치부터 7개 권역 미션까지",
       "sourceTitle": "트레저헌터 in 진안",
       "region": "전북",
       "source": "한국관광공사 공공누리",
       "cover": {
         "kind": "cover",
         "original": "https://tong.visitkorea.or.kr/cms/resource/08/4096408_image2_1.jpeg",
-        "src": "/assets/processed/jinan-treasure-hunter-jinan-parking.webp",
+        "src": "/assets/processed/jinan-treasure-hunter-jinan-indoor.webp",
         "alt": "전북 트레저헌터 in 진안 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 800,
@@ -663,7 +334,7 @@
       "hero": {
         "kind": "hero-cover",
         "original": "https://tong.visitkorea.or.kr/cms/resource/08/4096408_image2_1.jpeg",
-        "src": "/assets/processed/jinan-treasure-hunter-jinan-parking-hero.webp",
+        "src": "/assets/processed/jinan-treasure-hunter-jinan-indoor-hero.webp",
         "alt": "전북 트레저헌터 in 진안 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
@@ -675,8 +346,8 @@
       "banner": {
         "kind": "hub-banner",
         "original": "https://tong.visitkorea.or.kr/cms/resource/08/4096408_image2_1.jpeg",
-        "src": "/assets/processed/jinan-treasure-hunter-jinan-parking-banner.webp",
-        "alt": "전북 트레저헌터 in 진안 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "src": "/assets/processed/jinan-treasure-hunter-jinan-indoor-banner.webp",
+        "alt": "전북 트레저헌터 in 진안 실내 코스 정보를 담은 트립뷰 지역 허브 배너",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
         "width": 1200,
         "height": 675,
@@ -689,7 +360,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/09/4096409_image2_1.png",
-          "src": "/assets/processed/jinan-treasure-hunter-jinan-parking-detail-1.webp",
+          "src": "/assets/processed/jinan-treasure-hunter-jinan-indoor-detail-1.webp",
           "alt": "전북 트레저헌터 in 진안 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -702,7 +373,7 @@
       ]
     },
     "festival-4008618": {
-      "title": "고흥 국가유산 야행 2026, 늦여름·초가을 방문 전 일정과 운영정보",
+      "title": "고흥 국가유산 야행 2026, 8월 28~29일 흥양현읍성 밤 코스",
       "sourceTitle": "고흥 국가유산 야행",
       "region": "전남",
       "source": "한국관광공사 공공누리",
@@ -884,14 +555,14 @@
       ]
     },
     "travel-2779301": {
-      "title": "영암곤충박물관, 늦여름·초가을에 보기 좋은 위치와 여행 동선",
+      "title": "영암곤충박물관 실내 관람, 아이와 체험 전 운영시간 확인",
       "sourceTitle": "영암곤충박물관",
       "region": "전남",
       "source": "한국관광공사 공공누리",
       "cover": {
         "kind": "cover",
         "original": "https://tong.visitkorea.or.kr/cms/resource/53/3553853_image2_1.jpg",
-        "src": "/assets/processed/yeongam-insect-museum-parking.webp",
+        "src": "/assets/processed/yeongam-insect-museum-family.webp",
         "alt": "전남 영암곤충박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 800,
@@ -904,7 +575,7 @@
       "hero": {
         "kind": "hero-cover",
         "original": "https://tong.visitkorea.or.kr/cms/resource/53/3553853_image2_1.jpg",
-        "src": "/assets/processed/yeongam-insect-museum-parking-hero.webp",
+        "src": "/assets/processed/yeongam-insect-museum-family-hero.webp",
         "alt": "전남 영암곤충박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
@@ -916,8 +587,8 @@
       "banner": {
         "kind": "hub-banner",
         "original": "https://tong.visitkorea.or.kr/cms/resource/53/3553853_image2_1.jpg",
-        "src": "/assets/processed/yeongam-insect-museum-parking-banner.webp",
-        "alt": "전남 영암곤충박물관 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "src": "/assets/processed/yeongam-insect-museum-family-banner.webp",
+        "alt": "전남 영암곤충박물관 아이와 정보를 담은 트립뷰 지역 허브 배너",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
         "width": 1200,
         "height": 675,
@@ -930,7 +601,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/54/3553854_image2_1.jpg",
-          "src": "/assets/processed/yeongam-insect-museum-parking-detail-1.webp",
+          "src": "/assets/processed/yeongam-insect-museum-family-detail-1.webp",
           "alt": "전남 영암곤충박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -943,7 +614,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/55/3553855_image2_1.jpg",
-          "src": "/assets/processed/yeongam-insect-museum-parking-detail-2.webp",
+          "src": "/assets/processed/yeongam-insect-museum-family-detail-2.webp",
           "alt": "전남 영암곤충박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -956,7 +627,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/56/3553856_image2_1.jpg",
-          "src": "/assets/processed/yeongam-insect-museum-parking-detail-3.webp",
+          "src": "/assets/processed/yeongam-insect-museum-family-detail-3.webp",
           "alt": "전남 영암곤충박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -969,7 +640,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/57/3553857_image2_1.jpg",
-          "src": "/assets/processed/yeongam-insect-museum-parking-detail-4.webp",
+          "src": "/assets/processed/yeongam-insect-museum-family-detail-4.webp",
           "alt": "전남 영암곤충박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -982,7 +653,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/58/3553858_image2_1.jpg",
-          "src": "/assets/processed/yeongam-insect-museum-parking-detail-5.webp",
+          "src": "/assets/processed/yeongam-insect-museum-family-detail-5.webp",
           "alt": "전남 영암곤충박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -995,7 +666,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/59/3553859_image2_1.jpg",
-          "src": "/assets/processed/yeongam-insect-museum-parking-detail-6.webp",
+          "src": "/assets/processed/yeongam-insect-museum-family-detail-6.webp",
           "alt": "전남 영암곤충박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -1008,7 +679,7 @@
       ]
     },
     "travel-2988949": {
-      "title": "하동케이블카, 늦여름·초가을에 보기 좋은 위치와 여행 동선",
+      "title": "하동케이블카 방문 가이드, 금오산 전망·운행 확인·주차 동선",
       "sourceTitle": "하동케이블카",
       "region": "경남",
       "source": "한국관광공사 공공누리",
@@ -1145,7 +816,7 @@
       ]
     },
     "travel-2633832": {
-      "title": "뮤지엄산, 늦여름·초가을에 보기 좋은 위치와 여행 동선",
+      "title": "원주 뮤지엄산 비 오는 날 관람, 예약·입장료·전시 동선",
       "sourceTitle": "뮤지엄산",
       "region": "강원",
       "source": "한국관광공사 공공누리",
@@ -1282,7 +953,7 @@
       ]
     },
     "travel-2774026": {
-      "title": "[횡성호수길] 5구간, 늦여름·초가을에 보기 좋은 위치와 여행 동선",
+      "title": "횡성호수길 5구간 걷기 전 확인할 거리·난이도·귀환 동선",
       "sourceTitle": "[횡성호수길] 5구간",
       "region": "강원",
       "source": "한국관광공사 공공누리",
@@ -1419,7 +1090,7 @@
       ]
     },
     "travel-130537": {
-      "title": "전북특별자치도 산림박물관, 늦여름·초가을에 보기 좋은 위치와 여행 동선",
+      "title": "전북 산림박물관 비 오는 날 코스, 관람시간·주차 확인",
       "sourceTitle": "전북특별자치도 산림박물관",
       "region": "전북",
       "source": "한국관광공사 공공누리",
@@ -1556,14 +1227,14 @@
       ]
     },
     "travel-130538": {
-      "title": "고창 신재효판소리박물관, 늦여름·초가을에 보기 좋은 위치와 여행 동선",
+      "title": "고창 신재효판소리박물관 관람, 전시 내용과 주변 문화 코스",
       "sourceTitle": "고창 신재효판소리박물관",
       "region": "전북",
       "source": "한국관광공사 공공누리",
       "cover": {
         "kind": "cover",
         "original": "https://tong.visitkorea.or.kr/cms/resource/35/4094635_image2_1.jpg",
-        "src": "/assets/processed/gochang-pansori-museum-parking.webp",
+        "src": "/assets/processed/gochang-pansori-museum-indoor.webp",
         "alt": "전북 고창 신재효판소리박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 800,
@@ -1576,7 +1247,7 @@
       "hero": {
         "kind": "hero-cover",
         "original": "https://tong.visitkorea.or.kr/cms/resource/35/4094635_image2_1.jpg",
-        "src": "/assets/processed/gochang-pansori-museum-parking-hero.webp",
+        "src": "/assets/processed/gochang-pansori-museum-indoor-hero.webp",
         "alt": "전북 고창 신재효판소리박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
@@ -1588,8 +1259,8 @@
       "banner": {
         "kind": "hub-banner",
         "original": "https://tong.visitkorea.or.kr/cms/resource/35/4094635_image2_1.jpg",
-        "src": "/assets/processed/gochang-pansori-museum-parking-banner.webp",
-        "alt": "전북 고창 신재효판소리박물관 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "src": "/assets/processed/gochang-pansori-museum-indoor-banner.webp",
+        "alt": "전북 고창 신재효판소리박물관 실내 코스 정보를 담은 트립뷰 지역 허브 배너",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
         "width": 1200,
         "height": 675,
@@ -1602,7 +1273,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/27/1602927_image2_1.jpg",
-          "src": "/assets/processed/gochang-pansori-museum-parking-detail-1.webp",
+          "src": "/assets/processed/gochang-pansori-museum-indoor-detail-1.webp",
           "alt": "전북 고창 신재효판소리박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -1615,7 +1286,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/33/4094633_image2_1.jpg",
-          "src": "/assets/processed/gochang-pansori-museum-parking-detail-2.webp",
+          "src": "/assets/processed/gochang-pansori-museum-indoor-detail-2.webp",
           "alt": "전북 고창 신재효판소리박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -1628,7 +1299,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/34/4094634_image2_1.jpg",
-          "src": "/assets/processed/gochang-pansori-museum-parking-detail-3.webp",
+          "src": "/assets/processed/gochang-pansori-museum-indoor-detail-3.webp",
           "alt": "전북 고창 신재효판소리박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -1641,7 +1312,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/36/4094636_image2_1.jpg",
-          "src": "/assets/processed/gochang-pansori-museum-parking-detail-4.webp",
+          "src": "/assets/processed/gochang-pansori-museum-indoor-detail-4.webp",
           "alt": "전북 고창 신재효판소리박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -1654,7 +1325,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/37/4094637_image2_1.jpg",
-          "src": "/assets/processed/gochang-pansori-museum-parking-detail-5.webp",
+          "src": "/assets/processed/gochang-pansori-museum-indoor-detail-5.webp",
           "alt": "전북 고창 신재효판소리박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -1667,7 +1338,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/38/4094638_image2_1.jpg",
-          "src": "/assets/processed/gochang-pansori-museum-parking-detail-6.webp",
+          "src": "/assets/processed/gochang-pansori-museum-indoor-detail-6.webp",
           "alt": "전북 고창 신재효판소리박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -1680,7 +1351,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/39/4094639_image2_1.jpg",
-          "src": "/assets/processed/gochang-pansori-museum-parking-detail-7.webp",
+          "src": "/assets/processed/gochang-pansori-museum-indoor-detail-7.webp",
           "alt": "전북 고창 신재효판소리박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -1693,7 +1364,7 @@
       ]
     },
     "travel-2994364": {
-      "title": "송도스카이파크, 늦여름·초가을에 보기 좋은 위치와 여행 동선",
+      "title": "송도스카이파크 산책 코스, 주차 후 전망대까지 이동 순서",
       "sourceTitle": "송도스카이파크",
       "region": "부산",
       "source": "한국관광공사 공공누리",
@@ -1830,14 +1501,14 @@
       ]
     },
     "travel-2995966": {
-      "title": "국립나주숲체원, 늦여름·초가을에 보기 좋은 위치와 여행 동선",
+      "title": "국립나주숲체원 아이와 가기 전, 프로그램·숙박·준비물",
       "sourceTitle": "국립나주숲체원",
       "region": "전남",
       "source": "한국관광공사 공공누리",
       "cover": {
         "kind": "cover",
         "original": "https://tong.visitkorea.or.kr/cms/resource/38/3106038_image2_1.jpg",
-        "src": "/assets/processed/naju-forest-center-parking.webp",
+        "src": "/assets/processed/naju-forest-center-family.webp",
         "alt": "전남 국립나주숲체원 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 800,
@@ -1850,7 +1521,7 @@
       "hero": {
         "kind": "hero-cover",
         "original": "https://tong.visitkorea.or.kr/cms/resource/38/3106038_image2_1.jpg",
-        "src": "/assets/processed/naju-forest-center-parking-hero.webp",
+        "src": "/assets/processed/naju-forest-center-family-hero.webp",
         "alt": "전남 국립나주숲체원 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
@@ -1862,8 +1533,8 @@
       "banner": {
         "kind": "hub-banner",
         "original": "https://tong.visitkorea.or.kr/cms/resource/38/3106038_image2_1.jpg",
-        "src": "/assets/processed/naju-forest-center-parking-banner.webp",
-        "alt": "전남 국립나주숲체원 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "src": "/assets/processed/naju-forest-center-family-banner.webp",
+        "alt": "전남 국립나주숲체원 아이와 정보를 담은 트립뷰 지역 허브 배너",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
         "width": 1200,
         "height": 675,
@@ -1876,7 +1547,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/39/3106039_image2_1.jpg",
-          "src": "/assets/processed/naju-forest-center-parking-detail-1.webp",
+          "src": "/assets/processed/naju-forest-center-family-detail-1.webp",
           "alt": "전남 국립나주숲체원 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -1889,7 +1560,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/40/3106040_image2_1.jpg",
-          "src": "/assets/processed/naju-forest-center-parking-detail-2.webp",
+          "src": "/assets/processed/naju-forest-center-family-detail-2.webp",
           "alt": "전남 국립나주숲체원 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -1902,7 +1573,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/41/3106041_image2_1.jpg",
-          "src": "/assets/processed/naju-forest-center-parking-detail-3.webp",
+          "src": "/assets/processed/naju-forest-center-family-detail-3.webp",
           "alt": "전남 국립나주숲체원 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -1915,7 +1586,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/42/3106042_image2_1.jpg",
-          "src": "/assets/processed/naju-forest-center-parking-detail-4.webp",
+          "src": "/assets/processed/naju-forest-center-family-detail-4.webp",
           "alt": "전남 국립나주숲체원 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -1928,7 +1599,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/43/3106043_image2_1.jpg",
-          "src": "/assets/processed/naju-forest-center-parking-detail-5.webp",
+          "src": "/assets/processed/naju-forest-center-family-detail-5.webp",
           "alt": "전남 국립나주숲체원 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -1941,7 +1612,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/44/3106044_image2_1.jpg",
-          "src": "/assets/processed/naju-forest-center-parking-detail-6.webp",
+          "src": "/assets/processed/naju-forest-center-family-detail-6.webp",
           "alt": "전남 국립나주숲체원 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -1954,7 +1625,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/46/3106046_image2_1.JPG",
-          "src": "/assets/processed/naju-forest-center-parking-detail-7.webp",
+          "src": "/assets/processed/naju-forest-center-family-detail-7.webp",
           "alt": "전남 국립나주숲체원 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -1967,14 +1638,14 @@
       ]
     },
     "travel-250345": {
-      "title": "곡성섬진강천문대, 늦여름·초가을에 보기 좋은 위치와 여행 동선",
+      "title": "곡성섬진강천문대 관측 전 확인, 날씨·예약·야간 귀가",
       "sourceTitle": "곡성섬진강천문대",
       "region": "전남",
       "source": "한국관광공사 공공누리",
       "cover": {
         "kind": "cover",
         "original": "https://tong.visitkorea.or.kr/cms/resource/64/4095364_image2_1.png",
-        "src": "/assets/processed/gurye-seomjingang-observatory-parking.webp",
+        "src": "/assets/processed/gurye-seomjingang-observatory-indoor.webp",
         "alt": "전남 곡성섬진강천문대 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 800,
@@ -1987,7 +1658,7 @@
       "hero": {
         "kind": "hero-cover",
         "original": "https://tong.visitkorea.or.kr/cms/resource/64/4095364_image2_1.png",
-        "src": "/assets/processed/gurye-seomjingang-observatory-parking-hero.webp",
+        "src": "/assets/processed/gurye-seomjingang-observatory-indoor-hero.webp",
         "alt": "전남 곡성섬진강천문대 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
@@ -1999,8 +1670,8 @@
       "banner": {
         "kind": "hub-banner",
         "original": "https://tong.visitkorea.or.kr/cms/resource/64/4095364_image2_1.png",
-        "src": "/assets/processed/gurye-seomjingang-observatory-parking-banner.webp",
-        "alt": "전남 곡성섬진강천문대 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "src": "/assets/processed/gurye-seomjingang-observatory-indoor-banner.webp",
+        "alt": "전남 곡성섬진강천문대 실내 코스 정보를 담은 트립뷰 지역 허브 배너",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
         "width": 1200,
         "height": 675,
@@ -2013,7 +1684,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/65/4095365_image2_1.jpg",
-          "src": "/assets/processed/gurye-seomjingang-observatory-parking-detail-1.webp",
+          "src": "/assets/processed/gurye-seomjingang-observatory-indoor-detail-1.webp",
           "alt": "전남 곡성섬진강천문대 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -2026,7 +1697,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/66/4095366_image2_1.jpg",
-          "src": "/assets/processed/gurye-seomjingang-observatory-parking-detail-2.webp",
+          "src": "/assets/processed/gurye-seomjingang-observatory-indoor-detail-2.webp",
           "alt": "전남 곡성섬진강천문대 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -2039,7 +1710,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/67/4095367_image2_1.JPG",
-          "src": "/assets/processed/gurye-seomjingang-observatory-parking-detail-3.webp",
+          "src": "/assets/processed/gurye-seomjingang-observatory-indoor-detail-3.webp",
           "alt": "전남 곡성섬진강천문대 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -2052,7 +1723,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/68/4095368_image2_1.jpg",
-          "src": "/assets/processed/gurye-seomjingang-observatory-parking-detail-4.webp",
+          "src": "/assets/processed/gurye-seomjingang-observatory-indoor-detail-4.webp",
           "alt": "전남 곡성섬진강천문대 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -2065,7 +1736,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource_photo/30/1496730_image2_1.jpg",
-          "src": "/assets/processed/gurye-seomjingang-observatory-parking-detail-5.webp",
+          "src": "/assets/processed/gurye-seomjingang-observatory-indoor-detail-5.webp",
           "alt": "전남 곡성섬진강천문대 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -2078,7 +1749,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource_photo/45/1496745_image2_1.jpg",
-          "src": "/assets/processed/gurye-seomjingang-observatory-parking-detail-6.webp",
+          "src": "/assets/processed/gurye-seomjingang-observatory-indoor-detail-6.webp",
           "alt": "전남 곡성섬진강천문대 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -2091,7 +1762,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource_photo/58/1496758_image2_1.jpg",
-          "src": "/assets/processed/gurye-seomjingang-observatory-parking-detail-7.webp",
+          "src": "/assets/processed/gurye-seomjingang-observatory-indoor-detail-7.webp",
           "alt": "전남 곡성섬진강천문대 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -2104,14 +1775,14 @@
       ]
     },
     "travel-2858860": {
-      "title": "액티브파크 제주, 늦여름·초가을에 보기 좋은 위치와 여행 동선",
+      "title": "액티브파크 제주 체험 전 체크, 이용시간·연령 조건·준비물",
       "sourceTitle": "액티브파크 제주",
       "region": "제주",
       "source": "한국관광공사 공공누리",
       "cover": {
         "kind": "cover",
         "original": "https://tong.visitkorea.or.kr/cms/resource/40/4095340_image2_1.jpg",
-        "src": "/assets/processed/jeju-active-park-jeju-parking.webp",
+        "src": "/assets/processed/jeju-active-park-jeju-family.webp",
         "alt": "제주 액티브파크 제주 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 800,
@@ -2124,7 +1795,7 @@
       "hero": {
         "kind": "hero-cover",
         "original": "https://tong.visitkorea.or.kr/cms/resource/40/4095340_image2_1.jpg",
-        "src": "/assets/processed/jeju-active-park-jeju-parking-hero.webp",
+        "src": "/assets/processed/jeju-active-park-jeju-family-hero.webp",
         "alt": "제주 액티브파크 제주 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
@@ -2136,8 +1807,8 @@
       "banner": {
         "kind": "hub-banner",
         "original": "https://tong.visitkorea.or.kr/cms/resource/40/4095340_image2_1.jpg",
-        "src": "/assets/processed/jeju-active-park-jeju-parking-banner.webp",
-        "alt": "제주 액티브파크 제주 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "src": "/assets/processed/jeju-active-park-jeju-family-banner.webp",
+        "alt": "제주 액티브파크 제주 아이와 정보를 담은 트립뷰 지역 허브 배너",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
         "width": 1200,
         "height": 675,
@@ -2150,7 +1821,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/38/4095338_image2_1.JPG",
-          "src": "/assets/processed/jeju-active-park-jeju-parking-detail-1.webp",
+          "src": "/assets/processed/jeju-active-park-jeju-family-detail-1.webp",
           "alt": "제주 액티브파크 제주 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -2163,7 +1834,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/39/4095339_image2_1.jpg",
-          "src": "/assets/processed/jeju-active-park-jeju-parking-detail-2.webp",
+          "src": "/assets/processed/jeju-active-park-jeju-family-detail-2.webp",
           "alt": "제주 액티브파크 제주 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -2176,7 +1847,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/41/4095341_image2_1.JPG",
-          "src": "/assets/processed/jeju-active-park-jeju-parking-detail-3.webp",
+          "src": "/assets/processed/jeju-active-park-jeju-family-detail-3.webp",
           "alt": "제주 액티브파크 제주 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -2189,7 +1860,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/42/4095342_image2_1.JPG",
-          "src": "/assets/processed/jeju-active-park-jeju-parking-detail-4.webp",
+          "src": "/assets/processed/jeju-active-park-jeju-family-detail-4.webp",
           "alt": "제주 액티브파크 제주 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -2202,7 +1873,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/43/4095343_image2_1.JPG",
-          "src": "/assets/processed/jeju-active-park-jeju-parking-detail-5.webp",
+          "src": "/assets/processed/jeju-active-park-jeju-family-detail-5.webp",
           "alt": "제주 액티브파크 제주 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -2215,7 +1886,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/44/4095344_image2_1.jpg",
-          "src": "/assets/processed/jeju-active-park-jeju-parking-detail-6.webp",
+          "src": "/assets/processed/jeju-active-park-jeju-family-detail-6.webp",
           "alt": "제주 액티브파크 제주 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -2228,7 +1899,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/45/4095345_image2_1.JPG",
-          "src": "/assets/processed/jeju-active-park-jeju-parking-detail-7.webp",
+          "src": "/assets/processed/jeju-active-park-jeju-family-detail-7.webp",
           "alt": "제주 액티브파크 제주 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -2241,7 +1912,7 @@
       ]
     },
     "travel-2931892": {
-      "title": "빛의 벙커, 늦여름·초가을에 보기 좋은 위치와 여행 동선",
+      "title": "제주 빛의 벙커 실내 관람, 입장 시간·주차·체류 팁",
       "sourceTitle": "빛의 벙커",
       "region": "제주",
       "source": "한국관광공사 공공누리",
@@ -2378,14 +2049,14 @@
       ]
     },
     "travel-1177867": {
-      "title": "분당 어린이천문대, 늦여름·초가을에 보기 좋은 위치와 여행 동선",
+      "title": "분당 어린이천문대 체험 전, 연령·예약·관측 가능 여부",
       "sourceTitle": "분당 어린이천문대",
       "region": "경기",
       "source": "한국관광공사 공공누리",
       "cover": {
         "kind": "cover",
         "original": "https://tong.visitkorea.or.kr/cms/resource/28/3383428_image2_1.jpg",
-        "src": "/assets/processed/yongin-bundang-children-observatory-parking.webp",
+        "src": "/assets/processed/yongin-bundang-children-observatory-family.webp",
         "alt": "경기 분당 어린이천문대 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 800,
@@ -2398,7 +2069,7 @@
       "hero": {
         "kind": "hero-cover",
         "original": "https://tong.visitkorea.or.kr/cms/resource/28/3383428_image2_1.jpg",
-        "src": "/assets/processed/yongin-bundang-children-observatory-parking-hero.webp",
+        "src": "/assets/processed/yongin-bundang-children-observatory-family-hero.webp",
         "alt": "경기 분당 어린이천문대 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
@@ -2410,8 +2081,8 @@
       "banner": {
         "kind": "hub-banner",
         "original": "https://tong.visitkorea.or.kr/cms/resource/28/3383428_image2_1.jpg",
-        "src": "/assets/processed/yongin-bundang-children-observatory-parking-banner.webp",
-        "alt": "경기 분당 어린이천문대 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "src": "/assets/processed/yongin-bundang-children-observatory-family-banner.webp",
+        "alt": "경기 분당 어린이천문대 아이와 정보를 담은 트립뷰 지역 허브 배너",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
         "width": 1200,
         "height": 675,
@@ -2424,7 +2095,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/29/3383429_image2_1.jpg",
-          "src": "/assets/processed/yongin-bundang-children-observatory-parking-detail-1.webp",
+          "src": "/assets/processed/yongin-bundang-children-observatory-family-detail-1.webp",
           "alt": "경기 분당 어린이천문대 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -2437,7 +2108,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/30/3383430_image2_1.jpg",
-          "src": "/assets/processed/yongin-bundang-children-observatory-parking-detail-2.webp",
+          "src": "/assets/processed/yongin-bundang-children-observatory-family-detail-2.webp",
           "alt": "경기 분당 어린이천문대 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -2450,7 +2121,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/31/3383431_image2_1.jpg",
-          "src": "/assets/processed/yongin-bundang-children-observatory-parking-detail-3.webp",
+          "src": "/assets/processed/yongin-bundang-children-observatory-family-detail-3.webp",
           "alt": "경기 분당 어린이천문대 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -2463,7 +2134,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/33/3383433_image2_1.jpg",
-          "src": "/assets/processed/yongin-bundang-children-observatory-parking-detail-4.webp",
+          "src": "/assets/processed/yongin-bundang-children-observatory-family-detail-4.webp",
           "alt": "경기 분당 어린이천문대 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -2476,7 +2147,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/40/3383440_image2_1.jpg",
-          "src": "/assets/processed/yongin-bundang-children-observatory-parking-detail-5.webp",
+          "src": "/assets/processed/yongin-bundang-children-observatory-family-detail-5.webp",
           "alt": "경기 분당 어린이천문대 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -2489,7 +2160,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/42/3383442_image2_1.jpg",
-          "src": "/assets/processed/yongin-bundang-children-observatory-parking-detail-6.webp",
+          "src": "/assets/processed/yongin-bundang-children-observatory-family-detail-6.webp",
           "alt": "경기 분당 어린이천문대 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -2502,7 +2173,7 @@
       ]
     },
     "festival-4093783": {
-      "title": "홍성 국가유산 야행 2026, 늦여름·초가을 방문 전 일정과 운영정보",
+      "title": "홍성 국가유산 야행 2026, 8월 14~15일 밤 동선과 무료 프로그램",
       "sourceTitle": "홍성 국가유산 야행",
       "region": "충남",
       "source": "한국관광공사 공공누리",
@@ -2639,14 +2310,14 @@
       ]
     },
     "travel-3082317": {
-      "title": "국립어린이박물관, 늦여름·초가을에 보기 좋은 위치와 여행 동선",
+      "title": "국립어린이박물관 예약 전 체크, 관람시간·연령별 체험",
       "sourceTitle": "국립어린이박물관",
       "region": "세종",
       "source": "한국관광공사 공공누리",
       "cover": {
         "kind": "cover",
         "original": "https://tong.visitkorea.or.kr/cms/resource/81/4093881_image2_1.jpg",
-        "src": "/assets/processed/sejong-national-children-museum-parking.webp",
+        "src": "/assets/processed/sejong-national-children-museum-family.webp",
         "alt": "세종 국립어린이박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 800,
@@ -2659,7 +2330,7 @@
       "hero": {
         "kind": "hero-cover",
         "original": "https://tong.visitkorea.or.kr/cms/resource/81/4093881_image2_1.jpg",
-        "src": "/assets/processed/sejong-national-children-museum-parking-hero.webp",
+        "src": "/assets/processed/sejong-national-children-museum-family-hero.webp",
         "alt": "세종 국립어린이박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
@@ -2671,8 +2342,8 @@
       "banner": {
         "kind": "hub-banner",
         "original": "https://tong.visitkorea.or.kr/cms/resource/81/4093881_image2_1.jpg",
-        "src": "/assets/processed/sejong-national-children-museum-parking-banner.webp",
-        "alt": "세종 국립어린이박물관 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "src": "/assets/processed/sejong-national-children-museum-family-banner.webp",
+        "alt": "세종 국립어린이박물관 아이와 정보를 담은 트립뷰 지역 허브 배너",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
         "width": 1200,
         "height": 675,
@@ -2685,7 +2356,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/10/3082310_image2_1.jpg",
-          "src": "/assets/processed/sejong-national-children-museum-parking-detail-1.webp",
+          "src": "/assets/processed/sejong-national-children-museum-family-detail-1.webp",
           "alt": "세종 국립어린이박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -2698,7 +2369,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/13/3082313_image2_1.jpg",
-          "src": "/assets/processed/sejong-national-children-museum-parking-detail-2.webp",
+          "src": "/assets/processed/sejong-national-children-museum-family-detail-2.webp",
           "alt": "세종 국립어린이박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -2711,7 +2382,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/73/4093873_image2_1.jpg",
-          "src": "/assets/processed/sejong-national-children-museum-parking-detail-3.webp",
+          "src": "/assets/processed/sejong-national-children-museum-family-detail-3.webp",
           "alt": "세종 국립어린이박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -2724,7 +2395,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/74/4093874_image2_1.jpg",
-          "src": "/assets/processed/sejong-national-children-museum-parking-detail-4.webp",
+          "src": "/assets/processed/sejong-national-children-museum-family-detail-4.webp",
           "alt": "세종 국립어린이박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -2737,7 +2408,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/76/4093876_image2_1.jpg",
-          "src": "/assets/processed/sejong-national-children-museum-parking-detail-5.webp",
+          "src": "/assets/processed/sejong-national-children-museum-family-detail-5.webp",
           "alt": "세종 국립어린이박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -2750,7 +2421,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/77/4093877_image2_1.jpg",
-          "src": "/assets/processed/sejong-national-children-museum-parking-detail-6.webp",
+          "src": "/assets/processed/sejong-national-children-museum-family-detail-6.webp",
           "alt": "세종 국립어린이박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -2763,7 +2434,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/78/4093878_image2_1.jpg",
-          "src": "/assets/processed/sejong-national-children-museum-parking-detail-7.webp",
+          "src": "/assets/processed/sejong-national-children-museum-family-detail-7.webp",
           "alt": "세종 국립어린이박물관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -2776,7 +2447,7 @@
       ]
     },
     "travel-126200": {
-      "title": "도산서원 [유네스코 세계유산], 늦여름·초가을에 보기 좋은 위치와 여행 동선",
+      "title": "도산서원 관람 순서, 주차장에서 전시·서원까지 걷는 동선",
       "sourceTitle": "도산서원 [유네스코 세계유산]",
       "region": "경북",
       "source": "한국관광공사 공공누리",
@@ -3709,14 +3380,14 @@
       ]
     },
     "travel-992130": {
-      "title": "키자니아 서울, 늦여름·초가을에 보기 좋은 위치와 여행 동선",
+      "title": "키자니아 서울 아이와 방문, 체험 예약·대기시간 줄이는 법",
       "sourceTitle": "키자니아 서울",
       "region": "서울",
       "source": "한국관광공사 공공누리",
       "cover": {
         "kind": "cover",
         "original": "https://tong.visitkorea.or.kr/cms/resource/27/3529027_image2_1.JPG",
-        "src": "/assets/processed/seoul-kidzania-seoul-parking.webp",
+        "src": "/assets/processed/seoul-kidzania-seoul-family.webp",
         "alt": "서울 키자니아 서울 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 800,
@@ -3729,7 +3400,7 @@
       "hero": {
         "kind": "hero-cover",
         "original": "https://tong.visitkorea.or.kr/cms/resource/27/3529027_image2_1.JPG",
-        "src": "/assets/processed/seoul-kidzania-seoul-parking-hero.webp",
+        "src": "/assets/processed/seoul-kidzania-seoul-family-hero.webp",
         "alt": "서울 키자니아 서울 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
@@ -3741,8 +3412,8 @@
       "banner": {
         "kind": "hub-banner",
         "original": "https://tong.visitkorea.or.kr/cms/resource/27/3529027_image2_1.JPG",
-        "src": "/assets/processed/seoul-kidzania-seoul-parking-banner.webp",
-        "alt": "서울 키자니아 서울 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "src": "/assets/processed/seoul-kidzania-seoul-family-banner.webp",
+        "alt": "서울 키자니아 서울 아이와 정보를 담은 트립뷰 지역 허브 배너",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
         "width": 1200,
         "height": 675,
@@ -3755,7 +3426,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/26/3529026_image2_1.jpg",
-          "src": "/assets/processed/seoul-kidzania-seoul-parking-detail-1.webp",
+          "src": "/assets/processed/seoul-kidzania-seoul-family-detail-1.webp",
           "alt": "서울 키자니아 서울 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -3768,7 +3439,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/28/3529028_image2_1.JPG",
-          "src": "/assets/processed/seoul-kidzania-seoul-parking-detail-2.webp",
+          "src": "/assets/processed/seoul-kidzania-seoul-family-detail-2.webp",
           "alt": "서울 키자니아 서울 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -3781,7 +3452,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/29/3529029_image2_1.JPG",
-          "src": "/assets/processed/seoul-kidzania-seoul-parking-detail-3.webp",
+          "src": "/assets/processed/seoul-kidzania-seoul-family-detail-3.webp",
           "alt": "서울 키자니아 서울 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -3794,7 +3465,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/30/3529030_image2_1.JPG",
-          "src": "/assets/processed/seoul-kidzania-seoul-parking-detail-4.webp",
+          "src": "/assets/processed/seoul-kidzania-seoul-family-detail-4.webp",
           "alt": "서울 키자니아 서울 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -3807,7 +3478,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/31/3529031_image2_1.JPG",
-          "src": "/assets/processed/seoul-kidzania-seoul-parking-detail-5.webp",
+          "src": "/assets/processed/seoul-kidzania-seoul-family-detail-5.webp",
           "alt": "서울 키자니아 서울 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -3820,14 +3491,14 @@
       ]
     },
     "travel-129560": {
-      "title": "대금굴, 늦여름·초가을에 보기 좋은 위치와 여행 동선",
+      "title": "삼척 대금굴 예약 전 확인, 입장 시간·이동·복장 준비",
       "sourceTitle": "대금굴",
       "region": "강원",
       "source": "한국관광공사 공공누리",
       "cover": {
         "kind": "cover",
         "original": "https://tong.visitkorea.or.kr/cms/resource/89/3460189_image2_1.jpg",
-        "src": "/assets/processed/samcheok-daegeumgul-parking.webp",
+        "src": "/assets/processed/samcheok-daegeumgul-reservation.webp",
         "alt": "강원 대금굴 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 800,
@@ -3840,7 +3511,7 @@
       "hero": {
         "kind": "hero-cover",
         "original": "https://tong.visitkorea.or.kr/cms/resource/89/3460189_image2_1.jpg",
-        "src": "/assets/processed/samcheok-daegeumgul-parking-hero.webp",
+        "src": "/assets/processed/samcheok-daegeumgul-reservation-hero.webp",
         "alt": "강원 대금굴 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
@@ -3852,8 +3523,8 @@
       "banner": {
         "kind": "hub-banner",
         "original": "https://tong.visitkorea.or.kr/cms/resource/89/3460189_image2_1.jpg",
-        "src": "/assets/processed/samcheok-daegeumgul-parking-banner.webp",
-        "alt": "강원 대금굴 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "src": "/assets/processed/samcheok-daegeumgul-reservation-banner.webp",
+        "alt": "강원 대금굴 예약 체크 정보를 담은 트립뷰 지역 허브 배너",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
         "width": 1200,
         "height": 675,
@@ -3866,7 +3537,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/85/3460185_image2_1.jpg",
-          "src": "/assets/processed/samcheok-daegeumgul-parking-detail-1.webp",
+          "src": "/assets/processed/samcheok-daegeumgul-reservation-detail-1.webp",
           "alt": "강원 대금굴 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -3879,7 +3550,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/86/3460186_image2_1.jpg",
-          "src": "/assets/processed/samcheok-daegeumgul-parking-detail-2.webp",
+          "src": "/assets/processed/samcheok-daegeumgul-reservation-detail-2.webp",
           "alt": "강원 대금굴 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -3892,7 +3563,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/87/3460187_image2_1.jpg",
-          "src": "/assets/processed/samcheok-daegeumgul-parking-detail-3.webp",
+          "src": "/assets/processed/samcheok-daegeumgul-reservation-detail-3.webp",
           "alt": "강원 대금굴 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -3905,7 +3576,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/88/3460188_image2_1.jpg",
-          "src": "/assets/processed/samcheok-daegeumgul-parking-detail-4.webp",
+          "src": "/assets/processed/samcheok-daegeumgul-reservation-detail-4.webp",
           "alt": "강원 대금굴 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -3918,7 +3589,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/94/3460194_image2_1.jpg",
-          "src": "/assets/processed/samcheok-daegeumgul-parking-detail-5.webp",
+          "src": "/assets/processed/samcheok-daegeumgul-reservation-detail-5.webp",
           "alt": "강원 대금굴 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -3931,7 +3602,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/95/3460195_image2_1.jpg",
-          "src": "/assets/processed/samcheok-daegeumgul-parking-detail-6.webp",
+          "src": "/assets/processed/samcheok-daegeumgul-reservation-detail-6.webp",
           "alt": "강원 대금굴 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -3944,7 +3615,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/96/3460196_image2_1.jpg",
-          "src": "/assets/processed/samcheok-daegeumgul-parking-detail-7.webp",
+          "src": "/assets/processed/samcheok-daegeumgul-reservation-detail-7.webp",
           "alt": "강원 대금굴 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -3957,14 +3628,14 @@
       ]
     },
     "festival-4091116": {
-      "title": "우리동네 문화아지트 : LH주택전시관 복합문화행사 2026, 늦여름·초가을 방문 전 일정과 운영정보",
+      "title": "우리동네 문화아지트 2026, 8월 22일까지 전시장별 일정 확인",
       "sourceTitle": "우리동네 문화아지트 : LH주택전시관 복합문화행사",
       "region": "세종",
       "source": "한국관광공사 공공누리",
       "cover": {
         "kind": "cover",
         "original": "https://tong.visitkorea.or.kr/cms/resource/25/4091125_image2_1.jpg",
-        "src": "/assets/processed/sejong-local-culture-hub-lh-housing-parking.webp",
+        "src": "/assets/processed/sejong-local-culture-hub-lh-housing-indoor.webp",
         "alt": "세종 우리동네 문화아지트 : LH주택전시관 복합문화행사 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 800,
@@ -3977,7 +3648,7 @@
       "hero": {
         "kind": "hero-cover",
         "original": "https://tong.visitkorea.or.kr/cms/resource/25/4091125_image2_1.jpg",
-        "src": "/assets/processed/sejong-local-culture-hub-lh-housing-parking-hero.webp",
+        "src": "/assets/processed/sejong-local-culture-hub-lh-housing-indoor-hero.webp",
         "alt": "세종 우리동네 문화아지트 : LH주택전시관 복합문화행사 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
@@ -3989,8 +3660,8 @@
       "banner": {
         "kind": "hub-banner",
         "original": "https://tong.visitkorea.or.kr/cms/resource/25/4091125_image2_1.jpg",
-        "src": "/assets/processed/sejong-local-culture-hub-lh-housing-parking-banner.webp",
-        "alt": "세종 우리동네 문화아지트 : LH주택전시관 복합문화행사 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "src": "/assets/processed/sejong-local-culture-hub-lh-housing-indoor-banner.webp",
+        "alt": "세종 우리동네 문화아지트 : LH주택전시관 복합문화행사 실내 코스 정보를 담은 트립뷰 지역 허브 배너",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
         "width": 1200,
         "height": 675,
@@ -4003,7 +3674,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/26/4091126_image2_1.jpg",
-          "src": "/assets/processed/sejong-local-culture-hub-lh-housing-parking-detail-1.webp",
+          "src": "/assets/processed/sejong-local-culture-hub-lh-housing-indoor-detail-1.webp",
           "alt": "세종 우리동네 문화아지트 : LH주택전시관 복합문화행사 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -4016,14 +3687,14 @@
       ]
     },
     "festival-4090201": {
-      "title": "가든 나이트 마켓 2026, 늦여름·초가을 방문 전 일정과 운영정보",
+      "title": "울산 가든 나이트 마켓 2026, 8월 29일까지 야시장·버스킹 일정",
       "sourceTitle": "가든 나이트 마켓",
       "region": "울산",
       "source": "한국관광공사 공공누리",
       "cover": {
         "kind": "cover",
         "original": "https://tong.visitkorea.or.kr/cms/resource/02/4090202_image2_1.jpg",
-        "src": "/assets/processed/ulsan-garden-night-market-parking.webp",
+        "src": "/assets/processed/ulsan-garden-night-market-family.webp",
         "alt": "울산 가든 나이트 마켓 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 800,
@@ -4036,7 +3707,7 @@
       "hero": {
         "kind": "hero-cover",
         "original": "https://tong.visitkorea.or.kr/cms/resource/02/4090202_image2_1.jpg",
-        "src": "/assets/processed/ulsan-garden-night-market-parking-hero.webp",
+        "src": "/assets/processed/ulsan-garden-night-market-family-hero.webp",
         "alt": "울산 가든 나이트 마켓 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
@@ -4048,8 +3719,8 @@
       "banner": {
         "kind": "hub-banner",
         "original": "https://tong.visitkorea.or.kr/cms/resource/02/4090202_image2_1.jpg",
-        "src": "/assets/processed/ulsan-garden-night-market-parking-banner.webp",
-        "alt": "울산 가든 나이트 마켓 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "src": "/assets/processed/ulsan-garden-night-market-family-banner.webp",
+        "alt": "울산 가든 나이트 마켓 아이와 정보를 담은 트립뷰 지역 허브 배너",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
         "width": 1200,
         "height": 675,
@@ -4061,7 +3732,7 @@
       "images": []
     },
     "travel-1904335": {
-      "title": "태권도원, 늦여름·초가을에 보기 좋은 위치와 여행 동선",
+      "title": "무주 태권도원 하루 코스, 공연·체험 시간과 이동 동선",
       "sourceTitle": "태권도원",
       "region": "전북",
       "source": "한국관광공사 공공누리",
@@ -4198,14 +3869,14 @@
       ]
     },
     "travel-3376308": {
-      "title": "무주 반디별 천문과학관, 늦여름·초가을에 보기 좋은 위치와 여행 동선",
+      "title": "무주 반디별 천문과학관 아이와 관측, 예약·날씨·귀가 체크",
       "sourceTitle": "무주 반디별 천문과학관",
       "region": "전북",
       "source": "한국관광공사 공공누리",
       "cover": {
         "kind": "cover",
         "original": "https://tong.visitkorea.or.kr/cms/resource/12/3377612_image2_1.JPG",
-        "src": "/assets/processed/muju-starlight-observatory-parking.webp",
+        "src": "/assets/processed/muju-starlight-observatory-family.webp",
         "alt": "전북 무주 반디별 천문과학관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 800,
@@ -4218,7 +3889,7 @@
       "hero": {
         "kind": "hero-cover",
         "original": "https://tong.visitkorea.or.kr/cms/resource/12/3377612_image2_1.JPG",
-        "src": "/assets/processed/muju-starlight-observatory-parking-hero.webp",
+        "src": "/assets/processed/muju-starlight-observatory-family-hero.webp",
         "alt": "전북 무주 반디별 천문과학관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
@@ -4230,8 +3901,8 @@
       "banner": {
         "kind": "hub-banner",
         "original": "https://tong.visitkorea.or.kr/cms/resource/12/3377612_image2_1.JPG",
-        "src": "/assets/processed/muju-starlight-observatory-parking-banner.webp",
-        "alt": "전북 무주 반디별 천문과학관 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "src": "/assets/processed/muju-starlight-observatory-family-banner.webp",
+        "alt": "전북 무주 반디별 천문과학관 아이와 정보를 담은 트립뷰 지역 허브 배너",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
         "width": 1200,
         "height": 675,
@@ -4244,7 +3915,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/15/3377615_image2_1.JPG",
-          "src": "/assets/processed/muju-starlight-observatory-parking-detail-1.webp",
+          "src": "/assets/processed/muju-starlight-observatory-family-detail-1.webp",
           "alt": "전북 무주 반디별 천문과학관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -4257,7 +3928,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/18/3377618_image2_1.JPG",
-          "src": "/assets/processed/muju-starlight-observatory-parking-detail-2.webp",
+          "src": "/assets/processed/muju-starlight-observatory-family-detail-2.webp",
           "alt": "전북 무주 반디별 천문과학관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -4270,7 +3941,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/19/3377619_image2_1.JPG",
-          "src": "/assets/processed/muju-starlight-observatory-parking-detail-3.webp",
+          "src": "/assets/processed/muju-starlight-observatory-family-detail-3.webp",
           "alt": "전북 무주 반디별 천문과학관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -4283,7 +3954,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/21/3377621_image2_1.JPG",
-          "src": "/assets/processed/muju-starlight-observatory-parking-detail-4.webp",
+          "src": "/assets/processed/muju-starlight-observatory-family-detail-4.webp",
           "alt": "전북 무주 반디별 천문과학관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -4296,7 +3967,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/30/3377630_image2_1.JPG",
-          "src": "/assets/processed/muju-starlight-observatory-parking-detail-5.webp",
+          "src": "/assets/processed/muju-starlight-observatory-family-detail-5.webp",
           "alt": "전북 무주 반디별 천문과학관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -4309,7 +3980,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/64/4090364_image2_1.jpg",
-          "src": "/assets/processed/muju-starlight-observatory-parking-detail-6.webp",
+          "src": "/assets/processed/muju-starlight-observatory-family-detail-6.webp",
           "alt": "전북 무주 반디별 천문과학관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -4322,7 +3993,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/65/4090365_image2_1.jpg",
-          "src": "/assets/processed/muju-starlight-observatory-parking-detail-7.webp",
+          "src": "/assets/processed/muju-starlight-observatory-family-detail-7.webp",
           "alt": "전북 무주 반디별 천문과학관 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -4335,7 +4006,7 @@
       ]
     },
     "travel-4089407": {
-      "title": "왕산허위선생기념관, 늦여름·초가을에 보기 좋은 위치와 여행 동선",
+      "title": "왕산허위선생기념관 관람 전 알아둘 전시 내용과 주변 동선",
       "sourceTitle": "왕산허위선생기념관",
       "region": "경북",
       "source": "한국관광공사 공공누리",
@@ -4472,7 +4143,7 @@
       ]
     },
     "travel-3036485": {
-      "title": "월영산 출렁다리, 늦여름·초가을에 보기 좋은 위치와 여행 동선",
+      "title": "금산 월영산 출렁다리 주말 산책, 주차·경사·왕복 시간",
       "sourceTitle": "월영산 출렁다리",
       "region": "충남",
       "source": "한국관광공사 공공누리",
@@ -4609,15 +4280,15 @@
       ]
     },
     "festival-4087207": {
-      "title": "2026 경주 e스포츠 페스티벌, 늦여름·초가을 방문 전 일정과 운영정보",
+      "title": "경주 e스포츠 페스티벌 2026, 8월 15~23일 경기·체험 일정",
       "sourceTitle": "2026 경주 e스포츠 페스티벌",
       "region": "경북",
       "source": "한국관광공사 공공누리",
       "cover": {
         "kind": "cover",
         "original": "https://tong.visitkorea.or.kr/cms/resource/91/4087291_image2_1.jpg",
-        "src": "/assets/processed/gyeongju-eseupocheu-festival-neutyeoreum-chogaeul-parking.webp",
-        "alt": "경북 2026 경주 e스포츠 페스티벌, 늦여름·초가을 방문 전 일정과 운영정보 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "src": "/assets/processed/gyeongju-eseupocheu-festival-gyeonggi-cheheom-family.webp",
+        "alt": "경북 경주 e스포츠 페스티벌 2026, 8월 15~23일 경기·체험 일정 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 800,
         "height": 500,
@@ -4629,8 +4300,8 @@
       "hero": {
         "kind": "hero-cover",
         "original": "https://tong.visitkorea.or.kr/cms/resource/91/4087291_image2_1.jpg",
-        "src": "/assets/processed/gyeongju-eseupocheu-festival-neutyeoreum-chogaeul-parking-hero.webp",
-        "alt": "경북 2026 경주 e스포츠 페스티벌, 늦여름·초가을 방문 전 일정과 운영정보 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "src": "/assets/processed/gyeongju-eseupocheu-festival-gyeonggi-cheheom-family-hero.webp",
+        "alt": "경북 경주 e스포츠 페스티벌 2026, 8월 15~23일 경기·체험 일정 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
         "height": 900,
@@ -4641,8 +4312,8 @@
       "banner": {
         "kind": "hub-banner",
         "original": "https://tong.visitkorea.or.kr/cms/resource/91/4087291_image2_1.jpg",
-        "src": "/assets/processed/gyeongju-eseupocheu-festival-neutyeoreum-chogaeul-parking-banner.webp",
-        "alt": "경북 2026 경주 e스포츠 페스티벌, 늦여름·초가을 방문 전 일정과 운영정보 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "src": "/assets/processed/gyeongju-eseupocheu-festival-gyeonggi-cheheom-family-banner.webp",
+        "alt": "경북 경주 e스포츠 페스티벌 2026, 8월 15~23일 경기·체험 일정 아이와 정보를 담은 트립뷰 지역 허브 배너",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
         "width": 1200,
         "height": 675,
@@ -4654,14 +4325,14 @@
       "images": []
     },
     "festival-4086427": {
-      "title": "춘천 썸머워터 페스티벌 2026, 늦여름·초가을 방문 전 일정과 운영정보",
+      "title": "춘천 썸머워터 페스티벌 2026, 8월 17일까지 입장료·운영시간",
       "sourceTitle": "춘천 썸머워터 페스티벌",
       "region": "강원",
       "source": "한국관광공사 공공누리",
       "cover": {
         "kind": "cover",
         "original": "https://tong.visitkorea.or.kr/cms/resource/31/4086431_image2_1.jpg",
-        "src": "/assets/processed/chuncheon-summer-water-festival-parking.webp",
+        "src": "/assets/processed/chuncheon-summer-water-festival-festival.webp",
         "alt": "강원 춘천 썸머워터 페스티벌 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 800,
@@ -4674,7 +4345,7 @@
       "hero": {
         "kind": "hero-cover",
         "original": "https://tong.visitkorea.or.kr/cms/resource/31/4086431_image2_1.jpg",
-        "src": "/assets/processed/chuncheon-summer-water-festival-parking-hero.webp",
+        "src": "/assets/processed/chuncheon-summer-water-festival-festival-hero.webp",
         "alt": "강원 춘천 썸머워터 페스티벌 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
@@ -4686,8 +4357,8 @@
       "banner": {
         "kind": "hub-banner",
         "original": "https://tong.visitkorea.or.kr/cms/resource/31/4086431_image2_1.jpg",
-        "src": "/assets/processed/chuncheon-summer-water-festival-parking-banner.webp",
-        "alt": "강원 춘천 썸머워터 페스티벌 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "src": "/assets/processed/chuncheon-summer-water-festival-festival-banner.webp",
+        "alt": "강원 춘천 썸머워터 페스티벌 축제 일정 정보를 담은 트립뷰 지역 허브 배너",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
         "width": 1200,
         "height": 675,
@@ -4700,7 +4371,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/32/4086432_image2_1.jpg",
-          "src": "/assets/processed/chuncheon-summer-water-festival-parking-detail-1.webp",
+          "src": "/assets/processed/chuncheon-summer-water-festival-festival-detail-1.webp",
           "alt": "강원 춘천 썸머워터 페스티벌 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -4713,7 +4384,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/33/4086433_image2_1.jpg",
-          "src": "/assets/processed/chuncheon-summer-water-festival-parking-detail-2.webp",
+          "src": "/assets/processed/chuncheon-summer-water-festival-festival-detail-2.webp",
           "alt": "강원 춘천 썸머워터 페스티벌 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -4726,7 +4397,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/34/4086434_image2_1.jpg",
-          "src": "/assets/processed/chuncheon-summer-water-festival-parking-detail-3.webp",
+          "src": "/assets/processed/chuncheon-summer-water-festival-festival-detail-3.webp",
           "alt": "강원 춘천 썸머워터 페스티벌 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -4739,14 +4410,14 @@
       ]
     },
     "travel-2742100": {
-      "title": "담빛예술창고, 늦여름·초가을에 보기 좋은 위치와 여행 동선",
+      "title": "담양 담빛예술창고 실내 관람, 전시 확인과 주변 산책 코스",
       "sourceTitle": "담빛예술창고",
       "region": "전남",
       "source": "한국관광공사 공공누리",
       "cover": {
         "kind": "cover",
         "original": "https://tong.visitkorea.or.kr/cms/resource/20/4086020_image2_1.jpg",
-        "src": "/assets/processed/damyang-dambit-art-warehouse-parking.webp",
+        "src": "/assets/processed/damyang-dambit-art-warehouse-indoor.webp",
         "alt": "전남 담빛예술창고 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 800,
@@ -4759,7 +4430,7 @@
       "hero": {
         "kind": "hero-cover",
         "original": "https://tong.visitkorea.or.kr/cms/resource/20/4086020_image2_1.jpg",
-        "src": "/assets/processed/damyang-dambit-art-warehouse-parking-hero.webp",
+        "src": "/assets/processed/damyang-dambit-art-warehouse-indoor-hero.webp",
         "alt": "전남 담빛예술창고 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
@@ -4771,8 +4442,8 @@
       "banner": {
         "kind": "hub-banner",
         "original": "https://tong.visitkorea.or.kr/cms/resource/20/4086020_image2_1.jpg",
-        "src": "/assets/processed/damyang-dambit-art-warehouse-parking-banner.webp",
-        "alt": "전남 담빛예술창고 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "src": "/assets/processed/damyang-dambit-art-warehouse-indoor-banner.webp",
+        "alt": "전남 담빛예술창고 실내 코스 정보를 담은 트립뷰 지역 허브 배너",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
         "width": 1200,
         "height": 675,
@@ -4785,7 +4456,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/84/3497784_image2_1.jpg",
-          "src": "/assets/processed/damyang-dambit-art-warehouse-parking-detail-1.webp",
+          "src": "/assets/processed/damyang-dambit-art-warehouse-indoor-detail-1.webp",
           "alt": "전남 담빛예술창고 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -4798,7 +4469,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/85/3497785_image2_1.jpg",
-          "src": "/assets/processed/damyang-dambit-art-warehouse-parking-detail-2.webp",
+          "src": "/assets/processed/damyang-dambit-art-warehouse-indoor-detail-2.webp",
           "alt": "전남 담빛예술창고 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -4811,7 +4482,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/86/3497786_image2_1.jpg",
-          "src": "/assets/processed/damyang-dambit-art-warehouse-parking-detail-3.webp",
+          "src": "/assets/processed/damyang-dambit-art-warehouse-indoor-detail-3.webp",
           "alt": "전남 담빛예술창고 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -4824,7 +4495,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/88/3497788_image2_1.jpg",
-          "src": "/assets/processed/damyang-dambit-art-warehouse-parking-detail-4.webp",
+          "src": "/assets/processed/damyang-dambit-art-warehouse-indoor-detail-4.webp",
           "alt": "전남 담빛예술창고 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -4837,7 +4508,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/15/4086015_image2_1.jpg",
-          "src": "/assets/processed/damyang-dambit-art-warehouse-parking-detail-5.webp",
+          "src": "/assets/processed/damyang-dambit-art-warehouse-indoor-detail-5.webp",
           "alt": "전남 담빛예술창고 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -4850,7 +4521,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/16/4086016_image2_1.jpg",
-          "src": "/assets/processed/damyang-dambit-art-warehouse-parking-detail-6.webp",
+          "src": "/assets/processed/damyang-dambit-art-warehouse-indoor-detail-6.webp",
           "alt": "전남 담빛예술창고 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -4863,7 +4534,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/17/4086017_image2_1.jpg",
-          "src": "/assets/processed/damyang-dambit-art-warehouse-parking-detail-7.webp",
+          "src": "/assets/processed/damyang-dambit-art-warehouse-indoor-detail-7.webp",
           "alt": "전남 담빛예술창고 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -4921,7 +4592,7 @@
       "images": [
         {
           "kind": "inline",
-          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/58/3476658_image3_1.jpg",
+          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/56/3476656_image2_1.jpg",
           "src": "/assets/processed/cheongyang-janggoksa-parking-detail-1.webp",
           "alt": "충남 장곡사(청양) 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
@@ -4934,7 +4605,7 @@
         },
         {
           "kind": "inline",
-          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/56/3476656_image2_1.jpg",
+          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/68/3476668_image2_1.jpg",
           "src": "/assets/processed/cheongyang-janggoksa-parking-detail-2.webp",
           "alt": "충남 장곡사(청양) 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
@@ -4947,7 +4618,7 @@
         },
         {
           "kind": "inline",
-          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/68/3476668_image2_1.jpg",
+          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/60/3476660_image2_1.jpg",
           "src": "/assets/processed/cheongyang-janggoksa-parking-detail-3.webp",
           "alt": "충남 장곡사(청양) 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
@@ -4960,7 +4631,7 @@
         },
         {
           "kind": "inline",
-          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/60/3476660_image2_1.jpg",
+          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/61/3476661_image2_1.jpg",
           "src": "/assets/processed/cheongyang-janggoksa-parking-detail-4.webp",
           "alt": "충남 장곡사(청양) 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
@@ -4973,7 +4644,7 @@
         },
         {
           "kind": "inline",
-          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/61/3476661_image2_1.jpg",
+          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/13/3476713_image2_1.jpg",
           "src": "/assets/processed/cheongyang-janggoksa-parking-detail-5.webp",
           "alt": "충남 장곡사(청양) 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
@@ -4986,21 +4657,8 @@
         },
         {
           "kind": "inline",
-          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/13/3476713_image2_1.jpg",
-          "src": "/assets/processed/cheongyang-janggoksa-parking-detail-6.webp",
-          "alt": "충남 장곡사(청양) 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-          "width": 1000,
-          "height": null,
-          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-          "overlay": null,
-          "posterCanvas": false,
-          "bytes": null
-        },
-        {
-          "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource_photo/57/3476657_image2_1.jpg",
-          "src": "/assets/processed/cheongyang-janggoksa-parking-detail-7.webp",
+          "src": "/assets/processed/cheongyang-janggoksa-parking-detail-6.webp",
           "alt": "충남 장곡사(청양) 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -6044,14 +5702,14 @@
       ]
     },
     "festival-2550263": {
-      "title": "세미원 연꽃문화제 2026, 늦여름·초가을 방문 전 일정과 운영정보",
+      "title": "세미원 연꽃문화제 2026, 8월 17일까지 관람시간·입장료",
       "sourceTitle": "세미원 연꽃문화제",
       "region": "경기",
       "source": "한국관광공사 공공누리",
       "cover": {
         "kind": "cover",
         "original": "https://tong.visitkorea.or.kr/cms/resource/76/4078876_image2_1.JPG",
-        "src": "/assets/processed/yangpyeong-semiwon-lotus-festival-parking.webp",
+        "src": "/assets/processed/yangpyeong-semiwon-lotus-festival-festival.webp",
         "alt": "경기 세미원 연꽃문화제 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 800,
@@ -6064,7 +5722,7 @@
       "hero": {
         "kind": "hero-cover",
         "original": "https://tong.visitkorea.or.kr/cms/resource/76/4078876_image2_1.JPG",
-        "src": "/assets/processed/yangpyeong-semiwon-lotus-festival-parking-hero.webp",
+        "src": "/assets/processed/yangpyeong-semiwon-lotus-festival-festival-hero.webp",
         "alt": "경기 세미원 연꽃문화제 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
@@ -6076,8 +5734,8 @@
       "banner": {
         "kind": "hub-banner",
         "original": "https://tong.visitkorea.or.kr/cms/resource/76/4078876_image2_1.JPG",
-        "src": "/assets/processed/yangpyeong-semiwon-lotus-festival-parking-banner.webp",
-        "alt": "경기 세미원 연꽃문화제 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "src": "/assets/processed/yangpyeong-semiwon-lotus-festival-festival-banner.webp",
+        "alt": "경기 세미원 연꽃문화제 축제 일정 정보를 담은 트립뷰 지역 허브 배너",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
         "width": 1200,
         "height": 675,
@@ -6090,7 +5748,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/71/4078871_image2_1.jpg",
-          "src": "/assets/processed/yangpyeong-semiwon-lotus-festival-parking-detail-1.webp",
+          "src": "/assets/processed/yangpyeong-semiwon-lotus-festival-festival-detail-1.webp",
           "alt": "경기 세미원 연꽃문화제 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -6103,7 +5761,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/72/4078872_image2_1.jpg",
-          "src": "/assets/processed/yangpyeong-semiwon-lotus-festival-parking-detail-2.webp",
+          "src": "/assets/processed/yangpyeong-semiwon-lotus-festival-festival-detail-2.webp",
           "alt": "경기 세미원 연꽃문화제 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -6116,7 +5774,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/73/4078873_image2_1.jpg",
-          "src": "/assets/processed/yangpyeong-semiwon-lotus-festival-parking-detail-3.webp",
+          "src": "/assets/processed/yangpyeong-semiwon-lotus-festival-festival-detail-3.webp",
           "alt": "경기 세미원 연꽃문화제 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -6129,7 +5787,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/74/4078874_image2_1.jpg",
-          "src": "/assets/processed/yangpyeong-semiwon-lotus-festival-parking-detail-4.webp",
+          "src": "/assets/processed/yangpyeong-semiwon-lotus-festival-festival-detail-4.webp",
           "alt": "경기 세미원 연꽃문화제 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -6142,7 +5800,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/75/4078875_image2_1.JPG",
-          "src": "/assets/processed/yangpyeong-semiwon-lotus-festival-parking-detail-5.webp",
+          "src": "/assets/processed/yangpyeong-semiwon-lotus-festival-festival-detail-5.webp",
           "alt": "경기 세미원 연꽃문화제 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -6155,7 +5813,7 @@
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/77/4078877_image2_1.jpg",
-          "src": "/assets/processed/yangpyeong-semiwon-lotus-festival-parking-detail-6.webp",
+          "src": "/assets/processed/yangpyeong-semiwon-lotus-festival-festival-detail-6.webp",
           "alt": "경기 세미원 연꽃문화제 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
@@ -6168,7 +5826,7 @@
       ]
     },
     "festival-507454": {
-      "title": "통영한산대첩축제 2026, 늦여름·초가을 방문 전 일정과 운영정보",
+      "title": "통영한산대첩축제 2026, 8월 12~16일 야간 일정·교통 체크",
       "sourceTitle": "통영한산대첩축제",
       "region": "경남",
       "source": "한국관광공사 공공누리",
@@ -6305,7 +5963,7 @@
       ]
     },
     "festival-2541883": {
-      "title": "강릉 국가유산 야행 2026, 늦여름·초가을 방문 전 일정과 운영정보",
+      "title": "강릉 국가유산 야행 2026, 관아·서부시장·명주동 야간 코스",
       "sourceTitle": "강릉 국가유산 야행",
       "region": "강원",
       "source": "한국관광공사 공공누리",
@@ -6403,7 +6061,7 @@
       ]
     },
     "festival-2751126": {
-      "title": "김천포도축제 2026, 늦여름·초가을 방문 전 일정과 운영정보",
+      "title": "김천포도축제 2026, 8월 14~16일 체험·먹거리·주차 정보",
       "sourceTitle": "김천포도축제",
       "region": "경북",
       "source": "한국관광공사 공공누리",

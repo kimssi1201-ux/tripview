@@ -1,6 +1,6 @@
 {
-  "updatedDate": "2026-08-27",
-  "generatedAt": "2026-08-27T10:01:00.727Z",
+  "updatedDate": "2026-08-28",
+  "generatedAt": "2026-08-28T00:29:03.709Z",
   "source": "myrealtrip-accommodation-region-autocomplete",
   "endpoint": "/v1/products/accommodation/region-autocomplete",
   "regions": {
@@ -28,6 +28,14 @@
       "type": "CITY",
       "sourceName": "제주시"
     },
+    "incheon": {
+      "keyword": "인천",
+      "name": "인천",
+      "slug": "incheon",
+      "regionId": "7002",
+      "type": "CITY",
+      "sourceName": "인천"
+    },
     "daegu": {
       "keyword": "대구",
       "name": "대구",
@@ -44,13 +52,13 @@
       "type": "CITY",
       "sourceName": "청주"
     },
-    "incheon": {
-      "keyword": "인천",
-      "name": "인천",
-      "slug": "incheon",
-      "regionId": "7002",
+    "전주": {
+      "keyword": "전주",
+      "name": "전주",
+      "slug": "전주",
+      "regionId": "57803",
       "type": "CITY",
-      "sourceName": "인천"
+      "sourceName": "전주"
     },
     "gwangju": {
       "keyword": "광주",
@@ -68,14 +76,6 @@
       "type": "CITY",
       "sourceName": "강릉"
     },
-    "전주": {
-      "keyword": "전주",
-      "name": "전주",
-      "slug": "전주",
-      "regionId": "57803",
-      "type": "CITY",
-      "sourceName": "전주"
-    },
     "평창": {
       "keyword": "평창",
       "name": "평창",
@@ -83,14 +83,6 @@
       "regionId": "78440",
       "type": "CITY",
       "sourceName": "평창"
-    },
-    "구례": {
-      "keyword": "구례",
-      "name": "구례",
-      "slug": "구례",
-      "regionId": "119479",
-      "type": "CITY",
-      "sourceName": "구례"
     },
     "수원": {
       "keyword": "수원",
@@ -108,6 +100,30 @@
       "type": "CITY",
       "sourceName": "울산"
     },
+    "구례": {
+      "keyword": "구례",
+      "name": "구례",
+      "slug": "구례",
+      "regionId": "119479",
+      "type": "CITY",
+      "sourceName": "구례"
+    },
+    "포항": {
+      "keyword": "포항",
+      "name": "포항",
+      "slug": "포항",
+      "regionId": "1558",
+      "type": "CITY",
+      "sourceName": "포항"
+    },
+    "거창": {
+      "keyword": "거창",
+      "name": "거창",
+      "slug": "거창",
+      "regionId": "102709",
+      "type": "CITY",
+      "sourceName": "거창"
+    },
     "고흥": {
       "keyword": "고흥",
       "name": "고흥",
@@ -123,30 +139,6 @@
       "regionId": "211282",
       "type": "CITY",
       "sourceName": "괴산"
-    },
-    "화성": {
-      "keyword": "화성",
-      "name": "화성",
-      "slug": "화성",
-      "regionId": "85807",
-      "type": "CITY",
-      "sourceName": "화성"
-    },
-    "거창": {
-      "keyword": "거창",
-      "name": "거창",
-      "slug": "거창",
-      "regionId": "102709",
-      "type": "CITY",
-      "sourceName": "거창"
-    },
-    "문경": {
-      "keyword": "문경",
-      "name": "문경",
-      "slug": "문경",
-      "regionId": "211283",
-      "type": "CITY",
-      "sourceName": "문경"
     },
     "세종시": {
       "keyword": "세종",
@@ -172,6 +164,14 @@
       "type": "CITY",
       "sourceName": "제천"
     },
+    "횡성": {
+      "keyword": "횡성",
+      "name": "횡성",
+      "slug": "횡성",
+      "regionId": "201724",
+      "type": "CITY",
+      "sourceName": "횡성"
+    },
     "경주": {
       "keyword": "경주",
       "name": "경주",
@@ -188,13 +188,13 @@
       "type": "CITY",
       "sourceName": "남해"
     },
-    "양양": {
-      "keyword": "양양",
-      "name": "양양",
-      "slug": "양양",
-      "regionId": "57809",
+    "문경": {
+      "keyword": "문경",
+      "name": "문경",
+      "slug": "문경",
+      "regionId": "211283",
       "type": "CITY",
-      "sourceName": "양양"
+      "sourceName": "문경"
     },
     "원주": {
       "keyword": "원주",
@@ -204,13 +204,13 @@
       "type": "CITY",
       "sourceName": "원주"
     },
-    "포항": {
-      "keyword": "포항",
-      "name": "포항",
-      "slug": "포항",
-      "regionId": "1558",
+    "화성": {
+      "keyword": "화성",
+      "name": "화성",
+      "slug": "화성",
+      "regionId": "85807",
       "type": "CITY",
-      "sourceName": "포항"
+      "sourceName": "화성"
     },
     "고창": {
       "keyword": "고창",
@@ -236,13 +236,13 @@
       "type": "CITY",
       "sourceName": "무주"
     },
-    "횡성": {
-      "keyword": "횡성",
-      "name": "횡성",
-      "slug": "횡성",
-      "regionId": "201724",
+    "양양": {
+      "keyword": "양양",
+      "name": "양양",
+      "slug": "양양",
+      "regionId": "57809",
       "type": "CITY",
-      "sourceName": "횡성"
+      "sourceName": "양양"
     },
     "군산": {
       "keyword": "군산",
@@ -356,14 +356,6 @@
       "type": "CITY",
       "sourceName": "정선"
     },
-    "진안": {
-      "keyword": "진안",
-      "name": "진안",
-      "slug": "진안",
-      "regionId": "86299",
-      "type": "CITY",
-      "sourceName": "진안"
-    },
     "진천": {
       "keyword": "진천",
       "name": "진천",
@@ -387,6 +379,14 @@
       "regionId": "157830",
       "type": "CITY",
       "sourceName": "파주"
+    },
+    "포천": {
+      "keyword": "포천",
+      "name": "포천",
+      "slug": "포천",
+      "regionId": "86270",
+      "type": "CITY",
+      "sourceName": "포천"
     },
     "공주": {
       "keyword": "공주",
@@ -452,14 +452,6 @@
       "type": "CITY",
       "sourceName": "안성"
     },
-    "완도": {
-      "keyword": "완도",
-      "name": "완도",
-      "slug": "완도",
-      "regionId": "102724",
-      "type": "CITY",
-      "sourceName": "완도"
-    },
     "장흥": {
       "keyword": "장흥",
       "name": "장흥",
@@ -467,6 +459,14 @@
       "regionId": "191484",
       "type": "CITY",
       "sourceName": "장흥"
+    },
+    "진안": {
+      "keyword": "진안",
+      "name": "진안",
+      "slug": "진안",
+      "regionId": "86299",
+      "type": "CITY",
+      "sourceName": "진안"
     },
     "천안": {
       "keyword": "천안",
@@ -507,14 +507,6 @@
       "regionId": "119619",
       "type": "CITY",
       "sourceName": "화순"
-    },
-    "강진": {
-      "keyword": "강진",
-      "name": "강진",
-      "slug": "강진",
-      "regionId": "211324",
-      "type": "CITY",
-      "sourceName": "강진"
     },
     "곡성": {
       "keyword": "곡성",
@@ -604,6 +596,14 @@
       "type": "CITY",
       "sourceName": "영주"
     },
+    "완도": {
+      "keyword": "완도",
+      "name": "완도",
+      "slug": "완도",
+      "regionId": "102724",
+      "type": "CITY",
+      "sourceName": "완도"
+    },
     "완주": {
       "keyword": "완주",
       "name": "완주",
@@ -644,13 +644,13 @@
       "type": "CITY",
       "sourceName": "홍성"
     },
-    "거제": {
-      "keyword": "거제",
-      "name": "거제",
-      "slug": "거제",
-      "regionId": "86271",
+    "강진": {
+      "keyword": "강진",
+      "name": "강진",
+      "slug": "강진",
+      "regionId": "211324",
       "type": "CITY",
-      "sourceName": "거제"
+      "sourceName": "강진"
     },
     "경산": {
       "keyword": "경산",
