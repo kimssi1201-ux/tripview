@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-29T00:02:33.119Z",
+  "updatedAt": "2026-08-29T18:41:44.506Z",
   "items": [
     {
       "contentid": "4070865",
@@ -6888,6 +6888,60 @@
       "title": "놀맨",
       "rejectedAt": "2026-08-29T00:02:30.981Z",
       "reason": "body_under_1500_chars:1414"
+    },
+    {
+      "contentid": "2737298",
+      "slug": "travel-2737298",
+      "title": "조례호수공원",
+      "createdAt": "2026-08-29T18:41:44.506Z"
+    },
+    {
+      "contentid": "4104765",
+      "slug": "festival-4104765",
+      "title": "제51회 강원축산경진대회",
+      "createdAt": "2026-08-29T18:41:44.506Z"
+    },
+    {
+      "contentid": "2766442",
+      "slug": "travel-2766442",
+      "title": "썬밸리워터파크",
+      "createdAt": "2026-08-29T18:41:44.506Z"
+    },
+    {
+      "contentid": "1960233",
+      "slug": "travel-1960233",
+      "title": "궁평항수산물직판장",
+      "createdAt": "2026-08-29T18:41:44.506Z"
+    },
+    {
+      "contentid": "1972425",
+      "slug": "travel-1972425",
+      "title": "문경중앙시장",
+      "createdAt": "2026-08-29T18:41:44.506Z"
+    },
+    {
+      "contentid": "1965448",
+      "title": "새재할매집",
+      "rejectedAt": "2026-08-29T18:41:38.197Z",
+      "reason": "body_under_1500_chars:1491"
+    },
+    {
+      "contentid": "2595523",
+      "title": "센텀프리미어호텔",
+      "rejectedAt": "2026-08-29T18:41:41.321Z",
+      "reason": "body_under_1500_chars:1383"
+    },
+    {
+      "contentid": "1968826",
+      "title": "순라길비비",
+      "rejectedAt": "2026-08-29T18:41:42.110Z",
+      "reason": "body_under_1500_chars:1420"
+    },
+    {
+      "contentid": "1507015",
+      "title": "빅토리아호텔",
+      "rejectedAt": "2026-08-29T18:41:43.677Z",
+      "reason": "body_under_1500_chars:1456"
     }
   ]
 }
