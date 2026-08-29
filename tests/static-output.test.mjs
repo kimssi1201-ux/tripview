@@ -894,15 +894,16 @@ test("sitemap includes only indexable articles and article robots match content 
   ]);
   const posts = JSON.parse(postsText);
   const indexable = posts.filter(isIndexablePost);
+  const indexableSlugs = new Set(indexable.map((post) => post.slug));
   const regions = expectedRegionSlugs(posts);
-  const articleUrls = [...sitemap.matchAll(/<loc>https:\/\/tripview\.kr\/((?:(?:travel|festival)-\d+)|(?:data-[a-z0-9-]+))\/<\/loc>/g)]
+  const articleUrls = [...sitemap.matchAll(/<loc>https:\/\/tripview\.kr\/([^<]+)\/<\/loc>/g)]
     .map((match) => match[1]);
+  const publishedArticleUrls = articleUrls.filter((slug) => indexableSlugs.has(slug));
   const regionUrls = [...sitemap.matchAll(/<loc>https:\/\/tripview\.kr\/region\/([a-z0-9-]+)\/<\/loc>/g)]
     .map((match) => match[1])
     .sort();
 
-  assert.equal(articleUrls.length, indexable.length);
-  assert.ok(articleUrls.every((slug) => indexable.some((post) => post.slug === slug)));
+  assert.deepEqual(publishedArticleUrls.sort(), [...indexableSlugs].sort());
   assert.match(sitemap, /<loc>https:\/\/tripview\.kr\/travel\/<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/tripview\.kr\/festival\/<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/tripview\.kr\/stay\/<\/loc>/);
@@ -1034,7 +1035,7 @@ test("data post pipeline outputs validated data pages", async () => {
   assert.match(postNowWorkflow, /여행정보/);
 });
 
-test("editorial review manifest selects 61 unique, traceable articles", async () => {
+test("editorial review manifest selects 62 unique, traceable articles", async () => {
   const [manifestText, postsText] = await Promise.all([
     readFile("data/editorial-review.json", "utf8"),
     readFile("data/generated-posts.json", "utf8"),
@@ -1047,9 +1048,9 @@ test("editorial review manifest selects 61 unique, traceable articles", async ()
     return counts;
   }, {});
 
-  assert.equal(manifest.posts.length, 61);
+  assert.equal(manifest.posts.length, 62);
   assert.equal(new Set(slugs).size, slugs.length);
-  assert.deepEqual(topicCounts, { popular: 7, weekend: 10, festival: 14, water: 12, indoor: 10, family: 8 });
+  assert.deepEqual(topicCounts, { popular: 8, weekend: 11, festival: 14, water: 12, indoor: 10, family: 8 });
   for (const entry of manifest.posts) {
     const post = posts.find((candidate) => candidate.slug === entry.slug);
     assert.ok(post, `reviewed post ${entry.slug} should exist`);

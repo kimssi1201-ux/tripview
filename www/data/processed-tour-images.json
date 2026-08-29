@@ -1,8 +1,117 @@
 {
-  "generatedAt": "2026-08-29T20:58:33.865Z",
+  "generatedAt": "2026-08-29T22:05:11.050Z",
   "source": "한국관광공사 공공누리",
   "assetBasePath": "/assets/processed/",
   "items": {
+    "travel-fall-foliage-spots-2026": {
+      "title": "전국 단풍 명소 2026 가을 여행, 절정 시기별 추천 코스",
+      "sourceTitle": "전국 단풍 명소 2026",
+      "region": "강원",
+      "source": "한국관광공사 공공누리",
+      "cover": {
+        "kind": "cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource_photo/56/3476656_image2_1.jpg",
+        "src": "/assets/processed/gangwon-jeonguk-danpung-myeongso-water.webp",
+        "alt": "강원 전국 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 800,
+        "height": 500,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false
+      },
+      "hero": {
+        "kind": "hero-cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource_photo/56/3476656_image2_1.jpg",
+        "src": "/assets/processed/gangwon-jeonguk-danpung-myeongso-water-hero.webp",
+        "alt": "강원 전국 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 1200,
+        "height": 900,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false
+      },
+      "banner": {
+        "kind": "hub-banner",
+        "original": "https://tong.visitkorea.or.kr/cms/resource_photo/56/3476656_image2_1.jpg",
+        "src": "/assets/processed/gangwon-jeonguk-danpung-myeongso-water-banner.webp",
+        "alt": "강원 전국 단풍 명소 물놀이 정보를 담은 트립뷰 지역 허브 배너",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
+        "width": 1200,
+        "height": 675,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false
+      },
+      "images": [
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/58/3476658_image2_1.jpg",
+          "src": "/assets/processed/gangwon-jeonguk-danpung-myeongso-water-detail-1.webp",
+          "alt": "강원 전국 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false,
+          "bytes": null
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/42/3474442_image2_1.jpg",
+          "src": "/assets/processed/gangwon-jeonguk-danpung-myeongso-water-detail-2.webp",
+          "alt": "강원 전국 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false,
+          "bytes": null
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/32/3574832_image2_1.jpg",
+          "src": "/assets/processed/gangwon-jeonguk-danpung-myeongso-water-detail-3.webp",
+          "alt": "강원 전국 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false,
+          "bytes": null
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/91/4096191_image2_1.jpg",
+          "src": "/assets/processed/gangwon-jeonguk-danpung-myeongso-water-detail-4.webp",
+          "alt": "강원 전국 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false,
+          "bytes": null
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/78/4100878_image2_1.jpg",
+          "src": "/assets/processed/gangwon-jeonguk-danpung-myeongso-water-detail-5.webp",
+          "alt": "강원 전국 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false,
+          "bytes": null
+        }
+      ]
+    },
     "travel-125837": {
       "title": "괴산 수옥폭포 여름 방문, 수량·통제 여부와 안전한 동선",
       "sourceTitle": "수옥폭포",
@@ -140,6 +249,130 @@
         }
       ]
     },
+    "travel-125900": {
+      "title": "청양 장곡사 관람 가이드, 상·하 대웅전과 칠갑산 동선",
+      "sourceTitle": "장곡사(청양)",
+      "region": "충남",
+      "source": "한국관광공사 공공누리",
+      "cover": {
+        "kind": "cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource_photo/58/3476658_image2_1.jpg",
+        "src": "/assets/processed/cheongyang-janggoksa-parking.webp",
+        "alt": "충남 장곡사(청양) 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 800,
+        "height": 500,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "hero": {
+        "kind": "hero-cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource_photo/58/3476658_image2_1.jpg",
+        "src": "/assets/processed/cheongyang-janggoksa-parking-hero.webp",
+        "alt": "충남 장곡사(청양) 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 1200,
+        "height": 900,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false
+      },
+      "banner": {
+        "kind": "hub-banner",
+        "original": "https://tong.visitkorea.or.kr/cms/resource_photo/58/3476658_image2_1.jpg",
+        "src": "/assets/processed/cheongyang-janggoksa-parking-banner.webp",
+        "alt": "충남 장곡사(청양) 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
+        "width": 1200,
+        "height": 675,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "images": [
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/56/3476656_image2_1.jpg",
+          "src": "/assets/processed/cheongyang-janggoksa-parking-detail-1.webp",
+          "alt": "충남 장곡사(청양) 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false,
+          "bytes": null
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/68/3476668_image2_1.jpg",
+          "src": "/assets/processed/cheongyang-janggoksa-parking-detail-2.webp",
+          "alt": "충남 장곡사(청양) 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false,
+          "bytes": null
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/60/3476660_image2_1.jpg",
+          "src": "/assets/processed/cheongyang-janggoksa-parking-detail-3.webp",
+          "alt": "충남 장곡사(청양) 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false,
+          "bytes": null
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/61/3476661_image2_1.jpg",
+          "src": "/assets/processed/cheongyang-janggoksa-parking-detail-4.webp",
+          "alt": "충남 장곡사(청양) 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false,
+          "bytes": null
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/13/3476713_image2_1.jpg",
+          "src": "/assets/processed/cheongyang-janggoksa-parking-detail-5.webp",
+          "alt": "충남 장곡사(청양) 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false,
+          "bytes": null
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/57/3476657_image2_1.jpg",
+          "src": "/assets/processed/cheongyang-janggoksa-parking-detail-6.webp",
+          "alt": "충남 장곡사(청양) 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false,
+          "bytes": null
+        }
+      ]
+    },
     "data-festival-schedule-seoul": {
       "title": "서울 축제 일정 정리",
       "sourceTitle": "서울 축제 일정 정리",
@@ -155,7 +388,8 @@
         "height": 500,
         "processorVersion": "blurred-poster-canvas-20260827",
         "overlay": null,
-        "posterCanvas": true
+        "posterCanvas": true,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -179,7 +413,8 @@
         "height": 675,
         "processorVersion": "blurred-poster-canvas-20260827",
         "overlay": null,
-        "posterCanvas": true
+        "posterCanvas": true,
+        "bytes": null
       },
       "images": []
     },
@@ -5711,130 +5946,6 @@
           "original": "https://tong.visitkorea.or.kr/cms/resource/17/4086017_image2_1.jpg",
           "src": "/assets/processed/damyang-dambit-art-warehouse-indoor-detail-7.webp",
           "alt": "전남 담빛예술창고 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-          "width": 1000,
-          "height": null,
-          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-          "overlay": null,
-          "posterCanvas": false,
-          "bytes": null
-        }
-      ]
-    },
-    "travel-125900": {
-      "title": "청양 장곡사 관람 가이드, 상·하 대웅전과 칠갑산 동선",
-      "sourceTitle": "장곡사(청양)",
-      "region": "충남",
-      "source": "한국관광공사 공공누리",
-      "cover": {
-        "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource_photo/58/3476658_image2_1.jpg",
-        "src": "/assets/processed/cheongyang-janggoksa-parking.webp",
-        "alt": "충남 장곡사(청양) 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 800,
-        "height": 500,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false,
-        "bytes": null
-      },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource_photo/58/3476658_image2_1.jpg",
-        "src": "/assets/processed/cheongyang-janggoksa-parking-hero.webp",
-        "alt": "충남 장곡사(청양) 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "banner": {
-        "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource_photo/58/3476658_image2_1.jpg",
-        "src": "/assets/processed/cheongyang-janggoksa-parking-banner.webp",
-        "alt": "충남 장곡사(청양) 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
-        "width": 1200,
-        "height": 675,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false,
-        "bytes": null
-      },
-      "images": [
-        {
-          "kind": "inline",
-          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/56/3476656_image2_1.jpg",
-          "src": "/assets/processed/cheongyang-janggoksa-parking-detail-1.webp",
-          "alt": "충남 장곡사(청양) 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-          "width": 1000,
-          "height": null,
-          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-          "overlay": null,
-          "posterCanvas": false,
-          "bytes": null
-        },
-        {
-          "kind": "inline",
-          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/68/3476668_image2_1.jpg",
-          "src": "/assets/processed/cheongyang-janggoksa-parking-detail-2.webp",
-          "alt": "충남 장곡사(청양) 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-          "width": 1000,
-          "height": null,
-          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-          "overlay": null,
-          "posterCanvas": false,
-          "bytes": null
-        },
-        {
-          "kind": "inline",
-          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/60/3476660_image2_1.jpg",
-          "src": "/assets/processed/cheongyang-janggoksa-parking-detail-3.webp",
-          "alt": "충남 장곡사(청양) 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-          "width": 1000,
-          "height": null,
-          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-          "overlay": null,
-          "posterCanvas": false,
-          "bytes": null
-        },
-        {
-          "kind": "inline",
-          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/61/3476661_image2_1.jpg",
-          "src": "/assets/processed/cheongyang-janggoksa-parking-detail-4.webp",
-          "alt": "충남 장곡사(청양) 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-          "width": 1000,
-          "height": null,
-          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-          "overlay": null,
-          "posterCanvas": false,
-          "bytes": null
-        },
-        {
-          "kind": "inline",
-          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/13/3476713_image2_1.jpg",
-          "src": "/assets/processed/cheongyang-janggoksa-parking-detail-5.webp",
-          "alt": "충남 장곡사(청양) 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-          "width": 1000,
-          "height": null,
-          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-          "overlay": null,
-          "posterCanvas": false,
-          "bytes": null
-        },
-        {
-          "kind": "inline",
-          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/57/3476657_image2_1.jpg",
-          "src": "/assets/processed/cheongyang-janggoksa-parking-detail-6.webp",
-          "alt": "충남 장곡사(청양) 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
           "height": null,
