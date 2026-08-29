@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-08-28T02:12:14.781Z",
-  "lastRunDate": "2026-08-28",
+  "updatedAt": "2026-08-29T01:46:34.926Z",
+  "lastRunDate": "2026-08-29",
   "policy": {
     "maxDailyPosts": 3,
     "maxDailyPerType": 1,
@@ -14,8 +14,8 @@
       "type": "festival-schedule",
       "region": "서울",
       "firstPublishedAt": "2026-08-23T15:51:45.976Z",
-      "lastGeneratedAt": "2026-08-28T02:12:10.572Z",
-      "lastUpdatedDate": "2026-08-28",
+      "lastGeneratedAt": "2026-08-29T01:46:30.791Z",
+      "lastUpdatedDate": "2026-08-29",
       "rowCount": 8,
       "affiliateLinkCount": 0
     },
@@ -24,8 +24,8 @@
       "type": "stay-price",
       "region": "제주",
       "firstPublishedAt": "2026-08-27T10:02:31.517Z",
-      "lastGeneratedAt": "2026-08-28T02:12:10.505Z",
-      "lastUpdatedDate": "2026-08-28",
+      "lastGeneratedAt": "2026-08-29T01:46:30.754Z",
+      "lastUpdatedDate": "2026-08-29",
       "rowCount": 6,
       "affiliateLinkCount": 6
     },
@@ -44,8 +44,8 @@
       "type": "ticket-price",
       "region": "부산",
       "firstPublishedAt": "2026-08-23T15:52:07.184Z",
-      "lastGeneratedAt": "2026-08-28T02:12:10.582Z",
-      "lastUpdatedDate": "2026-08-28",
+      "lastGeneratedAt": "2026-08-29T01:46:30.796Z",
+      "lastUpdatedDate": "2026-08-29",
       "rowCount": 6,
       "affiliateLinkCount": 6
     },
@@ -54,8 +54,8 @@
       "type": "ticket-price",
       "region": "서울",
       "firstPublishedAt": "2026-08-27T10:02:31.591Z",
-      "lastGeneratedAt": "2026-08-28T02:12:10.582Z",
-      "lastUpdatedDate": "2026-08-28",
+      "lastGeneratedAt": "2026-08-29T01:46:30.796Z",
+      "lastUpdatedDate": "2026-08-29",
       "rowCount": 6,
       "affiliateLinkCount": 6
     }
