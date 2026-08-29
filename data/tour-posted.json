@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-28T00:28:31.387Z",
+  "updatedAt": "2026-08-29T00:02:33.119Z",
   "items": [
     {
       "contentid": "4070865",
@@ -6846,6 +6846,48 @@
       "title": "지엘시티 호텔",
       "rejectedAt": "2026-08-27T13:30:38.428Z",
       "reason": "body_under_1500_chars:1417"
+    },
+    {
+      "contentid": "2657481",
+      "slug": "travel-2657481",
+      "title": "녹동항 바다정원",
+      "createdAt": "2026-08-29T00:02:33.119Z"
+    },
+    {
+      "contentid": "2007483",
+      "slug": "travel-2007483",
+      "title": "계룡산글램핑 동월숲",
+      "createdAt": "2026-08-29T00:02:33.120Z"
+    },
+    {
+      "contentid": "1994606",
+      "slug": "travel-1994606",
+      "title": "선운산 생태숲",
+      "createdAt": "2026-08-29T00:02:33.120Z"
+    },
+    {
+      "contentid": "3530308",
+      "slug": "festival-3530308",
+      "title": "강화 별밤 야행",
+      "createdAt": "2026-08-29T00:02:33.120Z"
+    },
+    {
+      "contentid": "2745659",
+      "slug": "travel-2745659",
+      "title": "지리산 숲속의 쉼터",
+      "createdAt": "2026-08-29T00:02:33.120Z"
+    },
+    {
+      "contentid": "2363243",
+      "title": "서초구립반포도서관",
+      "rejectedAt": "2026-08-29T00:02:29.524Z",
+      "reason": "body_under_1500_chars:1445"
+    },
+    {
+      "contentid": "1964507",
+      "title": "놀맨",
+      "rejectedAt": "2026-08-29T00:02:30.981Z",
+      "reason": "body_under_1500_chars:1414"
     }
   ]
 }

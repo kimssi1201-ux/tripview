@@ -1,5 +1,62 @@
 [
   {
+    "id": "tna-6114821",
+    "type": "tna",
+    "title": "[인천] 롤러스타 롤러장 주중/주말 이용권",
+    "url": "https://experiences.myrealtrip.com/products/6114821",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/06/11/1q7u/QI0WGcvxNo.jpg",
+    "price": 12350,
+    "priceText": "12,350원부터",
+    "region": "인천",
+    "city": "인천",
+    "category": "입장권",
+    "description": "인천 ∙ 입장권 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "인천",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport"
+    ],
+    "gid": "6114821",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/6114821",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-5915959",
+    "type": "tna",
+    "title": "[즉시확정]AREX 에이렉스 인천공항↔서울 공항철도 편도 티켓+올리브영 전자상품권",
+    "url": "https://experiences.myrealtrip.com/products/5915959",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/04/03/1GDc/oweMTwMyt0.jpg",
+    "price": 14173,
+    "priceText": "14,173원부터",
+    "region": "인천",
+    "city": "인천",
+    "category": "이동/교통편의",
+    "description": "인천 ∙ 이동/교통편의",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "인천"
+    ],
+    "intents": [
+      "booking",
+      "transport"
+    ],
+    "gid": "5915959",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/5915959",
+    "source": "myrealtrip-tna"
+  },
+  {
     "id": "tna-3885193",
     "type": "tna",
     "title": "[서울/종로 가족체험] 술술 풀리는 창경궁 별빛 나들이 with 청사초롱",
@@ -829,8 +886,8 @@
     "title": "동나이 어메이징 베이 워터파크 티켓",
     "url": "https://experiences.myrealtrip.com/products/5542880",
     "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/12/11/Dswx/bu2fv3o9yd.jpg",
-    "price": 12053,
-    "priceText": "12,053원부터",
+    "price": 11998,
+    "priceText": "11,998원부터",
     "region": "서울",
     "city": "서울",
     "category": "입장권",
@@ -881,34 +938,6 @@
     "reviewScore": "",
     "reviewCount": "",
     "deepLink": "mrt://experiences/detail/6131869",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-5915959",
-    "type": "tna",
-    "title": "[즉시확정]AREX 에이렉스 인천공항↔서울 공항철도 편도 티켓+올리브영 전자상품권",
-    "url": "https://experiences.myrealtrip.com/products/5915959",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/04/03/1GDc/oweMTwMyt0.jpg",
-    "price": 14207,
-    "priceText": "14,207원부터",
-    "region": "인천",
-    "city": "인천",
-    "category": "이동/교통편의",
-    "description": "인천 ∙ 이동/교통편의",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "인천"
-    ],
-    "intents": [
-      "booking",
-      "transport"
-    ],
-    "gid": "5915959",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/5915959",
     "source": "myrealtrip-tna"
   },
   {
@@ -1087,32 +1116,149 @@
     "source": "myrealtrip-tna"
   },
   {
-    "id": "tna-6264569",
+    "id": "tna-4514567",
     "type": "tna",
-    "title": "[대구] 이월드 83타워 전망대PKG 8월",
-    "url": "https://experiences.myrealtrip.com/products/6264569",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/26/jLWB/v0yvFL4PH1",
-    "price": 12000,
-    "priceText": "12,000원부터",
-    "region": "대구",
-    "city": "대구",
-    "category": "입장권",
-    "description": "대구 ∙ 입장권 · 즉시 확정",
+    "title": "감성 가득한 아이폰 스냅, 편하게 맡겨주세요/ 경북",
+    "url": "https://experiences.myrealtrip.com/products/4514567",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/05/09/x3fh/bPRnW5OK6q.jpg",
+    "price": 15000,
+    "priceText": "15,000원부터",
+    "region": "포항",
+    "city": "포항",
+    "category": "스냅",
+    "description": "포항 ∙ 스냅 · 무료취소 · 즉시 확정",
     "tags": [
       "투어티켓",
       "액티비티",
       "예약",
-      "대구",
+      "포항",
+      "무료취소",
       "즉시 확정"
     ],
     "intents": [
       "booking",
-      "transport"
+      "family"
     ],
-    "gid": "6264569",
+    "gid": "4514567",
     "reviewScore": "",
     "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/6264569",
+    "deepLink": "mrt://experiences/detail/4514567",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-3885086",
+    "type": "tna",
+    "title": "[경북/포항] 야외방탈출 꺼지지 않는 불빛: 호미곶 그곳",
+    "url": "https://experiences.myrealtrip.com/products/3885086",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/27/TZcM/zE0repzTig.jpg",
+    "price": 35000,
+    "priceText": "35,000원부터",
+    "region": "울산",
+    "city": "울산",
+    "category": "클래스",
+    "description": "울산 ∙ 클래스 · 무료취소",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "울산",
+      "무료취소"
+    ],
+    "intents": [
+      "booking",
+      "activity"
+    ],
+    "gid": "3885086",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/3885086",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-3866583",
+    "type": "tna",
+    "title": "[키즈][포항] 포항공대투어 및 멘토링-가족&지인 단독( 4인이상 )",
+    "url": "https://experiences.myrealtrip.com/products/3866583",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/20/8zd6/QYT3NVcpk6.jpg",
+    "price": 37000,
+    "priceText": "37,000원부터",
+    "region": "포항",
+    "city": "포항",
+    "category": "키즈",
+    "description": "포항 ∙ 키즈",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "포항"
+    ],
+    "intents": [
+      "booking",
+      "tour",
+      "family"
+    ],
+    "gid": "3866583",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/3866583",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-5619210",
+    "type": "tna",
+    "title": "포항 스냅촬영 /  Pohang Snap Picture / 현장에서 당일액자까지 만들어드림",
+    "url": "https://experiences.myrealtrip.com/products/5619210",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/01/07/tdLi/htQbal8WYZ.jpg",
+    "price": 50000,
+    "priceText": "50,000원부터",
+    "region": "포항",
+    "city": "포항",
+    "category": "스냅",
+    "description": "포항 ∙ 스냅 · 평점 5(1개) · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "포항",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking"
+    ],
+    "gid": "5619210",
+    "reviewScore": 5,
+    "reviewCount": 1,
+    "deepLink": "mrt://experiences/detail/5619210",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-3881479",
+    "type": "tna",
+    "title": "[경북/포항]여행 맞춤형 가이드 차량(픽업~샌딩)/ 관광,체험,맛집,문화,우정,효도,가족",
+    "url": "https://experiences.myrealtrip.com/products/3881479",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/25/LBdO/tbRrRmCHCy.jpg",
+    "price": 89000,
+    "priceText": "89,000원부터",
+    "region": "울산",
+    "city": "울산",
+    "category": "투어",
+    "description": "울산 ∙ 투어",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "울산"
+    ],
+    "intents": [
+      "booking",
+      "tour",
+      "activity",
+      "family"
+    ],
+    "gid": "3881479",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/3881479",
     "source": "myrealtrip-tna"
   },
   {
@@ -1587,7 +1733,7 @@
     "type": "tna",
     "title": "[동탄] 아이와가볼만한곳! 동탄공룡월드&키즈카페 그랜드 오픈특가",
     "url": "https://experiences.myrealtrip.com/products/6118025",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/06/22/Csk2/XrswV5xBBO.jpg",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/28/PzKZ/SUjqMNFa8X.jpg",
     "price": 13000,
     "priceText": "13,000원부터",
     "region": "수원",
@@ -1675,8 +1821,8 @@
     "title": "후쿠이 자쿠슈 닌자도장 체험",
     "url": "https://experiences.myrealtrip.com/products/6083078",
     "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/05/28/9v6G/TkXcR2Ofk2.jpg",
-    "price": 10159,
-    "priceText": "10,159원부터",
+    "price": 10120,
+    "priceText": "10,120원부터",
     "region": "서울",
     "city": "서울",
     "category": "액티비티",
@@ -1756,6 +1902,34 @@
     "reviewScore": "",
     "reviewCount": "",
     "deepLink": "mrt://experiences/detail/6228883",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-3880304",
+    "type": "tna",
+    "title": "[당일/차량/구례] 현지인 가이드와 함께하는 구례 헤리티지 도슨트 투어",
+    "url": "https://experiences.myrealtrip.com/products/3880304",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/25/4gl1/QeZ0lPxP81.jpg",
+    "price": 30000,
+    "priceText": "30,000원부터",
+    "region": "구례",
+    "city": "구례",
+    "category": "투어",
+    "description": "구례 ∙ 투어 · 평점 5(14개)",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "구례"
+    ],
+    "intents": [
+      "booking",
+      "tour"
+    ],
+    "gid": "3880304",
+    "reviewScore": 5,
+    "reviewCount": 14,
+    "deepLink": "mrt://experiences/detail/3880304",
     "source": "myrealtrip-tna"
   },
   {
@@ -1881,7 +2055,7 @@
     "region": "제주도",
     "city": "제주도",
     "category": "스냅",
-    "description": "제주도 ∙ 스냅 · 평점 4.9(357개) · 무료취소",
+    "description": "제주도 ∙ 스냅 · 평점 4.9(358개) · 무료취소",
     "tags": [
       "투어티켓",
       "액티비티",
@@ -1894,7 +2068,7 @@
     ],
     "gid": "3517913",
     "reviewScore": 4.9,
-    "reviewCount": 357,
+    "reviewCount": 358,
     "deepLink": "mrt://experiences/detail/3517913",
     "source": "myrealtrip-tna"
   },
@@ -1924,184 +2098,6 @@
     "reviewScore": "",
     "reviewCount": "",
     "deepLink": "mrt://experiences/detail/4212320",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-6117761",
-    "type": "tna",
-    "title": "[제주] 노형수퍼마켙 입장권 + 조안베어뮤지엄&낙타트래킹&족욕체험 추가증정 + 고흐의정원",
-    "url": "https://experiences.myrealtrip.com/products/6117761",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/07/29/TyoD/VCeULctrj5.jpg",
-    "price": 10000,
-    "priceText": "10,000원부터",
-    "region": "제주도",
-    "city": "제주도",
-    "category": "입장권",
-    "description": "제주도 ∙ 입장권 · 평점 4.4(419개) · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "제주도",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "transport",
-      "activity"
-    ],
-    "gid": "6117761",
-    "reviewScore": 4.4,
-    "reviewCount": 419,
-    "deepLink": "mrt://experiences/detail/6117761",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-6117192",
-    "type": "tna",
-    "title": "[제주] 노형수퍼마켙",
-    "url": "https://experiences.myrealtrip.com/products/6117192",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/25/TISR/plRB26PGbX",
-    "price": 10000,
-    "priceText": "10,000원부터",
-    "region": "제주도",
-    "city": "제주도",
-    "category": "입장권",
-    "description": "제주도 ∙ 입장권 · 평점 4(1개) · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "제주도",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "transport"
-    ],
-    "gid": "6117192",
-    "reviewScore": 4,
-    "reviewCount": 1,
-    "deepLink": "mrt://experiences/detail/6117192",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-6118017",
-    "type": "tna",
-    "title": "[★혜택증정] 제주 더마파크 이용권 +조안베어뮤지엄&자연인족욕체험&낙타트래킹 + 고흐의정원",
-    "url": "https://experiences.myrealtrip.com/products/6118017",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/12/2lZy/QESQHnHj5Q.jpg",
-    "price": 10000,
-    "priceText": "10,000원부터",
-    "region": "제주도",
-    "city": "제주도",
-    "category": "입장권",
-    "description": "제주도 ∙ 입장권 · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "제주도",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "transport",
-      "activity"
-    ],
-    "gid": "6118017",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/6118017",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-4747211",
-    "type": "tna",
-    "title": "제주민속촌 민속놀이 & 민화체험",
-    "url": "https://experiences.myrealtrip.com/products/4747211",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/07/24/hSlT/hQnZiyEhRM.jpeg",
-    "price": 10000,
-    "priceText": "10,000원부터",
-    "region": "제주도",
-    "city": "제주도",
-    "category": "입장권",
-    "description": "제주도 ∙ 입장권 · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "제주도",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "transport",
-      "activity"
-    ],
-    "gid": "4747211",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/4747211",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-6310162",
-    "type": "tna",
-    "title": "[제주] 곱은달 감귤체험농장 이용권",
-    "url": "https://experiences.myrealtrip.com/products/6310162",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/24/nusy/mho1zeOVIo.jpg",
-    "price": 10000,
-    "priceText": "10,000원부터",
-    "region": "제주도",
-    "city": "제주도",
-    "category": "티켓·입장권",
-    "description": "제주도 ∙ 티켓·입장권 · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "제주도",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "transport",
-      "activity"
-    ],
-    "gid": "6310162",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/6310162",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-6117760",
-    "type": "tna",
-    "title": "[당일사용] 제주 파더스가든 입장권",
-    "url": "https://experiences.myrealtrip.com/products/6117760",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/06/24/dgPx/Lr67FZF5I1.jpg",
-    "price": 10500,
-    "priceText": "10,500원부터",
-    "region": "제주도",
-    "city": "제주도",
-    "category": "입장권",
-    "description": "제주도 ∙ 입장권 · 평점 4.5(17개) · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "제주도",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "transport"
-    ],
-    "gid": "6117760",
-    "reviewScore": 4.5,
-    "reviewCount": 17,
-    "deepLink": "mrt://experiences/detail/6117760",
     "source": "myrealtrip-tna"
   },
   {
@@ -2424,6 +2420,36 @@
     "source": "myrealtrip-tna"
   },
   {
+    "id": "tna-6117761",
+    "type": "tna",
+    "title": "[제주] 노형수퍼마켙 입장권 + 조안베어뮤지엄&낙타트래킹&족욕체험 추가증정 + 고흐의정원",
+    "url": "https://experiences.myrealtrip.com/products/6117761",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/07/29/TyoD/VCeULctrj5.jpg",
+    "price": 10000,
+    "priceText": "10,000원부터",
+    "region": "제주도",
+    "city": "제주도",
+    "category": "입장권",
+    "description": "제주도 ∙ 입장권 · 평점 4.4(419개) · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "제주도",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport",
+      "activity"
+    ],
+    "gid": "6117761",
+    "reviewScore": 4.4,
+    "reviewCount": 419,
+    "deepLink": "mrt://experiences/detail/6117761",
+    "source": "myrealtrip-tna"
+  },
+  {
     "id": "tna-6114910",
     "type": "tna",
     "title": "[한림] 제주 더마파크 승마 체험권",
@@ -2458,8 +2484,8 @@
     "title": "[인천공항] 공항 리무진 버스 승차교환권 (편도권)",
     "url": "https://experiences.myrealtrip.com/products/5869333",
     "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/03/16/Dfn1/LVMUwmTT5D.jpg",
-    "price": 11314,
-    "priceText": "11,314원부터",
+    "price": 11271,
+    "priceText": "11,271원부터",
     "region": "서울",
     "city": "서울",
     "category": "이동/교통편의",
@@ -2870,6 +2896,123 @@
     "source": "myrealtrip-tna"
   },
   {
+    "id": "tna-3936154",
+    "type": "tna",
+    "title": "금남로 5⦁18민주화운동 사적지 인문투어(오후)",
+    "url": "https://experiences.myrealtrip.com/products/3936154",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/12/19/ZThQ/QxsduOmFsD.jpg",
+    "price": 10000,
+    "priceText": "10,000원부터",
+    "region": "광주",
+    "city": "광주",
+    "category": "투어",
+    "description": "광주 ∙ 투어 · 평점 5(1개) · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "광주",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "tour"
+    ],
+    "gid": "3936154",
+    "reviewScore": 5,
+    "reviewCount": 1,
+    "deepLink": "mrt://experiences/detail/3936154",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-4333765",
+    "type": "tna",
+    "title": "[청춘발산마을]알록달록 병뚜껑으로 만드는 고양이치약짜개(친환경&업사이클링 체험)",
+    "url": "https://experiences.myrealtrip.com/products/4333765",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/03/17/wJeT/vAsVTiL6gq.jpg",
+    "price": 10000,
+    "priceText": "10,000원부터",
+    "region": "광주",
+    "city": "광주",
+    "category": "클래스",
+    "description": "광주 ∙ 클래스 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "광주",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "activity"
+    ],
+    "gid": "4333765",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/4333765",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-4339105",
+    "type": "tna",
+    "title": "[청춘발산마을]건강한 식탁 샌드위치 만들기 클래스",
+    "url": "https://experiences.myrealtrip.com/products/4339105",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/03/19/6Aaj/5Oxa7NbYwd.jpg",
+    "price": 15000,
+    "priceText": "15,000원부터",
+    "region": "광주",
+    "city": "광주",
+    "category": "클래스",
+    "description": "광주 ∙ 클래스 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "광주",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "activity"
+    ],
+    "gid": "4339105",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/4339105",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6329095",
+    "type": "tna",
+    "title": "[경기 광주] 온기사우나 태전점 도심 속 프라이빗 사우나 가족탕 솔로사우나",
+    "url": "https://experiences.myrealtrip.com/products/6329095",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/26/ZdPS/eTxZTriV09",
+    "price": 15000,
+    "priceText": "15,000원부터",
+    "region": "경기도",
+    "city": "경기도",
+    "category": "스파·사우나·온천",
+    "description": "경기도 ∙ 스파·사우나·온천 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "경기도",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "activity",
+      "family"
+    ],
+    "gid": "6329095",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/6329095",
+    "source": "myrealtrip-tna"
+  },
+  {
     "id": "tna-6117828",
     "type": "tna",
     "title": "[전주] 전주한옥마을 한복길 한복대여",
@@ -3013,123 +3156,6 @@
     "reviewScore": 5,
     "reviewCount": 1,
     "deepLink": "mrt://experiences/detail/6117790",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-3936154",
-    "type": "tna",
-    "title": "금남로 5⦁18민주화운동 사적지 인문투어(오후)",
-    "url": "https://experiences.myrealtrip.com/products/3936154",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/12/19/ZThQ/QxsduOmFsD.jpg",
-    "price": 10000,
-    "priceText": "10,000원부터",
-    "region": "광주",
-    "city": "광주",
-    "category": "투어",
-    "description": "광주 ∙ 투어 · 평점 5(1개) · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "광주",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "tour"
-    ],
-    "gid": "3936154",
-    "reviewScore": 5,
-    "reviewCount": 1,
-    "deepLink": "mrt://experiences/detail/3936154",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-4333765",
-    "type": "tna",
-    "title": "[청춘발산마을]알록달록 병뚜껑으로 만드는 고양이치약짜개(친환경&업사이클링 체험)",
-    "url": "https://experiences.myrealtrip.com/products/4333765",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/03/17/wJeT/vAsVTiL6gq.jpg",
-    "price": 10000,
-    "priceText": "10,000원부터",
-    "region": "광주",
-    "city": "광주",
-    "category": "클래스",
-    "description": "광주 ∙ 클래스 · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "광주",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "activity"
-    ],
-    "gid": "4333765",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/4333765",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-4339105",
-    "type": "tna",
-    "title": "[청춘발산마을]건강한 식탁 샌드위치 만들기 클래스",
-    "url": "https://experiences.myrealtrip.com/products/4339105",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/03/19/6Aaj/5Oxa7NbYwd.jpg",
-    "price": 15000,
-    "priceText": "15,000원부터",
-    "region": "광주",
-    "city": "광주",
-    "category": "클래스",
-    "description": "광주 ∙ 클래스 · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "광주",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "activity"
-    ],
-    "gid": "4339105",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/4339105",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-6329095",
-    "type": "tna",
-    "title": "[경기 광주] 온기사우나 태전점 도심 속 프라이빗 사우나 가족탕 솔로사우나",
-    "url": "https://experiences.myrealtrip.com/products/6329095",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/26/ZdPS/eTxZTriV09",
-    "price": 15000,
-    "priceText": "15,000원부터",
-    "region": "경기도",
-    "city": "경기도",
-    "category": "스파·사우나·온천",
-    "description": "경기도 ∙ 스파·사우나·온천 · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "경기도",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "activity",
-      "family"
-    ],
-    "gid": "6329095",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/6329095",
     "source": "myrealtrip-tna"
   },
   {
@@ -3425,34 +3451,6 @@
     "source": "myrealtrip-tna"
   },
   {
-    "id": "tna-3880304",
-    "type": "tna",
-    "title": "[당일/차량/구례] 현지인 가이드와 함께하는 구례 헤리티지 도슨트 투어",
-    "url": "https://experiences.myrealtrip.com/products/3880304",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/25/4gl1/QeZ0lPxP81.jpg",
-    "price": 30000,
-    "priceText": "30,000원부터",
-    "region": "구례",
-    "city": "구례",
-    "category": "투어",
-    "description": "구례 ∙ 투어 · 평점 5(14개)",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "구례"
-    ],
-    "intents": [
-      "booking",
-      "tour"
-    ],
-    "gid": "3880304",
-    "reviewScore": 5,
-    "reviewCount": 14,
-    "deepLink": "mrt://experiences/detail/3880304",
-    "source": "myrealtrip-tna"
-  },
-  {
     "id": "tna-3880306",
     "type": "tna",
     "title": "[전남/구례] 별빛 아래 구례 문화재 야행 (차량, 야경투어)",
@@ -3535,159 +3533,6 @@
     "reviewScore": "",
     "reviewCount": "",
     "deepLink": "mrt://experiences/detail/3880327",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-3827736",
-    "type": "tna",
-    "title": "[경북/포항] 요트 데이 포항 영일대 요트투어, 1인도 출발!",
-    "url": "https://experiences.myrealtrip.com/products/3827736",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/04/Gl2b/0cGNeUWVRI.jpg",
-    "price": 15000,
-    "priceText": "15,000원부터",
-    "region": "포항",
-    "city": "포항",
-    "category": "액티비티",
-    "description": "포항 ∙ 액티비티 · 평점 5(4개) · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "포항",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "tour",
-      "activity",
-      "water"
-    ],
-    "gid": "3827736",
-    "reviewScore": 5,
-    "reviewCount": 4,
-    "deepLink": "mrt://experiences/detail/3827736",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-6117011",
-    "type": "tna",
-    "title": "[경북] 포항 요트투어 요트데이(요트투어/퍼블릭/프라이빗/커플/프로포즈)",
-    "url": "https://experiences.myrealtrip.com/products/6117011",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/25/uMHk/v3LPcPkCV6",
-    "price": 15000,
-    "priceText": "15,000원부터",
-    "region": "울산",
-    "city": "울산",
-    "category": "액티비티",
-    "description": "울산 ∙ 액티비티 · 평점 5(5개) · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "울산",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "tour",
-      "activity",
-      "water"
-    ],
-    "gid": "6117011",
-    "reviewScore": 5,
-    "reviewCount": 5,
-    "deepLink": "mrt://experiences/detail/6117011",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-4514567",
-    "type": "tna",
-    "title": "감성 가득한 아이폰 스냅, 편하게 맡겨주세요/ 경북",
-    "url": "https://experiences.myrealtrip.com/products/4514567",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/05/09/x3fh/bPRnW5OK6q.jpg",
-    "price": 15000,
-    "priceText": "15,000원부터",
-    "region": "포항",
-    "city": "포항",
-    "category": "스냅",
-    "description": "포항 ∙ 스냅 · 무료취소 · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "포항",
-      "무료취소",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "family"
-    ],
-    "gid": "4514567",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/4514567",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-6199391",
-    "type": "tna",
-    "title": "[포항] 박선장 요트투어 퍼블릭/커플/프라이빗",
-    "url": "https://experiences.myrealtrip.com/products/6199391",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/25/yg5Q/k4ksQALWus",
-    "price": 15000,
-    "priceText": "15,000원부터",
-    "region": "포항",
-    "city": "포항",
-    "category": "액티비티",
-    "description": "포항 ∙ 액티비티 · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "포항",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "tour",
-      "activity",
-      "water"
-    ],
-    "gid": "6199391",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/6199391",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-4763285",
-    "type": "tna",
-    "title": "[포항 선셋 세일링] 요트 위에서 황홀한 90분, 와인과 함께하는 낭만 항해 (퍼블릭투어)",
-    "url": "https://experiences.myrealtrip.com/products/4763285",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/07/30/erWG/ExtSUeydTS.jpeg",
-    "price": 19000,
-    "priceText": "19,000원부터",
-    "region": "포항",
-    "city": "포항",
-    "category": "액티비티",
-    "description": "포항 ∙ 액티비티",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "포항"
-    ],
-    "intents": [
-      "booking",
-      "tour",
-      "activity",
-      "water"
-    ],
-    "gid": "4763285",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/4763285",
     "source": "myrealtrip-tna"
   },
   {
@@ -3833,204 +3678,126 @@
     "source": "myrealtrip-tna"
   },
   {
-    "id": "tna-5024178",
+    "id": "tna-3827736",
     "type": "tna",
-    "title": "웰리힐리 파크 리조트 스키장 어린이 성인 스키 보드 강습 낭만스키스쿨",
-    "url": "https://experiences.myrealtrip.com/products/5024178",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/11/18/Hwv6/HvhtE9ahFN.jpg",
-    "price": 150000,
-    "priceText": "150,000원부터",
-    "region": "횡성",
-    "city": "횡성",
+    "title": "[경북/포항] 요트 데이 포항 영일대 요트투어, 1인도 출발!",
+    "url": "https://experiences.myrealtrip.com/products/3827736",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/04/Gl2b/0cGNeUWVRI.jpg",
+    "price": 15000,
+    "priceText": "15,000원부터",
+    "region": "포항",
+    "city": "포항",
     "category": "액티비티",
-    "description": "횡성 ∙ 액티비티",
+    "description": "포항 ∙ 액티비티 · 평점 5(4개) · 즉시 확정",
     "tags": [
       "투어티켓",
       "액티비티",
       "예약",
-      "횡성"
-    ],
-    "intents": [
-      "booking",
-      "activity"
-    ],
-    "gid": "5024178",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/5024178",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-3880314",
-    "type": "tna",
-    "title": "삼국통일 완성의 주역, 문무대왕릉의 유언을 기리며 둘러보는 경주",
-    "url": "https://experiences.myrealtrip.com/products/3880314",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/25/SBdT/cKlElxWv9I.jpg",
-    "price": 10000,
-    "priceText": "10,000원부터",
-    "region": "경주",
-    "city": "경주",
-    "category": "투어",
-    "description": "경주 ∙ 투어",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "경주"
-    ],
-    "intents": [
-      "booking",
-      "tour"
-    ],
-    "gid": "3880314",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/3880314",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-3880316",
-    "type": "tna",
-    "title": "[국립공원]유교문화의 본거지- 경주 양동민속마을",
-    "url": "https://experiences.myrealtrip.com/products/3880316",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/25/JBdv/EZq38kj4zN.jpg",
-    "price": 10000,
-    "priceText": "10,000원부터",
-    "region": "경주",
-    "city": "경주",
-    "category": "투어",
-    "description": "경주 ∙ 투어",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "경주"
-    ],
-    "intents": [
-      "booking",
-      "tour"
-    ],
-    "gid": "3880316",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/3880316",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-6117092",
-    "type": "tna",
-    "title": "[경주] 동궁원+엑스포대공원 패키지",
-    "url": "https://experiences.myrealtrip.com/products/6117092",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/26/ZfCd/U6cXl68L3L",
-    "price": 10100,
-    "priceText": "10,100원부터",
-    "region": "경주",
-    "city": "경주",
-    "category": "입장권",
-    "description": "경주 ∙ 입장권 · 평점 4(2개) · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "경주",
+      "포항",
       "즉시 확정"
     ],
     "intents": [
       "booking",
-      "transport"
+      "tour",
+      "activity",
+      "water"
     ],
-    "gid": "6117092",
-    "reviewScore": 4,
-    "reviewCount": 2,
-    "deepLink": "mrt://experiences/detail/6117092",
+    "gid": "3827736",
+    "reviewScore": 5,
+    "reviewCount": 4,
+    "deepLink": "mrt://experiences/detail/3827736",
     "source": "myrealtrip-tna"
   },
   {
-    "id": "tna-3441294",
+    "id": "tna-6117011",
     "type": "tna",
-    "title": "[경북/울진] 한국 전통 소금 만들기 체험",
-    "url": "https://experiences.myrealtrip.com/products/3441294",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/07/09/FUxs/ngafqMQEJu.jpg",
-    "price": 11000,
-    "priceText": "11,000원부터",
+    "title": "[경북] 포항 요트투어 요트데이(요트투어/퍼블릭/프라이빗/커플/프로포즈)",
+    "url": "https://experiences.myrealtrip.com/products/6117011",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/25/uMHk/v3LPcPkCV6",
+    "price": 15000,
+    "priceText": "15,000원부터",
     "region": "울산",
     "city": "울산",
-    "category": "클래스",
-    "description": "울산 ∙ 클래스 · 평점 5(1개) · 무료취소",
+    "category": "액티비티",
+    "description": "울산 ∙ 액티비티 · 평점 5(5개) · 즉시 확정",
     "tags": [
       "투어티켓",
       "액티비티",
       "예약",
       "울산",
-      "무료취소"
-    ],
-    "intents": [
-      "booking",
-      "activity"
-    ],
-    "gid": "3441294",
-    "reviewScore": 5,
-    "reviewCount": 1,
-    "deepLink": "mrt://experiences/detail/3441294",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-6118142",
-    "type": "tna",
-    "title": "[경주] 정글 미디어파크(+포토) 통합 이용권(6/1~)",
-    "url": "https://experiences.myrealtrip.com/products/6118142",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/04/3ih0/JFYK9ERuqK.jpg",
-    "price": 11700,
-    "priceText": "11,700원부터",
-    "region": "경주",
-    "city": "경주",
-    "category": "입장권",
-    "description": "경주 ∙ 입장권 · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "경주",
       "즉시 확정"
     ],
     "intents": [
       "booking",
-      "transport"
+      "tour",
+      "activity",
+      "water"
     ],
-    "gid": "6118142",
+    "gid": "6117011",
+    "reviewScore": 5,
+    "reviewCount": 5,
+    "deepLink": "mrt://experiences/detail/6117011",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6199391",
+    "type": "tna",
+    "title": "[포항] 박선장 요트투어 퍼블릭/커플/프라이빗",
+    "url": "https://experiences.myrealtrip.com/products/6199391",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/25/yg5Q/k4ksQALWus",
+    "price": 15000,
+    "priceText": "15,000원부터",
+    "region": "포항",
+    "city": "포항",
+    "category": "액티비티",
+    "description": "포항 ∙ 액티비티 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "포항",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "tour",
+      "activity",
+      "water"
+    ],
+    "gid": "6199391",
     "reviewScore": "",
     "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/6118142",
+    "deepLink": "mrt://experiences/detail/6199391",
     "source": "myrealtrip-tna"
   },
   {
-    "id": "tna-6117070",
+    "id": "tna-4763285",
     "type": "tna",
-    "title": "[경주] 키덜트뮤지엄+자동차박물관 패키지",
-    "url": "https://experiences.myrealtrip.com/products/6117070",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/25/4Iyn/lNYRFQe1df",
-    "price": 11900,
-    "priceText": "11,900원부터",
-    "region": "경주",
-    "city": "경주",
-    "category": "입장권",
-    "description": "경주 ∙ 입장권 · 평점 4.3(3개) · 즉시 확정",
+    "title": "[포항 선셋 세일링] 요트 위에서 황홀한 90분, 와인과 함께하는 낭만 항해 (퍼블릭투어)",
+    "url": "https://experiences.myrealtrip.com/products/4763285",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/07/30/erWG/ExtSUeydTS.jpeg",
+    "price": 19000,
+    "priceText": "19,000원부터",
+    "region": "포항",
+    "city": "포항",
+    "category": "액티비티",
+    "description": "포항 ∙ 액티비티",
     "tags": [
       "투어티켓",
       "액티비티",
       "예약",
-      "경주",
-      "즉시 확정"
+      "포항"
     ],
     "intents": [
       "booking",
-      "transport",
-      "indoor"
+      "tour",
+      "activity",
+      "water"
     ],
-    "gid": "6117070",
-    "reviewScore": 4.3,
-    "reviewCount": 3,
-    "deepLink": "mrt://experiences/detail/6117070",
+    "gid": "4763285",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/4763285",
     "source": "myrealtrip-tna"
   },
   {
@@ -4209,6 +3976,36 @@
     "source": "myrealtrip-tna"
   },
   {
+    "id": "tna-6414152",
+    "type": "tna",
+    "title": "[경기 화성] 하피랜드 워터파크 주말/공휴일 이용권",
+    "url": "https://experiences.myrealtrip.com/products/6414152",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/28/Vr1e/sCW8xZsXbI.jpg",
+    "price": 19900,
+    "priceText": "19,900원부터",
+    "region": "화성",
+    "city": "화성",
+    "category": "입장권",
+    "description": "화성 ∙ 입장권 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "화성",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport",
+      "water"
+    ],
+    "gid": "6414152",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/6414152",
+    "source": "myrealtrip-tna"
+  },
+  {
     "id": "tna-6264545",
     "type": "tna",
     "title": "[8월] 동탄 네이처스케이프 플러스(AFTER 4 모험권)",
@@ -4238,32 +4035,202 @@
     "source": "myrealtrip-tna"
   },
   {
-    "id": "tna-6117421",
+    "id": "tna-5024178",
     "type": "tna",
-    "title": "[6월] 동탄 네이처스케이프 플러스 입장권 (1인권/패밀리권)",
-    "url": "https://experiences.myrealtrip.com/products/6117421",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/25/TChN/2WvOTLEv6u",
-    "price": 20800,
-    "priceText": "20,800원부터",
-    "region": "화성",
-    "city": "화성",
-    "category": "입장권",
-    "description": "화성 ∙ 입장권 · 즉시 확정",
+    "title": "웰리힐리 파크 리조트 스키장 어린이 성인 스키 보드 강습 낭만스키스쿨",
+    "url": "https://experiences.myrealtrip.com/products/5024178",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/11/18/Hwv6/HvhtE9ahFN.jpg",
+    "price": 150000,
+    "priceText": "150,000원부터",
+    "region": "횡성",
+    "city": "횡성",
+    "category": "액티비티",
+    "description": "횡성 ∙ 액티비티",
     "tags": [
       "투어티켓",
       "액티비티",
       "예약",
-      "화성",
+      "횡성"
+    ],
+    "intents": [
+      "booking",
+      "activity"
+    ],
+    "gid": "5024178",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/5024178",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-3827760",
+    "type": "tna",
+    "title": "백제를 품은 소가죽 목걸이 카드지갑 만들기와 3D 퍼즐 석수와 봉황 만들기 [충남/공주]",
+    "url": "https://experiences.myrealtrip.com/products/3827760",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/04/qlMm/66dZ4Neh2O.jpg",
+    "price": 10000,
+    "priceText": "10,000원부터",
+    "region": "공주",
+    "city": "공주",
+    "category": "클래스",
+    "description": "공주 ∙ 클래스",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "공주"
+    ],
+    "intents": [
+      "booking",
+      "activity"
+    ],
+    "gid": "3827760",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/3827760",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6117933",
+    "type": "tna",
+    "title": "[충남 단독상품] 니리므의상실",
+    "url": "https://experiences.myrealtrip.com/products/6117933",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/06/22/vyoY/cNr6tP4U2f.jpg",
+    "price": 15000,
+    "priceText": "15,000원부터",
+    "region": "공주",
+    "city": "공주",
+    "category": "여행편의/대여",
+    "description": "공주 ∙ 여행편의/대여 · 평점 5(2개) · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "공주",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking"
+    ],
+    "gid": "6117933",
+    "reviewScore": 5,
+    "reviewCount": 2,
+    "deepLink": "mrt://experiences/detail/6117933",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-3827761",
+    "type": "tna",
+    "title": "역사 문화 체험! 백제 금관 만들기 [충남/공주]",
+    "url": "https://experiences.myrealtrip.com/products/3827761",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/04/SVCm/2TqVP4MvUG.jpg",
+    "price": 15000,
+    "priceText": "15,000원부터",
+    "region": "공주",
+    "city": "공주",
+    "category": "클래스",
+    "description": "공주 ∙ 클래스 · 평점 4.8(11개)",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "공주"
+    ],
+    "intents": [
+      "booking",
+      "activity"
+    ],
+    "gid": "3827761",
+    "reviewScore": 4.8,
+    "reviewCount": 11,
+    "deepLink": "mrt://experiences/detail/3827761",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6264502",
+    "type": "tna",
+    "title": "[당일구매가능] 국립공주박물관 투어, 비상을 꿈꾼 웅진백제를 만나는 곳",
+    "url": "https://experiences.myrealtrip.com/products/6264502",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/07/27/hpCB/06MRSLsafd.jpg",
+    "price": 15000,
+    "priceText": "15,000원부터",
+    "region": "공주",
+    "city": "공주",
+    "category": "투어",
+    "description": "공주 ∙ 투어 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "공주",
       "즉시 확정"
     ],
     "intents": [
       "booking",
-      "transport"
+      "tour",
+      "indoor"
     ],
-    "gid": "6117421",
+    "gid": "6264502",
     "reviewScore": "",
     "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/6117421",
+    "deepLink": "mrt://experiences/detail/6264502",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6329083",
+    "type": "tna",
+    "title": "충남 공주 고마비누&퍼퓸바 만들기 체험",
+    "url": "https://experiences.myrealtrip.com/products/6329083",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/13/TuUQ/kC7uluvOSP.JPG",
+    "price": 20000,
+    "priceText": "20,000원부터",
+    "region": "공주",
+    "city": "공주",
+    "category": "클래스",
+    "description": "공주 ∙ 클래스",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "공주"
+    ],
+    "intents": [
+      "booking",
+      "activity"
+    ],
+    "gid": "6329083",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/6329083",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-5686596",
+    "type": "tna",
+    "title": "국립공주박물관 무령왕릉 도슨트투어 (6~10명 소규모)",
+    "url": "https://experiences.myrealtrip.com/products/5686596",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/01/28/ZHia/1eZYwI7Lic.jpg",
+    "price": 24900,
+    "priceText": "24,900원부터",
+    "region": "공주",
+    "city": "공주",
+    "category": "투어",
+    "description": "공주 ∙ 투어",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "공주"
+    ],
+    "intents": [
+      "booking",
+      "tour",
+      "indoor"
+    ],
+    "gid": "5686596",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/5686596",
     "source": "myrealtrip-tna"
   },
   {
@@ -4375,6 +4342,179 @@
     "reviewScore": "",
     "reviewCount": "",
     "deepLink": "mrt://experiences/detail/5024185",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-3880314",
+    "type": "tna",
+    "title": "삼국통일 완성의 주역, 문무대왕릉의 유언을 기리며 둘러보는 경주",
+    "url": "https://experiences.myrealtrip.com/products/3880314",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/25/SBdT/cKlElxWv9I.jpg",
+    "price": 10000,
+    "priceText": "10,000원부터",
+    "region": "경주",
+    "city": "경주",
+    "category": "투어",
+    "description": "경주 ∙ 투어",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "경주"
+    ],
+    "intents": [
+      "booking",
+      "tour"
+    ],
+    "gid": "3880314",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/3880314",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-3880316",
+    "type": "tna",
+    "title": "[국립공원]유교문화의 본거지- 경주 양동민속마을",
+    "url": "https://experiences.myrealtrip.com/products/3880316",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/25/JBdv/EZq38kj4zN.jpg",
+    "price": 10000,
+    "priceText": "10,000원부터",
+    "region": "경주",
+    "city": "경주",
+    "category": "투어",
+    "description": "경주 ∙ 투어",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "경주"
+    ],
+    "intents": [
+      "booking",
+      "tour"
+    ],
+    "gid": "3880316",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/3880316",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6117092",
+    "type": "tna",
+    "title": "[경주] 동궁원+엑스포대공원 패키지",
+    "url": "https://experiences.myrealtrip.com/products/6117092",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/26/ZfCd/U6cXl68L3L",
+    "price": 10100,
+    "priceText": "10,100원부터",
+    "region": "경주",
+    "city": "경주",
+    "category": "입장권",
+    "description": "경주 ∙ 입장권 · 평점 4(2개) · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "경주",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport"
+    ],
+    "gid": "6117092",
+    "reviewScore": 4,
+    "reviewCount": 2,
+    "deepLink": "mrt://experiences/detail/6117092",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-3441294",
+    "type": "tna",
+    "title": "[경북/울진] 한국 전통 소금 만들기 체험",
+    "url": "https://experiences.myrealtrip.com/products/3441294",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/07/09/FUxs/ngafqMQEJu.jpg",
+    "price": 11000,
+    "priceText": "11,000원부터",
+    "region": "울산",
+    "city": "울산",
+    "category": "클래스",
+    "description": "울산 ∙ 클래스 · 평점 5(1개) · 무료취소",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "울산",
+      "무료취소"
+    ],
+    "intents": [
+      "booking",
+      "activity"
+    ],
+    "gid": "3441294",
+    "reviewScore": 5,
+    "reviewCount": 1,
+    "deepLink": "mrt://experiences/detail/3441294",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6118142",
+    "type": "tna",
+    "title": "[경주] 정글 미디어파크(+포토) 통합 이용권(6/1~)",
+    "url": "https://experiences.myrealtrip.com/products/6118142",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/04/3ih0/JFYK9ERuqK.jpg",
+    "price": 11700,
+    "priceText": "11,700원부터",
+    "region": "경주",
+    "city": "경주",
+    "category": "입장권",
+    "description": "경주 ∙ 입장권 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "경주",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport"
+    ],
+    "gid": "6118142",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/6118142",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6117070",
+    "type": "tna",
+    "title": "[경주] 키덜트뮤지엄+자동차박물관 패키지",
+    "url": "https://experiences.myrealtrip.com/products/6117070",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/25/4Iyn/lNYRFQe1df",
+    "price": 11900,
+    "priceText": "11,900원부터",
+    "region": "경주",
+    "city": "경주",
+    "category": "입장권",
+    "description": "경주 ∙ 입장권 · 평점 4.3(3개) · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "경주",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport",
+      "indoor"
+    ],
+    "gid": "6117070",
+    "reviewScore": 4.3,
+    "reviewCount": 3,
+    "deepLink": "mrt://experiences/detail/6117070",
     "source": "myrealtrip-tna"
   },
   {
@@ -4521,68 +4661,6 @@
     "source": "myrealtrip-tna"
   },
   {
-    "id": "tna-6118154",
-    "type": "tna",
-    "title": "[전남] 나주 중흥 골드스파 우주드림 미디어아트 전시관 이용권",
-    "url": "https://experiences.myrealtrip.com/products/6118154",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/07/04/xiDw/ausRB9ZsiM.jpg",
-    "price": 13500,
-    "priceText": "13,500원부터",
-    "region": "나주",
-    "city": "나주",
-    "category": "입장권",
-    "description": "나주 ∙ 입장권 · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "나주",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "transport",
-      "activity",
-      "indoor"
-    ],
-    "gid": "6118154",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/6118154",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-6241589",
-    "type": "tna",
-    "title": "(당일구매사용불가) 나주 중흥골드스파 워터락 8월 이용권",
-    "url": "https://experiences.myrealtrip.com/products/6241589",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/24/dbzJ/8bITb75nsf.jpg",
-    "price": 39600,
-    "priceText": "39,600원부터",
-    "region": "나주",
-    "city": "나주",
-    "category": "입장권",
-    "description": "나주 ∙ 입장권 · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "나주",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "transport",
-      "activity",
-      "water"
-    ],
-    "gid": "6241589",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/6241589",
-    "source": "myrealtrip-tna"
-  },
-  {
     "id": "tna-6117958",
     "type": "tna",
     "title": "[강릉또강릉] 삼척투어패스",
@@ -4639,6 +4717,35 @@
     "reviewScore": "",
     "reviewCount": "",
     "deepLink": "mrt://experiences/detail/6176123",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6412904",
+    "type": "tna",
+    "title": "쏠비치 삼척 오션플레이 하이시즌 종일권 (08/31~09/27)",
+    "url": "https://experiences.myrealtrip.com/products/6412904",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/28/D3X7/mLm2VI3z4e",
+    "price": 33000,
+    "priceText": "33,000원부터",
+    "region": "삼척",
+    "city": "삼척",
+    "category": "입장권",
+    "description": "삼척 ∙ 입장권 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "삼척",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport"
+    ],
+    "gid": "6412904",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/6412904",
     "source": "myrealtrip-tna"
   },
   {
