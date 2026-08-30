@@ -29,6 +29,20 @@ const TOPIC_FILTER_SCRIPT = '<script src="/assets/topic-filter.js?v=topic-filter
 const LANGUAGE_SWITCH_CSS = "";
 const FLIGHT_BOOKING_URL = "https://flights.myrealtrip.com/";
 const ARTICLE_NAVIGATION = '<nav class="links" aria-label="주요 메뉴"><a href="/">홈</a><a href="/travel/">여행지</a><a href="/festival/">축제</a><a href="/stay/">숙소</a><a href="/ticket/">입장권·투어</a></nav>';
+const BEACH_POST_SLUGS = new Set([
+  "travel-126078",
+  "travel-126302",
+  "travel-125711",
+  "travel-125713",
+  "travel-127722",
+  "travel-127764",
+  "travel-126098",
+  "travel-128767",
+  "travel-129255",
+  "travel-129256",
+  "travel-127698",
+  "travel-129400",
+]);
 const CATEGORY_PAGES = [
   { path: "/travel/", title: "여행지", description: "물놀이·계곡, 실내여행, 아이와, 이번 주말 글을 태그로 묶어 국내 여행지를 탐색합니다." },
   { path: "/festival/", title: "축제", description: "전국 축제와 행사를 지역, 일정, 방문 전 확인 포인트 중심으로 모았습니다." },
@@ -1407,8 +1421,9 @@ function bookingCategoryPageHtml({ path, type, title, description, products = []
   });
 }
 
-function sectionBlock({ id, title, posts, note = "" }) {
-  const items = sortedPosts(posts).filter((post) => postCardImage(post)).slice(0, 9);
+function sectionBlock({ id, title, posts, note = "", preserveOrder = false }) {
+  const sourcePosts = preserveOrder ? posts : sortedPosts(posts);
+  const items = sourcePosts.filter((post) => postCardImage(post)).slice(0, 9);
   const cards = items.map(storyCard).filter(Boolean);
   if (cards.length < 3) return "";
   return `<section class="block" id="${html(id)}" aria-labelledby="${html(id)}-title">
@@ -1608,9 +1623,19 @@ async function generateHubPages() {
 
   const travelPosts = sortedPosts(indexablePosts.filter((post) => !isFestivalPost(post)));
   const festivalPosts = sortedPosts(indexablePosts.filter(isFestivalPost));
+  const fallKeywords = ["단풍"];
   const waterKeywords = ["수영장", "계곡", "해수욕장", "해변", "바다", "물놀이", "워터파크", "폭포", "수변"];
   const indoorKeywords = ["실내", "박물관", "미술관", "전시", "문화", "센터", "아트", "공연장"];
   const familyKeywords = ["아이", "가족", "어린이", "체험", "공원", "생태", "자연학습"];
+  const fallPosts = travelPosts.filter((post) => hasKeyword(post, fallKeywords));
+  const nonFallTravelPosts = travelPosts.filter((post) => !hasKeyword(post, fallKeywords));
+  const beachWaterPosts = sortedPosts(nonFallTravelPosts.filter((post) => BEACH_POST_SLUGS.has(post.slug)));
+  const otherWaterPosts = sortedPosts(nonFallTravelPosts.filter((post) => !BEACH_POST_SLUGS.has(post.slug) && hasKeyword(post, waterKeywords)));
+  const waterPosts = [
+    ...beachWaterPosts.slice(0, 6),
+    ...otherWaterPosts,
+    ...beachWaterPosts.slice(6),
+  ];
 
   await writePage("/travel/", categoryPageHtml({
     path: "/travel/",
@@ -1618,14 +1643,16 @@ async function generateHubPages() {
     description: CATEGORY_PAGES[0].description,
     posts: travelPosts,
     tags: [
+      fallPosts.length ? { label: "가을·단풍", href: "#tag-fall" } : null,
       { label: "이번 주말", href: "#tag-weekend" },
       { label: "물놀이·계곡", href: "#tag-water" },
       { label: "실내여행", href: "#tag-indoor" },
       { label: "아이와", href: "#tag-family" },
-    ],
+    ].filter(Boolean),
     sections: [
+      { id: "tag-fall", title: "가을·단풍", posts: fallPosts, note: "계절 키워드 글을 별도 묶음으로 노출" },
       { id: "tag-weekend", title: "이번 주말", posts: travelPosts.filter((post) => Array.isArray(post.editorialTopics) && post.editorialTopics.includes("weekend")), note: "기존 이번 주말 카테고리를 태그로 전환" },
-      { id: "tag-water", title: "물놀이·계곡", posts: travelPosts.filter((post) => hasKeyword(post, waterKeywords)), note: "기존 물놀이 카테고리를 태그로 전환" },
+      { id: "tag-water", title: "물놀이·계곡", posts: waterPosts, note: "기존 물놀이 카테고리를 태그로 전환", preserveOrder: true },
       { id: "tag-indoor", title: "실내여행", posts: travelPosts.filter((post) => hasKeyword(post, indoorKeywords)), note: "기존 실내여행 카테고리를 태그로 전환" },
       { id: "tag-family", title: "아이와", posts: travelPosts.filter((post) => hasKeyword(post, familyKeywords)), note: "기존 아이와 카테고리를 태그로 전환" },
     ],

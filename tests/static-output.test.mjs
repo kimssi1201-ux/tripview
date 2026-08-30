@@ -228,6 +228,15 @@ async function collectHtmlFiles(dir = ".", files = []) {
   return files;
 }
 
+async function collectBuiltHtmlFiles() {
+  const groups = await Promise.all([
+    collectHtmlFiles("."),
+    collectHtmlFiles("www"),
+    collectHtmlFiles("site"),
+  ]);
+  return [...new Set(groups.flat())];
+}
+
 test("Coupang product images keep the site referrer policy", async () => {
   const script = await readFile("assets/coupang.js", "utf8");
 
@@ -271,9 +280,10 @@ test("homepage categories use real URLs and travel keeps old topics as tags", as
   assert.doesNotMatch(homepage, /<a[^>]+href="#(?:water|weekend|festival|indoor|family|booking|myrealtrip-deals)"/);
   assert.doesNotMatch(homepage, /data-filter="(?:water|weekend|festival|indoor|family|booking)"/);
 
-  for (const tag of ["tag-weekend", "tag-water", "tag-indoor", "tag-family"]) {
+  for (const tag of ["tag-fall", "tag-weekend", "tag-water", "tag-indoor", "tag-family"]) {
     assert.match(travelPage, new RegExp(`id="${tag}"`));
   }
+  assert.match(travelPage, /가을·단풍/);
   assert.match(travelPage, /물놀이·계곡/);
   assert.match(travelPage, /실내여행/);
   assert.match(travelPage, /아이와/);
@@ -805,6 +815,20 @@ test("generated HTML output does not keep language switch artifacts", async () =
   assert.deepEqual(failures, []);
 });
 
+test("generated HTML output does not contain unresolved merge markers", async () => {
+  const htmlFiles = await collectBuiltHtmlFiles();
+  const markerPattern = new RegExp(`^(?:${"<".repeat(7)}|${"=".repeat(7)}|${">".repeat(7)})(?: .*)?$`, "m");
+  const failures = [];
+  for (const file of htmlFiles) {
+    const document = await readFile(file, "utf8");
+    if (markerPattern.test(document)) {
+      failures.push(file);
+    }
+  }
+  assert.ok(htmlFiles.length > 100);
+  assert.deepEqual(failures, []);
+});
+
 test("AdSense script and ads.txt use the same publisher ID", async () => {
   const [homepage, adsText] = await Promise.all([
     readFile("index.html", "utf8"),
@@ -1035,7 +1059,7 @@ test("data post pipeline outputs validated data pages", async () => {
   assert.match(postNowWorkflow, /여행정보/);
 });
 
-test("editorial review manifest selects 62 unique, traceable articles", async () => {
+test("editorial review manifest selects 66 unique, traceable articles", async () => {
   const [manifestText, postsText] = await Promise.all([
     readFile("data/editorial-review.json", "utf8"),
     readFile("data/generated-posts.json", "utf8"),
@@ -1048,9 +1072,9 @@ test("editorial review manifest selects 62 unique, traceable articles", async ()
     return counts;
   }, {});
 
-  assert.equal(manifest.posts.length, 62);
+  assert.equal(manifest.posts.length, 66);
   assert.equal(new Set(slugs).size, slugs.length);
-  assert.deepEqual(topicCounts, { popular: 8, weekend: 11, festival: 14, water: 12, indoor: 10, family: 8 });
+  assert.deepEqual(topicCounts, { popular: 11, weekend: 15, festival: 14, water: 12, indoor: 10, family: 8 });
   for (const entry of manifest.posts) {
     const post = posts.find((candidate) => candidate.slug === entry.slug);
     assert.ok(post, `reviewed post ${entry.slug} should exist`);
