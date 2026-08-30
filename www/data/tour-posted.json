@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-29T18:41:44.506Z",
+  "updatedAt": "2026-08-30T18:40:47.988Z",
   "items": [
     {
       "contentid": "4070865",
@@ -6942,6 +6942,60 @@
       "title": "빅토리아호텔",
       "rejectedAt": "2026-08-29T18:41:43.677Z",
       "reason": "body_under_1500_chars:1456"
+    },
+    {
+      "contentid": "4096921",
+      "slug": "travel-4096921",
+      "title": "소노벨 경주 감포",
+      "createdAt": "2026-08-30T18:40:47.988Z"
+    },
+    {
+      "contentid": "1976875",
+      "slug": "travel-1976875",
+      "title": "나주목사고을시장",
+      "createdAt": "2026-08-30T18:40:47.988Z"
+    },
+    {
+      "contentid": "3486984",
+      "slug": "travel-3486984",
+      "title": "신나무골성지",
+      "createdAt": "2026-08-30T18:40:47.988Z"
+    },
+    {
+      "contentid": "1937127",
+      "slug": "travel-1937127",
+      "title": "한국도량형박물관",
+      "createdAt": "2026-08-30T18:40:47.988Z"
+    },
+    {
+      "contentid": "987145",
+      "slug": "travel-987145",
+      "title": "씨월드관광호텔",
+      "createdAt": "2026-08-30T18:40:47.988Z"
+    },
+    {
+      "contentid": "2782869",
+      "title": "삼일문고",
+      "rejectedAt": "2026-08-30T18:40:43.074Z",
+      "reason": "body_under_1500_chars:1442"
+    },
+    {
+      "contentid": "1271286",
+      "title": "레몬트리",
+      "rejectedAt": "2026-08-30T18:40:43.924Z",
+      "reason": "body_under_1500_chars:1370"
+    },
+    {
+      "contentid": "1984236",
+      "title": "백기해녀의집",
+      "rejectedAt": "2026-08-30T18:40:44.722Z",
+      "reason": "body_under_1500_chars:1486"
+    },
+    {
+      "contentid": "2029545",
+      "title": "강릉교동건어물",
+      "rejectedAt": "2026-08-30T18:40:45.486Z",
+      "reason": "body_under_1500_chars:1379"
     }
   ]
 }
