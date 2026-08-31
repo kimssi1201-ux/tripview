@@ -128,6 +128,7 @@ jobs:
             BACKFILL_TARGETS="$BACKFILL_TARGETS_INPUT" BACKFILL_LIMIT="$BACKFILL_BATCH_LIMIT" BACKFILL_OFFSET="$BACKFILL_BATCH_OFFSET" node scripts/backfill-tour-api-details.mjs
           fi
           node scripts/polish-contextual-copy.mjs
+          node scripts/fetch-pexels-images.mjs
           node scripts/build-homepage.mjs
           node scripts/apply-homepage-content-config.mjs
           node scripts/add-image-zoom.mjs
@@ -140,6 +141,7 @@ jobs:
           TRIPVIEW_API_KEY: ${{ secrets.TRIPVIEW_API_KEY }}
           TRIPVIEW_API_KEY_PARAM: ${{ secrets.TRIPVIEW_API_KEY_PARAM }}
           PHOTO_GALLERY_API_KEY: ${{ secrets.PHOTO_GALLERY_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
 
       - name: Report article photo coverage
         if: ${{ github.event.inputs.image_mode == 'full' || github.event.inputs.image_mode == 'off' }}

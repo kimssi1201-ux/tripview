@@ -662,6 +662,66 @@ test("Korea Tourism images render through processed WebP assets", async () => {
   assert.match(topicFilter, /processedImage\(post\)/);
 });
 
+test("Pexels image pipeline is wired into builds and public rendering", async () => {
+  const [
+    packageJson,
+    fetchScript,
+    pexelsLib,
+    builder,
+    homepageBuilder,
+    homepageConfig,
+    topicFilter,
+    dailyWorkflow,
+    homepageWorkflow,
+    postNowWorkflow,
+    autoUpdateWorkflow,
+    dataPostWorkflow,
+    backfillWorkflow,
+    enrichWorkflow,
+    envExample,
+    secretsDoc,
+  ] = await Promise.all([
+    readFile("package.json", "utf8"),
+    readFile("scripts/fetch-pexels-images.mjs", "utf8"),
+    readFile("scripts/lib/pexels-image-assets.mjs", "utf8"),
+    readFile("scripts/build-www.mjs", "utf8"),
+    readFile("scripts/build-homepage.mjs", "utf8"),
+    readFile("scripts/apply-homepage-content-config.mjs", "utf8"),
+    readFile("assets/topic-filter.js", "utf8"),
+    readFile(".github/workflows/daily-tour-posts.yml", "utf8"),
+    readFile(".github/workflows/build-homepage.yml", "utf8"),
+    readFile(".github/workflows/post-10-now.yml", "utf8"),
+    readFile(".github/workflows/auto-update.yml", "utf8"),
+    readFile(".github/workflows/data-post-pipeline.yml", "utf8"),
+    readFile(".github/workflows/backfill-tour-api-details.yml", "utf8"),
+    readFile(".github/workflows/enrich-tour-posts.yml", "utf8"),
+    readFile(".env.example", "utf8"),
+    readFile("docs/api-secrets.md", "utf8"),
+  ]);
+
+  assert.match(packageJson, /fetch-pexels-images\.mjs/);
+  assert.match(fetchScript, /https:\/\/api\.pexels\.com\/v1\/search/);
+  assert.match(fetchScript, /Authorization:\s*API_KEY/);
+  assert.match(fetchScript, /PEXELS_IMAGES_PER_POST/);
+  assert.match(fetchScript, /PEXELS_TARGET_SLUGS/);
+  assert.match(pexelsLib, /PEXELS_IMAGE_MANIFEST_PATH = "data\/pexels-images\.json"/);
+  assert.match(pexelsLib, /pexelsImageAssetsForPost/);
+  assert.match(builder, /readPexelsImageManifest/);
+  assert.match(builder, /pexelsImageAssetsForPost/);
+  assert.match(builder, /Photos provided by Pexels/);
+  assert.match(builder, /articleImageCaptionHtml/);
+  assert.match(homepageBuilder, /readPexelsImageManifest/);
+  assert.match(homepageConfig, /readPexelsImageManifest/);
+  assert.match(topicFilter, /pexels-images\.json/);
+  assert.match(topicFilter, /pexelsImage\(post\)/);
+  for (const workflow of [dailyWorkflow, homepageWorkflow, postNowWorkflow, autoUpdateWorkflow, dataPostWorkflow, backfillWorkflow, enrichWorkflow]) {
+    assert.match(workflow, /PEXELS_API_KEY/);
+  }
+  assert.match(autoUpdateWorkflow, /data\/pexels-images\.json/);
+  assert.match(envExample, /PEXELS_API_KEY/);
+  assert.match(secretsDoc, /PEXELS_API_KEY/);
+});
+
 test("article inline images do not repeat the same Korea Tourism content id", async () => {
   const [manifestText, postsText] = await Promise.all([
     readFile("data/processed-tour-images.json", "utf8"),

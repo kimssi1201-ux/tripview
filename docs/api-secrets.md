@@ -17,9 +17,10 @@ Use this when scheduled jobs or post generation scripts need an API key.
    - `OPENAI_MODEL`: optional repository variable. Defaults to `gpt-5.5`.
    - `OPENAI_ENRICH_LIMIT`: optional repository variable. Defaults to `10`.
    - `OPENAI_TIMEOUT_MS`: optional repository variable. Defaults to `90000`.
+   - `PEXELS_API_KEY`: Pexels API key for free overseas travel images.
 5. Save the secret.
 
-The code should read keys from environment variables such as `process.env.TRIPVIEW_API_KEY`, `process.env.PHOTO_GALLERY_API_KEY`, or `process.env.OPENAI_API_KEY`.
+The code should read keys from environment variables such as `process.env.TRIPVIEW_API_KEY`, `process.env.PHOTO_GALLERY_API_KEY`, `process.env.OPENAI_API_KEY`, or `process.env.PEXELS_API_KEY`.
 
 ## Cloudflare Pages
 
@@ -30,6 +31,8 @@ Use this when Cloudflare Pages Functions or Workers need an API key at runtime.
 3. Open `Environment variables`.
 4. Add `OPENAI_API_KEY` as a secret variable.
 5. Add `BEACH_INFO_API_KEY` as a secret variable, or reuse the existing `TRIPVIEW_API_KEY`.
-6. Redeploy the site after saving.
+6. Add `PEXELS_API_KEY` if Cloudflare Pages should fetch free image metadata during production builds.
+7. Redeploy the site after saving.
 
 Do not expose `OPENAI_API_KEY` in browser JavaScript. OpenAI requests must run from GitHub Actions, Cloudflare Pages Functions, or another server-side environment.
+Do not expose `PEXELS_API_KEY` in browser JavaScript. Pexels requests run during build and write public-safe image metadata to `data/pexels-images.json`.

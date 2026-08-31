@@ -41,6 +41,11 @@ jobs:
       - name: Polish contextual article copy
         run: node scripts/polish-contextual-copy.mjs
 
+      - name: Fetch Pexels travel images
+        run: node scripts/fetch-pexels-images.mjs
+        env:
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+
       - name: Process Korea Tourism images
         run: node scripts/process-tour-images.mjs
 

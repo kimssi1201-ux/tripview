@@ -5,6 +5,7 @@ import { affiliateProductImage, selectAffiliateProducts } from "./lib/affiliate-
 import { isIndexablePost } from "./lib/content-quality.mjs";
 import { PRETENDARD_LINK, SITE_CSS, siteFooter, siteHeader, siteNavScript } from "./lib/site-design.mjs";
 import { isTourApiImage, postImageWithProcessed, readTourImageManifest, tourImageBannerAssetForPost, tourImageEntry, tourImageHeroAssetForPost } from "./lib/tour-image-assets.mjs";
+import { pexelsCoverAssetForPost, readPexelsImageManifest } from "./lib/pexels-image-assets.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const POSTS_PATH = path.join(ROOT, "data", "generated-posts.json");
@@ -14,6 +15,7 @@ const MYREALTRIP_TNA_PATH = path.join(ROOT, "data", "myrealtrip-tna-products.jso
 const MYREALTRIP_FLIGHTS_PATH = path.join(ROOT, "data", "myrealtrip-flight-deals.json");
 const INDEX_PATH = path.join(ROOT, "index.html");
 const processedTourImages = await readTourImageManifest(ROOT);
+const pexelsImages = await readPexelsImageManifest(ROOT);
 
 const BRAND = "\uD2B8\uB9BD\uBDF0";
 const CAT_DOMESTIC = "\uAD6D\uB0B4\uC5EC\uD589";
@@ -175,12 +177,12 @@ const CURRENT_TRAVEL_KEYWORDS = [
   "\uC5EC\uB984",
 ];
 const hrefOf = (post) => (post?.slug ? `/${post.slug}/` : "#");
-const imageOf = (post) => postImageWithProcessed(processedTourImages, post);
+const imageOf = (post) => postImageWithProcessed(processedTourImages, post) || pexelsCoverAssetForPost(pexelsImages, post)?.src || "";
 const cardImageOf = (post) => {
   const image = imageOf(post);
   return isTourApiImage(image) ? "" : image;
 };
-const regionCardImageOf = (post) => tourImageEntry(processedTourImages, post)?.cover?.src || "";
+const regionCardImageOf = (post) => tourImageEntry(processedTourImages, post)?.cover?.src || pexelsCoverAssetForPost(pexelsImages, post)?.src || "";
 const titleOf = (post) => normalize(post?.title || post?.sourceTitle || TEXT.articleFallback);
 const categoryOf = (post) => normalize(post?.category || TEXT.infoFallback);
 const regionOf = (post) => normalize(post?.region || "");

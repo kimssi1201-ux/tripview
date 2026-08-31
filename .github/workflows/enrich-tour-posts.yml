@@ -43,8 +43,11 @@ jobs:
 
       - name: Process Korea Tourism images
         run: |
+          node scripts/fetch-pexels-images.mjs
           node scripts/process-tour-images.mjs
           node scripts/build-www.mjs
+        env:
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
 
       - name: Commit enriched posts
         if: github.event_name == 'workflow_dispatch'

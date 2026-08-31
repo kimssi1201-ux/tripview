@@ -16,6 +16,18 @@ import {
   tourImageCaption,
   tourImageEntry,
 } from "./lib/tour-image-assets.mjs";
+import {
+  PEXELS_PROVIDER_URL,
+  PEXELS_SOURCE_LABEL,
+  isPexelsImage,
+  pexelsCoverAssetForPost,
+  pexelsImageAlt,
+  pexelsImageAssetForSource,
+  pexelsImageAssetsForPost,
+  pexelsImageCaption,
+  pexelsImageEntry,
+  readPexelsImageManifest,
+} from "./lib/pexels-image-assets.mjs";
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const outDir = join(root, "www");
@@ -186,6 +198,7 @@ const accommodationProducts = accommodationProductsFromCache(accommodationCache)
 const tnaProducts = await readJson("data/myrealtrip-tna-products.json");
 const legacyRendererPosts = await readLegacyRendererPosts();
 const processedTourImages = await readTourImageManifest(root);
+const pexelsImages = await readPexelsImageManifest(root);
 
 const files = [
   "index.html",
@@ -451,7 +464,7 @@ function postSummary(post, length = 92) {
 }
 
 function postImage(post) {
-  return postImageWithProcessed(processedTourImages, post);
+  return postImageWithProcessed(processedTourImages, post) || pexelsCoverAssetForPost(pexelsImages, post)?.src || "";
 }
 
 function postCardImage(post) {
@@ -460,7 +473,7 @@ function postCardImage(post) {
 }
 
 function regionCardImage(post) {
-  return tourImageEntry(processedTourImages, post)?.cover?.src || "";
+  return tourImageEntry(processedTourImages, post)?.cover?.src || pexelsCoverAssetForPost(pexelsImages, post)?.src || "";
 }
 
 function sortedPosts(items) {
@@ -2061,6 +2074,9 @@ function articleSourceLinks(post) {
   if (post?.contentid) {
     sources.push({ label: "한국관광공사 국내여행 정보", url: "https://korean.visitkorea.or.kr/" });
   }
+  if (pexelsImageEntry(pexelsImages, post)) {
+    sources.push({ label: "Photos provided by Pexels", url: PEXELS_PROVIDER_URL });
+  }
   const official = safeHttpUrl(post?.tourApi?.homepage);
   if (official && !sources.some((source) => source.url === official)) {
     sources.push({ label: "운영기관 공식 안내", url: official });
@@ -2078,9 +2094,11 @@ function articleSourceHtml(post) {
 
 function articleImageSource(post) {
   const images = [post?.image, ...(Array.isArray(post?.images) ? post.images : [])].filter(Boolean);
-  if (!images.length) return "이미지 없음";
-  if (tourImageEntry(processedTourImages, post) || images.some(isTourApiImage)) return TOUR_IMAGE_SOURCE_LABEL;
-  return "본문 표기 이미지 또는 공개 자료";
+  const labels = [];
+  if (tourImageEntry(processedTourImages, post) || images.some(isTourApiImage)) labels.push(TOUR_IMAGE_SOURCE_LABEL);
+  if (pexelsImageEntry(pexelsImages, post) || images.some(isPexelsImage)) labels.push(PEXELS_SOURCE_LABEL);
+  if (labels.length) return labels.join(" · ");
+  return images.length ? "본문 표기 이미지 또는 공개 자료" : "이미지 없음";
 }
 
 function articleTrustSourceNotes(post) {
@@ -2092,8 +2110,12 @@ function articleTrustSourceNotes(post) {
   if (kind === "festival-schedule" || post?.contentid || post?.tourApi) {
     notes.push("관광 정보는 공공 관광 정보를 바탕으로 정리했습니다.");
   }
-  if (articleImageSource(post) === TOUR_IMAGE_SOURCE_LABEL) {
+  const imageSource = articleImageSource(post);
+  if (imageSource.includes(TOUR_IMAGE_SOURCE_LABEL)) {
     notes.push("사진은 공공누리 출처 표기를 유지했습니다.");
+  }
+  if (imageSource.includes(PEXELS_SOURCE_LABEL)) {
+    notes.push("무료 사진은 Pexels 출처와 작가 표기를 함께 표시했습니다.");
   }
   return notes;
 }
@@ -2176,13 +2198,24 @@ function tourismImageContentKey(value = "") {
   return resource ? `tour:${resource[1].toLowerCase()}` : "";
 }
 
+function imageAssetForSource(post, src) {
+  return tourImageAssetForSource(processedTourImages, post, src) || pexelsImageAssetForSource(pexelsImages, post, src);
+}
+
+function imageAssetContentKey(asset) {
+  if (!asset) return "";
+  if (asset.source === "pexels") return `pexels:${asset.id || imageIdentity(asset.url) || imageIdentity(asset.src)}`;
+  return tourismImageContentKey(asset.original) || tourismImageContentKey(asset.src);
+}
+
 function articleImageFamilyKey(post, src) {
-  const asset = tourImageAssetForSource(processedTourImages, post, src);
-  return tourismImageContentKey(src) || tourismImageContentKey(asset?.original) || imageIdentity(src);
+  const asset = imageAssetForSource(post, src);
+  return tourismImageContentKey(src) || imageAssetContentKey(asset) || imageIdentity(src);
 }
 
 function articleHeroImageKeys(post) {
   const entry = tourImageEntry(processedTourImages, post);
+  const pexelsCover = pexelsCoverAssetForPost(pexelsImages, post);
   return imageIdentitySet([
     post?.image,
     postImage(post),
@@ -2190,13 +2223,16 @@ function articleHeroImageKeys(post) {
     entry?.cover?.src,
     entry?.hero?.original,
     entry?.hero?.src,
+    pexelsCover?.original,
+    pexelsCover?.src,
+    pexelsCover?.url,
   ]);
 }
 
 function isArticleHeroImage(post, src) {
   const heroKeys = articleHeroImageKeys(post);
-  const asset = tourImageAssetForSource(processedTourImages, post, src);
-  const sourceKeys = imageIdentitySet([src, asset?.original, asset?.src]);
+  const asset = imageAssetForSource(post, src);
+  const sourceKeys = imageIdentitySet([src, asset?.original, asset?.src, asset?.url]);
   return [...sourceKeys].some((key) => heroKeys.has(key));
 }
 
@@ -2205,9 +2241,13 @@ function articleContentImageCandidates(post) {
   const processedInlineImages = Array.isArray(entry?.images)
     ? entry.images.map((asset) => asset?.src || asset?.original).filter(Boolean)
     : [];
+  const pexelsInlineImages = pexelsImageAssetsForPost(pexelsImages, post)
+    .map((asset) => asset?.src || asset?.original)
+    .filter(Boolean);
   return [
     ...postImagesWithProcessed(processedTourImages, post),
     ...processedInlineImages,
+    ...pexelsInlineImages,
   ];
 }
 
@@ -2238,20 +2278,41 @@ function applyProcessedMetaImages(document, cover) {
     .replace(/(<link\s+rel=["']image_src["']\s+href=["'])[^"']*(["'])/i, `$1${imageUrl}$2`);
 }
 
-function processedFigure(asset, className) {
+function articleImageAlt(asset, post) {
+  return asset?.source === "pexels" ? pexelsImageAlt(asset, post) : tourImageAlt(asset, post);
+}
+
+function articleImageCaptionHtml(asset) {
+  if (asset?.source !== "pexels") return html(tourImageCaption(asset));
+  const photoUrl = safeHttpUrl(asset.url) || PEXELS_PROVIDER_URL;
+  const photographerUrl = safeHttpUrl(asset.photographerUrl);
+  const photographer = normalizeText(asset.photographer || "");
+  const provider = `<a href="${html(photoUrl)}" target="_blank" rel="noopener">Pexels</a>`;
+  const credit = photographerUrl && photographer
+    ? `<a href="${html(photographerUrl)}" target="_blank" rel="noopener">${html(photographer)}</a>`
+    : html(photographer);
+  return `출처: ${provider}${credit ? ` · 사진: ${credit}` : ""}`;
+}
+
+function articleImageCaptionText(asset) {
+  return asset?.source === "pexels" ? pexelsImageCaption(asset) : tourImageCaption(asset);
+}
+
+function processedFigure(asset, className, post = null) {
   const imageClass = className === "cover-figure" ? ' class="cover"' : "";
-  return `<figure class="${className}"><img${imageClass} src="${html(asset.src)}" alt="${html(tourImageAlt(asset))}" loading="lazy" /><figcaption>${html(tourImageCaption(asset))}</figcaption></figure>`;
+  return `<figure class="${className}"><img${imageClass} src="${html(asset.src)}" alt="${html(articleImageAlt(asset, post))}" loading="lazy" /><figcaption>${articleImageCaptionHtml(asset)}</figcaption></figure>`;
 }
 
 function applyProcessedArticleImages(document, post) {
   const entry = tourImageEntry(processedTourImages, post);
-  if (!entry?.cover?.src) return ensureLazyImages(document);
-  let next = applyProcessedMetaImages(document, entry.cover);
-  next = next.replace(/<figure class="cover-figure">[\s\S]*?<\/figure>/, processedFigure(entry.cover, "cover-figure"));
+  const cover = entry?.cover?.src ? entry.cover : pexelsCoverAssetForPost(pexelsImages, post);
+  if (!cover?.src) return ensureLazyImages(document);
+  let next = applyProcessedMetaImages(document, cover);
+  next = next.replace(/<figure class="cover-figure">[\s\S]*?<\/figure>/, processedFigure(cover, "cover-figure", post));
   next = next.replace(/<figure class="inline-figure">[\s\S]*?<\/figure>/g, (figure) => {
     const original = figure.match(/<img\b[^>]*\bsrc=["']([^"']+)["']/i)?.[1] || "";
-    const asset = tourImageAssetForSource(processedTourImages, post, original);
-    return asset?.src ? processedFigure(asset, "inline-figure") : ensureLazyImages(figure);
+    const asset = imageAssetForSource(post, original);
+    return asset?.src ? processedFigure(asset, "inline-figure", post) : ensureLazyImages(figure);
   });
   return ensureLazyImages(next);
 }
@@ -2597,11 +2658,11 @@ function articleInlineAssets(post) {
     ? Math.min(images.length, ARTICLE_INLINE_IMAGE_MAX)
     : images.length;
   return images.slice(0, limit).map((src) => {
-    const asset = tourImageAssetForSource(processedTourImages, post, src);
+    const asset = imageAssetForSource(post, src);
     return asset || {
       src,
       alt: postTitle(post),
-      caption: `출처: ${TOUR_IMAGE_SOURCE_LABEL} · 트립뷰 편집 이미지`,
+      caption: "출처: 본문 표기 이미지 또는 공개 자료",
     };
   });
 }
@@ -2661,7 +2722,7 @@ function selectArticleInlineInsertionPoints(points = [], count = 0) {
 
 function lodgingPhotoAssets(post) {
   if (!isLodgingPost(post)) return [];
-  const sources = postImagesWithProcessed(processedTourImages, post).filter(Boolean);
+  const sources = [...postImagesWithProcessed(processedTourImages, post), ...pexelsImageAssetsForPost(pexelsImages, post).map((asset) => asset.src)].filter(Boolean);
   const seen = new Set();
   return sources
     .filter((src) => {
@@ -2671,13 +2732,13 @@ function lodgingPhotoAssets(post) {
     })
     .slice(0, 3)
     .map((src) => {
-      const asset = tourImageAssetForSource(processedTourImages, post, src);
+      const asset = imageAssetForSource(post, src);
       const place = lodgingPlaceName(post);
       const region = compactRegion(post?.region);
       return {
         src,
-        alt: asset ? tourImageAlt(asset, post) : `${region} ${place} 숙소 외관과 주변 분위기`,
-        caption: asset ? tourImageCaption(asset) : `출처: ${TOUR_IMAGE_SOURCE_LABEL} · 트립뷰 편집 이미지`,
+        alt: asset ? articleImageAlt(asset, post) : `${region} ${place} 숙소 외관과 주변 분위기`,
+        caption: asset ? articleImageCaptionText(asset) : "출처: 본문 표기 이미지 또는 공개 자료",
       };
     });
 }
@@ -2731,7 +2792,7 @@ function injectArticleInlinePhotos(document, post) {
       .replace(new RegExp(`${ARTICLE_PHOTO_START}[\\s\\S]*?${ARTICLE_PHOTO_END}`, "g"), "")
       .replace(new RegExp(`${ARTICLE_INLINE_PHOTO_START}[\\s\\S]*?${ARTICLE_INLINE_PHOTO_END}`, "g"), "")
       .replace(/\s*<figure class=["'][^"']*\barticle-inline-figure\b[\s\S]*?<\/figure>/gi, "");
-    const figures = articleInlineAssets(post).map((asset, index) => `${ARTICLE_INLINE_PHOTO_START} ${index + 1} -->${processedFigure(asset, "inline-figure article-inline-figure")}<!-- ${ARTICLE_INLINE_PHOTO_END}`);
+    const figures = articleInlineAssets(post).map((asset, index) => `${ARTICLE_INLINE_PHOTO_START} ${index + 1} -->${processedFigure(asset, "inline-figure article-inline-figure", post)}<!-- ${ARTICLE_INLINE_PHOTO_END}`);
     if (!figures.length) return next;
     const points = selectArticleInlineInsertionPoints(articleInlineInsertionPoints(next), figures.length);
     if (!points.length) return `${figures[0]}${next}`;
@@ -2776,15 +2837,15 @@ function articleReadTime(post) {
 
 function articleHeroBand(post) {
   const image = postImage(post);
-  const coverAsset = tourImageEntry(processedTourImages, post)?.cover || null;
+  const coverAsset = tourImageEntry(processedTourImages, post)?.cover || pexelsCoverAssetForPost(pexelsImages, post) || null;
   const label = articleCategoryLabel(post);
   const categoryPath = articleCategoryPath(post);
   const region = compactRegion(post?.region);
   const status = festivalStatus(post).ended ? "종료" : "";
   const tags = [status, label, region, isIndexablePost(post) ? "검수 완료" : "검수 대기"].filter(Boolean);
   const imageStyle = image ? ` style="--article-hero-image:url('${html(cssImageUrl(image))}')" ` : "";
-  const credit = coverAsset?.src ? tourImageCaption(coverAsset) : "";
-  const alt = coverAsset?.src ? tourImageAlt(coverAsset, post) : "";
+  const credit = coverAsset?.src ? articleImageCaptionText(coverAsset) : "";
+  const alt = coverAsset?.src ? articleImageAlt(coverAsset, post) : "";
   return `<section class="article-hero-band"${imageStyle}aria-labelledby="article-title">
         <div class="wrap article-hero-inner">
           ${alt ? `<span class="article-hero-image-alt" role="img" aria-label="${html(alt)}"></span>` : ""}
@@ -2941,14 +3002,14 @@ function articlePhotoGrid(post) {
   const images = articleContentImages(post, { excludeHero: true }).slice(inlineCount);
   if (images.length < ARTICLE_PHOTO_GRID_MIN) return "";
   const assets = images
-    .map((src) => tourImageAssetForSource(processedTourImages, post, src))
+    .map((src) => imageAssetForSource(post, src))
     .filter((asset) => asset?.src)
     .slice(0, ARTICLE_PHOTO_GRID_MAX);
   if (assets.length < ARTICLE_PHOTO_GRID_MIN) return "";
   return `${ARTICLE_PHOTO_START} -->
 <section class="article-photo-grid" aria-labelledby="article-photo-grid-title" data-count="${assets.length}">
   <h2 id="article-photo-grid-title">사진으로 확인하기</h2>
-  <div class="article-photo-items">${assets.map((asset) => `<figure><img src="${html(asset.src)}" alt="${html(tourImageAlt(asset, post))}" loading="lazy" decoding="async"><figcaption>${html(tourImageCaption(asset))}</figcaption></figure>`).join("")}</div>
+  <div class="article-photo-items">${assets.map((asset) => `<figure><img src="${html(asset.src)}" alt="${html(articleImageAlt(asset, post))}" loading="lazy" decoding="async"><figcaption>${articleImageCaptionHtml(asset)}</figcaption></figure>`).join("")}</div>
 </section>
 <!-- ${ARTICLE_PHOTO_END}`;
 }
@@ -3222,7 +3283,10 @@ function schemaDate(value, fallback = CONTENT_TODAY) {
 }
 
 function schemaImages(post) {
-  const images = postImagesWithProcessed(processedTourImages, post).map(publicImageUrl).filter(Boolean);
+  const sourceImages = pexelsImageAssetsForPost(pexelsImages, post).length
+    ? articleContentImages(post)
+    : postImagesWithProcessed(processedTourImages, post);
+  const images = sourceImages.map(publicImageUrl).filter(Boolean);
   return images.length ? images : [publicImageUrl(postImage(post))].filter(Boolean);
 }
 
