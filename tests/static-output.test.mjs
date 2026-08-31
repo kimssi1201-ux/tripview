@@ -129,6 +129,18 @@ function articlePhotoGridImageSources(body = "") {
     .filter(Boolean);
 }
 
+test("redirect rules keep article assets on the deployed output root", async () => {
+  const redirects = await readFile("_redirects", "utf8");
+
+  assert.doesNotMatch(redirects, /\/site\/(?:travel-|festival-|flight-deals|sitemap)/);
+  assert.match(redirects, /^\/travel-:id\s+\/travel-:id\/\s+301$/m);
+  assert.match(redirects, /^\/festival-:id\s+\/festival-:id\/\s+301$/m);
+  assert.match(redirects, /^\/flight-deals\/:slug\s+\/flight-deals\/:slug\/\s+301$/m);
+
+  assert.equal(await readFile("www/_redirects", "utf8"), redirects);
+  assert.equal(await readFile("site/_redirects", "utf8"), redirects);
+});
+
 test("site publishes a branded favicon and manifest", async () => {
   const [homepage, article, manifestText, favicon, ico, icon192, icon512, appleTouchIcon] = await Promise.all([
     readFile("index.html", "utf8"),

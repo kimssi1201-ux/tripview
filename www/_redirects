@@ -1,9 +1,5 @@
-/sitemap.xml /site/sitemap.xml 200
-/travel-:id /site/travel-:id/ 200
-/travel-:id/ /site/travel-:id/ 200
-/festival-:id /site/festival-:id/ 200
-/festival-:id/ /site/festival-:id/ 200
-/flight-deals/:slug /site/flight-deals/:slug/ 200
-/flight-deals/:slug/ /site/flight-deals/:slug/ 200
+/travel-:id /travel-:id/ 301
+/festival-:id /festival-:id/ 301
+/flight-deals/:slug /flight-deals/:slug/ 301
 /sejong-culture-center-jochiwon /sejong-culture-center-jochiwon/ 301
 /post.html?slug=sejong-culture-center-jochiwon /sejong-culture-center-jochiwon/ 301
