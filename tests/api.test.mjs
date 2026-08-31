@@ -306,7 +306,7 @@ test("Coupang search normalizes API products and signs the request", async () =>
   assert.match(authorization, /^CEA algorithm=HmacSHA256, access-key=access,/);
 });
 
-test("Cloudflare route maps article paths to the site asset and delegates other methods", async () => {
+test("Cloudflare route maps article paths to direct assets and delegates other methods", async () => {
   const calls = [];
   const assets = {
     async fetch(input) {
@@ -319,7 +319,24 @@ test("Cloudflare route maps article paths to the site asset and delegates other 
   await routeRequest({ request: request("/travel/"), params: { path: "travel" }, env: { ASSETS: assets } });
   await routeRequest({ request: request("/region/gangwon/"), params: { path: ["region", "gangwon"] }, env: { ASSETS: assets } });
   await routeRequest({ request: request("/unknown"), params: { path: "unknown" }, env: { ASSETS: assets } });
-  assert.deepEqual(calls, ["/site/travel-129256/", "/site/travel/", "/site/region/gangwon/", "/unknown"]);
+  assert.deepEqual(calls, ["/travel-129256/", "/travel/", "/region/gangwon/", "/unknown"]);
+});
+
+test("Cloudflare route falls back to legacy site assets when direct assets are missing", async () => {
+  const calls = [];
+  const assets = {
+    async fetch(input) {
+      const pathname = new URL(input.url || input).pathname;
+      calls.push(pathname);
+      return new Response(pathname.startsWith("/site/") ? "ok" : "missing", {
+        status: pathname.startsWith("/site/") ? 200 : 404,
+      });
+    },
+  };
+
+  const response = await routeRequest({ request: request("/travel-129256/"), params: { path: "travel-129256" }, env: { ASSETS: assets } });
+  assert.equal(await response.text(), "ok");
+  assert.deepEqual(calls, ["/travel-129256/", "/site/travel-129256/"]);
 });
 
 test("article response preserves contextual MyRealTrip and Coupang blocks, and adds one canonical URL", async () => {

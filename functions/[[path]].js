@@ -13,22 +13,27 @@ function assetRequest(context, pathname) {
 
 function articleAssetPath(parts) {
   if (parts.length === 1 && ["travel", "festival", "stay", "ticket", "region"].includes(parts[0])) {
-    return `/site/${parts[0]}/`;
+    return `/${parts[0]}/`;
   }
 
   if (parts.length === 2 && parts[0] === "region" && /^[a-z0-9-]+$/.test(parts[1])) {
-    return `/site/${parts.join("/")}/`;
+    return `/${parts.join("/")}/`;
   }
 
   if (parts.length === 1 && /^(travel|festival)-\d+$/.test(parts[0])) {
-    return `/site/${parts[0]}/`;
+    return `/${parts[0]}/`;
   }
 
   if (parts[0] === "flight-deals" && parts.length >= 1 && parts.every((part) => /^[a-z0-9-]+$/.test(part))) {
-    return `/site/${parts.join("/")}/`;
+    return `/${parts.join("/")}/`;
   }
 
   return "";
+}
+
+function articleAssetPaths(parts) {
+  const target = articleAssetPath(parts);
+  return target ? [target, `/site${target}`] : [];
 }
 
 const CANONICAL_ORIGIN = "https://tripview.kr";
@@ -81,9 +86,11 @@ export async function onRequest(context) {
     return context.next();
   }
 
-  const target = articleAssetPath(parts);
-  if (target) {
+  const targets = articleAssetPaths(parts);
+  for (let index = 0; index < targets.length; index += 1) {
+    const target = targets[index];
     const response = await context.env.ASSETS.fetch(assetRequest(context, target));
+    if (response.status === 404 && index < targets.length - 1) continue;
     return articleResponse(response, parts, context.request.method);
   }
 
