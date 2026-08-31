@@ -289,6 +289,7 @@ function compactRegion(value = "") {
   if (text.includes("\uACBD\uBD81") || text.includes("\uACBD\uC0C1\uBD81")) return "\uACBD\uBD81";
   if (text.includes("\uACBD\uB0A8") || text.includes("\uACBD\uC0C1\uB0A8")) return "\uACBD\uB0A8";
   if (text.includes("\uC81C\uC8FC")) return "\uC81C\uC8FC";
+  if (/해외|일본|대만|태국|베트남|오사카|도쿄|후쿠오카|삿포로|교토|타이베이|방콕|다낭|싱가포르|홍콩|마카오|세부|보라카이|발리|괌|사이판|하와이|파리|런던|로마|바르셀로나|뉴욕/i.test(text)) return "\uD574\uC678";
   return text.split(/\s+/).filter(Boolean)[0] || REGION_OTHER;
 }
 
@@ -814,6 +815,7 @@ const HOME_REGION_SLUGS = new Map([
   ["경북", "gyeongbuk"],
   ["경남", "gyeongnam"],
   ["제주", "jeju"],
+  ["해외", "overseas"],
   ["기타", "other"],
 ]);
 

@@ -20,7 +20,7 @@ function articleAssetPath(parts) {
     return `/${parts.join("/")}/`;
   }
 
-  if (parts.length === 1 && /^(travel|festival)-\d+$/.test(parts[0])) {
+  if (parts.length === 1 && /^(?:travel-[a-z0-9-]+|festival-\d+)$/.test(parts[0])) {
     return `/${parts[0]}/`;
   }
 

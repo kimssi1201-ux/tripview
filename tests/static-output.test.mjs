@@ -3,7 +3,7 @@ import { readFile, readdir } from "node:fs/promises";
 import { join } from "node:path";
 import test from "node:test";
 
-import { isIndexablePost } from "../scripts/lib/content-quality.mjs";
+import { isIndexablePost, postBodyLength } from "../scripts/lib/content-quality.mjs";
 
 const beachSlugs = [
   "travel-126078",
@@ -38,6 +38,7 @@ const regionSlugs = new Map([
   ["경북", "gyeongbuk"],
   ["경남", "gyeongnam"],
   ["제주", "jeju"],
+  ["해외", "overseas"],
   ["기타", "other"],
 ]);
 
@@ -60,6 +61,7 @@ function compactRegion(value = "") {
   if (text.includes("경상북도") || text.includes("경북")) return "경북";
   if (text.includes("경상남도") || text.includes("경남")) return "경남";
   if (text.includes("제주")) return "제주";
+  if (/해외|일본|대만|태국|베트남|오사카|도쿄|후쿠오카|삿포로|교토|타이베이|방콕|다낭|싱가포르|홍콩|마카오|세부|보라카이|발리|괌|사이판|하와이|파리|런던|로마|바르셀로나|뉴욕/i.test(text)) return "해외";
   return "기타";
 }
 
@@ -280,9 +282,10 @@ test("homepage categories use real URLs and travel keeps old topics as tags", as
   assert.doesNotMatch(homepage, /<a[^>]+href="#(?:water|weekend|festival|indoor|family|booking|myrealtrip-deals)"/);
   assert.doesNotMatch(homepage, /data-filter="(?:water|weekend|festival|indoor|family|booking)"/);
 
-  for (const tag of ["tag-fall", "tag-weekend", "tag-water", "tag-indoor", "tag-family"]) {
+  for (const tag of ["tag-overseas", "tag-fall", "tag-weekend", "tag-water", "tag-indoor", "tag-family"]) {
     assert.match(travelPage, new RegExp(`id="${tag}"`));
   }
+  assert.match(travelPage, /9월 해외여행/);
   assert.match(travelPage, /가을·단풍/);
   assert.match(travelPage, /물놀이·계곡/);
   assert.match(travelPage, /실내여행/);
@@ -432,12 +435,12 @@ test("beach article pages do not include the removed API information widget", as
   }
 });
 
-test("homepage is aligned to August and avoids expired seasonal or Coupang review content", async () => {
+test("homepage is aligned to the current month and avoids expired seasonal or Coupang review content", async () => {
   const [homepage, festivalPage] = await Promise.all([
     readFile("index.html", "utf8"),
     readFile("festival/index.html", "utf8"),
   ]);
-  assert.match(homepage, /8월 시즌 추천/);
+  assert.match(homepage, /9월 시즌 추천/);
   assert.doesNotMatch(homepage, />7~8월/);
   assert.doesNotMatch(homepage, />7월 (?:가볼만한 곳|축제\/행사)</);
   assert.doesNotMatch(homepage, /coupang-travel-items|coupang-partners-widget|assets\/coupang\.js/);
@@ -720,6 +723,61 @@ test("Pexels image pipeline is wired into builds and public rendering", async ()
   assert.match(autoUpdateWorkflow, /data\/pexels-images\.json/);
   assert.match(envExample, /PEXELS_API_KEY/);
   assert.match(secretsDoc, /PEXELS_API_KEY/);
+});
+
+test("September overseas manual posts are indexable and wired into public pages", async () => {
+  const [
+    manualText,
+    packageJson,
+    mergeScript,
+    reviewScript,
+    manualRenderer,
+    builder,
+    homepageConfig,
+    topicFilter,
+    siteDesign,
+    route,
+  ] = await Promise.all([
+    readFile("data/manual-posts-2026-08-31-september-overseas.json", "utf8"),
+    readFile("package.json", "utf8"),
+    readFile("scripts/merge-manual-posts.mjs", "utf8"),
+    readFile("scripts/apply-editorial-review.mjs", "utf8"),
+    readFile("scripts/render-manual-pages.mjs", "utf8"),
+    readFile("scripts/build-www.mjs", "utf8"),
+    readFile("scripts/apply-homepage-content-config.mjs", "utf8"),
+    readFile("assets/topic-filter.js", "utf8"),
+    readFile("scripts/lib/site-design.mjs", "utf8"),
+    readFile("functions/[[path]].js", "utf8"),
+  ]);
+  const posts = JSON.parse(manualText);
+
+  assert.equal(posts.length, 5);
+  assert.equal(new Set(posts.map((post) => post.slug)).size, posts.length);
+  for (const post of posts) {
+    assert.match(post.slug, /^travel-[a-z0-9-]+-2026$/);
+    assert.equal(post.category, "해외여행");
+    assert.equal(post.region, "해외");
+    assert.equal(post.renderManualPage, true);
+    assert.ok(post.pexelsQuery, `${post.slug} should request free image backfill`);
+    assert.ok(!post.image, `${post.slug} should use deferred Pexels imagery`);
+    assert.ok(isIndexablePost(post), `${post.slug} should be indexable`);
+    assert.ok(postBodyLength(post) >= 1500, `${post.slug} should meet the body length floor`);
+    assert.ok((post.sections || []).length >= 6, `${post.slug} should have enough article sections`);
+    assert.ok((post.faq || []).length >= 5, `${post.slug} should have enough FAQ entries`);
+    assert.match(post.tourApi?.homepage || "", /^https:\/\//);
+  }
+
+  assert.match(packageJson, /merge-manual-posts\.mjs[\s\S]*fetch-pexels-images\.mjs[\s\S]*render-manual-pages\.mjs[\s\S]*build-www\.mjs/);
+  assert.match(mergeScript, /hasDeferredImage/);
+  assert.match(reviewScript, /renderManualPage[\s\S]*editorialStatus === "reviewed"/);
+  assert.match(manualRenderer, /renderManualPage/);
+  assert.match(manualRenderer, /readPexelsImageManifest/);
+  assert.match(builder, /tag-overseas/);
+  assert.match(builder, /9월 해외여행/);
+  assert.match(homepageConfig, /\["해외", "overseas"\]/);
+  assert.match(topicFilter, /topic === 'overseas'/);
+  assert.match(siteDesign, /\/travel\/#tag-overseas/);
+  assert.match(route, /travel-\[a-z0-9-\]\+/);
 });
 
 test("article inline images do not repeat the same Korea Tourism content id", async () => {

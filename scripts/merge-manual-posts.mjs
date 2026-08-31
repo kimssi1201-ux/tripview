@@ -38,6 +38,10 @@ function usesStrictImageDedupe(post) {
   return !slug.startsWith('data-') && /\/\/tong\.visitkorea\.or\.kr\//i.test(image);
 }
 
+function hasDeferredImage(post) {
+  return Boolean(String(post?.pexelsQuery || post?.freeImageQuery || post?.imageQuery || '').trim());
+}
+
 async function manualPosts() {
   const entries = await fs.readdir(DATA_DIR, { withFileTypes: true }).catch(() => []);
   const files = entries
@@ -96,7 +100,7 @@ const seenImages = new Set();
 const merged = [];
 
 for (const post of [...manual, ...generated]) {
-  if (!post?.slug || !post?.title || !post?.image) continue;
+  if (!post?.slug || !post?.title || (!post?.image && !hasDeferredImage(post))) continue;
   const candidate = manual.includes(post) ? preserveGeneratedBackfill(post) : post;
   const key = postKey(post);
   const title = titleKey(post);

@@ -316,10 +316,11 @@ test("Cloudflare route maps article paths to direct assets and delegates other m
   };
 
   await routeRequest({ request: request("/travel-129256/"), params: { path: "travel-129256" }, env: { ASSETS: assets } });
+  await routeRequest({ request: request("/travel-osaka-september-2026/"), params: { path: "travel-osaka-september-2026" }, env: { ASSETS: assets } });
   await routeRequest({ request: request("/travel/"), params: { path: "travel" }, env: { ASSETS: assets } });
   await routeRequest({ request: request("/region/gangwon/"), params: { path: ["region", "gangwon"] }, env: { ASSETS: assets } });
   await routeRequest({ request: request("/unknown"), params: { path: "unknown" }, env: { ASSETS: assets } });
-  assert.deepEqual(calls, ["/travel-129256/", "/travel/", "/region/gangwon/", "/unknown"]);
+  assert.deepEqual(calls, ["/travel-129256/", "/travel-osaka-september-2026/", "/travel/", "/region/gangwon/", "/unknown"]);
 });
 
 test("Cloudflare route falls back to legacy site assets when direct assets are missing", async () => {
@@ -334,9 +335,9 @@ test("Cloudflare route falls back to legacy site assets when direct assets are m
     },
   };
 
-  const response = await routeRequest({ request: request("/travel-129256/"), params: { path: "travel-129256" }, env: { ASSETS: assets } });
+  const response = await routeRequest({ request: request("/travel-osaka-september-2026/"), params: { path: "travel-osaka-september-2026" }, env: { ASSETS: assets } });
   assert.equal(await response.text(), "ok");
-  assert.deepEqual(calls, ["/travel-129256/", "/site/travel-129256/"]);
+  assert.deepEqual(calls, ["/travel-osaka-september-2026/", "/site/travel-osaka-september-2026/"]);
 });
 
 test("article response preserves contextual MyRealTrip and Coupang blocks, and adds one canonical URL", async () => {

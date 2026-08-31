@@ -1,9 +1,10 @@
 (() => {
   const DATA_URL = '/data/generated-posts.json';
   const IMAGE_DATA_URL = '/data/processed-tour-images.json';
+  const PEXELS_DATA_URL = '/data/pexels-images.json';
   const ROUTES_ID = 'routes';
   const PAGE_SIZE = 80;
-  const state = { posts: [], images: null, filter: { type: 'all', value: '' }, shown: PAGE_SIZE };
+  const state = { posts: [], images: null, pexelsImages: null, filter: { type: 'all', value: '' }, shown: PAGE_SIZE };
 
   const esc = (value = '') => String(value).replace(/[&<>"']/g, (match) => ({
     '&': '&amp;',
@@ -21,8 +22,16 @@
     return state.images?.items?.[post?.slug]?.cover?.src || '';
   }
 
+  function pexelsImage(post) {
+    return state.pexelsImages?.items?.[post?.slug]?.cover?.src || '';
+  }
+
   function processedAlt(post) {
     return state.images?.items?.[post?.slug]?.cover?.alt || '';
+  }
+
+  function pexelsAlt(post) {
+    return state.pexelsImages?.items?.[post?.slug]?.cover?.alt || '';
   }
 
   function compactRegion(value = '') {
@@ -35,12 +44,14 @@
     if (text.includes('전라') || text.includes('전북') || text.includes('전남') || text.includes('광주')) return '전라';
     if (text.includes('경상') || text.includes('경북') || text.includes('경남') || text.includes('부산') || text.includes('대구') || text.includes('울산')) return '경상';
     if (text.includes('제주')) return '제주';
+    if (/해외|일본|대만|태국|베트남|오사카|도쿄|후쿠오카|삿포로|교토|타이베이|방콕|다낭|싱가포르|홍콩|마카오|세부|보라카이|발리|괌|사이판|하와이|파리|런던|로마|바르셀로나|뉴욕/i.test(text)) return '해외';
     return text.split(/\s+/).filter(Boolean).slice(-1)[0] || text;
   }
 
   function normalizeCategory(value = '') {
     const text = String(value);
     if (/festival|event|공연|축제|행사|地域.*祭|节庆|節慶/i.test(text)) return '공연/축제';
+    if (/overseas|abroad|international|해외|일본|대만|태국|베트남|오사카|도쿄|타이베이|방콕|다낭/i.test(text)) return '해외여행';
     if (/travel|place|domestic|국내|가볼|여행지|観光|旅行|旅游/i.test(text)) return '국내여행';
     return '';
   }
@@ -54,16 +65,17 @@
     if (/jeolla|전라|전북|전남|광주/i.test(text)) return '전라';
     if (/gyeongsang|경상|경북|경남|부산|대구|울산/i.test(text)) return '경상';
     if (/jeju|제주/i.test(text)) return '제주';
+    if (/overseas|abroad|international|해외|일본|대만|태국|베트남|오사카|도쿄|타이베이|방콕|다낭/i.test(text)) return '해외';
     return '';
   }
 
   function card(post) {
-    const image = processedImage(post) || post.image || post.images?.[0] || '';
+    const image = processedImage(post) || pexelsImage(post) || post.image || post.images?.[0] || '';
     const title = post.sourceTitle || post.title || '여행 글';
     const meta = [post.category || '여행 정보', post.date || '', compactRegion(post.region)].filter(Boolean).join(' · ');
     const excerpt = post.excerpt || post.description || '';
     const thumb = image
-      ? `<span class="directory-thumb"><img src="${esc(image)}" alt="${esc(processedAlt(post) || post.alt || title)}" loading="lazy" /></span>`
+      ? `<span class="directory-thumb"><img src="${esc(image)}" alt="${esc(processedAlt(post) || pexelsAlt(post) || post.alt || title)}" loading="lazy" /></span>`
       : '';
     const summary = excerpt ? `<span class="topic-card-excerpt">${esc(excerpt)}</span>` : '';
     return `<a class="region-tab directory-tab topic-result-card" href="${esc(postHref(post))}" data-post-card="true">${thumb}<span class="directory-copy"><strong>${esc(title)}</strong><span>${esc(meta)}</span>${summary}<em>글 내용 보기</em></span></a>`;
@@ -227,6 +239,7 @@
     const [response] = await Promise.all([
       fetch(DATA_URL, { cache: 'no-store' }),
       loadImageManifest(),
+      loadPexelsManifest(),
     ]);
     if (!response.ok) throw new Error(`post data load failed: ${response.status}`);
     const posts = await response.json();
@@ -245,6 +258,17 @@
     return state.images;
   }
 
+  async function loadPexelsManifest() {
+    if (state.pexelsImages) return state.pexelsImages;
+    try {
+      const response = await fetch(PEXELS_DATA_URL, { cache: 'no-store' });
+      state.pexelsImages = response.ok ? await response.json() : { items: {} };
+    } catch {
+      state.pexelsImages = { items: {} };
+    }
+    return state.pexelsImages;
+  }
+
   function inferFilter(link) {
     const rawText = (link.textContent || '').replace(/\s+/g, ' ').trim();
     const href = link.getAttribute('href') || '';
@@ -261,7 +285,7 @@
 
   function homepageUrlFor(filter) {
     const params = new URLSearchParams();
-    if (filter.type === 'category') params.set('topic', filter.value === '공연/축제' ? 'festival' : 'domestic');
+    if (filter.type === 'category') params.set('topic', filter.value === '공연/축제' ? 'festival' : filter.value === '해외여행' ? 'overseas' : 'domestic');
     if (filter.type === 'region') params.set('region', filter.value);
     const query = params.toString();
     return `/${query ? `?${query}` : ''}#routes`;
@@ -279,7 +303,7 @@
       url.hash = ROUTES_ID;
       url.searchParams.delete('topic');
       url.searchParams.delete('region');
-      if (filter.type === 'category') url.searchParams.set('topic', filter.value === '공연/축제' ? 'festival' : 'domestic');
+      if (filter.type === 'category') url.searchParams.set('topic', filter.value === '공연/축제' ? 'festival' : filter.value === '해외여행' ? 'overseas' : 'domestic');
       if (filter.type === 'region') url.searchParams.set('region', filter.value);
       window.history.replaceState({}, '', `${url.pathname}${url.search}${url.hash}`);
     }
@@ -295,7 +319,7 @@
     if (!link?.href || link.target || link.matches('[data-lang]')) return false;
     const url = new URL(link.href, window.location.href);
     if (url.origin !== window.location.origin) return false;
-    return /^\/(?:travel-\d+|festival-\d+|[a-z0-9-]+-2026|sejong-culture-center-jochiwon)\/?$/i.test(url.pathname);
+    return /^\/(?:travel-[a-z0-9-]+|festival-\d+|[a-z0-9-]+-2026|sejong-culture-center-jochiwon)\/?$/i.test(url.pathname);
   }
 
   function openArticle(link, event) {
@@ -342,6 +366,7 @@
     const topic = params.get('topic');
     const region = params.get('region');
     if (topic === 'festival') return applyFilter({ type: 'category', value: '공연/축제' }, false);
+    if (topic === 'overseas') return applyFilter({ type: 'category', value: '해외여행' }, false);
     if (topic === 'domestic') return applyFilter({ type: 'category', value: '국내여행' }, false);
     if (region) return applyFilter({ type: 'region', value: normalizeRegion(region) || region }, false);
     if (window.location.hash === '#routes') {

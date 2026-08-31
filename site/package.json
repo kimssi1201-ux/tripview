@@ -5,7 +5,7 @@
   "type": "module",
   "description": "Data-driven Korean travel magazine with RSS, sitemap, and scheduled post update workflow.",
   "scripts": {
-    "build": "node scripts/merge-manual-posts.mjs && node scripts/apply-editorial-review.mjs && node scripts/fix-invalid-regions.mjs && node scripts/render-valley-pages.mjs && node scripts/polish-contextual-copy.mjs --reviewed && node scripts/process-tour-images.mjs && node scripts/fetch-myrealtrip-accommodations.mjs && node scripts/apply-homepage-content-config.mjs && node scripts/build-www.mjs",
+    "build": "node scripts/merge-manual-posts.mjs && node scripts/apply-editorial-review.mjs && node scripts/fix-invalid-regions.mjs && node scripts/render-valley-pages.mjs && node scripts/polish-contextual-copy.mjs --reviewed && node scripts/fetch-pexels-images.mjs && node scripts/process-tour-images.mjs && node scripts/render-manual-pages.mjs && node scripts/fetch-myrealtrip-accommodations.mjs && node scripts/apply-homepage-content-config.mjs && node scripts/build-www.mjs",
     "test": "node --test tests/*.test.mjs",
     "lint": "node scripts/check-syntax.mjs",
     "audit:content": "node scripts/audit-content-quality.mjs",

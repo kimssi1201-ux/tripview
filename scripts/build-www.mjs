@@ -56,7 +56,7 @@ const BEACH_POST_SLUGS = new Set([
   "travel-129400",
 ]);
 const CATEGORY_PAGES = [
-  { path: "/travel/", title: "여행지", description: "물놀이·계곡, 실내여행, 아이와, 이번 주말 글을 태그로 묶어 국내 여행지를 탐색합니다." },
+  { path: "/travel/", title: "여행지", description: "9월 해외여행, 가을·단풍, 물놀이·계곡, 실내여행, 아이와, 이번 주말 글을 태그로 묶어 여행지를 탐색합니다." },
   { path: "/festival/", title: "축제", description: "전국 축제와 행사를 지역, 일정, 방문 전 확인 포인트 중심으로 모았습니다." },
   { path: "/stay/", title: "숙소", description: "지역별 숙소, 숙소 가격 비교, 숙소 상세 리뷰를 한곳에서 확인합니다." },
   { path: "/ticket/", title: "입장권·투어", description: "지역별 입장권 가격 모음과 여행지별 체험·투어 상품을 분리해 확인합니다." },
@@ -127,6 +127,7 @@ const REGION_SLUGS = new Map([
   ["경북", "gyeongbuk"],
   ["경남", "gyeongnam"],
   ["제주", "jeju"],
+  ["해외", "overseas"],
   ["기타", "other"],
 ]);
 
@@ -311,6 +312,7 @@ function compactRegion(value = "") {
   if (text.includes("경상북도") || text.includes("경북")) return "경북";
   if (text.includes("경상남도") || text.includes("경남")) return "경남";
   if (text.includes("제주")) return "제주";
+  if (/해외|일본|대만|태국|베트남|오사카|도쿄|후쿠오카|삿포로|교토|타이베이|방콕|다낭|싱가포르|홍콩|마카오|세부|보라카이|발리|괌|사이판|하와이|파리|런던|로마|바르셀로나|뉴욕/i.test(text)) return "해외";
   return text.split(/\s+/)[0] || "기타";
 }
 
@@ -831,6 +833,7 @@ function ensureRobotsMeta(document, indexable) {
 
 function articleActivePath(post = {}) {
   if (isFestivalPost(post)) return "/festival/";
+  if (normalizeText(post?.category) === "해외여행") return "/travel/";
   const text = searchablePostText(post);
   if (post?.dataPipeline?.kind === "ticket-price" || /입장권|티켓|관람권|이용권|액티비티/.test(text)) return "/ticket/";
   if (isLodgingPost(post) || /숙소|호텔|예약/.test(text)) return "/stay/";
@@ -1076,6 +1079,8 @@ function hubPageStyle() {
 .block-note,.affiliate-note{margin:0;color:var(--muted);font-size:13px}
 .story-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
 .story-list .story-card{height:100%}
+.story-card.no-image{padding:16px}
+.story-card.no-image .story-card-body{padding:0}
 .stay-slot{margin-right:calc((100vw - min(1180px,calc(100vw - 32px))) / -2);margin-left:calc((100vw - min(1180px,calc(100vw - 32px))) / -2);padding-right:calc((100vw - min(1180px,calc(100vw - 32px))) / 2);padding-left:calc((100vw - min(1180px,calc(100vw - 32px))) / 2);background:color-mix(in srgb,var(--brand) 5%,var(--bg))}
 .mrt-accommodation-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .mrt-accommodation-grid[data-count="1"]{grid-template-columns:minmax(0,1fr)}
@@ -1151,12 +1156,12 @@ function hubPageStyle() {
 @media(max-width:520px){.booking-city-grid{grid-template-columns:1fr}.booking-product-card{grid-template-columns:96px minmax(0,1fr);gap:12px;padding:10px}.booking-product-title{font-size:15px}.booking-product-price{font-size:16px}}`;
 }
 
-function storyCard(post) {
+function storyCard(post, { allowNoImage = false } = {}) {
   const image = postCardImage(post);
-  if (!image) return "";
-  const thumb = `<span class="story-thumb"><img src="${html(image)}" alt="${html(postTitle(post))}" loading="lazy"></span>`;
+  if (!image && !allowNoImage) return "";
+  const thumb = image ? `<span class="story-thumb"><img src="${html(image)}" alt="${html(postTitle(post))}" loading="lazy"></span>` : "";
   const meta = [formatDate(postDate(post)), `${Math.max(2, Math.ceil((postSummary(post, 220).length + postTitle(post).length) / 120))}분 읽기`].filter(Boolean).join(" · ");
-  return `<a class="story-card" href="/${encodeURIComponent(post.slug)}/">
+  return `<a class="story-card${image ? "" : " no-image"}" href="/${encodeURIComponent(post.slug)}/">
     ${thumb}
     <span class="story-card-body">
       <span class="story-label">${html([festivalCardStatus(post), post?.category || "여행지", compactRegion(post?.region)].filter(Boolean).join(" · "))}</span>
@@ -1436,8 +1441,9 @@ function bookingCategoryPageHtml({ path, type, title, description, products = []
 
 function sectionBlock({ id, title, posts, note = "", preserveOrder = false }) {
   const sourcePosts = preserveOrder ? posts : sortedPosts(posts);
-  const items = sourcePosts.filter((post) => postCardImage(post)).slice(0, 9);
-  const cards = items.map(storyCard).filter(Boolean);
+  const allowNoImage = id === "tag-overseas";
+  const items = sourcePosts.filter((post) => allowNoImage || postCardImage(post)).slice(0, 9);
+  const cards = items.map((post) => storyCard(post, { allowNoImage })).filter(Boolean);
   if (cards.length < 3) return "";
   return `<section class="block" id="${html(id)}" aria-labelledby="${html(id)}-title">
     <div class="block-head">
@@ -1637,10 +1643,12 @@ async function generateHubPages() {
   const travelPosts = sortedPosts(indexablePosts.filter((post) => !isFestivalPost(post)));
   const festivalPosts = sortedPosts(indexablePosts.filter(isFestivalPost));
   const fallKeywords = ["단풍"];
+  const overseasKeywords = ["해외", "9월 해외여행", "일본", "대만", "태국", "베트남", "오사카", "타이베이", "방콕", "다낭"];
   const waterKeywords = ["수영장", "계곡", "해수욕장", "해변", "바다", "물놀이", "워터파크", "폭포", "수변"];
   const indoorKeywords = ["실내", "박물관", "미술관", "전시", "문화", "센터", "아트", "공연장"];
   const familyKeywords = ["아이", "가족", "어린이", "체험", "공원", "생태", "자연학습"];
   const fallPosts = travelPosts.filter((post) => hasKeyword(post, fallKeywords));
+  const overseasPosts = travelPosts.filter((post) => normalizeText(post?.category) === "해외여행" || hasKeyword(post, overseasKeywords));
   const nonFallTravelPosts = travelPosts.filter((post) => !hasKeyword(post, fallKeywords));
   const beachWaterPosts = sortedPosts(nonFallTravelPosts.filter((post) => BEACH_POST_SLUGS.has(post.slug)));
   const otherWaterPosts = sortedPosts(nonFallTravelPosts.filter((post) => !BEACH_POST_SLUGS.has(post.slug) && hasKeyword(post, waterKeywords)));
@@ -1656,6 +1664,7 @@ async function generateHubPages() {
     description: CATEGORY_PAGES[0].description,
     posts: travelPosts,
     tags: [
+      overseasPosts.length ? { label: "9월 해외여행", href: "#tag-overseas" } : null,
       fallPosts.length ? { label: "가을·단풍", href: "#tag-fall" } : null,
       { label: "이번 주말", href: "#tag-weekend" },
       { label: "물놀이·계곡", href: "#tag-water" },
@@ -1663,6 +1672,7 @@ async function generateHubPages() {
       { label: "아이와", href: "#tag-family" },
     ].filter(Boolean),
     sections: [
+      { id: "tag-overseas", title: "9월 해외여행", posts: overseasPosts, note: "가까운 해외 도시와 휴양지를 계절 변수 중심으로 정리" },
       { id: "tag-fall", title: "가을·단풍", posts: fallPosts, note: "계절 키워드 글을 별도 묶음으로 노출" },
       { id: "tag-weekend", title: "이번 주말", posts: travelPosts.filter((post) => Array.isArray(post.editorialTopics) && post.editorialTopics.includes("weekend")), note: "기존 이번 주말 카테고리를 태그로 전환" },
       { id: "tag-water", title: "물놀이·계곡", posts: waterPosts, note: "기존 물놀이 카테고리를 태그로 전환", preserveOrder: true },

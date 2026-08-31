@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-30T21:11:05.169Z",
+  "generatedAt": "2026-08-31T15:06:35.686Z",
   "source": "한국관광공사 공공누리",
   "assetBasePath": "/assets/processed/",
   "items": {
@@ -710,20 +710,10 @@
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/35/4060435_image2_1.jpg",
-        "src": "/assets/processed/seoul-festival-iljeong-jeongri-festival-hero.webp",
-        "alt": "서울 서울 축제 일정 정리 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
+      "hero": null,
       "banner": {
         "kind": "hub-banner",
         "original": "https://tong.visitkorea.or.kr/cms/resource/35/4060435_image2_1.jpg",
@@ -734,7 +724,8 @@
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false
+        "posterCanvas": false,
+        "bytes": null
       },
       "images": []
     },

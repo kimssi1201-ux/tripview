@@ -121,6 +121,8 @@ button,input,select{font:inherit}
 .block-note,.affiliate-note{margin:0;color:var(--muted);font-size:13px}
 .story-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
 .story-list .story-card{height:100%}
+.story-card.no-image{padding:16px}
+.story-card.no-image .story-card-body{padding:0}
 .stay-slot{margin-right:calc((100vw - min(1180px,calc(100vw - 32px))) / -2);margin-left:calc((100vw - min(1180px,calc(100vw - 32px))) / -2);padding-right:calc((100vw - min(1180px,calc(100vw - 32px))) / 2);padding-left:calc((100vw - min(1180px,calc(100vw - 32px))) / 2);background:color-mix(in srgb,var(--brand) 5%,var(--bg))}
 .mrt-accommodation-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .mrt-accommodation-grid[data-count="1"]{grid-template-columns:minmax(0,1fr)}
@@ -205,7 +207,7 @@ button,input,select{font:inherit}
           <details class="nav-group">
       <summary class="nav-summary">여행지</summary>
       <div class="nav-dropdown">
-        <a href="/region/"><span class="nav-item-icon" aria-hidden="true">지</span><span class="nav-item-text"><span class="nav-item-label">지역별</span><span class="nav-item-desc">지역 허브에서 글과 숙소를 함께 봅니다.</span></span></a><a href="/travel/#tag-water"><span class="nav-item-icon" aria-hidden="true">테</span><span class="nav-item-text"><span class="nav-item-label">테마별</span><span class="nav-item-desc">물놀이·실내·아이와 태그를 모았습니다.</span></span></a><a href="/travel/#all-posts"><span class="nav-item-icon" aria-hidden="true">전</span><span class="nav-item-text"><span class="nav-item-label">전국 관광지</span><span class="nav-item-desc">검수된 전국 여행지 글 목록입니다.</span></span></a>
+        <a href="/region/"><span class="nav-item-icon" aria-hidden="true">지</span><span class="nav-item-text"><span class="nav-item-label">지역별</span><span class="nav-item-desc">지역 허브에서 글과 숙소를 함께 봅니다.</span></span></a><a href="/travel/#tag-water"><span class="nav-item-icon" aria-hidden="true">테</span><span class="nav-item-text"><span class="nav-item-label">테마별</span><span class="nav-item-desc">물놀이·실내·아이와 태그를 모았습니다.</span></span></a><a href="/travel/#tag-overseas"><span class="nav-item-icon" aria-hidden="true">해</span><span class="nav-item-text"><span class="nav-item-label">해외여행</span><span class="nav-item-desc">9월에 보기 좋은 해외 도시 글입니다.</span></span></a><a href="/travel/#all-posts"><span class="nav-item-icon" aria-hidden="true">전</span><span class="nav-item-text"><span class="nav-item-label">전국 관광지</span><span class="nav-item-desc">검수된 전국 여행지 글 목록입니다.</span></span></a>
       </div>
     </details><details class="nav-group is-active">
       <summary class="nav-summary">축제·행사</summary>

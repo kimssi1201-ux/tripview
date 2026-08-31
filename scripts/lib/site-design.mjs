@@ -24,6 +24,7 @@ const NAV_GROUPS = [
     items: [
       { href: "/region/", icon: "지", label: "지역별", description: "지역 허브에서 글과 숙소를 함께 봅니다." },
       { href: "/travel/#tag-water", icon: "테", label: "테마별", description: "물놀이·실내·아이와 태그를 모았습니다." },
+      { href: "/travel/#tag-overseas", icon: "해", label: "해외여행", description: "9월에 보기 좋은 해외 도시 글입니다." },
       { href: "/travel/#all-posts", icon: "전", label: "전국 관광지", description: "검수된 전국 여행지 글 목록입니다." },
     ],
   },

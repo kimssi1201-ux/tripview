@@ -115,7 +115,7 @@ function clearReviewFields(post) {
       editorialAuthorProfile: post.editorialAuthorProfile || "/editorial-team",
     };
   }
-  if (reviewedManualSlugs.has(post?.slug)) {
+  if (reviewedManualSlugs.has(post?.slug) || (post?.renderManualPage && post?.editorialStatus === "reviewed")) {
     return {
       ...post,
       editorialStatus: "reviewed",
