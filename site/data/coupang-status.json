@@ -1,7 +1,7 @@
 {
   "ok": true,
   "configured": true,
-  "productCount": 68,
+  "productCount": 72,
   "searchCount": 9,
   "searches": [
     {
@@ -47,9 +47,9 @@
     {
       "intent": "indoor",
       "keyword": "장마 우산",
-      "count": 4
+      "count": 8
     }
   ],
   "errors": [],
-  "updatedAt": "2026-08-30T22:02:06.043Z"
+  "updatedAt": "2026-08-31T20:57:35.271Z"
 }

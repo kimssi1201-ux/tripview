@@ -1,6 +1,6 @@
 {
-  "updatedDate": "2026-08-31",
-  "generatedAt": "2026-08-30T18:41:21.257Z",
+  "updatedDate": "2026-09-01",
+  "generatedAt": "2026-08-31T20:55:21.478Z",
   "source": "myrealtrip-accommodation-region-autocomplete",
   "endpoint": "/v1/products/accommodation/region-autocomplete",
   "regions": {
@@ -132,14 +132,6 @@
       "type": "CITY",
       "sourceName": "거창"
     },
-    "경주": {
-      "keyword": "경주",
-      "name": "경주",
-      "slug": "경주",
-      "regionId": "21951",
-      "type": "CITY",
-      "sourceName": "경주"
-    },
     "괴산": {
       "keyword": "괴산",
       "name": "괴산",
@@ -187,6 +179,14 @@
       "regionId": "85807",
       "type": "CITY",
       "sourceName": "화성"
+    },
+    "경주": {
+      "keyword": "경주",
+      "name": "경주",
+      "slug": "경주",
+      "regionId": "21951",
+      "type": "CITY",
+      "sourceName": "경주"
     },
     "고창": {
       "keyword": "고창",
@@ -259,6 +259,14 @@
       "regionId": "1609",
       "type": "CITY",
       "sourceName": "군산"
+    },
+    "나주": {
+      "keyword": "나주",
+      "name": "나주",
+      "slug": "나주",
+      "regionId": "191723",
+      "type": "CITY",
+      "sourceName": "나주"
     },
     "삼척": {
       "keyword": "삼척",
@@ -364,14 +372,6 @@
       "type": "CITY",
       "sourceName": "진천"
     },
-    "칠곡": {
-      "keyword": "칠곡",
-      "name": "칠곡",
-      "slug": "칠곡",
-      "regionId": "194242",
-      "type": "CITY",
-      "sourceName": "칠곡"
-    },
     "통영": {
       "keyword": "통영",
       "name": "통영",
@@ -403,14 +403,6 @@
       "regionId": "199897",
       "type": "CITY",
       "sourceName": "김천"
-    },
-    "나주": {
-      "keyword": "나주",
-      "name": "나주",
-      "slug": "나주",
-      "regionId": "191723",
-      "type": "CITY",
-      "sourceName": "나주"
     },
     "단양": {
       "keyword": "단양",
@@ -507,6 +499,14 @@
       "regionId": "86275",
       "type": "CITY",
       "sourceName": "춘천"
+    },
+    "칠곡": {
+      "keyword": "칠곡",
+      "name": "칠곡",
+      "slug": "칠곡",
+      "regionId": "194242",
+      "type": "CITY",
+      "sourceName": "칠곡"
     },
     "포천": {
       "keyword": "포천",
