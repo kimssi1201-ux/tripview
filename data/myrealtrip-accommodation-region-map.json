@@ -1,9 +1,45 @@
 {
   "updatedDate": "2026-09-02",
-  "generatedAt": "2026-09-01T18:40:41.050Z",
+  "generatedAt": "2026-09-01T21:08:18.123Z",
   "source": "myrealtrip-accommodation-region-autocomplete",
   "endpoint": "/v1/products/accommodation/region-autocomplete",
   "regions": {
+    "오사카": {
+      "keyword": "오사카",
+      "name": "오사카",
+      "slug": "오사카",
+      "regionId": "2225",
+      "type": "CITY",
+      "isDomestic": false,
+      "sourceName": "오사카"
+    },
+    "타이베이": {
+      "keyword": "타이베이",
+      "name": "타이베이",
+      "slug": "타이베이",
+      "regionId": "2894",
+      "type": "CITY",
+      "isDomestic": false,
+      "sourceName": "타이베이"
+    },
+    "다낭": {
+      "keyword": "다낭",
+      "name": "다낭",
+      "slug": "다낭",
+      "regionId": "171691",
+      "type": "CITY",
+      "isDomestic": false,
+      "sourceName": "다낭"
+    },
+    "방콕": {
+      "keyword": "방콕",
+      "name": "방콕",
+      "slug": "방콕",
+      "regionId": "524",
+      "type": "CITY",
+      "isDomestic": false,
+      "sourceName": "방콕"
+    },
     "seoul": {
       "keyword": "서울",
       "name": "서울",
@@ -85,24 +121,6 @@
       "isDomestic": true,
       "sourceName": "전주"
     },
-    "고흥": {
-      "keyword": "고흥",
-      "name": "고흥",
-      "slug": "고흥",
-      "regionId": "211321",
-      "type": "CITY",
-      "isDomestic": true,
-      "sourceName": "고흥"
-    },
-    "평창": {
-      "keyword": "평창",
-      "name": "평창",
-      "slug": "평창",
-      "regionId": "78440",
-      "type": "CITY",
-      "isDomestic": true,
-      "sourceName": "평창"
-    },
     "구례": {
       "keyword": "구례",
       "name": "구례",
@@ -111,6 +129,15 @@
       "type": "CITY",
       "isDomestic": true,
       "sourceName": "구례"
+    },
+    "고흥": {
+      "keyword": "고흥",
+      "name": "고흥",
+      "slug": "고흥",
+      "regionId": "211321",
+      "type": "CITY",
+      "isDomestic": true,
+      "sourceName": "고흥"
     },
     "문경": {
       "keyword": "문경",
@@ -139,14 +166,14 @@
       "isDomestic": true,
       "sourceName": "울산"
     },
-    "원주": {
-      "keyword": "원주",
-      "name": "원주",
-      "slug": "원주",
-      "regionId": "57811",
+    "평창": {
+      "keyword": "평창",
+      "name": "평창",
+      "slug": "평창",
+      "regionId": "78440",
       "type": "CITY",
       "isDomestic": true,
-      "sourceName": "원주"
+      "sourceName": "평창"
     },
     "거창": {
       "keyword": "거창",
@@ -229,14 +256,14 @@
       "isDomestic": true,
       "sourceName": "남해"
     },
-    "횡성": {
-      "keyword": "횡성",
-      "name": "횡성",
-      "slug": "횡성",
-      "regionId": "201724",
+    "원주": {
+      "keyword": "원주",
+      "name": "원주",
+      "slug": "원주",
+      "regionId": "57811",
       "type": "CITY",
       "isDomestic": true,
-      "sourceName": "횡성"
+      "sourceName": "원주"
     },
     "고창": {
       "keyword": "고창",
@@ -274,14 +301,14 @@
       "isDomestic": true,
       "sourceName": "양양"
     },
-    "춘천": {
-      "keyword": "춘천",
-      "name": "춘천",
-      "slug": "춘천",
-      "regionId": "86275",
+    "횡성": {
+      "keyword": "횡성",
+      "name": "횡성",
+      "slug": "횡성",
+      "regionId": "201724",
       "type": "CITY",
       "isDomestic": true,
-      "sourceName": "춘천"
+      "sourceName": "횡성"
     },
     "공주": {
       "keyword": "공주",
@@ -336,6 +363,15 @@
       "type": "CITY",
       "isDomestic": true,
       "sourceName": "영월"
+    },
+    "춘천": {
+      "keyword": "춘천",
+      "name": "춘천",
+      "slug": "춘천",
+      "regionId": "86275",
+      "type": "CITY",
+      "isDomestic": true,
+      "sourceName": "춘천"
     },
     "홍천": {
       "keyword": "홍천",
@@ -399,15 +435,6 @@
       "type": "CITY",
       "isDomestic": true,
       "sourceName": "음성"
-    },
-    "인제": {
-      "keyword": "인제",
-      "name": "인제",
-      "slug": "인제",
-      "regionId": "192749",
-      "type": "CITY",
-      "isDomestic": true,
-      "sourceName": "인제"
     },
     "장수": {
       "keyword": "장수",
@@ -508,15 +535,6 @@
       "isDomestic": true,
       "sourceName": "순천"
     },
-    "안산": {
-      "keyword": "안산",
-      "name": "안산",
-      "slug": "안산",
-      "regionId": "192769",
-      "type": "CITY",
-      "isDomestic": true,
-      "sourceName": "안산"
-    },
     "안성": {
       "keyword": "안성",
       "name": "안성",
@@ -543,6 +561,15 @@
       "type": "CITY",
       "isDomestic": true,
       "sourceName": "옥천"
+    },
+    "인제": {
+      "keyword": "인제",
+      "name": "인제",
+      "slug": "인제",
+      "regionId": "192749",
+      "type": "CITY",
+      "isDomestic": true,
+      "sourceName": "인제"
     },
     "장흥": {
       "keyword": "장흥",
@@ -679,6 +706,15 @@
       "isDomestic": true,
       "sourceName": "신안"
     },
+    "안산": {
+      "keyword": "안산",
+      "name": "안산",
+      "slug": "안산",
+      "regionId": "192769",
+      "type": "CITY",
+      "isDomestic": true,
+      "sourceName": "안산"
+    },
     "영암": {
       "keyword": "영암",
       "name": "영암",
@@ -723,15 +759,6 @@
       "type": "CITY",
       "isDomestic": true,
       "sourceName": "용인"
-    },
-    "익산": {
-      "keyword": "익산",
-      "name": "익산",
-      "slug": "익산",
-      "regionId": "201592",
-      "type": "CITY",
-      "isDomestic": true,
-      "sourceName": "익산"
     },
     "진주": {
       "keyword": "진주",
@@ -831,33 +858,6 @@
       "type": "CITY",
       "isDomestic": true,
       "sourceName": "남양주"
-    },
-    "담양": {
-      "keyword": "담양",
-      "name": "담양",
-      "slug": "담양",
-      "regionId": "191076",
-      "type": "CITY",
-      "isDomestic": true,
-      "sourceName": "담양"
-    },
-    "당진": {
-      "keyword": "당진",
-      "name": "당진",
-      "slug": "당진",
-      "regionId": "211302",
-      "type": "CITY",
-      "isDomestic": true,
-      "sourceName": "당진"
-    },
-    "보령": {
-      "keyword": "보령",
-      "name": "보령",
-      "slug": "보령",
-      "regionId": "83390",
-      "type": "CITY",
-      "isDomestic": true,
-      "sourceName": "보령"
     }
   }
 }

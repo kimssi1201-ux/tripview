@@ -1,181 +1,5 @@
 [
   {
-    "id": "tna-6160511",
-    "type": "tna",
-    "title": "엘리시안 강촌 야외수영장",
-    "url": "https://experiences.myrealtrip.com/products/6160511",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/06/29/gBoH/pV1oieKjmr.jpg",
-    "price": 16000,
-    "priceText": "16,000원부터",
-    "region": "춘천",
-    "city": "춘천",
-    "category": "입장권",
-    "description": "춘천 ∙ 입장권 · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "춘천",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "transport"
-    ],
-    "gid": "6160511",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/6160511",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-6176063",
-    "type": "tna",
-    "title": "[당일사용] 춘천 삼악산 호수 케이블카 (7월~8월 입장권)",
-    "url": "https://experiences.myrealtrip.com/products/6176063",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/25/M5jz/crMphx15Vz",
-    "price": 17500,
-    "priceText": "17,500원부터",
-    "region": "춘천",
-    "city": "춘천",
-    "category": "입장권",
-    "description": "춘천 ∙ 입장권 · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "춘천",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "transport"
-    ],
-    "gid": "6176063",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/6176063",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-6118003",
-    "type": "tna",
-    "title": "[춘천투어패스] 춘천투어패스 라이트권",
-    "url": "https://experiences.myrealtrip.com/products/6118003",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/06/22/ez55/vqygLqv5NG.jpg",
-    "price": 17900,
-    "priceText": "17,900원부터",
-    "region": "춘천",
-    "city": "춘천",
-    "category": "티켓·입장권",
-    "description": "춘천 ∙ 티켓·입장권 · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "춘천",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "transport",
-      "tour"
-    ],
-    "gid": "6118003",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/6118003",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-6407550",
-    "type": "tna",
-    "title": "[당일사용] 춘천 삼악산 호수 케이블카 (9월~11월 입장권)",
-    "url": "https://experiences.myrealtrip.com/products/6407550",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/31/FImw/MkfgcZyZSd",
-    "price": 18000,
-    "priceText": "18,000원부터",
-    "region": "춘천",
-    "city": "춘천",
-    "category": "입장권",
-    "description": "춘천 ∙ 입장권 · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "춘천",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "transport"
-    ],
-    "gid": "6407550",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/6407550",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-6118103",
-    "type": "tna",
-    "title": "[강원] 삼악산케이블카X플레이정글 춘천엔타점 PKG",
-    "url": "https://experiences.myrealtrip.com/products/6118103",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/23/UF6R/ypo8U2Vivb.jpg",
-    "price": 24000,
-    "priceText": "24,000원부터",
-    "region": "강원도",
-    "city": "강원도",
-    "category": "입장권",
-    "description": "강원도 ∙ 입장권 · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "강원도",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "transport"
-    ],
-    "gid": "6118103",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/6118103",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-6301361",
-    "type": "tna",
-    "title": "[춘천투어패스] 춘천투어패스 라이트권 24시간+실레마을PKG",
-    "url": "https://experiences.myrealtrip.com/products/6301361",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/03/GPOi/2V4wXkaQzU.jpg",
-    "price": 24900,
-    "priceText": "24,900원부터",
-    "region": "춘천",
-    "city": "춘천",
-    "category": "입장권",
-    "description": "춘천 ∙ 입장권 · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "춘천",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "transport",
-      "tour"
-    ],
-    "gid": "6301361",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/6301361",
-    "source": "myrealtrip-tna"
-  },
-  {
     "id": "tna-3884071",
     "type": "tna",
     "title": "체육 전공자 안재만의 양양 마린서프에서 즐기는 SUP(패들보드) (강습/렌탈)",
@@ -1350,6 +1174,182 @@
     "source": "myrealtrip-tna"
   },
   {
+    "id": "tna-6160511",
+    "type": "tna",
+    "title": "엘리시안 강촌 야외수영장",
+    "url": "https://experiences.myrealtrip.com/products/6160511",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/06/29/gBoH/pV1oieKjmr.jpg",
+    "price": 16000,
+    "priceText": "16,000원부터",
+    "region": "춘천",
+    "city": "춘천",
+    "category": "입장권",
+    "description": "춘천 ∙ 입장권 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "춘천",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport"
+    ],
+    "gid": "6160511",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/6160511",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6176063",
+    "type": "tna",
+    "title": "[당일사용] 춘천 삼악산 호수 케이블카 (7월~8월 입장권)",
+    "url": "https://experiences.myrealtrip.com/products/6176063",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/25/M5jz/crMphx15Vz",
+    "price": 17500,
+    "priceText": "17,500원부터",
+    "region": "춘천",
+    "city": "춘천",
+    "category": "입장권",
+    "description": "춘천 ∙ 입장권 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "춘천",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport"
+    ],
+    "gid": "6176063",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/6176063",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6118003",
+    "type": "tna",
+    "title": "[춘천투어패스] 춘천투어패스 라이트권",
+    "url": "https://experiences.myrealtrip.com/products/6118003",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/06/22/ez55/vqygLqv5NG.jpg",
+    "price": 17900,
+    "priceText": "17,900원부터",
+    "region": "춘천",
+    "city": "춘천",
+    "category": "티켓·입장권",
+    "description": "춘천 ∙ 티켓·입장권 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "춘천",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport",
+      "tour"
+    ],
+    "gid": "6118003",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/6118003",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6407550",
+    "type": "tna",
+    "title": "[당일사용] 춘천 삼악산 호수 케이블카 (9월~11월 입장권)",
+    "url": "https://experiences.myrealtrip.com/products/6407550",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/31/FImw/MkfgcZyZSd",
+    "price": 18000,
+    "priceText": "18,000원부터",
+    "region": "춘천",
+    "city": "춘천",
+    "category": "입장권",
+    "description": "춘천 ∙ 입장권 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "춘천",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport"
+    ],
+    "gid": "6407550",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/6407550",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6118103",
+    "type": "tna",
+    "title": "[강원] 삼악산케이블카X플레이정글 춘천엔타점 PKG",
+    "url": "https://experiences.myrealtrip.com/products/6118103",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/23/UF6R/ypo8U2Vivb.jpg",
+    "price": 24000,
+    "priceText": "24,000원부터",
+    "region": "강원도",
+    "city": "강원도",
+    "category": "입장권",
+    "description": "강원도 ∙ 입장권 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "강원도",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport"
+    ],
+    "gid": "6118103",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/6118103",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6301361",
+    "type": "tna",
+    "title": "[춘천투어패스] 춘천투어패스 라이트권 24시간+실레마을PKG",
+    "url": "https://experiences.myrealtrip.com/products/6301361",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/03/GPOi/2V4wXkaQzU.jpg",
+    "price": 24900,
+    "priceText": "24,900원부터",
+    "region": "춘천",
+    "city": "춘천",
+    "category": "입장권",
+    "description": "춘천 ∙ 입장권 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "춘천",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport",
+      "tour"
+    ],
+    "gid": "6301361",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/6301361",
+    "source": "myrealtrip-tna"
+  },
+  {
     "id": "tna-6117022",
     "type": "tna",
     "title": "[충남 당진] ★특가★월드아트 서커스",
@@ -1729,6 +1729,96 @@
     "source": "myrealtrip-tna"
   },
   {
+    "id": "tna-6117990",
+    "type": "tna",
+    "title": "[전북투어패스] 프리미엄권",
+    "url": "https://experiences.myrealtrip.com/products/6117990",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/07/24/EKlG/5c9TuOmZOb.jpg",
+    "price": 15900,
+    "priceText": "15,900원부터",
+    "region": "전주",
+    "city": "전주",
+    "category": "입장권",
+    "description": "전주 ∙ 입장권 · 평점 2(1개) · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "전주",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport",
+      "tour"
+    ],
+    "gid": "6117990",
+    "reviewScore": 2,
+    "reviewCount": 1,
+    "deepLink": "mrt://experiences/detail/6117990",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6117790",
+    "type": "tna",
+    "title": "[전북투어패스] 전북투어패스 1일권&전주 한옥레일바이크 PKG",
+    "url": "https://experiences.myrealtrip.com/products/6117790",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/07/24/TnZt/Ni4ULfhdGW.jpg",
+    "price": 15900,
+    "priceText": "15,900원부터",
+    "region": "전주",
+    "city": "전주",
+    "category": "입장권",
+    "description": "전주 ∙ 입장권 · 평점 5(1개) · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "전주",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport",
+      "tour"
+    ],
+    "gid": "6117790",
+    "reviewScore": 5,
+    "reviewCount": 1,
+    "deepLink": "mrt://experiences/detail/6117790",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6117791",
+    "type": "tna",
+    "title": "[전북투어패스] 전주한옥마을권 PKG",
+    "url": "https://experiences.myrealtrip.com/products/6117791",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/06/22/NNyO/xIWOCOsZZF.jpg",
+    "price": 18800,
+    "priceText": "18,800원부터",
+    "region": "전주",
+    "city": "전주",
+    "category": "입장권",
+    "description": "전주 ∙ 입장권 · 평점 4.8(4개) · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "전주",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport",
+      "tour"
+    ],
+    "gid": "6117791",
+    "reviewScore": 4.8,
+    "reviewCount": 4,
+    "deepLink": "mrt://experiences/detail/6117791",
+    "source": "myrealtrip-tna"
+  },
+  {
     "id": "tna-6117861",
     "type": "tna",
     "title": "[경북투어패스] 경북투어패스 통합권",
@@ -1873,36 +1963,6 @@
     "reviewScore": "",
     "reviewCount": "",
     "deepLink": "mrt://experiences/detail/6114872",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-6118137",
-    "type": "tna",
-    "title": "[전북] 썬웨이어드벤처워터파크★폭탄할인★얼리버드 입장권!!",
-    "url": "https://experiences.myrealtrip.com/products/6118137",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/19/c4u7/1Lun9ZWqmW.jpg",
-    "price": 18000,
-    "priceText": "18,000원부터",
-    "region": "순창",
-    "city": "순창",
-    "category": "입장권",
-    "description": "순창 ∙ 입장권 · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "순창",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "transport",
-      "water"
-    ],
-    "gid": "6118137",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/6118137",
     "source": "myrealtrip-tna"
   },
   {
@@ -3052,66 +3112,6 @@
     "source": "myrealtrip-tna"
   },
   {
-    "id": "tna-6117990",
-    "type": "tna",
-    "title": "[전북투어패스] 프리미엄권",
-    "url": "https://experiences.myrealtrip.com/products/6117990",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/07/24/EKlG/5c9TuOmZOb.jpg",
-    "price": 15900,
-    "priceText": "15,900원부터",
-    "region": "전주",
-    "city": "전주",
-    "category": "입장권",
-    "description": "전주 ∙ 입장권 · 평점 2(1개) · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "전주",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "transport",
-      "tour"
-    ],
-    "gid": "6117990",
-    "reviewScore": 2,
-    "reviewCount": 1,
-    "deepLink": "mrt://experiences/detail/6117990",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-6117790",
-    "type": "tna",
-    "title": "[전북투어패스] 전북투어패스 1일권&전주 한옥레일바이크 PKG",
-    "url": "https://experiences.myrealtrip.com/products/6117790",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/07/24/TnZt/Ni4ULfhdGW.jpg",
-    "price": 15900,
-    "priceText": "15,900원부터",
-    "region": "전주",
-    "city": "전주",
-    "category": "입장권",
-    "description": "전주 ∙ 입장권 · 평점 5(1개) · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "전주",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "transport",
-      "tour"
-    ],
-    "gid": "6117790",
-    "reviewScore": 5,
-    "reviewCount": 1,
-    "deepLink": "mrt://experiences/detail/6117790",
-    "source": "myrealtrip-tna"
-  },
-  {
     "id": "tna-3880304",
     "type": "tna",
     "title": "[당일/차량/구례] 현지인 가이드와 함께하는 구례 헤리티지 도슨트 투어",
@@ -3347,8 +3347,8 @@
     "title": "[수원] 초대형 복합여가공간 라이프스포츠 워터파크",
     "url": "https://experiences.myrealtrip.com/products/6117931",
     "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/09/01/d0wo/EKBUfshAxQ.jpg",
-    "price": 17000,
-    "priceText": "17,000원부터",
+    "price": 15200,
+    "priceText": "15,200원부터",
     "region": "경기도",
     "city": "경기도",
     "category": "입장권",
@@ -3455,34 +3455,6 @@
     "reviewScore": 5,
     "reviewCount": 1,
     "deepLink": "mrt://experiences/detail/3441294",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-5535426",
-    "type": "tna",
-    "title": "오크밸리 리조트 스키장 어린이 성인 스키 보드 강습 낭만스키스쿨",
-    "url": "https://experiences.myrealtrip.com/products/5535426",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/12/07/E29t/peHUy0DnAA.jpg",
-    "price": 150000,
-    "priceText": "150,000원부터",
-    "region": "원주",
-    "city": "원주",
-    "category": "액티비티",
-    "description": "원주 ∙ 액티비티",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "원주"
-    ],
-    "intents": [
-      "booking",
-      "activity"
-    ],
-    "gid": "5535426",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/5535426",
     "source": "myrealtrip-tna"
   },
   {
@@ -4130,31 +4102,31 @@
     "source": "myrealtrip-tna"
   },
   {
-    "id": "tna-5024178",
+    "id": "tna-5535426",
     "type": "tna",
-    "title": "웰리힐리 파크 리조트 스키장 어린이 성인 스키 보드 강습 낭만스키스쿨",
-    "url": "https://experiences.myrealtrip.com/products/5024178",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/11/18/Hwv6/HvhtE9ahFN.jpg",
+    "title": "오크밸리 리조트 스키장 어린이 성인 스키 보드 강습 낭만스키스쿨",
+    "url": "https://experiences.myrealtrip.com/products/5535426",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/12/07/E29t/peHUy0DnAA.jpg",
     "price": 150000,
     "priceText": "150,000원부터",
-    "region": "횡성",
-    "city": "횡성",
+    "region": "원주",
+    "city": "원주",
     "category": "액티비티",
-    "description": "횡성 ∙ 액티비티",
+    "description": "원주 ∙ 액티비티",
     "tags": [
       "투어티켓",
       "액티비티",
       "예약",
-      "횡성"
+      "원주"
     ],
     "intents": [
       "booking",
       "activity"
     ],
-    "gid": "5024178",
+    "gid": "5535426",
     "reviewScore": "",
     "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/5024178",
+    "deepLink": "mrt://experiences/detail/5535426",
     "source": "myrealtrip-tna"
   },
   {
@@ -4269,89 +4241,31 @@
     "source": "myrealtrip-tna"
   },
   {
-    "id": "tna-3827769",
+    "id": "tna-5024178",
     "type": "tna",
-    "title": "[강원네이처로드]춘천_실레마을 걷는 길, 도슨트 투어",
-    "url": "https://experiences.myrealtrip.com/products/3827769",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/04/EbVE/oWWSzKAgfV.jpg",
-    "price": 12000,
-    "priceText": "12,000원부터",
-    "region": "강원도",
-    "city": "강원도",
-    "category": "투어",
-    "description": "강원도 ∙ 투어 · 평점 5(14개)",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "강원도"
-    ],
-    "intents": [
-      "booking",
-      "tour"
-    ],
-    "gid": "3827769",
-    "reviewScore": 5,
-    "reviewCount": 14,
-    "deepLink": "mrt://experiences/detail/3827769",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-6116990",
-    "type": "tna",
-    "title": "[강원 춘천] 강촌 ATV 카트 서바이벌 레저 체험장",
-    "url": "https://experiences.myrealtrip.com/products/6116990",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/25/cc6t/2DSUTOEt7U",
-    "price": 15000,
-    "priceText": "15,000원부터",
-    "region": "강원도",
-    "city": "강원도",
-    "category": "클래스",
-    "description": "강원도 ∙ 클래스 · 평점 5(1개) · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "강원도",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "activity"
-    ],
-    "gid": "6116990",
-    "reviewScore": 5,
-    "reviewCount": 1,
-    "deepLink": "mrt://experiences/detail/6116990",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-6117191",
-    "type": "tna",
-    "title": "[강원 춘천] 강촌 레저클럽 ATV/ 카트/ 서바이벌",
-    "url": "https://experiences.myrealtrip.com/products/6117191",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/25/bpz6/TZBNdMcFlM",
-    "price": 15000,
-    "priceText": "15,000원부터",
-    "region": "춘천",
-    "city": "춘천",
+    "title": "웰리힐리 파크 리조트 스키장 어린이 성인 스키 보드 강습 낭만스키스쿨",
+    "url": "https://experiences.myrealtrip.com/products/5024178",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2025/11/18/Hwv6/HvhtE9ahFN.jpg",
+    "price": 150000,
+    "priceText": "150,000원부터",
+    "region": "횡성",
+    "city": "횡성",
     "category": "액티비티",
-    "description": "춘천 ∙ 액티비티 · 즉시 확정",
+    "description": "횡성 ∙ 액티비티",
     "tags": [
       "투어티켓",
       "액티비티",
       "예약",
-      "춘천",
-      "즉시 확정"
+      "횡성"
     ],
     "intents": [
       "booking",
       "activity"
     ],
-    "gid": "6117191",
+    "gid": "5024178",
     "reviewScore": "",
     "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/6117191",
+    "deepLink": "mrt://experiences/detail/5024178",
     "source": "myrealtrip-tna"
   },
   {
@@ -4666,6 +4580,68 @@
     "reviewScore": 4.2,
     "reviewCount": 5,
     "deepLink": "mrt://experiences/detail/6116949",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6118154",
+    "type": "tna",
+    "title": "[전남] 나주 중흥 골드스파 우주드림 미디어아트 전시관 이용권",
+    "url": "https://experiences.myrealtrip.com/products/6118154",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/07/04/xiDw/ausRB9ZsiM.jpg",
+    "price": 13500,
+    "priceText": "13,500원부터",
+    "region": "나주",
+    "city": "나주",
+    "category": "입장권",
+    "description": "나주 ∙ 입장권 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "나주",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport",
+      "activity",
+      "indoor"
+    ],
+    "gid": "6118154",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/6118154",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6241589",
+    "type": "tna",
+    "title": "(당일구매사용불가) 나주 중흥골드스파 워터락 8월 이용권",
+    "url": "https://experiences.myrealtrip.com/products/6241589",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/24/dbzJ/8bITb75nsf.jpg",
+    "price": 39600,
+    "priceText": "39,600원부터",
+    "region": "나주",
+    "city": "나주",
+    "category": "입장권",
+    "description": "나주 ∙ 입장권 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "나주",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport",
+      "activity",
+      "water"
+    ],
+    "gid": "6241589",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/6241589",
     "source": "myrealtrip-tna"
   }
 ]

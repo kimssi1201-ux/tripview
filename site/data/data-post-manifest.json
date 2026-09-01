@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-08-30T21:10:22.840Z",
-  "lastRunDate": "2026-08-31",
+  "updatedAt": "2026-09-01T21:07:25.448Z",
+  "lastRunDate": "2026-09-02",
   "policy": {
     "maxDailyPosts": 3,
     "maxDailyPerType": 1,
@@ -14,8 +14,8 @@
       "type": "festival-schedule",
       "region": "서울",
       "firstPublishedAt": "2026-08-23T15:51:45.976Z",
-      "lastGeneratedAt": "2026-08-30T21:10:19.052Z",
-      "lastUpdatedDate": "2026-08-31",
+      "lastGeneratedAt": "2026-09-01T21:07:20.209Z",
+      "lastUpdatedDate": "2026-09-02",
       "rowCount": 8,
       "affiliateLinkCount": 0
     },
@@ -24,8 +24,8 @@
       "type": "stay-price",
       "region": "제주",
       "firstPublishedAt": "2026-08-27T10:02:31.517Z",
-      "lastGeneratedAt": "2026-08-30T21:10:18.988Z",
-      "lastUpdatedDate": "2026-08-31",
+      "lastGeneratedAt": "2026-09-01T21:07:20.152Z",
+      "lastUpdatedDate": "2026-09-02",
       "rowCount": 6,
       "affiliateLinkCount": 6
     },
@@ -34,18 +34,18 @@
       "type": "stay-price",
       "region": "서울",
       "firstPublishedAt": "2026-08-23T15:52:07.157Z",
-      "lastGeneratedAt": "2026-08-25T12:17:18.272Z",
-      "lastUpdatedDate": "2026-08-25",
-      "rowCount": 3,
-      "affiliateLinkCount": 3
+      "lastGeneratedAt": "2026-09-01T21:07:20.149Z",
+      "lastUpdatedDate": "2026-09-02",
+      "rowCount": 6,
+      "affiliateLinkCount": 6
     },
     {
       "slug": "data-ticket-price-busan",
       "type": "ticket-price",
       "region": "부산",
       "firstPublishedAt": "2026-08-23T15:52:07.184Z",
-      "lastGeneratedAt": "2026-08-30T21:10:19.063Z",
-      "lastUpdatedDate": "2026-08-31",
+      "lastGeneratedAt": "2026-09-01T21:07:20.218Z",
+      "lastUpdatedDate": "2026-09-02",
       "rowCount": 6,
       "affiliateLinkCount": 6
     },
@@ -54,8 +54,8 @@
       "type": "ticket-price",
       "region": "서울",
       "firstPublishedAt": "2026-08-27T10:02:31.591Z",
-      "lastGeneratedAt": "2026-08-30T21:10:19.063Z",
-      "lastUpdatedDate": "2026-08-31",
+      "lastGeneratedAt": "2026-09-01T21:07:20.218Z",
+      "lastUpdatedDate": "2026-09-02",
       "rowCount": 6,
       "affiliateLinkCount": 6
     }
