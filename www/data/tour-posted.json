@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-31T20:54:34.908Z",
+  "updatedAt": "2026-09-01T18:40:12.369Z",
   "items": [
     {
       "contentid": "4070865",
@@ -6996,6 +6996,78 @@
       "title": "강릉교동건어물",
       "rejectedAt": "2026-08-30T18:40:45.486Z",
       "reason": "body_under_1500_chars:1379"
+    },
+    {
+      "contentid": "1818945",
+      "slug": "travel-1818945",
+      "title": "원대리 자작나무 숲 (속삭이는 자작나무 숲)",
+      "createdAt": "2026-09-01T18:40:12.369Z"
+    },
+    {
+      "contentid": "1935998",
+      "slug": "travel-1935998",
+      "title": "산들강웅포마을",
+      "createdAt": "2026-09-01T18:40:12.369Z"
+    },
+    {
+      "contentid": "130661",
+      "slug": "travel-130661",
+      "title": "춘천미술관",
+      "createdAt": "2026-09-01T18:40:12.369Z"
+    },
+    {
+      "contentid": "4106106",
+      "slug": "festival-4106106",
+      "title": "원주 국가유산야행",
+      "createdAt": "2026-09-01T18:40:12.369Z"
+    },
+    {
+      "contentid": "132057",
+      "slug": "travel-132057",
+      "title": "구례5일시장",
+      "createdAt": "2026-09-01T18:40:12.369Z"
+    },
+    {
+      "contentid": "2623675",
+      "title": "와인갤러리",
+      "rejectedAt": "2026-09-01T18:40:05.958Z",
+      "reason": "body_under_1500_chars:1465"
+    },
+    {
+      "contentid": "2714103",
+      "title": "섬진강 대나무숲길",
+      "rejectedAt": "2026-09-01T18:40:06.590Z",
+      "reason": "body_under_1500_chars:1448"
+    },
+    {
+      "contentid": "2906713",
+      "title": "정온한",
+      "rejectedAt": "2026-09-01T18:40:07.252Z",
+      "reason": "body_under_1500_chars:1498"
+    },
+    {
+      "contentid": "767174",
+      "title": "스타팰리스 펜션",
+      "rejectedAt": "2026-09-01T18:40:07.890Z",
+      "reason": "body_under_1500_chars:1389"
+    },
+    {
+      "contentid": "2912621",
+      "title": "이런날케이크",
+      "rejectedAt": "2026-09-01T18:40:08.537Z",
+      "reason": "body_under_1500_chars:1467"
+    },
+    {
+      "contentid": "733422",
+      "title": "롱비치펜션",
+      "rejectedAt": "2026-09-01T18:40:11.071Z",
+      "reason": "body_under_1500_chars:1389"
+    },
+    {
+      "contentid": "2736871",
+      "title": "매향",
+      "rejectedAt": "2026-09-01T18:40:11.699Z",
+      "reason": "body_under_1500_chars:1350"
     }
   ]
 }

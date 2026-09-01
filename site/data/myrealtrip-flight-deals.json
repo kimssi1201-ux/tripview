@@ -1,5 +1,69 @@
 [
   {
+    "id": "flight-ICN-HIJ-2026-09-20-2026-09-24",
+    "type": "flight",
+    "title": "인천-히로시마 왕복 5일 최저가 158,900원",
+    "url": "/flight-deals/flight-icn-hij-2026-09-20-2026-09-24/",
+    "bookingUrl": "https://flights.myrealtrip.com/",
+    "image": "",
+    "price": 158900,
+    "priceText": "158,900원",
+    "region": "히로시마",
+    "city": "히로시마",
+    "category": "항공권 최저가",
+    "description": "출발 2026년 9월 20일 · 귀국 2026년 9월 24일",
+    "tags": [
+      "항공권",
+      "최저가",
+      "예약",
+      "해외여행"
+    ],
+    "intents": [
+      "booking"
+    ],
+    "fromCity": "ICN",
+    "toCity": "HIJ",
+    "period": 5,
+    "departureDate": "2026-09-20",
+    "returnDate": "2026-09-24",
+    "airline": "",
+    "transfer": "",
+    "averagePrice": 343969,
+    "source": "myrealtrip-flight"
+  },
+  {
+    "id": "flight-ICN-MYJ-2026-09-20-2026-09-24",
+    "type": "flight",
+    "title": "인천-마쓰야마 왕복 5일 최저가 162,400원",
+    "url": "/flight-deals/flight-icn-myj-2026-09-20-2026-09-24/",
+    "bookingUrl": "https://flights.myrealtrip.com/",
+    "image": "",
+    "price": 162400,
+    "priceText": "162,400원",
+    "region": "마쓰야마",
+    "city": "마쓰야마",
+    "category": "항공권 최저가",
+    "description": "출발 2026년 9월 20일 · 귀국 2026년 9월 24일",
+    "tags": [
+      "항공권",
+      "최저가",
+      "예약",
+      "해외여행"
+    ],
+    "intents": [
+      "booking"
+    ],
+    "fromCity": "ICN",
+    "toCity": "MYJ",
+    "period": 5,
+    "departureDate": "2026-09-20",
+    "returnDate": "2026-09-24",
+    "airline": "",
+    "transfer": "",
+    "averagePrice": 406760,
+    "source": "myrealtrip-flight"
+  },
+  {
     "id": "flight-ICN-YNT-2027-02-28-2027-03-04",
     "type": "flight",
     "title": "인천-YNT 왕복 5일 최저가 163,400원",
@@ -28,39 +92,7 @@
     "returnDate": "2027-03-04",
     "airline": "",
     "transfer": "",
-    "averagePrice": 261244,
-    "source": "myrealtrip-flight"
-  },
-  {
-    "id": "flight-ICN-KKJ-2026-09-17-2026-09-21",
-    "type": "flight",
-    "title": "인천-기타큐슈 왕복 5일 최저가 174,800원",
-    "url": "/flight-deals/flight-icn-kkj-2026-09-17-2026-09-21/",
-    "bookingUrl": "https://flights.myrealtrip.com/",
-    "image": "",
-    "price": 174800,
-    "priceText": "174,800원",
-    "region": "기타큐슈",
-    "city": "기타큐슈",
-    "category": "항공권 최저가",
-    "description": "출발 2026년 9월 17일 · 귀국 2026년 9월 21일",
-    "tags": [
-      "항공권",
-      "최저가",
-      "예약",
-      "해외여행"
-    ],
-    "intents": [
-      "booking"
-    ],
-    "fromCity": "ICN",
-    "toCity": "KKJ",
-    "period": 5,
-    "departureDate": "2026-09-17",
-    "returnDate": "2026-09-21",
-    "airline": "",
-    "transfer": "",
-    "averagePrice": 345061,
+    "averagePrice": 268819,
     "source": "myrealtrip-flight"
   },
   {
@@ -92,7 +124,7 @@
     "returnDate": "2026-09-23",
     "airline": "",
     "transfer": "",
-    "averagePrice": 489794,
+    "averagePrice": 480934,
     "source": "myrealtrip-flight"
   },
   {
@@ -124,22 +156,22 @@
     "returnDate": "2026-09-12",
     "airline": "",
     "transfer": "",
-    "averagePrice": 413666,
+    "averagePrice": 427125,
     "source": "myrealtrip-flight"
   },
   {
-    "id": "flight-ICN-WEH-2026-09-12-2026-09-16",
+    "id": "flight-ICN-KKJ-2026-09-06-2026-09-10",
     "type": "flight",
-    "title": "인천-WEH 왕복 5일 최저가 188,600원",
-    "url": "/flight-deals/flight-icn-weh-2026-09-12-2026-09-16/",
+    "title": "인천-기타큐슈 왕복 5일 최저가 184,200원",
+    "url": "/flight-deals/flight-icn-kkj-2026-09-06-2026-09-10/",
     "bookingUrl": "https://flights.myrealtrip.com/",
     "image": "",
-    "price": 188600,
-    "priceText": "188,600원",
-    "region": "WEH",
-    "city": "WEH",
+    "price": 184200,
+    "priceText": "184,200원",
+    "region": "기타큐슈",
+    "city": "기타큐슈",
     "category": "항공권 최저가",
-    "description": "출발 2026년 9월 12일 · 귀국 2026년 9월 16일",
+    "description": "출발 2026년 9월 6일 · 귀국 2026년 9월 10일",
     "tags": [
       "항공권",
       "최저가",
@@ -150,13 +182,13 @@
       "booking"
     ],
     "fromCity": "ICN",
-    "toCity": "WEH",
+    "toCity": "KKJ",
     "period": 5,
-    "departureDate": "2026-09-12",
-    "returnDate": "2026-09-16",
+    "departureDate": "2026-09-06",
+    "returnDate": "2026-09-10",
     "airline": "",
     "transfer": "",
-    "averagePrice": 297822,
+    "averagePrice": 348295,
     "source": "myrealtrip-flight"
   },
   {
@@ -188,22 +220,22 @@
     "returnDate": "2026-09-14",
     "airline": "",
     "transfer": "",
-    "averagePrice": 454404,
+    "averagePrice": 473912,
     "source": "myrealtrip-flight"
   },
   {
-    "id": "flight-ICN-HAN-2026-09-12-2026-09-16",
+    "id": "flight-ICN-WEH-2026-09-14-2026-09-18",
     "type": "flight",
-    "title": "인천-하노이 왕복 5일 최저가 192,000원",
-    "url": "/flight-deals/flight-icn-han-2026-09-12-2026-09-16/",
+    "title": "인천-WEH 왕복 5일 최저가 193,500원",
+    "url": "/flight-deals/flight-icn-weh-2026-09-14-2026-09-18/",
     "bookingUrl": "https://flights.myrealtrip.com/",
     "image": "",
-    "price": 192000,
-    "priceText": "192,000원",
-    "region": "하노이",
-    "city": "하노이",
+    "price": 193500,
+    "priceText": "193,500원",
+    "region": "WEH",
+    "city": "WEH",
     "category": "항공권 최저가",
-    "description": "출발 2026년 9월 12일 · 귀국 2026년 9월 16일",
+    "description": "출발 2026년 9월 14일 · 귀국 2026년 9월 18일",
     "tags": [
       "항공권",
       "최저가",
@@ -214,45 +246,13 @@
       "booking"
     ],
     "fromCity": "ICN",
-    "toCity": "HAN",
+    "toCity": "WEH",
     "period": 5,
-    "departureDate": "2026-09-12",
-    "returnDate": "2026-09-16",
+    "departureDate": "2026-09-14",
+    "returnDate": "2026-09-18",
     "airline": "",
     "transfer": "",
-    "averagePrice": 472445,
-    "source": "myrealtrip-flight"
-  },
-  {
-    "id": "flight-ICN-TAK-2026-09-05-2026-09-09",
-    "type": "flight",
-    "title": "인천-다카마쓰 왕복 5일 최저가 194,300원",
-    "url": "/flight-deals/flight-icn-tak-2026-09-05-2026-09-09/",
-    "bookingUrl": "https://flights.myrealtrip.com/",
-    "image": "",
-    "price": 194300,
-    "priceText": "194,300원",
-    "region": "다카마쓰",
-    "city": "다카마쓰",
-    "category": "항공권 최저가",
-    "description": "출발 2026년 9월 5일 · 귀국 2026년 9월 9일",
-    "tags": [
-      "항공권",
-      "최저가",
-      "예약",
-      "해외여행"
-    ],
-    "intents": [
-      "booking"
-    ],
-    "fromCity": "ICN",
-    "toCity": "TAK",
-    "period": 5,
-    "departureDate": "2026-09-05",
-    "returnDate": "2026-09-09",
-    "airline": "",
-    "transfer": "",
-    "averagePrice": 369082,
+    "averagePrice": 303383,
     "source": "myrealtrip-flight"
   }
 ]

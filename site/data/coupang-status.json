@@ -1,8 +1,8 @@
 {
   "ok": true,
   "configured": true,
-  "productCount": 72,
-  "searchCount": 9,
+  "productCount": 56,
+  "searchCount": 7,
   "searches": [
     {
       "intent": "travel",
@@ -25,31 +25,21 @@
       "count": 8
     },
     {
-      "intent": "water",
-      "keyword": "물놀이 용품",
-      "count": 8
-    },
-    {
-      "intent": "water",
-      "keyword": "아쿠아슈즈",
-      "count": 8
-    },
-    {
-      "intent": "water",
-      "keyword": "방수팩",
+      "intent": "travel",
+      "keyword": "단풍 여행 준비물",
       "count": 8
     },
     {
       "intent": "travel",
-      "keyword": "선크림",
+      "keyword": "바람막이",
       "count": 8
     },
     {
-      "intent": "indoor",
-      "keyword": "장마 우산",
+      "intent": "travel",
+      "keyword": "등산 가방",
       "count": 8
     }
   ],
   "errors": [],
-  "updatedAt": "2026-08-31T23:19:45.998Z"
+  "updatedAt": "2026-09-01T18:42:56.397Z"
 }
