@@ -130,6 +130,12 @@ const REGION_SLUGS = new Map([
   ["해외", "overseas"],
   ["기타", "other"],
 ]);
+const OVERSEAS_ACCOMMODATION_DESTINATIONS = [
+  { label: "오사카", keyword: "오사카", aliases: ["오사카", "osaka"] },
+  { label: "타이베이", keyword: "타이베이", aliases: ["타이베이", "taipei"] },
+  { label: "다낭", keyword: "다낭", aliases: ["다낭", "da nang", "danang"] },
+  { label: "방콕", keyword: "방콕", aliases: ["방콕", "bangkok"] },
+];
 
 async function readJson(relativePath, fallback = []) {
   try {
@@ -329,6 +335,53 @@ function regionSlug(region) {
   return REGION_SLUGS.get(label) || fallbackSlug(label);
 }
 
+function accommodationRegionSlugCandidates(value = "") {
+  const normalized = normalizeText(value);
+  const compact = compactRegion(normalized);
+  const detailed = detailedRegionLabel(normalized);
+  const labels = [normalized, detailed, compact].filter(Boolean);
+  const slugs = [];
+  for (const label of labels) {
+    slugs.push(REGION_SLUGS.get(label) || "");
+    slugs.push(fallbackSlug(label));
+    slugs.push(regionSlug(label));
+  }
+  return [...new Set(slugs.filter(Boolean))];
+}
+
+function postAccommodationKeywordValues(post = {}) {
+  return [
+    ...(Array.isArray(post?.myrealtripAccommodationKeywords) ? post.myrealtripAccommodationKeywords : []),
+    ...(Array.isArray(post?.accommodationKeywords) ? post.accommodationKeywords : []),
+    ...(Array.isArray(post?.accommodationDestinations) ? post.accommodationDestinations : []),
+  ].map(normalizeText).filter(Boolean);
+}
+
+function overseasAccommodationDestinationForValue(value = "") {
+  const text = normalizeText(value).toLowerCase();
+  if (!text) return null;
+  return OVERSEAS_ACCOMMODATION_DESTINATIONS.find((destination) =>
+    destination.aliases.some((alias) => text.includes(alias.toLowerCase())),
+  ) || null;
+}
+
+function overseasAccommodationTargets(post = {}) {
+  const explicit = postAccommodationKeywordValues(post);
+  const sourceText = explicit.length ? explicit.join(" ") : searchablePostText(post);
+  const text = normalizeText(sourceText).toLowerCase();
+  if (!text) return [];
+  return OVERSEAS_ACCOMMODATION_DESTINATIONS.filter((destination) =>
+    destination.aliases.some((alias) => text.includes(alias.toLowerCase())),
+  );
+}
+
+function articleAccommodationHeading(post = {}) {
+  const targets = overseasAccommodationTargets(post);
+  if (targets.length === 1) return `${targets[0].label} 인기 숙소`;
+  if (targets.length > 1) return "9월 해외여행 숙소";
+  return `${compactRegion(post?.region)} 인기 숙소`;
+}
+
 function detailedRegionLabel(value = "") {
   const token = normalizeText(value)
     .split(/\s+/)
@@ -363,6 +416,9 @@ function searchablePostText(post) {
     post?.excerpt,
     post?.category,
     post?.region,
+    ...(Array.isArray(post?.keywords) ? post.keywords : []),
+    ...(Array.isArray(post?.myrealtripAccommodationKeywords) ? post.myrealtripAccommodationKeywords : []),
+    ...(Array.isArray(post?.accommodationKeywords) ? post.accommodationKeywords : []),
     ...(Array.isArray(post?.memo) ? post.memo : []),
     ...(Array.isArray(post?.info) ? post.info.flat() : []),
   ].filter(Boolean).join(" ");
@@ -588,7 +644,9 @@ function normalizeAccommodationProduct(item = {}, fallbackRegion = "") {
   const title = normalizeText(item.title || item.itemName || item.name);
   const url = accommodationUrl(item.url || item.productUrl);
   const image = typeof item.image === "string" ? item.image : "";
-  const region = compactRegion(item.region || item.city || fallbackRegion);
+  const rawRegion = item.region || item.city || fallbackRegion;
+  const overseasRegion = overseasAccommodationDestinationForValue(rawRegion);
+  const region = overseasRegion?.label || compactRegion(rawRegion);
   const salePrice = numericValue(item.salePrice || item.price);
   const originalPrice = numericValue(item.originalPrice || salePrice);
   if (!title || !url || !image || !salePrice) return null;
@@ -601,7 +659,7 @@ function normalizeAccommodationProduct(item = {}, fallbackRegion = "") {
     image,
     region,
     city: region,
-    regionSlug: item.regionSlug || regionSlug(region),
+    regionSlug: item.regionSlug || accommodationRegionSlugCandidates(region)[0] || regionSlug(region),
     category: item.category || "숙소 예약",
     salePrice,
     price: salePrice,
@@ -639,19 +697,23 @@ function accommodationPresetForPosts(posts = []) {
 }
 
 function accommodationBucketForRegion(region) {
-  const slug = regionSlug(region);
-  return accommodationCacheRegions()[slug] || null;
+  const regions = accommodationCacheRegions();
+  for (const slug of accommodationRegionSlugCandidates(region)) {
+    if (regions[slug]) return regions[slug];
+  }
+  return null;
 }
 
 function accommodationBucketsForRegion(region) {
   const regions = accommodationCacheRegions();
   const labels = [
+    region,
     detailedRegionLabel(region),
     compactRegion(region),
   ].filter(Boolean);
   const seen = new Set();
   return labels
-    .map((label) => regionSlug(label))
+    .flatMap((label) => accommodationRegionSlugCandidates(label))
     .filter((slug) => {
       if (!slug || seen.has(slug)) return false;
       seen.add(slug);
@@ -1345,7 +1407,7 @@ function bookingProvinceGroups(normalizedProducts = []) {
   const groups = new Map();
   for (const product of normalizedProducts) {
     const province = bookingProductProvince(product);
-    if (!province || province === "기타") continue;
+    if (!province || province === "기타" || province === "해외") continue;
     if (!groups.has(province)) groups.set(province, []);
     groups.get(province).push(product);
   }
@@ -1982,6 +2044,9 @@ function articleSiteDesignCss() {
 .article-product-section[data-article-product-type="accommodation"] .mrt-accommodation-price small{flex-basis:auto;color:var(--muted);font-size:11px;font-weight:400}
 .article-accommodation-condition{display:block;color:var(--muted);font-size:12px;line-height:1.45}
 .article-product-section[data-article-product-type="accommodation"] .article-product-cta{justify-self:end;white-space:nowrap}
+.article-product-section[data-article-product-type="accommodation"] .article-accommodation-search-card{grid-template-columns:minmax(0,1fr) auto;padding:14px 16px}
+.article-product-section[data-article-product-type="accommodation"] .article-accommodation-search-card .mrt-accommodation-body{padding:0}
+.article-product-section[data-article-product-type="accommodation"] .article-accommodation-search-card .article-product-cta{align-self:center}
 .mrt-rating-badge{position:absolute;left:8px;top:8px;border-radius:999px;background:color-mix(in srgb,var(--ink) 82%,transparent);color:var(--card);padding:3px 7px;font-size:11px;font-weight:900}
 .article-official-box{margin:22px 0 0}
 .article-official-button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 16px;border-radius:8px;background:var(--brand);color:var(--card);font-weight:900;transition:background-color 150ms ease}
@@ -1990,7 +2055,7 @@ function articleSiteDesignCss() {
 .related-posts,.region-related,.trust-note{border-top:1px solid var(--line)}
 footer.site-footer{padding:0;color:var(--muted)}
 @media(max-width:640px){.article-product-compare-wrap{overflow-x:visible}.article-product-compare{display:block;width:100%;min-width:0}.article-product-compare thead{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}.article-product-compare tbody{display:grid;gap:8px}.article-product-compare tr{display:grid;gap:6px;padding:12px;border-bottom:1px solid var(--line)}.article-product-compare tr:last-child{border-bottom:0}.article-product-compare td{display:grid;grid-template-columns:74px minmax(0,1fr);gap:8px;padding:0;border-bottom:0;overflow-wrap:anywhere}.article-product-compare td::before{content:attr(data-label);color:var(--muted);font-size:11px;font-weight:800;line-height:1.55}.article-product-compare td:first-child{font-weight:800}}
-@media(max-width:820px){.hero{padding-top:32px}.layout{padding-top:24px}.layout.wrap{width:calc(100% - 40px)}.content{font-size:15px;line-height:1.8}.content h2{margin:36px 0 16px;font-size:20px}.article-lodging-layout{display:block}.lodging-booking-aside{position:static;margin:28px 0 0}.article-info-grid,.article-product-section .mrt-accommodation-grid,.article-product-section .mrt-ticket-grid{grid-template-columns:1fr}.article-product-section[data-article-product-type="accommodation"] .article-product-card{grid-template-columns:96px minmax(0,1fr);align-items:start}.article-product-section[data-article-product-type="accommodation"] .mrt-accommodation-price{grid-column:2;justify-self:start;min-width:0;text-align:left}.article-product-section[data-article-product-type="accommodation"] .article-product-cta{grid-column:2;justify-self:start}.article-fact-table th{width:96px}.article-photo-items{grid-template-columns:1fr}.article-hero-band,.article-hero-inner{min-height:240px}.article-affiliate-disclosure,.article-share-bar{width:var(--site-wrap)}}
+@media(max-width:820px){.hero{padding-top:32px}.layout{padding-top:24px}.layout.wrap{width:calc(100% - 40px)}.content{font-size:15px;line-height:1.8}.content h2{margin:36px 0 16px;font-size:20px}.article-lodging-layout{display:block}.lodging-booking-aside{position:static;margin:28px 0 0}.article-info-grid,.article-product-section .mrt-accommodation-grid,.article-product-section .mrt-ticket-grid{grid-template-columns:1fr}.article-product-section[data-article-product-type="accommodation"] .article-product-card{grid-template-columns:96px minmax(0,1fr);align-items:start}.article-product-section[data-article-product-type="accommodation"] .mrt-accommodation-price{grid-column:2;justify-self:start;min-width:0;text-align:left}.article-product-section[data-article-product-type="accommodation"] .article-product-cta{grid-column:2;justify-self:start}.article-product-section[data-article-product-type="accommodation"] .article-accommodation-search-card{grid-template-columns:1fr}.article-product-section[data-article-product-type="accommodation"] .article-accommodation-search-card .article-product-cta{grid-column:1;justify-self:start}.article-fact-table th{width:96px}.article-photo-items{grid-template-columns:1fr}.article-hero-band,.article-hero-inner{min-height:240px}.article-affiliate-disclosure,.article-share-bar{width:var(--site-wrap)}}
 @media(max-width:640px){.article-share-bar{gap:10px}.article-share-tools{margin-left:0}.article-share-button,.article-font-button,.article-share-comment{flex-basis:44px;width:44px;height:44px}}/* end-tripview-site-design */`;
 }
 
@@ -3107,6 +3172,20 @@ function articleProductComparisonTable(items = [], type = "ticket") {
   </div>`;
 }
 
+function overseasAccommodationSearchCards(post = {}) {
+  const targets = overseasAccommodationTargets(post);
+  const href = accommodationUrl("https://accommodation.myrealtrip.com/");
+  if (!targets.length || !href) return [];
+  return targets.map((target) => `<a class="mrt-accommodation-card article-product-card article-accommodation-search-card" data-mrt-accommodation-search-card href="${html(href)}" rel="sponsored nofollow" target="_blank">
+    <span class="mrt-accommodation-body">
+      <em>마이리얼트립 숙소</em>
+      <strong>${html(target.label)} 숙소 찾아보기</strong>
+      <span class="article-accommodation-condition">체크인 날짜, 위치, 무료 취소 조건은 예약 화면에서 확인하세요.</span>
+    </span>
+    <span class="article-product-cta">숙소 보기</span>
+  </a>`);
+}
+
 function articleProductSection(post) {
   if (paidDayVisitPost(post)) {
     const products = articleTicketItems(post, 6);
@@ -3123,13 +3202,20 @@ function articleProductSection(post) {
   }
   const products = articleAccommodationItems(post, 6);
   const cards = products.map(articleAccommodationCard).filter(Boolean);
-  if (!cards.length) return "";
+  const searchCards = cards.length ? [] : overseasAccommodationSearchCards(post);
+  if (!cards.length && !searchCards.length) return "";
+  const heading = articleAccommodationHeading(post);
+  const note = searchCards.length
+    ? "목적지별 숙소 예약 화면으로 이동합니다. 날짜, 위치, 취소 조건은 예약 화면에서 다시 확인하세요."
+    : "성인 2명 기준 주말 1박 요금입니다. 예약 화면에서 날짜와 취소 조건을 다시 확인하세요.";
+  const comparison = cards.length ? articleProductComparisonTable(products, "accommodation") : "";
+  const renderedCards = cards.length ? cards : searchCards;
   return `${ARTICLE_PRODUCT_START} accommodation -->
-<section class="article-product-section" aria-label="지역 인기 숙소" data-article-product-type="accommodation">
-  <div class="article-product-head"><h2>${html(compactRegion(post?.region))} 인기 숙소</h2></div>
-  <p class="article-product-note">성인 2명 기준 주말 1박 요금입니다. 예약 화면에서 날짜와 취소 조건을 다시 확인하세요.</p>
-  ${articleProductComparisonTable(products, "accommodation")}
-  <div class="mrt-accommodation-grid article-accommodation-list" data-count="${cards.length}">${cards.join("")}</div>
+<section class="article-product-section${searchCards.length ? " article-accommodation-search-section" : ""}" aria-label="지역 인기 숙소" data-article-product-type="accommodation">
+  <div class="article-product-head"><h2>${html(heading)}</h2></div>
+  <p class="article-product-note">${html(note)}</p>
+  ${comparison}
+  <div class="mrt-accommodation-grid article-accommodation-list" data-count="${renderedCards.length}">${renderedCards.join("")}</div>
 </section>
 <!-- ${ARTICLE_PRODUCT_END}`;
 }
@@ -3573,6 +3659,32 @@ function injectArticleAffiliate(document, block) {
 }
 
 function articleAccommodationItems(post, count = 3) {
+  const targets = overseasAccommodationTargets(post);
+  if (targets.length) {
+    const safeCount = Math.max(0, Math.min(12, Number.parseInt(count, 10) || 0));
+    if (!safeCount) return [];
+    const perTarget = Math.max(1, Math.ceil(safeCount / targets.length));
+    const preset = familyAccommodationContext(post) ? "family" : "default";
+    const picked = [];
+    const seen = new Set();
+    for (const target of targets) {
+      const items = selectAccommodationItems({
+        posts: [post],
+        region: target.keyword,
+        preset,
+        limit: perTarget,
+        exclude: [...seen],
+      });
+      for (const item of items) {
+        const key = itemKey(item);
+        if (!key || seen.has(key)) continue;
+        seen.add(key);
+        picked.push(item);
+        if (picked.length >= safeCount) return picked;
+      }
+    }
+    return picked.slice(0, safeCount);
+  }
   return selectAccommodationItems({
     posts: [post],
     region: post?.region || post?.city,

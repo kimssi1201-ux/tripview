@@ -36,6 +36,12 @@ const STAR_RATINGS = {
   default: "threestar,fourstar,fivestar",
   family: "fourstar,fivestar",
 };
+const OVERSEAS_ACCOMMODATION_KEYWORDS = new Set([
+  "오사카",
+  "타이베이",
+  "다낭",
+  "방콕",
+]);
 
 const REGION_SLUGS = new Map([
   ["서울", "seoul"],
@@ -253,6 +259,7 @@ function normalizeAccommodation(item, region, preset, stay = STAY) {
     region: regionName,
     regionSlug: regionSlug(regionName),
     regionId,
+    isDomestic: Boolean(region?.isDomestic ?? true),
     category: "숙소 예약",
     price: salePrice,
     priceText: `${formatWon(salePrice)}부터`,
@@ -293,11 +300,48 @@ async function readPosts() {
   return Array.isArray(posts) ? posts : [];
 }
 
+function isOverseasAccommodationKeyword(value = "") {
+  const text = normalizeText(value);
+  return OVERSEAS_ACCOMMODATION_KEYWORDS.has(text);
+}
+
+function keywordConfig(value = "", isDomestic = null) {
+  const keyword = normalizeText(value);
+  if (!keyword) return null;
+  const overseas = isOverseasAccommodationKeyword(keyword);
+  return {
+    keyword,
+    isDomestic: typeof isDomestic === "boolean" ? isDomestic : overseas ? false : IS_DOMESTIC,
+  };
+}
+
+function uniqueKeywordConfigs(values = []) {
+  const seen = new Set();
+  const items = [];
+  for (const value of values) {
+    const config = typeof value === "string" ? keywordConfig(value) : keywordConfig(value?.keyword, value?.isDomestic);
+    if (!config) continue;
+    const key = `${config.keyword}:${config.isDomestic ? "domestic" : "overseas"}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    items.push(config);
+  }
+  return items;
+}
+
+function postAccommodationKeywordConfigs(posts = []) {
+  return uniqueKeywordConfigs(posts.flatMap((post) => [
+    ...(Array.isArray(post?.myrealtripAccommodationKeywords) ? post.myrealtripAccommodationKeywords : []),
+    ...(Array.isArray(post?.accommodationKeywords) ? post.accommodationKeywords : []),
+    ...(Array.isArray(post?.accommodationDestinations) ? post.accommodationDestinations : []),
+  ].map((keyword) => ({ keyword, isDomestic: isOverseasAccommodationKeyword(keyword) ? false : null }))));
+}
+
 function configuredKeywords(posts) {
   const knownRegions = new Set(deriveAffiliateRegionKeywords(posts, REGION_LIMIT));
-  return CONFIGURED_KEYWORDS.split(/[,\n]/)
-    .map((value) => value.trim())
-    .filter((value) => isDomesticRegion(value) || knownRegions.has(compactRegion(value)));
+  return uniqueKeywordConfigs(CONFIGURED_KEYWORDS.split(/[,\n]/)
+    .map((value) => value.trim()))
+    .filter((entry) => !entry.isDomestic || isDomesticRegion(entry.keyword) || knownRegions.has(compactRegion(entry.keyword)));
 }
 
 function fallbackKeywords(posts) {
@@ -308,7 +352,14 @@ function fallbackKeywords(posts) {
   }
   const fromPosts = [...regions].sort((a, b) => a.localeCompare(b, "ko"));
   const derived = deriveAffiliateRegionKeywords(posts, REGION_LIMIT);
-  return [...new Set([...derived, ...fromPosts, "서울", "부산", "제주"])].slice(0, REGION_LIMIT);
+  return uniqueKeywordConfigs([
+    ...postAccommodationKeywordConfigs(posts),
+    ...derived.map((keyword) => ({ keyword, isDomestic: true })),
+    ...fromPosts.map((keyword) => ({ keyword, isDomestic: true })),
+    { keyword: "서울", isDomestic: true },
+    { keyword: "부산", isDomestic: true },
+    { keyword: "제주", isDomestic: true },
+  ]).slice(0, REGION_LIMIT);
 }
 
 async function postJson(url, body) {
@@ -337,7 +388,7 @@ function regionCandidates(payload) {
   return [];
 }
 
-function normalizeRegionEntry(region, keyword) {
+function normalizeRegionEntry(region, keyword, isDomestic = IS_DOMESTIC) {
   const regionId = normalizeText(region?.regionId || region?.id);
   const rawName = normalizeText(region?.name || region?.regionName || keyword);
   const keywordName = compactRegion(keyword);
@@ -346,35 +397,41 @@ function normalizeRegionEntry(region, keyword) {
   const isKeywordLocal = keywordName && !isDomesticRegion(keywordName);
   if (isKeywordLocal && sameLocalRegion(rawName, keywordName)) name = keywordName;
   const isDomesticCandidate = isDomesticRegion(rawName) || isDomesticRegion(name) || type.toUpperCase() === "CITY" || sameLocalRegion(rawName, keywordName);
-  if (!regionId || !name || !isDomesticCandidate) return null;
+  const isOverseasCandidate = type.toUpperCase() === "CITY" || sameLocalRegion(rawName, keywordName) || rawName.includes(keywordName) || keywordName.includes(rawName);
+  if (!regionId || !name || (isDomestic ? !isDomesticCandidate : !isOverseasCandidate)) return null;
+  if (!isDomestic && keywordName) name = keywordName;
   return {
     keyword,
     name,
     slug: regionSlug(name),
     regionId,
     type,
+    isDomestic,
     sourceName: normalizeText(region?.name || region?.regionName),
   };
 }
 
 async function fetchRegionMap(keywords, existing = null) {
   const regions = {};
-  for (const keyword of keywords) {
+  for (const entry of uniqueKeywordConfigs(keywords)) {
+    const { keyword, isDomestic } = entry;
     try {
-      const payload = await postJson(REGION_URL, { keyword, isDomestic: IS_DOMESTIC });
+      const payload = await postJson(REGION_URL, { keyword, isDomestic });
       const candidates = regionCandidates(payload);
       const region = candidates
-        .map((item) => normalizeRegionEntry(item, keyword))
+        .map((item) => normalizeRegionEntry(item, keyword, isDomestic))
         .filter(Boolean)
         .find((item) => item.type === "CITY")
-        || candidates.map((item) => normalizeRegionEntry(item, keyword)).filter(Boolean)[0];
+        || candidates.map((item) => normalizeRegionEntry(item, keyword, isDomestic)).filter(Boolean)[0];
       if (!region) {
         console.log(`MyRealTrip accommodation region skipped: no region found for "${keyword}".`);
         continue;
       }
       regions[region.slug] = region;
     } catch (error) {
-      const cached = Object.values(existing?.regions || {}).find((item) => item?.keyword === keyword || item?.name === compactRegion(keyword));
+      const cached = Object.values(existing?.regions || {}).find((item) =>
+        (item?.keyword === keyword || item?.name === compactRegion(keyword)) && Boolean(item?.isDomestic ?? true) === isDomestic,
+      );
       if (cached?.regionId) {
         regions[cached.slug || regionSlug(cached.name)] = cached;
         console.log(`MyRealTrip accommodation region reused from cache for "${keyword}": ${error.message}`);
@@ -430,6 +487,7 @@ async function fetchAccommodationCache(regionMap) {
       name: region.name,
       slug: region.slug,
       regionId: region.regionId,
+      isDomestic: Boolean(region.isDomestic),
       default: [],
       family: [],
     };
@@ -503,12 +561,23 @@ function hasMappedRegionIds(regionMap) {
   return Object.values(regionMap?.regions || {}).some((region) => normalizeText(region?.regionId));
 }
 
-function isFreshApiCache(cache, regionMap) {
+function hasMappedKeyword(regionMap, entry) {
+  const config = typeof entry === "string" ? keywordConfig(entry) : keywordConfig(entry?.keyword, entry?.isDomestic);
+  if (!config) return true;
+  const keywordName = compactRegion(config.keyword);
+  return Object.values(regionMap?.regions || {}).some((region) =>
+    (region?.keyword === config.keyword || region?.name === keywordName || region?.slug === regionSlug(keywordName))
+      && Boolean(region?.isDomestic ?? true) === config.isDomestic,
+  );
+}
+
+function isFreshApiCache(cache, regionMap, keywords = []) {
   return isFreshToday(cache)
     && cache?.source === "myrealtrip-accommodation-search"
     && regionMap?.updatedDate === STAY.generatedForDate
     && regionMap?.source === "myrealtrip-accommodation-region-autocomplete"
     && hasMappedRegionIds(regionMap)
+    && uniqueKeywordConfigs(keywords).every((entry) => hasMappedKeyword(regionMap, entry))
     && hasAccommodationItems(cache);
 }
 
@@ -557,6 +626,7 @@ function legacyCacheFromFlatItems(items = []) {
         name: regionName,
         slug,
         regionId: normalizeText(legacyItem?.regionId),
+        isDomestic: true,
         default: [],
         family: [],
       };
@@ -565,6 +635,7 @@ function legacyCacheFromFlatItems(items = []) {
         name: regionName,
         slug,
         regionId: normalizeText(legacyItem?.regionId),
+        isDomestic: true,
         type: "",
         sourceName: regionName,
       };
@@ -614,14 +685,16 @@ try {
     readJson(CACHE_PATH, null),
     readJson(REGION_MAP_PATH, null),
   ]);
-  if (isFreshApiCache(existingCache, existingMap)) {
+  const manualKeywords = postAccommodationKeywordConfigs(posts);
+  const explicitKeywords = configuredKeywords(posts);
+  const keywords = (explicitKeywords.length ? uniqueKeywordConfigs([...manualKeywords, ...explicitKeywords]) : fallbackKeywords(posts))
+    .slice(0, REGION_LIMIT);
+  if (isFreshApiCache(existingCache, existingMap, keywords)) {
     await writeCacheFiles(existingCache, existingMap);
     console.log(`MyRealTrip accommodation fetch skipped: cache is already fresh for ${STAY.generatedForDate}.`);
     process.exit(0);
   }
 
-  const explicitKeywords = configuredKeywords(posts);
-  const keywords = explicitKeywords.length ? explicitKeywords.slice(0, REGION_LIMIT) : fallbackKeywords(posts);
   const regionMap = await fetchRegionMap(keywords, existingMap);
   const cache = await fetchAccommodationCache(regionMap);
   if (!hasAccommodationItems(cache)) {

@@ -11,6 +11,7 @@
     "updatedAt": "2026-09-01",
     "read": "약 7분",
     "pexelsQuery": "September overseas travel airport city beach",
+    "myrealtripAccommodationKeywords": ["오사카", "타이베이", "다낭", "방콕"],
     "alt": "9월 해외여행 도시와 휴양지 참고 이미지",
     "excerpt": "9월 해외여행은 가까운 도시, 비 오는 날 대체 코스, 항공 시간, 현지 이동을 함께 봐야 일정이 덜 흔들립니다.",
     "keywords": [
@@ -122,6 +123,7 @@
     "updatedAt": "2026-09-01",
     "read": "약 6분",
     "pexelsQuery": "Osaka Japan street travel food",
+    "myrealtripAccommodationKeywords": ["오사카"],
     "alt": "오사카 도심 여행 참고 이미지",
     "excerpt": "9월 오사카는 짧은 일정에 좋지만 더위와 태풍 변수를 함께 봐야 합니다. 난바와 우메다를 중심으로 무리 없는 2박3일 동선을 잡아보세요.",
     "keywords": [
@@ -224,6 +226,7 @@
     "updatedAt": "2026-09-01",
     "read": "약 6분",
     "pexelsQuery": "Taipei Taiwan night market city travel",
+    "myrealtripAccommodationKeywords": ["타이베이"],
     "alt": "타이베이 도심과 야시장 여행 참고 이미지",
     "excerpt": "9월 타이베이는 야시장과 실내 명소, 온천과 근교를 섞기 좋습니다. 비 예보가 있어도 대체 코스를 잡기 쉬운 도시형 해외여행입니다.",
     "keywords": [
@@ -326,6 +329,7 @@
     "updatedAt": "2026-09-01",
     "read": "약 6분",
     "pexelsQuery": "Da Nang Vietnam beach travel",
+    "myrealtripAccommodationKeywords": ["다낭"],
     "alt": "다낭 해변과 도심 여행 참고 이미지",
     "excerpt": "9월 다낭은 해변, 호이안, 바나힐을 같은 날 몰아넣지 않는 편이 좋습니다. 비 예보를 보며 쉬는 날과 이동하는 날을 나눠보세요.",
     "keywords": [
@@ -428,6 +432,7 @@
     "updatedAt": "2026-09-01",
     "read": "약 6분",
     "pexelsQuery": "Bangkok Thailand temple city travel",
+    "myrealtripAccommodationKeywords": ["방콕"],
     "alt": "방콕 사원과 도심 여행 참고 이미지",
     "excerpt": "9월 방콕은 비와 교통을 고려해 하루 권역을 좁게 잡는 편이 좋습니다. 왕궁권, 강변, 쇼핑권, 야시장을 날씨에 따라 나눠보세요.",
     "keywords": [

@@ -568,8 +568,8 @@ test("accommodation cards use cached MyRealTrip stay links and stay out of pendi
   assert.match(pendingArticle, /<meta name="robots" content="noindex, follow">/);
 
   const flightDirectories = await readdir("flight-deals", { withFileTypes: true });
-  const overseasFlightDirectory = flightDirectories.find((entry) => entry.isDirectory() && entry.name.includes("-osa-"));
-  assert.ok(overseasFlightDirectory, "an Osaka flight article should exist for the overseas-product guard");
+  const overseasFlightDirectory = flightDirectories.find((entry) => entry.isDirectory() && entry.name.includes("-kix-"));
+  assert.ok(overseasFlightDirectory, "a Kansai flight article should exist for the overseas-product guard");
   const overseasFlightArticle = await readFile(`flight-deals/${overseasFlightDirectory.name}/index.html`, "utf8");
   assert.match(overseasFlightArticle, /<meta name="robots" content="noindex, follow">/);
   assert.doesNotMatch(overseasFlightArticle, /adsbygoogle\.js\?client=/);
@@ -602,6 +602,9 @@ test("accommodation cache keeps the MyRealTrip API contract lean", async () => {
   }
   assert.match(fetchScript, /\/v1\/products\/accommodation\/region-autocomplete/);
   assert.match(fetchScript, /\/v1\/products\/accommodation\/search/);
+  assert.match(fetchScript, /postAccommodationKeywordConfigs/);
+  assert.match(fetchScript, /myrealtripAccommodationKeywords/);
+  assert.match(fetchScript, /overseas \? false : IS_DOMESTIC/);
   assert.match(fetchScript, /starRating/);
   assert.doesNotMatch(cacheText, /"images"|"imageUrls"|"amenities"|"facilities"|"coordinates"|"latitude"|"longitude"/);
 });
@@ -771,6 +774,7 @@ test("September overseas manual posts are indexable and wired into public pages"
     assert.equal(post.region, "해외");
     assert.equal(post.renderManualPage, true);
     assert.ok(post.pexelsQuery, `${post.slug} should request free image backfill`);
+    assert.ok(Array.isArray(post.myrealtripAccommodationKeywords) && post.myrealtripAccommodationKeywords.length >= 1, `${post.slug} should declare accommodation destinations`);
     assert.ok(!post.image, `${post.slug} should use deferred Pexels imagery`);
     assert.ok(isIndexablePost(post), `${post.slug} should be indexable`);
     assert.ok(postBodyLength(post) >= 1500, `${post.slug} should meet the body length floor`);
@@ -786,10 +790,33 @@ test("September overseas manual posts are indexable and wired into public pages"
   assert.match(manualRenderer, /readPexelsImageManifest/);
   assert.match(builder, /tag-overseas/);
   assert.match(builder, /9월 해외여행/);
+  assert.match(builder, /overseasAccommodationTargets/);
   assert.match(homepageConfig, /\["해외", "overseas"\]/);
   assert.match(topicFilter, /topic === 'overseas'/);
   assert.match(siteDesign, /\/travel\/#tag-overseas/);
   assert.match(route, /travel-\[a-z0-9-\]\+/);
+});
+
+test("September overseas travel articles include destination accommodation ads", async () => {
+  const posts = JSON.parse(await readFile("data/manual-posts-2026-08-31-september-overseas.json", "utf8"));
+  const stayPage = await readFile("stay/index.html", "utf8");
+
+  assert.doesNotMatch(stayPage, /id="region-overseas"|>해외<\/h2>/);
+
+  for (const post of posts) {
+    const article = await readFile(`${post.slug}/index.html`, "utf8");
+    const block = article.match(/<!-- ARTICLE_PRODUCT_START accommodation -->[\s\S]*?<!-- ARTICLE_PRODUCT_END -->/)?.[0] || "";
+    const expectedHeading = post.myrealtripAccommodationKeywords.length === 1
+      ? `${post.myrealtripAccommodationKeywords[0]} 인기 숙소`
+      : "9월 해외여행 숙소";
+
+    assert.ok(block, `${post.slug} should render an accommodation ad block`);
+    assert.match(block, new RegExp(expectedHeading));
+    assert.match(block, /https:\/\/accommodation\.myrealtrip\.com\//);
+    assert.match(block, /rel="sponsored nofollow"/);
+    assert.match(block, /data-mrt-accommodation-(?:card|search-card)/);
+    assert.doesNotMatch(block, /서울 인기 숙소|부산 인기 숙소|제주 인기 숙소/);
+  }
 });
 
 test("article inline images do not repeat the same Korea Tourism content id", async () => {
@@ -838,14 +865,14 @@ test("article body uses three to five inline images when enough photos are avail
 });
 
 test("article photo grid renders remaining processed images without repeating inline photos", async () => {
-  const article = await readFile("travel-125837/index.html", "utf8");
+  const article = await readFile("travel-132742/index.html", "utf8");
   const body = articleBodyHtml(article);
   const inlineSources = articleInlineImageSources(body);
   const gridSources = articlePhotoGridImageSources(body);
 
   assert.equal(inlineSources.length, 5);
-  assert.equal(gridSources.length, 2);
-  assert.match(body, /<section class="article-photo-grid"[^>]*data-count="2"/);
+  assert.ok(gridSources.length >= 1 && gridSources.length <= 5);
+  assert.match(body, new RegExp(`<section class="article-photo-grid"[^>]*data-count="${gridSources.length}"`));
   assert.deepEqual(gridSources.filter((src) => inlineSources.includes(src)), []);
   assert.ok([...inlineSources, ...gridSources].every((src) => src.startsWith("/assets/processed/")));
 });

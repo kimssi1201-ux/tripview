@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-31T20:58:17.027Z",
+  "generatedAt": "2026-09-01T06:37:11.975Z",
   "source": "한국관광공사 공공누리",
   "assetBasePath": "/assets/processed/",
   "items": {
@@ -233,20 +233,19 @@
       "cover": {
         "kind": "cover",
         "original": "https://tong.visitkorea.or.kr/cms/resource/80/4096180_image2_1.jpg",
-        "src": "/assets/processed/gangwon-danpung-myeongso-water.webp",
+        "src": "/assets/processed/gangwon-danpung-myeongso-travel.webp",
         "alt": "강원 강원 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 800,
         "height": 500,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false,
-        "bytes": null
+        "posterCanvas": false
       },
       "hero": {
         "kind": "hero-cover",
         "original": "https://tong.visitkorea.or.kr/cms/resource/80/4096180_image2_1.jpg",
-        "src": "/assets/processed/gangwon-danpung-myeongso-water-hero.webp",
+        "src": "/assets/processed/gangwon-danpung-myeongso-travel-hero.webp",
         "alt": "강원 강원 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
@@ -258,81 +257,75 @@
       "banner": {
         "kind": "hub-banner",
         "original": "https://tong.visitkorea.or.kr/cms/resource/80/4096180_image2_1.jpg",
-        "src": "/assets/processed/gangwon-danpung-myeongso-water-banner.webp",
-        "alt": "강원 강원 단풍 명소 물놀이 정보를 담은 트립뷰 지역 허브 배너",
+        "src": "/assets/processed/gangwon-danpung-myeongso-travel-banner.webp",
+        "alt": "강원 강원 단풍 명소 여행 포인트 정보를 담은 트립뷰 지역 허브 배너",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
         "width": 1200,
         "height": 675,
         "processorVersion": "fixed-size-thumbnail-canvas-20260825",
         "overlay": null,
-        "posterCanvas": false,
-        "bytes": null
+        "posterCanvas": false
       },
       "images": [
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/81/4096181_image2_1.jpg",
-          "src": "/assets/processed/gangwon-danpung-myeongso-water-detail-1.webp",
+          "src": "/assets/processed/gangwon-danpung-myeongso-travel-detail-1.webp",
           "alt": "강원 강원 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false,
-          "bytes": null
+          "posterCanvas": false
         },
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/82/4096182_image2_1.jpg",
-          "src": "/assets/processed/gangwon-danpung-myeongso-water-detail-2.webp",
+          "src": "/assets/processed/gangwon-danpung-myeongso-travel-detail-2.webp",
           "alt": "강원 강원 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false,
-          "bytes": null
+          "posterCanvas": false
         },
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/83/4096183_image2_1.jpg",
-          "src": "/assets/processed/gangwon-danpung-myeongso-water-detail-3.webp",
+          "src": "/assets/processed/gangwon-danpung-myeongso-travel-detail-3.webp",
           "alt": "강원 강원 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false,
-          "bytes": null
+          "posterCanvas": false
         },
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/84/4096184_image2_1.jpg",
-          "src": "/assets/processed/gangwon-danpung-myeongso-water-detail-4.webp",
+          "src": "/assets/processed/gangwon-danpung-myeongso-travel-detail-4.webp",
           "alt": "강원 강원 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false,
-          "bytes": null
+          "posterCanvas": false
         },
         {
           "kind": "inline",
           "original": "https://tong.visitkorea.or.kr/cms/resource/85/4096185_image2_1.jpg",
-          "src": "/assets/processed/gangwon-danpung-myeongso-water-detail-5.webp",
+          "src": "/assets/processed/gangwon-danpung-myeongso-travel-detail-5.webp",
           "alt": "강원 강원 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
           "height": null,
           "processorVersion": "fixed-size-thumbnail-canvas-20260825",
           "overlay": null,
-          "posterCanvas": false,
-          "bytes": null
+          "posterCanvas": false
         }
       ]
     },
@@ -548,143 +541,6 @@
           "original": "https://tong.visitkorea.or.kr/cms/resource/24/4041224_image2_1.jpg",
           "src": "/assets/processed/jeonranam-nambu-danpung-myeongso-parking-detail-5.webp",
           "alt": "전남 남부 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-          "width": 1000,
-          "height": null,
-          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-          "overlay": null,
-          "posterCanvas": false,
-          "bytes": null
-        }
-      ]
-    },
-    "travel-125837": {
-      "title": "괴산 수옥폭포 여름 방문, 수량·통제 여부와 안전한 동선",
-      "sourceTitle": "수옥폭포",
-      "region": "충북",
-      "source": "한국관광공사 공공누리",
-      "cover": {
-        "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/01/4084901_image2_1.jpg",
-        "src": "/assets/processed/goesan-suok-waterfall-parking.webp",
-        "alt": "충북 수옥폭포 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 800,
-        "height": 500,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false,
-        "bytes": null
-      },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/01/4084901_image2_1.jpg",
-        "src": "/assets/processed/goesan-suok-waterfall-parking-hero.webp",
-        "alt": "충북 수옥폭포 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false
-      },
-      "banner": {
-        "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/01/4084901_image2_1.jpg",
-        "src": "/assets/processed/goesan-suok-waterfall-parking-banner.webp",
-        "alt": "충북 수옥폭포 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
-        "width": 1200,
-        "height": 675,
-        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-        "overlay": null,
-        "posterCanvas": false,
-        "bytes": null
-      },
-      "images": [
-        {
-          "kind": "inline",
-          "original": "https://tong.visitkorea.or.kr/cms/resource/82/3494982_image2_1.jpg",
-          "src": "/assets/processed/goesan-suok-waterfall-parking-detail-1.webp",
-          "alt": "충북 수옥폭포 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-          "width": 1000,
-          "height": null,
-          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-          "overlay": null,
-          "posterCanvas": false,
-          "bytes": null
-        },
-        {
-          "kind": "inline",
-          "original": "https://tong.visitkorea.or.kr/cms/resource/83/3494983_image2_1.jpg",
-          "src": "/assets/processed/goesan-suok-waterfall-parking-detail-2.webp",
-          "alt": "충북 수옥폭포 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-          "width": 1000,
-          "height": null,
-          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-          "overlay": null,
-          "posterCanvas": false,
-          "bytes": null
-        },
-        {
-          "kind": "inline",
-          "original": "https://tong.visitkorea.or.kr/cms/resource/84/3494984_image2_1.jpg",
-          "src": "/assets/processed/goesan-suok-waterfall-parking-detail-3.webp",
-          "alt": "충북 수옥폭포 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-          "width": 1000,
-          "height": null,
-          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-          "overlay": null,
-          "posterCanvas": false,
-          "bytes": null
-        },
-        {
-          "kind": "inline",
-          "original": "https://tong.visitkorea.or.kr/cms/resource/85/3494985_image2_1.jpg",
-          "src": "/assets/processed/goesan-suok-waterfall-parking-detail-4.webp",
-          "alt": "충북 수옥폭포 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-          "width": 1000,
-          "height": null,
-          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-          "overlay": null,
-          "posterCanvas": false,
-          "bytes": null
-        },
-        {
-          "kind": "inline",
-          "original": "https://tong.visitkorea.or.kr/cms/resource/97/4084897_image2_1.jpg",
-          "src": "/assets/processed/goesan-suok-waterfall-parking-detail-5.webp",
-          "alt": "충북 수옥폭포 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-          "width": 1000,
-          "height": null,
-          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-          "overlay": null,
-          "posterCanvas": false,
-          "bytes": null
-        },
-        {
-          "kind": "inline",
-          "original": "https://tong.visitkorea.or.kr/cms/resource/99/4084899_image2_1.jpg",
-          "src": "/assets/processed/goesan-suok-waterfall-parking-detail-6.webp",
-          "alt": "충북 수옥폭포 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-          "width": 1000,
-          "height": null,
-          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
-          "overlay": null,
-          "posterCanvas": false,
-          "bytes": null
-        },
-        {
-          "kind": "inline",
-          "original": "https://tong.visitkorea.or.kr/cms/resource/00/4084900_image2_1.jpg",
-          "src": "/assets/processed/goesan-suok-waterfall-parking-detail-7.webp",
-          "alt": "충북 수옥폭포 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
           "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
           "width": 1000,
           "height": null,
