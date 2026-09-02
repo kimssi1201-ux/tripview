@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-01T18:40:12.369Z",
+  "updatedAt": "2026-09-02T18:49:30.213Z",
   "items": [
     {
       "contentid": "4070865",
@@ -7068,6 +7068,48 @@
       "title": "매향",
       "rejectedAt": "2026-09-01T18:40:11.699Z",
       "reason": "body_under_1500_chars:1350"
+    },
+    {
+      "contentid": "2892972",
+      "slug": "travel-2892972",
+      "title": "리비에르",
+      "createdAt": "2026-09-02T18:49:30.214Z"
+    },
+    {
+      "contentid": "137891",
+      "slug": "travel-137891",
+      "title": "담양리조트",
+      "createdAt": "2026-09-02T18:49:30.214Z"
+    },
+    {
+      "contentid": "130323",
+      "slug": "travel-130323",
+      "title": "한국가사문학관",
+      "createdAt": "2026-09-02T18:49:30.214Z"
+    },
+    {
+      "contentid": "142730",
+      "slug": "travel-142730",
+      "title": "웨스틴 조선 서울",
+      "createdAt": "2026-09-02T18:49:30.214Z"
+    },
+    {
+      "contentid": "132060",
+      "slug": "travel-132060",
+      "title": "담양시장",
+      "createdAt": "2026-09-02T18:49:30.214Z"
+    },
+    {
+      "contentid": "2778411",
+      "title": "크렘파이샵",
+      "rejectedAt": "2026-09-02T18:49:26.896Z",
+      "reason": "body_under_1500_chars:1409"
+    },
+    {
+      "contentid": "2841784",
+      "title": "담양앞집",
+      "rejectedAt": "2026-09-02T18:49:29.294Z",
+      "reason": "body_under_1500_chars:1357"
     }
   ]
 }

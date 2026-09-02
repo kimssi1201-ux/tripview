@@ -1,45 +1,9 @@
 {
-  "updatedDate": "2026-09-02",
-  "generatedAt": "2026-09-01T21:08:18.123Z",
+  "updatedDate": "2026-09-03",
+  "generatedAt": "2026-09-02T18:50:05.128Z",
   "source": "myrealtrip-accommodation-region-autocomplete",
   "endpoint": "/v1/products/accommodation/region-autocomplete",
   "regions": {
-    "오사카": {
-      "keyword": "오사카",
-      "name": "오사카",
-      "slug": "오사카",
-      "regionId": "2225",
-      "type": "CITY",
-      "isDomestic": false,
-      "sourceName": "오사카"
-    },
-    "타이베이": {
-      "keyword": "타이베이",
-      "name": "타이베이",
-      "slug": "타이베이",
-      "regionId": "2894",
-      "type": "CITY",
-      "isDomestic": false,
-      "sourceName": "타이베이"
-    },
-    "다낭": {
-      "keyword": "다낭",
-      "name": "다낭",
-      "slug": "다낭",
-      "regionId": "171691",
-      "type": "CITY",
-      "isDomestic": false,
-      "sourceName": "다낭"
-    },
-    "방콕": {
-      "keyword": "방콕",
-      "name": "방콕",
-      "slug": "방콕",
-      "regionId": "524",
-      "type": "CITY",
-      "isDomestic": false,
-      "sourceName": "방콕"
-    },
     "seoul": {
       "keyword": "서울",
       "name": "서울",
@@ -858,6 +822,42 @@
       "type": "CITY",
       "isDomestic": true,
       "sourceName": "남양주"
+    },
+    "담양": {
+      "keyword": "담양",
+      "name": "담양",
+      "slug": "담양",
+      "regionId": "191076",
+      "type": "CITY",
+      "isDomestic": true,
+      "sourceName": "담양"
+    },
+    "당진": {
+      "keyword": "당진",
+      "name": "당진",
+      "slug": "당진",
+      "regionId": "211302",
+      "type": "CITY",
+      "isDomestic": true,
+      "sourceName": "당진"
+    },
+    "보령": {
+      "keyword": "보령",
+      "name": "보령",
+      "slug": "보령",
+      "regionId": "83390",
+      "type": "CITY",
+      "isDomestic": true,
+      "sourceName": "보령"
+    },
+    "부안": {
+      "keyword": "부안",
+      "name": "부안",
+      "slug": "부안",
+      "regionId": "200908",
+      "type": "CITY",
+      "isDomestic": true,
+      "sourceName": "부안"
     }
   }
 }
