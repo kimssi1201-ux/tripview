@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-09-01T21:07:25.448Z",
-  "lastRunDate": "2026-09-02",
+  "updatedAt": "2026-09-02T21:08:29.273Z",
+  "lastRunDate": "2026-09-03",
   "policy": {
     "maxDailyPosts": 3,
     "maxDailyPerType": 1,
@@ -14,18 +14,28 @@
       "type": "festival-schedule",
       "region": "서울",
       "firstPublishedAt": "2026-08-23T15:51:45.976Z",
-      "lastGeneratedAt": "2026-09-01T21:07:20.209Z",
-      "lastUpdatedDate": "2026-09-02",
+      "lastGeneratedAt": "2026-09-02T21:08:24.560Z",
+      "lastUpdatedDate": "2026-09-03",
       "rowCount": 8,
       "affiliateLinkCount": 0
+    },
+    {
+      "slug": "data-stay-price-busan",
+      "type": "stay-price",
+      "region": "부산",
+      "firstPublishedAt": "2026-09-02T21:08:24.490Z",
+      "lastGeneratedAt": "2026-09-02T21:08:24.490Z",
+      "lastUpdatedDate": "2026-09-03",
+      "rowCount": 6,
+      "affiliateLinkCount": 6
     },
     {
       "slug": "data-stay-price-jeju",
       "type": "stay-price",
       "region": "제주",
       "firstPublishedAt": "2026-08-27T10:02:31.517Z",
-      "lastGeneratedAt": "2026-09-01T21:07:20.152Z",
-      "lastUpdatedDate": "2026-09-02",
+      "lastGeneratedAt": "2026-09-02T21:08:24.493Z",
+      "lastUpdatedDate": "2026-09-03",
       "rowCount": 6,
       "affiliateLinkCount": 6
     },
@@ -44,8 +54,8 @@
       "type": "ticket-price",
       "region": "부산",
       "firstPublishedAt": "2026-08-23T15:52:07.184Z",
-      "lastGeneratedAt": "2026-09-01T21:07:20.218Z",
-      "lastUpdatedDate": "2026-09-02",
+      "lastGeneratedAt": "2026-09-02T21:08:24.570Z",
+      "lastUpdatedDate": "2026-09-03",
       "rowCount": 6,
       "affiliateLinkCount": 6
     },
@@ -54,8 +64,8 @@
       "type": "ticket-price",
       "region": "서울",
       "firstPublishedAt": "2026-08-27T10:02:31.591Z",
-      "lastGeneratedAt": "2026-09-01T21:07:20.218Z",
-      "lastUpdatedDate": "2026-09-02",
+      "lastGeneratedAt": "2026-09-02T21:08:24.570Z",
+      "lastUpdatedDate": "2026-09-03",
       "rowCount": 6,
       "affiliateLinkCount": 6
     }

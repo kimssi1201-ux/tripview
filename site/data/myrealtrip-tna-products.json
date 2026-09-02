@@ -1729,6 +1729,96 @@
     "source": "myrealtrip-tna"
   },
   {
+    "id": "tna-6117990",
+    "type": "tna",
+    "title": "[전북투어패스] 프리미엄권",
+    "url": "https://experiences.myrealtrip.com/products/6117990",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/07/24/EKlG/5c9TuOmZOb.jpg",
+    "price": 15900,
+    "priceText": "15,900원부터",
+    "region": "전주",
+    "city": "전주",
+    "category": "입장권",
+    "description": "전주 ∙ 입장권 · 평점 2(1개) · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "전주",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport",
+      "tour"
+    ],
+    "gid": "6117990",
+    "reviewScore": 2,
+    "reviewCount": 1,
+    "deepLink": "mrt://experiences/detail/6117990",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6117790",
+    "type": "tna",
+    "title": "[전북투어패스] 전북투어패스 1일권&전주 한옥레일바이크 PKG",
+    "url": "https://experiences.myrealtrip.com/products/6117790",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/07/24/TnZt/Ni4ULfhdGW.jpg",
+    "price": 15900,
+    "priceText": "15,900원부터",
+    "region": "전주",
+    "city": "전주",
+    "category": "입장권",
+    "description": "전주 ∙ 입장권 · 평점 5(1개) · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "전주",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport",
+      "tour"
+    ],
+    "gid": "6117790",
+    "reviewScore": 5,
+    "reviewCount": 1,
+    "deepLink": "mrt://experiences/detail/6117790",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6117791",
+    "type": "tna",
+    "title": "[전북투어패스] 전주한옥마을권 PKG",
+    "url": "https://experiences.myrealtrip.com/products/6117791",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/06/22/NNyO/xIWOCOsZZF.jpg",
+    "price": 18800,
+    "priceText": "18,800원부터",
+    "region": "전주",
+    "city": "전주",
+    "category": "입장권",
+    "description": "전주 ∙ 입장권 · 평점 4.8(4개) · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "전주",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport",
+      "tour"
+    ],
+    "gid": "6117791",
+    "reviewScore": 4.8,
+    "reviewCount": 4,
+    "deepLink": "mrt://experiences/detail/6117791",
+    "source": "myrealtrip-tna"
+  },
+  {
     "id": "tna-6117861",
     "type": "tna",
     "title": "[경북투어패스] 경북투어패스 통합권",
@@ -1873,36 +1963,6 @@
     "reviewScore": "",
     "reviewCount": "",
     "deepLink": "mrt://experiences/detail/6114872",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-6118137",
-    "type": "tna",
-    "title": "[전북] 썬웨이어드벤처워터파크★폭탄할인★얼리버드 입장권!!",
-    "url": "https://experiences.myrealtrip.com/products/6118137",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/19/c4u7/1Lun9ZWqmW.jpg",
-    "price": 18000,
-    "priceText": "18,000원부터",
-    "region": "순창",
-    "city": "순창",
-    "category": "입장권",
-    "description": "순창 ∙ 입장권 · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "순창",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "transport",
-      "water"
-    ],
-    "gid": "6118137",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/6118137",
     "source": "myrealtrip-tna"
   },
   {
@@ -3022,66 +3082,6 @@
     "source": "myrealtrip-tna"
   },
   {
-    "id": "tna-6117990",
-    "type": "tna",
-    "title": "[전북투어패스] 프리미엄권",
-    "url": "https://experiences.myrealtrip.com/products/6117990",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/07/24/EKlG/5c9TuOmZOb.jpg",
-    "price": 15900,
-    "priceText": "15,900원부터",
-    "region": "전주",
-    "city": "전주",
-    "category": "입장권",
-    "description": "전주 ∙ 입장권 · 평점 2(1개) · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "전주",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "transport",
-      "tour"
-    ],
-    "gid": "6117990",
-    "reviewScore": 2,
-    "reviewCount": 1,
-    "deepLink": "mrt://experiences/detail/6117990",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-6117790",
-    "type": "tna",
-    "title": "[전북투어패스] 전북투어패스 1일권&전주 한옥레일바이크 PKG",
-    "url": "https://experiences.myrealtrip.com/products/6117790",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/07/24/TnZt/Ni4ULfhdGW.jpg",
-    "price": 15900,
-    "priceText": "15,900원부터",
-    "region": "전주",
-    "city": "전주",
-    "category": "입장권",
-    "description": "전주 ∙ 입장권 · 평점 5(1개) · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "전주",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "transport",
-      "tour"
-    ],
-    "gid": "6117790",
-    "reviewScore": 5,
-    "reviewCount": 1,
-    "deepLink": "mrt://experiences/detail/6117790",
-    "source": "myrealtrip-tna"
-  },
-  {
     "id": "tna-3880304",
     "type": "tna",
     "title": "[당일/차량/구례] 현지인 가이드와 함께하는 구례 헤리티지 도슨트 투어",
@@ -3985,6 +3985,68 @@
     "source": "myrealtrip-tna"
   },
   {
+    "id": "tna-6118154",
+    "type": "tna",
+    "title": "[전남] 나주 중흥 골드스파 우주드림 미디어아트 전시관 이용권",
+    "url": "https://experiences.myrealtrip.com/products/6118154",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/07/04/xiDw/ausRB9ZsiM.jpg",
+    "price": 13500,
+    "priceText": "13,500원부터",
+    "region": "나주",
+    "city": "나주",
+    "category": "입장권",
+    "description": "나주 ∙ 입장권 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "나주",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport",
+      "activity",
+      "indoor"
+    ],
+    "gid": "6118154",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/6118154",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6241589",
+    "type": "tna",
+    "title": "(당일구매사용불가) 나주 중흥골드스파 워터락 8월 이용권",
+    "url": "https://experiences.myrealtrip.com/products/6241589",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/24/dbzJ/8bITb75nsf.jpg",
+    "price": 39600,
+    "priceText": "39,600원부터",
+    "region": "나주",
+    "city": "나주",
+    "category": "입장권",
+    "description": "나주 ∙ 입장권 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "나주",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport",
+      "activity",
+      "water"
+    ],
+    "gid": "6241589",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/6241589",
+    "source": "myrealtrip-tna"
+  },
+  {
     "id": "tna-6117801",
     "type": "tna",
     "title": "[남해] 포세이돈 마린레저",
@@ -4069,6 +4131,94 @@
     "reviewScore": "",
     "reviewCount": "",
     "deepLink": "mrt://experiences/detail/4875322",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6117830",
+    "type": "tna",
+    "title": "[전남] 담양리조트 온천사우나+야외수영장 이용권",
+    "url": "https://experiences.myrealtrip.com/products/6117830",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/19/LSG6/asvwlUFWvl.jpg",
+    "price": 15000,
+    "priceText": "15,000원부터",
+    "region": "담양",
+    "city": "담양",
+    "category": "입장권",
+    "description": "담양 ∙ 입장권 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "담양",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport"
+    ],
+    "gid": "6117830",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/6117830",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6117893",
+    "type": "tna",
+    "title": "[담양빠지] 라온 수상레저&워터파크 이용권",
+    "url": "https://experiences.myrealtrip.com/products/6117893",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/03/PXQg/lDvCBU65GD.jpg",
+    "price": 20000,
+    "priceText": "20,000원부터",
+    "region": "담양",
+    "city": "담양",
+    "category": "입장권",
+    "description": "담양 ∙ 입장권 · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "담양",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "transport",
+      "water"
+    ],
+    "gid": "6117893",
+    "reviewScore": "",
+    "reviewCount": "",
+    "deepLink": "mrt://experiences/detail/6117893",
+    "source": "myrealtrip-tna"
+  },
+  {
+    "id": "tna-6114841",
+    "type": "tna",
+    "title": "[전남 담양] 담양 에어로마스터 경비행기 체험 (사전예약 필수)",
+    "url": "https://experiences.myrealtrip.com/products/6114841",
+    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/06/11/VD4d/ThVerQOOwf.jpg",
+    "price": 75000,
+    "priceText": "75,000원부터",
+    "region": "담양",
+    "city": "담양",
+    "category": "액티비티",
+    "description": "담양 ∙ 액티비티 · 평점 4.9(16개) · 즉시 확정",
+    "tags": [
+      "투어티켓",
+      "액티비티",
+      "예약",
+      "담양",
+      "즉시 확정"
+    ],
+    "intents": [
+      "booking",
+      "activity"
+    ],
+    "gid": "6114841",
+    "reviewScore": 4.9,
+    "reviewCount": 16,
+    "deepLink": "mrt://experiences/detail/6114841",
     "source": "myrealtrip-tna"
   },
   {
@@ -4407,211 +4557,6 @@
     "reviewScore": "",
     "reviewCount": "",
     "deepLink": "mrt://experiences/detail/5686596",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-3884151",
-    "type": "tna",
-    "title": "군산과의 이야기를 이어가는, 내 손으로 만드는 감성 여행 [전북/군산]",
-    "url": "https://experiences.myrealtrip.com/products/3884151",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/26/w4sd/T38UfKrCpF.jpg",
-    "price": 21000,
-    "priceText": "21,000원부터",
-    "region": "군산",
-    "city": "군산",
-    "category": "클래스",
-    "description": "군산 ∙ 클래스 · 평점 5(8개)",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "군산"
-    ],
-    "intents": [
-      "booking",
-      "activity"
-    ],
-    "gid": "3884151",
-    "reviewScore": 5,
-    "reviewCount": 8,
-    "deepLink": "mrt://experiences/detail/3884151",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-6331392",
-    "type": "tna",
-    "title": "군산 오션팔레트 이용권[8/18~8/31]",
-    "url": "https://experiences.myrealtrip.com/products/6331392",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/26/ZT5u/UAABBTJiXW",
-    "price": 25200,
-    "priceText": "25,200원부터",
-    "region": "군산",
-    "city": "군산",
-    "category": "입장권",
-    "description": "군산 ∙ 입장권 · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "군산",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "transport"
-    ],
-    "gid": "6331392",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/6331392",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-6323477",
-    "type": "tna",
-    "title": "군산 오션팔레트 이용권[~8/17]",
-    "url": "https://experiences.myrealtrip.com/products/6323477",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/25/WJfh/mSTGtPNKvi",
-    "price": 25200,
-    "priceText": "25,200원부터",
-    "region": "군산",
-    "city": "군산",
-    "category": "입장권",
-    "description": "군산 ∙ 입장권 · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "군산",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "transport"
-    ],
-    "gid": "6323477",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/6323477",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-3827790",
-    "type": "tna",
-    "title": "군산과의 이야기를 이어가는, 내 손으로 만드는 감성 여행 (전북/군산)",
-    "url": "https://experiences.myrealtrip.com/products/3827790",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2024/11/04/G7nQ/PFwX1j7rwN.jpg",
-    "price": 30000,
-    "priceText": "30,000원부터",
-    "region": "군산",
-    "city": "군산",
-    "category": "클래스",
-    "description": "군산 ∙ 클래스 · 평점 5(14개)",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "군산"
-    ],
-    "intents": [
-      "booking",
-      "activity"
-    ],
-    "gid": "3827790",
-    "reviewScore": 5,
-    "reviewCount": 14,
-    "deepLink": "mrt://experiences/detail/3827790",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-6116949",
-    "type": "tna",
-    "title": "[전북] 군산 패러글라이딩 (사진촬영코스/체험/이용권/예약 당일 사용)",
-    "url": "https://experiences.myrealtrip.com/products/6116949",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/25/DHsj/OGeJ26RF0G",
-    "price": 84900,
-    "priceText": "84,900원부터",
-    "region": "군산",
-    "city": "군산",
-    "category": "액티비티",
-    "description": "군산 ∙ 액티비티 · 평점 4.2(5개) · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "군산",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "activity"
-    ],
-    "gid": "6116949",
-    "reviewScore": 4.2,
-    "reviewCount": 5,
-    "deepLink": "mrt://experiences/detail/6116949",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-6118154",
-    "type": "tna",
-    "title": "[전남] 나주 중흥 골드스파 우주드림 미디어아트 전시관 이용권",
-    "url": "https://experiences.myrealtrip.com/products/6118154",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/07/04/xiDw/ausRB9ZsiM.jpg",
-    "price": 13500,
-    "priceText": "13,500원부터",
-    "region": "나주",
-    "city": "나주",
-    "category": "입장권",
-    "description": "나주 ∙ 입장권 · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "나주",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "transport",
-      "activity",
-      "indoor"
-    ],
-    "gid": "6118154",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/6118154",
-    "source": "myrealtrip-tna"
-  },
-  {
-    "id": "tna-6241589",
-    "type": "tna",
-    "title": "(당일구매사용불가) 나주 중흥골드스파 워터락 8월 이용권",
-    "url": "https://experiences.myrealtrip.com/products/6241589",
-    "image": "https://dry7pvlp22cox.cloudfront.net/mrt-images-prod/2026/08/24/dbzJ/8bITb75nsf.jpg",
-    "price": 39600,
-    "priceText": "39,600원부터",
-    "region": "나주",
-    "city": "나주",
-    "category": "입장권",
-    "description": "나주 ∙ 입장권 · 즉시 확정",
-    "tags": [
-      "투어티켓",
-      "액티비티",
-      "예약",
-      "나주",
-      "즉시 확정"
-    ],
-    "intents": [
-      "booking",
-      "transport",
-      "activity",
-      "water"
-    ],
-    "gid": "6241589",
-    "reviewScore": "",
-    "reviewCount": "",
-    "deepLink": "mrt://experiences/detail/6241589",
     "source": "myrealtrip-tna"
   }
 ]

@@ -1,9 +1,45 @@
 {
   "updatedDate": "2026-09-03",
-  "generatedAt": "2026-09-02T18:50:05.128Z",
+  "generatedAt": "2026-09-02T21:09:23.921Z",
   "source": "myrealtrip-accommodation-region-autocomplete",
   "endpoint": "/v1/products/accommodation/region-autocomplete",
   "regions": {
+    "오사카": {
+      "keyword": "오사카",
+      "name": "오사카",
+      "slug": "오사카",
+      "regionId": "2225",
+      "type": "CITY",
+      "isDomestic": false,
+      "sourceName": "오사카"
+    },
+    "타이베이": {
+      "keyword": "타이베이",
+      "name": "타이베이",
+      "slug": "타이베이",
+      "regionId": "2894",
+      "type": "CITY",
+      "isDomestic": false,
+      "sourceName": "타이베이"
+    },
+    "다낭": {
+      "keyword": "다낭",
+      "name": "다낭",
+      "slug": "다낭",
+      "regionId": "171691",
+      "type": "CITY",
+      "isDomestic": false,
+      "sourceName": "다낭"
+    },
+    "방콕": {
+      "keyword": "방콕",
+      "name": "방콕",
+      "slug": "방콕",
+      "regionId": "524",
+      "type": "CITY",
+      "isDomestic": false,
+      "sourceName": "방콕"
+    },
     "seoul": {
       "keyword": "서울",
       "name": "서울",
@@ -211,6 +247,15 @@
       "isDomestic": true,
       "sourceName": "경주"
     },
+    "나주": {
+      "keyword": "나주",
+      "name": "나주",
+      "slug": "나주",
+      "regionId": "191723",
+      "type": "CITY",
+      "isDomestic": true,
+      "sourceName": "나주"
+    },
     "남해": {
       "keyword": "남해",
       "name": "남해",
@@ -219,6 +264,15 @@
       "type": "CITY",
       "isDomestic": true,
       "sourceName": "남해"
+    },
+    "담양": {
+      "keyword": "담양",
+      "name": "담양",
+      "slug": "담양",
+      "regionId": "191076",
+      "type": "CITY",
+      "isDomestic": true,
+      "sourceName": "담양"
     },
     "원주": {
       "keyword": "원주",
@@ -291,15 +345,6 @@
       "type": "CITY",
       "isDomestic": true,
       "sourceName": "군산"
-    },
-    "나주": {
-      "keyword": "나주",
-      "name": "나주",
-      "slug": "나주",
-      "regionId": "191723",
-      "type": "CITY",
-      "isDomestic": true,
-      "sourceName": "나주"
     },
     "삼척": {
       "keyword": "삼척",
@@ -454,15 +499,6 @@
       "isDomestic": true,
       "sourceName": "구미"
     },
-    "김천": {
-      "keyword": "김천",
-      "name": "김천",
-      "slug": "김천",
-      "regionId": "199897",
-      "type": "CITY",
-      "isDomestic": true,
-      "sourceName": "김천"
-    },
     "단양": {
       "keyword": "단양",
       "name": "단양",
@@ -516,15 +552,6 @@
       "type": "CITY",
       "isDomestic": true,
       "sourceName": "여주"
-    },
-    "옥천": {
-      "keyword": "옥천",
-      "name": "옥천",
-      "slug": "옥천",
-      "regionId": "211290",
-      "type": "CITY",
-      "isDomestic": true,
-      "sourceName": "옥천"
     },
     "인제": {
       "keyword": "인제",
@@ -580,15 +607,6 @@
       "isDomestic": true,
       "sourceName": "포천"
     },
-    "하동": {
-      "keyword": "하동",
-      "name": "하동",
-      "slug": "하동",
-      "regionId": "191724",
-      "type": "CITY",
-      "isDomestic": true,
-      "sourceName": "하동"
-    },
     "화순": {
       "keyword": "화순",
       "name": "화순",
@@ -615,6 +633,15 @@
       "type": "CITY",
       "isDomestic": true,
       "sourceName": "금산"
+    },
+    "김천": {
+      "keyword": "김천",
+      "name": "김천",
+      "slug": "김천",
+      "regionId": "199897",
+      "type": "CITY",
+      "isDomestic": true,
+      "sourceName": "김천"
     },
     "김해": {
       "keyword": "김해",
@@ -697,6 +724,15 @@
       "isDomestic": true,
       "sourceName": "영주"
     },
+    "옥천": {
+      "keyword": "옥천",
+      "name": "옥천",
+      "slug": "옥천",
+      "regionId": "211290",
+      "type": "CITY",
+      "isDomestic": true,
+      "sourceName": "옥천"
+    },
     "완도": {
       "keyword": "완도",
       "name": "완도",
@@ -734,7 +770,7 @@
       "sourceName": "진주"
     },
     "논산": {
-      "keyword": "논산",
+      "keyword": "충남",
       "name": "논산",
       "slug": "논산",
       "regionId": "191479",
@@ -759,6 +795,15 @@
       "type": "CITY",
       "isDomestic": true,
       "sourceName": "평택"
+    },
+    "하동": {
+      "keyword": "하동",
+      "name": "하동",
+      "slug": "하동",
+      "regionId": "191724",
+      "type": "CITY",
+      "isDomestic": true,
+      "sourceName": "하동"
     },
     "홍성": {
       "keyword": "홍성",
@@ -822,42 +867,6 @@
       "type": "CITY",
       "isDomestic": true,
       "sourceName": "남양주"
-    },
-    "담양": {
-      "keyword": "담양",
-      "name": "담양",
-      "slug": "담양",
-      "regionId": "191076",
-      "type": "CITY",
-      "isDomestic": true,
-      "sourceName": "담양"
-    },
-    "당진": {
-      "keyword": "당진",
-      "name": "당진",
-      "slug": "당진",
-      "regionId": "211302",
-      "type": "CITY",
-      "isDomestic": true,
-      "sourceName": "당진"
-    },
-    "보령": {
-      "keyword": "보령",
-      "name": "보령",
-      "slug": "보령",
-      "regionId": "83390",
-      "type": "CITY",
-      "isDomestic": true,
-      "sourceName": "보령"
-    },
-    "부안": {
-      "keyword": "부안",
-      "name": "부안",
-      "slug": "부안",
-      "regionId": "200908",
-      "type": "CITY",
-      "isDomestic": true,
-      "sourceName": "부안"
     }
   }
 }
