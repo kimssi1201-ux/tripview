@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-02T21:09:05.862Z",
+  "generatedAt": "2026-09-03T18:52:13.379Z",
   "source": "한국관광공사 공공누리",
   "assetBasePath": "/assets/processed/",
   "items": {
@@ -696,26 +696,27 @@
       ]
     },
     "data-festival-schedule-seoul": {
-      "title": "서울 축제 일정 정리",
+      "title": "서울 축제 일정 정리, 늦여름·초가을에 보기 좋은 위치와 여행 동선",
       "sourceTitle": "서울 축제 일정 정리",
       "region": "서울",
       "source": "한국관광공사 공공누리",
       "cover": {
         "kind": "cover",
         "original": "https://tong.visitkorea.or.kr/cms/resource/13/4056513_image2_1.jpg",
-        "src": "/assets/processed/seoul-festival-iljeong-jeongri-festival.webp",
+        "src": "/assets/processed/seoul-festival-iljeong-jeongri-parking.webp",
         "alt": "서울 서울 축제 일정 정리 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 800,
         "height": 500,
         "processorVersion": "blurred-poster-canvas-20260827",
         "overlay": null,
-        "posterCanvas": true
+        "posterCanvas": true,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
         "original": "https://tong.visitkorea.or.kr/cms/resource/13/4056513_image2_1.jpg",
-        "src": "/assets/processed/seoul-festival-iljeong-jeongri-festival-hero.webp",
+        "src": "/assets/processed/seoul-festival-iljeong-jeongri-parking-hero.webp",
         "alt": "서울 서울 축제 일정 정리 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
         "width": 1200,
@@ -727,14 +728,15 @@
       "banner": {
         "kind": "hub-banner",
         "original": "https://tong.visitkorea.or.kr/cms/resource/13/4056513_image2_1.jpg",
-        "src": "/assets/processed/seoul-festival-iljeong-jeongri-festival-banner.webp",
-        "alt": "서울 서울 축제 일정 정리 축제 일정 정보를 담은 트립뷰 지역 허브 배너",
+        "src": "/assets/processed/seoul-festival-iljeong-jeongri-parking-banner.webp",
+        "alt": "서울 서울 축제 일정 정리 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
         "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
         "width": 1200,
         "height": 675,
         "processorVersion": "blurred-poster-canvas-20260827",
         "overlay": null,
-        "posterCanvas": true
+        "posterCanvas": true,
+        "bytes": null
       },
       "images": []
     },

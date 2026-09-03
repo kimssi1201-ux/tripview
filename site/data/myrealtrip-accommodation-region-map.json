@@ -1,45 +1,9 @@
 {
-  "updatedDate": "2026-09-03",
-  "generatedAt": "2026-09-02T21:09:23.921Z",
+  "updatedDate": "2026-09-04",
+  "generatedAt": "2026-09-03T18:48:37.298Z",
   "source": "myrealtrip-accommodation-region-autocomplete",
   "endpoint": "/v1/products/accommodation/region-autocomplete",
   "regions": {
-    "오사카": {
-      "keyword": "오사카",
-      "name": "오사카",
-      "slug": "오사카",
-      "regionId": "2225",
-      "type": "CITY",
-      "isDomestic": false,
-      "sourceName": "오사카"
-    },
-    "타이베이": {
-      "keyword": "타이베이",
-      "name": "타이베이",
-      "slug": "타이베이",
-      "regionId": "2894",
-      "type": "CITY",
-      "isDomestic": false,
-      "sourceName": "타이베이"
-    },
-    "다낭": {
-      "keyword": "다낭",
-      "name": "다낭",
-      "slug": "다낭",
-      "regionId": "171691",
-      "type": "CITY",
-      "isDomestic": false,
-      "sourceName": "다낭"
-    },
-    "방콕": {
-      "keyword": "방콕",
-      "name": "방콕",
-      "slug": "방콕",
-      "regionId": "524",
-      "type": "CITY",
-      "isDomestic": false,
-      "sourceName": "방콕"
-    },
     "seoul": {
       "keyword": "서울",
       "name": "서울",
@@ -58,15 +22,6 @@
       "isDomestic": true,
       "sourceName": "부산"
     },
-    "incheon": {
-      "keyword": "인천",
-      "name": "인천",
-      "slug": "incheon",
-      "regionId": "7002",
-      "type": "CITY",
-      "isDomestic": true,
-      "sourceName": "인천"
-    },
     "제주시": {
       "keyword": "제주",
       "name": "제주시",
@@ -75,6 +30,15 @@
       "type": "CITY",
       "isDomestic": true,
       "sourceName": "제주시"
+    },
+    "incheon": {
+      "keyword": "인천",
+      "name": "인천",
+      "slug": "incheon",
+      "regionId": "7002",
+      "type": "CITY",
+      "isDomestic": true,
+      "sourceName": "인천"
     },
     "daegu": {
       "keyword": "대구",
@@ -292,6 +256,15 @@
       "isDomestic": true,
       "sourceName": "고창"
     },
+    "daejeon": {
+      "keyword": "대전",
+      "name": "대전",
+      "slug": "daejeon",
+      "regionId": "8330",
+      "type": "CITY",
+      "isDomestic": true,
+      "sourceName": "대전"
+    },
     "동해": {
       "keyword": "동해",
       "name": "동해",
@@ -409,6 +382,15 @@
       "isDomestic": true,
       "sourceName": "보은"
     },
+    "부안": {
+      "keyword": "부안",
+      "name": "부안",
+      "slug": "부안",
+      "regionId": "200908",
+      "type": "CITY",
+      "isDomestic": true,
+      "sourceName": "부안"
+    },
     "양평": {
       "keyword": "양평",
       "name": "양평",
@@ -507,15 +489,6 @@
       "type": "CITY",
       "isDomestic": true,
       "sourceName": "단양"
-    },
-    "daejeon": {
-      "keyword": "대전",
-      "name": "대전",
-      "slug": "daejeon",
-      "regionId": "8330",
-      "type": "CITY",
-      "isDomestic": true,
-      "sourceName": "대전"
     },
     "무안": {
       "keyword": "무안",
@@ -770,7 +743,7 @@
       "sourceName": "진주"
     },
     "논산": {
-      "keyword": "충남",
+      "keyword": "논산",
       "name": "논산",
       "slug": "논산",
       "regionId": "191479",
@@ -867,6 +840,24 @@
       "type": "CITY",
       "isDomestic": true,
       "sourceName": "남양주"
+    },
+    "당진": {
+      "keyword": "당진",
+      "name": "당진",
+      "slug": "당진",
+      "regionId": "211302",
+      "type": "CITY",
+      "isDomestic": true,
+      "sourceName": "당진"
+    },
+    "보령": {
+      "keyword": "보령",
+      "name": "보령",
+      "slug": "보령",
+      "regionId": "83390",
+      "type": "CITY",
+      "isDomestic": true,
+      "sourceName": "보령"
     }
   }
 }

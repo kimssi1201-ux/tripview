@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-02T18:49:30.213Z",
+  "updatedAt": "2026-09-03T18:48:03.877Z",
   "items": [
     {
       "contentid": "4070865",
@@ -7110,6 +7110,54 @@
       "title": "담양앞집",
       "rejectedAt": "2026-09-02T18:49:29.294Z",
       "reason": "body_under_1500_chars:1357"
+    },
+    {
+      "contentid": "2715650",
+      "slug": "travel-2715650",
+      "title": "사계해변",
+      "createdAt": "2026-09-03T18:48:03.877Z"
+    },
+    {
+      "contentid": "128982",
+      "slug": "travel-128982",
+      "title": "채석강 (전북 서해안 국가지질공원)",
+      "createdAt": "2026-09-03T18:48:03.877Z"
+    },
+    {
+      "contentid": "4106729",
+      "slug": "festival-4106729",
+      "title": "문래예술제",
+      "createdAt": "2026-09-03T18:48:03.877Z"
+    },
+    {
+      "contentid": "1936201",
+      "slug": "travel-1936201",
+      "title": "폰타나비치호텔",
+      "createdAt": "2026-09-03T18:48:03.877Z"
+    },
+    {
+      "contentid": "4106719",
+      "slug": "festival-4106719",
+      "title": "2026 달빛 음악공감",
+      "createdAt": "2026-09-03T18:48:03.877Z"
+    },
+    {
+      "contentid": "1908192",
+      "title": "목포어린이바다과학관",
+      "rejectedAt": "2026-09-03T18:47:58.882Z",
+      "reason": "body_under_1500_chars:1457"
+    },
+    {
+      "contentid": "143092",
+      "title": "샹그리아비치호텔",
+      "rejectedAt": "2026-09-03T18:47:59.704Z",
+      "reason": "body_under_1500_chars:1379"
+    },
+    {
+      "contentid": "2834381",
+      "title": "베이커리 밤마을",
+      "rejectedAt": "2026-09-03T18:48:00.525Z",
+      "reason": "body_under_1500_chars:1439"
     }
   ]
 }
