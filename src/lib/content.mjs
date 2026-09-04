@@ -697,6 +697,7 @@ export function homepageSections() {
     magazineSections,
     regionGroups: regionGroups().slice(0, 6),
     latestPosts: allImagePosts.slice(0, 6),
+    latestSidebarPosts: allImagePosts.slice(0, 14),
     seasonPosts: currentSeasonPosts(6).filter((post) => cardImageAsset(post)?.src),
     festivalPosts: festivalPosts.slice(0, 6),
     stayProducts,

@@ -4,31 +4,78 @@ import CategorySection from "../components/CategorySection.astro";
 import LeadStoryGrid from "../components/LeadStoryGrid.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import {
+  articleCategoryLabel,
   cardImageAsset,
+  compactRegion,
   homepageSections,
+  imageAlt,
+  postDate,
+  postTitle,
 } from "../lib/content.mjs";
 
 const data = homepageSections();
 const lead = data.topLeadPosts[0] || data.heroPosts[0];
 const ogImage = lead ? cardImageAsset(lead)?.src : "";
+const topStorySlugs = new Set([...data.topLeadPosts, ...data.topSmallPosts].map((post) => post.slug));
+const latestSidebarPosts = (data.latestSidebarPosts || data.latestPosts || [])
+  .filter((post) => post?.slug && !topStorySlugs.has(post.slug))
+  .slice(0, 9);
+const latestMeta = (post) => [articleCategoryLabel(post), compactRegion(post.region), postDate(post)].filter(Boolean).join(" · ");
 ---
 
 <BaseLayout title="Tripview - 여행 뉴스 피드" description="Tripview는 국내여행, 해외여행, 축제·행사, 숙소·예약 정보를 사진 중심으로 빠르게 살펴볼 수 있는 여행 정보 매거진입니다." canonicalPath="/" activePath="/" ogImage={ogImage}>
-  <main class="site-page home-magazine-page">
-    <LeadStoryGrid leadPosts={data.topLeadPosts} smallPosts={data.topSmallPosts} />
-
-    {data.magazineSections.map((section) => <CategorySection section={section} />)}
-
-    <section class="home-region-strip" id="regions" aria-labelledby="regions-title">
-      <SectionHeading title="지역별 여행" href="/region/" id="regions-title" />
-      <div class="home-region-links">
-        {data.regionGroups.map((group) => (
-          <a class="home-region-link" href={`/region/${group.slug}/`}>
-            <span>{group.label}</span>
-            <small>{group.posts.length.toLocaleString("ko-KR")}개 글</small>
-          </a>
-        ))}
+  <main class="site-page home-magazine-page home-news-page">
+    <div class="home-news-layout">
+      <div class="home-news-top-main">
+        <LeadStoryGrid leadPosts={data.topLeadPosts} smallPosts={data.topSmallPosts} />
       </div>
-    </section>
+      {latestSidebarPosts.length > 0 && (
+        <aside class="home-news-aside" aria-label="최신 콘텐츠">
+          <section class="latest-content-box home-latest-content" aria-labelledby="home-latest-content-title">
+            <h2 id="home-latest-content-title">최신 콘텐츠</h2>
+            <div class="latest-content-list">
+              {latestSidebarPosts.map((post) => {
+                const asset = cardImageAsset(post);
+                return (
+                  <a class="latest-content-item" href={`/${post.slug}/`}>
+                    <span class="latest-content-thumb">
+                      {asset?.src && (
+                        <img
+                          src={asset.src}
+                          alt={imageAlt(asset, post)}
+                          width={asset.width || 120}
+                          height={asset.height || 84}
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      )}
+                    </span>
+                    <span class="latest-content-copy">
+                      <strong>{postTitle(post)}</strong>
+                      <span>{latestMeta(post)}</span>
+                    </span>
+                  </a>
+                );
+              })}
+            </div>
+          </section>
+        </aside>
+      )}
+      <div class="home-news-sections">
+        {data.magazineSections.map((section) => <CategorySection section={section} />)}
+
+        <section class="home-region-strip" id="regions" aria-labelledby="regions-title">
+          <SectionHeading title="지역별 여행" href="/region/" id="regions-title" />
+          <div class="home-region-links">
+            {data.regionGroups.map((group) => (
+              <a class="home-region-link" href={`/region/${group.slug}/`}>
+                <span>{group.label}</span>
+                <small>{group.posts.length.toLocaleString("ko-KR")}개 글</small>
+              </a>
+            ))}
+          </div>
+        </section>
+      </div>
+    </div>
   </main>
 </BaseLayout>
