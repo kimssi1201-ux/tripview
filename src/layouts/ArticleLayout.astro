@@ -25,6 +25,7 @@ import {
   postExcerpt,
   postTitle,
   regionSlug,
+  relatedPostsFor,
 } from "../lib/content.mjs";
 
 const { post } = Astro.props;
@@ -50,9 +51,26 @@ const jsonLd = [
 const latestPosts = allPosts
   .filter((candidate) => candidate.slug !== post.slug && isIndexablePost(candidate))
   .sort((a, b) => String(postDate(b)).localeCompare(String(postDate(a))))
-  .slice(0, 8)
-  .map((item) => ({ post: item, asset: cardImageAsset(item) }));
+  .map((item) => ({ post: item, asset: cardImageAsset(item) }))
+  .filter(({ asset }) => asset?.src)
+  .slice(0, 12);
 const latestMeta = (item) => [articleCategoryLabel(item), compactRegion(item.region), postDate(item)].filter(Boolean).join(" · ");
+const latestSlugs = new Set(latestPosts.map(({ post: item }) => item.slug));
+const sideRelatedPosts = relatedPostsFor(post, 8)
+  .filter((item) => !latestSlugs.has(item.slug))
+  .slice(0, 4);
+const rawSideNavLinks = [
+  regionLabel ? { label: `${regionLabel} 여행`, href: `/region/${regionSlug(regionLabel)}/` } : null,
+  { label: `${categoryLabel} 더 보기`, href: activePath },
+  { label: "최신 여행글", href: "/travel/" },
+  { label: "축제·행사", href: "/festival/" },
+].filter(Boolean);
+const seenSideNavLinks = new Set();
+const sideNavLinks = rawSideNavLinks.filter((item) => {
+  if (seenSideNavLinks.has(item.href)) return false;
+  seenSideNavLinks.add(item.href);
+  return true;
+});
 ---
 
 <BaseLayout
@@ -113,6 +131,27 @@ const latestMeta = (item) => [articleCategoryLabel(item), compactRegion(item.reg
               ))}
             </div>
           </section>
+        )}
+        {sideRelatedPosts.length > 0 && (
+          <section class="article-side-section article-side-related" aria-labelledby="article-side-related-title">
+            <h2 id="article-side-related-title">같이 보면 좋은 글</h2>
+            <div class="article-side-link-list">
+              {sideRelatedPosts.map((item) => (
+                <a class="article-side-link" href={`/${item.slug}/`}>
+                  <strong>{postTitle(item)}</strong>
+                  <span>{latestMeta(item)}</span>
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
+        {sideNavLinks.length > 0 && (
+          <nav class="article-side-section article-side-nav" aria-label="관련 여행 바로가기">
+            <h2>바로 보기</h2>
+            <div class="article-side-chip-list">
+              {sideNavLinks.map((item) => <a href={item.href}>{item.label}</a>)}
+            </div>
+          </nav>
         )}
         <div class="aside-box">
           <strong>작성·검수 정보</strong>
