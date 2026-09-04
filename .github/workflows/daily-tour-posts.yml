@@ -29,6 +29,9 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Install project dependencies
+        run: npm install --no-audit --no-fund --package-lock=false
+
       - name: Install image processing dependencies
         run: python3 -m pip install --user pillow
 
@@ -134,22 +137,22 @@ jobs:
           COUPANG_PARTNER_ID: ${{ secrets.COUPANG_PARTNER_ID || secrets.COUPANG_PARTNERS_ID || vars.COUPANG_PARTNER_ID || vars.COUPANG_PARTNERS_ID }}
           COUPANG_SUB_ID: ${{ secrets.COUPANG_SUB_ID || secrets.COUPANG_CHANNEL_ID || vars.COUPANG_SUB_ID || vars.COUPANG_CHANNEL_ID }}
 
-      - name: Build homepage
-        run: node scripts/build-homepage.mjs
-
-      - name: Apply homepage layout
-        run: |
-          node scripts/apply-homepage-content-config.mjs
-          node scripts/add-image-zoom.mjs
-          node scripts/add-adsense.mjs
-          node scripts/add-i18n.mjs
-          node scripts/add-map-preview.mjs
-
-      - name: Build RSS feed
-        run: node scripts/build-feed.mjs
-
-      - name: Build static export
+      - name: Build Astro static export
         run: npm run build
+        env:
+          TRIPVIEW_API_KEY: ${{ secrets.TRIPVIEW_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          MYREALTRIP_API_KEY: ${{ secrets.MYREALTRIP_API_KEY || secrets.PARTNER_API_KEY || secrets.MYREALTRIP_PARTNER_API_KEY }}
+          PARTNER_API_KEY: ${{ secrets.PARTNER_API_KEY }}
+          MYREALTRIP_ACCOMMODATION_REGION_URL: ${{ vars.MYREALTRIP_ACCOMMODATION_REGION_URL || secrets.MYREALTRIP_ACCOMMODATION_REGION_URL }}
+          MYREALTRIP_ACCOMMODATION_SEARCH_URL: ${{ vars.MYREALTRIP_ACCOMMODATION_SEARCH_URL || secrets.MYREALTRIP_ACCOMMODATION_SEARCH_URL }}
+          MYREALTRIP_ACCOMMODATION_KEYWORDS: ${{ vars.MYREALTRIP_ACCOMMODATION_KEYWORDS }}
+          MYREALTRIP_ACCOMMODATION_KEYWORD: ${{ vars.MYREALTRIP_ACCOMMODATION_KEYWORD }}
+          MYREALTRIP_ACCOMMODATION_IS_DOMESTIC: ${{ vars.MYREALTRIP_ACCOMMODATION_IS_DOMESTIC || 'true' }}
+          MYREALTRIP_ACCOMMODATION_SIZE: ${{ vars.MYREALTRIP_ACCOMMODATION_SIZE || '30' }}
+          MYREALTRIP_ACCOMMODATION_REGION_LIMIT: ${{ vars.MYREALTRIP_ACCOMMODATION_REGION_LIMIT || '100' }}
+          MYREALTRIP_ACCOMMODATION_PER_REGION_LIMIT: ${{ vars.MYREALTRIP_ACCOMMODATION_PER_REGION_LIMIT || '8' }}
+          MYREALTRIP_ACCOMMODATION_LIMIT: ${{ vars.MYREALTRIP_ACCOMMODATION_LIMIT || '240' }}
 
       - name: Commit pending drafts
         run: |

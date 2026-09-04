@@ -281,6 +281,8 @@ The update path is now:
 
 `npm run build:legacy` remains available for fallback comparison while this migration is reviewed.
 
+GitHub Actions workflows that publish or refresh generated content now install project dependencies and use `npm run build` for the final static output instead of calling the legacy homepage/feed/article HTML generators directly. Generated `dist/` remains ignored and is not committed by scheduled update workflows; Cloudflare Pages should build it from source.
+
 ### Test Results
 
 - Install: `pnpm install` succeeded locally because this host has bundled `node.exe` but no `npm` binary. The repository scripts remain npm-compatible through `package.json`.
@@ -314,7 +316,7 @@ Image request shape:
 ### Remaining Risks
 
 - Production Cloudflare Pages must be configured to use `dist` as the output directory before merging/deploying.
-- Some automation workflows still call legacy generators directly; they remain untouched for safety and should be migrated after the Astro output is accepted.
+- One-off legacy maintenance workflows such as category-count backfills and wording polish still touch old source HTML/generator files and should not be used for Astro UI changes without follow-up cleanup.
 - Local verification used cached MyRealTrip/Pexels data because API keys were not available in the sandbox.
 - `scripts/process-tour-images.mjs` still writes timestamped manifest output during builds; this was not normalized in the migration PR to avoid changing the image pipeline semantics.
 - Generated `dist/` is not committed in this PR because it is about 130 MB and reproducible from source. Cloudflare should build it from the branch.

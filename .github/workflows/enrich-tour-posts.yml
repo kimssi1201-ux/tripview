@@ -30,6 +30,9 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Install project dependencies
+        run: npm install --no-audit --no-fund --package-lock=false
+
       - name: Install image processing dependencies
         run: python3 -m pip install --user pillow
 
@@ -41,11 +44,8 @@ jobs:
           OPENAI_ENRICH_LIMIT: ${{ github.event.inputs.limit || '0' }}
           OPENAI_TIMEOUT_MS: ${{ vars.OPENAI_TIMEOUT_MS || '90000' }}
 
-      - name: Process Korea Tourism images
-        run: |
-          node scripts/fetch-pexels-images.mjs
-          node scripts/process-tour-images.mjs
-          node scripts/build-www.mjs
+      - name: Build Astro static files
+        run: npm run build
         env:
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
 

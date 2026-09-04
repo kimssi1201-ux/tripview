@@ -22,11 +22,14 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Install project dependencies
+        run: npm install --no-audit --no-fund --package-lock=false
+
       - name: Replace production domain
         run: node scripts/set-domain.mjs
 
-      - name: Build RSS feed
-        run: node scripts/build-feed.mjs
+      - name: Build Astro static files
+        run: npm run build
 
       - name: Commit domain update
         run: |
