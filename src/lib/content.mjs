@@ -11,6 +11,9 @@ export const NAVER_VERIFICATION = "38616b4b4209994ed384d0d2439bddcbec2cc711";
 export const ADSENSE_CLIENT = "ca-pub-5751319666030430";
 export const RSS_TITLE = "트립뷰 RSS";
 export const CONTENT_TODAY = todayInKorea();
+export const EDITORIAL_AUTHOR_NAME = "트립뷰 편집팀";
+export const EDITORIAL_AUTHOR_PATH = "/editorial-team";
+export const EDITORIAL_AUTHOR_URL = `${SITE_URL}${EDITORIAL_AUTHOR_PATH}`;
 
 export const CATEGORY_PAGES = [
   { path: "/travel/", title: "여행지", description: "9월 해외여행, 가을·단풍, 물놀이·계곡, 실내여행, 아이와, 이번 주말 글을 태그로 묶어 여행지를 탐색합니다." },
@@ -124,6 +127,14 @@ export function postExcerpt(post = {}, length = 130) {
 
 export function postDate(post = {}) {
   return post.updatedAt || post.sortDate || schemaDate(post.date) || CONTENT_TODAY;
+}
+
+export function postPublishedDate(post = {}) {
+  return schemaDate(post.sortDate || post.date || post.updatedAt || CONTENT_TODAY);
+}
+
+export function postModifiedDate(post = {}) {
+  return schemaDate(post.editorialReviewedAt || post.updatedAt || post.sortDate || post.date || CONTENT_TODAY);
 }
 
 export function schemaDate(value = "") {
@@ -808,6 +819,18 @@ export function productPriceText(product = {}) {
   return normalizeText(product.priceText || product.meta || (product.price ? `${Number(product.price).toLocaleString("ko-KR")}원` : ""));
 }
 
+export function productUpdatedText(product = {}) {
+  const raw = product.updatedAt || product.lastUpdatedDate || product.fetchedAt || product.generatedAt || "";
+  return raw ? `${formatKoreanDate(raw)} 기준` : `표시일 ${formatKoreanDate(CONTENT_TODAY)} 기준`;
+}
+
+export function productSourceLabel(product = {}, type = "") {
+  const source = normalizeText(product.source || type);
+  if (/coupang/i.test(source)) return "쿠팡";
+  if (/myrealtrip|mrt|tna|accommodation|ticket/i.test(source)) return "마이리얼트립";
+  return source || "공식 예약처";
+}
+
 export function sitemapUrls() {
   const today = new Date().toISOString().slice(0, 10);
   return [
@@ -843,21 +866,61 @@ export function articleSchema(post = {}) {
     headline: postTitle(post),
     description: postDescription(post),
     mainEntityOfPage: postUrl(post),
-    datePublished: schemaDate(post.sortDate || post.updatedAt || post.date),
-    dateModified: schemaDate(post.editorialReviewedAt || post.updatedAt || post.sortDate || post.date),
+    datePublished: postPublishedDate(post),
+    dateModified: postModifiedDate(post),
     author: {
-      "@type": "Organization",
-      name: post.editorialReviewer || "트립뷰 편집팀",
-      url: `${SITE_URL}${post.editorialAuthorProfile || "/editorial-team"}`,
+      "@type": "Person",
+      "@id": `${EDITORIAL_AUTHOR_URL}#person`,
+      name: post.editorialReviewer || EDITORIAL_AUTHOR_NAME,
+      url: `${SITE_URL}${post.editorialAuthorProfile || EDITORIAL_AUTHOR_PATH}`,
+      worksFor: { "@id": `${SITE_URL}/#organization` },
     },
     publisher: {
       "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
       name: SITE_NAME,
       url: `${SITE_URL}/`,
     },
     image: schemaImages(post),
     citation: officialLinks(post).map((source) => source.url),
     isAccessibleForFree: true,
+    inLanguage: "ko-KR",
+  };
+}
+
+export function organizationSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": `${SITE_URL}/#organization`,
+    name: SITE_NAME,
+    url: `${SITE_URL}/`,
+    logo: canonicalUrl("/favicon.svg"),
+    sameAs: [EDITORIAL_AUTHOR_URL],
+  };
+}
+
+export function editorialPersonSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": `${EDITORIAL_AUTHOR_URL}#person`,
+    name: EDITORIAL_AUTHOR_NAME,
+    url: EDITORIAL_AUTHOR_URL,
+    jobTitle: "여행 정보 편집자",
+    worksFor: { "@id": `${SITE_URL}/#organization` },
+    knowsAbout: ["국내여행", "해외여행", "축제·행사", "숙소·예약", "여행 준비"],
+  };
+}
+
+export function websiteSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${SITE_URL}/#website`,
+    name: SITE_NAME,
+    url: `${SITE_URL}/`,
+    publisher: { "@id": `${SITE_URL}/#organization` },
     inLanguage: "ko-KR",
   };
 }
@@ -918,11 +981,22 @@ function schemaImages(post = {}) {
   return urls.length ? urls : [canonicalUrl(FALLBACK_IMAGE)];
 }
 
+function firstUrl(value = "") {
+  return normalizeText(value).match(/https?:\/\/[^\s<>"')]+/i)?.[0] || "";
+}
+
 export function officialLinks(post = {}) {
   const links = [];
   const homepage = infoValue(post, "홈페이지") || post.tourApi?.homepage || "";
-  if (/^https?:\/\//i.test(homepage)) links.push({ label: "공식 홈페이지", url: homepage });
+  const homepageUrl = firstUrl(homepage);
+  if (homepageUrl) links.push({ label: "공식 홈페이지", url: homepageUrl });
   if (post.tourApi?.overview || post.contentid) links.push({ label: "한국관광공사 공공데이터", url: "https://www.visitkorea.or.kr/" });
+  if (compactRegion(post.region) === "해외" || articleCategoryLabel(post) === "해외여행") {
+    links.push({ label: "외교부 해외안전여행", url: "https://www.0404.go.kr/" });
+  }
+  if (isDataPipelinePost(post)) {
+    links.push({ label: "제휴 예약처 가격 확인", url: "https://www.myrealtrip.com/" });
+  }
   return uniqueProducts(links);
 }
 

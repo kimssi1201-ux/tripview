@@ -4,6 +4,7 @@
 
   const STATIC_DATA_PATH = "/data/coupang-products.json";
   const DISCLOSURE = "이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.";
+  const PRICE_SOURCE_NOTE = "공식 판매처 가격 확인";
   const slots = () => [...document.querySelectorAll("[data-coupang-products]")];
 
   function text(value) {
@@ -104,8 +105,12 @@
     title.textContent = item.title || "쿠팡 추천 상품";
     const meta = document.createElement("span");
     meta.textContent = item.meta || "쿠팡 파트너스 추천";
+    const source = document.createElement("span");
+    source.className = "product-source-note";
+    source.textContent = PRICE_SOURCE_NOTE;
     link.appendChild(title);
     link.appendChild(meta);
+    link.appendChild(source);
     return link;
   }
 

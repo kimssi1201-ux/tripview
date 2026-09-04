@@ -290,6 +290,54 @@ async function collectBuiltHtmlFiles() {
   return [...new Set(groups.flat())];
 }
 
+test("robots.txt explicitly allows AI answer and search crawlers", async () => {
+  const robots = await readFile("dist/robots.txt", "utf8");
+
+  for (const agent of ["GPTBot", "ChatGPT-User", "OAI-SearchBot", "ClaudeBot", "Claude-SearchBot", "PerplexityBot"]) {
+    assert.match(robots, new RegExp(`User-agent: ${agent}\\nAllow: /`));
+  }
+  assert.match(robots, /User-agent: \*\nAllow: \//);
+  assert.match(robots, /Sitemap: https:\/\/tripview\.kr\/sitemap\.xml/);
+});
+
+test("article pages expose author dates source links and trust schemas", async () => {
+  const article = await readFile("dist/travel-osaka-september-2026/index.html", "utf8");
+
+  assert.match(article, /data-tripview-organization/);
+  assert.match(article, /data-tripview-editorial-person/);
+  assert.match(article, /"@type":"Organization"/);
+  assert.match(article, /"@id":"https:\/\/tripview\.kr\/#organization"/);
+  assert.match(article, /"@type":"Person"/);
+  assert.match(article, /"@id":"https:\/\/tripview\.kr\/editorial-team#person"/);
+  assert.match(article, /작성자\s*<a href="\/editorial-team" rel="author">트립뷰 편집팀<\/a>/);
+  assert.match(article, /게시일\s*<time datetime="\d{4}-\d{2}-\d{2}">/);
+  assert.match(article, /수정일\s*<time datetime="\d{4}-\d{2}-\d{2}">/);
+  assert.match(article, /공식 확인처/);
+  assert.match(article, /확인 기준/);
+  assert.match(article, /외교부 해외안전여행/);
+  assert.match(article, /작성·검수 정보/);
+});
+
+test("product cards expose data dates and official price checks", async () => {
+  const [article, stay, ticket, coupangScript] = await Promise.all([
+    readFile("dist/travel-osaka-september-2026/index.html", "utf8"),
+    readFile("dist/data-stay-price-seoul/index.html", "utf8"),
+    readFile("dist/data-ticket-price-busan/index.html", "utf8"),
+    readFile("assets/coupang.js", "utf8"),
+  ]);
+
+  assert.match(article, /class="mrt-card-source"/);
+  assert.match(article, /데이터 [^<]+ 기준 · 마이리얼트립 공식 예약처 확인/);
+  assert.match(article, /표시 가격은 [^<]+ 데이터 기준/);
+  assert.match(article, /마이리얼트립 공식 예약 화면/);
+  assert.match(stay, /최종 확인일/);
+  assert.match(ticket, /최종 확인일/);
+  assert.match(stay, /제휴 예약처 가격 확인/);
+  assert.match(ticket, /제휴 예약처 가격 확인/);
+  assert.match(coupangScript, /PRICE_SOURCE_NOTE = "공식 판매처 가격 확인"/);
+  assert.match(coupangScript, /product-source-note/);
+});
+
 test("Coupang product images keep the site referrer policy", async () => {
   const script = await readFile("assets/coupang.js", "utf8");
 

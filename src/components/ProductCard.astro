@@ -1,6 +1,6 @@
 ---
 import MediaFrame from "./MediaFrame.astro";
-import { normalizeAccommodationUrl, productImage, productPriceText } from "../lib/content.mjs";
+import { normalizeAccommodationUrl, productImage, productPriceText, productSourceLabel, productUpdatedText } from "../lib/content.mjs";
 
 const { product, type = "accommodation" } = Astro.props;
 const title = product.title || product.name || "예약 상품";
@@ -8,6 +8,8 @@ const rawUrl = product.url || product.productUrl || "#";
 const href = type === "accommodation" ? normalizeAccommodationUrl(rawUrl) : rawUrl;
 const image = productImage(product);
 const meta = [product.region || product.city, product.category || product.type, productPriceText(product)].filter(Boolean).join(" · ");
+const sourceLabel = productSourceLabel(product, type);
+const updatedText = productUpdatedText(product);
 const asset = image ? {
   src: image,
   alt: `${title} 이미지`,
@@ -22,6 +24,7 @@ const asset = image ? {
   <span class="mrt-card-body">
     <strong>{title}</strong>
     {meta && <span>{meta}</span>}
+    <span class="mrt-card-source">데이터 {updatedText} · {sourceLabel} 공식 예약처 확인</span>
     <span class="article-product-reserve">예약하기</span>
   </span>
 </a>

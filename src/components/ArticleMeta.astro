@@ -1,16 +1,27 @@
 ---
-import { articleCategoryLabel, compactRegion, postDate } from "../lib/content.mjs";
+import {
+  EDITORIAL_AUTHOR_NAME,
+  EDITORIAL_AUTHOR_PATH,
+  articleCategoryLabel,
+  compactRegion,
+  formatKoreanDate,
+  postModifiedDate,
+  postPublishedDate,
+} from "../lib/content.mjs";
 
 const { post } = Astro.props;
+const publishedDate = postPublishedDate(post);
+const modifiedDate = postModifiedDate(post);
 const parts = [
   articleCategoryLabel(post),
   compactRegion(post.region),
-  postDate(post),
   post.read || "",
 ].filter(Boolean);
 ---
 
 <div class="article-meta">
-  <span>트립뷰 편집팀</span>
+  <span>작성자 <a href={EDITORIAL_AUTHOR_PATH} rel="author">{EDITORIAL_AUTHOR_NAME}</a></span>
+  <span>게시일 <time datetime={publishedDate}>{formatKoreanDate(publishedDate)}</time></span>
+  <span>수정일 <time datetime={modifiedDate}>{formatKoreanDate(modifiedDate)}</time></span>
   {parts.map((part) => <span>{part}</span>)}
 </div>
