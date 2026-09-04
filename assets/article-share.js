@@ -26,7 +26,7 @@
   function applyFontScale(scale) {
     const content = document.querySelector("article.content");
     if (!content) return;
-    const baseSize = isSmallScreen() ? 15 : 16;
+    const baseSize = isSmallScreen() ? 17 : 19;
     content.style.fontSize = `${baseSize + scale}px`;
   }
 
