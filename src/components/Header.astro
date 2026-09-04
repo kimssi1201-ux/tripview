@@ -1,0 +1,108 @@
+---
+const { activePath = "/" } = Astro.props;
+
+const navGroups = [
+  {
+    id: "travel",
+    href: "/travel/",
+    label: "여행지",
+    items: [
+      { href: "/region/", icon: "지", label: "지역별", description: "지역 허브에서 글과 숙소를 함께 봅니다." },
+      { href: "/travel/#tag-water", icon: "테", label: "테마별", description: "물놀이·실내·아이와 태그를 모았습니다." },
+      { href: "/travel/#tag-overseas", icon: "해", label: "해외여행", description: "9월에 보기 좋은 해외 도시 글입니다." },
+      { href: "/travel/#all-posts", icon: "전", label: "전국 관광지", description: "검수된 전국 여행지 글 목록입니다." },
+    ],
+  },
+  {
+    id: "festival",
+    href: "/festival/",
+    label: "축제·행사",
+    items: [
+      { href: "/festival/#ongoing", icon: "진", label: "진행 중", description: "오늘 기준 진행 중인 축제입니다." },
+      { href: "/festival/#upcoming", icon: "예", label: "예정", description: "방문 계획을 잡기 좋은 예정 축제입니다." },
+      { href: "/festival/#past", icon: "종", label: "지난 축제", description: "종료된 축제는 목록 하단에 둡니다." },
+    ],
+  },
+  {
+    id: "booking",
+    href: "/stay/",
+    label: "숙소·예약",
+    affiliate: true,
+    items: [
+      { href: "/stay/", icon: "숙", label: "숙소", description: "위치와 취소 조건을 비교합니다." },
+      { href: "/ticket/", icon: "권", label: "입장권·투어", description: "운영 시간과 포함 사항을 비교합니다." },
+      { href: "/data-stay-price-seoul/", icon: "가", label: "숙소 가격 비교", description: "주말 숙소 요금을 비교합니다." },
+    ],
+  },
+];
+
+const mobileLinks = [
+  { href: "/", label: "홈" },
+  { href: "/travel/", label: "여행지" },
+  { href: "/festival/", label: "축제·행사" },
+  { href: "/stay/", label: "숙소" },
+  { href: "/ticket/", label: "입장권·투어" },
+];
+
+function activeGroup(path = "/") {
+  if (path.startsWith("/ticket") || path.startsWith("/data-ticket")) return "booking";
+  if (path.startsWith("/festival") || path.includes("festival-")) return "festival";
+  if (path.startsWith("/stay") || path.startsWith("/data-stay")) return "booking";
+  if (path.startsWith("/travel") || path.startsWith("/region") || path.includes("travel-")) return "travel";
+  return path === "/" ? "home" : "";
+}
+
+function isCurrent(path = "/", href = "") {
+  const target = href.split("#")[0] || "/";
+  if (target === "/") return path === "/";
+  if (target === "/stay/") return path.startsWith("/stay") || path.startsWith("/data-stay");
+  if (target === "/ticket/") return path.startsWith("/ticket") || path.startsWith("/data-ticket");
+  if (target === "/festival/") return path.startsWith("/festival") || path.includes("festival-");
+  if (target === "/travel/") return path.startsWith("/travel") || path.includes("travel-");
+  if (target === "/region/") return path.startsWith("/region");
+  return path.startsWith(target);
+}
+
+const active = activeGroup(activePath);
+---
+
+<header class="site-header" data-site-header>
+  <div class="site-header-inner">
+    <a class="site-brand" href="/">트립뷰</a>
+    <nav class="site-nav site-nav-desktop" aria-label="주요 메뉴">
+      <div class="site-nav-main">
+        <a class:list={["site-home-link", active === "home" && "is-active"]} href="/">홈</a>
+        {navGroups.map((group) => (
+          <details class:list={["nav-group", group.affiliate && "is-affiliate", active === group.id && "is-active"]}>
+            <summary class="nav-summary">{group.label}</summary>
+            <div class="nav-dropdown">
+              {group.items.map((item) => (
+                <a href={item.href}>
+                  <span class="nav-item-icon" aria-hidden="true">{item.icon}</span>
+                  <span class="nav-item-text">
+                    <span class="nav-item-label">{item.label}</span>
+                    <span class="nav-item-desc">{item.description}</span>
+                  </span>
+                </a>
+              ))}
+            </div>
+          </details>
+        ))}
+      </div>
+    </nav>
+    <details class="site-search" data-site-search>
+      <summary class="site-search-link" aria-label="검색">⌕</summary>
+      <div class="site-search-panel">
+        <input type="search" class="site-search-input" data-site-search-input placeholder="여행지·축제·지역 검색" autocomplete="off" aria-label="검색어 입력" />
+        <div class="site-search-results" data-site-search-results>
+          <p class="site-search-hint">여행지, 축제, 지역 이름으로 검색해보세요.</p>
+        </div>
+      </div>
+    </details>
+  </div>
+  <nav class="site-mobile-categories" aria-label="카테고리">
+    {mobileLinks.map((item) => (
+      <a class:list={["site-mobile-category", isCurrent(activePath, item.href) && "is-current"]} href={item.href}>{item.label}</a>
+    ))}
+  </nav>
+</header>

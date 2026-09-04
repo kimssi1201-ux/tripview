@@ -1,0 +1,193 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+import { ADSENSE_CLIENT, NAVER_VERIFICATION, RSS_TITLE, SITE_NAME, SITE_URL, canonicalUrl, publicImageUrl } from "../lib/content.mjs";
+
+const {
+  title = `${SITE_NAME} - 여행 뉴스 피드`,
+  description = "트립뷰는 지금 많이 찾는 여행지, 주말 여행, 축제, 숙소와 예약 전 체크를 정리한 여행 정보 매거진입니다.",
+  canonicalPath = "/",
+  activePath = "/",
+  ogType = "website",
+  ogImage = "",
+  robots = "index, follow, max-image-preview:large",
+  jsonLd = [],
+  adsense = !String(robots).startsWith("noindex"),
+} = Astro.props;
+
+const canonical = canonicalPath.startsWith("https://") ? canonicalPath : canonicalUrl(canonicalPath);
+const fullTitle = title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`;
+const absoluteOgImage = ogImage ? publicImageUrl(ogImage) : "";
+const jsonLdItems = jsonLd.filter((item) => item?.data);
+---
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="naver-site-verification" content={NAVER_VERIFICATION} />
+    <meta name="robots" content={robots} />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0F5C5C" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonical} />
+    {absoluteOgImage && <meta property="og:image" content={absoluteOgImage} />}
+    {absoluteOgImage && <meta name="twitter:image" content={absoluteOgImage} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" type="application/rss+xml" title={RSS_TITLE} href={`${SITE_URL}/rss.xml`} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+    {adsense && <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`} crossorigin="anonymous"></script>}
+    {jsonLdItems.map((item) => {
+      const attrs = { [`data-tripview-${item.name}`]: "" };
+      return <script type="application/ld+json" {...attrs} set:html={JSON.stringify(item.data).replaceAll("<", "\\u003c")}></script>;
+    })}
+    <title>{fullTitle}</title>
+  </head>
+  <body>
+    <Header activePath={activePath} />
+    <slot />
+    <Footer />
+    <script is:inline>
+      (() => {
+        const header = document.querySelector("[data-site-header]");
+        if (!header) return;
+        const groups = Array.from(header.querySelectorAll(".site-nav-desktop .nav-group"));
+        const searchDetails = header.querySelector("[data-site-search]");
+        const closeSearch = () => searchDetails?.removeAttribute("open");
+        const closeGroups = (except) => {
+          groups.forEach((group) => {
+            if (group !== except) {
+              group.removeAttribute("open");
+              delete group.dataset.openedByHover;
+            }
+          });
+        };
+        const openGroup = (group, byHover = false) => {
+          closeGroups(group);
+          closeSearch();
+          group.setAttribute("open", "");
+          group.dataset.openedByHover = byHover ? "true" : "false";
+        };
+        groups.forEach((group) => {
+          const summary = group.querySelector(".nav-summary");
+          group.addEventListener("mouseenter", () => openGroup(group, true));
+          group.addEventListener("toggle", () => {
+            if (group.open) closeGroups(group);
+          });
+          summary?.addEventListener("click", (event) => {
+            event.preventDefault();
+            const openedByHover = group.dataset.openedByHover === "true";
+            if (group.open && !openedByHover) {
+              group.removeAttribute("open");
+              delete group.dataset.openedByHover;
+            } else {
+              openGroup(group);
+            }
+          });
+        });
+
+        if (searchDetails) {
+          const input = searchDetails.querySelector("[data-site-search-input]");
+          const results = searchDetails.querySelector("[data-site-search-results]");
+          const escapeHtml = (value) => String(value ?? "").replace(/[&<>"']/g, (match) => ({
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#39;",
+          }[match]));
+          const hintHtml = '<p class="site-search-hint">여행지, 축제, 지역 이름으로 검색해보세요.</p>';
+          let indexPromise = null;
+          let debounceTimer = null;
+          const loadIndex = () => {
+            if (!indexPromise) {
+              indexPromise = fetch("/assets/search-index.json")
+                .then((response) => (response.ok ? response.json() : []))
+                .catch(() => []);
+            }
+            return indexPromise;
+          };
+          const render = (items, query) => {
+            if (!results) return;
+            if (!query) {
+              results.innerHTML = hintHtml;
+            } else if (!items.length) {
+              results.innerHTML = '<p class="site-search-empty">검색 결과가 없습니다.</p>';
+            } else {
+              results.innerHTML = items.map((item) => {
+                const meta = [item.region, item.category].filter(Boolean).join(" · ");
+                return '<a href="/' + encodeURIComponent(item.slug) + '/"><span class="site-search-result-title">' + escapeHtml(item.title) + '</span><span class="site-search-result-meta">' + escapeHtml(meta) + '</span></a>';
+              }).join("");
+            }
+          };
+          const runSearch = async (rawQuery) => {
+            const query = String(rawQuery || "").trim().toLowerCase();
+            if (!query) {
+              render([], "");
+              return;
+            }
+            const items = await loadIndex();
+            const matches = items
+              .map((item) => {
+                const title = String(item.title || "").toLowerCase();
+                const region = String(item.region || "").toLowerCase();
+                const category = String(item.category || "").toLowerCase();
+                let score = 0;
+                if (title.startsWith(query)) score = 4;
+                else if (title.includes(query)) score = 3;
+                else if (region.includes(query)) score = 2;
+                else if (category.includes(query)) score = 1;
+                return { item, score };
+              })
+              .filter((entry) => entry.score > 0)
+              .sort((a, b) => b.score - a.score)
+              .slice(0, 8)
+              .map((entry) => entry.item);
+            render(matches, query);
+          };
+          searchDetails.addEventListener("toggle", () => {
+            if (searchDetails.open) {
+              closeGroups();
+              loadIndex();
+              requestAnimationFrame(() => input?.focus());
+            }
+          });
+          input?.addEventListener("input", (event) => {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(() => runSearch(event.target.value), 120);
+          });
+          input?.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+              event.stopPropagation();
+              closeSearch();
+            }
+          });
+        }
+
+        header.addEventListener("mouseleave", () => closeGroups());
+        document.addEventListener("click", (event) => {
+          if (!header.contains(event.target)) {
+            closeGroups();
+            closeSearch();
+          }
+        });
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape") {
+            closeGroups();
+            closeSearch();
+          }
+        });
+      })();
+    </script>
+    <script src="/assets/topic-filter.js?v=topic-filter-astro-20260904" defer></script>
+  </body>
+</html>

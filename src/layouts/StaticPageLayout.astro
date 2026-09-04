@@ -1,0 +1,17 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+const { page } = Astro.props;
+---
+
+<BaseLayout title={page.title} description={page.description} canonicalPath={`/${page.slug}`} activePath="/">
+  <main class="static-page">
+    <h1>{page.h1}</h1>
+    {page.sections.map((section) => (
+      <section>
+        <h2>{section.heading}</h2>
+        {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+      </section>
+    ))}
+  </main>
+</BaseLayout>

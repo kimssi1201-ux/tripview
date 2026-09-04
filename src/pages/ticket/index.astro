@@ -1,0 +1,42 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import MediaFrame from "../../components/MediaFrame.astro";
+import ProductCard from "../../components/ProductCard.astro";
+import { CATEGORY_PAGES, productImage, tnaProducts } from "../../lib/content.mjs";
+
+const page = CATEGORY_PAGES.find((item) => item.path === "/ticket/");
+const bannerImage = productImage(tnaProducts[0]);
+const bannerAsset = bannerImage ? {
+  src: bannerImage,
+  alt: `${tnaProducts[0].title} 이미지`,
+  width: 720,
+  height: 480,
+} : null;
+---
+
+<BaseLayout title={`${page.title} - 트립뷰`} description={page.description} canonicalPath="/ticket/" activePath="/ticket/" ogImage={bannerAsset?.src}>
+  <main class="site-page hub-page">
+    <section class:list={["hub-banner", bannerAsset?.src && "has-image"]}>
+      <div class="hub-banner-copy">
+        <span class="kicker">BOOKING</span>
+        <h1>일정 확정 전에 운영 조건을 먼저 비교하세요</h1>
+        <p>{page.description}</p>
+        <span class="banner-count">{tnaProducts.length.toLocaleString("ko-KR")}개 상품 데이터</span>
+      </div>
+      {bannerAsset?.src && (
+        <div class="hub-banner-image">
+          <MediaFrame asset={bannerAsset} caption={false} ratio="16 / 9" />
+        </div>
+      )}
+    </section>
+    <section class="block" id="ticket-products" aria-labelledby="ticket-products-title">
+      <div class="block-head">
+        <div><span class="kicker">MYREALTRIP</span><h2 id="ticket-products-title">입장권·투어 카드</h2></div>
+        <p class="block-note">제휴 링크 · 가격과 이용 조건은 예약 화면 기준</p>
+      </div>
+      <div class="story-grid">
+        {tnaProducts.slice(0, 24).map((product) => <ProductCard product={product} type="ticket" />)}
+      </div>
+    </section>
+  </main>
+</BaseLayout>

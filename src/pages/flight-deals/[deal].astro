@@ -1,0 +1,60 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ProductCard from "../../components/ProductCard.astro";
+import { flightDeals, flightSlug, selectAccommodationItems, selectTnaItems } from "../../lib/content.mjs";
+
+export function getStaticPaths() {
+  return flightDeals.map((deal) => ({ params: { deal: flightSlug(deal) }, props: { deal } }));
+}
+
+const { deal } = Astro.props;
+const accommodations = selectAccommodationItems({ region: deal.city || deal.region, limit: 6 });
+const tickets = selectTnaItems({ region: deal.city || deal.region, limit: 3 });
+---
+
+<BaseLayout title={`${deal.title} - 트립뷰`} description={deal.description || "항공권 가격과 여행 준비 정보를 확인하세요."} canonicalPath={`/flight-deals/${flightSlug(deal)}/`} activePath="/travel/" robots="noindex, follow" adsense={false}>
+  <main class="article-page">
+    <article class="article-hero">
+      <div>
+        <span class="kicker">FLIGHT DEAL</span>
+        <h1>{deal.title}</h1>
+        <div class="article-meta">
+          <span>{deal.fromCity || "ICN"}</span>
+          <span>{deal.toCity || deal.city || deal.region}</span>
+          <span>{deal.priceText || ""}</span>
+        </div>
+        <p>{deal.description}</p>
+        {deal.bookingUrl && <p><a class="cta-link" href={deal.bookingUrl} target="_blank" rel="sponsored nofollow noopener">항공권 확인</a></p>}
+      </div>
+    </article>
+    <section class="article-layout">
+      <article class="content">
+        <h2>예약 전 확인</h2>
+        <p>항공권 최저가는 수하물, 환승, 결제 수수료, 출발·도착 시간에 따라 실제 체감 가격이 달라질 수 있습니다. 결제 전 항공사 공지와 예약 화면 조건을 다시 확인하세요.</p>
+        {accommodations.length > 0 && (
+          <section class="article-product-section">
+            <h2>{deal.city || deal.region} 숙소</h2>
+            <div class="mrt-accommodation-grid">
+              {accommodations.map((product) => <ProductCard product={product} type="accommodation" />)}
+            </div>
+          </section>
+        )}
+        {tickets.length > 0 && (
+          <section class="article-product-section">
+            <h2>{deal.city || deal.region} 투어</h2>
+            <div class="mrt-ticket-grid">
+              {tickets.map((product) => <ProductCard product={product} type="ticket" />)}
+            </div>
+          </section>
+        )}
+      </article>
+      <aside class="article-aside">
+        <div class="aside-box">
+          <strong>항공권 데이터</strong>
+          <span>{deal.source || "myrealtrip-flight"}</span>
+          <span>가격과 좌석은 예약 화면 기준으로 변동될 수 있습니다.</span>
+        </div>
+      </aside>
+    </section>
+  </main>
+</BaseLayout>

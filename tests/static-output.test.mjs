@@ -783,7 +783,9 @@ test("September overseas manual posts are indexable and wired into public pages"
     assert.match(post.tourApi?.homepage || "", /^https:\/\//);
   }
 
-  assert.match(packageJson, /merge-manual-posts\.mjs[\s\S]*fetch-pexels-images\.mjs[\s\S]*render-manual-pages\.mjs[\s\S]*build-www\.mjs/);
+  const packageConfig = JSON.parse(packageJson);
+  assert.match(packageConfig.scripts.build, /prepare-data\.mjs[\s\S]*run-astro-build\.mjs[\s\S]*validate-astro-migration\.mjs/);
+  assert.match(packageConfig.scripts["build:legacy"], /merge-manual-posts\.mjs[\s\S]*fetch-pexels-images\.mjs[\s\S]*render-manual-pages\.mjs[\s\S]*build-www\.mjs/);
   assert.match(mergeScript, /hasDeferredImage/);
   assert.match(reviewScript, /renderManualPage[\s\S]*editorialStatus === "reviewed"/);
   assert.match(manualRenderer, /renderManualPage/);

@@ -1,4 +1,5 @@
 .wrangler/
+.astro/
 node_modules/
 .cache/
 .env

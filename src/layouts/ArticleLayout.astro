@@ -1,0 +1,97 @@
+---
+import ArticleMeta from "../components/ArticleMeta.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import MediaFrame from "../components/MediaFrame.astro";
+import ShareToolbar from "../components/ShareToolbar.astro";
+import BaseLayout from "./BaseLayout.astro";
+import {
+  articleActivePath,
+  articleCategoryLabel,
+  articleSchema,
+  breadcrumbSchema,
+  compactRegion,
+  eventSchema,
+  festivalStatus,
+  heroImageAsset,
+  isDataPipelinePost,
+  isFestivalPost,
+  isIndexablePost,
+  isLodgingPost,
+  lodgingSchema,
+  postDescription,
+  postExcerpt,
+  postTitle,
+  regionSlug,
+} from "../lib/content.mjs";
+
+const { post } = Astro.props;
+const hero = heroImageAsset(post);
+const activePath = articleActivePath(post);
+const categoryLabel = articleCategoryLabel(post);
+const indexable = isIndexablePost(post);
+const regionLabel = compactRegion(post.region);
+const status = festivalStatus(post);
+const breadcrumbItems = [
+  { label: "홈", href: "/" },
+  { label: categoryLabel, href: activePath },
+  { label: regionLabel, href: `/region/${regionSlug(regionLabel)}/` },
+  { label: postTitle(post) },
+].filter((item) => item.label);
+const jsonLd = [
+  { name: "article", data: articleSchema(post) },
+  isFestivalPost(post) && !isDataPipelinePost(post) ? { name: "event", data: eventSchema(post) } : null,
+  isLodgingPost(post) && !isDataPipelinePost(post) ? { name: "lodging", data: lodgingSchema(post) } : null,
+  { name: "breadcrumb", data: breadcrumbSchema(breadcrumbItems.filter((item) => item.href)) },
+].filter(Boolean);
+---
+
+<BaseLayout
+  title={`${postTitle(post)} | 트립뷰`}
+  description={postDescription(post)}
+  canonicalPath={`/${post.slug}/`}
+  activePath={activePath}
+  ogType="article"
+  ogImage={hero?.src}
+  robots={indexable ? "index, follow, max-image-preview:large" : "noindex, follow"}
+  jsonLd={jsonLd}
+  adsense={indexable}
+>
+  <main class="article-page">
+    <Breadcrumbs items={breadcrumbItems} />
+    <article class="article-hero">
+      <div>
+        <span class="kicker">{categoryLabel}</span>
+        <h1>{postTitle(post)}</h1>
+        <ArticleMeta post={post} />
+        <p>{postExcerpt(post, 220)}</p>
+        <div class="article-tags">
+          {isFestivalPost(post) && <span class:list={["festival-status", status.ended && "is-ended"]}>{status.ended ? "종료" : "진행 확인"}</span>}
+          <span>{regionLabel}</span>
+          {indexable ? <span>검수 완료</span> : <span>검수 대기</span>}
+        </div>
+      </div>
+      <div class="article-hero-media">
+        <MediaFrame asset={hero} post={post} caption eager ratio="4 / 3" />
+      </div>
+    </article>
+    <ShareToolbar post={post} />
+    <section class="article-layout">
+      <article class="content" data-tripview-article>
+        <slot />
+      </article>
+      <aside class="article-aside">
+        <div class="aside-box">
+          <strong>작성·검수 정보</strong>
+          <span>트립뷰 편집팀</span>
+          <a class="author-link" href="/editorial-team">편집팀 기준 보기</a>
+        </div>
+        {post.memo?.length > 0 && (
+          <div class="aside-box">
+            <strong>운영 메모</strong>
+            {post.memo.slice(0, 5).map((memo) => <span>{memo}</span>)}
+          </div>
+        )}
+      </aside>
+    </section>
+  </main>
+</BaseLayout>

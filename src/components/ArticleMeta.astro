@@ -1,0 +1,16 @@
+---
+import { articleCategoryLabel, compactRegion, postDate } from "../lib/content.mjs";
+
+const { post } = Astro.props;
+const parts = [
+  articleCategoryLabel(post),
+  compactRegion(post.region),
+  postDate(post),
+  post.read || "",
+].filter(Boolean);
+---
+
+<div class="article-meta">
+  <span>트립뷰 편집팀</span>
+  {parts.map((part) => <span>{part}</span>)}
+</div>

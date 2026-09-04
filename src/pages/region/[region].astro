@@ -1,0 +1,101 @@
+---
+import ProductCard from "../../components/ProductCard.astro";
+import TravelCard from "../../components/TravelCard.astro";
+import RegionLayout from "../../layouts/RegionLayout.astro";
+import { regionCardImageAsset, regionGroups, selectAccommodationItems } from "../../lib/content.mjs";
+
+export function getStaticPaths() {
+  return regionGroups().map((group) => ({ params: { region: group.slug }, props: { group } }));
+}
+
+const { group } = Astro.props;
+const bannerPost = group.posts.find((post) => regionCardImageAsset(post)?.src) || group.posts[0];
+const bannerAsset = regionCardImageAsset(bannerPost);
+const products = selectAccommodationItems({ posts: group.posts, region: group.label, limit: 6 });
+
+function subregionLabel(post = {}) {
+  const source = String(post.region || "").replace(/\s+/g, " ").trim();
+  const withoutMetro = source
+    .replace(/^서울특별시\s*/, "")
+    .replace(/^부산광역시\s*/, "")
+    .replace(/^대구광역시\s*/, "")
+    .replace(/^인천광역시\s*/, "")
+    .replace(/^광주광역시\s*/, "")
+    .replace(/^대전광역시\s*/, "")
+    .replace(/^울산광역시\s*/, "")
+    .replace(/^세종특별자치시\s*/, "")
+    .replace(/^강원특별자치도\s*/, "")
+    .replace(/^제주특별자치도\s*/, "")
+    .replace(/^(?:전라|경상|충청)(?:남|북)도\s*/, "")
+    .replace(/^경기도\s*/, "")
+    .trim();
+  return withoutMetro.match(/[가-힣]+(?:시|군|구)/)?.[0] || group.label;
+}
+
+const subregions = [...group.posts.reduce((map, post) => {
+  const label = subregionLabel(post);
+  if (!map.has(label)) map.set(label, []);
+  map.get(label).push(post);
+  return map;
+}, new Map())]
+  .map(([label, posts]) => ({ label, posts }))
+  .sort((a, b) => b.posts.length - a.posts.length || a.label.localeCompare(b.label, "ko"))
+  .slice(0, 12);
+---
+
+<RegionLayout group={group} title={`${group.label} 여행 허브`} description={`${group.label} 지역의 여행지와 축제 글을 최신순으로 모았습니다. 지역 소개와 함께 관련 글, 추천 숙소를 한 번에 확인하세요.`} bannerAsset={bannerAsset} tags={[
+  { label: "여행지", href: "/travel/" },
+  { label: "축제", href: "/festival/" },
+  { label: "숙소", href: "/stay/" },
+  { label: "입장권·투어", href: "/ticket/" },
+]}>
+  <section class="block" id="region-intro" aria-labelledby="region-intro-title">
+    <div class="block-head">
+      <div><span class="kicker">REGION</span><h2 id="region-intro-title">{group.label} 여행 소개</h2></div>
+      <p class="block-note">{group.posts.length}개 글</p>
+    </div>
+    <p>{group.label} 여행은 계절 행사, 실내 명소, 자연 여행지를 함께 보면 동선 선택이 쉬워집니다. 아래 목록에서 방문 목적에 맞는 글을 먼저 확인하고, 숙소는 일정이 정해진 뒤 비교용으로 활용하세요.</p>
+  </section>
+
+  {products.length > 0 && (
+    <section class="block" id="region-stay" aria-labelledby="region-stay-title">
+      <div class="block-head">
+        <div><span class="kicker">BOOKING</span><h2 id="region-stay-title">{group.label} 추천 숙소</h2></div>
+        <p class="block-note">마이리얼트립 숙소 데이터</p>
+      </div>
+      <div class="story-grid">
+        {products.map((product) => <ProductCard product={product} type="accommodation" />)}
+      </div>
+    </section>
+  )}
+
+  <section class="block" id="region-posts" aria-labelledby="region-posts-title">
+    <div class="block-head">
+      <div><span class="kicker">POSTS</span><h2 id="region-posts-title">{group.label} 글 목록</h2></div>
+      <p class="block-note">같은 광역 지역 기준</p>
+    </div>
+    <div class="story-list">
+      {group.posts.map((post) => <TravelCard post={post} showExcerpt={false} />)}
+    </div>
+  </section>
+
+  {subregions.length > 1 && (
+    <section class="block" id="subregions" aria-labelledby="subregions-title">
+      <div class="block-head">
+        <div><span class="kicker">LOCAL</span><h2 id="subregions-title">하위 시군구별 글</h2></div>
+        <p class="block-note">지역값 기준 자동 그룹</p>
+      </div>
+      <div class="story-grid">
+        {subregions.map((item) => (
+          <a class="story-card" href={`/${item.posts[0].slug}/`}>
+            <span class="story-card-body">
+              <span class="story-label">하위 지역</span>
+              <strong>{item.label}</strong>
+              <p>{item.posts.length.toLocaleString("ko-KR")}개 글 · 대표 글 {item.posts[0].title}</p>
+            </span>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
+</RegionLayout>

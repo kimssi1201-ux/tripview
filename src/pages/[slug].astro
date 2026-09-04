@@ -1,0 +1,210 @@
+---
+import ArticleLayout from "../layouts/ArticleLayout.astro";
+import MediaFrame from "../components/MediaFrame.astro";
+import ProductCard from "../components/ProductCard.astro";
+import RelatedPosts from "../components/RelatedPosts.astro";
+import TravelCard from "../components/TravelCard.astro";
+import {
+  allPosts,
+  accommodationHeading,
+  articleActivePath,
+  articleContentImageAssets,
+  articleInlineAssets,
+  articlePhotoGridAssets,
+  compactRegion,
+  faqPairs,
+  infoRows,
+  infoValue,
+  isDataPipelinePost,
+  isIndexablePost,
+  isLodgingPost,
+  officialLinks,
+  postTitle,
+  regionCardImageAsset,
+  regionSlug,
+  relatedPostsFor,
+  sectionPairs,
+  selectAccommodationItems,
+  selectTnaItems,
+} from "../lib/content.mjs";
+
+export function getStaticPaths() {
+  return allPosts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const rows = infoRows(post);
+const sections = sectionPairs(post);
+const faqs = faqPairs(post);
+const inlineAssets = articleInlineAssets(post).map((asset, index) => ({ asset, number: index + 1 }));
+const photoGridAssets = articlePhotoGridAssets(post);
+const inlinePlacements = new Map();
+if (sections.length && inlineAssets.length) {
+  inlineAssets.forEach((item, index) => {
+    const sectionIndex = Math.min(sections.length - 1, Math.max(0, Math.round(((index + 1) / (inlineAssets.length + 1)) * (sections.length - 1))));
+    const items = inlinePlacements.get(sectionIndex) || [];
+    items.push(item);
+    inlinePlacements.set(sectionIndex, items);
+  });
+}
+const indexable = isIndexablePost(post);
+const activePath = articleActivePath(post);
+const accommodationItems = indexable && !isDataPipelinePost(post)
+  ? selectAccommodationItems({ post, limit: 6 })
+  : [];
+const ticketItems = indexable && !isDataPipelinePost(post) && activePath !== "/stay/"
+  ? selectTnaItems({ post, limit: 3 })
+  : [];
+const regionRelated = relatedPostsFor(post, 8).filter((item) => compactRegion(item.region) === compactRegion(post.region));
+const sourceLinks = officialLinks(post);
+const lodgingGuideAssets = isLodgingPost(post) ? articleContentImageAssets(post, { excludeHero: true }).slice(0, 3) : [];
+const placeName = post.sourceTitle || postTitle(post);
+const address = infoValue(post, ["주소", "장소"]);
+const parking = infoValue(post, "주차");
+const hours = infoValue(post, ["운영 확인", "시간"]);
+const fee = infoValue(post, "요금");
+---
+
+<ArticleLayout post={post}>
+  {rows.length > 0 && (
+    <table class="info-table">
+      <tbody>
+        {rows.map(([key, value]) => (
+          <tr>
+            <th>{key}</th>
+            <td>{value}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  )}
+
+  {(address || hours || fee || parking) && (
+    <section class="article-place-intro" aria-labelledby="article-place-intro-title">
+      <h2 id="article-place-intro-title">핵심 정보</h2>
+      <p>
+        {placeName} 방문 전에는 {address ? `위치(${address})` : "위치"}와 {hours ? `운영 정보(${hours})` : "운영 정보"}를 먼저 확인하는 것이 좋습니다.
+        {fee ? ` 요금은 ${fee} 기준입니다.` : ""}
+        {parking ? ` 주차는 ${parking}입니다.` : ""}
+      </p>
+    </section>
+  )}
+
+  {sections.map((section, sectionIndex) => (
+    <>
+      <section>
+        <h2>{section.heading}</h2>
+        {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+      </section>
+      {(inlinePlacements.get(sectionIndex) || []).map(({ asset, number }) => (
+        <>
+          <Fragment set:html={`<!-- ARTICLE_INLINE_PHOTO_START ${number} -->`} />
+          <MediaFrame asset={asset} post={post} caption className="inline-figure article-inline-figure" ratio="16 / 10" />
+          <Fragment set:html={"<!-- ARTICLE_INLINE_PHOTO_END -->"} />
+        </>
+      ))}
+    </>
+  ))}
+
+  {lodgingGuideAssets.length > 0 && (
+    <section class="lodging-photo-guide" aria-labelledby="lodging-photo-guide-title">
+      <h2 id="lodging-photo-guide-title">숙소 사진으로 확인할 부분</h2>
+      {lodgingGuideAssets.map((asset, index) => (
+        <div class="lodging-photo-item">
+          <p>
+            {index === 0 && `${placeName} 사진에서는 숙소 외관과 주변 분위기를 먼저 확인할 수 있습니다. 예약 전에는 위치, 객실 조건, 취소 마감 시각을 함께 비교하세요.`}
+            {index === 1 && `객실 사진은 실제 침대 구성과 창밖 방향, 욕실 상태를 보는 기준입니다. 동행 인원에 맞는 객실명과 포함 서비스를 예약 화면에서 다시 확인하세요.`}
+            {index === 2 && `${compactRegion(post.region)} 일정에 넣을 때는 숙소 주변 이동 시간을 같이 잡는 편이 좋습니다. 체크인·아웃 시간과 주차 조건을 함께 확인하세요.`}
+          </p>
+          <MediaFrame asset={asset} post={post} caption ratio="16 / 10" />
+        </div>
+      ))}
+    </section>
+  )}
+
+  {faqs.length > 0 && (
+    <section aria-labelledby="faq-title">
+      <h2 id="faq-title">자주 묻는 질문</h2>
+      {faqs.map((item) => (
+        <details open>
+          <summary>{item.question}</summary>
+          <p>{item.answer}</p>
+        </details>
+      ))}
+    </section>
+  )}
+
+  {photoGridAssets.length > 0 && (
+    <section class="article-photo-grid" data-count={photoGridAssets.length} aria-labelledby="article-photo-grid-title">
+      <h2 id="article-photo-grid-title">사진으로 확인하기</h2>
+      <div class="article-photo-grid-list">
+        {photoGridAssets.map((asset) => <MediaFrame asset={asset} post={post} caption ratio="16 / 10" />)}
+      </div>
+    </section>
+  )}
+
+  {accommodationItems.length > 0 && (
+    <>
+      <Fragment set:html={"<!-- ARTICLE_PRODUCT_START accommodation -->"} />
+      <section class="article-product-section" aria-label="지역 인기 숙소" data-article-product-type="accommodation">
+        <div class="article-product-head"><h2>{accommodationHeading(post)}</h2></div>
+        <p class="article-product-note">방문지 성격과 지역 기준으로 연결한 제휴 상품입니다. 가격과 이용 조건은 예약 화면에서 다시 확인해야 합니다.</p>
+        <div class="mrt-accommodation-grid article-accommodation-list" data-count={accommodationItems.length}>
+          {accommodationItems.map((product) => <ProductCard product={product} type="accommodation" />)}
+        </div>
+      </section>
+      <Fragment set:html={"<!-- ARTICLE_PRODUCT_END -->"} />
+    </>
+  )}
+
+  {ticketItems.length > 0 && (
+    <>
+      <Fragment set:html={"<!-- ARTICLE_PRODUCT_START ticket -->"} />
+      <section class="article-product-section" aria-label="입장권·투어 카드" data-article-product-type="ticket">
+        <div class="article-product-head"><h2>이 지역 입장권·투어</h2></div>
+        <p class="article-product-note">방문지 성격과 지역 기준으로 연결한 제휴 상품입니다. 가격과 이용 조건은 예약 화면에서 다시 확인해야 합니다.</p>
+        <div class="mrt-ticket-grid" data-count={ticketItems.length}>
+          {ticketItems.map((product) => <ProductCard product={product} type="ticket" />)}
+        </div>
+      </section>
+      <Fragment set:html={"<!-- ARTICLE_PRODUCT_END -->"} />
+    </>
+  )}
+
+  {indexable && !isLodgingPost(post) && (
+    <section class="coupang-native-ad" aria-label="여행 준비물 추천">
+      <div class="article-product-head"><h2>이 여행에 챙기면 좋은 준비물</h2></div>
+      <p class="article-disclosure" data-coupang-disclosure>쿠팡 파트너스 활동의 일환으로 일정액의 수수료를 제공받을 수 있습니다.</p>
+      <div class="coupang-product-grid" data-coupang-products data-coupang-keyword="여행 준비물" data-coupang-intent="travel" data-coupang-limit="6"></div>
+      <script src="/assets/coupang.js?v=coupang-referrer-astro-20260904" defer></script>
+    </section>
+  )}
+
+  <RelatedPosts post={post} />
+
+  {regionRelated.length > 0 && (
+    <>
+      <Fragment set:html={"<!-- REGION_RELATED_START -->"} />
+      <section class="region-related" aria-labelledby="region-related-title">
+        <h2 id="region-related-title">{compactRegion(post.region)}에서 함께 볼 글</h2>
+        <div class="region-related-grid">
+          {regionRelated.slice(0, 8).map((item) => <TravelCard post={item} showExcerpt={false} compact />)}
+        </div>
+        <p><a class="cta-link" href={`/region/${regionSlug(post.region)}/`}>{compactRegion(post.region)} 여행 허브 보기</a></p>
+      </section>
+      <Fragment set:html={"<!-- REGION_RELATED_END -->"} />
+    </>
+  )}
+
+  {sourceLinks.length > 0 && (
+    <section class="article-source-block" aria-labelledby="source-title">
+      <h2 id="source-title">공식 확인처</h2>
+      {sourceLinks.map((source) => <p class="source-note"><a href={source.url} target="_blank" rel="noopener">{source.label}</a></p>)}
+    </section>
+  )}
+
+  <section class="article-trust-block" aria-labelledby="trust-title">
+    <h2 id="trust-title">작성·검수 정보</h2>
+    <p class="trust-note">운영 시간, 요금, 휴무, 예약 조건은 현장 사정에 따라 바뀔 수 있습니다. 출발 전 공식 안내와 예약 화면을 한 번 더 확인하세요.</p>
+  </section>
+</ArticleLayout>

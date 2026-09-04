@@ -1,0 +1,18 @@
+---
+import MediaFrame from "./MediaFrame.astro";
+import { articleCategoryLabel, cardImageAsset, compactRegion, postDate, postExcerpt, postTitle } from "../lib/content.mjs";
+
+const { post, className = "", compact = false, showExcerpt = true } = Astro.props;
+const asset = cardImageAsset(post);
+const label = [articleCategoryLabel(post), compactRegion(post.region)].filter(Boolean).join(" · ");
+---
+
+<a class:list={["story-card", compact && "is-compact", className]} href={`/${post.slug}/`}>
+  {asset?.src && <MediaFrame asset={asset} post={post} caption={false} />}
+  <span class="story-card-body">
+    <span class="story-label">{label}</span>
+    <strong>{postTitle(post)}</strong>
+    {showExcerpt && <p>{postExcerpt(post)}</p>}
+    <span class="story-meta">{postDate(post)}</span>
+  </span>
+</a>

@@ -1,0 +1,25 @@
+---
+import TravelCard from "./TravelCard.astro";
+
+const { id, title, note = "", posts = [], limit = 9, preserveEmpty = false } = Astro.props;
+const items = posts.slice(0, limit);
+---
+
+{(items.length > 0 || preserveEmpty) && (
+  <section class="block" id={id} aria-labelledby={`${id}-title`}>
+    <div class="block-head">
+      <div>
+        <span class="kicker">TAG</span>
+        <h2 id={`${id}-title`}>{title}</h2>
+      </div>
+      {note && <p class="block-note">{note}</p>}
+    </div>
+    {items.length > 0 ? (
+      <div class="story-grid">
+        {items.map((post) => <TravelCard post={post} />)}
+      </div>
+    ) : (
+      <p class="block-note">표시할 글을 준비 중입니다.</p>
+    )}
+  </section>
+)}
