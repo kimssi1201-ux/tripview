@@ -1,6 +1,6 @@
 ---
 import MediaFrame from "./MediaFrame.astro";
-import { normalizeAccommodationUrl, productImage, productPriceText } from "../lib/content.mjs";
+import { normalizeAccommodationUrl, productImage, productPriceText, productSourceLabel, productUpdatedText } from "../lib/content.mjs";
 
 const { product, type = "accommodation", variant = "small" } = Astro.props;
 const asset = productImage(product);
@@ -10,6 +10,8 @@ const meta = [product?.region, product?.city].filter(Boolean).join(" · ");
 const rawUrl = product?.affiliateUrl || product?.url || product?.productUrl || "#";
 const href = type === "accommodation" ? normalizeAccommodationUrl(rawUrl) : rawUrl;
 const title = product?.title || product?.name || "예약 상품";
+const sourceLabel = productSourceLabel(product, type);
+const updatedText = productUpdatedText(product);
 const mediaAsset = asset ? {
   src: asset,
   alt: `${title} 이미지`,
@@ -26,5 +28,6 @@ const mediaAsset = asset ? {
     <strong>{title}</strong>
     {meta && <span class="home-story-meta">{meta}</span>}
     {price && <span class="home-product-price">{price}</span>}
+    <span class="home-product-source">데이터 {updatedText} · {sourceLabel} 확인</span>
   </span>
 </a>

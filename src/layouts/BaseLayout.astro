@@ -2,7 +2,18 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
-import { ADSENSE_CLIENT, NAVER_VERIFICATION, RSS_TITLE, SITE_NAME, SITE_URL, canonicalUrl, publicImageUrl } from "../lib/content.mjs";
+import {
+  ADSENSE_CLIENT,
+  NAVER_VERIFICATION,
+  RSS_TITLE,
+  SITE_NAME,
+  SITE_URL,
+  canonicalUrl,
+  editorialPersonSchema,
+  organizationSchema,
+  publicImageUrl,
+  websiteSchema,
+} from "../lib/content.mjs";
 
 const {
   title = `${SITE_NAME} - 여행 뉴스 피드`,
@@ -19,7 +30,12 @@ const {
 const canonical = canonicalPath.startsWith("https://") ? canonicalPath : canonicalUrl(canonicalPath);
 const fullTitle = title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`;
 const absoluteOgImage = ogImage ? publicImageUrl(ogImage) : "";
-const jsonLdItems = jsonLd.filter((item) => item?.data);
+const jsonLdItems = [
+  { name: "organization", data: organizationSchema() },
+  { name: "editorial-person", data: editorialPersonSchema() },
+  { name: "website", data: websiteSchema() },
+  ...jsonLd,
+].filter((item) => item?.data);
 ---
 
 <!doctype html>

@@ -676,6 +676,13 @@ figcaption {
   line-height: 1.25;
 }
 
+.home-product-source {
+  color: var(--muted);
+  font-size: 11.5px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
 .home-category-section,
 .home-region-strip {
   padding: 38px 0;
@@ -908,6 +915,13 @@ figcaption {
   color: var(--muted);
   font-size: 13px;
   font-weight: 800;
+}
+
+.article-meta a,
+.trust-list a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .article-news-page .article-meta span:first-child {
@@ -1152,6 +1166,17 @@ figcaption {
   font-size: 14px;
 }
 
+.trust-list {
+  display: grid;
+  gap: 6px;
+  margin: 0 0 14px;
+  padding: 0;
+  list-style: none;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 800;
+}
+
 .mrt-accommodation-grid,
 .mrt-ticket-grid,
 .coupang-product-grid,
@@ -1199,6 +1224,14 @@ figcaption {
 .region-related-card span {
   color: var(--muted);
   font-size: 12px;
+}
+
+.mrt-card-source,
+.coupang-card .product-source-note {
+  display: block;
+  color: var(--muted);
+  font-size: 11.5px;
+  line-height: 1.45;
 }
 
 .article-reserve,

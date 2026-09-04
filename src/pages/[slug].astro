@@ -12,13 +12,18 @@ import {
   articleInlineAssets,
   articlePhotoGridAssets,
   compactRegion,
+  EDITORIAL_AUTHOR_NAME,
+  EDITORIAL_AUTHOR_PATH,
   faqPairs,
+  formatKoreanDate,
   infoRows,
   infoValue,
   isDataPipelinePost,
   isIndexablePost,
   isLodgingPost,
   officialLinks,
+  postModifiedDate,
+  postPublishedDate,
   postTitle,
   regionCardImageAsset,
   regionSlug,
@@ -63,6 +68,10 @@ const address = infoValue(post, ["주소", "장소"]);
 const parking = infoValue(post, "주차");
 const hours = infoValue(post, ["운영 확인", "시간"]);
 const fee = infoValue(post, "요금");
+const publishedDate = postPublishedDate(post);
+const modifiedDate = postModifiedDate(post);
+const publishedDateLabel = formatKoreanDate(publishedDate);
+const modifiedDateLabel = formatKoreanDate(modifiedDate);
 ---
 
 <ArticleLayout post={post}>
@@ -148,7 +157,7 @@ const fee = infoValue(post, "요금");
       <Fragment set:html={"<!-- ARTICLE_PRODUCT_START accommodation -->"} />
       <section class="article-product-section" aria-label="지역 인기 숙소" data-article-product-type="accommodation">
         <div class="article-product-head"><h2>{accommodationHeading(post)}</h2></div>
-        <p class="article-product-note">방문지 성격과 지역 기준으로 연결한 제휴 상품입니다. 가격과 이용 조건은 예약 화면에서 다시 확인해야 합니다.</p>
+        <p class="article-product-note">방문지 성격과 지역 기준으로 연결한 제휴 상품입니다. 표시 가격은 {modifiedDateLabel} 데이터 기준이며, 최종 가격과 취소 조건은 마이리얼트립 공식 예약 화면에서 다시 확인해야 합니다.</p>
         <div class="mrt-accommodation-grid article-accommodation-list" data-count={accommodationItems.length}>
           {accommodationItems.map((product) => <ProductCard product={product} type="accommodation" />)}
         </div>
@@ -162,7 +171,7 @@ const fee = infoValue(post, "요금");
       <Fragment set:html={"<!-- ARTICLE_PRODUCT_START ticket -->"} />
       <section class="article-product-section" aria-label="입장권·투어 카드" data-article-product-type="ticket">
         <div class="article-product-head"><h2>이 지역 입장권·투어</h2></div>
-        <p class="article-product-note">방문지 성격과 지역 기준으로 연결한 제휴 상품입니다. 가격과 이용 조건은 예약 화면에서 다시 확인해야 합니다.</p>
+        <p class="article-product-note">방문지 성격과 지역 기준으로 연결한 제휴 상품입니다. 표시 가격은 {modifiedDateLabel} 데이터 기준이며, 최종 가격과 포함 사항은 마이리얼트립 공식 예약 화면에서 다시 확인해야 합니다.</p>
         <div class="mrt-ticket-grid" data-count={ticketItems.length}>
           {ticketItems.map((product) => <ProductCard product={product} type="ticket" />)}
         </div>
@@ -174,6 +183,7 @@ const fee = infoValue(post, "요금");
   {indexable && !isLodgingPost(post) && (
     <section class="coupang-native-ad" aria-label="여행 준비물 추천">
       <div class="article-product-head"><h2>이 여행에 챙기면 좋은 준비물</h2></div>
+      <p class="article-product-note">상품과 가격은 쿠팡 공식 판매처 화면 기준으로 달라질 수 있습니다. 구매 전 배송, 옵션, 최종 가격을 다시 확인하세요.</p>
       <p class="article-disclosure" data-coupang-disclosure>쿠팡 파트너스 활동의 일환으로 일정액의 수수료를 제공받을 수 있습니다.</p>
       <div class="coupang-product-grid" data-coupang-products data-coupang-keyword="여행 준비물" data-coupang-intent="travel" data-coupang-limit="6"></div>
       <script src="/assets/coupang.js?v=coupang-referrer-astro-20260904" defer></script>
@@ -199,12 +209,18 @@ const fee = infoValue(post, "요금");
   {sourceLinks.length > 0 && (
     <section class="article-source-block" aria-labelledby="source-title">
       <h2 id="source-title">공식 확인처</h2>
+      <p class="source-note">본문의 위치, 운영, 요금, 일정 정보는 {modifiedDateLabel} 확인 기준입니다.</p>
       {sourceLinks.map((source) => <p class="source-note"><a href={source.url} target="_blank" rel="noopener">{source.label}</a></p>)}
     </section>
   )}
 
   <section class="article-trust-block" aria-labelledby="trust-title">
     <h2 id="trust-title">작성·검수 정보</h2>
+    <ul class="trust-list">
+      <li>작성자: <a href={EDITORIAL_AUTHOR_PATH} rel="author">{EDITORIAL_AUTHOR_NAME}</a></li>
+      <li>게시일: <time datetime={publishedDate}>{publishedDateLabel}</time></li>
+      <li>수정일: <time datetime={modifiedDate}>{modifiedDateLabel}</time></li>
+    </ul>
     <p class="trust-note">운영 시간, 요금, 휴무, 예약 조건은 현장 사정에 따라 바뀔 수 있습니다. 출발 전 공식 안내와 예약 화면을 한 번 더 확인하세요.</p>
   </section>
 </ArticleLayout>
