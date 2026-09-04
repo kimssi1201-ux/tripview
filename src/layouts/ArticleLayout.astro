@@ -1,0 +1,170 @@
+---
+import ArticleMeta from "../components/ArticleMeta.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import ShareToolbar from "../components/ShareToolbar.astro";
+import BaseLayout from "./BaseLayout.astro";
+import {
+  allPosts,
+  articleActivePath,
+  articleCategoryLabel,
+  articleSchema,
+  breadcrumbSchema,
+  cardImageAsset,
+  compactRegion,
+  eventSchema,
+  festivalStatus,
+  heroImageAsset,
+  imageAlt,
+  isDataPipelinePost,
+  isFestivalPost,
+  isIndexablePost,
+  isLodgingPost,
+  lodgingSchema,
+  postDescription,
+  postDate,
+  postExcerpt,
+  postTitle,
+  regionSlug,
+  relatedPostsFor,
+} from "../lib/content.mjs";
+
+const { post } = Astro.props;
+const hero = heroImageAsset(post);
+const activePath = articleActivePath(post);
+const categoryLabel = articleCategoryLabel(post);
+const indexable = isIndexablePost(post);
+const regionLabel = compactRegion(post.region);
+const status = festivalStatus(post);
+const breadcrumbItems = [
+  { label: "홈", href: "/" },
+  { label: categoryLabel, href: activePath },
+  { label: regionLabel, href: `/region/${regionSlug(regionLabel)}/` },
+  { label: postTitle(post) },
+].filter((item) => item.label);
+const visibleBreadcrumbItems = breadcrumbItems.filter((item) => item.href);
+const jsonLd = [
+  { name: "article", data: articleSchema(post) },
+  isFestivalPost(post) && !isDataPipelinePost(post) ? { name: "event", data: eventSchema(post) } : null,
+  isLodgingPost(post) && !isDataPipelinePost(post) ? { name: "lodging", data: lodgingSchema(post) } : null,
+  { name: "breadcrumb", data: breadcrumbSchema(breadcrumbItems.filter((item) => item.href)) },
+].filter(Boolean);
+const latestPosts = allPosts
+  .filter((candidate) => candidate.slug !== post.slug && isIndexablePost(candidate))
+  .sort((a, b) => String(postDate(b)).localeCompare(String(postDate(a))))
+  .map((item) => ({ post: item, asset: cardImageAsset(item) }))
+  .filter(({ asset }) => asset?.src)
+  .slice(0, 12);
+const latestMeta = (item) => [articleCategoryLabel(item), compactRegion(item.region), postDate(item)].filter(Boolean).join(" · ");
+const latestSlugs = new Set(latestPosts.map(({ post: item }) => item.slug));
+const sideRelatedPosts = relatedPostsFor(post, 8)
+  .filter((item) => !latestSlugs.has(item.slug))
+  .slice(0, 4);
+const rawSideNavLinks = [
+  regionLabel ? { label: `${regionLabel} 여행`, href: `/region/${regionSlug(regionLabel)}/` } : null,
+  { label: `${categoryLabel} 더 보기`, href: activePath },
+  { label: "최신 여행글", href: "/travel/" },
+  { label: "축제·행사", href: "/festival/" },
+].filter(Boolean);
+const seenSideNavLinks = new Set();
+const sideNavLinks = rawSideNavLinks.filter((item) => {
+  if (seenSideNavLinks.has(item.href)) return false;
+  seenSideNavLinks.add(item.href);
+  return true;
+});
+---
+
+<BaseLayout
+  title={`${postTitle(post)} | 트립뷰`}
+  description={postDescription(post)}
+  canonicalPath={`/${post.slug}/`}
+  activePath={activePath}
+  ogType="article"
+  ogImage={hero?.src}
+  robots={indexable ? "index, follow, max-image-preview:large" : "noindex, follow"}
+  jsonLd={jsonLd}
+  adsense={indexable}
+>
+  <main class="article-page article-news-page">
+    <section class="article-shell">
+      <div class="article-main-column">
+        <Breadcrumbs items={visibleBreadcrumbItems} />
+        <header class="article-hero article-title-block">
+          <span class="kicker">{categoryLabel}</span>
+          <h1>{postTitle(post)}</h1>
+          <p class="article-lead">{postExcerpt(post, 220)}</p>
+          <ArticleMeta post={post} />
+          <div class="article-tags">
+            {isFestivalPost(post) && <span class:list={["festival-status", status.ended && "is-ended"]}>{status.ended ? "종료" : "진행 확인"}</span>}
+            <span>{regionLabel}</span>
+            {indexable ? <span>검수 완료</span> : <span>검수 대기</span>}
+          </div>
+        </header>
+        <ShareToolbar post={post} />
+        <article class="content" data-tripview-article>
+          <slot />
+        </article>
+      </div>
+      <aside class="article-aside article-news-aside">
+        {latestPosts.length > 0 && (
+          <section class="latest-content-box" aria-labelledby="latest-content-title">
+            <h2 id="latest-content-title">최신 콘텐츠</h2>
+            <div class="latest-content-list">
+              {latestPosts.map(({ post: item, asset }) => (
+                <a class="latest-content-item" href={`/${item.slug}/`}>
+                  <span class="latest-content-thumb">
+                    {asset?.src && (
+                      <img
+                        src={asset.src}
+                        alt={imageAlt(asset, item)}
+                        width={asset.width || 120}
+                        height={asset.height || 84}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    )}
+                  </span>
+                  <span class="latest-content-copy">
+                    <strong>{postTitle(item)}</strong>
+                    <span>{latestMeta(item)}</span>
+                  </span>
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
+        {sideRelatedPosts.length > 0 && (
+          <section class="article-side-section article-side-related" aria-labelledby="article-side-related-title">
+            <h2 id="article-side-related-title">같이 보면 좋은 글</h2>
+            <div class="article-side-link-list">
+              {sideRelatedPosts.map((item) => (
+                <a class="article-side-link" href={`/${item.slug}/`}>
+                  <strong>{postTitle(item)}</strong>
+                  <span>{latestMeta(item)}</span>
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
+        {sideNavLinks.length > 0 && (
+          <nav class="article-side-section article-side-nav" aria-label="관련 여행 바로가기">
+            <h2>바로 보기</h2>
+            <div class="article-side-chip-list">
+              {sideNavLinks.map((item) => <a href={item.href}>{item.label}</a>)}
+            </div>
+          </nav>
+        )}
+        <div class="aside-box">
+          <strong>작성·검수 정보</strong>
+          <span>트립뷰 편집팀</span>
+          <a class="author-link" href="/editorial-team">편집팀 기준 보기</a>
+        </div>
+        {post.memo?.length > 0 && (
+          <div class="aside-box">
+            <strong>운영 메모</strong>
+            {post.memo.slice(0, 5).map((memo) => <span>{memo}</span>)}
+          </div>
+        )}
+      </aside>
+    </section>
+  </main>
+</BaseLayout>

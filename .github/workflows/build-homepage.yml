@@ -18,6 +18,9 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Install project dependencies
+        run: npm install --no-audit --no-fund --package-lock=false
+
       - name: Install image processing dependencies
         run: python3 -m pip install --user pillow
 
@@ -113,38 +116,21 @@ jobs:
           MYREALTRIP_FLIGHT_LIMIT: ${{ vars.MYREALTRIP_FLIGHT_LIMIT || '8' }}
           MYREALTRIP_FLIGHT_URL_TEMPLATE: ${{ vars.MYREALTRIP_FLIGHT_URL_TEMPLATE || secrets.MYREALTRIP_FLIGHT_URL_TEMPLATE }}
 
-      - name: Build homepage
-        run: node scripts/build-homepage.mjs
-
-      - name: Apply reference homepage structure
-        run: node scripts/restructure-homepage-reference.mjs
-
-      - name: Fix reference homepage categories
-        run: node scripts/fix-reference-homepage-categories.mjs
-
-      - name: Build RSS feed
-        run: node scripts/build-feed.mjs
-
-      - name: Polish AdSense readiness
-        run: node scripts/polish-adsense-readiness.mjs
-
-      - name: Apply homepage content config
-        run: node scripts/apply-homepage-content-config.mjs
-
-      - name: Apply homepage image zoom
-        run: node scripts/add-image-zoom.mjs
-
-      - name: Apply head tags
-        run: node scripts/add-adsense.mjs
-
-      - name: Apply internationalization
-        run: node scripts/add-i18n.mjs
-
-      - name: Apply map previews
-        run: node scripts/add-map-preview.mjs
-
-      - name: Build static export
-        run: node scripts/build-www.mjs
+      - name: Build Astro static export
+        run: npm run build
+        env:
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          MYREALTRIP_API_KEY: ${{ secrets.MYREALTRIP_API_KEY || secrets.PARTNER_API_KEY || secrets.MYREALTRIP_PARTNER_API_KEY }}
+          PARTNER_API_KEY: ${{ secrets.PARTNER_API_KEY }}
+          MYREALTRIP_ACCOMMODATION_REGION_URL: ${{ vars.MYREALTRIP_ACCOMMODATION_REGION_URL || secrets.MYREALTRIP_ACCOMMODATION_REGION_URL }}
+          MYREALTRIP_ACCOMMODATION_SEARCH_URL: ${{ vars.MYREALTRIP_ACCOMMODATION_SEARCH_URL || secrets.MYREALTRIP_ACCOMMODATION_SEARCH_URL }}
+          MYREALTRIP_ACCOMMODATION_KEYWORDS: ${{ vars.MYREALTRIP_ACCOMMODATION_KEYWORDS }}
+          MYREALTRIP_ACCOMMODATION_KEYWORD: ${{ vars.MYREALTRIP_ACCOMMODATION_KEYWORD }}
+          MYREALTRIP_ACCOMMODATION_IS_DOMESTIC: ${{ vars.MYREALTRIP_ACCOMMODATION_IS_DOMESTIC || 'true' }}
+          MYREALTRIP_ACCOMMODATION_SIZE: ${{ vars.MYREALTRIP_ACCOMMODATION_SIZE || '30' }}
+          MYREALTRIP_ACCOMMODATION_REGION_LIMIT: ${{ vars.MYREALTRIP_ACCOMMODATION_REGION_LIMIT || '100' }}
+          MYREALTRIP_ACCOMMODATION_PER_REGION_LIMIT: ${{ vars.MYREALTRIP_ACCOMMODATION_PER_REGION_LIMIT || '8' }}
+          MYREALTRIP_ACCOMMODATION_LIMIT: ${{ vars.MYREALTRIP_ACCOMMODATION_LIMIT || '240' }}
 
       - name: Commit homepage updates
         run: |

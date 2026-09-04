@@ -1,0 +1,6 @@
+---
+import StaticPageLayout from "../layouts/StaticPageLayout.astro";
+import { staticPage } from "../lib/static-pages.mjs";
+const page = staticPage("editorial-policy");
+---
+<StaticPageLayout page={page} />

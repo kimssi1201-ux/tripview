@@ -1,0 +1,27 @@
+---
+import MediaFrame from "./MediaFrame.astro";
+import { normalizeAccommodationUrl, productImage, productPriceText } from "../lib/content.mjs";
+
+const { product, type = "accommodation" } = Astro.props;
+const title = product.title || product.name || "예약 상품";
+const rawUrl = product.url || product.productUrl || "#";
+const href = type === "accommodation" ? normalizeAccommodationUrl(rawUrl) : rawUrl;
+const image = productImage(product);
+const meta = [product.region || product.city, product.category || product.type, productPriceText(product)].filter(Boolean).join(" · ");
+const asset = image ? {
+  src: image,
+  alt: `${title} 이미지`,
+  caption: type === "coupang" ? "쿠팡 파트너스 추천 상품" : "마이리얼트립 예약 상품",
+  width: 720,
+  height: 480,
+} : null;
+---
+
+<a class:list={["mrt-card", type === "coupang" && "coupang-card"]} href={href} target="_blank" rel="sponsored nofollow noopener" data-mrt-accommodation-card={type === "accommodation" ? "" : undefined} data-mrt-ticket-card={type === "ticket" ? "" : undefined}>
+  {asset && <MediaFrame asset={asset} caption={false} ratio="16 / 10" />}
+  <span class="mrt-card-body">
+    <strong>{title}</strong>
+    {meta && <span>{meta}</span>}
+    <span class="article-product-reserve">예약하기</span>
+  </span>
+</a>

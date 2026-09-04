@@ -1,0 +1,55 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import MediaFrame from "../../components/MediaFrame.astro";
+import ProductCard from "../../components/ProductCard.astro";
+import TravelCard from "../../components/TravelCard.astro";
+import { CATEGORY_PAGES, accommodationProducts, groupByCategoryData, productImage } from "../../lib/content.mjs";
+
+const page = CATEGORY_PAGES.find((item) => item.path === "/stay/");
+const lodgingPosts = groupByCategoryData().travelPosts.filter((post) => /숙소|호텔|펜션|리조트/.test(`${post.category || ""} ${post.title || ""}`));
+const bannerImage = productImage(accommodationProducts[0]);
+const bannerAsset = bannerImage ? {
+  src: bannerImage,
+  alt: `${accommodationProducts[0].title} 이미지`,
+  width: 720,
+  height: 480,
+} : null;
+---
+
+<BaseLayout title={`${page.title} - 트립뷰`} description={page.description} canonicalPath="/stay/" activePath="/stay/" ogImage={bannerAsset?.src}>
+  <main class="site-page hub-page">
+    <section class:list={["hub-banner", bannerAsset?.src && "has-image"]}>
+      <div class="hub-banner-copy">
+        <span class="kicker">BOOKING</span>
+        <h1>가격보다 위치와 취소 조건을 먼저 비교하세요</h1>
+        <p>{page.description}</p>
+        <span class="banner-count">{accommodationProducts.length.toLocaleString("ko-KR")}개 숙소 데이터</span>
+      </div>
+      {bannerAsset?.src && (
+        <div class="hub-banner-image">
+          <MediaFrame asset={bannerAsset} caption={false} ratio="16 / 9" />
+        </div>
+      )}
+    </section>
+    <section class="block" id="popular-stay" aria-labelledby="popular-stay-title">
+      <div class="block-head">
+        <div><span class="kicker">MYREALTRIP</span><h2 id="popular-stay-title">인기 숙소</h2></div>
+        <p class="block-note">성인 2명 기준 · 예약 전 확인</p>
+      </div>
+      <div class="story-grid">
+        {accommodationProducts.slice(0, 18).map((product) => <ProductCard product={product} type="accommodation" />)}
+      </div>
+    </section>
+    {lodgingPosts.length > 0 && (
+      <section class="block" id="lodging-posts" aria-labelledby="lodging-posts-title">
+        <div class="block-head">
+          <div><span class="kicker">GUIDE</span><h2 id="lodging-posts-title">숙소 관련 글</h2></div>
+          <p class="block-note">검수 글 기준</p>
+        </div>
+        <div class="story-list">
+          {lodgingPosts.slice(0, 24).map((post) => <TravelCard post={post} showExcerpt={false} />)}
+        </div>
+      </section>
+    )}
+  </main>
+</BaseLayout>

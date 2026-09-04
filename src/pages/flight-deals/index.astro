@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { flightDeals, flightSlug, productPriceText } from "../../lib/content.mjs";
+---
+
+<BaseLayout title="항공권 최저가 여행지 - 트립뷰" description="항공권 가격을 기준으로 여행지를 비교하고 함께 볼 숙소와 투어 정보를 확인하세요." canonicalPath="/flight-deals/" activePath="/travel/" robots="noindex, follow" adsense={false}>
+  <main class="site-page hub-page">
+    <section class="hub-banner">
+      <div class="hub-banner-copy">
+        <span class="kicker">FLIGHT</span>
+        <h1>항공권 최저가 여행지</h1>
+        <p>항공권 가격을 기준으로 여행지를 고르고, 상세 페이지에서 함께 볼 숙소와 투어 정보를 확인하세요.</p>
+      </div>
+    </section>
+    <section class="block" aria-labelledby="flight-title">
+      <div class="block-head">
+        <div><span class="kicker">DEALS</span><h2 id="flight-title">항공권 목록</h2></div>
+        <p class="block-note">{flightDeals.length.toLocaleString("ko-KR")}개</p>
+      </div>
+      <div class="flight-list">
+        {flightDeals.map((deal) => (
+          <a class="flight-card" href={`/flight-deals/${flightSlug(deal)}/`}>
+            <strong>{deal.title}</strong>
+            <span>{[deal.description, productPriceText(deal)].filter(Boolean).join(" · ")}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+  </main>
+</BaseLayout>

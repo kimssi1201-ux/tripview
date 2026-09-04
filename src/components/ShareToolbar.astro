@@ -1,0 +1,23 @@
+---
+import { postTitle, postUrl } from "../lib/content.mjs";
+
+const { post } = Astro.props;
+const url = postUrl(post);
+const title = postTitle(post);
+const encodedUrl = encodeURIComponent(url);
+const encodedTitle = encodeURIComponent(title);
+---
+
+<!-- ARTICLE_SHARE_START -->
+<section class="article-share-bar" data-article-share-bar aria-label="공유 도구">
+  <a class="article-share-button share-kakao" href={`https://story.kakao.com/share?url=${encodedUrl}`} target="_blank" rel="noopener" aria-label="카카오스토리 공유">K</a>
+  <a class="article-share-button share-naver" href={`https://share.naver.com/web/shareView?url=${encodedUrl}&title=${encodedTitle}`} target="_blank" rel="noopener" aria-label="네이버 공유">N</a>
+  <a class="article-share-button share-x" href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`} target="_blank" rel="noopener" aria-label="X 공유">X</a>
+  <a class="article-share-button share-band" href={`https://band.us/plugin/share?body=${encodedTitle}%20${encodedUrl}&route=${encodedUrl}`} target="_blank" rel="noopener" aria-label="밴드 공유">b</a>
+  <button class="article-share-button share-copy" type="button" data-share-copy={url} aria-label="링크 복사">↗</button>
+  <span class="article-share-badge" data-share-count>0</span>
+  <button class="article-font-button" type="button" data-font-delta="-1" aria-label="글자 작게">가</button>
+  <button class="article-font-button" type="button" data-font-delta="1" aria-label="글자 크게">가</button>
+</section>
+<!-- ARTICLE_SHARE_END -->
+<script src="/assets/article-share.js?v=article-share-readable-20260904" defer></script>

@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   adsense:
@@ -22,17 +22,13 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Insert AdSense script
-        run: node scripts/add-adsense.mjs
+      - name: Install project dependencies
+        run: npm install --no-audit --no-fund --package-lock=false
 
-      - name: Commit AdSense updates
+      - name: Build Astro static files
+        run: npm run build
+
+      - name: Verify AdSense script
         run: |
-          if git diff --quiet; then
-            echo "No AdSense changes to commit."
-            exit 0
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add .
-          git commit -m "Add AdSense verification script"
-          git push
+          grep -q "pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" dist/index.html
+          grep -q "ca-pub-5751319666030430" dist/index.html

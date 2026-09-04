@@ -1,0 +1,38 @@
+---
+import { imageAlt, imageCaption, imageMode } from "../lib/content.mjs";
+
+const {
+  asset,
+  post = {},
+  caption = true,
+  eager = false,
+  ratio = "",
+  className = "",
+  mode = "",
+} = Astro.props;
+
+const src = asset?.src || "";
+const alt = imageAlt(asset, post);
+const width = Number(asset?.width || 0) || undefined;
+const height = Number(asset?.height || 0) || undefined;
+const fitMode = mode || imageMode(asset);
+const style = `--media-bg:url('${src.replaceAll("'", "\\'")}')${ratio ? `;--media-ratio:${ratio}` : ""}`;
+const figureClass = className || undefined;
+---
+
+{src && (
+  <figure class={figureClass}>
+    <span class:list={["media-frame", fitMode === "cover" && "is-cover"]} style={style}>
+      <img
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        loading={eager ? "eager" : "lazy"}
+        decoding={eager ? "sync" : "async"}
+        fetchpriority={eager ? "high" : "auto"}
+      />
+    </span>
+    {caption && <figcaption>{imageCaption(asset)}</figcaption>}
+  </figure>
+)}

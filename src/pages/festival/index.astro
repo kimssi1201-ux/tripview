@@ -1,0 +1,62 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import MediaFrame from "../../components/MediaFrame.astro";
+import PostSection from "../../components/PostSection.astro";
+import ProductCard from "../../components/ProductCard.astro";
+import TravelCard from "../../components/TravelCard.astro";
+import { CATEGORY_PAGES, cardImageAsset, festivalStatus, groupByCategoryData, selectAccommodationItems } from "../../lib/content.mjs";
+
+const page = CATEGORY_PAGES.find((item) => item.path === "/festival/");
+const data = groupByCategoryData();
+const ongoing = data.festivalPosts.filter((post) => festivalStatus(post).ongoing);
+const upcoming = data.festivalPosts.filter((post) => festivalStatus(post).upcoming);
+const past = data.festivalPosts.filter((post) => festivalStatus(post).ended);
+const products = selectAccommodationItems({ posts: data.festivalPosts, limit: 6 });
+const bannerPost = data.festivalPosts.find((post) => cardImageAsset(post)?.src);
+const bannerAsset = bannerPost ? cardImageAsset(bannerPost) : null;
+const ogImage = bannerAsset?.src || "";
+---
+
+<BaseLayout title={`${page.title} - 트립뷰`} description={page.description} canonicalPath="/festival/" activePath="/festival/" ogImage={ogImage}>
+  <main class="site-page hub-page">
+    <section class:list={["hub-banner", bannerAsset?.src && "has-image"]}>
+      <div class="hub-banner-copy">
+        <span class="kicker">CATEGORY</span>
+        <h1>{page.title}</h1>
+        <p>{page.description}</p>
+        <span class="banner-count">{data.festivalPosts.length.toLocaleString("ko-KR")}개 글</span>
+        <div class="tag-row">
+          <a href="#ongoing">진행 중</a>
+          <a href="#upcoming">예정</a>
+          <a href="#past">지난 축제</a>
+        </div>
+      </div>
+      {bannerAsset?.src && (
+        <div class="hub-banner-image">
+          <MediaFrame asset={bannerAsset} caption={false} ratio="16 / 9" />
+        </div>
+      )}
+    </section>
+    <PostSection id="ongoing" title="진행 중인 축제" note="오늘 기준 종료되지 않은 진행 중 축제" posts={ongoing} />
+    <PostSection id="upcoming" title="예정 축제" note="시작일이 남아 있는 축제" posts={upcoming} />
+    <PostSection id="past" title="지난 축제" note="종료된 축제는 하단에서 확인" posts={past} />
+    <section class="block" id="festival-stay" aria-labelledby="festival-stay-title">
+      <div class="block-head">
+        <div><span class="kicker">BOOKING</span><h2 id="festival-stay-title">축제 주변 숙소</h2></div>
+        <p class="block-note">제휴 링크 · 예약 전 조건 확인</p>
+      </div>
+      <div class="story-grid">
+        {products.map((product) => <ProductCard product={product} type="accommodation" />)}
+      </div>
+    </section>
+    <section class="block" id="all-posts" aria-labelledby="all-posts-title">
+      <div class="block-head">
+        <div><span class="kicker">ALL</span><h2 id="all-posts-title">축제·행사 글 목록</h2></div>
+        <p class="block-note">진행·예정 글 우선</p>
+      </div>
+      <div class="story-list">
+        {data.festivalPosts.slice(0, 48).map((post) => <TravelCard post={post} showExcerpt={false} />)}
+      </div>
+    </section>
+  </main>
+</BaseLayout>

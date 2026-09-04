@@ -1,0 +1,28 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import MediaFrame from "../components/MediaFrame.astro";
+const { group, title, description, tags = [], bannerAsset = null } = Astro.props;
+const path = group ? `/region/${group.slug}/` : "/region/";
+---
+
+<BaseLayout title={`${title} - 트립뷰`} description={description} canonicalPath={path} activePath="/region/" ogImage={bannerAsset?.src}>
+  <main class="site-page hub-page">
+    <section class:list={["hub-banner", bannerAsset?.src && "has-image"]}>
+      <div class="hub-banner-copy">
+        <span class="kicker">REGION HUB</span>
+        <h1>{title}</h1>
+        <p>{description}</p>
+        {group && <span class="banner-count">{group.posts.length.toLocaleString("ko-KR")}개 글</span>}
+        <div class="tag-row">
+          {tags.map((tag) => <a href={tag.href}>{tag.label}</a>)}
+        </div>
+      </div>
+      {bannerAsset?.src && (
+        <div class="hub-banner-image">
+          <MediaFrame asset={bannerAsset} caption ratio="16 / 9" />
+        </div>
+      )}
+    </section>
+    <slot />
+  </main>
+</BaseLayout>

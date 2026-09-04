@@ -18,6 +18,9 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Install project dependencies
+        run: npm install --no-audit --no-fund --package-lock=false
+
       - name: Install image processing dependencies
         run: python3 -m pip install --user pillow
 
@@ -66,7 +69,7 @@ jobs:
           node scripts/polish-contextual-copy.mjs
           node scripts/fetch-pexels-images.mjs
 
-      - name: Apply homepage layout
+      - name: Fetch affiliate data and build Astro export
         env:
           MYREALTRIP_API_KEY: ${{ secrets.MYREALTRIP_API_KEY || secrets.PARTNER_API_KEY || secrets.MYREALTRIP_PARTNER_API_KEY }}
           PARTNER_API_KEY: ${{ secrets.PARTNER_API_KEY }}
@@ -110,19 +113,13 @@ jobs:
           MYREALTRIP_FLIGHT_PERIOD: ${{ vars.MYREALTRIP_FLIGHT_PERIOD || '5' }}
           MYREALTRIP_FLIGHT_LIMIT: ${{ vars.MYREALTRIP_FLIGHT_LIMIT || '8' }}
           MYREALTRIP_FLIGHT_URL_TEMPLATE: ${{ vars.MYREALTRIP_FLIGHT_URL_TEMPLATE || secrets.MYREALTRIP_FLIGHT_URL_TEMPLATE }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
         run: |
           node scripts/fetch-myrealtrip-products.mjs
-          node scripts/process-tour-images.mjs
           node scripts/fetch-myrealtrip-accommodations.mjs
           node scripts/fetch-myrealtrip-tna-products.mjs
           node scripts/fetch-myrealtrip-flight-deals.mjs
-          node scripts/apply-homepage-content-config.mjs
-          node scripts/add-image-zoom.mjs
-          node scripts/add-adsense.mjs
-          node scripts/add-i18n.mjs
-          node scripts/add-map-preview.mjs
-          node scripts/build-feed.mjs
-          node scripts/build-www.mjs
+          npm run build
 
       - name: Verify posts
         run: |
@@ -139,10 +136,12 @@ jobs:
           if (tooManyImages.length) throw new Error(`Posts over image limit: ${tooManyImages.map((post) => post.slug).join(', ')}`);
           const duplicateSlugs = newPosts.filter((post, index) => newPosts.findIndex((item) => item.slug === post.slug) !== index);
           if (duplicateSlugs.length) throw new Error(`Duplicate new slugs: ${duplicateSlugs.map((post) => post.slug).join(', ')}`);
-          const homepage = fs.readFileSync('index.html', 'utf8');
-          const feed = fs.existsSync('rss.xml') ? fs.readFileSync('rss.xml', 'utf8') : '';
-          const outputRoot = fs.existsSync('www/index.html') ? 'www' : '.';
-          const missingPagePosts = newPosts.filter((post) => !fs.existsSync(`${post.slug}/index.html`) || !fs.existsSync(`${outputRoot}/${post.slug}/index.html`));
+          const homepagePath = fs.existsSync('dist/index.html') ? 'dist/index.html' : 'index.html';
+          const feedPath = fs.existsSync('dist/rss.xml') ? 'dist/rss.xml' : (fs.existsSync('rss.xml') ? 'rss.xml' : '');
+          const outputRoot = fs.existsSync('dist/index.html') ? 'dist' : (fs.existsSync('www/index.html') ? 'www' : '.');
+          const homepage = fs.readFileSync(homepagePath, 'utf8');
+          const feed = feedPath ? fs.readFileSync(feedPath, 'utf8') : '';
+          const missingPagePosts = newPosts.filter((post) => !fs.existsSync(`${outputRoot}/${post.slug}/index.html`));
           if (missingPagePosts.length) throw new Error(`New post pages missing: ${missingPagePosts.map((post) => post.slug).join(', ')}`);
           const homepageNewPostCount = newPosts.filter((post) => homepage.includes(`/${post.slug}/`)).length;
           const feedNewPostCount = newPosts.filter((post) => feed.includes(`/${post.slug}/`)).length;

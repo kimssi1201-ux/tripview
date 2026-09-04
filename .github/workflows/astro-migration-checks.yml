@@ -1,0 +1,45 @@
+name: Astro Migration Checks
+
+on:
+  pull_request:
+    branches: ["main"]
+  push:
+    branches: ["astro-migration"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: astro-migration-checks-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install project dependencies
+        run: npm install --no-audit --no-fund --package-lock=false
+
+      - name: Install image processing dependencies
+        run: python3 -m pip install --user pillow
+
+      - name: Run syntax check
+        run: npm run lint
+
+      - name: Run tests
+        run: npm test
+
+      - name: Audit content
+        run: npm run audit:content
+
+      - name: Build and validate Astro output
+        run: npm run build

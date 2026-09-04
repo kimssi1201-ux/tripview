@@ -1,6 +1,9 @@
 .wrangler/
+.astro/
+dist/
 node_modules/
 .cache/
+reports/astro-migration-validation.json
 .env
 .env.*
 !.env.example

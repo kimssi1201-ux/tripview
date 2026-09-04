@@ -1,0 +1,16 @@
+---
+import TravelCard from "./TravelCard.astro";
+import { relatedPostsFor } from "../lib/content.mjs";
+
+const { post, title = "함께 보면 좋은 글", limit = 4 } = Astro.props;
+const related = relatedPostsFor(post, limit);
+---
+
+{related.length > 0 && (
+  <section class="related-posts" aria-labelledby="related-posts-title">
+    <h2 id="related-posts-title">{title}</h2>
+    <div class="related-list">
+      {related.map((item) => <TravelCard post={item} showExcerpt={false} compact />)}
+    </div>
+  </section>
+)}
