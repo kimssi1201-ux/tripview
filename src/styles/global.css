@@ -1349,6 +1349,7 @@ figcaption {
 
   .site-mobile-categories {
     display: flex;
+    justify-content: center;
     gap: 8px;
     width: 100%;
     padding: 0 16px 12px;
@@ -1380,6 +1381,12 @@ figcaption {
     border-color: transparent;
     background: var(--soft);
     color: var(--brand);
+  }
+
+  @media (max-width: 520px) {
+    .site-mobile-categories {
+      justify-content: flex-start;
+    }
   }
 
   .site-page {
