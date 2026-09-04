@@ -1,0 +1,31 @@
+---
+import MediaFrame from "./MediaFrame.astro";
+import {
+  articleCategoryLabel,
+  cardImageAsset,
+  compactRegion,
+  imageMode,
+  postDate,
+  postTitle,
+} from "../lib/content.mjs";
+
+const {
+  post,
+  variant = "small",
+  eager = false,
+  ratio = variant === "lead" || variant === "featured" ? "4 / 3" : "16 / 10",
+  className = "",
+} = Astro.props;
+
+const asset = cardImageAsset(post);
+const label = [articleCategoryLabel(post), compactRegion(post?.region)].filter(Boolean).join(" · ");
+---
+
+<a class:list={["home-story-card", `is-${variant}`, className]} href={`/${post.slug}/`}>
+  {asset?.src && <MediaFrame asset={asset} post={post} caption={false} eager={eager} ratio={ratio} mode={imageMode(asset)} />}
+  <span class="home-story-body">
+    {label && <span class="home-story-label">{label}</span>}
+    <strong>{postTitle(post)}</strong>
+    <span class="home-story-meta">{postDate(post)}</span>
+  </span>
+</a>

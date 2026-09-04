@@ -60,40 +60,10 @@ const jsonLdItems = jsonLd.filter((item) => item?.data);
       (() => {
         const header = document.querySelector("[data-site-header]");
         if (!header) return;
-        const groups = Array.from(header.querySelectorAll(".site-nav-desktop .nav-group"));
         const searchDetails = header.querySelector("[data-site-search]");
+        const mobileMenu = header.querySelector("[data-site-mobile-menu]");
         const closeSearch = () => searchDetails?.removeAttribute("open");
-        const closeGroups = (except) => {
-          groups.forEach((group) => {
-            if (group !== except) {
-              group.removeAttribute("open");
-              delete group.dataset.openedByHover;
-            }
-          });
-        };
-        const openGroup = (group, byHover = false) => {
-          closeGroups(group);
-          closeSearch();
-          group.setAttribute("open", "");
-          group.dataset.openedByHover = byHover ? "true" : "false";
-        };
-        groups.forEach((group) => {
-          const summary = group.querySelector(".nav-summary");
-          group.addEventListener("mouseenter", () => openGroup(group, true));
-          group.addEventListener("toggle", () => {
-            if (group.open) closeGroups(group);
-          });
-          summary?.addEventListener("click", (event) => {
-            event.preventDefault();
-            const openedByHover = group.dataset.openedByHover === "true";
-            if (group.open && !openedByHover) {
-              group.removeAttribute("open");
-              delete group.dataset.openedByHover;
-            } else {
-              openGroup(group);
-            }
-          });
-        });
+        const closeMobileMenu = () => mobileMenu?.removeAttribute("open");
 
         if (searchDetails) {
           const input = searchDetails.querySelector("[data-site-search-input]");
@@ -156,7 +126,7 @@ const jsonLdItems = jsonLd.filter((item) => item?.data);
           };
           searchDetails.addEventListener("toggle", () => {
             if (searchDetails.open) {
-              closeGroups();
+              closeMobileMenu();
               loadIndex();
               requestAnimationFrame(() => input?.focus());
             }
@@ -173,17 +143,19 @@ const jsonLdItems = jsonLd.filter((item) => item?.data);
           });
         }
 
-        header.addEventListener("mouseleave", () => closeGroups());
+        mobileMenu?.addEventListener("toggle", () => {
+          if (mobileMenu.open) closeSearch();
+        });
         document.addEventListener("click", (event) => {
           if (!header.contains(event.target)) {
-            closeGroups();
             closeSearch();
+            closeMobileMenu();
           }
         });
         document.addEventListener("keydown", (event) => {
           if (event.key === "Escape") {
-            closeGroups();
             closeSearch();
+            closeMobileMenu();
           }
         });
       })();

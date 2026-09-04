@@ -567,17 +567,140 @@ export function currentSeasonPosts(limit = 6) {
   return sortedPosts(indexablePosts.filter((post) => hasKeyword(post, ["단풍", "가을", "9월", "초가을", "해외여행"]))).slice(0, limit);
 }
 
+function homepageImagePosts(posts = []) {
+  return uniquePosts(sortedPosts(posts).filter((post) => cardImageAsset(post)?.src));
+}
+
+function isDomesticHomepagePost(post = {}) {
+  return articleCategoryLabel(post) === "여행지" && compactRegion(post.region) !== "해외";
+}
+
+function isStayHomepagePost(post = {}) {
+  return articleCategoryLabel(post) === "숙소";
+}
+
+function isTicketHomepagePost(post = {}) {
+  return articleCategoryLabel(post) === "입장권·투어";
+}
+
+function selectHomepagePosts(candidates = [], count = 5, used = new Set(), { allowReuse = true } = {}) {
+  const pool = uniquePosts(candidates).filter((post) => post?.slug && cardImageAsset(post)?.src);
+  const selected = [];
+  const selectedSlugs = new Set();
+  const add = (post, ignoreUsed = false) => {
+    if (!post?.slug || selectedSlugs.has(post.slug)) return false;
+    if (!ignoreUsed && used.has(post.slug)) return false;
+    selected.push(post);
+    selectedSlugs.add(post.slug);
+    used.add(post.slug);
+    return selected.length >= count;
+  };
+
+  for (const post of pool) {
+    if (add(post)) break;
+  }
+  if (allowReuse && selected.length < count) {
+    for (const post of pool) {
+      if (add(post, true)) break;
+    }
+  }
+  return selected;
+}
+
+function homepageStorySection({ id, title, href, posts, used }) {
+  const selected = selectHomepagePosts(posts, 5, used, { allowReuse: true });
+  return {
+    id,
+    title,
+    href,
+    kind: "stories",
+    featured: selected[0] || null,
+    items: selected.slice(1, 5),
+    sourceCount: posts.length,
+  };
+}
+
+function homepageProductSection({ id, title, href, products, type, disclosure = "" }) {
+  const selected = uniqueProducts(products).filter((product) => productImage(product)).slice(0, 5);
+  return {
+    id,
+    title,
+    href,
+    kind: "products",
+    type,
+    featuredProduct: selected[0] || null,
+    products: selected.slice(1, 5),
+    sourceCount: selected.length,
+    disclosure,
+  };
+}
+
 export function homepageSections() {
   const data = groupByCategoryData();
   const editorial = sortedPosts(indexablePosts.filter((post) => !isDataPipelinePost(post)));
-  const imagePosts = editorial.filter((post) => cardImageAsset(post)?.src);
+  const allImagePosts = homepageImagePosts(indexablePosts);
+  const editorialImagePosts = homepageImagePosts(editorial);
+  const domesticPosts = homepageImagePosts(indexablePosts.filter(isDomesticHomepagePost));
+  const overseasPosts = homepageImagePosts(data.overseasPosts);
+  const festivalPosts = homepageImagePosts(data.festivalPosts);
+  const stayArticlePosts = homepageImagePosts(indexablePosts.filter(isStayHomepagePost));
+  const ticketArticlePosts = homepageImagePosts(indexablePosts.filter(isTicketHomepagePost));
+  const used = new Set();
+
+  const topLeadPosts = selectHomepagePosts([
+    overseasPosts[0],
+    domesticPosts[0],
+    ...editorialImagePosts,
+    ...allImagePosts,
+  ], 2, used, { allowReuse: false });
+  const topSmallPosts = selectHomepagePosts([
+    overseasPosts[1],
+    domesticPosts[1],
+    festivalPosts[0],
+    stayArticlePosts[0],
+    ticketArticlePosts[0],
+    ...editorialImagePosts,
+    ...allImagePosts,
+  ], 4, used, { allowReuse: false });
+  const stayProducts = uniqueProducts(accommodationProducts).filter((product) => productImage(product)).slice(0, 6);
+  const ticketProducts = uniqueProducts(tnaProducts.length ? tnaProducts : myrealtripProducts).filter((product) => productImage(product)).slice(0, 6);
+  const magazineSections = [
+    homepageStorySection({ id: "domestic", title: "국내여행", href: "/travel/#all-posts", posts: domesticPosts, used }),
+    homepageStorySection({ id: "overseas", title: "해외여행", href: "/region/overseas/", posts: overseasPosts, used }),
+    homepageStorySection({ id: "festival", title: "축제·행사", href: "/festival/", posts: festivalPosts, used }),
+    stayProducts.length
+      ? homepageProductSection({
+        id: "stay",
+        title: "숙소·예약",
+        href: "/stay/",
+        products: stayProducts,
+        type: "accommodation",
+        disclosure: "제휴 예약 상품은 실제 기사와 구분해 표시합니다.",
+      })
+      : homepageStorySection({ id: "stay", title: "숙소·예약", href: "/stay/", posts: stayArticlePosts, used }),
+    ticketProducts.length
+      ? homepageProductSection({
+        id: "ticket",
+        title: "입장권·투어",
+        href: "/ticket/",
+        products: ticketProducts,
+        type: "ticket",
+        disclosure: "입장권·투어 상품은 예약 전 공식 판매처의 포함 사항과 취소 조건을 확인하세요.",
+      })
+      : homepageStorySection({ id: "ticket", title: "입장권·투어", href: "/ticket/", posts: ticketArticlePosts, used }),
+  ].filter((section) => section.featured || section.featuredProduct);
+
   return {
-    heroPosts: uniquePosts(imagePosts).slice(0, 5),
+    heroPosts: [...topLeadPosts, ...topSmallPosts],
+    topLeadPosts,
+    topSmallPosts,
+    magazineSections,
     regionGroups: regionGroups().slice(0, 6),
-    latestPosts: sortedPosts(indexablePosts).filter((post) => cardImageAsset(post)?.src).slice(0, 6),
+    latestPosts: allImagePosts.slice(0, 6),
     seasonPosts: currentSeasonPosts(6).filter((post) => cardImageAsset(post)?.src),
-    festivalPosts: data.festivalPosts.filter((post) => cardImageAsset(post)?.src).slice(0, 6),
-    stayProducts: accommodationProducts.slice(0, 6),
+    festivalPosts: festivalPosts.slice(0, 6),
+    stayProducts,
+    ticketProducts,
   };
 }
 

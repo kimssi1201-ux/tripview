@@ -1,107 +1,33 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import MediaFrame from "../components/MediaFrame.astro";
-import ProductCard from "../components/ProductCard.astro";
-import TravelCard from "../components/TravelCard.astro";
+import CategorySection from "../components/CategorySection.astro";
+import LeadStoryGrid from "../components/LeadStoryGrid.astro";
+import SectionHeading from "../components/SectionHeading.astro";
 import {
   cardImageAsset,
-  compactRegion,
   homepageSections,
-  postDate,
-  postExcerpt,
-  postTitle,
-  regionCardImageAsset,
 } from "../lib/content.mjs";
 
 const data = homepageSections();
-const hero = data.heroPosts[0];
-const heroRail = data.heroPosts.slice(1, 5);
-const ogImage = hero ? cardImageAsset(hero)?.src : "";
+const lead = data.topLeadPosts[0] || data.heroPosts[0];
+const ogImage = lead ? cardImageAsset(lead)?.src : "";
 ---
 
-<BaseLayout title="트립뷰 - 여행 뉴스 피드" description="트립뷰는 여행지, 축제, 숙소·예약을 따로 보고 지역별 여행 글을 빠르게 찾을 수 있게 정리한 여행 정보 매거진입니다." canonicalPath="/" activePath="/" ogImage={ogImage}>
-  <main class="site-page">
-    <h1 class="visually-hidden">트립뷰 - 여행 뉴스 피드</h1>
-    {hero && (
-      <section class="home-hero" aria-label="대표 글">
-        <div class="home-hero-grid">
-          <a class="story-card home-hero-main" href={`/${hero.slug}/`}>
-            <MediaFrame asset={cardImageAsset(hero)} post={hero} caption={false} eager ratio="4 / 3" />
-            <span class="story-card-body">
-              <span class="story-label">{[compactRegion(hero.region), hero.category].filter(Boolean).join(" · ")}</span>
-              <strong>{postTitle(hero)}</strong>
-              <p>{postExcerpt(hero, 160)}</p>
-              <span class="story-meta">{postDate(hero)}</span>
-            </span>
+<BaseLayout title="Tripview - 여행 뉴스 피드" description="Tripview는 국내여행, 해외여행, 축제·행사, 숙소·예약 정보를 사진 중심으로 빠르게 살펴볼 수 있는 여행 정보 매거진입니다." canonicalPath="/" activePath="/" ogImage={ogImage}>
+  <main class="site-page home-magazine-page">
+    <LeadStoryGrid leadPosts={data.topLeadPosts} smallPosts={data.topSmallPosts} />
+
+    {data.magazineSections.map((section) => <CategorySection section={section} />)}
+
+    <section class="home-region-strip" id="regions" aria-labelledby="regions-title">
+      <SectionHeading title="지역별 여행" href="/region/" id="regions-title" />
+      <div class="home-region-links">
+        {data.regionGroups.map((group) => (
+          <a class="home-region-link" href={`/region/${group.slug}/`}>
+            <span>{group.label}</span>
+            <small>{group.posts.length.toLocaleString("ko-KR")}개 글</small>
           </a>
-          <div class="home-hero-rail" aria-label="추천 글">
-            {heroRail.map((post) => <TravelCard post={post} className="home-hero-small" showExcerpt />)}
-          </div>
-        </div>
-      </section>
-    )}
-
-    <section class="site-section" id="regions" aria-labelledby="regions-title">
-      <div class="site-section-head">
-        <h2 id="regions-title">지역별로 찾기</h2>
-        <a class="site-section-more" href="/region/">더보기</a>
-      </div>
-      <div class="story-grid">
-        {data.regionGroups.map((group) => {
-          const lead = group.posts.find((post) => regionCardImageAsset(post)?.src) || group.posts[0];
-          const asset = regionCardImageAsset(lead);
-          return (
-            <a class="story-card region-card" href={`/region/${group.slug}/`}>
-              {asset?.src && <MediaFrame asset={asset} post={lead} caption={false} />}
-              <span class="story-card-body">
-                <span class="story-label">지역별 여행</span>
-                <strong>{group.label} 여행 허브</strong>
-                <p>{group.label} 지역 글과 숙소, 하위 지역별 글을 한곳에 모았습니다.</p>
-                <span class="story-meta">{group.posts.length.toLocaleString("ko-KR")}개 글</span>
-              </span>
-            </a>
-          );
-        })}
-      </div>
-    </section>
-
-    <section class="site-section" id="latest" aria-labelledby="latest-title">
-      <div class="site-section-head">
-        <h2 id="latest-title">최신 글</h2>
-        <a class="site-section-more" href="/travel/#all-posts">더보기</a>
-      </div>
-      <div class="story-grid">
-        {data.latestPosts.map((post) => <TravelCard post={post} />)}
-      </div>
-    </section>
-
-    <section class="site-section" id="season" aria-labelledby="season-title">
-      <div class="site-section-head">
-        <h2 id="season-title">9월 시즌 추천</h2>
-        <a class="site-section-more" href="/travel/#tag-fall">더보기</a>
-      </div>
-      <div class="story-grid">
-        {data.seasonPosts.map((post) => <TravelCard post={post} />)}
-      </div>
-    </section>
-
-    <section class="site-section" id="festival" aria-labelledby="festival-title">
-      <div class="site-section-head">
-        <h2 id="festival-title">축제·행사</h2>
-        <a class="site-section-more" href="/festival/">더보기</a>
-      </div>
-      <div class="story-grid">
-        {data.festivalPosts.map((post) => <TravelCard post={post} />)}
-      </div>
-    </section>
-
-    <section class="site-section" id="stay" aria-labelledby="stay-title">
-      <div class="site-section-head">
-        <h2 id="stay-title">숙소·예약</h2>
-        <a class="site-section-more" href="/stay/">더보기</a>
-      </div>
-      <div class="story-grid">
-        {data.stayProducts.map((product) => <ProductCard product={product} type="accommodation" />)}
+        ))}
       </div>
     </section>
   </main>
