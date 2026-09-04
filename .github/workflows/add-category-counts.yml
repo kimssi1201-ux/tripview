@@ -1,127 +1,67 @@
-name: Add Category Counts
+name: Validate Category Hubs
 
 on:
   push:
     paths:
-      - '.github/workflows/add-category-counts.yml'
+      - ".github/workflows/add-category-counts.yml"
+      - "src/pages/travel/index.astro"
+      - "src/pages/festival/index.astro"
+      - "src/pages/stay/index.astro"
+      - "src/pages/ticket/index.astro"
+      - "src/components/PostSection.astro"
+      - "src/components/TravelCard.astro"
+      - "src/lib/content.mjs"
+      - "data/generated-posts.json"
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  category-counts:
+  category-hubs:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Add category counts to generator
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install project dependencies
+        run: npm install --no-audit --no-fund --package-lock=false
+
+      - name: Install image processing dependencies
+        run: python3 -m pip install --user pillow
+
+      - name: Build Astro static files
+        run: npm run build
+
+      - name: Verify category hub output
         run: |
-          python3 <<'PY'
-          from pathlib import Path
-          
-          script_path = Path('scripts/enrich-tour-posts.mjs')
-          source = script_path.read_text(encoding='utf-8')
-          
-          def replace_once(text, old, new, label):
-              if old not in text:
-                  raise RuntimeError(f'Missing target: {label}')
-              return text.replace(old, new, 1)
-          
-          helper = '''
-          const COUNT_CATEGORIES = ['국내여행', '공연/축제'];
-          
-          function countCategories(posts) {
-            const counts = Object.fromEntries(COUNT_CATEGORIES.map((category) => [category, 0]));
-            for (const post of posts) {
-              const category = COUNT_CATEGORIES.includes(post.category) ? post.category : '국내여행';
-              counts[category] += 1;
+          node <<'NODE'
+          const fs = require('node:fs');
+
+          const pages = [
+            { path: 'dist/travel/index.html', canonical: 'https://tripview.kr/travel/', required: ['9월 해외여행', '가을·단풍', '여행지 글 목록'] },
+            { path: 'dist/festival/index.html', canonical: 'https://tripview.kr/festival/', required: ['진행 중인 축제', '예정 축제', '축제·행사 글 목록'] },
+            { path: 'dist/stay/index.html', canonical: 'https://tripview.kr/stay/', required: ['인기 숙소'] },
+            { path: 'dist/ticket/index.html', canonical: 'https://tripview.kr/ticket/', required: ['입장권'] },
+          ];
+
+          for (const page of pages) {
+            const html = fs.readFileSync(page.path, 'utf8');
+            if (!html.includes(`<link rel="canonical" href="${page.canonical}"`)) {
+              throw new Error(`${page.path} canonical is missing or incorrect.`);
             }
-            return { total: posts.length, categories: counts };
+            for (const text of page.required) {
+              if (!html.includes(text)) throw new Error(`${page.path} is missing "${text}".`);
+            }
+            if (!/<a[^>]+href="\/(?:travel|festival|data)-[^"]+\//.test(html)) {
+              throw new Error(`${page.path} does not link to rendered posts.`);
+            }
           }
-          
-          function categoryCountLinks(counts, href = '#routes') {
-            return COUNT_CATEGORIES.map((category) => `<a href="${href}" data-category="${esc(category)}">${esc(category)} <span>${counts.categories[category] || 0}</span></a>`).join('');
-          }
-          
-          function renderCategorySummary(counts) {
-            const cards = COUNT_CATEGORIES.map((category) => `<a href="#routes" data-category="${esc(category)}"><b>${esc(category)}</b><span>${counts.categories[category] || 0}</span></a>`).join('');
-            return `<section class="wrap category-counts" aria-label="카테고리별 글 수"><a href="#routes"><b>전체글</b><span>${counts.total}</span></a>${cards}</section>`;
-          }
-          
-          '''
-          
-          if 'function countCategories(posts)' not in source:
-              source = replace_once(source, 'function renderIndex(posts) {', helper + 'function renderIndex(posts) {', 'insert category helpers')
-          
-          source = source.replace('function renderArticle(post) {', 'function renderArticle(post, counts = { total: 0, categories: {} }) {')
-          
-          memo_line = "  const memo = (post.memo || []).map((m) => `<span>${esc(m)}</span>`).join('');"
-          if "const categoryNav = categoryCountLinks(counts, '../#routes');" not in source:
-              source = replace_once(source, memo_line, memo_line + "\n  const categoryNav = categoryCountLinks(counts, '../#routes');", 'article category nav variable')
-          
-          article_nav_old = '<a href="../#latest">최신글</a><a href="../#routes">전체글</a><a href="../#routes">국내여행</a><a href="../#routes">공연/축제</a>'
-          article_nav_new = '<a href="../#latest">최신글</a><a href="../#routes">전체글 <span>${counts.total}</span></a>${categoryNav}'
-          if article_nav_old in source:
-              source = source.replace(article_nav_old, article_nav_new, 1)
-          
-          index_anchor = "  const primary = list[0];\n  if (!primary) return '';"
-          if 'const categoryNav = categoryCountLinks(counts);' not in source:
-              source = replace_once(source, index_anchor, index_anchor + "\n  const counts = countCategories(posts);\n  const categoryNav = categoryCountLinks(counts);\n  const categoryFooter = categoryCountLinks(counts);\n  const categorySummary = renderCategorySummary(counts);", 'index category count variables')
-          
-          index_nav_old = '<a href="#latest">최신글</a><a href="#routes">전체글</a><a href="#routes">국내여행</a><a href="#routes">공연/축제</a>'
-          index_nav_new = '<a href="#latest">최신글</a><a href="#routes">전체글 <span>${counts.total}</span></a>${categoryNav}'
-          if index_nav_old in source:
-              source = source.replace(index_nav_old, index_nav_new, 1)
-          
-          footer_category_old = '<a href="#routes">국내여행</a><a href="#routes">공연/축제</a>'
-          if footer_category_old in source:
-              source = source.replace(footer_category_old, '${categoryFooter}', 1)
-          
-          routes_old = '</div></section><section class="wrap section" id="routes"><h2>전체글</h2>'
-          routes_new = '</div></section>${categorySummary}<section class="wrap section" id="routes"><h2>전체글 <span>${counts.total}</span></h2>'
-          if routes_old in source:
-              source = source.replace(routes_old, routes_new, 1)
-          
-          index_links_css_old = '.links{display:flex;gap:24px;color:#333;font-size:14px;font-weight:700}.hero{'
-          index_links_css_new = '.links{display:flex;gap:24px;color:#333;font-size:14px;font-weight:700}.links span{font-size:12px;color:var(--muted);font-weight:900}.hero{'
-          if index_links_css_old in source:
-              source = source.replace(index_links_css_old, index_links_css_new, 1)
-          
-          article_links_css_old = '.links{display:flex;flex-wrap:wrap;gap:18px;color:#222;font-size:14px;font-weight:800}.hero{'
-          article_links_css_new = '.links{display:flex;flex-wrap:wrap;gap:18px;color:#222;font-size:14px;font-weight:800}.links span{font-size:12px;color:var(--muted);font-weight:900}.hero{'
-          if article_links_css_old in source:
-              source = source.replace(article_links_css_old, article_links_css_new, 1)
-          
-          category_css_old = '.card img{aspect-ratio:1.45/1;background:var(--soft)}footer{'
-          category_css_new = '.card img{aspect-ratio:1.45/1;background:var(--soft)}.section h2 span{color:var(--muted);font-size:.72em}.category-counts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;padding:28px 0;border-bottom:1px solid var(--line)}.category-counts a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;border:1px solid var(--line);background:#fff}.category-counts b{font-size:15px}.category-counts span{font-size:24px;font-weight:900}@media(max-width:880px){.category-counts{grid-template-columns:1fr}}footer{'
-          if category_css_old in source:
-              source = source.replace(category_css_old, category_css_new, 1)
-          
-          bottom_old = "if (!posts.length) {\n  console.log('No generated posts to enrich.');\n  process.exit(0);\n}\n\nfor (const post of posts) {"
-          bottom_new = "if (!posts.length) {\n  console.log('No generated posts to enrich.');\n  process.exit(0);\n}\n\nconst counts = countCategories(posts);\n\nfor (const post of posts) {"
-          if 'const counts = countCategories(posts);\n\nfor (const post of posts)' not in source:
-              source = replace_once(source, bottom_old, bottom_new, 'shared category counts')
-          
-          source = source.replace("renderArticle(post), 'utf8')", "renderArticle(post, counts), 'utf8')")
-          script_path.write_text(source, encoding='utf-8')
-          PY
-      - name: Regenerate pages
-        run: |
-          node --check scripts/enrich-tour-posts.mjs
-          node scripts/enrich-tour-posts.mjs
-      - name: Verify category counts
-        run: |
-          grep -q 'category-counts' index.html
-          grep -q '전체글 <span>' index.html
-          grep -q '공연/축제 <span>' index.html
-      - name: Commit category counts
-        run: |
-          if git diff --quiet; then
-            echo "No category count changes."
-            exit 0
-          fi
-          git config user.name "tripview-bot"
-          git config user.email "actions@users.noreply.github.com"
-          git add scripts/enrich-tour-posts.mjs index.html sitemap.xml data/generated-posts.json festival-*/index.html
-          git commit -m "Show category counts"
-          git push
+
+          console.log(`Verified ${pages.length} Astro category hub page(s).`);
+          NODE
