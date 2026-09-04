@@ -131,13 +131,21 @@ function articlePhotoGridImageSources(body = "") {
 
 test("homepage data builds a magazine landing without duplicate top stories", async () => {
   const { cardImageAsset, homepageSections } = await import("../src/lib/content.mjs");
+  const homepageSource = await readFile("src/pages/index.astro", "utf8");
   const data = homepageSections();
   const topSlugs = [...data.topLeadPosts, ...data.topSmallPosts].map((post) => post.slug);
   const sections = new Map(data.magazineSections.map((section) => [section.id, section]));
+  const topSlugSet = new Set(topSlugs);
+  const sidebarPosts = data.latestSidebarPosts.filter((post) => !topSlugSet.has(post.slug)).slice(0, 9);
 
   assert.equal(data.topLeadPosts.length, 2);
   assert.equal(data.topSmallPosts.length, 4);
   assert.equal(new Set(topSlugs).size, topSlugs.length);
+  assert.ok(sidebarPosts.length >= 6);
+  assert.equal(new Set(sidebarPosts.map((post) => post.slug)).size, sidebarPosts.length);
+  assert.match(homepageSource, /class="home-news-layout"/);
+  assert.match(homepageSource, /class="home-news-aside"/);
+  assert.match(homepageSource, /home-latest-content-title/);
   assert.deepEqual([...sections.keys()], ["domestic", "overseas", "festival", "stay", "ticket"]);
 
   for (const section of [sections.get("domestic"), sections.get("overseas"), sections.get("festival")]) {
