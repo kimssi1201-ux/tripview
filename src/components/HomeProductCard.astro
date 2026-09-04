@@ -1,0 +1,30 @@
+---
+import MediaFrame from "./MediaFrame.astro";
+import { normalizeAccommodationUrl, productImage, productPriceText } from "../lib/content.mjs";
+
+const { product, type = "accommodation", variant = "small" } = Astro.props;
+const asset = productImage(product);
+const label = type === "ticket" ? "입장권·투어" : "숙소 예약";
+const price = productPriceText(product);
+const meta = [product?.region, product?.city].filter(Boolean).join(" · ");
+const rawUrl = product?.affiliateUrl || product?.url || product?.productUrl || "#";
+const href = type === "accommodation" ? normalizeAccommodationUrl(rawUrl) : rawUrl;
+const title = product?.title || product?.name || "예약 상품";
+const mediaAsset = asset ? {
+  src: asset,
+  alt: `${title} 이미지`,
+  caption: type === "ticket" ? "마이리얼트립 입장권·투어 상품" : "마이리얼트립 숙소 상품",
+  width: 720,
+  height: 480,
+} : null;
+---
+
+<a class:list={["home-product-card", `is-${variant}`]} href={href} target="_blank" rel="sponsored nofollow noopener">
+  {mediaAsset && <MediaFrame asset={mediaAsset} caption={false} ratio={variant === "featured" ? "4 / 3" : "16 / 10"} />}
+  <span class="home-product-body">
+    <span class="home-story-label">{label}</span>
+    <strong>{title}</strong>
+    {meta && <span class="home-story-meta">{meta}</span>}
+    {price && <span class="home-product-price">{price}</span>}
+  </span>
+</a>

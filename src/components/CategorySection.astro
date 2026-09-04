@@ -1,0 +1,27 @@
+---
+import HomeProductCard from "./HomeProductCard.astro";
+import HomeStoryCard from "./HomeStoryCard.astro";
+import SectionHeading from "./SectionHeading.astro";
+
+const { section } = Astro.props;
+const headingId = `home-section-${section.id}`;
+const isProducts = section.kind === "products";
+const smallProducts = section.products || [];
+const smallPosts = section.items || [];
+---
+
+<section class:list={["home-category-section", `is-${section.id}`]} id={section.id} aria-labelledby={headingId}>
+  <SectionHeading title={section.title} href={section.href} id={headingId} />
+  <div class="home-category-layout">
+    <div class="home-category-featured">
+      {isProducts && section.featuredProduct && <HomeProductCard product={section.featuredProduct} type={section.type} variant="featured" />}
+      {!isProducts && section.featured && <HomeStoryCard post={section.featured} variant="featured" />}
+    </div>
+    <div class="home-category-small-grid">
+      {isProducts
+        ? smallProducts.map((product) => <HomeProductCard product={product} type={section.type} variant="small" />)
+        : smallPosts.map((post) => <HomeStoryCard post={post} variant="small" />)}
+    </div>
+  </div>
+  {section.disclosure && <p class="home-section-note">{section.disclosure}</p>}
+</section>

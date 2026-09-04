@@ -129,6 +129,37 @@ function articlePhotoGridImageSources(body = "") {
     .filter(Boolean);
 }
 
+test("homepage data builds a magazine landing without duplicate top stories", async () => {
+  const { cardImageAsset, homepageSections } = await import("../src/lib/content.mjs");
+  const data = homepageSections();
+  const topSlugs = [...data.topLeadPosts, ...data.topSmallPosts].map((post) => post.slug);
+  const sections = new Map(data.magazineSections.map((section) => [section.id, section]));
+
+  assert.equal(data.topLeadPosts.length, 2);
+  assert.equal(data.topSmallPosts.length, 4);
+  assert.equal(new Set(topSlugs).size, topSlugs.length);
+  assert.deepEqual([...sections.keys()], ["domestic", "overseas", "festival", "stay", "ticket"]);
+
+  for (const section of [sections.get("domestic"), sections.get("overseas"), sections.get("festival")]) {
+    assert.equal(section.kind, "stories");
+    assert.ok(section.featured?.slug);
+    assert.ok(section.items.length >= 3);
+    const sectionPosts = [section.featured, ...section.items];
+    const sectionSlugs = sectionPosts.map((post) => post.slug);
+    assert.equal(new Set(sectionSlugs).size, sectionSlugs.length);
+    for (const post of sectionPosts) {
+      assert.ok(cardImageAsset(post)?.src, `${post.slug} should have a homepage image`);
+    }
+  }
+
+  for (const section of [sections.get("stay"), sections.get("ticket")]) {
+    assert.equal(section.kind, "products");
+    assert.ok(section.featuredProduct?.title);
+    assert.ok(section.products.length >= 3);
+    assert.ok(section.disclosure);
+  }
+});
+
 test("redirect rules keep article assets on the deployed output root", async () => {
   const redirects = await readFile("_redirects", "utf8");
 

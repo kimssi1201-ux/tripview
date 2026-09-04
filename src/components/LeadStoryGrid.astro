@@ -1,0 +1,17 @@
+---
+import HomeStoryCard from "./HomeStoryCard.astro";
+
+const { leadPosts = [], smallPosts = [] } = Astro.props;
+---
+
+<section class="home-lead-section" aria-labelledby="home-lead-title">
+  <h1 id="home-lead-title" class="visually-hidden">Tripview 여행 뉴스</h1>
+  <div class="home-lead-grid">
+    {leadPosts.map((post, index) => <HomeStoryCard post={post} variant="lead" eager={index === 0} />)}
+  </div>
+  {smallPosts.length > 0 && (
+    <div class="home-lead-small-grid" aria-label="추천 여행 글">
+      {smallPosts.map((post) => <HomeStoryCard post={post} variant="small" />)}
+    </div>
+  )}
+</section>

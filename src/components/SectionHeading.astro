@@ -1,0 +1,8 @@
+---
+const { title, href = "", moreLabel = "더보기", id = "" } = Astro.props;
+---
+
+<div class="home-section-heading">
+  <h2 id={id || undefined}>{title}</h2>
+  {href && <a class="home-section-more" href={href}>{moreLabel}</a>}
+</div>
