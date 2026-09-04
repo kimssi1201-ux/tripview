@@ -1,10 +1,15 @@
-import { cp, mkdir, readFile, writeFile } from "node:fs/promises";
+import { cp, mkdir, rm, writeFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 
 import { searchIndex } from "../src/lib/content.mjs";
 
 const DIST = "dist";
+const CLOUDFLARE_OUTPUT = "www";
+
+function isEnabled(value) {
+  return /^(1|true|yes)$/i.test(String(value || ""));
+}
 
 async function copyFileIfExists(source, target = join(DIST, source)) {
   if (!existsSync(source)) return;
@@ -60,6 +65,13 @@ if (existsSync(join(DIST, "sitemap.xml"))) {
 
 if (existsSync(join(DIST, "rss.xml"))) {
   await cp(join(DIST, "rss.xml"), join(DIST, "feed.xml"), { force: true });
+}
+
+if (isEnabled(process.env.CF_PAGES) || isEnabled(process.env.TRIPVIEW_MIRROR_WWW)) {
+  await rm(CLOUDFLARE_OUTPUT, { recursive: true, force: true });
+  await mkdir(CLOUDFLARE_OUTPUT, { recursive: true });
+  await cp(DIST, CLOUDFLARE_OUTPUT, { recursive: true, force: true });
+  console.log(`[postbuild:astro] Mirrored dist/ into ${CLOUDFLARE_OUTPUT}/ for the current Cloudflare Pages output setting.`);
 }
 
 console.log("[postbuild:astro] Copied static assets, data fallbacks, compatibility pages, and search index into dist/.");
