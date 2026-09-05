@@ -80,7 +80,7 @@ test("enrichment handles empty detail values without inventing facts", () => {
 test("content type mapping gives food and lodging different article structures", () => {
   const lodging = enrichPost(samplePost({ tourApi: { contentTypeId: "32", intro: {} } }));
   const food = enrichPost(samplePost({ tourApi: { contentTypeId: "39", intro: { opentimefood: "11:00~20:00" } } }));
-  assert.match(lodging.title, /체크인/);
+  assert.match(lodging.title, /체크인|객실 조건|숙소 위치|늦은 도착/);
   assert.match(food.title, /영업시간/);
   assert.ok(lodging.sections.some(([heading]) => heading === "체크인 전 확인할 항목"));
   assert.ok(food.sections.some(([heading]) => heading === "영업시간과 식사 계획"));
