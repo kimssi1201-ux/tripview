@@ -46,12 +46,16 @@ const photoGridAssets = articlePhotoGridAssets(post);
 const inlinePlacements = new Map();
 if (sections.length && inlineAssets.length) {
   inlineAssets.forEach((item, index) => {
-    const sectionIndex = Math.min(sections.length - 1, Math.max(0, Math.round(((index + 1) / (inlineAssets.length + 1)) * (sections.length - 1))));
+    const lastSectionIndex = Math.max(0, sections.length - 1);
+    const denominator = Math.max(1, inlineAssets.length - 1);
+    const sectionIndex = Math.min(lastSectionIndex, Math.round((index / denominator) * lastSectionIndex));
     const items = inlinePlacements.get(sectionIndex) || [];
     items.push(item);
     inlinePlacements.set(sectionIndex, items);
   });
 }
+const leadSection = sections[0];
+const remainingSections = sections.slice(1);
 const indexable = isIndexablePost(post);
 const activePath = articleActivePath(post);
 const accommodationItems = indexable && !isDataPipelinePost(post)
@@ -75,6 +79,22 @@ const modifiedDateLabel = formatKoreanDate(modifiedDate);
 ---
 
 <ArticleLayout post={post}>
+  {leadSection && (
+    <>
+      <section class="article-lead-section">
+        <h2>{leadSection.heading}</h2>
+        {leadSection.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+      </section>
+      {(inlinePlacements.get(0) || []).map(({ asset, number }) => (
+        <>
+          <Fragment set:html={`<!-- ARTICLE_INLINE_PHOTO_START ${number} -->`} />
+          <MediaFrame asset={asset} post={post} caption className="inline-figure article-inline-figure" ratio="16 / 10" />
+          <Fragment set:html={"<!-- ARTICLE_INLINE_PHOTO_END -->"} />
+        </>
+      ))}
+    </>
+  )}
+
   {rows.length > 0 && (
     <table class="info-table">
       <tbody>
@@ -99,7 +119,9 @@ const modifiedDateLabel = formatKoreanDate(modifiedDate);
     </section>
   )}
 
-  {sections.map((section, sectionIndex) => (
+  {remainingSections.map((section, index) => {
+    const sectionIndex = index + 1;
+    return (
     <>
       <section>
         <h2>{section.heading}</h2>
@@ -113,7 +135,8 @@ const modifiedDateLabel = formatKoreanDate(modifiedDate);
         </>
       ))}
     </>
-  ))}
+    );
+  })}
 
   {lodgingGuideAssets.length > 0 && (
     <section class="lodging-photo-guide" aria-labelledby="lodging-photo-guide-title">

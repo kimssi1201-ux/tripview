@@ -89,15 +89,14 @@ const sideNavLinks = rawSideNavLinks.filter((item) => {
       <div class="article-main-column">
         <Breadcrumbs items={visibleBreadcrumbItems} />
         <header class="article-hero article-title-block">
-          <span class="kicker">{categoryLabel}</span>
           <h1>{postTitle(post)}</h1>
           <p class="article-lead">{postExcerpt(post, 220)}</p>
           <ArticleMeta post={post} />
-          <div class="article-tags">
-            {isFestivalPost(post) && <span class:list={["festival-status", status.ended && "is-ended"]}>{status.ended ? "종료" : "진행 확인"}</span>}
-            <span>{regionLabel}</span>
-            {indexable ? <span>검수 완료</span> : <span>검수 대기</span>}
-          </div>
+          {isFestivalPost(post) && (
+            <div class="article-tags">
+              <span class:list={["festival-status", status.ended && "is-ended"]}>{status.ended ? "종료" : "진행 확인"}</span>
+            </div>
+          )}
         </header>
         <ShareToolbar post={post} />
         <article class="content" data-tripview-article>

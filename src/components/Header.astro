@@ -33,7 +33,13 @@ const active = activeKey(activePath);
 
 <header class="site-header" data-site-header>
   <div class="site-header-inner">
-    <a class="site-brand" href="/">Tripview</a>
+    <a class="site-brand" href="/" aria-label="트립뷰 홈">
+      <img src="/favicon.svg" alt="" width="42" height="42" decoding="async" fetchpriority="high" />
+      <span class="site-brand-copy">
+        <strong>트립뷰</strong>
+        <small>여행 뉴스 피드</small>
+      </span>
+    </a>
     <nav class="site-nav site-nav-desktop" aria-label="주요 메뉴">
       <div class="site-nav-main">
         {navLinks.map((item) => (

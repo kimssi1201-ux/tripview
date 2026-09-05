@@ -20,8 +20,8 @@ const parts = [
 ---
 
 <div class="article-meta">
-  <span>작성자 <a href={EDITORIAL_AUTHOR_PATH} rel="author">{EDITORIAL_AUTHOR_NAME}</a></span>
-  <span>게시일 <time datetime={publishedDate}>{formatKoreanDate(publishedDate)}</time></span>
-  <span>수정일 <time datetime={modifiedDate}>{formatKoreanDate(modifiedDate)}</time></span>
-  {parts.map((part) => <span>{part}</span>)}
+  <span class="article-meta-author">작성자 <a href={EDITORIAL_AUTHOR_PATH} rel="author">{EDITORIAL_AUTHOR_NAME}</a></span>
+  <span class="article-meta-date">입력 <time datetime={publishedDate}>{formatKoreanDate(publishedDate)}</time></span>
+  <span class="article-meta-date article-meta-modified">수정 <time datetime={modifiedDate}>{formatKoreanDate(modifiedDate)}</time></span>
+  {parts.map((part) => <span class="article-meta-taxonomy">{part}</span>)}
 </div>
