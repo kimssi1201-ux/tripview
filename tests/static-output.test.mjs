@@ -971,6 +971,17 @@ test("article pages open with a readable story section before the fact table", a
   assert.match(article, /class="article-share-group article-share-tools"/);
 });
 
+test("article mobile layout keeps the reference-style masthead and compact tools", async () => {
+  const css = await readFile("src/styles/global.css", "utf8");
+
+  assert.match(css, /@media \(max-width: 900px\)[\s\S]*\.site-brand \{[\s\S]*justify-self: center;/);
+  assert.match(css, /@media \(max-width: 900px\)[\s\S]*\.site-nav \{[\s\S]*display: block;[\s\S]*overflow-x: auto;/);
+  assert.match(css, /@media \(max-width: 900px\)[\s\S]*\.site-mobile-menu \{[\s\S]*display: none;/);
+  assert.match(css, /@media \(max-width: 560px\)[\s\S]*\.article-share-bar \{[\s\S]*grid-template-columns: 1fr auto;/);
+  assert.match(css, /@media \(max-width: 560px\)[\s\S]*\.article-news-page \.article-title-block h1 \{[\s\S]*font-size: 31px;/);
+  assert.match(css, /@media \(max-width: 560px\)[\s\S]*\.article-news-page \.article-meta-taxonomy \{[\s\S]*display: none;/);
+});
+
 test("article photo grid renders remaining processed images without repeating inline photos", async () => {
   const article = await readFile("travel-132742/index.html", "utf8");
   const body = articleBodyHtml(article);
