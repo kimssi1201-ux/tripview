@@ -424,8 +424,11 @@ test("homepage mobile sections use a reference-style image grid", async () => {
   const css = await readFile("src/styles/global.css", "utf8");
 
   assert.match(css, /@media \(max-width: 560px\)[\s\S]*\.home-section-heading \{[\s\S]*border-bottom: 5px solid #0b63ce;/);
+  assert.match(css, /@media \(max-width: 560px\)[\s\S]*\.home-section-heading h2 \{[\s\S]*font-weight: 800;/);
   assert.match(css, /@media \(max-width: 560px\)[\s\S]*\.home-category-section\.is-domestic \.home-category-small-grid,[\s\S]*grid-template-columns: repeat\(2, minmax\(0, 1fr\)\);/);
   assert.match(css, /@media \(max-width: 560px\)[\s\S]*\.home-lead-small-grid \.home-story-card\.is-small,[\s\S]*grid-template-columns: 1fr;/);
+  assert.match(css, /@media \(max-width: 560px\)[\s\S]*\.home-category-section\.is-domestic \.home-story-card\.is-small strong,[\s\S]*font-weight: 600;/);
+  assert.match(css, /@media \(max-width: 560px\)[\s\S]*\.home-category-section\.is-domestic \.home-story-card\.is-featured strong,[\s\S]*font-weight: 600;/);
   assert.match(css, /@media \(max-width: 560px\)[\s\S]*\.home-category-section\.is-domestic \.home-story-card\.is-featured \.media-frame,[\s\S]*--media-ratio: 16 \/ 9;/);
   assert.match(css, /@media \(max-width: 420px\)[\s\S]*\.home-category-section\.is-festival \.home-category-small-grid \{[\s\S]*gap: 24px 18px;/);
 });
@@ -989,6 +992,7 @@ test("article mobile layout keeps the reference-style masthead and compact tools
   assert.match(css, /@media \(max-width: 900px\)[\s\S]*\.site-mobile-menu \{[\s\S]*display: none;/);
   assert.match(css, /@media \(max-width: 560px\)[\s\S]*\.article-share-bar \{[\s\S]*grid-template-columns: 1fr auto;/);
   assert.match(css, /@media \(max-width: 560px\)[\s\S]*\.article-news-page \.article-title-block h1 \{[\s\S]*font-size: 31px;/);
+  assert.match(css, /@media \(max-width: 560px\)[\s\S]*\.article-news-page \.article-title-block h1 \{[\s\S]*font-weight: 800;/);
   assert.match(css, /@media \(max-width: 560px\)[\s\S]*\.article-news-page \.article-meta-taxonomy \{[\s\S]*display: none;/);
 });
 
