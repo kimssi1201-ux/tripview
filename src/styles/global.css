@@ -1942,6 +1942,7 @@ figcaption {
 
   .home-section-heading h2 {
     font-size: 28px;
+    font-weight: 800;
     line-height: 1.15;
   }
 
@@ -2006,6 +2007,7 @@ figcaption {
 
   .home-latest-content .latest-content-copy strong {
     font-size: 17px;
+    font-weight: 600;
     line-height: 1.36;
     -webkit-line-clamp: 3;
     overflow-wrap: anywhere;
@@ -2078,6 +2080,7 @@ figcaption {
   .home-category-section.is-overseas .home-story-card.is-small strong,
   .home-category-section.is-festival .home-story-card.is-small strong {
     font-size: 18px;
+    font-weight: 600;
     line-height: 1.34;
     -webkit-line-clamp: 3;
     overflow-wrap: anywhere;
@@ -2103,6 +2106,7 @@ figcaption {
   .home-category-section.is-overseas .home-story-card.is-featured strong,
   .home-category-section.is-festival .home-story-card.is-featured strong {
     font-size: 26px;
+    font-weight: 600;
     line-height: 1.32;
     -webkit-line-clamp: 3;
     overflow-wrap: anywhere;
@@ -2185,6 +2189,7 @@ figcaption {
     max-width: calc(100vw - 32px);
     margin: 10px 0 16px;
     font-size: 31px;
+    font-weight: 800;
     line-height: 1.18;
     word-break: keep-all;
   }
