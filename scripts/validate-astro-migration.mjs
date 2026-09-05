@@ -7,6 +7,18 @@ import { allPosts, indexablePosts, sectionPairs } from "../src/lib/content.mjs";
 const BASE_URL = "https://tripview.kr";
 const DIST = "dist";
 const REPORT = "reports/astro-migration-validation.json";
+const ALLOWED_H1_CHANGE_SLUGS = new Set([
+  "travel-september-overseas-2026",
+  "travel-osaka-september-2026",
+  "travel-taipei-september-2026",
+  "travel-danang-september-2026",
+  "travel-bangkok-september-2026",
+  "travel-fall-foliage-spots-2026",
+  "travel-seoul-near-fall-foliage-spots-2026",
+  "travel-gangwon-fall-foliage-trails-2026",
+  "travel-chungcheong-fall-foliage-forest-2026",
+  "travel-southern-temple-fall-foliage-2026",
+]);
 
 function parseLocs(xml = "") {
   return [...String(xml).matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1]);
@@ -66,8 +78,16 @@ function setDiff(a, b) {
   return a.filter((item) => !bSet.has(item));
 }
 
+function slugFromUrl(url) {
+  return new URL(url).pathname.replace(/^\/+|\/+$/g, "");
+}
+
+function isAllowedH1Change(url, astroH1) {
+  return ALLOWED_H1_CHANGE_SLUGS.has(slugFromUrl(url)) && /^“[^”]+”… /.test(astroH1);
+}
+
 function textSnippetFailures(url, document) {
-  const slug = new URL(url).pathname.replace(/^\/+|\/+$/g, "");
+  const slug = slugFromUrl(url);
   const post = allPosts.find((item) => item.slug === slug);
   if (!post) return [];
   const text = stripTags(document);
@@ -91,6 +111,7 @@ if (missingUrls.length) failures.push({ type: "missing-url", items: missingUrls 
 if (extraUrls.length) failures.push({ type: "extra-url", items: extraUrls });
 
 const compared = [];
+let intentionalH1ChangeCount = 0;
 for (const url of legacyUrls) {
   const legacy = await readFirstExisting(candidatesForUrl(url));
   const astro = await readFirstExisting(candidatesForUrl(url, DIST));
@@ -124,8 +145,10 @@ for (const url of legacyUrls) {
   if (legacyMeta?.canonical && astroMeta.canonical !== legacyMeta.canonical) {
     failures.push({ type: "canonical-changed", url, legacy: legacyMeta.canonical, astro: astroMeta.canonical });
   }
-  if (legacyMeta?.h1 && astroMeta.h1 !== legacyMeta.h1) {
+  if (legacyMeta?.h1 && astroMeta.h1 !== legacyMeta.h1 && !isAllowedH1Change(url, astroMeta.h1)) {
     failures.push({ type: "h1-changed", url, legacy: legacyMeta.h1, astro: astroMeta.h1 });
+  } else if (legacyMeta?.h1 && astroMeta.h1 !== legacyMeta.h1) {
+    intentionalH1ChangeCount += 1;
   }
 
   const snippetMissing = textSnippetFailures(url, astro.text);
@@ -142,6 +165,7 @@ const report = {
   totalPostCount: allPosts.length,
   missingUrlCount: missingUrls.length,
   extraUrlCount: extraUrls.length,
+  intentionalH1ChangeCount,
   failures,
   compared,
 };

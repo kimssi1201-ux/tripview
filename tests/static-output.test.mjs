@@ -168,6 +168,24 @@ test("homepage data builds a magazine landing without duplicate top stories", as
   }
 });
 
+test("recent seasonal travel posts use reference-style headline hooks", async () => {
+  const posts = JSON.parse(await readFile("data/generated-posts.json", "utf8"));
+  const bySlug = new Map(posts.map((post) => [post.slug, post]));
+  const slugs = [
+    "travel-september-overseas-2026",
+    "travel-osaka-september-2026",
+    "travel-fall-foliage-spots-2026",
+    "travel-gangwon-fall-foliage-trails-2026",
+  ];
+
+  for (const slug of slugs) {
+    const title = bySlug.get(slug)?.title || "";
+    assert.match(title, /^“[^”]+”… /, `${slug} should start with a reference-style hook`);
+  }
+  assert.match(bySlug.get("travel-september-overseas-2026")?.title || "", /9월 해외여행/);
+  assert.match(bySlug.get("travel-fall-foliage-spots-2026")?.title || "", /전국 단풍 명소 2026/);
+});
+
 test("redirect rules keep article assets on the deployed output root", async () => {
   const redirects = await readFile("_redirects", "utf8");
 
@@ -992,7 +1010,7 @@ test("article mobile layout keeps the reference-style masthead and compact tools
   assert.match(css, /@media \(max-width: 900px\)[\s\S]*\.site-mobile-menu \{[\s\S]*display: none;/);
   assert.match(css, /@media \(max-width: 560px\)[\s\S]*\.article-share-bar \{[\s\S]*grid-template-columns: 1fr auto;/);
   assert.match(css, /@media \(max-width: 560px\)[\s\S]*\.article-news-page \.article-title-block h1 \{[\s\S]*font-size: 31px;/);
-  assert.match(css, /@media \(max-width: 560px\)[\s\S]*\.article-news-page \.article-title-block h1 \{[\s\S]*font-weight: 800;/);
+  assert.match(css, /@media \(max-width: 560px\)[\s\S]*\.article-news-page \.article-title-block h1 \{[\s\S]*font-weight: 700;/);
   assert.match(css, /@media \(max-width: 560px\)[\s\S]*\.article-news-page \.article-meta-taxonomy \{[\s\S]*display: none;/);
 });
 
