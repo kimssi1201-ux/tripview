@@ -105,10 +105,12 @@ const legacyUrls = parseLocs(legacySitemap);
 const astroUrls = parseLocs(astroSitemap);
 const missingUrls = setDiff(legacyUrls, astroUrls);
 const extraUrls = setDiff(astroUrls, legacyUrls);
+const indexablePostUrls = new Set(indexablePosts.map((post) => `${BASE_URL}/${encodeURIComponent(post.slug)}/`));
+const unexpectedExtraUrls = extraUrls.filter((url) => !indexablePostUrls.has(url));
 
 const failures = [];
 if (missingUrls.length) failures.push({ type: "missing-url", items: missingUrls });
-if (extraUrls.length) failures.push({ type: "extra-url", items: extraUrls });
+if (unexpectedExtraUrls.length) failures.push({ type: "extra-url", items: unexpectedExtraUrls });
 
 const compared = [];
 let intentionalH1ChangeCount = 0;

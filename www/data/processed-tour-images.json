@@ -1,10 +1,500 @@
 {
-  "generatedAt": "2026-09-03T21:08:17.216Z",
+  "generatedAt": "2026-09-05T07:38:53.762Z",
   "source": "한국관광공사 공공누리",
   "assetBasePath": "/assets/processed/",
   "items": {
+    "travel-seoraksan-fall-foliage-biseondae-2026": {
+      "title": "“설악산 단풍, 꼭 정상까지 가야 할까?”… 비선대·소공원으로 보는 초가을 코스",
+      "sourceTitle": "설악산 단풍 명소 2026",
+      "region": "강원",
+      "source": "한국관광공사 공공누리",
+      "cover": {
+        "kind": "cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/81/4096181_image2_1.jpg",
+        "src": "/assets/processed/sokcho-seolaksan-danpung-myeongso-parking.webp",
+        "alt": "강원 설악산 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 800,
+        "height": 500,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "hero": {
+        "kind": "hero-cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/81/4096181_image2_1.jpg",
+        "src": "/assets/processed/sokcho-seolaksan-danpung-myeongso-parking-hero.webp",
+        "alt": "강원 설악산 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 1200,
+        "height": 900,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false
+      },
+      "banner": {
+        "kind": "hub-banner",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/81/4096181_image2_1.jpg",
+        "src": "/assets/processed/sokcho-seolaksan-danpung-myeongso-parking-banner.webp",
+        "alt": "강원 설악산 단풍 명소 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
+        "width": 1200,
+        "height": 675,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "images": [
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/80/4096180_image2_1.jpg",
+          "src": "/assets/processed/sokcho-seolaksan-danpung-myeongso-parking-detail-1.webp",
+          "alt": "강원 설악산 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false,
+          "bytes": null
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/82/4096182_image2_1.jpg",
+          "src": "/assets/processed/sokcho-seolaksan-danpung-myeongso-parking-detail-2.webp",
+          "alt": "강원 설악산 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false,
+          "bytes": null
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/83/4096183_image2_1.jpg",
+          "src": "/assets/processed/sokcho-seolaksan-danpung-myeongso-parking-detail-3.webp",
+          "alt": "강원 설악산 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false,
+          "bytes": null
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/84/4096184_image2_1.jpg",
+          "src": "/assets/processed/sokcho-seolaksan-danpung-myeongso-parking-detail-4.webp",
+          "alt": "강원 설악산 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false,
+          "bytes": null
+        }
+      ]
+    },
+    "travel-naejangsan-fall-foliage-tunnel-2026": {
+      "title": "“내장산 단풍터널, 사진만 보고 가면 힘듭니다”… 우화정·셔틀까지 보는 정읍 코스",
+      "sourceTitle": "내장산 단풍 명소 2026",
+      "region": "전북",
+      "source": "한국관광공사 공공누리",
+      "cover": {
+        "kind": "cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource_photo/22/3574822_image2_1.jpg",
+        "src": "/assets/processed/jeongeup-naejangsan-danpung-myeongso-parking.webp",
+        "alt": "전북 내장산 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 800,
+        "height": 500,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "hero": {
+        "kind": "hero-cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource_photo/22/3574822_image2_1.jpg",
+        "src": "/assets/processed/jeongeup-naejangsan-danpung-myeongso-parking-hero.webp",
+        "alt": "전북 내장산 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 1200,
+        "height": 900,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false
+      },
+      "banner": {
+        "kind": "hub-banner",
+        "original": "https://tong.visitkorea.or.kr/cms/resource_photo/22/3574822_image2_1.jpg",
+        "src": "/assets/processed/jeongeup-naejangsan-danpung-myeongso-parking-banner.webp",
+        "alt": "전북 내장산 단풍 명소 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
+        "width": 1200,
+        "height": 675,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "images": [
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/69/644269_image2_1.jpg",
+          "src": "/assets/processed/jeongeup-naejangsan-danpung-myeongso-parking-detail-1.webp",
+          "alt": "전북 내장산 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false,
+          "bytes": null
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/31/3574831_image2_1.jpg",
+          "src": "/assets/processed/jeongeup-naejangsan-danpung-myeongso-parking-detail-2.webp",
+          "alt": "전북 내장산 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false,
+          "bytes": null
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/45/3532745_image2_1.jpg",
+          "src": "/assets/processed/jeongeup-naejangsan-danpung-myeongso-parking-detail-3.webp",
+          "alt": "전북 내장산 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false,
+          "bytes": null
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/12/3569912_image2_1.jpg",
+          "src": "/assets/processed/jeongeup-naejangsan-danpung-myeongso-parking-detail-4.webp",
+          "alt": "전북 내장산 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false,
+          "bytes": null
+        }
+      ]
+    },
+    "travel-odaesan-fir-forest-fall-2026": {
+      "title": "“오대산 전나무숲, 짧게 걸어도 충분할까?”… 월정사·선재길 가을 산책 코스",
+      "sourceTitle": "오대산 단풍 명소 2026",
+      "region": "강원",
+      "source": "한국관광공사 공공누리",
+      "cover": {
+        "kind": "cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/54/3304054_image2_1.jpg",
+        "src": "/assets/processed/pyeongchang-odaesan-danpung-myeongso-parking.webp",
+        "alt": "강원 오대산 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 800,
+        "height": 500,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "hero": {
+        "kind": "hero-cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/54/3304054_image2_1.jpg",
+        "src": "/assets/processed/pyeongchang-odaesan-danpung-myeongso-parking-hero.webp",
+        "alt": "강원 오대산 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 1200,
+        "height": 900,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false
+      },
+      "banner": {
+        "kind": "hub-banner",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/54/3304054_image2_1.jpg",
+        "src": "/assets/processed/pyeongchang-odaesan-danpung-myeongso-parking-banner.webp",
+        "alt": "강원 오대산 단풍 명소 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
+        "width": 1200,
+        "height": 675,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "images": [
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource_photo/60/3569060_image2_1.jpg",
+          "src": "/assets/processed/pyeongchang-odaesan-danpung-myeongso-parking-detail-1.webp",
+          "alt": "강원 오대산 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false,
+          "bytes": null
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/81/4096181_image2_1.jpg",
+          "src": "/assets/processed/pyeongchang-odaesan-danpung-myeongso-parking-detail-2.webp",
+          "alt": "강원 오대산 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false,
+          "bytes": null
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/82/4096182_image2_1.jpg",
+          "src": "/assets/processed/pyeongchang-odaesan-danpung-myeongso-parking-detail-3.webp",
+          "alt": "강원 오대산 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false,
+          "bytes": null
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/83/4096183_image2_1.jpg",
+          "src": "/assets/processed/pyeongchang-odaesan-danpung-myeongso-parking-detail-4.webp",
+          "alt": "강원 오대산 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false,
+          "bytes": null
+        }
+      ]
+    },
+    "travel-nami-island-fall-foliage-daytrip-2026": {
+      "title": "“남이섬 단풍, 배 시간만 맞추면 끝일까?”… 가평 당일치기 동선 체크",
+      "sourceTitle": "남이섬 단풍 명소 2026",
+      "region": "강원",
+      "source": "한국관광공사 공공누리",
+      "cover": {
+        "kind": "cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/44/4102844_image2_1.jpg",
+        "src": "/assets/processed/chuncheon-namiseom-danpung-myeongso-parking.webp",
+        "alt": "강원 남이섬 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 800,
+        "height": 500,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "hero": {
+        "kind": "hero-cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/44/4102844_image2_1.jpg",
+        "src": "/assets/processed/chuncheon-namiseom-danpung-myeongso-parking-hero.webp",
+        "alt": "강원 남이섬 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 1200,
+        "height": 900,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false
+      },
+      "banner": {
+        "kind": "hub-banner",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/44/4102844_image2_1.jpg",
+        "src": "/assets/processed/chuncheon-namiseom-danpung-myeongso-parking-banner.webp",
+        "alt": "강원 남이섬 단풍 명소 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
+        "width": 1200,
+        "height": 675,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "images": [
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/28/4068028_image2_1.jpg",
+          "src": "/assets/processed/chuncheon-namiseom-danpung-myeongso-parking-detail-1.webp",
+          "alt": "강원 남이섬 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false,
+          "bytes": null
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/45/4102845_image2_1.jpg",
+          "src": "/assets/processed/chuncheon-namiseom-danpung-myeongso-parking-detail-2.webp",
+          "alt": "강원 남이섬 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false,
+          "bytes": null
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/38/4079238_image2_1.jpg",
+          "src": "/assets/processed/chuncheon-namiseom-danpung-myeongso-parking-detail-3.webp",
+          "alt": "강원 남이섬 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false,
+          "bytes": null
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/42/3466142_image2_1.jpg",
+          "src": "/assets/processed/chuncheon-namiseom-danpung-myeongso-parking-detail-4.webp",
+          "alt": "강원 남이섬 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false,
+          "bytes": null
+        }
+      ]
+    },
+    "travel-bukhansan-fall-foliage-seoul-2026": {
+      "title": "“북한산 단풍, 멀리 안 가도 깊을까?”… 우이동·정릉 초보 산책 코스",
+      "sourceTitle": "북한산 단풍 명소 2026",
+      "region": "서울",
+      "source": "한국관광공사 공공누리",
+      "cover": {
+        "kind": "cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/43/3466143_image2_1.jpg",
+        "src": "/assets/processed/seoul-bukhansan-danpung-myeongso-parking.webp",
+        "alt": "서울 북한산 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 800,
+        "height": 500,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "hero": {
+        "kind": "hero-cover",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/43/3466143_image2_1.jpg",
+        "src": "/assets/processed/seoul-bukhansan-danpung-myeongso-parking-hero.webp",
+        "alt": "서울 북한산 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+        "width": 1200,
+        "height": 900,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false
+      },
+      "banner": {
+        "kind": "hub-banner",
+        "original": "https://tong.visitkorea.or.kr/cms/resource/43/3466143_image2_1.jpg",
+        "src": "/assets/processed/seoul-bukhansan-danpung-myeongso-parking-banner.webp",
+        "alt": "서울 북한산 단풍 명소 주차·동선 정보를 담은 트립뷰 지역 허브 배너",
+        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
+        "width": 1200,
+        "height": 675,
+        "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+        "overlay": null,
+        "posterCanvas": false,
+        "bytes": null
+      },
+      "images": [
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/42/3466142_image2_1.jpg",
+          "src": "/assets/processed/seoul-bukhansan-danpung-myeongso-parking-detail-1.webp",
+          "alt": "서울 북한산 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false,
+          "bytes": null
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/44/3466144_image2_1.jpg",
+          "src": "/assets/processed/seoul-bukhansan-danpung-myeongso-parking-detail-2.webp",
+          "alt": "서울 북한산 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false,
+          "bytes": null
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/45/3466145_image2_1.jpg",
+          "src": "/assets/processed/seoul-bukhansan-danpung-myeongso-parking-detail-3.webp",
+          "alt": "서울 북한산 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false,
+          "bytes": null
+        },
+        {
+          "kind": "inline",
+          "original": "https://tong.visitkorea.or.kr/cms/resource/47/3466147_image2_1.jpg",
+          "src": "/assets/processed/seoul-bukhansan-danpung-myeongso-parking-detail-4.webp",
+          "alt": "서울 북한산 단풍 명소 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
+          "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
+          "width": 1000,
+          "height": null,
+          "processorVersion": "fixed-size-thumbnail-canvas-20260825",
+          "overlay": null,
+          "posterCanvas": false,
+          "bytes": null
+        }
+      ]
+    },
     "travel-fall-foliage-spots-2026": {
-      "title": "전국 단풍 명소 2026 가을 여행, 절정 시기별 추천 코스",
+      "title": "“단풍 절정일만 믿고 가도 될까?”… 전국 단풍 명소 2026 시기별 추천 코스",
       "sourceTitle": "전국 단풍 명소 2026",
       "region": "강원",
       "source": "한국관광공사 공공누리",
@@ -115,7 +605,7 @@
       ]
     },
     "travel-seoul-near-fall-foliage-spots-2026": {
-      "title": "서울 근교 단풍 명소 2026, 당일치기로 가기 좋은 공원·수목원 코스",
+      "title": "“서울 근교 단풍, 당일치기로 충분할까?”… 2026 공원·수목원 추천 코스",
       "sourceTitle": "서울 근교 단풍 명소 2026",
       "region": "서울",
       "source": "한국관광공사 공공누리",
@@ -226,7 +716,7 @@
       ]
     },
     "travel-gangwon-fall-foliage-trails-2026": {
-      "title": "강원 단풍 명소 2026, 설악산·오대산·홍천 숲길 가을 코스",
+      "title": "“강원 단풍은 왜 먼저 물들까?”… 설악산·오대산·홍천 숲길 2026 가을 코스",
       "sourceTitle": "강원 단풍 명소 2026",
       "region": "강원",
       "source": "한국관광공사 공공누리",
@@ -337,7 +827,7 @@
       ]
     },
     "travel-chungcheong-fall-foliage-forest-2026": {
-      "title": "충청 단풍 명소 2026, 장태산·곡교천·청남대 숲길 여행",
+      "title": "“충청 단풍, 사람 적은 숲길은 어디일까?”… 장태산·곡교천·청남대 2026 여행",
       "sourceTitle": "충청 단풍 명소 2026",
       "region": "충남",
       "source": "한국관광공사 공공누리",
@@ -448,7 +938,7 @@
       ]
     },
     "travel-southern-temple-fall-foliage-2026": {
-      "title": "남부 단풍 명소 2026, 내장산·백양사·피아골 사찰 계곡 코스",
+      "title": "“남부 단풍은 사찰과 계곡을 같이 봐야 합니다”… 내장산·백양사·피아골 2026 코스",
       "sourceTitle": "남부 단풍 명소 2026",
       "region": "전남",
       "source": "한국관광공사 공공누리",
@@ -710,7 +1200,8 @@
         "height": 500,
         "processorVersion": "blurred-poster-canvas-20260827",
         "overlay": null,
-        "posterCanvas": true
+        "posterCanvas": true,
+        "bytes": null
       },
       "hero": {
         "kind": "hero-cover",
@@ -734,7 +1225,8 @@
         "height": 675,
         "processorVersion": "blurred-poster-canvas-20260827",
         "overlay": null,
-        "posterCanvas": true
+        "posterCanvas": true,
+        "bytes": null
       },
       "images": []
     },
