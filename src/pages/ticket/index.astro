@@ -1,10 +1,15 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import MediaFrame from "../../components/MediaFrame.astro";
+import PostSection from "../../components/PostSection.astro";
 import ProductCard from "../../components/ProductCard.astro";
-import { CATEGORY_PAGES, productImage, tnaProducts } from "../../lib/content.mjs";
+import { CATEGORY_PAGES, groupByCategoryData, productImage, tnaProducts } from "../../lib/content.mjs";
 
 const page = CATEGORY_PAGES.find((item) => item.path === "/ticket/");
+const data = groupByCategoryData();
+const relatedPosts = data.travelPosts.filter((post) =>
+  post.keywords?.some((keyword) => ["여행", "가족", "아이", "실내", "단풍", "해외"].some((target) => String(keyword).includes(target)))
+);
 const bannerImage = productImage(tnaProducts[0]);
 const bannerAsset = bannerImage ? {
   src: bannerImage,
@@ -38,5 +43,6 @@ const bannerAsset = bannerImage ? {
         {tnaProducts.slice(0, 24).map((product) => <ProductCard product={product} type="ticket" />)}
       </div>
     </section>
+    <PostSection id="ticket-guides" title="입장권·투어 전 체크할 여행글" note="운영 시간과 이동 동선을 함께 확인할 수 있는 글" posts={relatedPosts.length > 0 ? relatedPosts : data.travelPosts} />
   </main>
 </BaseLayout>
