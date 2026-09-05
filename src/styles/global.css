@@ -917,6 +917,7 @@ figcaption {
   max-width: none;
   margin: 14px 0 18px;
   font-size: clamp(38px, 4.1vw, 48px);
+  font-weight: 800;
   line-height: 1.13;
   overflow-wrap: anywhere;
 }
@@ -2189,7 +2190,7 @@ figcaption {
     max-width: calc(100vw - 32px);
     margin: 10px 0 16px;
     font-size: 31px;
-    font-weight: 800;
+    font-weight: 700;
     line-height: 1.18;
     word-break: keep-all;
   }

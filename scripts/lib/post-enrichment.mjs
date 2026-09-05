@@ -246,18 +246,20 @@ function mergeInfo(post, facts) {
 function articleTitle(facts) {
   const region = shortRegion(facts.region);
   const prefix = region && region !== "국내" && !facts.name.includes(region.split(" ")[0]) ? `${region} ` : "";
+  const place = `${prefix}${facts.name}`.trim();
   const labels = {
-    attraction: "운영시간·주차와 관람 동선",
-    culture: "휴관일·요금과 관람 동선",
-    course: "구간별 이동시간과 준비물",
-    leisure: "이용시간·예약과 준비물",
-    lodging: "체크인 전 위치·주차 확인",
-    shopping: "영업시간·휴무와 방문 동선",
-    food: "영업시간·주차와 방문 팁",
-    beach: "개장 여부·주차와 편의시설 확인",
-    water: "수량·통제 여부와 안전한 동선",
+    attraction: ["사진만 보고 가도 괜찮을까?", "운영시간·주차와 관람 동선"],
+    culture: ["비 오는 날에도 일정에 넣어도 될까?", "휴관일·요금과 관람 동선"],
+    course: ["걷기 전에 돌아오는 시간부터 봐야 합니다", "구간별 이동시간과 준비물"],
+    leisure: ["예약 없이 갔다가 놓칠 수 있습니다", "이용시간·예약과 준비물"],
+    lodging: ["가격보다 위치를 먼저 봐야 한다고요?", "체크인 전 위치·주차 확인"],
+    shopping: ["영업시간만 보고 가면 놓칠 수 있습니다", "영업시간·휴무와 방문 동선"],
+    food: ["식사 시간대가 겹치면 대기가 길어질 수 있습니다", "영업시간·주차와 방문 팁"],
+    beach: ["바다는 가까워도 편의시설은 먼저 봐야 합니다", "개장 여부·주차와 편의시설 확인"],
+    water: ["물이 많을수록 먼저 봐야 할 게 있습니다", "수량·통제 여부와 안전한 동선"],
   };
-  return `${prefix}${facts.name}, ${labels[facts.type.key]}`;
+  const [hook, detail] = labels[facts.type.key] || labels.attraction;
+  return `“${hook}”… ${place}, ${detail}`;
 }
 
 function introSection(facts) {

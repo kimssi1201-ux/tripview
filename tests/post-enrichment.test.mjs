@@ -58,6 +58,7 @@ test("enrichment uses verified detail fields and replaces placeholders", () => {
 test("enrichment produces an indexable article without internal API wording", () => {
   const enriched = enrichPost(samplePost(), "2026-08-09");
   assert.ok(postBodyLength(enriched) >= MIN_ENRICHED_BODY_LENGTH);
+  assert.match(enriched.title, /^“.+”… /);
   assert.equal(hasInternalProductionCopy(enriched), false);
   assert.equal(enriched.updatedAt, "2026-08-09");
 });
@@ -98,7 +99,7 @@ test("article titles remove trailing source punctuation and generic domestic pre
     region: "국내",
     tourApi: { contentTypeId: "25", overview: "", intro: {} },
   }));
-  assert.equal(enriched.title, "남파랑길 여행코스, 구간별 이동시간과 준비물");
+  assert.equal(enriched.title, "“걷기 전에 돌아오는 시간부터 봐야 합니다”… 남파랑길 여행코스, 구간별 이동시간과 준비물");
 });
 
 test("empty API details omit placeholder rows and use natural fallback copy", () => {

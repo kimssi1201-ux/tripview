@@ -345,6 +345,14 @@ function pickIntroFields(intro = {}) {
   return Object.fromEntries(keys.map((key) => [key, stripHtml(intro[key])]).filter(([, value]) => value));
 }
 
+function referenceArticleTitle(title, category, today, profile) {
+  const year = today.getFullYear();
+  if (category === '공연/축제') {
+    return `“${title}, 그냥 가도 괜찮을까?”… ${year} 일정·입장·주차 체크`;
+  }
+  return `“${title}, 지금 가도 좋을까?”… ${profile.label} 위치·동선·주차 체크`;
+}
+
 function makeArticle(candidate, common, intro, images, category, today) {
   const profile = seasonProfile(today);
   const title = safeText(candidate.title || common.title, '국내 여행지');
@@ -360,7 +368,7 @@ function makeArticle(candidate, common, intro, images, category, today) {
   const playtime = stripHtml(intro.playtime) || '방문 전 확인 필요';
   const program = stripHtml([intro.program, intro.subevent].filter(Boolean).join(', ')) || (isFestival ? '공연, 체험, 현장 프로그램' : '관람, 산책, 주변 여행 동선');
   const overview = stripHtml(common.overview) || `${title}은 ${region}에서 방문하기 좋은 ${isFestival ? '공연/축제' : '국내여행'} 글감입니다.`;
-  const articleTitle = isFestival ? `${title} ${today.getFullYear()}, ${profile.label} 방문 전 일정과 운영정보` : `${title}, ${profile.label}에 보기 좋은 여행 동선`;
+  const articleTitle = referenceArticleTitle(title, category, today, profile);
   const info = isFestival
     ? [['기간', dateRange(start, end)], ['시간', playtime], ['장소', place], ['요금', fee], ['문의', tel], ['주요 프로그램', program]]
     : [['장소', place], ['주소', addr || place], ['문의', tel], ['요금', fee], ['운영 확인', playtime], ['방문 포인트', program]];
