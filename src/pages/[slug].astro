@@ -16,7 +16,6 @@ import {
   EDITORIAL_AUTHOR_PATH,
   faqPairs,
   formatKoreanDate,
-  infoRows,
   infoValue,
   isDataPipelinePost,
   isIndexablePost,
@@ -38,7 +37,6 @@ export function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const rows = infoRows(post);
 const sections = sectionPairs(post);
 const faqs = faqPairs(post);
 const inlineAssets = articleInlineAssets(post).map((asset, index) => ({ asset, number: index + 1 }));
@@ -93,19 +91,6 @@ const modifiedDateLabel = formatKoreanDate(modifiedDate);
         </>
       ))}
     </>
-  )}
-
-  {rows.length > 0 && (
-    <table class="info-table">
-      <tbody>
-        {rows.map(([key, value]) => (
-          <tr>
-            <th>{key}</th>
-            <td>{value}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
   )}
 
   {(address || hours || fee || parking) && (
