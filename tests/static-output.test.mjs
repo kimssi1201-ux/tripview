@@ -420,6 +420,16 @@ test("homepage uses dropdown navigation and a five-story lead package", async ()
   assert.doesNotMatch(homepage, /class="masthead-row"|class="nav-scroll"|post-card-transition/);
 });
 
+test("homepage mobile sections use a reference-style image grid", async () => {
+  const css = await readFile("src/styles/global.css", "utf8");
+
+  assert.match(css, /@media \(max-width: 560px\)[\s\S]*\.home-section-heading \{[\s\S]*border-bottom: 5px solid #0b63ce;/);
+  assert.match(css, /@media \(max-width: 560px\)[\s\S]*\.home-category-section\.is-domestic \.home-category-small-grid,[\s\S]*grid-template-columns: repeat\(2, minmax\(0, 1fr\)\);/);
+  assert.match(css, /@media \(max-width: 560px\)[\s\S]*\.home-lead-small-grid \.home-story-card\.is-small,[\s\S]*grid-template-columns: 1fr;/);
+  assert.match(css, /@media \(max-width: 560px\)[\s\S]*\.home-category-section\.is-domestic \.home-story-card\.is-featured \.media-frame,[\s\S]*--media-ratio: 16 \/ 9;/);
+  assert.match(css, /@media \(max-width: 420px\)[\s\S]*\.home-category-section\.is-festival \.home-category-small-grid \{[\s\S]*gap: 24px 18px;/);
+});
+
 test("homepage thumbnails use fixed ratios without gray placeholders", async () => {
   const homepage = await readFile("index.html", "utf8");
   assert.match(homepage, /\.story-thumb\{position:relative;display:block;width:100%;aspect-ratio:16\/10;overflow:hidden;background:var\(--card\)\}/);
