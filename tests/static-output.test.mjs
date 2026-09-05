@@ -309,9 +309,9 @@ test("article pages expose author dates source links and trust schemas", async (
   assert.match(article, /"@id":"https:\/\/tripview\.kr\/#organization"/);
   assert.match(article, /"@type":"Person"/);
   assert.match(article, /"@id":"https:\/\/tripview\.kr\/editorial-team#person"/);
-  assert.match(article, /작성자\s*<a href="\/editorial-team" rel="author">트립뷰 편집팀<\/a>/);
-  assert.match(article, /게시일\s*<time datetime="\d{4}-\d{2}-\d{2}">/);
-  assert.match(article, /수정일\s*<time datetime="\d{4}-\d{2}-\d{2}">/);
+  assert.match(article, /class="article-meta-author">작성자\s*<a href="\/editorial-team" rel="author">트립뷰 편집팀<\/a>/);
+  assert.match(article, /class="article-meta-date">입력\s*<time datetime="\d{4}-\d{2}-\d{2}">/);
+  assert.match(article, /class="article-meta-date article-meta-modified">수정\s*<time datetime="\d{4}-\d{2}-\d{2}">/);
   assert.match(article, /공식 확인처/);
   assert.match(article, /확인 기준/);
   assert.match(article, /외교부 해외안전여행/);
@@ -951,6 +951,24 @@ test("article body uses three to five inline images when enough photos are avail
   assert.ok(sources.length >= 3 && sources.length <= 5);
   assert.doesNotMatch(body, /src="\/assets\/processed\/cheongyang-janggoksa-parking\.webp"/);
   assert.match(body, /ARTICLE_INLINE_PHOTO_START 5/);
+});
+
+test("article pages open with a readable story section before the fact table", async () => {
+  const article = await readFile(join("dist", "travel-osaka-september-2026", "index.html"), "utf8");
+  const body = articleBodyHtml(article);
+  const titleBlock = article.match(/<header class="article-hero article-title-block">[\s\S]*?<\/header>/i)?.[0] || "";
+  const firstHeading = body.indexOf("<h2>");
+  const firstInlinePhoto = body.indexOf("ARTICLE_INLINE_PHOTO_START 1");
+  const infoTable = body.indexOf('<table class="info-table">');
+
+  assert.doesNotMatch(titleBlock, /class="kicker"/);
+  assert.match(titleBlock, /class="article-meta-author"/);
+  assert.match(titleBlock, /class="article-meta-date"/);
+  assert.ok(firstHeading >= 0);
+  assert.ok(firstInlinePhoto > firstHeading);
+  assert.ok(infoTable > firstInlinePhoto);
+  assert.match(article, /class="article-share-group article-share-primary"/);
+  assert.match(article, /class="article-share-group article-share-tools"/);
 });
 
 test("article photo grid renders remaining processed images without repeating inline photos", async () => {
