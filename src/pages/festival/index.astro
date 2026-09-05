@@ -37,9 +37,9 @@ const ogImage = bannerAsset?.src || "";
         </div>
       )}
     </section>
-    <PostSection id="ongoing" title="진행 중인 축제" note="오늘 기준 종료되지 않은 진행 중 축제" posts={ongoing} />
-    <PostSection id="upcoming" title="예정 축제" note="시작일이 남아 있는 축제" posts={upcoming} />
-    <PostSection id="past" title="지난 축제" note="종료된 축제는 하단에서 확인" posts={past} />
+    <PostSection id="ongoing" title="진행 중인 축제" note="오늘 기준 종료되지 않은 진행 중 축제" posts={ongoing} preserveEmpty />
+    <PostSection id="upcoming" title="예정 축제" note="시작일이 남아 있는 축제" posts={upcoming} preserveEmpty />
+    <PostSection id="past" title="지난 축제" note="종료된 축제는 하단에서 확인" posts={past} preserveEmpty />
     <section class="block" id="festival-stay" aria-labelledby="festival-stay-title">
       <div class="block-head">
         <div><span class="kicker">BOOKING</span><h2 id="festival-stay-title">축제 주변 숙소</h2></div>
