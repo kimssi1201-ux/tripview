@@ -348,8 +348,8 @@ test("product cards expose data dates and official price checks", async () => {
   assert.match(article, /데이터 [^<]+ 기준 · 마이리얼트립 공식 예약처 확인/);
   assert.match(article, /표시 가격은 [^<]+ 데이터 기준/);
   assert.match(article, /마이리얼트립 공식 예약 화면/);
-  assert.match(stay, /최종 확인일/);
-  assert.match(ticket, /최종 확인일/);
+  assert.match(stay, /확인 기준/);
+  assert.match(ticket, /확인 기준/);
   assert.match(stay, /제휴 예약처 가격 확인/);
   assert.match(ticket, /제휴 예약처 가격 확인/);
   assert.match(coupangScript, /PRICE_SOURCE_NOTE = "공식 판매처 가격 확인"/);
@@ -984,20 +984,22 @@ test("article body uses three to five inline images when enough photos are avail
   assert.match(body, /ARTICLE_INLINE_PHOTO_START 5/);
 });
 
-test("article pages open with a readable story section before the fact table", async () => {
+test("article pages open with a readable story section without the metadata summary table", async () => {
   const article = await readFile(join("dist", "travel-osaka-september-2026", "index.html"), "utf8");
   const body = articleBodyHtml(article);
   const titleBlock = article.match(/<header class="article-hero article-title-block">[\s\S]*?<\/header>/i)?.[0] || "";
   const firstHeading = body.indexOf("<h2>");
   const firstInlinePhoto = body.indexOf("ARTICLE_INLINE_PHOTO_START 1");
-  const infoTable = body.indexOf('<table class="info-table">');
 
   assert.doesNotMatch(titleBlock, /class="kicker"/);
   assert.match(titleBlock, /class="article-meta-author"/);
   assert.match(titleBlock, /class="article-meta-date"/);
   assert.ok(firstHeading >= 0);
   assert.ok(firstInlinePhoto > firstHeading);
-  assert.ok(infoTable > firstInlinePhoto);
+  assert.doesNotMatch(body, /<table class="info-table">/);
+  assert.doesNotMatch(body, /<th>키워드<\/th>|<th>추천 성격<\/th>|<th>대표 후보<\/th>/);
+  assert.match(article, /공식 확인처/);
+  assert.match(article, /작성·검수 정보/);
   assert.match(article, /class="article-share-group article-share-primary"/);
   assert.match(article, /class="article-share-group article-share-tools"/);
 });
