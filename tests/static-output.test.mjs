@@ -20,6 +20,14 @@ const beachSlugs = [
   "travel-129400",
 ];
 
+const fallFoliageSpotSlugs = [
+  "travel-seoraksan-fall-foliage-biseondae-2026",
+  "travel-naejangsan-fall-foliage-tunnel-2026",
+  "travel-odaesan-fir-forest-fall-2026",
+  "travel-nami-island-fall-foliage-daytrip-2026",
+  "travel-bukhansan-fall-foliage-seoul-2026",
+];
+
 const regionSlugs = new Map([
   ["서울", "seoul"],
   ["경기", "gyeonggi"],
@@ -184,6 +192,27 @@ test("recent seasonal travel posts use reference-style headline hooks", async ()
   }
   assert.match(bySlug.get("travel-september-overseas-2026")?.title || "", /9월 해외여행/);
   assert.match(bySlug.get("travel-fall-foliage-spots-2026")?.title || "", /전국 단풍 명소 2026/);
+});
+
+test("fall foliage keyword expansion publishes five guides with inline photos and source links", async () => {
+  const posts = JSON.parse(await readFile("data/generated-posts.json", "utf8"));
+  const bySlug = new Map(posts.map((post) => [post.slug, post]));
+
+  for (const slug of fallFoliageSpotSlugs) {
+    const post = bySlug.get(slug);
+    assert.ok(post, `${slug} should be merged into generated posts`);
+    assert.equal(isIndexablePost(post), true, `${slug} should be indexable`);
+    assert.ok(postBodyLength(post) >= 1500, `${slug} should keep enough article text`);
+    assert.ok(post.keywords?.includes("단풍 명소"), `${slug} should target the fall foliage keyword`);
+    assert.ok((post.images || []).length >= 5, `${slug} should carry enough raw image candidates`);
+    assert.ok((post.officialLinks || []).length >= 1, `${slug} should keep explicit official sources`);
+
+    const article = await readFile(`dist/${slug}/index.html`, "utf8");
+    const body = articleBodyHtml(article);
+    assert.ok(articleInlineImageSources(body).length >= 3, `${slug} should render at least three inline article photos`);
+    assert.match(article, /공식 확인처/);
+    assert.match(article, /작성·검수 정보/);
+  }
 });
 
 test("redirect rules keep article assets on the deployed output root", async () => {

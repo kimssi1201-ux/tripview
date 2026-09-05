@@ -990,6 +990,12 @@ export function officialLinks(post = {}) {
   const homepage = infoValue(post, "홈페이지") || post.tourApi?.homepage || "";
   const homepageUrl = firstUrl(homepage);
   if (homepageUrl) links.push({ label: "공식 홈페이지", url: homepageUrl });
+  const explicitLinks = Array.isArray(post.officialLinks) ? post.officialLinks : [];
+  for (const source of explicitLinks) {
+    const url = firstUrl(source?.url || source);
+    const label = normalizeText(source?.label || "공식 확인처");
+    if (url) links.push({ label, url });
+  }
   if (post.tourApi?.overview || post.contentid) links.push({ label: "한국관광공사 공공데이터", url: "https://www.visitkorea.or.kr/" });
   if (compactRegion(post.region) === "해외" || articleCategoryLabel(post) === "해외여행") {
     links.push({ label: "외교부 해외안전여행", url: "https://www.0404.go.kr/" });
