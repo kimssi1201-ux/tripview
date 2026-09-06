@@ -101,11 +101,13 @@ function shortRegion(value) {
 }
 
 export function postType(post = {}) {
+  const contentTypeId = String(post?.tourApi?.contentTypeId || post.contentTypeId || post.contenttypeid || "");
+  if (contentTypeId === "32") return TYPE_META["32"];
   const name = sourceTitle(post);
   const text = `${name} ${post.title || ""} ${post.category || ""}`;
   if (/해수욕장|해변|비치/.test(text)) return { key: "beach", label: "해변" };
   if (/계곡|폭포|물놀이/.test(text)) return { key: "water", label: "물놀이 장소" };
-  return TYPE_META[String(post?.tourApi?.contentTypeId || "")] || { key: "attraction", label: "관광지" };
+  return TYPE_META[contentTypeId] || { key: "attraction", label: "관광지" };
 }
 
 export function verifiedFacts(post = {}) {
@@ -247,12 +249,22 @@ function articleTitle(facts) {
   const region = shortRegion(facts.region);
   const prefix = region && region !== "국내" && !facts.name.includes(region.split(" ")[0]) ? `${region} ` : "";
   const place = `${prefix}${facts.name}`.trim();
+  if (facts.type.key === "lodging") {
+    const lodgingLabels = [
+      ["가격만 보고 예약해도 괜찮을까?", "체크인 전 위치·주차 확인"],
+      ["사진이 좋아 보여도 객실 조건은 따로 봐야 합니다", "객실 유형·취소 조건 확인"],
+      ["늦은 도착이면 먼저 확인할 게 있습니다", "체크인 시간·이동 동선 점검"],
+      ["숙소 위치, 지도만 보면 끝일까?", "주변 식사·귀가 동선 확인"],
+    ];
+    const index = [...facts.name].reduce((sum, char) => sum + char.charCodeAt(0), 0) % lodgingLabels.length;
+    const [hook, detail] = lodgingLabels[index];
+    return `“${hook}”… ${place}, ${detail}`;
+  }
   const labels = {
     attraction: ["사진만 보고 가도 괜찮을까?", "운영시간·주차와 관람 동선"],
     culture: ["비 오는 날에도 일정에 넣어도 될까?", "휴관일·요금과 관람 동선"],
     course: ["걷기 전에 돌아오는 시간부터 봐야 합니다", "구간별 이동시간과 준비물"],
     leisure: ["예약 없이 갔다가 놓칠 수 있습니다", "이용시간·예약과 준비물"],
-    lodging: ["가격보다 위치를 먼저 봐야 한다고요?", "체크인 전 위치·주차 확인"],
     shopping: ["영업시간만 보고 가면 놓칠 수 있습니다", "영업시간·휴무와 방문 동선"],
     food: ["식사 시간대가 겹치면 대기가 길어질 수 있습니다", "영업시간·주차와 방문 팁"],
     beach: ["바다는 가까워도 편의시설은 먼저 봐야 합니다", "개장 여부·주차와 편의시설 확인"],
