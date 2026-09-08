@@ -1,4 +1,24 @@
+/* Article typography overrides loaded after global.css. */
+.article-news-page .content h2 {
+  font-size: 27px;
+  line-height: 1.28;
+}
+
+.article-news-page .content h3 {
+  font-size: 22px;
+}
+
 @media (max-width: 560px) {
+  .article-news-page .content h2 {
+    font-size: 23px;
+    line-height: 1.32;
+  }
+
+  .article-news-page .content h3 {
+    font-size: 20px;
+    line-height: 1.34;
+  }
+
   .home-latest-content .latest-content-copy strong,
   .home-lead-small-grid .home-story-card.is-small strong,
   .home-category-section.is-domestic .home-story-card.is-small strong,
