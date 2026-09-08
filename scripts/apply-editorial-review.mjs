@@ -3,6 +3,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { MIN_INDEXABLE_BODY_LENGTH, postBodyLength } from "./lib/content-quality.mjs";
+import { enrichPost } from "./lib/post-enrichment.mjs";
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const postsPath = join(root, "data", "generated-posts.json");
@@ -19,6 +20,10 @@ const replaceableLeadHeadings = new Set([
 
 function clean(value = "") {
   return String(value).replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+}
+
+function isLodgingPost(post = {}) {
+  return String(post.tourApi?.contentTypeId || post.contentTypeId || post.contenttypeid || "") === "32";
 }
 
 function compact(value = "", limit = 150) {
@@ -186,7 +191,7 @@ const nextPosts = posts.map((post) => {
   const publishedAt = review.publishedAt || "";
   const officialUrl = safeHttpsUrl(review.officialUrl);
   const customFaq = normalizeFaq(review.faq);
-  const reviewed = {
+  let reviewed = {
     ...post,
     title: clean(review.title || post.title),
     description: compact(`${clean(post.sourceTitle || post.title)} 방문 판단에 필요한 운영 정보와 편집팀 확인 사항을 정리했습니다. ${clean(review.angle)}`, 155),
@@ -203,6 +208,9 @@ const nextPosts = posts.map((post) => {
     ...(officialUrl ? { tourApi: { ...(post.tourApi || {}), homepage: officialUrl } } : {}),
     ...(publishedAt ? { date: koreanDate(publishedAt), sortDate: publishedAt } : {}),
   };
+  if (isLodgingPost(reviewed) && !reviewed.dataPipeline?.generated) {
+    reviewed = enrichPost(reviewed, reviewedAt);
+  }
   reviewed.read = readMinutes(reviewed);
 
   if (postBodyLength(reviewed) < MIN_INDEXABLE_BODY_LENGTH) {

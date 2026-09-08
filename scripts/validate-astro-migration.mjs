@@ -18,6 +18,7 @@ const ALLOWED_H1_CHANGE_SLUGS = new Set([
   "travel-gangwon-fall-foliage-trails-2026",
   "travel-chungcheong-fall-foliage-forest-2026",
   "travel-southern-temple-fall-foliage-2026",
+  "travel-142801",
 ]);
 
 function parseLocs(xml = "") {

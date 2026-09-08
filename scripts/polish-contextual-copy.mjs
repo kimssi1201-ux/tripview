@@ -2,7 +2,7 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { repairEnrichedPost } from "./lib/post-enrichment.mjs";
+import { ENRICHMENT_VERSION, enrichPost, repairEnrichedPost } from "./lib/post-enrichment.mjs";
 import { isIndexablePost } from "./lib/content-quality.mjs";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -91,6 +91,25 @@ function withApiSections(post, sections, isFestival) {
 
 function sourceTitle(post) {
   return strip(post.sourceTitle || post.title || "여행지").replace(/\s*\|\s*트립뷰$/, "");
+}
+
+function contentTypeOf(post = {}) {
+  return String(post.tourApi?.contentTypeId || post.contentTypeId || post.contenttypeid || "");
+}
+
+function isLodgingPost(post = {}) {
+  const contentType = contentTypeOf(post);
+  if (contentType) return contentType === "32";
+  return /숙소|호텔|펜션|리조트|게스트하우스|스테이/.test(`${post.category || ""} ${post.title || ""} ${post.sourceTitle || ""}`);
+}
+
+function hasNonLodgingStayCopy(post = {}) {
+  const text = JSON.stringify([post.title, post.description, post.excerpt, post.sections, post.faq]);
+  return /관람 포인트|걷는 시간|사진 찍기 좋은 시간|개장 여부|물놀이 전 안전|해변에 도착/.test(text);
+}
+
+function hasCurrentLodgingTitle(post = {}) {
+  return /^“(?:가격만 보고 예약해도 괜찮을까\?|사진이 좋아 보여도 객실 조건은 따로 봐야 합니다|늦은 도착이면 먼저 확인할 게 있습니다|숙소 위치, 지도만 보면 끝일까\?)”\s*…\s*/.test(strip(post.title || ""));
 }
 
 function hasBatchim(word) {
@@ -328,6 +347,12 @@ function buildFaq(post) {
 function polishPost(post) {
   if (post.slug === "data-stay-ticket-seoul") {
     return { ...post, copyPolishedVersion: VERSION };
+  }
+  if (isLodgingPost(post) && !post.dataPipeline?.generated) {
+    const enriched = post.contentDepthVersion === ENRICHMENT_VERSION && !hasNonLodgingStayCopy(post) && hasCurrentLodgingTitle(post)
+      ? repairEnrichedPost(post)
+      : enrichPost(post);
+    return { ...enriched, copyPolishedVersion: VERSION };
   }
   if (post.contentDepthVersion) {
     return { ...repairEnrichedPost(post), copyPolishedVersion: VERSION };

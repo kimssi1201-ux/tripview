@@ -35,11 +35,11 @@ jobs:
       - name: Run syntax check
         run: npm run lint
 
-      - name: Run tests
-        run: npm test
-
       - name: Audit content
         run: npm run audit:content
 
       - name: Build and validate Astro output
         run: npm run build
+
+      - name: Run tests
+        run: npm test

@@ -1220,6 +1220,21 @@ test("lodging articles keep place introductions and expanded lodging facts", asy
   assert.match(article, /주차/);
 });
 
+test("lodging post data keeps reference-style article copy", async () => {
+  const posts = JSON.parse(await readFile("data/generated-posts.json", "utf8"));
+  const lodgingPosts = posts.filter((post) => String(post.tourApi?.contentTypeId || post.contentTypeId || post.contenttypeid || "") === "32");
+  assert.ok(lodgingPosts.length >= 44, "lodging post count should include the original lodging corpus and any newer scheduled lodging posts");
+
+  for (const post of lodgingPosts) {
+    const copy = JSON.stringify([post.title, post.description, post.excerpt, post.sections, post.faq]);
+    assert.match(post.title || "", /^“[^”]+”\s*…\s*/, `${post.slug} should use a reference-style headline hook`);
+    assert.equal(post.sections?.[0]?.[0], "먼저 알아둘 점", `${post.slug} should start with the readable intro section`);
+    assert.ok(post.sections?.some(([heading]) => heading === "체크인 전 확인할 항목"), `${post.slug} should keep lodging-specific planning copy`);
+    assert.doesNotMatch(copy, /관람 포인트|걷는 시간|사진 찍기 좋은 시간|개장 여부|물놀이 전 안전|해변에 도착/, `${post.slug} should not inherit attraction or beach wording`);
+    assert.match(copy, /체크인|체크아웃|객실|예약/, `${post.slug} should include accommodation decision terms`);
+  }
+});
+
 test("lodging articles render photo guides and booking sidebars", async () => {
   const posts = JSON.parse(await readFile("data/generated-posts.json", "utf8"));
   const lodgingPosts = posts.filter((post) => String(post.tourApi?.contentTypeId || post.contentTypeId || post.contenttypeid || post.contentType || "") === "32");
