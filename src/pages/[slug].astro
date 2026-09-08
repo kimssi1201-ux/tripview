@@ -4,6 +4,7 @@ import MediaFrame from "../components/MediaFrame.astro";
 import ProductCard from "../components/ProductCard.astro";
 import RelatedPosts from "../components/RelatedPosts.astro";
 import TravelCard from "../components/TravelCard.astro";
+import { readableSections } from "../lib/readability.mjs";
 import {
   allPosts,
   accommodationHeading,
@@ -37,7 +38,7 @@ export function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const sections = sectionPairs(post);
+const sections = readableSections(sectionPairs(post));
 const faqs = faqPairs(post);
 const inlineAssets = articleInlineAssets(post).map((asset, index) => ({ asset, number: index + 1 }));
 const photoGridAssets = articlePhotoGridAssets(post);
