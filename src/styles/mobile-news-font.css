@@ -1,5 +1,5 @@
 /* Article typography overrides loaded after global.css. */
-.article-news-page .content h2 {
+.article-news-page .content > section:not(.article-place-intro):not(.article-product-section):not(.coupang-native-ad):not(.related-posts):not(.region-related):not(.article-source-block):not(.article-trust-block):not(.article-photo-grid):not(.lodging-photo-guide) > h2 {
   font-size: 27px;
   line-height: 1.28;
 }
@@ -9,7 +9,7 @@
 }
 
 @media (max-width: 560px) {
-  .article-news-page .content h2 {
+  .article-news-page .content > section:not(.article-place-intro):not(.article-product-section):not(.coupang-native-ad):not(.related-posts):not(.region-related):not(.article-source-block):not(.article-trust-block):not(.article-photo-grid):not(.lodging-photo-guide) > h2 {
     font-size: 23px;
     line-height: 1.32;
   }
