@@ -1,0 +1,41 @@
+@media (max-width: 560px) {
+  .home-latest-content .latest-content-copy strong,
+  .home-lead-small-grid .home-story-card.is-small strong,
+  .home-category-section.is-domestic .home-story-card.is-small strong,
+  .home-category-section.is-overseas .home-story-card.is-small strong,
+  .home-category-section.is-festival .home-story-card.is-small strong {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.32;
+    -webkit-line-clamp: 3;
+    overflow-wrap: anywhere;
+    word-break: keep-all;
+  }
+
+  .home-category-section.is-domestic .home-story-card.is-featured strong,
+  .home-category-section.is-overseas .home-story-card.is-featured strong,
+  .home-category-section.is-festival .home-story-card.is-featured strong,
+  .home-story-card.is-lead strong {
+    font-size: 29px;
+    font-weight: 600;
+    line-height: 1.24;
+    -webkit-line-clamp: 3;
+    overflow-wrap: anywhere;
+    word-break: keep-all;
+  }
+
+  .home-story-card.is-featured strong,
+  .home-product-card.is-featured strong {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 420px) {
+  .home-lead-small-grid .home-story-card.is-small strong,
+  .home-category-section.is-domestic .home-story-card.is-small strong,
+  .home-category-section.is-overseas .home-story-card.is-small strong,
+  .home-category-section.is-festival .home-story-card.is-small strong {
+    font-size: 19px;
+    line-height: 1.34;
+  }
+}
