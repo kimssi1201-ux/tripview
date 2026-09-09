@@ -1889,8 +1889,6 @@ const ARTICLE_INLINE_PHOTO_START = "<!-- ARTICLE_INLINE_PHOTO_START";
 const ARTICLE_INLINE_PHOTO_END = "ARTICLE_INLINE_PHOTO_END -->";
 const ARTICLE_INLINE_IMAGE_MIN = 3;
 const ARTICLE_INLINE_IMAGE_MAX = 5;
-const ARTICLE_PHOTO_GRID_MIN = 1;
-const ARTICLE_PHOTO_GRID_MAX = 6;
 const LODGING_GUIDE_START = "<!-- LODGING_GUIDE_START";
 const LODGING_GUIDE_END = "LODGING_GUIDE_END -->";
 const LODGING_BOOKING_START = "<!-- LODGING_BOOKING_START";
@@ -1984,12 +1982,6 @@ function articleSiteDesignCss() {
 .inline-figure.article-inline-figure{margin:24px 0}
 .inline-figure.article-inline-figure img{width:100%;aspect-ratio:16/10;border-radius:8px;object-fit:cover;object-position:center;background:var(--card)}
 .inline-figure.article-inline-figure figcaption{margin-top:8px;color:var(--muted);font-size:12px;line-height:1.55}
-.article-photo-grid{margin:26px 0 32px}
-.article-photo-grid h2{margin-top:0}
-.article-photo-items{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-.article-photo-items figure{margin:0}
-.article-photo-items img{width:100%;aspect-ratio:4/3;border-radius:8px}
-.article-photo-items figcaption{margin-top:6px;color:var(--muted);font-size:12px}
 .article-lodging-layout{display:grid;grid-template-columns:minmax(0,760px) 280px;gap:32px;align-items:start}
 .article-lodging-layout .content{max-width:none}
 .lodging-photo-guide{margin:34px 0 30px;padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -2454,7 +2446,7 @@ function normalizeArticleHeadingText(value = "") {
   if (!text) return "";
   const direct = ARTICLE_HEADING_REWRITES.get(text);
   if (direct) return direct;
-  if (/^(?:자주 묻는 질문|작성·검수 정보|사진으로 확인하기|함께 볼 글|이 지역 입장권·투어|지역 인기 숙소)/.test(text)) return text;
+  if (/^(?:자주 묻는 질문|작성·검수 정보|함께 볼 글|이 지역 입장권·투어|지역 인기 숙소)/.test(text)) return text;
   if (/이 축제|어떤 일정|어떤 곳|한눈|먼저 볼 점|방문 포인트/.test(text)) return "관람 포인트";
   if (/운영\s*정보|운영정보|위치와 운영|방문 전 확인/.test(text)) return "운영 정보";
   if (/일정|운영 흐름/.test(text)) return "일정과 운영 흐름";
@@ -2763,7 +2755,7 @@ function articleInlineInsertionPoints(body = "") {
   for (let index = 0; index < headings.length; index += 1) {
     const heading = headings[index];
     const label = normalizeArticleHeadingText(heading[0]);
-    if (/^(?:지도 미리보기|사진으로 확인하기|자주 묻는 질문|작성·검수 정보|함께 볼 글|이 지역 입장권·투어|지역 인기 숙소)/.test(label)) continue;
+    if (/^(?:지도 미리보기|자주 묻는 질문|작성·검수 정보|함께 볼 글|이 지역 입장권·투어|지역 인기 숙소)/.test(label)) continue;
     const sectionStart = heading.index + heading[0].length;
     const sectionEnd = index + 1 < headings.length ? headings[index + 1].index : contentEnd;
     const section = body.slice(sectionStart, sectionEnd);
@@ -3071,30 +3063,8 @@ function replaceArticleInfoTable(document, post) {
     .replace(/\s*<table class=["']info-table["'][\s\S]*?<\/table>/gi, "");
 }
 
-function articlePhotoGrid(post) {
-  if (isLodgingPost(post)) return "";
-  const inlineCount = articleInlineAssets(post).length;
-  const images = articleContentImages(post, { excludeHero: true }).slice(inlineCount);
-  if (images.length < ARTICLE_PHOTO_GRID_MIN) return "";
-  const assets = images
-    .map((src) => imageAssetForSource(post, src))
-    .filter((asset) => asset?.src)
-    .slice(0, ARTICLE_PHOTO_GRID_MAX);
-  if (assets.length < ARTICLE_PHOTO_GRID_MIN) return "";
-  return `${ARTICLE_PHOTO_START} -->
-<section class="article-photo-grid" aria-labelledby="article-photo-grid-title" data-count="${assets.length}">
-  <h2 id="article-photo-grid-title">사진으로 확인하기</h2>
-  <div class="article-photo-items">${assets.map((asset) => `<figure><img src="${html(asset.src)}" alt="${html(articleImageAlt(asset, post))}" loading="lazy" decoding="async"><figcaption>${articleImageCaptionHtml(asset)}</figcaption></figure>`).join("")}</div>
-</section>
-<!-- ${ARTICLE_PHOTO_END}`;
-}
-
-function injectArticlePhotoGrid(document, post) {
-  let next = String(document).replace(new RegExp(`${ARTICLE_PHOTO_START}[\\s\\S]*?${ARTICLE_PHOTO_END}`, "g"), "");
-  const block = articlePhotoGrid(post);
-  if (!block) return next;
-  if (next.includes("</div><h2")) return next.replace("</div><h2", `</div>${block}<h2`);
-  return next.replace(/<article class=["']content["']>/i, `<article class="content">${block}`);
+function removeArticlePhotoGrid(document) {
+  return String(document).replace(new RegExp(`${ARTICLE_PHOTO_START}[\\s\\S]*?${ARTICLE_PHOTO_END}`, "g"), "");
 }
 
 function paidDayVisitPost(post) {
@@ -3877,7 +3847,7 @@ async function polishGeneratedArticles() {
     next = stripTourOverviewSection(next, post);
     next = improveArticleReadability(next, post);
     next = ensureLodgingPhotoGuide(next, post);
-    next = injectArticlePhotoGrid(next, post);
+    next = removeArticlePhotoGrid(next);
     next = injectArticleProductSection(next, productBlock);
     next = injectCoupangAdBlock(next, coupangBlock);
     next = injectArticleRegionRelated(next, regionRelatedBlock);

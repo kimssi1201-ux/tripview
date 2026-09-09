@@ -11,7 +11,6 @@ import {
   articleActivePath,
   articleContentImageAssets,
   articleInlineAssets,
-  articlePhotoGridAssets,
   compactRegion,
   EDITORIAL_AUTHOR_NAME,
   EDITORIAL_AUTHOR_PATH,
@@ -38,7 +37,6 @@ const { post } = Astro.props;
 const sections = readableSections(sectionPairs(post));
 const faqs = faqPairs(post);
 const inlineAssets = articleInlineAssets(post).map((asset, index) => ({ asset, number: index + 1 }));
-const photoGridAssets = articlePhotoGridAssets(post);
 const inlinePlacements = new Map();
 if (sections.length && inlineAssets.length) {
   inlineAssets.forEach((item, index) => {
@@ -150,15 +148,6 @@ const modifiedDateLabel = formatKoreanDate(modifiedDate);
           <p>{item.answer}</p>
         </details>
       ))}
-    </section>
-  )}
-
-  {photoGridAssets.length > 0 && (
-    <section class="article-photo-grid" data-count={photoGridAssets.length} aria-labelledby="article-photo-grid-title">
-      <h2 id="article-photo-grid-title">사진으로 확인하기</h2>
-      <div class="article-photo-grid-list">
-        {photoGridAssets.map((asset) => <MediaFrame asset={asset} post={post} caption ratio="16 / 10" />)}
-      </div>
     </section>
   )}
 

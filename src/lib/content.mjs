@@ -494,14 +494,6 @@ export function articleInlineAssets(post = {}) {
   return images.slice(0, limit);
 }
 
-export function articlePhotoGridAssets(post = {}) {
-  if (isLodgingPost(post)) return [];
-  const inline = new Set(articleInlineAssets(post).map((asset) => imageAssetContentKey(asset)));
-  return articleContentImageAssets(post, { excludeHero: true })
-    .filter((asset) => !inline.has(imageAssetContentKey(asset)))
-    .slice(0, 6);
-}
-
 export function imageMode(asset = {}) {
   const src = asset.src || "";
   if (src.startsWith("/assets/processed/") && !asset.posterCanvas) return "cover";

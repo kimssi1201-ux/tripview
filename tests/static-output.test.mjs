@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { existsSync } from "node:fs";
 import { readFile, readdir } from "node:fs/promises";
 import { join } from "node:path";
 import test from "node:test";
@@ -50,6 +51,12 @@ const regionSlugs = new Map([
   ["해외", "overseas"],
   ["기타", "other"],
 ]);
+
+const outputRoot = existsSync("dist/index.html") ? "dist" : ".";
+
+function outputFile(filePath) {
+  return outputRoot === "." ? filePath : join(outputRoot, filePath);
+}
 
 function compactRegion(value = "") {
   const text = String(value || "");
@@ -128,13 +135,6 @@ function articleInlineImageSources(body = "") {
   const figures = [...String(body).matchAll(/<figure\b[^>]*\bclass=["'][^"']*\barticle-inline-figure\b[^"']*["'][^>]*>[\s\S]*?<\/figure>/gi)];
   return figures
     .map((figure) => figure[0].match(/<img\b[^>]*\bsrc=["']([^"']+)["'][^>]*>/i)?.[1])
-    .filter(Boolean);
-}
-
-function articlePhotoGridImageSources(body = "") {
-  const section = String(body).match(/<section\b[^>]*\bclass=["'][^"']*\barticle-photo-grid\b[^"']*["'][^>]*>[\s\S]*?<\/section>/i)?.[0] || "";
-  return [...section.matchAll(/<img\b[^>]*\bsrc=["']([^"']+)["'][^>]*>/gi)]
-    .map((match) => match[1])
     .filter(Boolean);
 }
 
@@ -1055,17 +1055,15 @@ test("article mobile layout keeps the reference-style masthead and compact tools
   assert.match(css, /@media \(max-width: 560px\)[\s\S]*\.article-news-page \.article-meta-taxonomy \{[\s\S]*display: none;/);
 });
 
-test("article photo grid renders remaining processed images without repeating inline photos", async () => {
-  const article = await readFile("travel-132742/index.html", "utf8");
+test("article pages keep inline photos without the bottom photo grid", async () => {
+  const article = await readFile(outputFile("travel-132742/index.html"), "utf8");
   const body = articleBodyHtml(article);
   const inlineSources = articleInlineImageSources(body);
-  const gridSources = articlePhotoGridImageSources(body);
 
   assert.equal(inlineSources.length, 5);
-  assert.ok(gridSources.length >= 1 && gridSources.length <= 5);
-  assert.match(body, new RegExp(`<section class="article-photo-grid"[^>]*data-count="${gridSources.length}"`));
-  assert.deepEqual(gridSources.filter((src) => inlineSources.includes(src)), []);
-  assert.ok([...inlineSources, ...gridSources].every((src) => src.startsWith("/assets/processed/")));
+  assert.doesNotMatch(body, /<section class="article-photo-grid"/);
+  assert.doesNotMatch(body, /사진으로 확인하기/);
+  assert.ok(inlineSources.every((src) => src.startsWith("/assets/processed/")));
 });
 
 test("article schema, festival schema, lodging schema, and language policy are applied", async () => {
