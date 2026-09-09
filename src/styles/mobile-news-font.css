@@ -36,9 +36,9 @@
   .home-category-section.is-domestic .home-story-card.is-small strong,
   .home-category-section.is-overseas .home-story-card.is-small strong,
   .home-category-section.is-festival .home-story-card.is-small strong {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 600;
-    line-height: 1.32;
+    line-height: 1.36;
     -webkit-line-clamp: 3;
     overflow-wrap: anywhere;
     word-break: keep-all;
@@ -48,9 +48,9 @@
   .home-category-section.is-overseas .home-story-card.is-featured strong,
   .home-category-section.is-festival .home-story-card.is-featured strong,
   .home-story-card.is-lead strong {
-    font-size: 29px;
+    font-size: 23px;
     font-weight: 600;
-    line-height: 1.24;
+    line-height: 1.3;
     -webkit-line-clamp: 3;
     overflow-wrap: anywhere;
     word-break: keep-all;
@@ -58,7 +58,7 @@
 
   .home-story-card.is-featured strong,
   .home-product-card.is-featured strong {
-    font-size: 24px;
+    font-size: 19px;
   }
 }
 
@@ -67,7 +67,7 @@
   .home-category-section.is-domestic .home-story-card.is-small strong,
   .home-category-section.is-overseas .home-story-card.is-small strong,
   .home-category-section.is-festival .home-story-card.is-small strong {
-    font-size: 19px;
+    font-size: 15px;
     line-height: 1.34;
   }
 }
