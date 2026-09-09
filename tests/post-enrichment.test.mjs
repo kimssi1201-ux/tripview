@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import { postBodyLength } from "../scripts/lib/content-quality.mjs";
+import { NAVER_FEED_TITLE_MIN_CHARS, naverFeedTitleProfile } from "../scripts/lib/headline-profile.mjs";
 import {
   MIN_ENRICHED_BODY_LENGTH,
   enrichPost,
@@ -63,6 +64,17 @@ test("enrichment produces an indexable article without internal API wording", ()
   assert.equal(enriched.updatedAt, "2026-08-09");
 });
 
+test("enrichment titles keep Naver feed style length and lead context", () => {
+  const post = samplePost();
+  const enriched = enrichPost(post, "2026-08-09");
+  const facts = verifiedFacts(post);
+  const profile = naverFeedTitleProfile(enriched.title, [facts.name, "서울"]);
+
+  assert.ok(profile.length >= NAVER_FEED_TITLE_MIN_CHARS);
+  assert.equal(profile.hasReferenceHook, true);
+  assert.equal(profile.hasContextInLead, true);
+});
+
 test("enrichment handles empty detail values without inventing facts", () => {
   const enriched = enrichPost(samplePost({
     tourApi: { contentTypeId: "32", overview: "", intro: {} },
@@ -99,7 +111,7 @@ test("article titles remove trailing source punctuation and generic domestic pre
     region: "국내",
     tourApi: { contentTypeId: "25", overview: "", intro: {} },
   }));
-  assert.equal(enriched.title, "“걷기 전에 돌아오는 시간부터 봐야 합니다”… 남파랑길 여행코스, 구간별 이동시간과 준비물");
+  assert.equal(enriched.title, "“남파랑길 여행코스, 걷기 전에 돌아오는 시간부터 봐야 합니다”… 구간별 이동시간과 준비물");
 });
 
 test("empty API details omit placeholder rows and use natural fallback copy", () => {

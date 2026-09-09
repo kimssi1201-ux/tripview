@@ -1,4 +1,5 @@
 import { postBodyLength } from "./content-quality.mjs";
+import { composeNaverFeedHeadline } from "./headline-profile.mjs";
 
 export const ENRICHMENT_VERSION = "verified-detail-v3-20260809";
 export const MIN_ENRICHED_BODY_LENGTH = 2000;
@@ -258,7 +259,12 @@ function articleTitle(facts) {
     ];
     const index = [...facts.name].reduce((sum, char) => sum + char.charCodeAt(0), 0) % lodgingLabels.length;
     const [hook, detail] = lodgingLabels[index];
-    return `“${hook}”… ${place}, ${detail}`;
+    return composeNaverFeedHeadline({
+      place,
+      hook,
+      detail,
+      fallbackDetail: "체크인·위치·취소 조건 체크",
+    });
   }
   const labels = {
     attraction: ["사진만 보고 가도 괜찮을까?", "운영시간·주차와 관람 동선"],
@@ -271,7 +277,12 @@ function articleTitle(facts) {
     water: ["물이 많을수록 먼저 봐야 할 게 있습니다", "수량·통제 여부와 안전한 동선"],
   };
   const [hook, detail] = labels[facts.type.key] || labels.attraction;
-  return `“${hook}”… ${place}, ${detail}`;
+  return composeNaverFeedHeadline({
+    place,
+    hook,
+    detail,
+    fallbackDetail: "운영시간·주차·방문 팁",
+  });
 }
 
 function introSection(facts) {

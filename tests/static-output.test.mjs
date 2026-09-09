@@ -4,6 +4,7 @@ import { join } from "node:path";
 import test from "node:test";
 
 import { isIndexablePost, postBodyLength } from "../scripts/lib/content-quality.mjs";
+import { NAVER_FEED_TITLE_MIN_CHARS, naverFeedTitleProfile } from "../scripts/lib/headline-profile.mjs";
 
 const beachSlugs = [
   "travel-126078",
@@ -187,8 +188,17 @@ test("recent seasonal travel posts use reference-style headline hooks", async ()
   ];
 
   for (const slug of slugs) {
-    const title = bySlug.get(slug)?.title || "";
+    const post = bySlug.get(slug) || {};
+    const title = post.title || "";
+    const contextTerms = [
+      compactRegion(post.region),
+      ...(String(post.sourceTitle || "").split(/\s+/)),
+      ...(Array.isArray(post.keywords) ? post.keywords : []),
+    ];
+    const profile = naverFeedTitleProfile(title, contextTerms);
     assert.match(title, /^“[^”]+”… /, `${slug} should start with a reference-style hook`);
+    assert.ok(profile.length >= NAVER_FEED_TITLE_MIN_CHARS, `${slug} should keep a feed-ready title length`);
+    assert.equal(profile.hasContextInLead, true, `${slug} should show a place, region, or keyword in the first headline segment`);
   }
   assert.match(bySlug.get("travel-september-overseas-2026")?.title || "", /9월 해외여행/);
   assert.match(bySlug.get("travel-fall-foliage-spots-2026")?.title || "", /전국 단풍 명소 2026/);

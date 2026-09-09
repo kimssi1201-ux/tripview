@@ -2,6 +2,7 @@ import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isIndexablePost, postBodyLength } from './lib/content-quality.mjs';
+import { composeNaverFeedHeadline } from './lib/headline-profile.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -348,9 +349,19 @@ function pickIntroFields(intro = {}) {
 function referenceArticleTitle(title, category, today, profile) {
   const year = today.getFullYear();
   if (category === '공연/축제') {
-    return `“${title}, 그냥 가도 괜찮을까?”… ${year} 일정·입장·주차 체크`;
+    return composeNaverFeedHeadline({
+      place: title,
+      hook: '그냥 가도 괜찮을까?',
+      detail: `${year} 일정·입장·주차 체크`,
+      fallbackDetail: `${year} 일정·입장·주차 체크`
+    });
   }
-  return `“${title}, 지금 가도 좋을까?”… ${profile.label} 위치·동선·주차 체크`;
+  return composeNaverFeedHeadline({
+    place: title,
+    hook: `${profile.label}, 지금 가도 좋을까?`,
+    detail: '위치·동선·주차 체크',
+    fallbackDetail: '위치·동선·주차 체크'
+  });
 }
 
 function makeArticle(candidate, common, intro, images, category, today) {
