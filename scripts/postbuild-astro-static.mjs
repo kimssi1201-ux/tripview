@@ -1,4 +1,4 @@
-import { cp, mkdir, rm, writeFile } from "node:fs/promises";
+import { cp, mkdir, rm, readFile, writeFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 
@@ -15,6 +15,10 @@ async function copyFileIfExists(source, target = join(DIST, source)) {
   if (!existsSync(source)) return;
   await mkdir(dirname(target), { recursive: true });
   await cp(source, target, { force: true });
+  if (source === "robots.txt") {
+    const text = await readFile(target, "utf8");
+    await writeFile(target, text.replace(/\r\n/g, "\n"), "utf8");
+  }
 }
 
 async function copyDirIfExists(source, target = join(DIST, source)) {

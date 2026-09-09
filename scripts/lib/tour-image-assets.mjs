@@ -34,7 +34,7 @@ export function tourImageEntry(manifest, post) {
 export function tourImageAssetsForPost(manifest, post) {
   const entry = tourImageEntry(manifest, post);
   if (!entry) return [];
-  return [entry.cover, entry.banner, ...(Array.isArray(entry.images) ? entry.images : [])].filter((asset) => asset?.src);
+  return [entry.cover, entry.hero, entry.banner, ...(Array.isArray(entry.images) ? entry.images : [])].filter((asset) => asset?.src);
 }
 
 export function tourImageAssetForSource(manifest, post, source = "") {

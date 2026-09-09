@@ -1,13 +1,13 @@
 ---
 import ArticleLayout from "../layouts/ArticleLayout.astro";
+import AffiliateInlineBlock from "../components/AffiliateInlineBlock.astro";
 import MediaFrame from "../components/MediaFrame.astro";
-import ProductCard from "../components/ProductCard.astro";
 import RelatedPosts from "../components/RelatedPosts.astro";
 import TravelCard from "../components/TravelCard.astro";
+import { articleAffiliatePlacements } from "../lib/affiliate.mjs";
 import { readableSections } from "../lib/readability.mjs";
 import {
   allPosts,
-  accommodationHeading,
   articleActivePath,
   articleContentImageAssets,
   articleInlineAssets,
@@ -18,7 +18,6 @@ import {
   faqPairs,
   formatKoreanDate,
   infoValue,
-  isDataPipelinePost,
   isIndexablePost,
   isLodgingPost,
   officialLinks,
@@ -29,8 +28,6 @@ import {
   regionSlug,
   relatedPostsFor,
   sectionPairs,
-  selectAccommodationItems,
-  selectTnaItems,
 } from "../lib/content.mjs";
 
 export function getStaticPaths() {
@@ -57,12 +54,10 @@ const leadSection = sections[0];
 const remainingSections = sections.slice(1);
 const indexable = isIndexablePost(post);
 const activePath = articleActivePath(post);
-const accommodationItems = indexable && !isDataPipelinePost(post)
-  ? selectAccommodationItems({ post, limit: 6 })
-  : [];
-const ticketItems = indexable && !isDataPipelinePost(post) && activePath !== "/stay/"
-  ? selectTnaItems({ post, limit: 3 })
-  : [];
+const affiliatePlacements = indexable ? articleAffiliatePlacements({ post, sections, maxBlocks: 2 }) : [];
+const inlineAffiliate = affiliatePlacements.find((placement) => placement.placement === "inline");
+const bottomAffiliate = affiliatePlacements.find((placement) => placement.placement === "bottom");
+const inlineAffiliateAfterSectionIndex = inlineAffiliate?.afterSectionIndex ?? -1;
 const regionRelated = relatedPostsFor(post, 8).filter((item) => compactRegion(item.region) === compactRegion(post.region));
 const sourceLinks = officialLinks(post);
 const lodgingGuideAssets = isLodgingPost(post) ? articleContentImageAssets(post, { excludeHero: true }).slice(0, 3) : [];
@@ -91,6 +86,9 @@ const modifiedDateLabel = formatKoreanDate(modifiedDate);
           <Fragment set:html={"<!-- ARTICLE_INLINE_PHOTO_END -->"} />
         </>
       ))}
+      {inlineAffiliateAfterSectionIndex === 0 && inlineAffiliate && (
+        <AffiliateInlineBlock placement={inlineAffiliate} />
+      )}
     </>
   )}
 
@@ -120,6 +118,9 @@ const modifiedDateLabel = formatKoreanDate(modifiedDate);
           <Fragment set:html={"<!-- ARTICLE_INLINE_PHOTO_END -->"} />
         </>
       ))}
+      {inlineAffiliateAfterSectionIndex === sectionIndex && inlineAffiliate && (
+        <AffiliateInlineBlock placement={inlineAffiliate} />
+      )}
     </>
     );
   })}
@@ -161,43 +162,7 @@ const modifiedDateLabel = formatKoreanDate(modifiedDate);
     </section>
   )}
 
-  {accommodationItems.length > 0 && (
-    <>
-      <Fragment set:html={"<!-- ARTICLE_PRODUCT_START accommodation -->"} />
-      <section class="article-product-section" aria-label="지역 인기 숙소" data-article-product-type="accommodation">
-        <div class="article-product-head"><h2>{accommodationHeading(post)}</h2></div>
-        <p class="article-product-note">방문지 성격과 지역 기준으로 연결한 제휴 상품입니다. 표시 가격은 {modifiedDateLabel} 데이터 기준이며, 최종 가격과 취소 조건은 마이리얼트립 공식 예약 화면에서 다시 확인해야 합니다.</p>
-        <div class="mrt-accommodation-grid article-accommodation-list" data-count={accommodationItems.length}>
-          {accommodationItems.map((product) => <ProductCard product={product} type="accommodation" />)}
-        </div>
-      </section>
-      <Fragment set:html={"<!-- ARTICLE_PRODUCT_END -->"} />
-    </>
-  )}
-
-  {ticketItems.length > 0 && (
-    <>
-      <Fragment set:html={"<!-- ARTICLE_PRODUCT_START ticket -->"} />
-      <section class="article-product-section" aria-label="입장권·투어 카드" data-article-product-type="ticket">
-        <div class="article-product-head"><h2>이 지역 입장권·투어</h2></div>
-        <p class="article-product-note">방문지 성격과 지역 기준으로 연결한 제휴 상품입니다. 표시 가격은 {modifiedDateLabel} 데이터 기준이며, 최종 가격과 포함 사항은 마이리얼트립 공식 예약 화면에서 다시 확인해야 합니다.</p>
-        <div class="mrt-ticket-grid" data-count={ticketItems.length}>
-          {ticketItems.map((product) => <ProductCard product={product} type="ticket" />)}
-        </div>
-      </section>
-      <Fragment set:html={"<!-- ARTICLE_PRODUCT_END -->"} />
-    </>
-  )}
-
-  {indexable && !isLodgingPost(post) && (
-    <section class="coupang-native-ad" aria-label="여행 준비물 추천">
-      <div class="article-product-head"><h2>이 여행에 챙기면 좋은 준비물</h2></div>
-      <p class="article-product-note">상품과 가격은 쿠팡 공식 판매처 화면 기준으로 달라질 수 있습니다. 구매 전 배송, 옵션, 최종 가격을 다시 확인하세요.</p>
-      <p class="article-disclosure" data-coupang-disclosure>쿠팡 파트너스 활동의 일환으로 일정액의 수수료를 제공받을 수 있습니다.</p>
-      <div class="coupang-product-grid" data-coupang-products data-coupang-keyword="여행 준비물" data-coupang-intent="travel" data-coupang-limit="6"></div>
-      <script src="/assets/coupang.js?v=coupang-referrer-astro-20260904" defer></script>
-    </section>
-  )}
+  {bottomAffiliate && <AffiliateInlineBlock placement={bottomAffiliate} />}
 
   <RelatedPosts post={post} />
 

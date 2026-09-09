@@ -1,0 +1,184 @@
+---
+import { normalizeAccommodationUrl } from "../lib/content.mjs";
+
+const { placement } = Astro.props;
+const product = placement?.product || {};
+const title = product.title || "제휴 추천 상품";
+const rawUrl = product.url || "#";
+const href = product.type === "accommodation" ? normalizeAccommodationUrl(rawUrl) : rawUrl;
+const image = product.image || "";
+const priceText = product.priceText || "실시간 가격 확인";
+const sourceLabel = product.sourceLabel || (product.provider === "coupang" ? "쿠팡" : "마이리얼트립");
+const sourceNote = product.provider === "myrealtrip"
+  ? "마이리얼트립 공식 예약처 확인"
+  : `${sourceLabel} 공식 화면 확인`;
+const heading = placement?.heading || "제휴 추천";
+const description = placement?.description || "";
+const ctaLabel = placement?.ctaLabel || "확인하기";
+const disclosure = placement?.disclosure || "";
+---
+
+{href && href !== "#" && (
+  <section class="affiliate-inline-block" data-affiliate-provider={product.provider} data-affiliate-type={product.type}>
+    <span class="affiliate-inline-kicker">제휴 추천</span>
+    <h2>{heading}</h2>
+    {description && <p class="affiliate-inline-note">{description}</p>}
+    <a class="affiliate-inline-card" href={href} target="_blank" rel="sponsored noopener">
+      {image && (
+        <span class="affiliate-inline-thumb">
+          <img
+            src={image}
+            alt={`${title} 이미지`}
+            width="320"
+            height="200"
+            loading="lazy"
+            decoding="async"
+          />
+        </span>
+      )}
+      <span class="affiliate-inline-body">
+        <strong>{title}</strong>
+        <span class="affiliate-inline-meta">{[product.region || product.city, product.category].filter(Boolean).join(" · ")}</span>
+        <span class="affiliate-inline-price">{priceText}</span>
+        <span class="affiliate-inline-source">
+          {product.provider === "myrealtrip" ? (
+            <span class="mrt-card-source">데이터 {product.updatedText || "표시일 기준"} · {sourceNote}</span>
+          ) : (
+            <>데이터 {product.updatedText || "표시일 기준"} · {sourceNote}</>
+          )}
+        </span>
+        <span class="affiliate-inline-cta">{ctaLabel}</span>
+      </span>
+    </a>
+    {disclosure && <p class="affiliate-inline-disclosure">{disclosure}</p>}
+  </section>
+)}
+
+<style>
+  .affiliate-inline-block {
+    display: grid;
+    gap: 12px;
+    margin: 42px 0 0;
+    padding: 22px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  :global(.article-news-page) .affiliate-inline-block h2 {
+    margin: 0;
+    color: var(--ink);
+    font-size: 22px;
+    line-height: 1.32;
+  }
+
+  .affiliate-inline-kicker {
+    color: var(--brand);
+    font-size: 12px;
+    font-weight: 900;
+    line-height: 1.25;
+  }
+
+  .affiliate-inline-note,
+  .affiliate-inline-disclosure {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .affiliate-inline-card {
+    display: grid;
+    grid-template-columns: 168px minmax(0, 1fr);
+    gap: 14px;
+    align-items: center;
+    min-width: 0;
+    padding: 10px;
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
+    background: var(--card);
+    color: inherit;
+  }
+
+  .affiliate-inline-thumb {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-radius: 6px;
+    background: var(--soft);
+  }
+
+  .affiliate-inline-thumb img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  .affiliate-inline-body {
+    display: grid;
+    min-width: 0;
+    gap: 5px;
+  }
+
+  .affiliate-inline-body strong {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    color: var(--ink);
+    font-size: 17px;
+    line-height: 1.35;
+    font-weight: 900;
+  }
+
+  .affiliate-inline-meta,
+  .affiliate-inline-source {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  .affiliate-inline-price {
+    color: var(--accent-strong);
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 1.25;
+  }
+
+  .affiliate-inline-cta {
+    justify-self: start;
+    display: inline-flex;
+    align-items: center;
+    min-height: 30px;
+    margin-top: 2px;
+    padding: 0 10px;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 900;
+  }
+
+  @media (max-width: 560px) {
+    .affiliate-inline-card {
+      grid-template-columns: 112px minmax(0, 1fr);
+      gap: 11px;
+      padding: 9px;
+    }
+
+    .affiliate-inline-body strong {
+      font-size: 16px;
+      line-height: 1.34;
+    }
+
+    .affiliate-inline-source {
+      display: none;
+    }
+  }
+</style>
