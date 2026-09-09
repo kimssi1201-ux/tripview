@@ -61,6 +61,11 @@ const REGION_PRIORITY = [
   "울산",
   "세종",
 ];
+const STAY_HEADLINE_BY_REGION = new Map([
+  ["서울", "“서울 숙소, 역세권이면 충분할까?”… 주말 여행 전 요금·이동 동선 비교"],
+  ["부산", "“부산 숙소, 바다 가까우면 끝일까?”… 주말 여행 전 요금·위치 비교"],
+  ["제주", "“제주 숙소, 렌터카 동선까지 봐야 할까?”… 섬 여행 전 요금·위치 비교"],
+]);
 const FORBIDDEN_PATTERNS = [
   /API/,
   /TourAPI/,
@@ -705,6 +710,11 @@ function priceStats(rows, key = "salePrice") {
   };
 }
 
+function stayHeadline(region) {
+  return STAY_HEADLINE_BY_REGION.get(region)
+    || `“${region} 숙소, 가격만 보고 예약해도 될까?”… 주말 여행 전 요금·위치 비교`;
+}
+
 function basePost({ kind, region, title, description, excerpt, image, alt, info, sections, faq, affiliateLinkCount }) {
   const slug = `data-${kind}-${regionSlug(region)}`;
   const readLabel = kind === "festival-schedule" ? "일정 정리" : "가격 비교";
@@ -747,7 +757,7 @@ function basePost({ kind, region, title, description, excerpt, image, alt, info,
 
 function buildStayCandidate(region, rows, cache) {
   const stats = priceStats(rows, "salePrice");
-  const title = `${region} 숙소 가격 비교`;
+  const title = stayHeadline(region);
   const popularRows = rows
     .slice()
     .sort((a, b) => (b.reviewCount || 0) - (a.reviewCount || 0))
@@ -793,7 +803,7 @@ function buildStayCandidate(region, rows, cache) {
     description: `${region} 숙소의 판매가, 원가, 성급, 평점, 리뷰 수를 같은 조건으로 비교했습니다.`,
     excerpt: `${formatKoreanDate(STAY.checkIn)} 체크인, 성인 ${STAY.adultCount}명 기준 ${region} 숙소 가격표입니다.`,
     image: rows[0].image,
-    alt: `${region} 숙소 가격 비교 대표 이미지`,
+    alt: `${region} 숙소 비교 대표 이미지`,
     info: [
       ["지역", region],
       ["체크인", formatKoreanDate(STAY.checkIn)],
@@ -807,7 +817,7 @@ function buildStayCandidate(region, rows, cache) {
     faq: [
       ["가격은 어떤 기준인가요?", `성인 ${STAY.adultCount}명 기준 주말 1박 요금으로 비교했습니다.`],
       ["원가와 판매가가 같으면 어떤 의미인가요?", "별도 할인이 표시되지 않은 상품으로 보면 됩니다."],
-      ["주소가 바뀌나요?", `${region} 숙소 가격 비교는 /data-stay-price-${regionSlug(region)}/ 주소에서 이어집니다.`],
+      ["주소가 바뀌나요?", `${region} 숙소 비교 글은 /data-stay-price-${regionSlug(region)}/ 주소에서 이어집니다.`],
     ],
     affiliateLinkCount: rows.length,
   });

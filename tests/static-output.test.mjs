@@ -1362,8 +1362,14 @@ test("data post pipeline outputs validated data pages", async () => {
   const log = JSON.parse(logText);
   const dataPosts = posts.filter((post) => post?.dataPipeline?.generated);
   const allowedKinds = new Set(["stay-price", "festival-schedule", "ticket-price"]);
+  const stayPostTitles = dataPosts
+    .filter((post) => post.dataPipeline.kind === "stay-price")
+    .map((post) => post.title);
   const latestPublishedRun = [...log.runs].reverse().find((run) => !run.stoppedReason && Array.isArray(run.generated));
   assert.ok(dataPosts.length > 0);
+  assert.ok(stayPostTitles.length > 0);
+  assert.ok(stayPostTitles.every((title) => /“[^”]+”….+요금/.test(title)));
+  assert.ok(stayPostTitles.every((title) => !/^.+ 숙소 가격 비교$/.test(title)));
   assert.ok(latestPublishedRun.generatedCount > 0 && latestPublishedRun.generatedCount <= 3);
   assert.equal(new Set(latestPublishedRun.generated.map((item) => item.type)).size, latestPublishedRun.generated.length);
   const latestRunSlugs = new Set([
