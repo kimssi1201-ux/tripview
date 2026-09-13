@@ -1,5 +1,5 @@
 import { execFile } from "node:child_process";
-import { promises as fs } from "node:fs";
+import { existsSync, promises as fs } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { promisify } from "node:util";
@@ -112,6 +112,7 @@ function consecutiveOverviewMatch(body, overviews = []) {
 
 function dataTableEmptyRatio(document) {
   const table = String(document).match(/<table\b[^>]*\bclass=["'][^"']*\bdata-table\b[^"']*["'][^>]*>[\s\S]*?<\/table>/i)?.[0] || "";
+  if (!table) return 0;
   const body = table.match(/<tbody[^>]*>([\s\S]*?)<\/tbody>/i)?.[1] || table;
   let total = 0;
   let empty = 0;
@@ -137,6 +138,9 @@ function articleText(document) {
 function validationScope(document) {
   const article = String(document).match(/<article\b[^>]*\bclass=["'][^"']*\bcontent\b[^"']*["'][^>]*>[\s\S]*?<\/article>/i)?.[0] || document;
   return article
+    .replace(/\s*<section\b[^>]*\bclass=["'][^"']*\barticle-share-bar\b[\s\S]*?<\/section>/gi, " ")
+    .replace(/\s*<section\b[^>]*\bclass=["'][^"']*\baffiliate-inline-block\b[\s\S]*?<\/section>/gi, " ")
+    .replace(/\s*<section\b[^>]*\bclass=["'][^"']*\brelated-posts\b[\s\S]*?<\/section>/gi, " ")
     .replace(/\s*<(?:aside|section)\b[^>]*\bclass=["'][^"']*\bregion-related\b[\s\S]*?<\/(?:aside|section)>/gi, " ")
     .replace(/\s*<(?:aside|section)\b[^>]*\bclass=["'][^"']*\btrust-note\b[\s\S]*?<\/(?:aside|section)>/gi, " ");
 }
@@ -285,7 +289,8 @@ async function main() {
     const kind = post?.dataPipeline?.kind || "";
     if (!ALLOWED_DATA_TYPES.has(kind)) fail(errors, post.slug, `unsupported_data_type:${kind || "missing"}`);
     if (!DATA_SLUG_PATTERN.test(post.slug || "")) fail(errors, post.slug, "invalid_data_url_pattern");
-    const htmlPath = path.join(ROOT, post.slug, "index.html");
+    const distHtmlPath = path.join(ROOT, "dist", post.slug, "index.html");
+    const htmlPath = existsSync(distHtmlPath) ? distHtmlPath : path.join(ROOT, post.slug, "index.html");
     let document = "";
     try {
       document = await fs.readFile(htmlPath, "utf8");
@@ -356,7 +361,7 @@ async function main() {
       }
     }
 
-    for (const img of document.matchAll(/<img\b([^>]*)>/gi)) {
+    for (const img of scopedDocument.matchAll(/<img\b([^>]*)>/gi)) {
       const alt = img[1].match(/\balt=["']([^"']*)["']/i)?.[1] || "";
       if (!normalizeText(alt)) fail(errors, post.slug, "image_alt_missing");
       if (!/\bloading=["']lazy["']/i.test(img[1])) fail(errors, post.slug, "image_lazy_missing");

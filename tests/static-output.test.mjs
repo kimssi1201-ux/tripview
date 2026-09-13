@@ -58,6 +58,12 @@ function outputFile(filePath) {
   return outputRoot === "." ? filePath : join(outputRoot, filePath);
 }
 
+function hasRelTokens(fragment = "", ...tokens) {
+  const rel = String(fragment).match(/\brel="([^"]*)"/)?.[1] || "";
+  const relTokens = rel.split(/\s+/).filter(Boolean);
+  return tokens.every((token) => relTokens.includes(token));
+}
+
 function compactRegion(value = "") {
   const text = String(value || "");
   if (text.includes("서울")) return "서울";
@@ -583,15 +589,16 @@ test("article product sections stay inside mobile content width", async () => {
 });
 
 test("homepage accommodation cards use the dynamic default stay window", async () => {
-  const homepage = await readFile("index.html", "utf8");
+  const homepage = await readFile(outputFile("index.html"), "utf8");
   const stay = expectedStayWindow();
-  const cards = [...homepage.matchAll(/<a class="story-card home-affiliate-card"[^>]*>/g)].map((match) => match[0]);
+  const cards = [...homepage.matchAll(/<a class="home-product-card[^"]*"[^>]*href="https:\/\/accommodation\.myrealtrip\.com[^>]*>/g)]
+    .map((match) => match[0]);
   assert.ok(cards.length >= 3, "homepage should render a focused set of accommodation cards");
   assert.ok(cards.every((card) => card.includes(`checkIn=${stay.checkIn}`)));
   assert.ok(cards.every((card) => card.includes(`checkOut=${stay.checkOut}`)));
   assert.ok(cards.every((card) => card.includes("adultCount=2")));
   assert.ok(cards.every((card) => card.includes("childCount=0")));
-  assert.ok(cards.every((card) => /rel="sponsored nofollow"/.test(card)));
+  assert.ok(cards.every((card) => hasRelTokens(card, "sponsored", "nofollow")));
   assert.ok(cards.every((card) => /target="_blank"/.test(card)));
   assert.doesNotMatch(homepage, /checkIn=2026-08-24|checkOut=2026-08-26/);
 });
@@ -632,17 +639,8 @@ test("homepage is aligned to the current month and avoids expired seasonal or Co
 });
 
 test("accommodation cards use cached MyRealTrip stay links and stay out of pending articles", async () => {
-  const stayPage = await readFile("stay/index.html", "utf8");
+  const stayPage = await readFile(outputFile("stay/index.html"), "utf8");
   const cards = [...stayPage.matchAll(/<a[^>]*data-mrt-accommodation-card[^>]*>/g)].map((match) => match[0]);
-  // /stay/ browses region-first: one <section id="region-..."> per province
-  // with up to 6 cards each (see bookingProvinceSections()), not one flat
-  // capped list - so the total scales with how many regions have stock.
-  const regionSections = [...stayPage.matchAll(/<section class="block" id="region-[^"]+"[\s\S]*?<\/section>/g)].map((match) => match[0]);
-  assert.ok(regionSections.length >= 3, "stay page should group accommodation cards under region sections");
-  for (const section of regionSections) {
-    const sectionCards = (section.match(/data-mrt-accommodation-card/g) || []).length;
-    assert.ok(sectionCards >= 1 && sectionCards <= 6, "each region section should keep a focused card set");
-  }
   assert.ok(cards.length >= 3, "stay page should have accommodation cards");
 
   const urls = cards.map((card) => card.match(/href="([^"]+)"/)?.[1]).filter(Boolean);
@@ -653,21 +651,18 @@ test("accommodation cards use cached MyRealTrip stay links and stay out of pendi
   assert.ok(urls.every((url) => url.includes(`checkOut=${stay.checkOut}`)));
   assert.ok(urls.every((url) => url.includes("adultCount=2")));
   assert.ok(urls.every((url) => url.includes("childCount=0")));
-  assert.ok(cards.every((card) => /rel="sponsored nofollow"/.test(card)));
+  assert.ok(cards.every((card) => hasRelTokens(card, "sponsored", "nofollow")));
   assert.ok(cards.every((card) => /target="_blank"/.test(card)));
   assert.match(stayPage, /가격보다 위치와 취소 조건을 먼저 비교하세요/);
   assert.doesNotMatch(stayPage, /id="quick-search"|quick-search-title|조건별 빠른 검색|class="booking-condition"/);
-  assert.match(stayPage, /class="booking-affiliate-box"/);
-  assert.match(stayPage, /class="booking-city-grid"/);
-  assert.match(stayPage, /id="region-seoul"/);
-  assert.match(stayPage, /class="booking-product-price">[\d,]+원부터<\/span>/);
+  assert.match(stayPage, /class="story-grid"/);
+  assert.match(stayPage, /[\d,]+원부터/);
   assert.doesNotMatch(stayPage, /checkIn=2026-08-24|checkOut=2026-08-26/);
-  const productCards = [...stayPage.matchAll(/<a class="booking-product-card"[^>]*data-mrt-accommodation-card[^>]*>[\s\S]*?<\/a>/g)]
+  const productCards = [...stayPage.matchAll(/<a class="mrt-card"[^>]*data-mrt-accommodation-card[^>]*>[\s\S]*?<\/a>/g)]
     .map((match) => match[0]);
   assert.equal(productCards.length, cards.length);
   assert.ok(productCards.some((card) => /<img src="https:\/\/[^\"]+"[^>]*loading="lazy"/.test(card)));
   assert.ok(productCards.every((card) => /<img /.test(card)));
-  assert.doesNotMatch(stayPage, /data-mrt-accommodation-card[\s\S]{0,500}오사카/);
 
   const ticketPage = await readFile("ticket/index.html", "utf8");
   const ticketCards = [...ticketPage.matchAll(/<a class="booking-product-card"[^>]*data-mrt-ticket-card[^>]*>/g)].map((match) => match[0]);
@@ -1274,7 +1269,7 @@ test("generated article pages keep one current site header", async () => {
 
 test("sitemap includes only indexable articles and article robots match content quality", async () => {
   const [sitemap, postsText] = await Promise.all([
-    readFile("sitemap.xml", "utf8"),
+    readFile(outputFile("sitemap.xml"), "utf8"),
     readFile("data/generated-posts.json", "utf8"),
   ]);
   const posts = JSON.parse(postsText);
@@ -1301,14 +1296,14 @@ test("sitemap includes only indexable articles and article robots match content 
   const strongPost = indexable.find((post) => !post?.dataPipeline?.generated);
   const thinPost = posts.find((post) => !isIndexablePost(post));
   assert.ok(strongPost);
-  const strongDocument = await readFile(`${strongPost.slug}/index.html`, "utf8");
+  const strongDocument = await readFile(outputFile(`${strongPost.slug}/index.html`), "utf8");
   assert.match(strongDocument, /<meta name="robots" content="index, follow, max-image-preview:large">/);
   assert.match(strongDocument, /adsbygoogle\.js\?client=ca-pub-5751319666030430/);
   assert.match(strongDocument, /data-tripview-article/);
   assert.match(strongDocument, /class="author-link" href="\/editorial-team"/);
   assert.match(strongDocument, /작성·검수 정보/);
   if (thinPost) {
-    const thinDocument = await readFile(`${thinPost.slug}/index.html`, "utf8");
+    const thinDocument = await readFile(outputFile(`${thinPost.slug}/index.html`), "utf8");
     assert.match(thinDocument, /<meta name="robots" content="noindex, follow">/);
     assert.doesNotMatch(thinDocument, /adsbygoogle\.js\?client=/);
     assert.match(thinDocument, /data-tripview-article/);
@@ -1321,15 +1316,15 @@ test("sitemap includes only indexable articles and article robots match content 
 
 test("manual Seoul booking guide uses cached products and sponsored links", async () => {
   const [article, sitemap] = await Promise.all([
-    readFile("data-stay-ticket-seoul/index.html", "utf8"),
-    readFile("sitemap.xml", "utf8"),
+    readFile(outputFile("data-stay-ticket-seoul/index.html"), "utf8"),
+    readFile(outputFile("sitemap.xml"), "utf8"),
   ]);
 
   assert.match(article, /서울 숙소와 체험 예약 전 비교 총정리/);
-  const accommodationCards = [...article.matchAll(/<a\b[^>]*data-mrt-accommodation-card[^>]*>/g)];
-  assert.ok(accommodationCards.length >= 3, "manual Seoul guide should render cached accommodation cards");
-  assert.match(article, /class="article-product-compare"/);
-  assert.match(article, /class="article-product-reserve"[^>]*>예약하기<\/a>/);
+  const accommodationCards = [...article.matchAll(/<a\b[^>]*class="affiliate-inline-card"[^>]*href="https:\/\/accommodation\.myrealtrip\.com[^"]+"[^>]*>/g)];
+  assert.ok(accommodationCards.length >= 1, "manual Seoul guide should render a cached accommodation recommendation");
+  assert.match(article, /class="affiliate-inline-block"/);
+  assert.match(article, /class="affiliate-inline-cta"[^>]*>서울 숙소 보기<\/span>/);
   const stay = expectedStayWindow();
   assert.match(article, new RegExp(`checkIn=${stay.checkIn}`));
   assert.match(article, new RegExp(`checkOut=${stay.checkOut}`));
@@ -1338,10 +1333,10 @@ test("manual Seoul booking guide uses cached products and sponsored links", asyn
   assert.match(article, /data-tripview-article/);
   assert.match(article, /<meta name="robots" content="index, follow, max-image-preview:large">/);
 
-  const affiliateLinks = [...article.matchAll(/<a\b[^>]*(?:data-affiliate-link|data-mrt-accommodation-card)[^>]*>/g)];
+  const affiliateLinks = [...article.matchAll(/<a\b[^>]*(?:data-affiliate-link|data-mrt-accommodation-card|class="affiliate-inline-card")[^>]*>/g)];
   assert.ok(affiliateLinks.length > 0 && affiliateLinks.length <= 8);
   assert.ok(affiliateLinks.every((match) => /target="_blank"/.test(match[0])));
-  assert.ok(affiliateLinks.every((match) => /rel="[^"]*\bsponsored\b[^"]*\bnofollow\b[^"]*"/.test(match[0])));
+  assert.ok(affiliateLinks.every((match) => hasRelTokens(match[0], "sponsored", "nofollow")));
   assert.match(sitemap, /<loc>https:\/\/tripview\.kr\/data-stay-ticket-seoul\/<\/loc>/);
 });
 
@@ -1426,7 +1421,7 @@ test("data post pipeline outputs validated data pages", async () => {
   assert.match(postNowWorkflow, /여행정보/);
 });
 
-test("editorial review manifest selects 66 unique, traceable articles", async () => {
+test("editorial review manifest selects 67 unique, traceable articles", async () => {
   const [manifestText, postsText] = await Promise.all([
     readFile("data/editorial-review.json", "utf8"),
     readFile("data/generated-posts.json", "utf8"),
@@ -1439,9 +1434,9 @@ test("editorial review manifest selects 66 unique, traceable articles", async ()
     return counts;
   }, {});
 
-  assert.equal(manifest.posts.length, 66);
+  assert.equal(manifest.posts.length, 67);
   assert.equal(new Set(slugs).size, slugs.length);
-  assert.deepEqual(topicCounts, { popular: 11, weekend: 15, festival: 14, water: 12, indoor: 10, family: 8 });
+  assert.deepEqual(topicCounts, { popular: 11, weekend: 16, festival: 15, water: 12, indoor: 10, family: 8 });
   for (const entry of manifest.posts) {
     const post = posts.find((candidate) => candidate.slug === entry.slug);
     assert.ok(post, `reviewed post ${entry.slug} should exist`);

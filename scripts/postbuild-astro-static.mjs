@@ -21,14 +21,19 @@ async function copyFileIfExists(source, target = join(DIST, source)) {
   }
 }
 
-async function copyDirIfExists(source, target = join(DIST, source)) {
+async function copyDirIfExists(source, target = join(DIST, source), options = {}) {
   if (!existsSync(source)) return;
   await mkdir(dirname(target), { recursive: true });
-  await cp(source, target, { recursive: true, force: true });
+  await cp(source, target, { recursive: true, force: true, ...options });
 }
 
 await copyDirIfExists("assets");
-await copyDirIfExists("data");
+await copyDirIfExists("data", join(DIST, "data"), {
+  filter(sourcePath) {
+    const normalized = sourcePath.replace(/\\/g, "/");
+    return !/(^|\/)data\/data-[^/]+\/index\.html$/.test(normalized);
+  },
+});
 
 for (const file of [
   "_headers",
