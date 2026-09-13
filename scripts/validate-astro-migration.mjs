@@ -2,7 +2,7 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 
-import { allPosts, indexablePosts, sectionPairs } from "../src/lib/content.mjs";
+import { allPosts, compactRegion, indexablePosts, regionSlug, sectionPairs } from "../src/lib/content.mjs";
 
 const BASE_URL = "https://tripview.kr";
 const DIST = "dist";
@@ -107,7 +107,8 @@ const astroUrls = parseLocs(astroSitemap);
 const missingUrls = setDiff(legacyUrls, astroUrls);
 const extraUrls = setDiff(astroUrls, legacyUrls);
 const indexablePostUrls = new Set(indexablePosts.map((post) => `${BASE_URL}/${encodeURIComponent(post.slug)}/`));
-const unexpectedExtraUrls = extraUrls.filter((url) => !indexablePostUrls.has(url));
+const indexableRegionUrls = new Set(indexablePosts.map((post) => `${BASE_URL}/region/${regionSlug(compactRegion(post.region))}/`));
+const unexpectedExtraUrls = extraUrls.filter((url) => !indexablePostUrls.has(url) && !indexableRegionUrls.has(url));
 
 const failures = [];
 if (missingUrls.length) failures.push({ type: "missing-url", items: missingUrls });
