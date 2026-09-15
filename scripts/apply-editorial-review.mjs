@@ -209,7 +209,20 @@ const nextPosts = posts.map((post) => {
     ...(publishedAt ? { date: koreanDate(publishedAt), sortDate: publishedAt } : {}),
   };
   if (isLodgingPost(reviewed) && !reviewed.dataPipeline?.generated) {
-    reviewed = enrichPost(reviewed, reviewedAt);
+    const editorialCopy = {
+      title: reviewed.title,
+      description: reviewed.description,
+      excerpt: reviewed.excerpt,
+      faq: reviewed.faq,
+      editorialStatus: reviewed.editorialStatus,
+      editorialReviewedAt: reviewed.editorialReviewedAt,
+      editorialReviewer: reviewed.editorialReviewer,
+      editorialAuthorProfile: reviewed.editorialAuthorProfile,
+      editorialTopics: reviewed.editorialTopics,
+      editorialAngle: reviewed.editorialAngle,
+      updatedAt: reviewed.updatedAt,
+    };
+    reviewed = { ...enrichPost(reviewed, reviewedAt), ...editorialCopy };
   }
   reviewed.read = readMinutes(reviewed);
 
