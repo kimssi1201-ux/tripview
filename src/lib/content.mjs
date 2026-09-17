@@ -842,7 +842,7 @@ export function sitemapUrls() {
 }
 
 export function feedItems(limit = 50) {
-  return indexablePosts.slice(0, limit).map((post) => ({
+  return sortedPosts(indexablePosts).slice(0, limit).map((post) => ({
     title: postTitle(post),
     link: postUrl(post),
     guid: postUrl(post),
@@ -979,7 +979,7 @@ function firstUrl(value = "") {
 
 export function officialLinks(post = {}) {
   const links = [];
-  const homepage = infoValue(post, "홈페이지") || post.tourApi?.homepage || "";
+  const homepage = post.tourApi?.homepage || infoValue(post, "홈페이지") || "";
   const homepageUrl = firstUrl(homepage);
   if (homepageUrl) links.push({ label: "공식 홈페이지", url: homepageUrl });
   const explicitLinks = Array.isArray(post.officialLinks) ? post.officialLinks : [];
