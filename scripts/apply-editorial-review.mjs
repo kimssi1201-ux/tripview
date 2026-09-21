@@ -62,6 +62,13 @@ function normalizeFaq(value) {
     .map(([question, answer]) => [clean(question), clean(answer)]);
 }
 
+function normalizeInfo(value) {
+  if (!Array.isArray(value)) return [];
+  return value
+    .filter((entry) => Array.isArray(entry) && clean(entry[0]) && clean(entry[1]))
+    .map(([label, detail]) => [clean(label), clean(detail)]);
+}
+
 function reviewedSections(post, review) {
   const lead = [
     clean(review.angle),
@@ -174,6 +181,9 @@ function validateConfig(config, posts) {
     if (item.faq && normalizeFaq(item.faq).length < 3) {
       throw new Error(`Custom editorial FAQ is incomplete for ${item.slug}`);
     }
+    if (item.info && normalizeInfo(item.info).length < 2) {
+      throw new Error(`Custom editorial info is incomplete for ${item.slug}`);
+    }
     seen.add(item.slug);
   }
 }
@@ -191,6 +201,7 @@ const nextPosts = posts.map((post) => {
   const publishedAt = review.publishedAt || "";
   const officialUrl = safeHttpsUrl(review.officialUrl);
   const customFaq = normalizeFaq(review.faq);
+  const customInfo = normalizeInfo(review.info);
   let reviewed = {
     ...post,
     title: clean(review.title || post.title),
@@ -198,6 +209,7 @@ const nextPosts = posts.map((post) => {
     excerpt: compact(review.angle, 125),
     sections: reviewedSections(post, review),
     faq: customFaq.length ? customFaq : post.faq,
+    info: customInfo.length ? customInfo : post.info,
     editorialStatus: "reviewed",
     editorialReviewedAt: reviewedAt,
     editorialReviewer: clean(config.reviewer),
