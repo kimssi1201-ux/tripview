@@ -69,6 +69,11 @@ function normalizeInfo(value) {
     .map(([label, detail]) => [clean(label), clean(detail)]);
 }
 
+function normalizeMemo(value) {
+  if (!Array.isArray(value)) return [];
+  return value.map(clean).filter(Boolean);
+}
+
 function reviewedSections(post, review) {
   const lead = [
     clean(review.angle),
@@ -184,6 +189,9 @@ function validateConfig(config, posts) {
     if (item.info && normalizeInfo(item.info).length < 2) {
       throw new Error(`Custom editorial info is incomplete for ${item.slug}`);
     }
+    if (item.memo && normalizeMemo(item.memo).length < 2) {
+      throw new Error(`Custom editorial memo is incomplete for ${item.slug}`);
+    }
     seen.add(item.slug);
   }
 }
@@ -202,6 +210,7 @@ const nextPosts = posts.map((post) => {
   const officialUrl = safeHttpsUrl(review.officialUrl);
   const customFaq = normalizeFaq(review.faq);
   const customInfo = normalizeInfo(review.info);
+  const customMemo = normalizeMemo(review.memo);
   let reviewed = {
     ...post,
     title: clean(review.title || post.title),
@@ -210,6 +219,7 @@ const nextPosts = posts.map((post) => {
     sections: reviewedSections(post, review),
     faq: customFaq.length ? customFaq : post.faq,
     info: customInfo.length ? customInfo : post.info,
+    memo: customMemo.length ? customMemo : post.memo,
     editorialStatus: "reviewed",
     editorialReviewedAt: reviewedAt,
     editorialReviewer: clean(config.reviewer),
