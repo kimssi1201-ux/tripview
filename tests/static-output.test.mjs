@@ -1421,7 +1421,7 @@ test("data post pipeline outputs validated data pages", async () => {
   assert.match(postNowWorkflow, /여행정보/);
 });
 
-test("editorial review manifest selects 96 unique, traceable articles", async () => {
+test("editorial review manifest selects 97 unique, traceable articles", async () => {
   const [manifestText, postsText] = await Promise.all([
     readFile("data/editorial-review.json", "utf8"),
     readFile("data/generated-posts.json", "utf8"),
@@ -1434,9 +1434,9 @@ test("editorial review manifest selects 96 unique, traceable articles", async ()
     return counts;
   }, {});
 
-  assert.equal(manifest.posts.length, 96);
+  assert.equal(manifest.posts.length, 97);
   assert.equal(new Set(slugs).size, slugs.length);
-  assert.deepEqual(topicCounts, { popular: 39, weekend: 45, festival: 30, water: 15, indoor: 12, family: 25 });
+  assert.deepEqual(topicCounts, { popular: 40, weekend: 46, festival: 31, water: 15, indoor: 12, family: 25 });
   for (const entry of manifest.posts) {
     const post = posts.find((candidate) => candidate.slug === entry.slug);
     assert.ok(post, `reviewed post ${entry.slug} should exist`);
