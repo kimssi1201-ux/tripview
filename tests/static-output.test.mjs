@@ -1434,9 +1434,9 @@ test("editorial review manifest selects 116 unique, traceable articles", async (
     return counts;
   }, {});
 
-  assert.equal(manifest.posts.length, 116);
+  assert.equal(manifest.posts.length, 117);
   assert.equal(new Set(slugs).size, slugs.length);
-  assert.deepEqual(topicCounts, { popular: 59, weekend: 65, festival: 48, water: 15, indoor: 12, family: 44 });
+  assert.deepEqual(topicCounts, { popular: 60, weekend: 66, festival: 49, water: 15, indoor: 12, family: 45 });
   for (const entry of manifest.posts) {
     const post = posts.find((candidate) => candidate.slug === entry.slug);
     assert.ok(post, `reviewed post ${entry.slug} should exist`);
