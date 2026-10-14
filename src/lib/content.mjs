@@ -842,7 +842,10 @@ export function sitemapUrls() {
 }
 
 export function feedItems(limit = 50) {
-  return sortedPosts(indexablePosts).slice(0, limit).map((post) => ({
+  const latestPosts = [...indexablePosts].sort((a, b) => (
+    String(b.sortDate || b.updatedAt || "").localeCompare(String(a.sortDate || a.updatedAt || ""))
+  ));
+  return latestPosts.slice(0, limit).map((post) => ({
     title: postTitle(post),
     link: postUrl(post),
     guid: postUrl(post),

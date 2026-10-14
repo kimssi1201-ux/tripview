@@ -183,6 +183,18 @@ test("homepage data builds a magazine landing without duplicate top stories", as
   }
 });
 
+test("RSS feed keeps the newest publication first", async () => {
+  const { feedItems, indexablePosts } = await import("../src/lib/content.mjs");
+  const newestPost = [...indexablePosts].sort((a, b) => (
+    String(b.sortDate || b.updatedAt || "").localeCompare(String(a.sortDate || a.updatedAt || ""))
+  ))[0];
+  const [firstItem] = feedItems(1);
+
+  assert.ok(newestPost);
+  assert.ok(firstItem);
+  assert.match(firstItem.guid, new RegExp(`/${newestPost.slug}/$`));
+});
+
 test("recent seasonal travel posts use reference-style headline hooks", async () => {
   const posts = JSON.parse(await readFile("data/generated-posts.json", "utf8"));
   const bySlug = new Map(posts.map((post) => [post.slug, post]));
