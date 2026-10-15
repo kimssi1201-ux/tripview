@@ -574,6 +574,12 @@ function homepageImagePosts(posts = []) {
   return uniquePosts(sortedPosts(posts).filter((post) => cardImageAsset(post)?.src));
 }
 
+function homepageRecentImagePosts(posts = []) {
+  return uniquePosts(posts)
+    .filter((post) => post?.slug && cardImageAsset(post)?.src)
+    .sort((a, b) => String(postDate(b)).localeCompare(String(postDate(a))));
+}
+
 function isDomesticHomepagePost(post = {}) {
   return articleCategoryLabel(post) === "여행지" && compactRegion(post.region) !== "해외";
 }
@@ -641,29 +647,33 @@ function homepageProductSection({ id, title, href, products, type, disclosure = 
 export function homepageSections() {
   const data = groupByCategoryData();
   const editorial = sortedPosts(indexablePosts.filter((post) => !isDataPipelinePost(post)));
-  const allImagePosts = homepageImagePosts(indexablePosts);
-  const editorialImagePosts = homepageImagePosts(editorial);
+  const recentImagePosts = homepageRecentImagePosts(indexablePosts);
+  const recentEditorialImagePosts = homepageRecentImagePosts(editorial);
+  const currentMonth = CONTENT_TODAY.slice(0, 7);
+  const currentMonthPosts = recentEditorialImagePosts.filter((post) => postDate(post).startsWith(currentMonth));
   const domesticPosts = homepageImagePosts(indexablePosts.filter(isDomesticHomepagePost));
   const overseasPosts = homepageImagePosts(data.overseasPosts);
   const festivalPosts = homepageImagePosts(data.festivalPosts);
   const stayArticlePosts = homepageImagePosts(indexablePosts.filter(isStayHomepagePost));
   const ticketArticlePosts = homepageImagePosts(indexablePosts.filter(isTicketHomepagePost));
+  const currentMonthDomesticPosts = homepageRecentImagePosts(domesticPosts)
+    .filter((post) => postDate(post).startsWith(currentMonth));
+  const currentMonthFestivalPosts = homepageRecentImagePosts(festivalPosts)
+    .filter((post) => postDate(post).startsWith(currentMonth));
   const used = new Set();
 
   const topLeadPosts = selectHomepagePosts([
-    overseasPosts[0],
-    domesticPosts[0],
-    ...editorialImagePosts,
-    ...allImagePosts,
+    currentMonthPosts[0],
+    currentMonthDomesticPosts[0],
+    currentMonthFestivalPosts[0],
+    ...currentMonthPosts,
+    ...recentEditorialImagePosts,
+    ...recentImagePosts,
   ], 2, used, { allowReuse: false });
   const topSmallPosts = selectHomepagePosts([
-    overseasPosts[1],
-    domesticPosts[1],
-    festivalPosts[0],
-    stayArticlePosts[0],
-    ticketArticlePosts[0],
-    ...editorialImagePosts,
-    ...allImagePosts,
+    ...currentMonthPosts,
+    ...recentEditorialImagePosts,
+    ...recentImagePosts,
   ], 4, used, { allowReuse: false });
   const stayProducts = uniqueProducts(accommodationProducts).filter((product) => productImage(product)).slice(0, 6);
   const ticketProducts = uniqueProducts(tnaProducts.length ? tnaProducts : myrealtripProducts).filter((product) => productImage(product)).slice(0, 6);
@@ -699,8 +709,8 @@ export function homepageSections() {
     topSmallPosts,
     magazineSections,
     regionGroups: regionGroups().slice(0, 6),
-    latestPosts: allImagePosts.slice(0, 6),
-    latestSidebarPosts: allImagePosts.slice(0, 14),
+    latestPosts: recentImagePosts.slice(0, 6),
+    latestSidebarPosts: recentImagePosts.slice(0, 14),
     seasonPosts: currentSeasonPosts(6).filter((post) => cardImageAsset(post)?.src),
     festivalPosts: festivalPosts.slice(0, 6),
     stayProducts,

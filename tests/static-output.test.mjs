@@ -145,7 +145,14 @@ function articleInlineImageSources(body = "") {
 }
 
 test("homepage data builds a magazine landing without duplicate top stories", async () => {
-  const { cardImageAsset, homepageSections } = await import("../src/lib/content.mjs");
+  const {
+    CONTENT_TODAY,
+    cardImageAsset,
+    homepageSections,
+    indexablePosts,
+    isDataPipelinePost,
+    postDate,
+  } = await import("../src/lib/content.mjs");
   const homepageSource = await readFile("src/pages/index.astro", "utf8");
   const data = homepageSections();
   const topSlugs = [...data.topLeadPosts, ...data.topSmallPosts].map((post) => post.slug);
@@ -156,6 +163,17 @@ test("homepage data builds a magazine landing without duplicate top stories", as
   assert.equal(data.topLeadPosts.length, 2);
   assert.equal(data.topSmallPosts.length, 4);
   assert.equal(new Set(topSlugs).size, topSlugs.length);
+  const currentMonth = CONTENT_TODAY.slice(0, 7);
+  const currentMonthCount = indexablePosts.filter((post) => (
+    !isDataPipelinePost(post)
+    && cardImageAsset(post)?.src
+    && postDate(post).startsWith(currentMonth)
+  )).length;
+  assert.equal(
+    [...data.topLeadPosts, ...data.topSmallPosts].filter((post) => postDate(post).startsWith(currentMonth)).length,
+    Math.min(topSlugs.length, currentMonthCount),
+    "homepage top stories should prioritize the current month before using older posts",
+  );
   assert.ok(sidebarPosts.length >= 6);
   assert.equal(new Set(sidebarPosts.map((post) => post.slug)).size, sidebarPosts.length);
   assert.match(homepageSource, /class="home-news-layout"/);
