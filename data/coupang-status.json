@@ -1,7 +1,7 @@
 {
   "ok": true,
   "configured": true,
-  "productCount": 56,
+  "productCount": 55,
   "searchCount": 7,
   "searches": [
     {
@@ -27,7 +27,7 @@
     {
       "intent": "travel",
       "keyword": "단풍 여행 준비물",
-      "count": 8
+      "count": 7
     },
     {
       "intent": "travel",
@@ -41,5 +41,5 @@
     }
   ],
   "errors": [],
-  "updatedAt": "2026-10-19T23:02:48.759Z"
+  "updatedAt": "2026-10-20T22:35:42.539Z"
 }
