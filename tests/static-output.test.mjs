@@ -179,7 +179,9 @@ test("homepage data builds a magazine landing without duplicate top stories", as
   assert.match(homepageSource, /class="home-news-layout"/);
   assert.match(homepageSource, /class="home-news-aside"/);
   assert.match(homepageSource, /home-latest-content-title/);
-  assert.deepEqual([...sections.keys()], ["domestic", "overseas", "festival", "stay", "ticket"]);
+  assert.deepEqual([...sections.keys()].slice(0, 4), ["domestic", "overseas", "festival", "stay"]);
+  // A ticket segment is intentionally omitted if there are no reviewed, useful activity guides.
+  if (sections.has("ticket")) assert.equal([...sections.keys()].at(-1), "ticket");
 
   for (const section of [sections.get("domestic"), sections.get("overseas"), sections.get("festival")]) {
     assert.equal(section.kind, "stories");
@@ -193,7 +195,7 @@ test("homepage data builds a magazine landing without duplicate top stories", as
     }
   }
 
-  for (const section of [sections.get("stay"), sections.get("ticket")]) {
+  for (const section of [sections.get("stay"), sections.get("ticket")].filter(Boolean)) {
     assert.equal(section.kind, "stories", "approval-mode homepage should show editorial content, not booking products");
     assert.ok(section.featured?.slug);
     assert.ok([section.featured, ...section.items].every((post) => post?.slug));
@@ -658,7 +660,7 @@ test("accommodation and ticket hubs keep guides while affiliate cards are disabl
     readFile(outputFile("travel-126078/index.html"), "utf8"),
     readFile(outputFile("festival-4094595/index.html"), "utf8"),
   ]);
-  assert.match(stay, /가격보다 위치와 취소 조건을 먼저 비교하세요/);
+  assert.match(stay, /숙소 정보, 여행 동선부터 확인하세요/);
   assert.match(stay, /숙소 예약 전 확인할 다섯 가지/);
   assert.match(ticket, /일정 확정 전에 운영 조건을 먼저 비교하세요/);
   assert.match(ticket, /체험·입장권 예약 전 비교 기준/);
@@ -1235,7 +1237,7 @@ test("sitemap includes only indexable articles and article robots match content 
   assert.match(sitemap, /<loc>https:\/\/tripview\.kr\/festival\/<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/tripview\.kr\/stay\/<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/tripview\.kr\/ticket\/<\/loc>/);
-  assert.match(sitemap, /<loc>https:\/\/tripview\.kr\/data-stay-ticket-seoul\/<\/loc>/);
+  assert.doesNotMatch(sitemap, /<loc>https:\/\/tripview\.kr\/data-stay-ticket-seoul\/<\/loc>/);
   assert.deepEqual(regionUrls, regions);
   assert.match(sitemap, /<loc>https:\/\/tripview\.kr\/editorial-team<\/loc>/);
   assert.doesNotMatch(sitemap, /<loc>https:\/\/tripview\.kr\/flight-deals(?:\/|<)/);
@@ -1261,14 +1263,15 @@ test("sitemap includes only indexable articles and article robots match content 
   }
 });
 
-test("manual Seoul booking guide remains published without affiliate offers", async () => {
+test("dated Seoul booking snapshot remains accessible but is noindex with no affiliate offers", async () => {
   const [article, sitemap] = await Promise.all([
     readFile(outputFile("data-stay-ticket-seoul/index.html"), "utf8"),
     readFile(outputFile("sitemap.xml"), "utf8"),
   ]);
   assert.match(article, /서울 숙소와 체험 예약 전 비교 총정리/);
   assert.match(article, /data-tripview-article/);
-  assert.match(article, /<meta name="robots" content="index, follow, max-image-preview:large">/);
+  assert.match(article, /<meta name="robots" content="noindex, follow">/);
+  assert.doesNotMatch(article, /adsbygoogle\.js\?client=/);
   assert.doesNotMatch(article, /<a\b[^>]*rel="[^"]*sponsored/);
   assert.doesNotMatch(article, /<section\b[^>]*data-affiliate-provider/);
   assert.match(sitemap, /<loc>https:\/\/tripview\.kr\/data-stay-ticket-seoul\/<\/loc>/);
