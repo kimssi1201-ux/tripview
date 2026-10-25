@@ -1,0 +1,77 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+<BaseLayout title="여행 일정 달력·D-Day·여행 계획 저장 - 트립뷰" description="여행 출발일과 귀국일을 표시하고 여행 일정을 날짜별로 저장하는 무료 여행 달력. 로그인 없이 아이폰·모바일 브라우저에서 이용할 수 있습니다." canonicalPath="/tools/calendar/" activePath="/tools/">
+  <main class="site-page trip-tool-page" data-trip-calendar>
+    <header class="trip-tool-hero">
+      <span class="kicker">TRIPVIEW PLANNER · CALENDAR</span>
+      <h1>나만의 여행 달력</h1>
+      <p>여행 날짜를 정하고 하루 일정을 적어두세요. 작성한 일정은 <strong>현재 기기의 브라우저에만 저장</strong>됩니다. 계정이나 별도 결제가 필요하지 않습니다.</p>
+      <nav class="trip-tool-links"><a href="/tools/">여행 도구 홈</a><a href="/tools/world-time/">세계시간 비교</a><a href="https://mustview.co.kr/" target="_blank" rel="noopener noreferrer">기차·교통 찾기 ↗</a></nav>
+    </header>
+
+    <section class="trip-date-card" aria-labelledby="trip-range-title">
+      <div class="trip-panel-heading">
+        <span class="kicker">01 · 여행 날짜</span>
+        <h2 id="trip-range-title">출발·귀국 날짜를 선택해 보세요</h2>
+      </div>
+      <div class="trip-date-fields">
+        <label>출발 날짜<input type="date" data-trip-departure min="1900-01-01" max="2100-12-31" /></label>
+        <label>귀국·도착 날짜<input type="date" data-trip-return min="1900-01-01" max="2100-12-31" /></label>
+      </div>
+      <div class="trip-countdown" data-trip-countdown aria-live="polite">출발일을 입력하면 D-Day가 표시됩니다.</div>
+      <p class="trip-fineprint">출발일과 귀국일을 고르면 그 사이 날짜가 달력에 표시됩니다. 국제선 도착 시간이 다른 날짜가 될 수 있으므로 항공권의 현지 날짜도 확인하세요.</p>
+    </section>
+
+    <div class="trip-calendar-layout">
+      <section class="trip-calendar-panel" aria-labelledby="calendar-title">
+        <div class="trip-month-head">
+          <h2 id="calendar-title" data-calendar-month>여행 달력</h2>
+          <div class="trip-month-controls">
+            <button type="button" data-calendar-prev aria-label="이전 달">‹</button>
+            <button type="button" data-calendar-today>오늘</button>
+            <button type="button" data-calendar-next aria-label="다음 달">›</button>
+          </div>
+        </div>
+        <div class="trip-weekdays" aria-hidden="true"><span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span></div>
+        <div class="trip-calendar-days" data-calendar-days aria-label="날짜를 선택하는 달력"></div>
+        <div class="trip-calendar-legend"><span><i class="trip-legend-today"></i>오늘</span><span><i class="trip-legend-range"></i>여행 기간</span><span><i class="trip-legend-event"></i>일정 등록됨</span></div>
+      </section>
+
+      <section class="trip-agenda-panel" aria-labelledby="agenda-title">
+        <div class="trip-panel-heading">
+          <span class="kicker">02 · 날짜별 계획</span>
+          <h2 id="agenda-title" data-calendar-selected>선택한 날짜의 일정</h2>
+        </div>
+        <ul class="trip-agenda-items" data-calendar-agenda aria-live="polite"></ul>
+        <form data-calendar-form class="trip-agenda-form">
+          <label>시간<input type="time" name="time" value="09:00" required /></label>
+          <label>일정 또는 장소<input type="text" name="title" maxlength="100" placeholder="예: 강릉역 도착, 커피축제 방문" required /></label>
+          <button type="submit">선택한 날짜에 일정 추가</button>
+        </form>
+        <p class="trip-save-status" data-calendar-status role="status">이 브라우저에 일정이 저장됩니다.</p>
+      </section>
+    </div>
+    <section class="trip-explain">
+      <h2>여행 계획을 조금 더 쉽게 만들려면</h2>
+      <p>먼저 달력에서 출발일과 귀국일을 표시한 다음, 하루에 이동해야 할 장소를 너무 많이 넣지 않는 것이 좋습니다. 기차역에서 숙소까지 이동하거나 체크인하는 시간도 일정을 나눌 때 고려하세요.</p>
+      <p>국내 여행이라면 <a href="https://mustview.co.kr/" target="_blank" rel="noopener noreferrer">레일맵에서 출발역과 도착역</a>을 먼저 찾아보고, 해외여행이라면 <a href="/tools/world-time/">한국과 현지 시차</a>를 확인하세요. 예산까지 잡았다면 <a href="/tools/#packing">준비물 체크리스트</a>로 출발 전에 빠진 물건을 점검할 수 있습니다.</p>
+    </section>
+    <p class="trip-fineprint">* 일정은 사용 중인 브라우저에 저장되며, 다른 기기로 자동 동기화되지 않습니다. 브라우저 데이터 삭제 또는 시크릿 모드에서는 일정이 사라질 수 있습니다. 중요한 예약정보는 별도로 보관하세요.</p>
+  </main>
+  <script type="module" src="/assets/trip-calendar.js"></script>
+</BaseLayout>
+<style>
+.trip-tool-page{max-width:1200px;margin:auto;padding:34px 18px 85px;color:#172b36}
+.trip-tool-hero{padding:28px 0}.trip-tool-hero h1{font-size:clamp(31px,4vw,45px);letter-spacing:-.04em;line-height:1.15;margin:12px 0}.trip-tool-hero p,.trip-explain p{line-height:1.8;max-width:760px;color:#536471}.trip-tool-links{display:flex;gap:9px;flex-wrap:wrap;margin-top:17px}.trip-tool-links a{background:#e9f6f5;color:#066166;font-weight:750;text-decoration:none;padding:10px 13px;border-radius:9px}
+.trip-date-card,.trip-calendar-panel,.trip-agenda-panel,.trip-explain{border:1px solid #dce5e8;border-radius:16px;background:#fff;padding:24px;margin-bottom:22px}
+.trip-panel-heading h2{font-size:21px;margin:9px 0 17px}.trip-date-fields{display:flex;gap:16px;flex-wrap:wrap}.trip-date-fields label,.trip-agenda-form label{display:grid;gap:7px;font-weight:700;font-size:14px;flex:1;min-width:180px}
+.trip-date-fields input,.trip-agenda-form input{width:100%;border-radius:9px;border:1px solid #c7d3da;background:white;padding:12px;font-size:16px;color:#20323d}.trip-countdown{display:inline-block;margin-top:20px;background:#e6f5f2;color:#026e67;font-weight:850;border-radius:10px;padding:13px 17px;font-size:20px}.trip-fineprint{font-size:13px;color:#74838d;line-height:1.7}
+.trip-calendar-layout{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);gap:22px}.trip-calendar-panel,.trip-agenda-panel{margin:0}
+.trip-month-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}.trip-month-head h2{margin:0;font-size:23px}.trip-month-controls{display:flex;gap:6px}.trip-month-controls button{border:1px solid #d3e0e3;border-radius:9px;background:#fff;cursor:pointer;padding:9px 12px;color:#21434b;font-weight:800}
+.trip-weekdays,.trip-calendar-days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px;text-align:center}.trip-weekdays{font-size:12px;color:#78838d;margin-bottom:7px}.trip-weekdays span{padding:10px 0}.trip-calendar-days :global(.calendar-day){position:relative;aspect-ratio:1/1;min-height:40px;border:1px solid transparent;background:#f6f9fa;border-radius:11px;font-size:15px;font-weight:700;color:#283e4c;cursor:pointer;display:flex;align-items:center;justify-content:center}.trip-calendar-days :global(.calendar-day.is-other){color:#b0bcc3;background:#fbfcfc}.trip-calendar-days :global(.calendar-day.is-sunday){color:#c15959}.trip-calendar-days :global(.calendar-day.is-saturday){color:#3367a0}.trip-calendar-days :global(.calendar-day.is-trip){background:#e2f6ee;border-color:#b6daca}.trip-calendar-days :global(.calendar-day.is-today){box-shadow:inset 0 0 0 2px #458b88}.trip-calendar-days :global(.calendar-day.is-selected){background:#087479;color:white;border-color:#087479}.trip-calendar-days :global(.calendar-event-dot){position:absolute;bottom:5px;width:6px;height:6px;border-radius:50%;background:#d38d33}
+.trip-calendar-legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:16px;font-size:12px;color:#677984}.trip-calendar-legend span{display:flex;align-items:center;gap:6px}.trip-calendar-legend i{display:inline-block;width:12px;height:12px;border-radius:50%}.trip-legend-today{border:2px solid #458b88}.trip-legend-range{background:#bde5cb}.trip-legend-event{background:#d38d33}
+.trip-agenda-items{list-style:none;margin:0;padding:0;min-height:80px}.trip-agenda-items :global(li){display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #e8eef0;padding:12px 0;gap:10px}.trip-agenda-items :global(.calendar-event-copy){display:grid;gap:4px}.trip-agenda-items :global(small){color:#58868a}.trip-agenda-items :global(.calendar-remove){background:#fff;border:1px solid #ddd;border-radius:7px;padding:7px 9px;cursor:pointer;color:#a34a4a}.trip-agenda-items :global(.calendar-empty){color:#84919b;font-size:14px}
+.trip-agenda-form{display:grid;gap:12px;margin-top:20px}.trip-agenda-form button{cursor:pointer;border:none;border-radius:9px;background:#09727a;color:white;padding:13px 16px;font-weight:800}.trip-save-status{font-size:12px;color:#75858e}.trip-explain{margin-top:24px}.trip-explain h2{margin:0;font-size:21px}.trip-explain a{color:#006f73;font-weight:700}
+@media(max-width:800px){.trip-calendar-layout{grid-template-columns:1fr}.trip-tool-page{padding:20px 13px 70px}.trip-date-card,.trip-calendar-panel,.trip-agenda-panel,.trip-explain{padding:17px}.trip-calendar-days{gap:3px}.trip-calendar-days :global(.calendar-day){min-height:35px;font-size:14px}.trip-date-fields label{min-width:120px}}
+</style>
