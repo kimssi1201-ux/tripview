@@ -44,8 +44,15 @@ test("missing and failed thumbnails display an intentional, local editorial illu
     "src/pages/index.astro",
   ]) {
     const source = await readFile(path, "utf8");
-    assert.match(source, /onerror=/, path);
+    assert.match(source, /data-tripview-fallback=/, path);
   }
+});
+
+test("image error event is captured globally and replaces only failed images", async () => {
+  const layout = await readFile("src/layouts/BaseLayout.astro", "utf8");
+  assert.match(layout, /document.addEventListener\("error"/);
+  assert.match(layout, /HTMLImageElement/);
+  assert.match(layout, /image.removeAttribute\("data-tripview-fallback"\)/);
 });
 
 test("built homepage shows all travel shortcuts with no sideways swipe requirement", async () => {
