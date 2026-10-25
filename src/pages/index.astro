@@ -65,6 +65,28 @@ const latestMeta = (post) => [articleCategoryLabel(post), compactRegion(post.reg
         <section class="home-region-strip" id="travel-tools" aria-labelledby="home-travel-tools-title">
           <SectionHeading title="여행 계획 도구" href="/tools/" id="home-travel-tools-title" />
           <p>여행 일정과 D-Day를 관리하고, 여행지 현지 시간을 비교해 보세요. 예상 경비를 계산한 뒤 레일맵에서 기차 이동까지 이어서 계획할 수 있습니다.</p>
+          <div class="home-tool-preview" aria-label="여행 도구 미리보기">
+            <div class="home-tool-preview-card">
+              <span class="home-tool-preview-label">여행 D-Day 빠른 계산</span>
+              <label for="home-departure-date">출발 예정일</label>
+              <input id="home-departure-date" type="date" data-home-departure />
+              <strong data-home-dday aria-live="polite">출발 날짜를 선택하세요</strong>
+              <a href="/tools/calendar/">달력에서 일정 관리 →</a>
+            </div>
+            <div class="home-tool-preview-card">
+              <span class="home-tool-preview-label">지금 여행지 시간</span>
+              <label for="home-world-city">여행 도시</label>
+              <select id="home-world-city" data-home-city>
+                <option value="Asia/Tokyo">도쿄 · 일본</option>
+                <option value="Asia/Bangkok">방콕 · 태국</option>
+                <option value="Europe/London">런던 · 영국</option>
+                <option value="America/New_York">뉴욕 · 미국</option>
+                <option value="Australia/Sydney">시드니 · 호주</option>
+              </select>
+              <strong data-home-time aria-live="polite">현지 시간 확인 중</strong>
+              <a href="/tools/world-time/">세계시간 자세히 비교 →</a>
+            </div>
+          </div>
           <div class="home-region-links">
             <a class="home-region-link" href="/tools/calendar/"><span>📅 여행 일정 달력</span><small>D-Day · 일정 저장</small></a>
             <a class="home-region-link" href="/tools/world-time/"><span>🌍 세계시간 확인</span><small>한국과 현지 시차 비교</small></a>
@@ -90,3 +112,38 @@ const latestMeta = (post) => [articleCategoryLabel(post), compactRegion(post.reg
     </div>
   </main>
 </BaseLayout>
+
+<style>
+.home-tool-preview{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:16px 0 20px}
+.home-tool-preview-card{display:grid;gap:9px;padding:19px;border:1px solid #dbe7e7;background:#f7fbfa;border-radius:14px;min-width:0}
+.home-tool-preview-label{font-size:12px;font-weight:800;color:#087479;letter-spacing:.04em}
+.home-tool-preview-card label{font-size:14px;font-weight:700;color:#334155}
+.home-tool-preview-card input,.home-tool-preview-card select{width:100%;max-width:100%;min-height:43px;padding:8px 11px;border:1px solid #cbd5d7;border-radius:8px;background:white;color:#20313b;font-size:15px}
+.home-tool-preview-card strong{font-size:clamp(17px,2.5vw,23px);line-height:1.35;color:#17373b}
+.home-tool-preview-card a{font-size:13px;font-weight:750;color:#087479;text-decoration:none}
+@media(max-width:600px){.home-tool-preview{grid-template-columns:1fr}.home-tool-preview-card{padding:15px}}
+</style>
+<script>
+  const departure = document.querySelector("[data-home-departure]");
+  const dday = document.querySelector("[data-home-dday]");
+  const city = document.querySelector("[data-home-city]");
+  const time = document.querySelector("[data-home-time]");
+  const updateDday = () => {
+    if (!departure || !dday) return;
+    if (!departure.value) { dday.textContent = "출발 날짜를 선택하세요"; return; }
+    const today = new Date();
+    const current = Date.UTC(today.getFullYear(), today.getMonth(), today.getDate());
+    const [y,m,d] = departure.value.split("-").map(Number);
+    const remaining = Math.round((Date.UTC(y,m-1,d)-current)/86400000);
+    dday.textContent = remaining === 0 ? "오늘 출발!" : remaining > 0 ? "출발까지 D-" + remaining : "출발일로부터 D+" + Math.abs(remaining);
+  };
+  const updateTime = () => {
+    if (!city || !time) return;
+    try {
+      time.textContent = new Intl.DateTimeFormat("ko-KR", {timeZone:city.value,month:"long",day:"numeric",weekday:"short",hour:"2-digit",minute:"2-digit",hour12:false}).format(new Date());
+    } catch { time.textContent = "시간 정보를 불러올 수 없습니다"; }
+  };
+  departure?.addEventListener("change", updateDday);
+  city?.addEventListener("change", updateTime);
+  updateDday(); updateTime(); setInterval(updateTime, 60000);
+</script>
