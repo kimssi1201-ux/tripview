@@ -1,0 +1,58 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+<BaseLayout title="세계시간 확인·한국 출발시간 현지 시각 변환 - 트립뷰" description="서울·도쿄·방콕·런던·뉴욕 등 주요 여행 도시의 현재 시각과 날짜, 한국과의 시차를 비교하세요. 서머타임을 반영해 지정한 한국 시각을 여행지 현지 시각으로 변환합니다." canonicalPath="/tools/world-time/" activePath="/tools/">
+  <main class="site-page world-time-page" data-world-clock>
+    <header class="world-time-heading">
+      <span class="kicker">TRIPVIEW PLANNER · WORLD TIME</span>
+      <h1>세계시간과 여행지 시차</h1>
+      <p>한국이 아침일 때 여행지는 몇 시일까요? 주요 도시의 현재 날짜·시각을 비교하고, 항공편 출발 시각을 기준으로 여행지 시간을 계산해 보세요.</p>
+      <nav class="world-links"><a href="/tools/">여행 도구</a><a href="/tools/calendar/">여행 일정 달력</a><a href="/travel/">해외여행 정보</a></nav>
+    </header>
+    <section class="world-box" aria-labelledby="world-now-title">
+      <div class="world-heading">
+        <span class="kicker">01 · 현재 시각</span>
+        <h2 id="world-now-title">주요 여행 도시의 현지 시간</h2>
+        <p>각 도시의 표준 시간대와 일광절약시간을 반영합니다. 날짜가 하루 다른 지역도 함께 확인하세요.</p>
+      </div>
+      <div class="world-city-grid" data-world-cities aria-label="도시별 현재 시간"></div>
+      <p class="world-fineprint" data-world-clock-status role="status">기기에서 표준시간을 확인 중입니다.</p>
+    </section>
+
+    <section class="world-box" aria-labelledby="world-convert-title">
+      <div class="world-heading">
+        <span class="kicker">02 · 시간 변환</span>
+        <h2 id="world-convert-title">한국 출발시간을 현지 시각으로</h2>
+        <p>여행 일정·영상통화 시간을 맞추기 전에, 한국 시간 기준으로 날짜와 시간을 넣어 보세요.</p>
+      </div>
+      <form class="world-converter" data-world-convert-form>
+        <label>한국 날짜와 시간 (KST, UTC+9)
+          <input data-korea-datetime type="datetime-local" min="1900-01-01T00:00" max="2100-12-31T23:59" required />
+        </label>
+        <label>여행지 도시
+          <select data-world-target aria-label="시간 변환할 여행지 도시"></select>
+        </label>
+        <button type="submit">현지 시각 확인하기</button>
+      </form>
+      <div class="world-result" data-world-result aria-live="polite">여행지 시간을 계산합니다.</div>
+      <p class="world-fineprint">* 사용자의 기기 시각과 브라우저의 시간대 데이터로 계산합니다. 인터넷 시간 동기화가 꺼졌다면 실제 시계와 차이가 날 수 있습니다. 항공권은 발권사에서 안내한 출·도착 공항의 현지 날짜와 시간을 기준으로 확인하세요.</p>
+    </section>
+
+    <section class="world-box world-help" aria-labelledby="world-help-title">
+      <h2 id="world-help-title">출발 전에 시차를 확인해야 하는 이유</h2>
+      <p>해외여행을 계획하다 보면 항공권의 날짜, 호텔 체크인, 현지 투어 집결 시간이 한국과 다르게 표시되어 혼동하기 쉽습니다. 특히 미국과 유럽의 일부 도시에는 계절에 따라 일광절약시간이 적용되므로 단순히 몇 시간을 빼는 방식은 정확하지 않을 수 있습니다.</p>
+      <p>예를 들어 한국에서 11월 일정으로 확인한 뉴욕과 7월 뉴욕은 시차가 다를 수 있습니다. 위 변환기에서 실제 여행 날짜를 선택하면 해당 날짜의 시간대 규칙을 반영합니다. 한국은 현재 일광절약시간을 사용하지 않지만 방문 도시는 다를 수 있습니다.</p>
+      <p>시간을 정했다면 <a href="/tools/calendar/">여행 달력</a>에 일정과 집결 시간을 입력하고 <a href="/tools/#budget">여행 경비</a>도 함께 계산해 보세요. 단, 이 도구는 항공편의 소요시간이나 환승 대기시간까지 자동 계산하지 않습니다.</p>
+    </section>
+  </main>
+  <script type="module" src="/assets/trip-world-clock.js"></script>
+</BaseLayout>
+<style>
+.world-time-page{max-width:1150px;margin:auto;padding:36px 18px 85px;color:#172e36}.world-time-heading h1{font-size:clamp(31px,4vw,46px);letter-spacing:-.04em;margin:13px 0}.world-time-heading p,.world-heading p,.world-help p{line-height:1.8;color:#526873;max-width:780px}.world-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.world-links a{padding:10px 14px;border-radius:9px;background:#eaf6f5;color:#055e65;text-decoration:none;font-weight:750}
+.world-box{padding:24px;border-radius:16px;background:#fff;border:1px solid #dce5e9;margin-top:25px}.world-heading h2{font-size:24px;margin:10px 0 8px}
+.world-city-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:25px 0}.world-city-grid :global(.world-clock-card){min-width:0;border:1px solid #dce8e7;background:#f8fbfb;border-radius:12px;padding:18px}.world-city-grid :global(.world-clock-card.is-target){border-color:#0a7e80;background:#edf9f5;box-shadow:inset 0 0 0 1px #0a7e80}.world-city-grid :global(.world-clock-card-header){display:grid;gap:1px}.world-city-grid :global(.world-clock-card-header strong){font-size:18px}.world-city-grid :global(.world-clock-card-header small){color:#83919a}.world-city-grid :global(.world-clock-time){display:block;font-size:clamp(29px,3vw,41px);font-weight:850;font-variant-numeric:tabular-nums;letter-spacing:-.03em;color:#105f68;margin-top:16px}.world-city-grid :global(.world-clock-date){margin:4px 0;color:#526f77;font-size:14px}.world-city-grid :global(.world-clock-offset){min-height:34px;color:#72808a;font-size:12px;line-height:1.4;margin:8px 0}.world-city-grid :global(.world-clock-choose){border:1px solid #d2dfdf;border-radius:8px;background:#fff;color:#0e6770;padding:9px;cursor:pointer;font-size:12px;font-weight:700;width:100%}
+.world-converter{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) auto;gap:12px;align-items:end;margin:21px 0}.world-converter label{display:grid;gap:8px;font-size:14px;font-weight:750;color:#304653}.world-converter :is(input,select){width:100%;font-size:16px;padding:12px;border:1px solid #c6d4d9;border-radius:9px;background:#fff;color:#23313d}.world-converter button{cursor:pointer;background:#07757b;color:#fff;border:0;border-radius:9px;padding:13px 17px;font-weight:800}
+.world-result{padding:23px;border-radius:13px;background:#eaf7f2}.world-result :global(strong){font-size:clamp(25px,3vw,35px);color:#086367;display:block;margin:9px 0}.world-result :global(p){color:#476772;line-height:1.6;margin:5px 0}.world-fineprint{font-size:13px;color:#70828a;line-height:1.7;margin-top:20px}.world-help h2{font-size:23px}.world-help a{color:#006d73;font-weight:800}
+@media(max-width:920px){.world-city-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.world-converter{grid-template-columns:1fr 1fr}.world-converter button{grid-column:1/-1}}
+@media(max-width:650px){.world-time-page{padding:20px 14px 65px}.world-box{padding:17px}.world-city-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.world-city-grid :global(.world-clock-card){padding:13px}.world-city-grid :global(.world-clock-time){font-size:30px}.world-converter{grid-template-columns:1fr}.world-converter button{grid-column:auto}}
+</style>
