@@ -1,3 +1,4 @@
+import { AFFILIATE_DISPLAY_ENABLED } from "./monetization.mjs";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 
@@ -688,7 +689,7 @@ export function homepageSections() {
     homepageStorySection({ id: "domestic", title: "국내여행", href: "/travel/#all-posts", posts: domesticPosts, used }),
     homepageStorySection({ id: "overseas", title: "해외여행", href: "/region/overseas/", posts: overseasPosts, used }),
     homepageStorySection({ id: "festival", title: "축제·행사", href: "/festival/", posts: festivalPosts, used }),
-    stayProducts.length
+    AFFILIATE_DISPLAY_ENABLED && stayProducts.length
       ? homepageProductSection({
         id: "stay",
         title: "숙소·예약",
@@ -698,7 +699,7 @@ export function homepageSections() {
         disclosure: "제휴 예약 상품은 실제 기사와 구분해 표시합니다.",
       })
       : homepageStorySection({ id: "stay", title: "숙소·예약", href: "/stay/", posts: stayArticlePosts, used }),
-    ticketProducts.length
+    AFFILIATE_DISPLAY_ENABLED && ticketProducts.length
       ? homepageProductSection({
         id: "ticket",
         title: "입장권·투어",
