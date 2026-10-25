@@ -688,26 +688,26 @@ export function homepageSections() {
     homepageStorySection({ id: "domestic", title: "국내여행", href: "/travel/#all-posts", posts: domesticPosts, used }),
     homepageStorySection({ id: "overseas", title: "해외여행", href: "/region/overseas/", posts: overseasPosts, used }),
     homepageStorySection({ id: "festival", title: "축제·행사", href: "/festival/", posts: festivalPosts, used }),
-    stayProducts.length
-      ? homepageProductSection({
+    stayArticlePosts.length
+      ? homepageStorySection({ id: "stay", title: "숙소·예약", href: "/stay/", posts: stayArticlePosts, used })
+      : homepageProductSection({
         id: "stay",
         title: "숙소·예약",
         href: "/stay/",
         products: stayProducts,
         type: "accommodation",
         disclosure: "제휴 예약 상품은 실제 기사와 구분해 표시합니다.",
-      })
-      : homepageStorySection({ id: "stay", title: "숙소·예약", href: "/stay/", posts: stayArticlePosts, used }),
-    ticketProducts.length
-      ? homepageProductSection({
+      }),
+    ticketArticlePosts.length
+      ? homepageStorySection({ id: "ticket", title: "입장권·투어", href: "/ticket/", posts: ticketArticlePosts, used })
+      : homepageProductSection({
         id: "ticket",
         title: "입장권·투어",
         href: "/ticket/",
         products: ticketProducts,
         type: "ticket",
         disclosure: "입장권·투어 상품은 예약 전 공식 판매처의 포함 사항과 취소 조건을 확인하세요.",
-      })
-      : homepageStorySection({ id: "ticket", title: "입장권·투어", href: "/ticket/", posts: ticketArticlePosts, used }),
+      }),
   ].filter((section) => section.featured || section.featuredProduct);
 
   return {
