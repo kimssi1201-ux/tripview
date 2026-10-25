@@ -63,7 +63,7 @@ const latestMeta = (post) => [articleCategoryLabel(post), compactRegion(post.reg
                           height={asset.height || 84}
                           loading="lazy"
                           decoding="async"
-                          onerror="this.onerror=null;this.src='/assets/tripview-thumbnail-fallback.svg';"
+                          data-tripview-fallback="/assets/tripview-thumbnail-fallback.svg"
                         />
                       )}
                     </span>
