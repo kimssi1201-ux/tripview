@@ -847,6 +847,8 @@ export function sitemapUrls() {
     { loc: `${SITE_URL}/`, lastmod: today },
     { loc: `${SITE_URL}/about`, lastmod: today },
     { loc: `${SITE_URL}/contact`, lastmod: today },
+    { loc: `${SITE_URL}/tools/`, lastmod: today },
+    { loc: `${SITE_URL}/guides/travel-budget/`, lastmod: today },
     { loc: `${SITE_URL}/editorial-team`, lastmod: today },
     { loc: `${SITE_URL}/editorial-policy`, lastmod: today },
     { loc: `${SITE_URL}/affiliate-disclosure`, lastmod: today },
