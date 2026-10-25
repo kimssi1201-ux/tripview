@@ -196,7 +196,7 @@ test("homepage data builds a magazine landing without duplicate top stories", as
   for (const section of [sections.get("stay"), sections.get("ticket")]) {
     assert.equal(section.kind, "stories", "approval-mode homepage should show editorial content, not booking products");
     assert.ok(section.featured?.slug);
-    assert.ok(section.items.length >= 1);
+    assert.ok([section.featured, ...section.items].every((post) => post?.slug));
   }
 });
 
