@@ -2447,3 +2447,53 @@ figcaption {
 @media (max-width: 600px) {
   .booking-checklist { padding-left: 23px; font-size: 15px; gap: 10px; }
 }
+
+
+/* Homepage utility navigation — visible immediately under the site header on all screens. */
+.home-tools-quickbar {
+  margin: 6px 0 26px;
+  padding: 18px 20px 20px;
+  background: #f3f9f8;
+  border: 1px solid #dbe9e7;
+  border-radius: 16px;
+}
+.home-tools-quickbar-head { display: flex; align-items: end; justify-content: space-between; gap: 12px; margin-bottom: 15px; }
+.home-tools-quickbar-head h2 { margin: 4px 0 0; color: #12393c; font-weight: 900; font-size: clamp(19px,2.2vw,24px); }
+.home-tools-quickbar-more { color: #087078; text-decoration: none; font-size: 12px; font-weight: 800; white-space: nowrap; }
+.home-tools-quickbar-grid { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 10px; }
+.home-tools-quicklink {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 5px;
+  min-width: 0;
+  min-height: 102px;
+  padding: 12px 5px;
+  background: white;
+  border: 1px solid #dce9e8;
+  border-radius: 12px;
+  color: #183940;
+  text-align: center;
+  text-decoration: none;
+  transition: border-color .15s ease, transform .15s ease;
+}
+.home-tools-quicklink:hover { transform: translateY(-2px); border-color: #138385; }
+.home-tools-quicklink:focus-visible { outline: 3px solid #0a7377; outline-offset: 2px; }
+.quicklink-icon { font-size: 27px; line-height: 1.2; }
+.quicklink-label { font-size: 16px; line-height: 1.2; font-weight: 900; word-break: keep-all; }
+.home-tools-quicklink small { font-size: 12px; font-weight: 700; color: #63767d; line-height: 1.25; }
+@media(max-width:700px) {
+  .home-tools-quickbar { padding: 13px 11px 14px; margin: 0 0 17px; border-radius: 12px; }
+  .home-tools-quickbar-grid { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 7px; }
+  .home-tools-quicklink { min-height: 89px; padding: 10px 3px; gap: 3px; }
+  .quicklink-icon { font-size: 23px; }
+  .quicklink-label { font-size: 13px; }
+  .home-tools-quicklink small { font-size: 10px; }
+  .home-tools-quickbar-head h2 { font-size: 19px; }
+}
+@media(max-width:370px) {
+  .home-tools-quickbar-head { align-items: center; }
+  .home-tools-quickbar-more { font-size: 11px; }
+  .quicklink-label { font-size: 12px; }
+  .home-tools-quicklink small { font-size: 9px; }
+}

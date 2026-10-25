@@ -31,6 +31,7 @@ const figureClass = className || undefined;
         loading={eager ? "eager" : "lazy"}
         decoding={eager ? "sync" : "async"}
         fetchpriority={eager ? "high" : "auto"}
+        data-tripview-fallback="/assets/tripview-thumbnail-fallback.svg"
       />
     </span>
     {caption && <figcaption>{imageCaption(asset)}</figcaption>}

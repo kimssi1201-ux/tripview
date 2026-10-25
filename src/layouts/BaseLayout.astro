@@ -67,6 +67,18 @@ const jsonLdItems = [
       const attrs = { [`data-tripview-${item.name}`]: "" };
       return <script type="application/ld+json" {...attrs} set:html={JSON.stringify(item.data).replaceAll("<", "\\u003c")}></script>;
     })}
+    <script is:inline>
+      // Capture image errors before article/media elements load. Keep source URLs
+      // in HTML intact; swap only a failed img with the local editorial fallback.
+      document.addEventListener("error", (event) => {
+        const image = event.target;
+        if (!(image instanceof HTMLImageElement)) return;
+        const replacement = image.getAttribute("data-tripview-fallback");
+        if (!replacement || image.getAttribute("src") === replacement) return;
+        image.removeAttribute("data-tripview-fallback");
+        image.src = replacement;
+      }, true);
+    </script>
     <title>{fullTitle}</title>
   </head>
   <body>

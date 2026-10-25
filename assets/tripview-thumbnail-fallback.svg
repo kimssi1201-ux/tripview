@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+<title id="title">트립뷰 여행정보 기본 이미지</title>
+<desc id="desc">사진이 준비되지 않은 여행글을 표시하기 위한 트립뷰 기본 썸네일</desc>
+<defs><linearGradient id="sky" x2="0" y2="1"><stop stop-color="#E3F4EF"/><stop offset="1" stop-color="#F8FCFA"/></linearGradient><linearGradient id="hill" x2="1" y2="1"><stop stop-color="#157E7B"/><stop offset="1" stop-color="#075C61"/></linearGradient></defs>
+<rect width="960" height="540" fill="url(#sky)"/>
+<circle cx="740" cy="150" r="64" fill="#F0DFA7" opacity=".9"/>
+<path d="M0 376 170 220 299 330 468 142 652 353 810 245 960 384V540H0Z" fill="#C0DED4"/>
+<path d="M0 448 181 306 314 414 501 259 730 437 855 341 960 422V540H0Z" fill="url(#hill)"/>
+<path d="M0 477q195-75 360-12t600-23v98H0z" fill="#0D5458" opacity=".75"/>
+<rect x="32" y="30" width="178" height="46" rx="23" fill="#fff" opacity=".95"/>
+<text x="121" y="61" fill="#0D6567" font-family="sans-serif" font-size="22" font-weight="700" text-anchor="middle">TRIPVIEW</text>
+<rect x="0" y="472" width="960" height="68" fill="#0A4247" opacity=".35"/>
+<text x="480" y="517" fill="#FFFFFF" font-family="sans-serif" font-size="22" font-weight="700" text-anchor="middle">여행정보 · 사진 준비 중</text>
+</svg>
