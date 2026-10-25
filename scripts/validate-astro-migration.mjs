@@ -108,7 +108,12 @@ const missingUrls = setDiff(legacyUrls, astroUrls);
 const extraUrls = setDiff(astroUrls, legacyUrls);
 const indexablePostUrls = new Set(indexablePosts.map((post) => `${BASE_URL}/${encodeURIComponent(post.slug)}/`));
 const indexableRegionUrls = new Set(indexablePosts.map((post) => `${BASE_URL}/region/${regionSlug(compactRegion(post.region))}/`));
-const unexpectedExtraUrls = extraUrls.filter((url) => !indexablePostUrls.has(url) && !indexableRegionUrls.has(url));
+// New, deliberately authored tools and editorial guides are not legacy migration regressions.
+const intentionalNewUrls = new Set([
+  `${BASE_URL}/tools/`,
+  `${BASE_URL}/guides/travel-budget/`,
+]);
+const unexpectedExtraUrls = extraUrls.filter((url) => !indexablePostUrls.has(url) && !indexableRegionUrls.has(url) && !intentionalNewUrls.has(url));
 
 const failures = [];
 if (missingUrls.length) failures.push({ type: "missing-url", items: missingUrls });
