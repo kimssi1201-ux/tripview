@@ -987,9 +987,9 @@ test("article mobile layout keeps the reference-style masthead and compact tools
   assert.match(css, /\.site-nav-main \{[\s\S]*grid-template-columns: repeat\(8, minmax\(0, 1fr\)\);/);
   assert.match(css, /\.site-nav-link \{[\s\S]*min-height: 46px;/);
   // Mobile navigation must expose all categories without horizontal swiping.
-  assert.match(css, /@media \\(max-width: 900px\\)[\\s\\S]*\\.site-nav \\{[\\s\\S]*overflow: visible;/);
-  assert.match(css, /\\.site-nav-main \\{[\\s\\S]*grid-template-columns: repeat\\(4, minmax\\(0, 1fr\\)\\);/);
-  assert.match(css, /\\.site-nav-link \\{[\\s\\S]*white-space: normal;/);
+  assert.match(css, /@media \(max-width: 900px\)[\s\S]*\.site-nav \{[\s\S]*overflow: visible;/);
+  assert.match(css, /\.site-nav-main \{[\s\S]*grid-template-columns: repeat\(4, minmax\(0, 1fr\)\);/);
+  assert.match(css, /\.site-nav-link \{[\s\S]*white-space: normal;/);
   assert.match(css, /@media \(max-width: 900px\)[\s\S]*\.site-mobile-menu \{[\s\S]*display: none;/);
   assert.match(css, /@media \(max-width: 560px\)[\s\S]*\.article-share-bar \{[\s\S]*grid-template-columns: 1fr auto;/);
   assert.match(css, /@media \(max-width: 560px\)[\s\S]*\.article-news-page \.article-title-block h1 \{[\s\S]*font-size: 31px;/);
