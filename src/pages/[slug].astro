@@ -65,7 +65,9 @@ const address = infoValue(post, ["주소", "장소"]);
 const parking = infoValue(post, "주차");
 const hours = infoValue(post, ["운영 확인", "시간"]);
 const fee = infoValue(post, "요금");
-const isOverseasTrip = compactRegion(post.region) === "해외";
+const destinationRegion = compactRegion(post.region);
+const isOverseasTrip = destinationRegion === "해외";
+const supportsMainlandRail = new Set(["서울","경기","인천","강원","대전","세종","충북","충남","광주","전북","전남","대구","부산","울산","경북","경남"]).has(destinationRegion);
 const publishedDate = postPublishedDate(post);
 const modifiedDate = postModifiedDate(post);
 const publishedDateLabel = formatKoreanDate(publishedDate);
@@ -164,8 +166,10 @@ const modifiedDateLabel = formatKoreanDate(modifiedDate);
         <a href="/tools/#budget">💳 여행 경비 계산</a>
         {isOverseasTrip ? (
           <a href="/tools/world-time/">🌍 현지 시차 확인</a>
-        ) : (
+        ) : supportsMainlandRail ? (
           <a href="https://mustview.co.kr/train" target="_blank" rel="noopener noreferrer">🚆 기차 시간표 · 레일맵 ↗</a>
+        ) : (
+          <a href="/tools/#packing">✓ 여행 준비물 확인</a>
         )}
       </div>
     </section>
