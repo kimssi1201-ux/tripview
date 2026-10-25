@@ -25,6 +25,22 @@ const latestMeta = (post) => [articleCategoryLabel(post), compactRegion(post.reg
 
 <BaseLayout title="Tripview - 여행 뉴스 피드" description="Tripview는 국내외 여행지와 축제 소식, 숙소 정보, 체험 가이드, 여행 일정 도구를 한곳에서 볼 수 있는 여행 정보 서비스입니다." canonicalPath="/" activePath="/" ogImage={ogImage}>
   <main class="site-page home-magazine-page home-news-page">
+    <section class="home-tools-quickbar" aria-labelledby="home-tools-quickbar-title">
+      <div class="home-tools-quickbar-head">
+        <div>
+          <span class="kicker">TRIPVIEW TRAVEL PLANNER</span>
+          <h2 id="home-tools-quickbar-title">여행 준비 바로가기</h2>
+        </div>
+        <a class="home-tools-quickbar-more" href="/tools/">여행 도구 전체 →</a>
+      </div>
+      <nav class="home-tools-quickbar-grid" aria-label="여행 계획 바로가기">
+        <a class="home-tools-quicklink" href="/tools/calendar/"><span class="quicklink-icon" aria-hidden="true">📅</span><span class="quicklink-label">여행 달력</span><small>D-Day·일정</small></a>
+        <a class="home-tools-quicklink" href="/tools/world-time/"><span class="quicklink-icon" aria-hidden="true">🌍</span><span class="quicklink-label">세계시간</span><small>나라별 시차</small></a>
+        <a class="home-tools-quicklink" href="/tools/#budget"><span class="quicklink-icon" aria-hidden="true">💳</span><span class="quicklink-label">여행 예산</span><small>경비 계산</small></a>
+        <a class="home-tools-quicklink" href="/tools/#packing"><span class="quicklink-icon" aria-hidden="true">🧳</span><span class="quicklink-label">준비물</span><small>체크리스트</small></a>
+        <a class="home-tools-quicklink" href="https://mustview.co.kr/train" target="_blank" rel="noopener noreferrer"><span class="quicklink-icon" aria-hidden="true">🚆</span><span class="quicklink-label">레일맵</span><small>기차역 찾기 ↗</small></a>
+      </nav>
+    </section>
     <div class="home-news-layout">
       <div class="home-news-top-main">
         <LeadStoryGrid leadPosts={data.topLeadPosts} smallPosts={data.topSmallPosts} />
@@ -35,7 +51,7 @@ const latestMeta = (post) => [articleCategoryLabel(post), compactRegion(post.reg
             <h2 id="home-latest-content-title">최신 콘텐츠</h2>
             <div class="latest-content-list">
               {latestSidebarPosts.map((post) => {
-                const asset = cardImageAsset(post);
+                const asset = cardImageAsset(post) || { src: "/assets/tripview-thumbnail-fallback.svg", width: 960, height: 540, alt: "트립뷰 여행정보 기본 이미지" };
                 return (
                   <a class="latest-content-item" href={`/${post.slug}/`}>
                     <span class="latest-content-thumb">
@@ -47,6 +63,7 @@ const latestMeta = (post) => [articleCategoryLabel(post), compactRegion(post.reg
                           height={asset.height || 84}
                           loading="lazy"
                           decoding="async"
+                          onerror="this.onerror=null;this.src='/assets/tripview-thumbnail-fallback.svg';"
                         />
                       )}
                     </span>
@@ -62,17 +79,6 @@ const latestMeta = (post) => [articleCategoryLabel(post), compactRegion(post.reg
         </aside>
       )}
       <div class="home-news-sections">
-        <section class="home-region-strip" id="travel-tools" aria-labelledby="home-travel-tools-title">
-          <SectionHeading title="여행 계획 도구" href="/tools/" id="home-travel-tools-title" />
-          <p>여행 일정과 D-Day를 관리하고, 여행지 현지 시간을 비교해 보세요. 예상 경비를 계산한 뒤 레일맵에서 기차 이동까지 이어서 계획할 수 있습니다.</p>
-          <div class="home-region-links">
-            <a class="home-region-link" href="/tools/calendar/"><span>📅 여행 일정 달력</span><small>D-Day · 일정 저장</small></a>
-            <a class="home-region-link" href="/tools/world-time/"><span>🌍 세계시간 확인</span><small>한국과 현지 시차 비교</small></a>
-            <a class="home-region-link" href="/tools/#budget"><span>💳 여행 경비 계산</span><small>예시 단가 직접 수정</small></a>
-            <a class="home-region-link" href="/tools/#packing"><span>✓ 여행 준비물</span><small>테마별 체크리스트</small></a>
-            <a class="home-region-link" href="https://mustview.co.kr/train" target="_blank" rel="noopener noreferrer"><span>🚆 기차 시간표 검색</span><small>레일맵 · 별도 사이트 ↗</small></a>
-          </div>
-        </section>
         {data.magazineSections.map((section) => <CategorySection section={section} />)}
 
         <section class="home-region-strip" id="regions" aria-labelledby="regions-title">
