@@ -3,12 +3,13 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import MediaFrame from "../../components/MediaFrame.astro";
 import ProductCard from "../../components/ProductCard.astro";
 import TravelCard from "../../components/TravelCard.astro";
+import { AFFILIATE_DISPLAY_ENABLED } from "../../lib/monetization.mjs";
 import { CATEGORY_PAGES, accommodationProducts, cardImageAsset, groupByCategoryData, productImage } from "../../lib/content.mjs";
 
 const page = CATEGORY_PAGES.find((item) => item.path === "/stay/");
 const lodgingPosts = groupByCategoryData().travelPosts.filter((post) => /숙소|호텔|펜션|리조트/.test(`${post.category || ""} ${post.title || ""}`));
 const editorialImage = lodgingPosts.map(cardImageAsset).find((asset) => asset?.src);
-const bannerImage = editorialImage?.src || productImage(accommodationProducts[0]);
+const bannerImage = editorialImage?.src || (AFFILIATE_DISPLAY_ENABLED ? productImage(accommodationProducts[0]) : "");
 const bannerAsset = bannerImage ? {
   src: bannerImage,
   alt: editorialImage?.alt || `${accommodationProducts[0]?.title || "숙소"} 이미지`,
@@ -22,9 +23,9 @@ const bannerAsset = bannerImage ? {
     <section class:list={["hub-banner", bannerAsset?.src && "has-image"]}>
       <div class="hub-banner-copy">
         <span class="kicker">BOOKING</span>
-        <h1>{page.title}</h1>
+        <h1>가격보다 위치와 취소 조건을 먼저 비교하세요</h1>
         <p>{page.description}</p>
-        <span class="banner-count">{accommodationProducts.length.toLocaleString("ko-KR")}개 숙소 데이터</span>
+        <span class="banner-count">{lodgingPosts.length.toLocaleString("ko-KR")}개 숙소 여행글</span>
       </div>
       {bannerAsset?.src && (
         <div class="hub-banner-image">
@@ -35,7 +36,7 @@ const bannerAsset = bannerImage ? {
     <section class="block" id="stay-checklist" aria-labelledby="stay-checklist-title">
       <div class="block-head">
         <div><span class="kicker">GUIDE</span><h2 id="stay-checklist-title">숙소 예약 전 확인할 다섯 가지</h2></div>
-        <p class="block-note">광고 상품을 보기 전에 체크하세요</p>
+        <p class="block-note">예약 여부와 관계없이 체크하세요</p>
       </div>
       <ol class="booking-checklist">
         <li><strong>날짜와 인원:</strong> 같은 숙소라도 체크인 날짜, 숙박 인원, 객실 종류에 따라 최종 가격이 달라집니다.</li>
@@ -44,7 +45,7 @@ const bannerAsset = bannerImage ? {
         <li><strong>최종 결제액:</strong> 세금, 추가 인원, 조식, 주차 등 별도 금액이 있는지 결제 직전 화면에서 확인하세요.</li>
         <li><strong>객실 포함 사항:</strong> 객실 사진과 실제 예약 객실명, 침대 구성, 조식·주차 포함 여부가 같은지 비교하세요.</li>
       </ol>
-      <p class="block-note">아래 예약 상품은 제휴 링크입니다. 가격·객실 재고·취소 조건은 판매처에서 확인해야 합니다.</p>
+      <p class="block-note">요금과 객실 재고는 예약 일자에 따라 달라지므로 이용하려는 숙소에서 직접 확인하세요.</p>
     </section>
     {lodgingPosts.length > 0 && (
       <section class="block" id="lodging-posts" aria-labelledby="lodging-posts-title">
@@ -57,7 +58,7 @@ const bannerAsset = bannerImage ? {
         </div>
       </section>
     )}
-    <section class="block" id="popular-stay" aria-labelledby="popular-stay-title">
+    {AFFILIATE_DISPLAY_ENABLED && <section class="block" id="popular-stay" aria-labelledby="popular-stay-title">
       <div class="block-head">
         <div><span class="kicker">MYREALTRIP</span><h2 id="popular-stay-title">예약 상품 비교</h2></div>
         <p class="block-note">성인 2명 기준 · 예약 전 확인</p>
@@ -65,6 +66,6 @@ const bannerAsset = bannerImage ? {
       <div class="story-grid">
         {accommodationProducts.slice(0, 8).map((product) => <ProductCard product={product} type="accommodation" />)}
       </div>
-    </section>
+    </section>}
   </main>
 </BaseLayout>
