@@ -1,16 +1,31 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
-<BaseLayout title="여행 예산 계산기와 준비물 체크리스트 - 트립뷰" description="예시 단가를 직접 수정해 여행 예산을 계산하고, 국내·해외·캠핑·아이 동반 준비물을 체크해 보세요. 로그인 없이 휴대전화에서 이용할 수 있습니다." canonicalPath="/tools/" activePath="/tools/">
+<BaseLayout title="여행 계획 도구 | 일정 달력·세계시간·예산·준비물 - 트립뷰" description="여행 일정 달력, 한국과 세계시간 비교, 경비 계산기, 준비물 체크리스트를 한곳에서 이용하세요. 레일맵으로 기차 시간표 검색까지 이어집니다." canonicalPath="/tools/" activePath="/tools/">
   <main class="site-page tools-page" data-travel-tools>
     <header class="tools-heading">
       <span class="kicker">TRIP PLANNER</span>
-      <h1>여행 예산과 준비물을 한 번에</h1>
-      <p>예산을 계산하고 필요한 준비물을 체크해 보세요. 비용은 실시간 요금이 아닌 <strong>수정 가능한 예시 단가</strong>입니다. 예약·결제 기능은 없습니다.</p>
+      <h1>여행 준비, 여기서 시작하세요</h1>
+      <p>여행 날짜를 정하고 현지 시간을 확인한 다음 예상 경비와 준비물을 체크해 보세요. 로그인 없이 아이폰에서도 편하게 이용할 수 있습니다.</p>
       <nav class="tools-shortcuts" aria-label="여행 도구 바로가기">
-        <a href="#budget">예산 계산</a><a href="#packing">준비물 체크</a><a href="/guides/travel-budget/">예산 잡는 법</a>
+        <a href="/tools/calendar/">여행 달력</a><a href="/tools/world-time/">세계시간</a><a href="#budget">예산 계산</a><a href="#packing">준비물 체크</a>
       </nav>
     </header>
+
+    <section class="trip-tools-top" aria-labelledby="trip-tools-spotlight">
+      <div class="tools-panel-head">
+        <span class="kicker">여행 준비 도구</span>
+        <h2 id="trip-tools-spotlight">여행을 계획하는 네 가지 방법</h2>
+        <p>여행지 선택부터 일정 관리, 시차 확인, 이동 계획까지 한곳에서 시작하세요.</p>
+      </div>
+      <div class="trip-tool-cards">
+        <a class="trip-tool-card" href="/tools/calendar/"><span class="trip-tool-card-icon" aria-hidden="true">📅</span><strong>여행 일정 달력</strong><small>여행 날짜 · D-Day · 일정 저장</small><span class="trip-tool-card-go">일정 만들기 →</span></a>
+        <a class="trip-tool-card" href="/tools/world-time/"><span class="trip-tool-card-icon" aria-hidden="true">🌍</span><strong>세계시간 비교</strong><small>한국·여행지 시간 · 현지 날짜</small><span class="trip-tool-card-go">시간 비교 →</span></a>
+        <a class="trip-tool-card" href="#budget"><span class="trip-tool-card-icon" aria-hidden="true">💳</span><strong>여행 경비 계산</strong><small>인원 · 숙박 · 교통 · 예비비</small><span class="trip-tool-card-go">경비 계산 →</span></a>
+        <a class="trip-tool-card" href="https://mustview.co.kr/train" target="_blank" rel="noopener noreferrer"><span class="trip-tool-card-icon" aria-hidden="true">🚆</span><strong>기차 이동 계획</strong><small>레일맵 · KTX·SRT·일반열차 조회</small><span class="trip-tool-card-go">레일맵 열기 ↗</span></a>
+      </div>
+      <p class="tools-disclaimer">레일맵은 별도 사이트로 열립니다. 실제 열차 시간표는 조회 날짜에 따라 달라지며 예약·좌석 현황은 운영사에서 확인하세요.</p>
+    </section>
 
     <section id="budget" class="tools-panel" aria-labelledby="budget-title">
       <div class="tools-panel-head">
@@ -108,12 +123,23 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
       <h2 id="guide-title">계산 결과를 여행 일정에 적용하는 방법</h2>
       <p>출발일과 숙박 지역이 정해지면 교통과 숙소부터 실제 금액으로 바꿔보세요. 1박이 추가될 때 숙소비가 얼마나 늘어나는지, 가족 인원을 변경하면 식비가 얼마나 달라지는지 확인하는 데 유용합니다.</p>
       <p>예산을 줄여야 한다면 꼭 하고 싶은 활동을 남겨두고 숙박 지역·이동수단·식사 횟수를 하나씩 조정해 보세요. 날씨에 따라 바뀔 수 있는 야외 일정에는 실내 대체 동선과 예비비를 남기는 것이 좋습니다.</p>
-      <div class="tools-guide-links"><a href="/guides/travel-budget/">2박 3일 예산 세우는 예시 읽기</a><a href="/festival/">축제 일정 확인</a><a href="/travel/">여행지 둘러보기</a></div>
+      <div class="tools-guide-links"><a href="/tools/calendar/">여행 일정 달력에 적기</a><a href="/guides/travel-budget/">2박 3일 예산 세우는 예시 읽기</a><a href="/festival/">축제 일정 확인</a><a href="/travel/">여행지 둘러보기</a></div>
     </section>
   </main>
   <script type="module" src="/assets/travel-tools.js"></script>
 </BaseLayout>
 <style>
+  .trip-tools-top { padding: 20px 0 7px; }
+  .trip-tool-cards { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 13px; margin: 20px 0; }
+  .trip-tool-card { display: grid; gap: 11px; text-decoration: none; color: #17323e; border: 1px solid #dce7e8; border-radius: 14px; padding: 20px 16px; background: #fff; min-width: 0; transition: border-color .15s ease,transform .15s ease; }
+  .trip-tool-card:hover { border-color: #14787b; transform: translateY(-2px); }
+  .trip-tool-card:focus-visible { outline: 3px solid #14787b; outline-offset: 3px; }
+  .trip-tool-card-icon { font-size: 29px; }
+  .trip-tool-card strong { font-size: 17px; }
+  .trip-tool-card small { font-size: 13px; line-height: 1.5; color: #60737c; }
+  .trip-tool-card-go { margin-top: 5px; font-weight: 800; font-size: 13px; color: #096d73; }
+  @media(max-width: 900px) { .trip-tool-cards { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+  @media(max-width: 460px) { .trip-tool-card { padding: 15px 12px; } .trip-tool-card strong { font-size: 15px; } }
   .tools-page { max-width: 1160px; margin: 0 auto; padding: 32px 20px 85px; }
   .tools-heading { padding: 30px 0 24px; }
   .tools-heading h1 { font-size: clamp(30px, 4vw, 44px); margin: 10px 0 14px; letter-spacing: -.03em; }
