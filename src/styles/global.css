@@ -1758,32 +1758,57 @@ figcaption {
     display: none;
   }
 
+  /* All eight categories stay visible in a compact two-row grid on phones.
+     No horizontal scrolling or hidden categories on narrow screens. */
   .site-nav {
     grid-column: 1 / -1;
     grid-row: 2;
     justify-self: stretch;
     display: block;
     width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .site-nav::-webkit-scrollbar {
-    display: none;
+    min-width: 0;
+    overflow: visible;
   }
 
   .site-nav-main {
-    justify-content: flex-start;
-    gap: 26px;
-    min-width: max-content;
-    padding: 0 4px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    justify-content: stretch;
+    align-items: stretch;
+    gap: 5px;
+    width: 100%;
+    min-width: 0;
+    padding: 0;
   }
 
   .site-nav-link {
-    min-height: 38px;
-    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 0;
+    min-height: 44px;
+    padding: 5px 2px;
+    border-radius: 8px;
+    background: #f4f7f7;
+    color: var(--muted);
+    font-size: clamp(11px, 3.25vw, 13px);
+    font-weight: 800;
+    line-height: 1.2;
+    text-align: center;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: keep-all;
+  }
+
+  .site-nav-link.is-active {
+    background: #e5f5f1;
+    color: #075c60;
+  }
+
+  .site-nav-link::after {
+    bottom: 2px;
+    left: 25%;
+    right: 25%;
   }
 
   .home-lead-grid {
@@ -2145,13 +2170,14 @@ figcaption {
   }
 
   .site-nav-main {
-    gap: 19px;
-    padding: 0 2px;
+    gap: 4px;
+    padding: 0;
   }
 
   .site-nav-link {
-    min-height: 34px;
-    font-size: 14px;
+    min-height: 42px;
+    padding: 5px 2px;
+    font-size: clamp(11px, 3.25vw, 12px);
   }
 
   .site-search-link {
