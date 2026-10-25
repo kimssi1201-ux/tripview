@@ -1274,7 +1274,7 @@ test("dated Seoul booking snapshot remains accessible but is noindex with no aff
   assert.doesNotMatch(article, /adsbygoogle\.js\?client=/);
   assert.doesNotMatch(article, /<a\b[^>]*rel="[^"]*sponsored/);
   assert.doesNotMatch(article, /<section\b[^>]*data-affiliate-provider/);
-  assert.match(sitemap, /<loc>https:\/\/tripview\.kr\/data-stay-ticket-seoul\/<\/loc>/);
+  assert.doesNotMatch(sitemap, /<loc>https:\/\/tripview\.kr\/data-stay-ticket-seoul\/<\/loc>/);
 });
 
 test("data post pipeline outputs validated data pages", async () => {
