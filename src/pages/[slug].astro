@@ -5,7 +5,7 @@ import MediaFrame from "../components/MediaFrame.astro";
 import RelatedPosts from "../components/RelatedPosts.astro";
 import TravelCard from "../components/TravelCard.astro";
 import { articleAffiliatePlacements } from "../lib/affiliate.mjs";
-import { readableSections } from "../lib/readability.mjs";
+import { readableSections, removeDuplicateLead } from "../lib/readability.mjs";
 import {
   allPosts,
   articleActivePath,
@@ -34,7 +34,7 @@ export function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const sections = readableSections(sectionPairs(post));
+const sections = removeDuplicateLead(readableSections(sectionPairs(post)), post.excerpt || post.description || "");
 const faqs = faqPairs(post);
 const inlineAssets = articleInlineAssets(post).map((asset, index) => ({ asset, number: index + 1 }));
 const inlinePlacements = new Map();
