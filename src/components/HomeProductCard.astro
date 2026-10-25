@@ -1,5 +1,6 @@
 ---
 import MediaFrame from "./MediaFrame.astro";
+import { AFFILIATE_DISPLAY_ENABLED } from "../lib/monetization.mjs";
 import { normalizeAccommodationUrl, productImage, productPriceText, productSourceLabel, productUpdatedText } from "../lib/content.mjs";
 
 const { product, type = "accommodation", variant = "small" } = Astro.props;
@@ -21,7 +22,7 @@ const mediaAsset = asset ? {
 } : null;
 ---
 
-<a class:list={["home-product-card", `is-${variant}`]} href={href} target="_blank" rel="sponsored nofollow noopener">
+{AFFILIATE_DISPLAY_ENABLED && <a class:list={["home-product-card", `is-${variant}`]} href={href} target="_blank" rel="sponsored nofollow noopener">
   {mediaAsset && <MediaFrame asset={mediaAsset} caption={false} ratio={variant === "featured" ? "4 / 3" : "16 / 10"} />}
   <span class="home-product-body">
     <span class="home-story-label">{label}</span>
@@ -30,4 +31,4 @@ const mediaAsset = asset ? {
     {price && <span class="home-product-price">{price}</span>}
     <span class="home-product-source">데이터 {updatedText} · {sourceLabel} 확인</span>
   </span>
-</a>
+</a>}

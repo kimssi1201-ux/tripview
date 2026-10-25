@@ -1002,24 +1002,44 @@ function firstUrl(value = "") {
   return normalizeText(value).match(/https?:\/\/[^\s<>"')]+/i)?.[0] || "";
 }
 
+function isPausedCommercialBookingUrl(rawUrl = "") {
+  try {
+    const url = new URL(rawUrl);
+    const host = url.hostname.toLowerCase();
+    // These domains are used by Tripview's affiliate feeds. They should not
+    // reappear as editorial references while promotions are paused.
+    return host === "myrealtrip.com" || host.endsWith(".myrealtrip.com") ||
+      host === "link.coupang.com" || host === "coupang.com" || host.endsWith(".coupang.com") ||
+      host === "agoda.com" || host.endsWith(".agoda.com") ||
+      host.includes("linkprice") || host.includes("tenping") || host.includes("adpick");
+  } catch {
+    return false;
+  }
+}
+
 export function officialLinks(post = {}) {
   const links = [];
   const homepage = post.tourApi?.homepage || infoValue(post, "홈페이지") || "";
   const homepageUrl = firstUrl(homepage);
-  if (homepageUrl) links.push({ label: "공식 홈페이지", url: homepageUrl });
+  if (homepageUrl && !isPausedCommercialBookingUrl(homepageUrl)) {
+    links.push({ label: "공식 홈페이지", url: homepageUrl });
+  }
   const explicitLinks = Array.isArray(post.officialLinks) ? post.officialLinks : [];
   for (const source of explicitLinks) {
     const url = firstUrl(source?.url || source);
     const label = normalizeText(source?.label || "공식 확인처");
-    if (url) links.push({ label, url });
+    if (url && !isPausedCommercialBookingUrl(url) && !/제휴|파트너스|광고.*링크/.test(label)) {
+      links.push({ label, url });
+    }
   }
-  if (post.tourApi?.overview || post.contentid) links.push({ label: "한국관광공사 공공데이터", url: "https://www.visitkorea.or.kr/" });
+  if (post.tourApi?.overview || post.contentid) {
+    links.push({ label: "한국관광공사 공공데이터", url: "https://www.visitkorea.or.kr/" });
+  }
   if (compactRegion(post.region) === "해외" || articleCategoryLabel(post) === "해외여행") {
     links.push({ label: "외교부 해외안전여행", url: "https://www.0404.go.kr/" });
   }
-  if (isDataPipelinePost(post)) {
-    links.push({ label: "제휴 예약처 가격 확인", url: "https://www.myrealtrip.com/" });
-  }
+  // In particular do not add the old "제휴 예약처 가격 확인" sales link
+  // for automatically collected articles.
   return uniqueProducts(links);
 }
 

@@ -1,6 +1,11 @@
 /**
- * Affiliate offer visibility is disabled while tripview.kr is reviewed.
- * To restore offers later, explicitly build with TRIPVIEW_AFFILIATE_ENABLED=1.
- * This controls rendered HTML, not just a CSS hide, and does not delete data.
+ * Tripview affiliate promotion is intentionally paused.
+ *
+ * Fixed off during this review period, regardless of Cloudflare/build
+ * environment variables. Affiliate product data remains stored for later
+ * reactivation only after an explicit code change and user approval.
+ *
+ * AdSense scripts and independent, non-affiliate editorial information
+ * are not controlled by this setting.
  */
-export const AFFILIATE_DISPLAY_ENABLED = process.env.TRIPVIEW_AFFILIATE_ENABLED === "1";
+export const AFFILIATE_DISPLAY_ENABLED = false;
