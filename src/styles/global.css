@@ -129,34 +129,49 @@ select {
   line-height: 1;
 }
 
+/* Desktop: every section stays visible at a glance, not in a dropdown. */
 .site-nav {
   grid-column: 1 / -1;
   grid-row: 2;
-  justify-self: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
+  justify-self: stretch;
+  display: block;
+  width: 100%;
+  min-width: 0;
 }
 
 .site-nav-main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 38px;
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 8px;
+  width: 100%;
+  min-width: 0;
+  /* Leave room for the search button at the end of the same row. */
+  padding: 0 58px;
 }
 
 .site-nav-link {
   position: relative;
-  display: inline-flex;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  min-height: 44px;
+  min-width: 0;
+  min-height: 46px;
+  padding: 6px 3px;
+  border-radius: 9px;
+  background: #f4f7f7;
   color: var(--muted);
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 800;
-  line-height: 1;
+  line-height: 1.25;
+  text-align: center;
   white-space: nowrap;
-  transition: color 150ms ease;
+  transition: color 150ms ease, background-color 150ms ease;
+}
+
+.site-nav-link.is-active {
+  background: #e5f5f1;
+  color: #075c60;
 }
 
 .site-nav-link::after {
