@@ -64,8 +64,14 @@ const latestMeta = (post) => [articleCategoryLabel(post), compactRegion(post.reg
       <div class="home-news-sections">
         <section class="home-region-strip" id="travel-tools" aria-labelledby="home-travel-tools-title">
           <SectionHeading title="여행 계획 도구" href="/tools/" id="home-travel-tools-title" />
-          <p>인원과 일수에 맞춰 비용을 직접 계산하고, 준비물 목록을 체크해 보세요. 예상 비용은 입력한 단가 기준으로 계산합니다.</p>
-          <div class="home-region-links"><a class="home-region-link" href="/tools/#budget"><span>여행 예산 계산기</span><small>무료 · 입력 단가 기준</small></a><a class="home-region-link" href="/tools/#packing"><span>준비물 체크리스트</span><small>국내·해외·캠핑·아이 동반</small></a></div>
+          <p>여행 일정과 D-Day를 관리하고, 여행지 현지 시간을 비교해 보세요. 예상 경비를 계산한 뒤 레일맵에서 기차 이동까지 이어서 계획할 수 있습니다.</p>
+          <div class="home-region-links">
+            <a class="home-region-link" href="/tools/calendar/"><span>📅 여행 일정 달력</span><small>D-Day · 일정 저장</small></a>
+            <a class="home-region-link" href="/tools/world-time/"><span>🌍 세계시간 확인</span><small>한국과 현지 시차 비교</small></a>
+            <a class="home-region-link" href="/tools/#budget"><span>💳 여행 경비 계산</span><small>예시 단가 직접 수정</small></a>
+            <a class="home-region-link" href="/tools/#packing"><span>✓ 여행 준비물</span><small>테마별 체크리스트</small></a>
+            <a class="home-region-link" href="https://mustview.co.kr/train" target="_blank" rel="noopener noreferrer"><span>🚆 기차 시간표 검색</span><small>레일맵 · 별도 사이트 ↗</small></a>
+          </div>
         </section>
         {data.magazineSections.map((section) => <CategorySection section={section} />)}
 
