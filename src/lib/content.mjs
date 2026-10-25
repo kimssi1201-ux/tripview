@@ -437,7 +437,10 @@ export function heroImageAsset(post = {}) {
 export function cardImageAsset(post = {}) {
   const entry = tourImageEntry(post);
   const pexels = pexelsImageAssetsForPost(post)[0];
-  return entry?.cover || pexels || assetFromRaw(post.image || post.images?.[0] || "", post);
+  // Keep article cards visible when a source has no usable thumbnail metadata.
+  // The local placeholder avoids broken hotlinked images on otherwise valid posts.
+  return entry?.cover || entry?.hero || entry?.images?.find((asset) => asset?.src)
+    || pexels || assetFromRaw(post.image || post.images?.[0] || FALLBACK_IMAGE, post);
 }
 
 export function regionCardImageAsset(post = {}) {
