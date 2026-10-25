@@ -4,6 +4,7 @@ import MediaFrame from "../../components/MediaFrame.astro";
 import PostSection from "../../components/PostSection.astro";
 import ProductCard from "../../components/ProductCard.astro";
 import TravelCard from "../../components/TravelCard.astro";
+import { AFFILIATE_DISPLAY_ENABLED } from "../../lib/monetization.mjs";
 import { CATEGORY_PAGES, cardImageAsset, groupByCategoryData, selectAccommodationItems } from "../../lib/content.mjs";
 
 const page = CATEGORY_PAGES.find((item) => item.path === "/travel/");
@@ -52,7 +53,7 @@ const ogImage = bannerAsset?.src || "";
         {data.travelPosts.slice(0, 48).map((post) => <TravelCard post={post} showExcerpt={false} />)}
       </div>
     </section>
-    <section class="block" id="travel-stay" aria-labelledby="travel-stay-title">
+    {AFFILIATE_DISPLAY_ENABLED && <section class="block" id="travel-stay" aria-labelledby="travel-stay-title">
       <div class="block-head">
         <div><span class="kicker">BOOKING</span><h2 id="travel-stay-title">여행지 주변 숙소</h2></div>
         <p class="block-note">제휴 링크 · 예약 전 조건 확인</p>
@@ -60,6 +61,6 @@ const ogImage = bannerAsset?.src || "";
       <div class="story-grid">
         {products.map((product) => <ProductCard product={product} type="accommodation" />)}
       </div>
-    </section>
+    </section>}
   </main>
 </BaseLayout>
