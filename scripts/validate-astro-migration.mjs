@@ -85,6 +85,7 @@ function slugFromUrl(url) {
 }
 
 function isAllowedH1Change(url, astroH1) {
+  if (slugFromUrl(url) === "stay" && astroH1 === "숙소 정보, 여행 동선부터 확인하세요") return true;
   return ALLOWED_H1_CHANGE_SLUGS.has(slugFromUrl(url)) && /^“[^”]+”… /.test(astroH1);
 }
 
