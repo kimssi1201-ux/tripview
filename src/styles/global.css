@@ -2391,3 +2391,18 @@ figcaption {
     scroll-behavior: auto !important;
   }
 }
+
+/* Editorial checklists on booking hubs: visible before affiliate cards. */
+.booking-checklist {
+  margin: 12px 0 22px;
+  padding-left: 28px;
+  display: grid;
+  gap: 12px;
+  line-height: 1.75;
+  color: var(--text, #263238);
+}
+.booking-checklist li { padding-left: 4px; }
+.booking-checklist strong { font-weight: 700; }
+@media (max-width: 600px) {
+  .booking-checklist { padding-left: 23px; font-size: 15px; gap: 10px; }
+}

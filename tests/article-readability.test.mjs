@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import { readableSections, splitReadableParagraphs } from "../src/lib/readability.mjs";
+import { readableSections, removeDuplicateLead, splitReadableParagraphs } from "../src/lib/readability.mjs";
 
 test("article paragraphs are split into readable chunks", () => {
   const source = [
@@ -17,4 +17,16 @@ test("article paragraphs are split into readable chunks", () => {
   assert.ok(section.paragraphs.every((paragraph) => paragraph.length <= 140), section.paragraphs.join("\n---\n"));
   assert.equal(section.paragraphs.join(" "), source);
   assert.equal(splitReadableParagraphs("평점은 4.7점입니다. 리뷰는 2,666개입니다.").join(" "), "평점은 4.7점입니다. 리뷰는 2,666개입니다.");
+});
+
+test("repeated intro excerpt is removed without deleting original article text", () => {
+  const excerpt = "부산타워는 야경 방문 전에 운영 시간과 발권 마감을 확인하는 여행지입니다.";
+  const sections = readableSections([
+    { heading: "관람 포인트", paragraphs: [excerpt, "야경 관람 후에는 용두산공원을 함께 걸어볼 수 있습니다."] },
+    { heading: "운영시간", paragraphs: ["운영시간은 방문 날짜별로 달라질 수 있습니다."] },
+  ]);
+  const result = removeDuplicateLead(sections, excerpt);
+  assert.equal(result.length, 2);
+  assert.equal(result[0].paragraphs.join(" "), "야경 관람 후에는 용두산공원을 함께 걸어볼 수 있습니다.");
+  assert.equal(removeDuplicateLead(sections, "완전히 다른 소개문")[0].paragraphs[0], excerpt);
 });

@@ -62,6 +62,11 @@ const latestMeta = (post) => [articleCategoryLabel(post), compactRegion(post.reg
         </aside>
       )}
       <div class="home-news-sections">
+        <section class="home-region-strip" id="travel-tools" aria-labelledby="home-travel-tools-title">
+          <SectionHeading title="여행 계획 도구" href="/tools/" id="home-travel-tools-title" />
+          <p>인원과 일수에 맞춰 비용을 직접 계산하고, 준비물 목록을 체크해 보세요. 예상 비용은 입력한 단가 기준으로 계산합니다.</p>
+          <div class="home-region-links"><a class="home-region-link" href="/tools/#budget"><span>여행 예산 계산기</span><small>무료 · 입력 단가 기준</small></a><a class="home-region-link" href="/tools/#packing"><span>준비물 체크리스트</span><small>국내·해외·캠핑·아이 동반</small></a></div>
+        </section>
         {data.magazineSections.map((section) => <CategorySection section={section} />)}
 
         <section class="home-region-strip" id="regions" aria-labelledby="regions-title">

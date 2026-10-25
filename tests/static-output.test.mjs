@@ -194,10 +194,9 @@ test("homepage data builds a magazine landing without duplicate top stories", as
   }
 
   for (const section of [sections.get("stay"), sections.get("ticket")]) {
-    assert.equal(section.kind, "products");
-    assert.ok(section.featuredProduct?.title);
-    assert.ok(section.products.length >= 3);
-    assert.ok(section.disclosure);
+    assert.equal(section.kind, "stories", "approval-mode homepage should show editorial content, not booking products");
+    assert.ok(section.featured?.slug);
+    assert.ok([section.featured, ...section.items].every((post) => post?.slug));
   }
 });
 
@@ -411,22 +410,13 @@ test("article pages expose author dates source links and trust schemas", async (
   assert.match(article, /작성·검수 정보/);
 });
 
-test("product cards expose data dates and official price checks", async () => {
-  const [article, stay, ticket, coupangScript] = await Promise.all([
-    readFile("dist/travel-osaka-september-2026/index.html", "utf8"),
-    readFile("dist/data-stay-price-seoul/index.html", "utf8"),
-    readFile("dist/data-ticket-price-busan/index.html", "utf8"),
-    readFile("assets/coupang.js", "utf8"),
-  ]);
-
-  assert.match(article, /class="mrt-card-source"/);
-  assert.match(article, /데이터 [^<]+ 기준 · 마이리얼트립 공식 예약처 확인/);
-  assert.match(article, /표시 가격은 [^<]+ 데이터 기준/);
-  assert.match(article, /마이리얼트립 공식 예약 화면/);
-  assert.match(stay, /확인 기준/);
-  assert.match(ticket, /확인 기준/);
-  assert.match(stay, /제휴 예약처 가격 확인/);
-  assert.match(ticket, /제휴 예약처 가격 확인/);
+test("affiliate promotion is disabled in generated pages while product source data remains intact", async () => {
+  for (const slug of ["travel-osaka-september-2026", "data-stay-price-seoul", "data-ticket-price-busan"]) {
+    const article = await readFile("dist/" + slug + "/index.html", "utf8");
+    assert.doesNotMatch(article, /<a[^>]*rel="[^"]*sponsored/);
+    assert.doesNotMatch(article, /<section[^>]*data-affiliate-provider/);
+  }
+  const coupangScript = await readFile("assets/coupang.js", "utf8");
   assert.match(coupangScript, /PRICE_SOURCE_NOTE = "공식 판매처 가격 확인"/);
   assert.match(coupangScript, /product-source-note/);
 });
@@ -618,19 +608,12 @@ test("article product sections stay inside mobile content width", async () => {
   );
 });
 
-test("homepage accommodation cards use the dynamic default stay window", async () => {
+test("homepage has no affiliate cards and links to the trip planning tools", async () => {
   const homepage = await readFile(outputFile("index.html"), "utf8");
-  const stay = expectedStayWindow();
-  const cards = [...homepage.matchAll(/<a class="home-product-card[^"]*"[^>]*href="https:\/\/accommodation\.myrealtrip\.com[^>]*>/g)]
-    .map((match) => match[0]);
-  assert.ok(cards.length >= 3, "homepage should render a focused set of accommodation cards");
-  assert.ok(cards.every((card) => card.includes(`checkIn=${stay.checkIn}`)));
-  assert.ok(cards.every((card) => card.includes(`checkOut=${stay.checkOut}`)));
-  assert.ok(cards.every((card) => card.includes("adultCount=2")));
-  assert.ok(cards.every((card) => card.includes("childCount=0")));
-  assert.ok(cards.every((card) => hasRelTokens(card, "sponsored", "nofollow")));
-  assert.ok(cards.every((card) => /target="_blank"/.test(card)));
-  assert.doesNotMatch(homepage, /checkIn=2026-08-24|checkOut=2026-08-26/);
+  assert.doesNotMatch(homepage, /<a class="home-product-card[^"]*"/);
+  assert.doesNotMatch(homepage, /<a[^>]*rel="[^"]*sponsored/);
+  assert.match(homepage, /href="\/tools\/#budget"/);
+  assert.match(homepage, /href="\/tools\/#packing"/);
 });
 
 test("beach article pages do not include the removed API information widget", async () => {
@@ -668,95 +651,23 @@ test("homepage is aligned to the current month and avoids expired seasonal or Co
   if (upcomingSection) assert.ok(festivalPage.indexOf('id="past"') > festivalPage.indexOf('id="upcoming"'));
 });
 
-test("accommodation cards use cached MyRealTrip stay links and stay out of pending articles", async () => {
-  const stayPage = await readFile(outputFile("stay/index.html"), "utf8");
-  const cards = [...stayPage.matchAll(/<a[^>]*data-mrt-accommodation-card[^>]*>/g)].map((match) => match[0]);
-  assert.ok(cards.length >= 3, "stay page should have accommodation cards");
-
-  const urls = cards.map((card) => card.match(/href="([^"]+)"/)?.[1]).filter(Boolean);
-  const stay = expectedStayWindow();
-  assert.equal(new Set(urls).size, urls.length, "stay page accommodation products should not repeat");
-  assert.ok(urls.every((url) => /^https:\/\/accommodation\.myrealtrip\.com\//.test(url)));
-  assert.ok(urls.every((url) => url.includes(`checkIn=${stay.checkIn}`)));
-  assert.ok(urls.every((url) => url.includes(`checkOut=${stay.checkOut}`)));
-  assert.ok(urls.every((url) => url.includes("adultCount=2")));
-  assert.ok(urls.every((url) => url.includes("childCount=0")));
-  assert.ok(cards.every((card) => hasRelTokens(card, "sponsored", "nofollow")));
-  assert.ok(cards.every((card) => /target="_blank"/.test(card)));
-  assert.match(stayPage, /가격보다 위치와 취소 조건을 먼저 비교하세요/);
-  assert.doesNotMatch(stayPage, /id="quick-search"|quick-search-title|조건별 빠른 검색|class="booking-condition"/);
-  assert.match(stayPage, /class="story-grid"/);
-  assert.match(stayPage, /[\d,]+원부터/);
-  assert.doesNotMatch(stayPage, /checkIn=2026-08-24|checkOut=2026-08-26/);
-  const productCards = [...stayPage.matchAll(/<a class="mrt-card"[^>]*data-mrt-accommodation-card[^>]*>[\s\S]*?<\/a>/g)]
-    .map((match) => match[0]);
-  assert.equal(productCards.length, cards.length);
-  assert.ok(productCards.some((card) => /<img src="https:\/\/[^\"]+"[^>]*loading="lazy"/.test(card)));
-  assert.ok(productCards.every((card) => /<img /.test(card)));
-
-  const ticketPage = await readFile("ticket/index.html", "utf8");
-  const ticketCards = [...ticketPage.matchAll(/<a class="booking-product-card"[^>]*data-mrt-ticket-card[^>]*>/g)].map((match) => match[0]);
-  assert.ok(ticketCards.length >= 3, "ticket page should render rating-sorted ticket products");
-  assert.match(ticketPage, /일정 확정 전에 운영 조건을 먼저 비교하세요/);
-  assert.doesNotMatch(ticketPage, /id="quick-search"|quick-search-title|조건별 빠른 검색|class="booking-condition"/);
-  assert.match(ticketPage, /class="booking-affiliate-box"/);
-  assert.match(ticketPage, /class="booking-city-grid"/);
-  assert.match(ticketPage, /id="region-seoul"/);
-  assert.match(ticketPage, /전체 입장권·투어 보기/);
-  assert.ok(ticketCards.every((card) => /rel="sponsored nofollow"/.test(card)));
-  assert.ok(ticketCards.every((card) => /target="_blank"/.test(card)));
-
-  const [reviewedArticle, paidArticle, pendingArticle] = await Promise.all([
-    readFile("travel-126078/index.html", "utf8"),
-    readFile("travel-2994364/index.html", "utf8"),
-    readFile("festival-4094595/index.html", "utf8"),
+test("accommodation and ticket hubs keep guides while affiliate cards are disabled", async () => {
+  const [stay, ticket, reviewed, pending] = await Promise.all([
+    readFile(outputFile("stay/index.html"), "utf8"),
+    readFile(outputFile("ticket/index.html"), "utf8"),
+    readFile(outputFile("travel-126078/index.html"), "utf8"),
+    readFile(outputFile("festival-4094595/index.html"), "utf8"),
   ]);
-  assert.match(reviewedArticle, /<section class="article-hero-band"/);
-  assert.match(reviewedArticle, /<p class="article-affiliate-disclosure"/);
-  assert.match(reviewedArticle, /<table class="article-fact-table"/);
-  assert.doesNotMatch(reviewedArticle, /<table class="info-table"/);
-  assert.doesNotMatch(reviewedArticle, /<div class="article-info-grid"/);
-  assert.match(reviewedArticle, /<!-- ARTICLE_PRODUCT_START accommodation -->/);
-  const articleProductBlock = reviewedArticle.match(/<!-- ARTICLE_PRODUCT_START accommodation -->[\s\S]*?<!-- ARTICLE_PRODUCT_END -->/)?.[0] || "";
-  const articleAccommodationCards = articleProductBlock.match(/data-mrt-accommodation-card/g) || [];
-  assert.ok(articleAccommodationCards.length > 0 && articleAccommodationCards.length <= 6);
-  assert.match(articleProductBlock, /class="mrt-accommodation-grid article-accommodation-list"/);
-  assert.match(articleProductBlock, /class="article-accommodation-condition"/);
-  assert.match(articleProductBlock, /class="article-product-compare-wrap"/);
-  assert.match(articleProductBlock, /class="article-product-compare"/);
-  assert.match(articleProductBlock, /<td data-label="상품명"><a class="article-product-link" href="https:\/\/accommodation\.myrealtrip\.com\/[^"]+" rel="sponsored nofollow" target="_blank">/);
-  assert.match(articleProductBlock, /<td data-label="예약"><a class="article-product-reserve" href="https:\/\/accommodation\.myrealtrip\.com\/[^"]+" rel="sponsored nofollow" target="_blank">예약하기<\/a><\/td>/);
-  assert.doesNotMatch(articleProductBlock, /마이리얼트립 숙소/);
-  assert.match(articleProductBlock, /class="mrt-accommodation-thumb"><img src="https:\/\/[^\"]+"[^>]*loading="lazy"[^>]*decoding="async"/);
-  assert.match(articleProductBlock, /class="mrt-rating-badge"/);
-  assert.match(articleProductBlock, /<del>[\d,]+원<\/del><strong>[\d,]+원<\/strong>|<strong>[\d,]+원<\/strong>/);
-  assert.match(articleProductBlock, /예약하기/);
-  assert.doesNotMatch(reviewedArticle, /<!-- MRT_ACCOMMODATION_START/);
-  assert.match(paidArticle, /<!-- ARTICLE_PRODUCT_START ticket -->/);
-  assert.doesNotMatch(paidArticle, /data-mrt-accommodation-card/);
-  const paidTicketCards = paidArticle.match(/data-mrt-ticket-card/g) || [];
-  assert.ok(paidTicketCards.length > 0 && paidTicketCards.length <= 6);
-  assert.match(paidArticle, /class="article-product-compare-wrap"/);
-  assert.match(paidArticle, /class="article-product-compare"/);
-  assert.match(paidArticle, /<td data-label="조건">/);
-  assert.match(paidArticle, /<td data-label="예약"><a class="article-product-reserve" href="https:\/\/[^"]*\.myrealtrip\.com\/[^"]+" rel="sponsored nofollow" target="_blank">예약하기<\/a><\/td>/);
-  assert.match(paidArticle, /예약하기/);
-  assert.match(reviewedArticle, /<meta name="robots" content="index, follow, max-image-preview:large">/);
-  assert.doesNotMatch(pendingArticle, /<!-- MRT_ACCOMMODATION_START/);
-  assert.doesNotMatch(pendingArticle, /<!-- ARTICLE_PRODUCT_START/);
-  assert.doesNotMatch(pendingArticle, /adsbygoogle\.js\?client=/);
-  assert.match(pendingArticle, /data-tripview-article/);
-  assert.match(pendingArticle, /data-tripview-event/);
-  assert.match(pendingArticle, /<meta name="robots" content="noindex, follow">/);
-
-  const flightDirectories = await readdir("flight-deals", { withFileTypes: true });
-  const overseasFlightDirectory = flightDirectories.find((entry) => entry.isDirectory() && entry.name.includes("-kix-"));
-  assert.ok(overseasFlightDirectory, "a Kansai flight article should exist for the overseas-product guard");
-  const overseasFlightArticle = await readFile(`flight-deals/${overseasFlightDirectory.name}/index.html`, "utf8");
-  assert.match(overseasFlightArticle, /<meta name="robots" content="noindex, follow">/);
-  assert.doesNotMatch(overseasFlightArticle, /adsbygoogle\.js\?client=/);
-  assert.doesNotMatch(overseasFlightArticle, /같이 보면 좋은 예약 정보/);
-  assert.doesNotMatch(overseasFlightArticle, /experiences\.myrealtrip\.com\/products\//);
+  assert.match(stay, /가격보다 위치와 취소 조건을 먼저 비교하세요/);
+  assert.match(stay, /숙소 예약 전 확인할 다섯 가지/);
+  assert.match(ticket, /일정 확정 전에 운영 조건을 먼저 비교하세요/);
+  assert.match(ticket, /체험·입장권 예약 전 비교 기준/);
+  for (const page of [stay, ticket, reviewed]) {
+    assert.doesNotMatch(page, /<a\b[^>]*rel="[^"]*sponsored/);
+    assert.doesNotMatch(page, /<section\b[^>]*data-affiliate-provider/);
+  }
+  assert.match(reviewed, /data-tripview-article/);
+  assert.match(pending, /<meta name="robots" content="noindex, follow">/);
 });
 
 test("accommodation cache keeps the MyRealTrip API contract lean", async () => {
@@ -1344,29 +1255,16 @@ test("sitemap includes only indexable articles and article robots match content 
   }
 });
 
-test("manual Seoul booking guide uses cached products and sponsored links", async () => {
+test("manual Seoul booking guide remains published without affiliate offers", async () => {
   const [article, sitemap] = await Promise.all([
     readFile(outputFile("data-stay-ticket-seoul/index.html"), "utf8"),
     readFile(outputFile("sitemap.xml"), "utf8"),
   ]);
-
   assert.match(article, /서울 숙소와 체험 예약 전 비교 총정리/);
-  const accommodationCards = [...article.matchAll(/<a\b[^>]*class="affiliate-inline-card"[^>]*href="https:\/\/accommodation\.myrealtrip\.com[^"]+"[^>]*>/g)];
-  assert.ok(accommodationCards.length >= 1, "manual Seoul guide should render a cached accommodation recommendation");
-  assert.match(article, /class="affiliate-inline-block"/);
-  assert.match(article, /class="affiliate-inline-cta"[^>]*>서울 숙소 보기<\/span>/);
-  const stay = expectedStayWindow();
-  assert.match(article, new RegExp(`checkIn=${stay.checkIn}`));
-  assert.match(article, new RegExp(`checkOut=${stay.checkOut}`));
-  assert.match(article, /adultCount=2/);
-  assert.match(article, /childCount=0/);
   assert.match(article, /data-tripview-article/);
   assert.match(article, /<meta name="robots" content="index, follow, max-image-preview:large">/);
-
-  const affiliateLinks = [...article.matchAll(/<a\b[^>]*(?:data-affiliate-link|data-mrt-accommodation-card|class="affiliate-inline-card")[^>]*>/g)];
-  assert.ok(affiliateLinks.length > 0 && affiliateLinks.length <= 8);
-  assert.ok(affiliateLinks.every((match) => /target="_blank"/.test(match[0])));
-  assert.ok(affiliateLinks.every((match) => hasRelTokens(match[0], "sponsored", "nofollow")));
+  assert.doesNotMatch(article, /<a\b[^>]*rel="[^"]*sponsored/);
+  assert.doesNotMatch(article, /<section\b[^>]*data-affiliate-provider/);
   assert.match(sitemap, /<loc>https:\/\/tripview\.kr\/data-stay-ticket-seoul\/<\/loc>/);
 });
 

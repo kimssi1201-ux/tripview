@@ -9,10 +9,12 @@ const navLinks = [
   { href: "/stay/", label: "숙소·예약", key: "stay" },
   { href: "/festival/", label: "축제·행사", key: "festival" },
   { href: "/ticket/", label: "입장권·투어", key: "ticket" },
+  { href: "/tools/", label: "여행 도구", key: "tools" },
 ];
 
 function activeKey(path = "/") {
   if (path === "/") return "home";
+  if (path.startsWith("/tools") || path.startsWith("/guides")) return "tools";
   if (path.startsWith("/ticket") || path.startsWith("/data-ticket")) return "ticket";
   if (path.startsWith("/festival") || path.includes("festival-")) return "festival";
   if (path.startsWith("/stay") || path.startsWith("/data-stay")) return "stay";

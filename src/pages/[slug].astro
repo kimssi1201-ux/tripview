@@ -5,7 +5,8 @@ import MediaFrame from "../components/MediaFrame.astro";
 import RelatedPosts from "../components/RelatedPosts.astro";
 import TravelCard from "../components/TravelCard.astro";
 import { articleAffiliatePlacements } from "../lib/affiliate.mjs";
-import { readableSections } from "../lib/readability.mjs";
+import { readableSections, removeDuplicateLead } from "../lib/readability.mjs";
+import { AFFILIATE_DISPLAY_ENABLED } from "../lib/monetization.mjs";
 import {
   allPosts,
   articleActivePath,
@@ -34,7 +35,7 @@ export function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const sections = readableSections(sectionPairs(post));
+const sections = removeDuplicateLead(readableSections(sectionPairs(post)), post.excerpt || post.description || "");
 const faqs = faqPairs(post);
 const inlineAssets = articleInlineAssets(post).map((asset, index) => ({ asset, number: index + 1 }));
 const inlinePlacements = new Map();
@@ -52,7 +53,7 @@ const leadSection = sections[0];
 const remainingSections = sections.slice(1);
 const indexable = isIndexablePost(post);
 const activePath = articleActivePath(post);
-const affiliatePlacements = indexable ? articleAffiliatePlacements({ post, sections, maxBlocks: 2 }) : [];
+const affiliatePlacements = indexable && AFFILIATE_DISPLAY_ENABLED ? articleAffiliatePlacements({ post, sections, maxBlocks: 2 }) : [];
 const inlineAffiliate = affiliatePlacements.find((placement) => placement.placement === "inline");
 const bottomAffiliate = affiliatePlacements.find((placement) => placement.placement === "bottom");
 const inlineAffiliateAfterSectionIndex = inlineAffiliate?.afterSectionIndex ?? -1;

@@ -1,3 +1,4 @@
+import { AFFILIATE_DISPLAY_ENABLED } from "./monetization.mjs";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 
@@ -16,10 +17,10 @@ export const EDITORIAL_AUTHOR_PATH = "/editorial-team";
 export const EDITORIAL_AUTHOR_URL = `${SITE_URL}${EDITORIAL_AUTHOR_PATH}`;
 
 export const CATEGORY_PAGES = [
-  { path: "/travel/", title: "여행지", description: "9월 해외여행, 가을·단풍, 물놀이·계곡, 실내여행, 아이와, 이번 주말 글을 태그로 묶어 여행지를 탐색합니다." },
+  { path: "/travel/", title: "여행지", description: "국내외 여행지와 계절별 나들이, 실내여행, 가족여행 정보를 주제별로 살펴볼 수 있습니다." },
   { path: "/festival/", title: "축제·행사", description: "전국 축제와 행사를 지역, 일정, 방문 전 확인 포인트 중심으로 모았습니다." },
-  { path: "/stay/", title: "가격보다 위치와 취소 조건을 먼저 비교하세요", description: "국내 숙소를 예약하기 전 날짜, 인원, 취소 가능 여부, 위치 조건을 한 화면에서 확인할 수 있도록 정리했습니다." },
-  { path: "/ticket/", title: "일정 확정 전에 운영 조건을 먼저 비교하세요", description: "국내 입장권과 현지투어를 예약하기 전 운영 시간, 집결지, 포함 사항, 환불 조건을 먼저 확인할 수 있도록 정리했습니다." },
+  { path: "/stay/", title: "숙소·예약 가이드", description: "숙소 예약 전 위치, 객실 조건, 최종 요금, 취소 규정을 비교하고 관련 여행정보를 확인하세요." },
+  { path: "/ticket/", title: "입장권·투어 가이드", description: "입장권과 체험 상품을 예약하기 전에 이용 시간, 포함 사항, 위치와 환불 규정을 비교하세요." },
 ];
 
 export const REGION_SLUGS = new Map([
@@ -546,11 +547,18 @@ export function relatedPostsFor(post = {}, limit = 4) {
     .map((item) => item.candidate);
 }
 
+// Overseas discovery must be based on the actual location/category, not passing keyword mentions.
+// A domestic article mentioning "해외" or "일본" must not become an overseas destination.
+export function isOverseasTravelPost(post = {}) {
+  return compactRegion(post.region) === "해외" ||
+    (normalizeText(post.category) === "해외여행" && !REGION_SLUGS.has(compactRegion(post.region)));
+}
+
 export function groupByCategoryData() {
   const travelPosts = sortedPosts(indexablePosts.filter((post) => !isFestivalPost(post)));
   const festivalPosts = sortedPosts(indexablePosts.filter(isFestivalPost));
   const fallKeywords = ["단풍"];
-  const overseasKeywords = ["해외", "9월 해외여행", "일본", "대만", "태국", "베트남", "오사카", "타이베이", "방콕", "다낭"];
+
   const waterKeywords = ["수영장", "계곡", "해수욕장", "해변", "바다", "물놀이", "워터파크", "폭포", "수변"];
   const indoorKeywords = ["실내", "박물관", "미술관", "전시", "문화", "센터", "아트", "공연장"];
   const familyKeywords = ["아이", "가족", "어린이", "체험", "공원", "생태", "자연학습"];
@@ -558,7 +566,7 @@ export function groupByCategoryData() {
   return {
     travelPosts,
     festivalPosts,
-    overseasPosts: travelPosts.filter((post) => normalizeText(post.category) === "해외여행" || hasKeyword(post, overseasKeywords)),
+    overseasPosts: travelPosts.filter(isOverseasTravelPost),
     fallPosts: travelPosts.filter((post) => hasKeyword(post, fallKeywords)),
     waterPosts: travelPosts.filter((post) => hasKeyword(post, waterKeywords)),
     indoorPosts: travelPosts.filter((post) => hasKeyword(post, indoorKeywords)),
@@ -567,7 +575,7 @@ export function groupByCategoryData() {
 }
 
 export function currentSeasonPosts(limit = 6) {
-  return sortedPosts(indexablePosts.filter((post) => hasKeyword(post, ["단풍", "가을", "9월", "초가을", "해외여행"]))).slice(0, limit);
+  return sortedPosts(indexablePosts.filter((post) => hasKeyword(post, ["단풍", "가을", "초가을", "해외여행"]))).slice(0, limit);
 }
 
 function homepageImagePosts(posts = []) {
@@ -681,7 +689,7 @@ export function homepageSections() {
     homepageStorySection({ id: "domestic", title: "국내여행", href: "/travel/#all-posts", posts: domesticPosts, used }),
     homepageStorySection({ id: "overseas", title: "해외여행", href: "/region/overseas/", posts: overseasPosts, used }),
     homepageStorySection({ id: "festival", title: "축제·행사", href: "/festival/", posts: festivalPosts, used }),
-    stayProducts.length
+    AFFILIATE_DISPLAY_ENABLED && stayProducts.length
       ? homepageProductSection({
         id: "stay",
         title: "숙소·예약",
@@ -691,7 +699,7 @@ export function homepageSections() {
         disclosure: "제휴 예약 상품은 실제 기사와 구분해 표시합니다.",
       })
       : homepageStorySection({ id: "stay", title: "숙소·예약", href: "/stay/", posts: stayArticlePosts, used }),
-    ticketProducts.length
+    AFFILIATE_DISPLAY_ENABLED && ticketProducts.length
       ? homepageProductSection({
         id: "ticket",
         title: "입장권·투어",
@@ -733,7 +741,7 @@ export function postAccommodationTargets(post = {}) {
 export function accommodationHeading(post = {}) {
   const targets = postAccommodationTargets(post);
   if (targets.length === 1) return `${targets[0].label} 인기 숙소`;
-  if (targets.length > 1 || compactRegion(post.region) === "해외") return "9월 해외여행 숙소";
+  if (targets.length > 1 || compactRegion(post.region) === "해외") return "해외여행 추천 숙소";
   return `${compactRegion(post.region)} 인기 숙소`;
 }
 
@@ -839,6 +847,8 @@ export function sitemapUrls() {
     { loc: `${SITE_URL}/`, lastmod: today },
     { loc: `${SITE_URL}/about`, lastmod: today },
     { loc: `${SITE_URL}/contact`, lastmod: today },
+    { loc: `${SITE_URL}/tools/`, lastmod: today },
+    { loc: `${SITE_URL}/guides/travel-budget/`, lastmod: today },
     { loc: `${SITE_URL}/editorial-team`, lastmod: today },
     { loc: `${SITE_URL}/editorial-policy`, lastmod: today },
     { loc: `${SITE_URL}/affiliate-disclosure`, lastmod: today },
