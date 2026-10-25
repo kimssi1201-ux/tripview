@@ -111,6 +111,8 @@ const indexableRegionUrls = new Set(indexablePosts.map((post) => `${BASE_URL}/re
 // New, deliberately authored tools and editorial guides are not legacy migration regressions.
 const intentionalNewUrls = new Set([
   `${BASE_URL}/tools/`,
+  `${BASE_URL}/tools/calendar/`,
+  `${BASE_URL}/tools/world-time/`,
   `${BASE_URL}/guides/travel-budget/`,
 ]);
 const unexpectedExtraUrls = extraUrls.filter((url) => !indexablePostUrls.has(url) && !indexableRegionUrls.has(url) && !intentionalNewUrls.has(url));
