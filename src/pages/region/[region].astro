@@ -57,6 +57,16 @@ const subregions = [...group.posts.reduce((map, post) => {
     <p>{group.label} 여행은 계절 행사, 실내 명소, 자연 여행지를 함께 보면 동선 선택이 쉬워집니다. 아래 목록에서 방문 목적에 맞는 글을 먼저 확인하고, 숙소는 일정이 정해진 뒤 비교용으로 활용하세요.</p>
   </section>
 
+  <section class="block" id="region-posts" aria-labelledby="region-posts-title">
+    <div class="block-head">
+      <div><span class="kicker">POSTS</span><h2 id="region-posts-title">{group.label} 글 목록</h2></div>
+      <p class="block-note">같은 광역 지역 기준</p>
+    </div>
+    <div class="story-list">
+      {group.posts.map((post) => <TravelCard post={post} showExcerpt={false} />)}
+    </div>
+  </section>
+
   {products.length > 0 && (
     <section class="block" id="region-stay" aria-labelledby="region-stay-title">
       <div class="block-head">
@@ -68,16 +78,6 @@ const subregions = [...group.posts.reduce((map, post) => {
       </div>
     </section>
   )}
-
-  <section class="block" id="region-posts" aria-labelledby="region-posts-title">
-    <div class="block-head">
-      <div><span class="kicker">POSTS</span><h2 id="region-posts-title">{group.label} 글 목록</h2></div>
-      <p class="block-note">같은 광역 지역 기준</p>
-    </div>
-    <div class="story-list">
-      {group.posts.map((post) => <TravelCard post={post} showExcerpt={false} />)}
-    </div>
-  </section>
 
   {subregions.length > 1 && (
     <section class="block" id="subregions" aria-labelledby="subregions-title">
