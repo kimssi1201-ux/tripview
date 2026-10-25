@@ -46,8 +46,8 @@ jobs:
           const pages = [
             { path: 'dist/travel/index.html', canonical: 'https://tripview.kr/travel/', required: ['9월 해외여행', '가을·단풍', '여행지 글 목록'] },
             { path: 'dist/festival/index.html', canonical: 'https://tripview.kr/festival/', required: ['진행 중인 축제', '예정 축제', '축제·행사 글 목록'] },
-            { path: 'dist/stay/index.html', canonical: 'https://tripview.kr/stay/', required: ['인기 숙소'] },
-            { path: 'dist/ticket/index.html', canonical: 'https://tripview.kr/ticket/', required: ['입장권'] },
+            { path: 'dist/stay/index.html', canonical: 'https://tripview.kr/stay/', required: ['숙소 예약 전 확인할 다섯 가지', '방문 정보가 있는 숙소 여행글'] },
+            { path: 'dist/ticket/index.html', canonical: 'https://tripview.kr/ticket/', required: ['체험·입장권 예약 전 비교 기준'], allowEmpty: true },
           ];
 
           for (const page of pages) {
@@ -58,7 +58,7 @@ jobs:
             for (const text of page.required) {
               if (!html.includes(text)) throw new Error(`${page.path} is missing "${text}".`);
             }
-            if (!/<a[^>]+href="\/(?:travel|festival|data)-[^"]+\//.test(html)) {
+            if (!page.allowEmpty && !/<a[^>]+href="\/(?:travel|festival|data)-[^"]+\//.test(html)) {
               throw new Error(`${page.path} does not link to rendered posts.`);
             }
           }
