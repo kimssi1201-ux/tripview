@@ -2,6 +2,7 @@
 import ProductCard from "../../components/ProductCard.astro";
 import TravelCard from "../../components/TravelCard.astro";
 import RegionLayout from "../../layouts/RegionLayout.astro";
+import { AFFILIATE_DISPLAY_ENABLED } from "../../lib/monetization.mjs";
 import { regionCardImageAsset, regionGroups, selectAccommodationItems } from "../../lib/content.mjs";
 
 export function getStaticPaths() {
@@ -67,7 +68,7 @@ const subregions = [...group.posts.reduce((map, post) => {
     </div>
   </section>
 
-  {products.length > 0 && (
+  {AFFILIATE_DISPLAY_ENABLED && products.length > 0 && (
     <section class="block" id="region-stay" aria-labelledby="region-stay-title">
       <div class="block-head">
         <div><span class="kicker">BOOKING</span><h2 id="region-stay-title">{group.label} 추천 숙소</h2></div>
