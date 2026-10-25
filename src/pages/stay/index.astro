@@ -1,71 +1,112 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import MediaFrame from "../../components/MediaFrame.astro";
 import ProductCard from "../../components/ProductCard.astro";
-import TravelCard from "../../components/TravelCard.astro";
 import { AFFILIATE_DISPLAY_ENABLED } from "../../lib/monetization.mjs";
-import { CATEGORY_PAGES, accommodationProducts, cardImageAsset, groupByCategoryData, productImage } from "../../lib/content.mjs";
+import {
+  accommodationProducts, compactRegion, groupByCategoryData,
+  infoRows, isDataPipelinePost, isLodgingPost, postDate, postExcerpt, postTitle,
+} from "../../lib/content.mjs";
 
-const page = CATEGORY_PAGES.find((item) => item.path === "/stay/");
-const lodgingPosts = groupByCategoryData().travelPosts.filter((post) => /숙소|호텔|펜션|리조트/.test(`${post.category || ""} ${post.title || ""}`));
-const editorialImage = lodgingPosts.map(cardImageAsset).find((asset) => asset?.src);
-const bannerImage = editorialImage?.src || (AFFILIATE_DISPLAY_ENABLED ? productImage(accommodationProducts[0]) : "");
-const bannerAsset = bannerImage ? {
-  src: bannerImage,
-  alt: editorialImage?.alt || `${accommodationProducts[0]?.title || "숙소"} 이미지`,
-  width: 720,
-  height: 480,
-} : null;
+const lodgingPosts = groupByCategoryData().travelPosts
+  .filter((post) => (
+    isLodgingPost(post) &&
+    !isDataPipelinePost(post) &&
+    infoRows(post).length >= 2
+  ))
+  .slice(0, 6);
 ---
 
-<BaseLayout title={`${page.title} - 트립뷰`} description={page.description} canonicalPath="/stay/" activePath="/stay/" ogImage={bannerAsset?.src}>
-  <main class="site-page hub-page">
-    <section class:list={["hub-banner", bannerAsset?.src && "has-image"]}>
-      <div class="hub-banner-copy">
-        <span class="kicker">TRAVEL GUIDE</span>
-        <h1>가격보다 위치와 취소 조건을 먼저 비교하세요</h1>
-        <p>{page.description}</p>
-        <span class="banner-count">{lodgingPosts.length.toLocaleString("ko-KR")}개 숙소 여행글</span>
+<BaseLayout title="숙소 정보 · 객실과 교통 확인 가이드 - 트립뷰" description="숙소를 선택하기 전 체크인·객실 정원·교통·주차·환불 조건을 확인하고, 위치와 운영 정보가 있는 여행글을 살펴보세요. 제휴 상품 추천 없이 정보만 제공합니다." canonicalPath="/stay/" activePath="/stay/">
+  <main class="site-page hub-page stay-editorial-page">
+    <header class="stay-editorial-hero">
+      <span class="kicker">TRIPVIEW · STAY GUIDE</span>
+      <h1>숙소 정보, 여행 동선부터 확인하세요</h1>
+      <p>숙소가 관광지에서 얼마나 떨어져 있는지, 언제 도착할 수 있는지부터 살펴보세요. 이곳은 숙소 예약 상품을 판매하지 않고, 방문 준비에 필요한 정보를 모으는 페이지입니다.</p>
+      <nav class="stay-editorial-tools" aria-label="숙소 여행 준비 도구">
+        <a href="/tools/calendar/">여행 날짜 정하기</a>
+        <a href="/tools/#budget">숙박 포함 예산 계산</a>
+        <a href="https://mustview.co.kr/train" target="_blank" rel="noopener noreferrer">기차 이동 확인 ↗</a>
+      </nav>
+    </header>
+
+    <section class="stay-check-block" id="stay-checklist" aria-labelledby="stay-checklist-title">
+      <div class="block-head">
+        <div><span class="kicker">BEFORE YOU GO</span><h2 id="stay-checklist-title">숙소 예약 전 확인할 다섯 가지</h2></div>
       </div>
-      {bannerAsset?.src && (
-        <div class="hub-banner-image">
-          <MediaFrame asset={bannerAsset} caption={false} ratio="16 / 9" />
+      <ol class="stay-check-grid">
+        <li><strong>위치·교통</strong><p>도착역에서 숙소까지 이동 수단, 마지막 교통편, 도보 구간을 확인하세요.</p></li>
+        <li><strong>체크인·퇴실</strong><p>입실 가능 시간과 늦은 체크인 가능 여부를 숙소에 직접 문의하세요.</p></li>
+        <li><strong>객실 정원</strong><p>성인·아동 기준 인원, 침대 구성, 취사 및 추가 인원 요금을 구분하세요.</p></li>
+        <li><strong>주차·편의시설</strong><p>주차 요금과 입차 조건, 엘리베이터·짐 보관 등 필요한 시설을 확인하세요.</p></li>
+        <li><strong>취소 조건</strong><p>무료 취소 마감 시각과 환불 제외 사유를 결제 전에 최종 확인하세요.</p></li>
+      </ol>
+      <p class="stay-note">숙소 요금과 객실 재고는 예약 일자에 따라 달라집니다. 트립뷰에는 실시간 객실 가격·잔여 객실이 제공되지 않습니다.</p>
+    </section>
+
+    <section class="stay-selection" id="lodging-posts" aria-labelledby="lodging-posts-title">
+      <div class="block-head">
+        <div><span class="kicker">EDITOR'S GUIDE</span><h2 id="lodging-posts-title">방문 정보가 있는 숙소 여행글</h2></div>
+        <p class="block-note">최대 6개 · 위치·운영 정보 중심</p>
+      </div>
+      {lodgingPosts.length ? (
+        <div class="stay-selection-list">
+          {lodgingPosts.map((post) => (
+            <a class="stay-selection-item" href={"/" + post.slug + "/"}>
+              <span class="stay-selection-meta">{compactRegion(post.region)} · {postDate(post)}</span>
+              <strong>{postTitle(post)}</strong>
+              <span class="stay-selection-copy">{postExcerpt(post, 110)}</span>
+              <span class="stay-selection-more">숙소 정보 확인 →</span>
+            </a>
+          ))}
         </div>
+      ) : (
+        <p class="stay-note">현재 공개 기준을 충족한 숙소 상세글을 선별하고 있습니다. 여행 준비는 위 체크리스트와 공식 숙소 안내를 이용해 주세요.</p>
       )}
     </section>
-    <section class="block" id="stay-checklist" aria-labelledby="stay-checklist-title">
-      <div class="block-head">
-        <div><span class="kicker">GUIDE</span><h2 id="stay-checklist-title">숙소 예약 전 확인할 다섯 가지</h2></div>
-        <p class="block-note">예약 여부와 관계없이 체크하세요</p>
-      </div>
-      <ol class="booking-checklist">
-        <li><strong>날짜와 인원:</strong> 같은 숙소라도 체크인 날짜, 숙박 인원, 객실 종류에 따라 최종 가격이 달라집니다.</li>
-        <li><strong>실제 이동 시간:</strong> 관광지와 지도상 거리가 가까워도 대중교통 환승이나 주차 동선 때문에 이동 시간이 길어질 수 있습니다.</li>
-        <li><strong>취소·변경:</strong> 무료 취소 가능 여부뿐 아니라 취소 마감 시각과 날짜 변경 수수료를 함께 살펴보세요.</li>
-        <li><strong>최종 결제액:</strong> 세금, 추가 인원, 조식, 주차 등 별도 금액이 있는지 결제 직전 화면에서 확인하세요.</li>
-        <li><strong>객실 포함 사항:</strong> 객실 사진과 실제 예약 객실명, 침대 구성, 조식·주차 포함 여부가 같은지 비교하세요.</li>
-      </ol>
-      <p class="block-note">요금과 객실 재고는 예약 일자에 따라 달라지므로 이용하려는 숙소에서 직접 확인하세요.</p>
-    </section>
-    {lodgingPosts.length > 0 && (
-      <section class="block" id="lodging-posts" aria-labelledby="lodging-posts-title">
+
+    {AFFILIATE_DISPLAY_ENABLED && (
+      <section class="block" id="popular-stay" aria-labelledby="popular-stay-title">
         <div class="block-head">
-          <div><span class="kicker">GUIDE</span><h2 id="lodging-posts-title">숙소 관련 글</h2></div>
-          <p class="block-note">검수 글 기준</p>
+          <div><span class="kicker">MYREALTRIP</span><h2 id="popular-stay-title">예약 상품 비교</h2></div>
         </div>
-        <div class="story-list">
-          {lodgingPosts.slice(0, 24).map((post) => <TravelCard post={post} showExcerpt={false} />)}
+        <div class="story-grid">
+          {accommodationProducts.slice(0, 8).map((product) => <ProductCard product={product} type="accommodation" />)}
         </div>
       </section>
     )}
-    {AFFILIATE_DISPLAY_ENABLED && <section class="block" id="popular-stay" aria-labelledby="popular-stay-title">
-      <div class="block-head">
-        <div><span class="kicker">MYREALTRIP</span><h2 id="popular-stay-title">예약 상품 비교</h2></div>
-        <p class="block-note">성인 2명 기준 · 예약 전 확인</p>
-      </div>
-      <div class="story-grid">
-        {accommodationProducts.slice(0, 8).map((product) => <ProductCard product={product} type="accommodation" />)}
-      </div>
-    </section>}
   </main>
 </BaseLayout>
+
+<style>
+  .stay-editorial-page { max-width: 1080px; }
+  .stay-editorial-hero { padding: 8px 0 25px; border-bottom: 1px solid #d9e4e4; }
+  .stay-editorial-hero h1 { font-size: clamp(29px,4vw,42px); line-height: 1.22; letter-spacing: -.035em; margin: 10px 0 12px; }
+  .stay-editorial-hero p { max-width: 780px; font-size: 16px; line-height: 1.8; color: #526770; margin: 0; }
+  .stay-editorial-tools { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 18px; }
+  .stay-editorial-tools a { display: inline-flex; align-items: center; border: 1px solid #d3e4e3; background: #f1f8f7; color: #086369; font-size: 13px; font-weight: 800; padding: 10px 14px; border-radius: 9px; text-decoration: none; }
+  .stay-check-block, .stay-selection { margin-top: 29px; }
+  .stay-check-grid { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; padding: 0; margin: 15px 0 12px; }
+  .stay-check-grid li { border: 1px solid #dfe8e8; border-radius: 12px; background: #f9fbfb; padding: 16px; min-width: 0; }
+  .stay-check-grid strong { font-size: 15px; color: #133b3d; }
+  .stay-check-grid p { margin: 6px 0 0; font-size: 14px; line-height: 1.65; color: #526872; }
+  .stay-note { font-size: 13px; color: #6a7c84; line-height: 1.7; }
+  .stay-selection-list { border-top: 1px solid #dde7e6; }
+  .stay-selection-item { display: grid; gap: 7px; border-bottom: 1px solid #dde7e6; padding: 17px 2px; text-decoration: none; }
+  .stay-selection-item:hover strong, .stay-selection-item:focus-visible strong { color: #006d73; }
+  .stay-selection-meta { font-size: 12px; color: #6d888b; font-weight: 700; }
+  .stay-selection-item strong { font-size: clamp(17px,2.3vw,20px); line-height: 1.4; color: #172b31; }
+  .stay-selection-copy { color: #586b75; line-height: 1.55; font-size: 14px; }
+  .stay-selection-more { color: #086d72; font-size: 12px; font-weight: 800; }
+  @media(max-width: 750px) {
+    .stay-editorial-hero { padding-top: 0; }
+    .stay-check-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 9px; }
+    .stay-check-grid li { padding: 13px; }
+    .stay-selection-item { padding: 15px 0; }
+  }
+  @media(max-width: 420px) {
+    .stay-check-grid { grid-template-columns: 1fr; }
+    .stay-check-grid li { padding: 11px 13px; }
+    .stay-check-grid p { margin-top: 2px; }
+    .stay-editorial-tools a { flex: 1 1 100%; justify-content: center; }
+  }
+</style>

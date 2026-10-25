@@ -1051,7 +1051,8 @@ export function flightSlug(deal = {}) {
 }
 
 export function searchIndex() {
-  return allPosts.map((post) => ({
+  // Search should not send visitors to unreviewed/noindex snapshot pages.
+  return indexablePosts.map((post) => ({
     slug: post.slug,
     title: postTitle(post),
     region: compactRegion(post.region),

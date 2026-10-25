@@ -8,9 +8,12 @@ import { CATEGORY_PAGES, groupByCategoryData, productImage, tnaProducts } from "
 
 const page = CATEGORY_PAGES.find((item) => item.path === "/ticket/");
 const data = groupByCategoryData();
-const relatedPosts = data.travelPosts.filter((post) =>
-  post.keywords?.some((keyword) => ["여행", "가족", "아이", "실내", "단풍", "해외"].some((target) => String(keyword).includes(target)))
-);
+// Show only relevant, reviewed attraction guides; no fallback to unrelated travel posts.
+const relatedPosts = data.travelPosts
+  .filter((post) => /체험|전시|미술관|박물관|공연|입장|관람|동물원|수족관|테마파크|투어/.test(
+    [post.title, post.category].filter(Boolean).join(" ")
+  ))
+  .slice(0, 6);
 const bannerImage = AFFILIATE_DISPLAY_ENABLED ? productImage(tnaProducts[0]) : "";
 const bannerAsset = bannerImage ? {
   src: bannerImage,
@@ -49,7 +52,7 @@ const bannerAsset = bannerImage ? {
       </ol>
       <p class="block-note">예약이 필요한 체험은 운영처의 최신 일정과 환불 규정을 직접 확인하세요.</p>
     </section>
-    <PostSection id="ticket-guides" title="관람·체험 전 알아둘 여행글" note="운영 시간과 이동 동선을 함께 확인할 수 있는 글" posts={relatedPosts.length > 0 ? relatedPosts : data.travelPosts} />
+    <PostSection id="ticket-guides" title="관람·체험 전 알아둘 여행글" note="운영 시간과 이동 동선을 함께 확인할 수 있는 글" posts={relatedPosts} limit={6} />
     {AFFILIATE_DISPLAY_ENABLED && <section class="block" id="ticket-products" aria-labelledby="ticket-products-title">
       <div class="block-head">
         <div><span class="kicker">MYREALTRIP</span><h2 id="ticket-products-title">예약 상품 비교</h2></div>
