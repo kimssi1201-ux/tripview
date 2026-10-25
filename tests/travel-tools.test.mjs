@@ -1,5 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { readFile, access } from "node:fs/promises";
+import { existsSync } from "node:fs";
 
 import { calculateTripBudget, PACKING_PRESETS, packingProgress } from "../assets/travel-tools.js";
 import { AFFILIATE_DISPLAY_ENABLED } from "../src/lib/monetization.mjs";
@@ -48,4 +50,18 @@ test("approval review hides homepage product recommendations without deleting da
   const urls = sitemapUrls().map((item) => item.loc);
   assert.ok(urls.includes("https://tripview.kr/tools/"));
   assert.ok(urls.includes("https://tripview.kr/guides/travel-budget/"));
+});
+
+test("generated pages hide affiliate cards and preserve live planner sections", async () => {
+  if (!existsSync("dist/index.html")) return;
+  for (const page of ["index.html", "travel/index.html", "festival/index.html", "stay/index.html", "ticket/index.html", "region/busan/index.html", "travel-125900/index.html"]) {
+    const html = await readFile("dist/" + page, "utf8");
+    assert.doesNotMatch(html, /<a\b[^>]*rel="[^"]*sponsored[^"]*"/, "found an affiliate link in " + page);
+    assert.doesNotMatch(html, /<section\b[^>]*data-affiliate-provider/, "found affiliate block in " + page);
+  }
+  const tools = await readFile("dist/tools/index.html", "utf8");
+  const guide = await readFile("dist/guides/travel-budget/index.html", "utf8");
+  assert.match(tools, /data-budget-form/);
+  assert.match(tools, /data-packing-theme/);
+  assert.match(guide, /693,000원/);
 });
