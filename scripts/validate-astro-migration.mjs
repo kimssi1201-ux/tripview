@@ -3,6 +3,7 @@ import { existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 
 import { allPosts, compactRegion, indexablePosts, regionSlug, sectionPairs } from "../src/lib/content.mjs";
+import { requiresFreshEditorialReview } from "./lib/content-quality.mjs";
 
 const BASE_URL = "https://tripview.kr";
 const DIST = "dist";
@@ -105,6 +106,10 @@ const astroSitemap = await readFile(join(DIST, "sitemap.xml"), "utf8");
 const legacyUrls = parseLocs(legacySitemap);
 const astroUrls = parseLocs(astroSitemap);
 const missingUrls = setDiff(legacyUrls, astroUrls);
+const heldSnapshotUrls = new Set(allPosts
+  .filter(requiresFreshEditorialReview)
+  .map((post) => `${BASE_URL}/${encodeURIComponent(post.slug)}/`));
+const unexpectedMissingUrls = missingUrls.filter((url) => !heldSnapshotUrls.has(url));
 const extraUrls = setDiff(astroUrls, legacyUrls);
 const indexablePostUrls = new Set(indexablePosts.map((post) => `${BASE_URL}/${encodeURIComponent(post.slug)}/`));
 const indexableRegionUrls = new Set(indexablePosts.map((post) => `${BASE_URL}/region/${regionSlug(compactRegion(post.region))}/`));
@@ -118,8 +123,23 @@ const intentionalNewUrls = new Set([
 const unexpectedExtraUrls = extraUrls.filter((url) => !indexablePostUrls.has(url) && !indexableRegionUrls.has(url) && !intentionalNewUrls.has(url));
 
 const failures = [];
-if (missingUrls.length) failures.push({ type: "missing-url", items: missingUrls });
+if (unexpectedMissingUrls.length) failures.push({ type: "missing-url", items: unexpectedMissingUrls });
 if (unexpectedExtraUrls.length) failures.push({ type: "extra-url", items: unexpectedExtraUrls });
+
+// Require held articles to remain accessible but carry noindex/no AdSense.
+for (const url of heldSnapshotUrls) {
+  const article = await readFirstExisting(candidatesForUrl(url, DIST));
+  if (!article.text) {
+    failures.push({ type: "held-snapshot-missing", url });
+    continue;
+  }
+  if (!/<meta\s+name="robots"\s+content="noindex, follow"/i.test(article.text)) {
+    failures.push({ type: "held-snapshot-indexable", url });
+  }
+  if (/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle/i.test(article.text)) {
+    failures.push({ type: "held-snapshot-adsense-enabled", url });
+  }
+}
 
 const compared = [];
 let intentionalH1ChangeCount = 0;
@@ -174,7 +194,9 @@ const report = {
   astroUrlCount: astroUrls.length,
   indexablePostCount: indexablePosts.length,
   totalPostCount: allPosts.length,
-  missingUrlCount: missingUrls.length,
+  missingUrlCount: unexpectedMissingUrls.length,
+  deliberatelyHeldSnapshotCount: heldSnapshotUrls.size,
+  deliberatelyHeldSnapshotUrls: [...heldSnapshotUrls],
   extraUrlCount: extraUrls.length,
   intentionalH1ChangeCount,
   failures,
