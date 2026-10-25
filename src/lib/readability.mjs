@@ -47,3 +47,27 @@ export function readableSections(sections = []) {
     paragraphs: (section.paragraphs || []).flatMap(splitReadableParagraphs).filter(Boolean),
   }));
 }
+
+/**
+ * The article layout already displays the excerpt above the body.
+ * Remove its exact duplicate when a generated first section repeats it.
+ * Never remove partial matches or unique copy.
+ */
+export function removeDuplicateLead(sections = [], excerpt = "") {
+  const lead = normalizeReadableText(excerpt);
+  if (!lead || !sections.length) return sections;
+  return sections.map((section, index) => {
+    if (index !== 0) return section;
+    const paragraphs = section.paragraphs || [];
+    let combined = "";
+    let count = 0;
+    for (const paragraph of paragraphs) {
+      combined = normalizeReadableText([combined, paragraph].filter(Boolean).join(" "));
+      if (!lead.startsWith(combined)) break;
+      count += 1;
+      if (combined === lead) break;
+    }
+    const remaining = combined === lead ? paragraphs.slice(count) : paragraphs;
+    return { ...section, paragraphs: remaining };
+  }).filter((section) => section.paragraphs?.length);
+}
