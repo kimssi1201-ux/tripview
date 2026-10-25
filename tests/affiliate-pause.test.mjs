@@ -60,3 +60,19 @@ test("built static pages have no sponsored anchors or outbound affiliate booking
   assert.ok(count > 10, "expected generated pages to inspect");
   assert.deepEqual(flagged, [], "generated pages must not expose paused partner booking links");
 });
+
+test("primary navigation presents lodging and activity information, not affiliate booking menus", async () => {
+  const source = await readFile("src/components/Header.astro", "utf8");
+  assert.match(source, /href: "\/stay\/", label: "숙소 정보"/);
+  assert.match(source, /href: "\/ticket\/", label: "체험 가이드"/);
+  assert.doesNotMatch(source, /label: "숙소·예약"|label: "입장권·투어"/);
+
+  const footer = await readFile("src/components/Footer.astro", "utf8");
+  assert.match(footer, /href="\/stay\/">숙소 정보<\/a>/);
+  assert.match(footer, /href="\/ticket\/">체험 가이드<\/a>/);
+  if (!existsSync("dist/index.html")) return;
+  const index = await readFile("dist/index.html", "utf8");
+  assert.match(index, /href="\/stay\/"[^>]*>숙소 정보<\/a>/);
+  assert.match(index, /href="\/ticket\/"[^>]*>체험 가이드<\/a>/);
+  assert.doesNotMatch(index, /href="\/stay\/"[^>]*>숙소·예약<\/a>/);
+});

@@ -19,8 +19,8 @@ export const EDITORIAL_AUTHOR_URL = `${SITE_URL}${EDITORIAL_AUTHOR_PATH}`;
 export const CATEGORY_PAGES = [
   { path: "/travel/", title: "여행지", description: "국내외 여행지와 계절별 나들이, 실내여행, 가족여행 정보를 주제별로 살펴볼 수 있습니다." },
   { path: "/festival/", title: "축제·행사", description: "전국 축제와 행사를 지역, 일정, 방문 전 확인 포인트 중심으로 모았습니다." },
-  { path: "/stay/", title: "숙소·예약 가이드", description: "숙소 예약 전 위치, 객실 조건, 최종 요금, 취소 규정을 비교하고 관련 여행정보를 확인하세요." },
-  { path: "/ticket/", title: "입장권·투어 가이드", description: "입장권과 체험 상품을 예약하기 전에 이용 시간, 포함 사항, 위치와 환불 규정을 비교하세요." },
+  { path: "/stay/", title: "숙소 정보 가이드", description: "숙소 예약 전 위치, 객실 조건, 최종 요금, 취소 규정을 비교하고 관련 여행정보를 확인하세요." },
+  { path: "/ticket/", title: "체험 가이드", description: "입장권과 체험 상품을 예약하기 전에 이용 시간, 포함 사항, 위치와 환불 규정을 비교하세요." },
 ];
 
 export const REGION_SLUGS = new Map([
@@ -698,7 +698,7 @@ export function homepageSections() {
         type: "accommodation",
         disclosure: "제휴 예약 상품은 실제 기사와 구분해 표시합니다.",
       })
-      : homepageStorySection({ id: "stay", title: "숙소·예약", href: "/stay/", posts: stayArticlePosts, used }),
+      : homepageStorySection({ id: "stay", title: "숙소 정보", href: "/stay/", posts: stayArticlePosts, used }),
     AFFILIATE_DISPLAY_ENABLED && ticketProducts.length
       ? homepageProductSection({
         id: "ticket",
@@ -708,7 +708,7 @@ export function homepageSections() {
         type: "ticket",
         disclosure: "입장권·투어 상품은 예약 전 공식 판매처의 포함 사항과 취소 조건을 확인하세요.",
       })
-      : homepageStorySection({ id: "ticket", title: "입장권·투어", href: "/ticket/", posts: ticketArticlePosts, used }),
+      : homepageStorySection({ id: "ticket", title: "체험 가이드", href: "/ticket/", posts: ticketArticlePosts, used }),
   ].filter((section) => section.featured || section.featuredProduct);
 
   return {
@@ -926,7 +926,7 @@ export function editorialPersonSchema() {
     url: EDITORIAL_AUTHOR_URL,
     jobTitle: "여행 정보 편집자",
     worksFor: { "@id": `${SITE_URL}/#organization` },
-    knowsAbout: ["국내여행", "해외여행", "축제·행사", "숙소·예약", "여행 준비"],
+    knowsAbout: ["국내여행", "해외여행", "축제·행사", "숙소 정보", "체험 가이드", "여행 준비"],
   };
 }
 
