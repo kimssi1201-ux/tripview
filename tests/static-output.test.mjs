@@ -411,22 +411,13 @@ test("article pages expose author dates source links and trust schemas", async (
   assert.match(article, /작성·검수 정보/);
 });
 
-test("product cards expose data dates and official price checks", async () => {
-  const [article, stay, ticket, coupangScript] = await Promise.all([
-    readFile("dist/travel-osaka-september-2026/index.html", "utf8"),
-    readFile("dist/data-stay-price-seoul/index.html", "utf8"),
-    readFile("dist/data-ticket-price-busan/index.html", "utf8"),
-    readFile("assets/coupang.js", "utf8"),
-  ]);
-
-  assert.match(article, /class="mrt-card-source"/);
-  assert.match(article, /데이터 [^<]+ 기준 · 마이리얼트립 공식 예약처 확인/);
-  assert.match(article, /표시 가격은 [^<]+ 데이터 기준/);
-  assert.match(article, /마이리얼트립 공식 예약 화면/);
-  assert.match(stay, /확인 기준/);
-  assert.match(ticket, /확인 기준/);
-  assert.match(stay, /제휴 예약처 가격 확인/);
-  assert.match(ticket, /제휴 예약처 가격 확인/);
+test("affiliate promotion is disabled in generated pages while product source data remains intact", async () => {
+  for (const slug of ["travel-osaka-september-2026", "data-stay-price-seoul", "data-ticket-price-busan"]) {
+    const article = await readFile("dist/" + slug + "/index.html", "utf8");
+    assert.doesNotMatch(article, /<a[^>]*rel="[^"]*sponsored/);
+    assert.doesNotMatch(article, /<section[^>]*data-affiliate-provider/);
+  }
+  const coupangScript = await readFile("assets/coupang.js", "utf8");
   assert.match(coupangScript, /PRICE_SOURCE_NOTE = "공식 판매처 가격 확인"/);
   assert.match(coupangScript, /product-source-note/);
 });
@@ -618,19 +609,12 @@ test("article product sections stay inside mobile content width", async () => {
   );
 });
 
-test("homepage accommodation cards use the dynamic default stay window", async () => {
+test("homepage has no affiliate cards and links to the trip planning tools", async () => {
   const homepage = await readFile(outputFile("index.html"), "utf8");
-  const stay = expectedStayWindow();
-  const cards = [...homepage.matchAll(/<a class="home-product-card[^"]*"[^>]*href="https:\/\/accommodation\.myrealtrip\.com[^>]*>/g)]
-    .map((match) => match[0]);
-  assert.ok(cards.length >= 3, "homepage should render a focused set of accommodation cards");
-  assert.ok(cards.every((card) => card.includes(`checkIn=${stay.checkIn}`)));
-  assert.ok(cards.every((card) => card.includes(`checkOut=${stay.checkOut}`)));
-  assert.ok(cards.every((card) => card.includes("adultCount=2")));
-  assert.ok(cards.every((card) => card.includes("childCount=0")));
-  assert.ok(cards.every((card) => hasRelTokens(card, "sponsored", "nofollow")));
-  assert.ok(cards.every((card) => /target="_blank"/.test(card)));
-  assert.doesNotMatch(homepage, /checkIn=2026-08-24|checkOut=2026-08-26/);
+  assert.doesNotMatch(homepage, /<a class="home-product-card[^"]*"/);
+  assert.doesNotMatch(homepage, /<a[^>]*rel="[^"]*sponsored/);
+  assert.match(homepage, /href="\/tools\/#budget"/);
+  assert.match(homepage, /href="\/tools\/#packing"/);
 });
 
 test("beach article pages do not include the removed API information widget", async () => {
