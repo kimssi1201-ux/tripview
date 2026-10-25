@@ -1,0 +1,5 @@
+Tripview release verification
+Source: kimssi1201-ux/tripview
+Main revision at request: c832dd5e616a688da87c0a9c5160244404fd0e3a
+Published: not verified until this file is accessible via tripview.kr/tripview-release.txt
+Features: information-only lodging and activity navigation; affiliate marketing paused; calendar and world time tools.
