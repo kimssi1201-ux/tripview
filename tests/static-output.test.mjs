@@ -983,6 +983,9 @@ test("article mobile layout keeps the reference-style masthead and compact tools
   const css = await readFile("src/styles/global.css", "utf8");
 
   assert.match(css, /@media \(max-width: 900px\)[\s\S]*\.site-brand \{[\s\S]*justify-self: center;/);
+  // Desktop: eight top-level links appear in one fully visible row.
+  assert.match(css, /\.site-nav-main \{[\s\S]*grid-template-columns: repeat\(8, minmax\(0, 1fr\)\);/);
+  assert.match(css, /\.site-nav-link \{[\s\S]*min-height: 46px;/);
   // Mobile navigation must expose all categories without horizontal swiping.
   assert.match(css, /@media \\(max-width: 900px\\)[\\s\\S]*\\.site-nav \\{[\\s\\S]*overflow: visible;/);
   assert.match(css, /\\.site-nav-main \\{[\\s\\S]*grid-template-columns: repeat\\(4, minmax\\(0, 1fr\\)\\);/);
