@@ -1,0 +1,71 @@
+name: Daily reviewed travel publication
+
+on:
+  schedule:
+    # GitHub Actions uses UTC; 00:00 UTC is 09:00 in Korea.
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tripview-daily-reviewed-publication
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Sync latest main
+        run: git pull --rebase origin main
+
+      - name: Release one approved queued article (Korea date)
+        id: release
+        run: node scripts/publish-scheduled-post.mjs
+
+      - name: Install project dependencies
+        if: steps.release.outputs.count == '1'
+        run: npm install --no-audit --no-fund --package-lock=false
+
+      - name: Install image processing dependencies
+        if: steps.release.outputs.count == '1'
+        run: python3 -m pip install --user pillow
+
+      - name: Build home, article, RSS, and sitemap
+        if: steps.release.outputs.count == '1'
+        run: npm run build
+        env:
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          TRIPVIEW_API_KEY: ${{ secrets.TRIPVIEW_API_KEY }}
+
+      - name: Run site and publication tests
+        if: steps.release.outputs.count == '1'
+        run: |
+          npm run lint
+          npm test
+
+      - name: Commit exactly one reviewed release
+        if: steps.release.outputs.count == '1'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/scheduled-posts.json data/manual-posts-scheduled.json data/scheduled-publication-log.json data/generated-posts.json data/processed-tour-images.json data/pexels-images.json
+          git add assets/processed 2>/dev/null || true
+          git diff --cached --quiet && { echo "No publication changes staged"; exit 1; }
+          git commit -m "Publish one reviewed travel article for Korea date"
+          git pull --rebase origin main
+          git push origin HEAD:main

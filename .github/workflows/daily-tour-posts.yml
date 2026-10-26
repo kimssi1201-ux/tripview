@@ -1,14 +1,13 @@
 name: Manual Tour Drafts
 
 on:
-  schedule:
-    - cron: "30 15 * * *"
+  # Manual-only generator. Scheduled release is handled by daily-reviewed-publication.yml.
   workflow_dispatch:
     inputs:
       limit:
-        description: "Number of pending drafts to generate"
+        description: "Legacy manual draft generation (hard capped at 1)"
         required: false
-        default: "5"
+        default: "1"
 
 permissions:
   contents: write
@@ -42,7 +41,7 @@ jobs:
         run: node scripts/daily-tour-posts.mjs
         env:
           TRIPVIEW_API_KEY: ${{ secrets.TRIPVIEW_API_KEY }}
-          POST_LIMIT: ${{ github.event.inputs.limit || '5' }}
+          POST_LIMIT: "1"
           MAX_IMAGES_PER_POST: "3"
 
       - name: Enrich generated posts

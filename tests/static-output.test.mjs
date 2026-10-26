@@ -1346,12 +1346,12 @@ test("data post pipeline outputs validated data pages", async () => {
     assert.ok(Object.values(typeCounts).every((count) => count <= 1));
     assert.ok(Array.isArray(run.discarded));
   }
-  assert.match(dataWorkflow, /cron: "20 18 \* \* \*"/);
+  assert.doesNotMatch(dataWorkflow, /\n  schedule:/);
   assert.match(dataWorkflow, /npm run generate:data-posts/);
   assert.match(dataWorkflow, /DATA_PIPELINE_VALIDATE_LIVE_URLS: "true"/);
-  assert.match(tourWorkflow, /\n\s*schedule:\s*\n\s*-\s*cron: "30 15 \* \* \*"/);
-  assert.match(tourWorkflow, /default: "5"/);
-  assert.match(tourWorkflow, /POST_LIMIT: \$\{\{ github\.event\.inputs\.limit \|\| '5' \}\}/);
+  assert.doesNotMatch(tourWorkflow, /\n  schedule:/);
+  assert.match(tourWorkflow, /default: "1"/);
+  assert.match(tourWorkflow, /POST_LIMIT: "1"/);
   assert.match(tourScript, /Published category distribution/);
   assert.match(tourScript, /Image requirement skipped/);
   assert.match(postNowWorkflow, /Published category distribution/);
