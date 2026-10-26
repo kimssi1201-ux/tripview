@@ -1,8 +1,7 @@
 name: Data post pipeline
 
 on:
-  schedule:
-    - cron: "20 18 * * *"
+  # Legacy multi-post data pipeline must never auto-publish during AdSense review.
   workflow_dispatch:
     inputs:
       refresh_accommodation_cache:
