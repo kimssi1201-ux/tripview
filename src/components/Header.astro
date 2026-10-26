@@ -3,7 +3,6 @@ const { activePath = "/" } = Astro.props;
 
 const navLinks = [
   { href: "/", label: "홈", key: "home" },
-  { href: "/travel/", label: "여행뉴스", key: "travel" },
   { href: "/#domestic", label: "국내여행", key: "domestic" },
   { href: "/region/overseas/", label: "해외여행", key: "overseas" },
   { href: "/stay/", label: "숙소 정보", key: "stay" },
@@ -26,7 +25,7 @@ function activeKey(path = "/") {
     path.includes("travel-bangkok") ||
     path.includes("travel-september-overseas")
   ) return "overseas";
-  if (path.startsWith("/travel") || path.startsWith("/region") || path.includes("travel-")) return "travel";
+  if (path.startsWith("/travel") || path.startsWith("/region") || path.includes("travel-")) return "domestic";
   return "";
 }
 
