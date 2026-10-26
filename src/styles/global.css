@@ -141,7 +141,7 @@ select {
 
 .site-nav-main {
   display: grid;
-  grid-template-columns: repeat(8, minmax(0, 1fr));
+  grid-template-columns: repeat(7, minmax(0, 1fr));
   align-items: stretch;
   gap: 8px;
   width: 100%;
@@ -1773,7 +1773,7 @@ figcaption {
     display: none;
   }
 
-  /* All eight categories stay visible in a compact two-row grid on phones.
+  /* Seven distinct categories stay visible in a compact two-row grid on phones.
      No horizontal scrolling or hidden categories on narrow screens. */
   .site-nav {
     grid-column: 1 / -1;
