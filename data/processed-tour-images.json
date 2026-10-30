@@ -1185,51 +1185,6 @@
         }
       ]
     },
-    "data-festival-schedule-seoul": {
-      "title": "서울 축제 일정 정리",
-      "sourceTitle": "서울 축제 일정 정리",
-      "region": "서울",
-      "source": "한국관광공사 공공누리",
-      "cover": {
-        "kind": "cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/49/4058449_image2_1.png",
-        "src": "/assets/processed/seoul-festival-iljeong-jeongri-festival.webp",
-        "alt": "서울 서울 축제 일정 정리 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 800,
-        "height": 500,
-        "processorVersion": "blurred-poster-canvas-20260827",
-        "overlay": null,
-        "posterCanvas": true,
-        "bytes": null
-      },
-      "hero": {
-        "kind": "hero-cover",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/49/4058449_image2_1.png",
-        "src": "/assets/processed/seoul-festival-iljeong-jeongri-festival-hero.webp",
-        "alt": "서울 서울 축제 일정 정리 방문 동선을 참고할 수 있는 트립뷰 편집 이미지",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 이미지",
-        "width": 1200,
-        "height": 900,
-        "processorVersion": "blurred-poster-canvas-20260827",
-        "overlay": null,
-        "posterCanvas": true
-      },
-      "banner": {
-        "kind": "hub-banner",
-        "original": "https://tong.visitkorea.or.kr/cms/resource/49/4058449_image2_1.png",
-        "src": "/assets/processed/seoul-festival-iljeong-jeongri-festival-banner.webp",
-        "alt": "서울 서울 축제 일정 정리 축제 일정 정보를 담은 트립뷰 지역 허브 배너",
-        "caption": "출처: 한국관광공사 공공누리 · 트립뷰 편집 배너",
-        "width": 1200,
-        "height": 675,
-        "processorVersion": "blurred-poster-canvas-20260827",
-        "overlay": null,
-        "posterCanvas": true,
-        "bytes": null
-      },
-      "images": []
-    },
     "festival-3351268": {
       "title": "동대문구 맥주축제 2026, 늦여름·초가을 방문 전 일정과 운영정보",
       "sourceTitle": "동대문구 맥주축제",
