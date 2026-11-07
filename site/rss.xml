@@ -1,360 +1,409 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
-    <title>트립뷰 RSS</title>
+    <title>트립뷰</title>
     <link>https://tripview.kr/</link>
-    <description>트립뷰 여행 정보 최신 글</description>
-    <language>ko-KR</language>
-    <lastBuildDate>Fri, 06 Nov 2026 15:00:00 GMT</lastBuildDate>
+    <description>국내여행과 공연/축제 여행 정보</description>
+    <lastBuildDate>Sat, 07 Nov 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>“언리미티드 에디션, 예약해야 하나요?”… 무료 입장·토요일 17시 30분 마감</title>
+      <link>https://tripview.kr/festival-unlimited-edition-seoul-art-book-fair-2026/</link>
+      <guid>https://tripview.kr/festival-unlimited-edition-seoul-art-book-fair-2026/</guid>
+      <description>제18회 언리미티드 에디션은 11월 8일까지 서울시립 북서울미술관에서 열립니다. 주말 운영시간은 오전 10시부터 오후 6시까지이고 입장은 오후 5시 30분에 마감합니다. 무료이며 사전 예약 없이 들어갈 수 있지만, 11월 7일 오후 4시 프로그램은 18명 한정으로 오후 3시부터 현장 신청을 받습니다.</description>
+      <category>축제·행사</category>
+      <pubDate>Sat, 07 Nov 2026 00:00:00 GMT</pubDate>
+    </item>
     <item>
       <title>“김해분청축제, 진례로 가면 안 됩니다”… 올해는 장유·토요일 20시까지</title>
       <link>https://tripview.kr/festival-gimhae-buncheong-jangyu-schedule-2026/</link>
       <guid>https://tripview.kr/festival-gimhae-buncheong-jangyu-schedule-2026/</guid>
       <description>제31회 김해분청도자기축제가 11월 6일부터 10일까지 열립니다. 올해는 30년간 축제를 열었던 진례면이 아니라 장유 롯데가든파크가 행사장입니다. 11월 7일 토요일은 오전 11시 어린이 다례시연부터 오후 5시 밴드 공연까지 이어지고, 축제장은 오후 8시까지 운영됩니다.</description>
-      <pubDate>Fri, 06 Nov 2026 15:00:00 GMT</pubDate>
+      <category>축제·행사</category>
+      <pubDate>Sat, 07 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“양구 사과시래기축제, 17시 끝?”… 전체 안내는 18시·시내버스 무료</title>
       <link>https://tripview.kr/festival-yanggu-punchbowl-apple-siraegi-bus-2026/</link>
       <guid>https://tripview.kr/festival-yanggu-punchbowl-apple-siraegi-bus-2026/</guid>
       <description>청춘양구 펀치볼 사과시래기축제가 11월 6일부터 8일까지 해안면 펀치볼힐링하우스 앞 성황지에서 열립니다. 공식 축제 안내는 오전 10시부터 오후 6시까지지만 리플렛의 체험·이벤트 부스 상당수는 오후 5시에 마감합니다. 양구읍 시외버스터미널에서는 행사장 인근까지 무료 시내버스를 이용할 수 있습니다.</description>
-      <pubDate>Thu, 05 Nov 2026 15:00:00 GMT</pubDate>
+      <category>축제·행사</category>
+      <pubDate>Fri, 06 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“서산국화축제, 몇 시에 가야 할까?”… 14시 개막·주말 공연 시간표</title>
       <link>https://tripview.kr/festival-seosan-chrysanthemum-schedule-2026/</link>
       <guid>https://tripview.kr/festival-seosan-chrysanthemum-schedule-2026/</guid>
       <description>제26회 서산국화축제가 11월 6일부터 15일까지 서산시 고북면에서 열립니다. 첫날 개막식은 오후 2시이며, 야외 국화미로와 대형하트·절화산책로·과수원길, 작품국화 전시를 함께 볼 수 있습니다. 공식 리플렛에는 날짜별 공연 시간이 있지만 축제장 전체 관람시간과 입장료는 따로 적혀 있지 않아 출발 전 확인이 필요합니다.</description>
-      <pubDate>Thu, 05 Nov 2026 15:00:00 GMT</pubDate>
+      <category>축제·행사</category>
+      <pubDate>Fri, 06 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“죽변항 수산물축제, 19시 끝?”… 공연은 20시까지·무료입장</title>
       <link>https://tripview.kr/festival-jukbyeon-harbor-seafood-schedule-2026/</link>
       <guid>https://tripview.kr/festival-jukbyeon-harbor-seafood-schedule-2026/</guid>
       <description>2026 죽변항 수산물축제가 11월 6일부터 8일까지 울진 죽변항에서 열립니다. 입장은 무료입니다. 한국관광공사 안내의 운영시간은 11시~19시지만 울진군 세부 시간표에는 첫날 나태주 공연과 둘째 날 박서진 공연이 19시30분에 시작해 20시까지 이어지는 것으로 나옵니다. 저녁 공연을 볼 계획이라면 날짜별 종료 시각을 따로 확인해야 합니다.</description>
-      <pubDate>Wed, 04 Nov 2026 15:00:00 GMT</pubDate>
+      <category>축제·행사</category>
+      <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“구미라면축제, 차는 어디 세울까?”… 1,204면 셔틀 주차장·라면 33곳</title>
       <link>https://tripview.kr/festival-gumi-ramyun-parking-shuttle-2026/</link>
       <guid>https://tripview.kr/festival-gumi-ramyun-parking-shuttle-2026/</guid>
       <description>2026 구미라면축제가 11월 6일부터 8일까지 구미역과 원평동 원도심에서 열립니다. 입장은 무료이며 라면레스토랑 25곳과 라면트럭 8대가 참여합니다. 차량 방문객은 구미역 바로 앞 유료 주차장보다 복합스포츠센터·보조경기장·시민운동장 1,204면에 주차한 뒤 셔틀을 이용하는 동선부터 확인하는 편이 좋습니다.</description>
-      <pubDate>Wed, 04 Nov 2026 15:00:00 GMT</pubDate>
+      <category>축제·행사</category>
+      <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“제주올레걷기축제, 사전신청 놓쳤다면?”… 현장 3만5천원·하루 11.5~13km</title>
       <link>https://tripview.kr/festival-jeju-olle-walking-registration-routes-2026/</link>
       <guid>https://tripview.kr/festival-jeju-olle-walking-registration-routes-2026/</guid>
       <description>2026 제주올레걷기축제가 11월 5일부터 7일까지 제주올레 19·20코스에서 열립니다. 사전신청은 10월 9일 끝났지만 축제 기간 매일 아침 출발지 등록부스에서 선착순 현장등록을 받습니다. 일반 참가비는 3만5000원이며, 점심과 셔틀은 현장 판매를 기대하지 말고 예약 여부와 대체 이동수단을 먼저 확인해야 합니다.</description>
-      <pubDate>Fri, 30 Oct 2026 15:00:00 GMT</pubDate>
+      <category>축제·행사</category>
+      <pubDate>Sat, 31 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“홍성 바비큐축제, 차 어디에 세울까?”… 718면 경기장·무료 셔틀 15분 간격</title>
       <link>https://tripview.kr/festival-hongseong-global-bbq-parking-shuttle-2026/</link>
       <guid>https://tripview.kr/festival-hongseong-global-bbq-parking-shuttle-2026/</guid>
       <description>홍성글로벌바비큐페스티벌이 10월 29일부터 11월 1일까지 홍주성 일원에서 열립니다. 행사장 주변 공식 주차장은 9곳이지만 날짜별 이용 제한이 있어, 자가용 방문자는 718면 규모 홍주종합경기장에 주차하고 15분 간격 무료 셔틀을 타는 동선이 가장 단순합니다.</description>
-      <pubDate>Fri, 30 Oct 2026 15:00:00 GMT</pubDate>
+      <category>축제·행사</category>
+      <pubDate>Sat, 31 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“경복궁, 지금 입장료 안 받습니다”… 11월 15일까지 4대궁·종묘·왕릉 무료</title>
       <link>https://tripview.kr/festival-royal-palaces-free-admission-2026/</link>
       <guid>https://tripview.kr/festival-royal-palaces-free-admission-2026/</guid>
       <description>코리아 그랜드 페스티벌 기간인 10월 29일부터 11월 15일까지 경복궁·창덕궁·덕수궁·창경궁, 종묘와 조선왕릉의 일반관람이 무료입니다. 다만 창덕궁 후원 특별관람은 포함되지 않고 기관별 정기휴일도 그대로 적용됩니다. 10월과 11월의 경복궁 입장마감 시간도 달라 출발 전에 확인해야 합니다.</description>
-      <pubDate>Thu, 29 Oct 2026 15:00:00 GMT</pubDate>
+      <category>축제·행사</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“서울뮤직페스티벌, 예매 없이 가도 될까?”… 24일 노들섬 입장·주차·반입품 총정리</title>
       <link>https://tripview.kr/festival-seoul-music-festival-nodeul-2026/</link>
       <guid>https://tripview.kr/festival-seoul-music-festival-nodeul-2026/</guid>
       <description>2026 서울뮤직페스티벌은 10월 24일 노들섬에서 열립니다. 시민체험은 정오, 메인 공연은 오후 5시에 시작합니다. 현장 예매는 없고 예매자는 모바일 티켓과 신분증을 준비해야 하며, 행사 당일 노들섬 주차장은 운영하지 않습니다.</description>
-      <pubDate>Thu, 22 Oct 2026 15:00:00 GMT</pubDate>
+      <category>축제·행사</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“오늘 개막한 대구정원박람회, 하중도 어떻게 갈까?”… 27일까지 정원전시·주말 셔틀 관람법</title>
       <link>https://tripview.kr/festival-daegu-garden-show-hajungdo-2026/</link>
       <guid>https://tripview.kr/festival-daegu-garden-show-hajungdo-2026/</guid>
       <description>2026 대구정원박람회가 10월 23일부터 27일까지 금호강 하중도에서 열립니다. 학생·시민·기업이 만든 정원과 정원산업전, 체험과 공연을 함께 볼 수 있습니다. 주말에는 만평역 셔틀이 운행되므로 자가용보다 대중교통 동선을 먼저 확인하는 편이 좋습니다.</description>
-      <pubDate>Thu, 22 Oct 2026 15:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>“서울 드론레이싱 월드컵, 결승만 보려면 몇 시?”… 24일 오후 3시 30분·시상식 4시 20분</title>
-      <link>https://tripview.kr/festival-seoul-drone-racing-world-cup-2026/</link>
-      <guid>https://tripview.kr/festival-seoul-drone-racing-world-cup-2026/</guid>
-      <description>2026 서울 국제 드론 레이싱 월드컵은 10월 23~24일 광나루 한강드론공원에서 열립니다. 금요일은 공식 연습과 세 차례 예선, 토요일은 토너먼트와 결승 중심입니다. 결승은 24일 오후 3시 30분, 시상식은 오후 4시 20분 예정입니다.</description>
-      <pubDate>Thu, 22 Oct 2026 15:00:00 GMT</pubDate>
+      <category>축제·행사</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“서울마켓페어, 낮장·밤장 뭐가 다를까?”… 체험 5시 마감·야장 9시까지, 광화문역 143m</title>
       <link>https://tripview.kr/festival-seoul-market-fair-day-night-2026/</link>
       <guid>https://tripview.kr/festival-seoul-market-fair-day-night-2026/</guid>
       <description>2026 서울마켓페어는 10월 24~25일 청계광장 일원에서 열립니다. 낮장은 오전 10시부터 오후 5시까지, 밤장은 오후 5시부터 9시까지 이어집니다. 체험이 목적이라면 오후 5시 전에, 야장과 일요일 공연이 목적이라면 점등 이후 일정을 확인하는 편이 좋습니다.</description>
-      <pubDate>Wed, 21 Oct 2026 15:00:00 GMT</pubDate>
+      <category>축제·행사</category>
+      <pubDate>Thu, 22 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>“서울 드론레이싱 월드컵, 결승만 보려면 몇 시?”… 24일 오후 3시 30분·시상식 4시 20분</title>
+      <link>https://tripview.kr/festival-seoul-drone-racing-world-cup-2026/</link>
+      <guid>https://tripview.kr/festival-seoul-drone-racing-world-cup-2026/</guid>
+      <description>2026 서울 국제 드론 레이싱 월드컵은 10월 23~24일 광나루 한강드론공원에서 열립니다. 금요일은 공식 연습과 세 차례 예선, 토요일은 토너먼트와 결승 중심입니다. 결승은 24일 오후 3시 30분, 시상식은 오후 4시 20분 예정입니다.</description>
+      <category>축제·행사</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“한성백제문화제, 몇 시까지 가야 할까?”… 체험 7시·장터 9시, P1·P2 주차 10분 600원</title>
       <link>https://tripview.kr/festival-seoul-hanseong-baekje-cultural-2026/</link>
       <guid>https://tripview.kr/festival-seoul-hanseong-baekje-cultural-2026/</guid>
       <description>제26회 한성백제문화제는 10월 23일부터 25일까지 올림픽공원 88잔디마당에서 열립니다. 체험마을은 오후 7시, 장터는 오후 9시에 끝나며 주요 공연과 대규모 체험은 무료지만 일부 소규모 체험은 유료입니다.</description>
-      <pubDate>Wed, 21 Oct 2026 15:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>“원평나루 억새축제, 차 어디에 세울까?”… 24일 하루·임시주차장 2곳·저녁 6시 콘서트</title>
-      <link>https://tripview.kr/festival-pyeongtaek-wonpyeongnaru-silver-grass-2026/</link>
-      <guid>https://tripview.kr/festival-pyeongtaek-wonpyeongnaru-silver-grass-2026/</guid>
-      <description>원평나루 억새축제는 10월 24일 오전 11시부터 밤 9시까지 군문교 일원에서 열립니다. 저녁 6시 억새 콘서트와 푸드트럭 10대, 어린이 체험이 마련되며 평택초·군문초가 임시주차장으로 운영됩니다.</description>
-      <pubDate>Wed, 21 Oct 2026 15:00:00 GMT</pubDate>
+      <category>축제·행사</category>
+      <pubDate>Thu, 22 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“서울 러너스 페스티벌, 7시 반 출발인데 몇 시 가야 할까?”… 대회장 6시 오픈·10K 5천명·국회의사당역 511m</title>
       <link>https://tripview.kr/festival-seoul-runners-2026/</link>
       <guid>https://tripview.kr/festival-seoul-runners-2026/</guid>
       <description>10K 출발은 오전 7시 30분이지만 대회장은 6시에 열리고 집결은 7시입니다. 국회의사당역 3번 출구에서 행사장까지 511m로 안내돼 있어 출발 시각만 보고 움직이기보다 집결·보관·준비 시간을 먼저 계산해야 합니다.</description>
-      <pubDate>Tue, 20 Oct 2026 15:00:00 GMT</pubDate>
+      <category>축제·행사</category>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>“원평나루 억새축제, 차 어디에 세울까?”… 24일 하루·임시주차장 2곳·저녁 6시 콘서트</title>
+      <link>https://tripview.kr/festival-pyeongtaek-wonpyeongnaru-silver-grass-2026/</link>
+      <guid>https://tripview.kr/festival-pyeongtaek-wonpyeongnaru-silver-grass-2026/</guid>
+      <description>원평나루 억새축제는 10월 24일 오전 11시부터 밤 9시까지 군문교 일원에서 열립니다. 저녁 6시 억새 콘서트와 푸드트럭 10대, 어린이 체험이 마련되며 평택초·군문초가 임시주차장으로 운영됩니다.</description>
+      <category>축제·행사</category>
+      <pubDate>Thu, 22 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“고원푸드페스타, 토·일 셰프가 다르다?”… 24일 100인 배틀·25일 미식회 현장 20명</title>
       <link>https://tripview.kr/festival-jinan-go-one-food-festa-2026/</link>
       <guid>https://tripview.kr/festival-jinan-go-one-food-festa-2026/</guid>
       <description>토요일에는 정호영·박은영 셰프의 100인 시식 배틀이, 일요일에는 천상현 셰프의 고원미식회가 열립니다. 두 프로그램은 시간과 참가비, 신청 방식이 달라 날짜를 먼저 정하고 예약 상태를 확인해야 합니다.</description>
-      <pubDate>Tue, 20 Oct 2026 15:00:00 GMT</pubDate>
+      <category>축제·행사</category>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“설악산 단풍, 정상까지 안 올라가도 됩니다”… 24~25일 C지구 축제·피골산책길 투어</title>
       <link>https://tripview.kr/festival-seorak-foliage-hwache-village-2026/</link>
       <guid>https://tripview.kr/festival-seorak-foliage-hwache-village-2026/</guid>
       <description>설악산 정상 등반이 부담스럽다면 설악동 C지구에서 열리는 단풍축제를 먼저 살펴볼 만합니다. 피골산책길 투어는 하루 세 차례 진행되고 토요일은 오후 6시, 일요일은 오후 5시에 행사가 끝납니다.</description>
-      <pubDate>Mon, 19 Oct 2026 15:00:00 GMT</pubDate>
+      <category>축제·행사</category>
+      <pubDate>Tue, 20 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“강릉커피축제, 차 가져가면 어디 세울까?”… 21~25일 임시주차장 11곳·무료 셔틀 15분 간격</title>
       <link>https://tripview.kr/festival-gangneung-coffee-2026/</link>
       <guid>https://tripview.kr/festival-gangneung-coffee-2026/</guid>
       <description>강릉커피축제는 안목 커피거리에서 닷새 동안 오전 10시부터 오후 8시까지 열립니다. 축제장 가까운 주차장만 찾기보다 11개 임시주차장과 15분 간격 무료 셔틀을 먼저 확인하는 편이 좋습니다.</description>
-      <pubDate>Mon, 19 Oct 2026 15:00:00 GMT</pubDate>
+      <category>축제·행사</category>
+      <pubDate>Tue, 20 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“서울 바비큐 페스티벌, 예약 없으면 못 먹을까?”… 24~25일 난지캠핑장·현장 판매·유료 셔틀</title>
       <link>https://tripview.kr/festival-seoul-barbecue-festa-2026/</link>
       <guid>https://tripview.kr/festival-seoul-barbecue-festa-2026/</guid>
       <description>서울 바비큐 페스티벌이 10월 24~25일 난지캠핑장 일대에서 열립니다. 입장은 무료이고 셀프 BBQ존은 예약·현장 판매분이 있지만, 바비큐 빌리지와 공연 등 다른 콘텐츠는 예약 없이 이용할 수 있습니다.</description>
-      <pubDate>Sun, 18 Oct 2026 15:00:00 GMT</pubDate>
+      <category>축제·행사</category>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“노량진 새우잡기, 무료인 줄 알았는데?”… 1만원 현장접수·김연자 공연·수산물 장터</title>
       <link>https://tripview.kr/festival-noryangjin-urban-sea-2026/</link>
       <guid>https://tripview.kr/festival-noryangjin-urban-sea-2026/</guid>
       <description>노량진수산시장과 노량진축구장 일대가 10월 24~25일 서울의 바다로 바뀝니다. 축제는 날짜별 종료시간이 다르고, 놀이·공방은 무료지만 인기 새우잡기 체험은 현장접수 후 1인 1만원을 내야 합니다.</description>
-      <pubDate>Sun, 18 Oct 2026 15:00:00 GMT</pubDate>
+      <category>축제·행사</category>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“교토 단풍, 지금 예약해도 될까?”… 30일 현황표 공개·야간 라이트업·버스 혼잡 피하는 법</title>
       <link>https://tripview.kr/travel-kyoto-autumn-foliage-2026/</link>
       <guid>https://tripview.kr/travel-kyoto-autumn-foliage-2026/</guid>
       <description>교토시 공식 관광 가이드가 10월 30일부터 단풍 현황표를 공개합니다. 예약은 먼저 하되 절정일을 단정하지 말고, 철도 중심 동선과 야간 라이트업 후보를 따로 준비하는 편이 안전합니다.</description>
-      <pubDate>Sun, 18 Oct 2026 15:00:00 GMT</pubDate>
+      <category>해외여행</category>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“문광저수지 은행나무길, 언제 갈까?”… 10월 말 노란빛·11월 15일까지 축제</title>
       <link>https://tripview.kr/festival-goesan-mungwang-reservoir-ginkgo-2026/</link>
       <guid>https://tripview.kr/festival-goesan-mungwang-reservoir-ginkgo-2026/</guid>
       <description>2026 양곡은행나무축제는 10월 17일부터 11월 15일까지 이어집니다. 지역 단풍 예측과 괴산군이 공개한 10월 13일 현장 사진을 함께 보고, 약 400m 은행나무길과 소금랜드 주차장을 잇는 동선을 정리했습니다.</description>
-      <pubDate>Sat, 17 Oct 2026 15:00:00 GMT</pubDate>
+      <category>국내여행</category>
+      <pubDate>Sun, 18 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“한식 페스타, 그냥 가도 될까?”… 23~25일 국중박·24일 밤 8시까지, 체험 예약은 따로</title>
       <link>https://tripview.kr/festival-seoul-hansik-festa-2026/</link>
       <guid>https://tripview.kr/festival-seoul-hansik-festa-2026/</guid>
       <description>첫 법정기념일인 한식의 날을 맞아 2026 한식 페스타가 10월 23~25일 국립중앙박물관에서 열립니다. 24일은 밤 8시까지 운영하며, 거울못 프로그램과 사전예약 체험을 구분해 준비해야 합니다.</description>
-      <pubDate>Sat, 17 Oct 2026 15:00:00 GMT</pubDate>
+      <category>축제·행사</category>
+      <pubDate>Sun, 18 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“목포항구축제, 차 어디에 세울까?”… 3개 셔틀·저녁 7시 공연 동선</title>
       <link>https://tripview.kr/festival-mokpo-harbor-shuttle-guide-2026/</link>
       <guid>https://tripview.kr/festival-mokpo-harbor-shuttle-guide-2026/</guid>
       <description>2026 목포항구축제는 10월 18일까지 목포항과 삼학도 일원에서 이어집니다. 10월 17일 경매쇼와 파시 재현, 저녁 7시 항구음악회를 놓치지 않도록 세 셔틀 노선과 시간대별 동선을 함께 정리했습니다.</description>
-      <pubDate>Fri, 16 Oct 2026 15:00:00 GMT</pubDate>
+      <category>축제·행사</category>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“익산 천만송이 국화축제, 어디에 주차할까?”… 23일 개막·11곳 1212대 동선</title>
       <link>https://tripview.kr/festival-iksan-ten-million-chrysanthemum-2026/</link>
       <guid>https://tripview.kr/festival-iksan-ten-million-chrysanthemum-2026/</guid>
       <description>제23회 익산 천만송이 국화축제가 10월 23일부터 11월 1일까지 중앙체육공원에서 열립니다. 공식 주차장 목록을 기준으로 평일 890대, 주말 1212대 규모의 동선과 익산역에서 이동하는 방법을 함께 정리했습니다.</description>
-      <pubDate>Fri, 16 Oct 2026 15:00:00 GMT</pubDate>
+      <category>축제·행사</category>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“부산불꽃축제, 광안리만 가면 될까?”… 11월 7일 세 관람지·숙소 동선</title>
       <link>https://tripview.kr/festival-busan-fireworks-viewing-accommodation-2026/</link>
       <guid>https://tripview.kr/festival-busan-fireworks-viewing-accommodation-2026/</guid>
       <description>제21회 부산불꽃축제가 11월 7일 광안리해수욕장·이기대·동백섬 일원에서 열립니다. 어느 관람지를 고를지에 따라 숙소와 귀가 동선이 달라져 공식 교통·예매 안내를 함께 살펴봐야 합니다.</description>
-      <pubDate>Fri, 16 Oct 2026 15:00:00 GMT</pubDate>
+      <category>축제·행사</category>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“전북과학축전, 아이와 몇 시에 갈까?”… 16~18일 무료·80여 기관·주차장 12곳</title>
       <link>https://tripview.kr/festival-jeonbuk-science-festival-2026/</link>
       <guid>https://tripview.kr/festival-jeonbuk-science-festival-2026/</guid>
       <description>전주대학교에서 10월 16~18일 열리는 무료 과학축전입니다. 첫날은 오후 1시, 주말은 오전 10시에 시작하며 피지컬AI와 40개 과학 실험, 날짜별 무대 프로그램을 운영합니다.</description>
-      <pubDate>Thu, 15 Oct 2026 15:00:00 GMT</pubDate>
+      <category>축제·행사</category>
+      <pubDate>Fri, 16 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“화순 고인돌 가을꽃축제, 도곡부터 갈까?”… 16~25일 27만 주·5000원 환급</title>
       <link>https://tripview.kr/festival-hwasun-dolmen-autumn-flowers-2026/</link>
       <guid>https://tripview.kr/festival-hwasun-dolmen-autumn-flowers-2026/</guid>
       <description>화순 고인돌 가을꽃축제가 10월 16일부터 25일까지 열립니다. 17일부터 입장료 5000원을 받지만 같은 금액의 화순사랑상품권으로 돌려주며, 도곡과 춘양 두 축제장을 순환버스로 연결합니다.</description>
-      <pubDate>Thu, 15 Oct 2026 15:00:00 GMT</pubDate>
+      <category>축제·행사</category>
+      <pubDate>Fri, 16 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“황매산 억새축제, 차로 가면 얼마일까?”… 17~25일 무료·주차 4시간 5000원</title>
       <link>https://tripview.kr/festival-hwangmaesan-silver-grass-2026/</link>
       <guid>https://tripview.kr/festival-hwangmaesan-silver-grass-2026/</guid>
       <description>황매산 억새축제가 10월 17~25일 무료로 열립니다. 10월 소형차 주차료는 4시간 5000원이며, 개막 공연과 주말 문화예술공연·평일 체험·나눔카트가 이어집니다.</description>
-      <pubDate>Thu, 15 Oct 2026 15:00:00 GMT</pubDate>
+      <category>축제·행사</category>
+      <pubDate>Fri, 16 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“서울청소년축제, 마인드런 신청 못 했어도 갈까?”… 17일 1만명·45개 체험·나머지 무료</title>
       <link>https://tripview.kr/festival-seoul-youth-festival-2026/</link>
       <guid>https://tripview.kr/festival-seoul-youth-festival-2026/</guid>
       <description>서울청소년축제는 10월 17일 여의도공원에서 열립니다. 마인드런은 사전 유료 접수가 끝났지만 음악·스포츠 결선과 45개 체험부스 등은 청소년과 시민 누구나 무료로 참여할 수 있습니다.</description>
-      <pubDate>Wed, 14 Oct 2026 15:00:00 GMT</pubDate>
+      <category>축제·행사</category>
+      <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“서울동물행복페스타, 반려견 없이 가도 될까?”… 17~18일 무료 체험·행복런 접수 마감</title>
       <link>https://tripview.kr/festival-seoul-animal-happiness-festa-2026/</link>
       <guid>https://tripview.kr/festival-seoul-animal-happiness-festa-2026/</guid>
       <description>서울동물행복페스타가 10월 17~18일 여의도한강공원에서 열립니다. 반려견이 없어도 PLAY존과 펫톡, 입양제 관람에 참여할 수 있지만 동물행복런은 사전 접수가 마감됐습니다.</description>
-      <pubDate>Wed, 14 Oct 2026 15:00:00 GMT</pubDate>
+      <category>축제·행사</category>
+      <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“사각사각 예술축제, 예약 없이 가도 될까?”… 17일 7시간·14개 예술세계·우천 시 취소</title>
       <link>https://tripview.kr/festival-jamsil-sagaksagak-art-2026/</link>
       <guid>https://tripview.kr/festival-jamsil-sagaksagak-art-2026/</guid>
       <description>사각사각 예술축제는 10월 17일 잠실한강공원에서 딱 7시간 열립니다. 예약 없이 현장에서 참여할 수 있지만 프로그램별 비용과 우천 취소 여부는 출발 전에 다시 확인해야 합니다.</description>
-      <pubDate>Wed, 14 Oct 2026 15:00:00 GMT</pubDate>
+      <category>축제·행사</category>
+      <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“서울디자인위크, DDP만 보면 끝일까?”… 25일까지 5개 권역 150곳·디자인페어는 18일까지</title>
       <link>https://tripview.kr/festival-seoul-design-week-ddp-2026/</link>
       <guid>https://tripview.kr/festival-seoul-design-week-ddp-2026/</guid>
       <description>서울디자인위크는 12일 동안 열리지만 DDP디자인페어는 첫 닷새만 진행됩니다. 유료 페어와 무료 전시·마켓의 날짜를 먼저 구분하고, 동대문·성수·연희·서촌·압구정 가운데 한 권역을 더하는 방식이 효율적입니다.</description>
-      <pubDate>Tue, 13 Oct 2026 15:00:00 GMT</pubDate>
+      <category>축제·행사</category>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“매헌시민의숲 정원박람회, 도슨트부터 볼까?”… 27일까지 51개 정원·하루 3회 선착순 투어</title>
       <link>https://tripview.kr/festival-maeheon-seoul-international-garden-show-2026/</link>
       <guid>https://tripview.kr/festival-maeheon-seoul-international-garden-show-2026/</guid>
       <description>서울국제정원박람회가 가을에는 매헌시민의숲으로 무대를 넓혔습니다. 51개 정원을 천천히 걷고 싶다면 프로그램 운영시간과 하루 세 차례 진행되는 정원도슨트 회차를 먼저 맞추는 편이 좋습니다.</description>
-      <pubDate>Tue, 13 Oct 2026 15:00:00 GMT</pubDate>
+      <category>축제·행사</category>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“서울도시농업박람회, 반려식물도 받을까?”… 16~17일 서울숲 무료·선착순 2,500명</title>
       <link>https://tripview.kr/festival-seoul-urban-agriculture-expo-2026/</link>
       <guid>https://tripview.kr/festival-seoul-urban-agriculture-expo-2026/</guid>
       <description>서울숲이 이틀 동안 도시농업 체험장으로 바뀝니다. 반려식물 나눔은 선착순 2,500명이고, 향기·미식·컬러·반려 팜과 탈곡·곤충 체험 등을 무료로 즐길 수 있어 방문 순서를 미리 정하는 편이 좋습니다.</description>
-      <pubDate>Mon, 12 Oct 2026 15:00:00 GMT</pubDate>
+      <category>축제·행사</category>
+      <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“서울대공원 단풍, 동물원 표부터 사야 할까?”… 무료 호숫가 2.8km·전시온실은 31일까지 휴관</title>
       <link>https://tripview.kr/travel-seoul-grand-park-autumn-trail-2026/</link>
       <guid>https://tripview.kr/travel-seoul-grand-park-autumn-trail-2026/</guid>
       <description>서울대공원 단풍을 보려면 무조건 동물원 표부터 살 필요는 없습니다. 입장료 없는 호숫가 둘레길 2.8km를 먼저 걷고, 동물원이나 7km 산림욕장까지 이어갈지는 체력과 관람시간에 맞춰 정하는 편이 실용적입니다.</description>
-      <pubDate>Mon, 12 Oct 2026 15:00:00 GMT</pubDate>
+      <category>여행지</category>
+      <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“서울식물원 가을 나들이, 온실부터 갈까?”… 무료 호수원·유료 주제원 구분과 월요일 휴관</title>
       <link>https://tripview.kr/travel-seoul-botanic-park-autumn-2026/</link>
       <guid>https://tripview.kr/travel-seoul-botanic-park-autumn-2026/</guid>
       <description>서울식물원은 공원 전체가 유료가 아닙니다. 열린숲·호수원·습지원은 상시 무료로 걷고, 온실과 주제정원을 포함한 주제원만 표를 사는 구조라서 날씨와 체류 시간에 맞춰 코스를 나누는 편이 실용적입니다.</description>
-      <pubDate>Mon, 12 Oct 2026 15:00:00 GMT</pubDate>
+      <category>국내여행</category>
+      <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“명성산 억새축제, 호수만 돌면 억새밭도 볼 수 있을까?”… 16~18일 불꽃극·등산로 동선 체크</title>
       <link>https://tripview.kr/festival-pocheon-myeongseongsan-silver-grass-2026/</link>
       <guid>https://tripview.kr/festival-pocheon-myeongseongsan-silver-grass-2026/</guid>
       <description>제29회 포천 산정호수 명성산 억새꽃축제는 10월 16일부터 18일까지 열립니다. 호숫가 축제장과 산 위 억새밭은 같은 동선이 아니며, 수상불꽃극 시간과 폐쇄 등산로도 미리 확인해야 합니다.</description>
-      <pubDate>Sun, 11 Oct 2026 15:00:00 GMT</pubDate>
+      <category>축제·행사</category>
+      <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“민둥산 억새, 발구덕까지 차로 갈 수 있을까?”… 11월 8일까지 전면 통제·셔틀도 중단</title>
       <link>https://tripview.kr/festival-jeongseon-mindungsan-silver-grass-2026/</link>
       <guid>https://tripview.kr/festival-jeongseon-mindungsan-silver-grass-2026/</guid>
       <description>2026년 민둥산 은빛억새축제는 11월 8일까지 이어집니다. 하지만 발구덕 차량 진입은 전면 통제되고 연계 셔틀도 중단돼, 민둥산운동장이나 능전주차장에서 시작하는 산행 계획이 필요합니다.</description>
-      <pubDate>Sun, 11 Oct 2026 15:00:00 GMT</pubDate>
+      <category>축제·행사</category>
+      <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“인천대공원 단풍, 정문으로만 가야 할까?”… 남문은 지하철 2호선·주차는 하루 3천원</title>
       <link>https://tripview.kr/travel-incheon-grand-park-autumn-foliage-2026/</link>
       <guid>https://tripview.kr/travel-incheon-grand-park-autumn-foliage-2026/</guid>
       <description>인천대공원은 정문만 있는 공원이 아닙니다. 차로 가면 하루 소형 3천원이고, 인천지하철 2호선 인천대공원역에서는 남문으로 바로 접근할 수 있어 단풍 동선을 출발 수단부터 다르게 짜야 합니다.</description>
-      <pubDate>Sun, 11 Oct 2026 15:00:00 GMT</pubDate>
+      <category>여행지</category>
+      <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“국립수목원 단풍, 차 가져가도 될까?”… 단풍나무 29일 절정·차량 100% 사전 예약</title>
       <link>https://tripview.kr/travel-korea-national-arboretum-autumn-reservation-2026/</link>
       <guid>https://tripview.kr/travel-korea-national-arboretum-autumn-reservation-2026/</guid>
       <description>국립수목원은 차로 갈 때와 대중교통으로 갈 때 입장 방식이 다릅니다. 차량은 반드시 미리 예약해야 하고, 도보·대중교통 방문자는 하루 입장 인원 범위에서 현장 발권할 수 있습니다.</description>
-      <pubDate>Sat, 10 Oct 2026 15:00:00 GMT</pubDate>
+      <category>여행지</category>
+      <pubDate>Sun, 11 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“한강페스티벌 가을, 그냥 잠원으로 가면 될까?”… 7개 공원·9일간, 예약 프로그램은 따로</title>
       <link>https://tripview.kr/festival-hangang-fall-2026/</link>
       <guid>https://tripview.kr/festival-hangang-fall-2026/</guid>
       <description>한강페스티벌 가을은 한 장소에서 끝나는 축제가 아닙니다. 첫 주말은 잠원, 다음 주말은 강서와 뚝섬이 중심이고 요가·요팅·크루즈는 별도 예약이 필요해 원하는 프로그램부터 정해야 동선이 짧아집니다.</description>
-      <pubDate>Sat, 10 Oct 2026 15:00:00 GMT</pubDate>
+      <category>축제·행사</category>
+      <pubDate>Sun, 11 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“창덕궁 후원 단풍, 현장표만 믿고 가도 될까?”… 회차당 100명·예매는 6일 전 오전 10시</title>
       <link>https://tripview.kr/travel-changdeokgung-secret-garden-autumn-reservation-2026/</link>
       <guid>https://tripview.kr/travel-changdeokgung-secret-garden-autumn-reservation-2026/</guid>
       <description>창덕궁 후원은 전각 관람과 달리 회차별 정원이 정해져 있습니다. 온라인 50명과 현장 50명으로 나뉘며, 단풍철에는 예매가 빠르게 마감돼 관람 희망일 6일 전 오전 10시를 기억하는 편이 좋습니다.</description>
-      <pubDate>Sat, 10 Oct 2026 15:00:00 GMT</pubDate>
+      <category>여행지</category>
+      <pubDate>Sun, 11 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“당현천 빛조각, 몇 시에 켜지나?”… 노원달빛산책 16일 개막·매일 밤 10시까지</title>
       <link>https://tripview.kr/festival-nowon-moonlight-walk-2026/</link>
       <guid>https://tripview.kr/festival-nowon-moonlight-walk-2026/</guid>
       <description>당현천이 해 질 무렵 공공미술 전시장으로 바뀝니다. 10월 16일부터 11월 8일까지 매일 오후 5시 30분에 불을 밝히고, 작품 해설을 듣는 달빛투어도 운영합니다.</description>
-      <pubDate>Fri, 09 Oct 2026 15:00:00 GMT</pubDate>
+      <category>축제·행사</category>
+      <pubDate>Sat, 10 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“19m 새우김밥, 몇 시에 만드나?”… 마포 새우젓축제 16~18일·폐막 불꽃쇼</title>
       <link>https://tripview.kr/festival-mapo-naru-saeujeot-2026/</link>
       <guid>https://tripview.kr/festival-mapo-naru-saeujeot-2026/</guid>
       <description>마포나루 새우젓축제는 10월 16일부터 18일까지 월드컵공원 평화의광장에서 열립니다. 17일 오후 2시에는 19m 새우김밥 만들기, 18일 오후 6시부터는 폐막공연과 불꽃놀이·레이저쇼가 이어집니다.</description>
-      <pubDate>Fri, 09 Oct 2026 15:00:00 GMT</pubDate>
+      <category>축제·행사</category>
+      <pubDate>Sat, 10 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“이천쌀문화축제, 2천원 가마솥밥 언제 먹나?”… 14~18일 복하천·매일 12·14시</title>
       <link>https://tripview.kr/festival-icheon-rice-cultural-2026/</link>
       <guid>https://tripview.kr/festival-icheon-rice-cultural-2026/</guid>
       <description>이천쌀문화축제는 10월 14일부터 18일까지 올해 새 행사장인 복하천 수변공원에서 열립니다. 가마솥밥은 매일 낮 12시와 오후 2시에 2천원으로 운영되고 셔틀은 오전 8시 30분부터 오후 6시 30분까지 다닙니다.</description>
-      <pubDate>Fri, 09 Oct 2026 15:00:00 GMT</pubDate>
+      <category>축제·행사</category>
+      <pubDate>Sat, 10 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“화담숲 단풍, 모노레일 꼭 타야 할까?”… 23일부터 매일 개장·예약 시간 외 입장 불가</title>
       <link>https://tripview.kr/travel-hwadam-forest-autumn-reservation-2026/</link>
       <guid>https://tripview.kr/travel-hwadam-forest-autumn-reservation-2026/</guid>
       <description>화담숲 가을 성수기는 10월 23일부터 11월 15일까지입니다. 예약한 시간에만 입장할 수 있고, 모노레일은 걷는 거리와 동행자의 보행 부담을 기준으로 구간을 골라야 합니다.</description>
-      <pubDate>Fri, 09 Oct 2026 15:00:00 GMT</pubDate>
+      <category>여행지</category>
+      <pubDate>Sat, 10 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“함평 국향대전, 현장권 7천원 그대로 살까?”… 22일까지 10% 할인·17일간 국화동산</title>
       <link>https://tripview.kr/festival-hampyeong-chrysanthemum-2026/</link>
       <guid>https://tripview.kr/festival-hampyeong-chrysanthemum-2026/</guid>
       <description>함평 대한민국 국향대전은 10월 23일부터 11월 8일까지 이어집니다. 10월 22일까지 사전예매하면 입장료가 10% 할인되고, 현장에서는 국화 전시와 공연·체험을 함께 볼 수 있습니다.</description>
-      <pubDate>Thu, 08 Oct 2026 15:00:00 GMT</pubDate>
+      <category>축제·행사</category>
+      <pubDate>Fri, 09 Oct 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
       <title>“대구 떡볶이 페스티벌, 늦게 가도 될까?”… 23~25일 무료입장·밤 9시30분까지</title>
       <link>https://tripview.kr/festival-daegu-tteokbokki-2026/</link>
       <guid>https://tripview.kr/festival-daegu-tteokbokki-2026/</guid>
       <description>대구 떡볶이 페스티벌은 10월 23일부터 25일까지 매일 오전 11시부터 밤 9시 30분까지 열립니다. 입장은 무료지만 먹거리와 일부 체험은 별도 결제이므로 프로그램과 이동 동선을 먼저 확인하세요.</description>
-      <pubDate>Thu, 08 Oct 2026 15:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>“조선왕릉축전, 12곳 중 어디부터 갈까?”… 16일 개막·야행·뮤지컬·능침 특별 개방</title>
-      <link>https://tripview.kr/festival-royal-tombs-2026/</link>
-      <guid>https://tripview.kr/festival-royal-tombs-2026/</guid>
-      <description>세계유산 조선왕릉축전은 한 행사장에 모이는 축제가 아닙니다. 12개 왕릉 가운데 보고 싶은 공연과 투어를 먼저 고르고 예약·입장 조건을 맞춰야 동선이 깔끔해집니다.</description>
-      <pubDate>Wed, 07 Oct 2026 15:00:00 GMT</pubDate>
+      <category>축제·행사</category>
+      <pubDate>Fri, 09 Oct 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
