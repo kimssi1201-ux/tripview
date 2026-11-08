@@ -26,11 +26,35 @@ function parseLocs(xml = "") {
   return [...String(xml).matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => match[1]);
 }
 
-function stripTags(value = "") {
+function decodeHtmlEntities(value = "") {
+  const namedEntities = new Map([
+    ["amp", "&"],
+    ["apos", "'"],
+    ["quot", '"'],
+    ["lt", "<"],
+    ["gt", ">"],
+    ["nbsp", " "],
+  ]);
+
   return String(value)
-    .replace(/<script[\s\S]*?<\/script>/gi, " ")
-    .replace(/<style[\s\S]*?<\/style>/gi, " ")
-    .replace(/<[^>]*>/g, " ")
+    .replace(/&#(\d+);/g, (match, code) => {
+      const value = Number.parseInt(code, 10);
+      return value >= 0 && value <= 0x10ffff ? String.fromCodePoint(value) : match;
+    })
+    .replace(/&#x([0-9a-f]+);/gi, (match, code) => {
+      const value = Number.parseInt(code, 16);
+      return value >= 0 && value <= 0x10ffff ? String.fromCodePoint(value) : match;
+    })
+    .replace(/&([a-z]+);/gi, (match, name) => namedEntities.get(name.toLowerCase()) ?? match);
+}
+
+function stripTags(value = "") {
+  return decodeHtmlEntities(
+    String(value)
+      .replace(/<script[\s\S]*?<\/script>/gi, " ")
+      .replace(/<style[\s\S]*?<\/style>/gi, " ")
+      .replace(/<[^>]*>/g, " "),
+  )
     .replace(/\s+/g, " ")
     .trim();
 }
