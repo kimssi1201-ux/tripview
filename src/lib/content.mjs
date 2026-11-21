@@ -655,13 +655,13 @@ function homepageProductSection({ id, title, href, products, type, disclosure = 
 export function homepageSections() {
   const data = groupByCategoryData();
   const editorial = sortedPosts(indexablePosts.filter((post) => !isDataPipelinePost(post)));
-  const recentImagePosts = homepageRecentImagePosts(indexablePosts);
-  const recentEditorialImagePosts = homepageRecentImagePosts(editorial);
+  const recentImagePosts = homepageRecentImagePosts(indexablePosts.filter((post) => !festivalStatus(post).ended));
+  const recentEditorialImagePosts = homepageRecentImagePosts(editorial.filter((post) => !festivalStatus(post).ended));
   const currentMonth = CONTENT_TODAY.slice(0, 7);
   const currentMonthPosts = recentEditorialImagePosts.filter((post) => postDate(post).startsWith(currentMonth));
   const domesticPosts = homepageImagePosts(indexablePosts.filter(isDomesticHomepagePost));
   const overseasPosts = homepageImagePosts(data.overseasPosts);
-  const festivalPosts = homepageImagePosts(data.festivalPosts);
+  const festivalPosts = homepageImagePosts(data.festivalPosts.filter((post) => !festivalStatus(post).ended));
   const stayArticlePosts = homepageImagePosts(indexablePosts.filter(isStayHomepagePost));
   const ticketArticlePosts = homepageImagePosts(indexablePosts.filter(isTicketHomepagePost));
   const currentMonthDomesticPosts = homepageRecentImagePosts(domesticPosts)
