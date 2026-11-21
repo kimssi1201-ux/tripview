@@ -485,6 +485,28 @@ export function regionCardImageAsset(post = {}) {
     pexels || firstAvailableRawImage(post);
 }
 
+/**
+ * Homepage photos must be published, known image assets. Raw hotlinked URLs
+ * can respond with an actual "image unavailable" JPEG (HTTP 200), which
+ * never triggers the browser's img error fallback.
+ */
+export function homepageImageAsset(post = {}) {
+  const entry = tourImageEntry(post);
+  const localAssets = [
+    entry?.cover,
+    entry?.hero,
+    entry?.banner,
+    ...(Array.isArray(entry?.images) ? entry.images : []),
+  ];
+  const local = localAssets.find((asset) =>
+    asset?.src?.startsWith("/") && isUsableImageAsset(asset, ROOT)
+  );
+  if (local) return local;
+  return pexelsImageAssetsForPost(post).find((asset) =>
+    /^https:\/\/images\.pexels\.com\//i.test(asset?.src || "")
+  ) || null;
+}
+
 function imageAssetContentKey(asset = {}) {
   if (!asset?.src) return "";
   if (asset.source === "pexels") return `pexels:${asset.id || imageIdentity(asset.url) || imageIdentity(asset.src)}`;
@@ -618,12 +640,12 @@ export function currentSeasonPosts(limit = 6) {
 }
 
 function homepageImagePosts(posts = []) {
-  return uniquePosts(sortedPosts(posts).filter((post) => cardImageAsset(post)?.src));
+  return uniquePosts(sortedPosts(posts).filter((post) => homepageImageAsset(post)?.src));
 }
 
 function homepageRecentImagePosts(posts = []) {
   return uniquePosts(posts)
-    .filter((post) => post?.slug && cardImageAsset(post)?.src)
+    .filter((post) => post?.slug && homepageImageAsset(post)?.src)
     .sort((a, b) => String(postDate(b)).localeCompare(String(postDate(a))));
 }
 
@@ -640,7 +662,7 @@ function isTicketHomepagePost(post = {}) {
 }
 
 function selectHomepagePosts(candidates = [], count = 5, used = new Set(), { allowReuse = true } = {}) {
-  const pool = uniquePosts(candidates).filter((post) => post?.slug && cardImageAsset(post)?.src);
+  const pool = uniquePosts(candidates).filter((post) => post?.slug && homepageImageAsset(post)?.src);
   const selected = [];
   const selectedSlugs = new Set();
   const add = (post, ignoreUsed = false) => {
@@ -709,13 +731,22 @@ export function homepageSections() {
     .filter((post) => postDate(post).startsWith(currentMonth));
   const used = new Set();
 
-  const topLeadPosts = selectHomepagePosts([
+  const leadCandidates = [
     currentMonthPosts[0],
     currentMonthDomesticPosts[0],
     currentMonthFestivalPosts[0],
     ...currentMonthPosts,
     ...recentEditorialImagePosts,
     ...recentImagePosts,
+  ].filter(Boolean);
+  // The two large feature images should load from our own served files,
+  // not external hosts that can return a large red hotlink-denial graphic.
+  const selfHostedLeads = leadCandidates.filter((post) =>
+    homepageImageAsset(post)?.src?.startsWith("/")
+  );
+  const topLeadPosts = selectHomepagePosts([
+    ...selfHostedLeads,
+    ...leadCandidates,
   ], 2, used, { allowReuse: false });
   const topSmallPosts = selectHomepagePosts([
     ...currentMonthPosts,
