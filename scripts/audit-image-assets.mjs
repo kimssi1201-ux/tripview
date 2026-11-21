@@ -30,7 +30,7 @@ for (const post of posts) {
   if (!isIndexablePost(post)) continue;
   report.reviewedPosts += 1;
   const entry = tour.items?.[post.slug] || {};
-  const assets = [entry.cover, entry.hero, entry.banner, ...(entry.images || [])].filter((item) => item?.src);
+  const assets = [entry.cover, entry.hero, entry.banner, ...(Array.isArray(entry.images) ? entry.images : [])].filter((item) => item?.src);
   for (const asset of assets) {
     if (!isUsableImageSource(asset.src, root)) {
       report.staleProcessedAssets.push({ slug: post.slug, path: asset.src });
@@ -46,9 +46,9 @@ for (const post of posts) {
 
   const remoteOptions = [
     pexels.items?.[post.slug]?.cover?.src,
-    ...(pexels.items?.[post.slug]?.images || []).map((asset) => asset?.src),
+    ...(Array.isArray(pexels.items?.[post.slug]?.images) ? pexels.items[post.slug].images : []).map((asset) => asset?.src),
     rawSrc(post.image),
-    ...(post.images || []).map(rawSrc),
+    ...(Array.isArray(post.images) ? post.images : []).map(rawSrc),
   ].filter((source) => isUsableImageSource(source, root));
 
   if (remoteOptions.some((src) => /^https?:\/\//i.test(src))) {
