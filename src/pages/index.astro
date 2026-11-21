@@ -6,7 +6,7 @@ import SectionHeading from "../components/SectionHeading.astro";
 import { imageAlternativeSources } from "../lib/image-sources.mjs";
 import {
   articleCategoryLabel,
-  cardImageAsset,
+  homepageImageAsset,
   compactRegion,
   homepageSections,
   imageAlt,
@@ -16,7 +16,7 @@ import {
 
 const data = homepageSections();
 const lead = data.topLeadPosts[0] || data.heroPosts[0];
-const ogImage = lead ? cardImageAsset(lead)?.src : "";
+const ogImage = lead ? homepageImageAsset(lead)?.src : "";
 const topStorySlugs = new Set([...data.topLeadPosts, ...data.topSmallPosts].map((post) => post.slug));
 const latestSidebarPosts = (data.latestSidebarPosts || data.latestPosts || [])
   .filter((post) => post?.slug && !topStorySlugs.has(post.slug))
@@ -52,7 +52,7 @@ const latestMeta = (post) => [articleCategoryLabel(post), compactRegion(post.reg
             <h2 id="home-latest-content-title">최신 콘텐츠</h2>
             <div class="latest-content-list">
               {latestSidebarPosts.map((post) => {
-                const asset = cardImageAsset(post) || { src: "/assets/tripview-thumbnail-fallback.svg", width: 960, height: 540, alt: "트립뷰 여행정보 기본 이미지" };
+                const asset = homepageImageAsset(post) || { src: "/assets/tripview-thumbnail-fallback.svg", width: 960, height: 540, alt: "트립뷰 여행정보 기본 이미지" };
                 return (
                   <a class="latest-content-item" href={`/${post.slug}/`}>
                     <span class="latest-content-thumb">
