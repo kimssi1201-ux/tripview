@@ -27,6 +27,15 @@ export function flattenPostSections(sections) {
     .join(" ");
 }
 
+export function hasCompleteFaqAnswers(post = {}) {
+  const questions = [post.faq, post.faqs].filter(Array.isArray).flat();
+  return questions.every((row) => {
+    const question = Array.isArray(row) ? row[0] : row?.question;
+    const answer = Array.isArray(row) ? row[1] : row?.answer;
+    return Boolean(String(question ?? "").trim() && String(answer ?? "").trim());
+  });
+}
+
 export function postBodyLength(post = {}) {
   return [
     post.description,
