@@ -84,7 +84,7 @@ const jsonLdItems = [
         }
         const next = alternates.find((source) =>
           typeof source === "string" &&
-          /^(https?:\\/\\/|\\/[^\\/])/.test(source) &&
+          (source.startsWith("https://") || source.startsWith("http://") || (source.startsWith("/") && !source.startsWith("//"))) &&
           source !== current
         );
         if (next) {
