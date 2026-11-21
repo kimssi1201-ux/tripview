@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import CategorySection from "../components/CategorySection.astro";
 import LeadStoryGrid from "../components/LeadStoryGrid.astro";
 import SectionHeading from "../components/SectionHeading.astro";
+import { imageAlternativeSources } from "../lib/image-sources.mjs";
 import {
   articleCategoryLabel,
   cardImageAsset,
@@ -64,6 +65,7 @@ const latestMeta = (post) => [articleCategoryLabel(post), compactRegion(post.reg
                           loading="lazy"
                           decoding="async"
                           data-tripview-fallback="/assets/tripview-thumbnail-fallback.svg"
+                          data-tripview-alternates={JSON.stringify(imageAlternativeSources(asset, post))}
                         />
                       )}
                     </span>
