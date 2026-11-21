@@ -46,8 +46,23 @@ jobs:
       - name: Audit content
         run: npm run audit:content
 
+      - name: Report articles needing manual verification
+        run: npm run audit:adsense
+
       - name: Build and validate Astro output
         run: npm run build
 
       - name: Run tests
         run: npm test
+
+      - name: Retain content and image quality reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tripview-code-audit
+          path: |
+            reports/adsense-readiness.json
+            reports/content-quality-report.json
+            reports/content-quality-report.md
+            reports/post-image-audit.json
+          if-no-files-found: ignore
