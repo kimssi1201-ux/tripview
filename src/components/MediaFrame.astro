@@ -1,5 +1,5 @@
 ---
-import { imageAlt, imageCaption, imageMode } from "../lib/content.mjs";
+import { imageAlt, imageCaption, imageMode, pexelsImageAssetsForPost } from "../lib/content.mjs";
 import { imageAlternativeSources } from "../lib/image-sources.mjs";
 
 const {
@@ -13,7 +13,10 @@ const {
 } = Astro.props;
 
 const src = asset?.src || "";
-const alternatives = imageAlternativeSources(asset, post);
+const alternatives = [...new Set([
+  ...pexelsImageAssetsForPost(post).map((item) => item.src),
+  ...imageAlternativeSources(asset, post),
+])].filter((source) => source && source !== src);
 const alt = imageAlt(asset, post);
 const width = Number(asset?.width || 0) || undefined;
 const height = Number(asset?.height || 0) || undefined;
@@ -40,3 +43,7 @@ const figureClass = className || undefined;
     {caption && <figcaption>{imageCaption(asset)}</figcaption>}
   </figure>
 )}
+
+<style is:global>
+  figure[data-tripview-optional-image][hidden] { display: none !important; }
+</style>
