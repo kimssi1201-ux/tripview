@@ -1,5 +1,6 @@
 ---
-import { imageAlt, imageCaption, imageMode } from "../lib/content.mjs";
+import { imageAlt, imageCaption, imageMode, pexelsImageAssetsForPost } from "../lib/content.mjs";
+import { imageAlternativeSources } from "../lib/image-sources.mjs";
 
 const {
   asset,
@@ -12,6 +13,10 @@ const {
 } = Astro.props;
 
 const src = asset?.src || "";
+const alternatives = [...new Set([
+  ...pexelsImageAssetsForPost(post).map((item) => item.src),
+  ...imageAlternativeSources(asset, post),
+])].filter((source) => source && source !== src);
 const alt = imageAlt(asset, post);
 const width = Number(asset?.width || 0) || undefined;
 const height = Number(asset?.height || 0) || undefined;
@@ -21,7 +26,7 @@ const figureClass = className || undefined;
 ---
 
 {src && (
-  <figure class={figureClass}>
+  <figure class={figureClass} data-tripview-optional-image={caption ? "true" : undefined}>
     <span class:list={["media-frame", fitMode === "cover" && "is-cover"]} style={style}>
       <img
         src={src}
@@ -32,8 +37,13 @@ const figureClass = className || undefined;
         decoding={eager ? "sync" : "async"}
         fetchpriority={eager ? "high" : "auto"}
         data-tripview-fallback="/assets/tripview-thumbnail-fallback.svg"
+        data-tripview-alternates={alternatives.length ? JSON.stringify(alternatives) : undefined}
       />
     </span>
     {caption && <figcaption>{imageCaption(asset)}</figcaption>}
   </figure>
 )}
+
+<style is:global>
+  figure[data-tripview-optional-image][hidden] { display: none !important; }
+</style>

@@ -1,4 +1,5 @@
 import { AFFILIATE_DISPLAY_ENABLED } from "./monetization.mjs";
+import { isUsableImageAsset, isUsableImageSource } from "./image-sources.mjs";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 
@@ -368,8 +369,33 @@ export function tourismImageContentKey(value = "") {
   return resource ? `tour:${resource[1].toLowerCase()}` : "";
 }
 
+const resolvedTourImages = new Map();
+const imageSourceValidation = new Map();
+
+function publishableAsset(asset) {
+  const src = String(asset?.src || "");
+  if (!src) return null;
+  if (!imageSourceValidation.has(src)) {
+    imageSourceValidation.set(src, isUsableImageAsset(asset, ROOT));
+  }
+  return imageSourceValidation.get(src) ? asset : null;
+}
+
 export function tourImageEntry(post = {}) {
-  return processedTourImages.items?.[post.slug] || null;
+  const slug = post?.slug || "";
+  if (!slug) return null;
+  if (resolvedTourImages.has(slug)) return resolvedTourImages.get(slug);
+  const entry = processedTourImages.items?.[slug];
+  if (!entry) return null;
+  const available = {
+    ...entry,
+    cover: publishableAsset(entry.cover),
+    hero: publishableAsset(entry.hero),
+    banner: publishableAsset(entry.banner),
+    images: (Array.isArray(entry.images) ? entry.images : []).map(publishableAsset).filter(Boolean),
+  };
+  resolvedTourImages.set(slug, available);
+  return available;
 }
 
 export function pexelsImageEntry(post = {}) {
@@ -378,7 +404,7 @@ export function pexelsImageEntry(post = {}) {
 
 export function pexelsImageAssetsForPost(post = {}) {
   const entry = pexelsImageEntry(post);
-  const assets = [entry?.cover, ...(Array.isArray(entry?.images) ? entry.images : [])].filter((asset) => asset?.src);
+  const assets = [entry?.cover, ...(Array.isArray(entry?.images) ? entry.images : [])].map(publishableAsset).filter(Boolean);
   const seen = new Set();
   return assets.filter((asset) => {
     const key = asset.id || imageIdentity(asset.src);
@@ -403,12 +429,13 @@ export function imageAssetForSource(post = {}, source = "") {
 }
 
 export function assetFromRaw(src = "", post = {}) {
-  if (!src) return null;
-  return imageAssetForSource(post, src) || {
-    src,
-    original: src,
+  const source = typeof src === "string" ? src.trim() : String(src?.src || "").trim();
+  if (!source || !isUsableImageSource(source, ROOT)) return null;
+  return imageAssetForSource(post, source) || {
+    src: source,
+    original: source,
     alt: post.alt || postTitle(post),
-    caption: isTourApiImage(src) ? "출처: 한국관광공사 공공누리" : "출처: 본문 표기 이미지 또는 공개 자료",
+    caption: isTourApiImage(source) ? "출처: 한국관광공사 공공누리" : "출처: 본문 표기 이미지 또는 공개 자료",
     width: 0,
     height: 0,
   };
@@ -428,22 +455,34 @@ export function imageAlt(asset = {}, post = {}) {
   return asset.alt || post.alt || postTitle(post);
 }
 
+function firstAvailableRawImage(post = {}) {
+  const sources = [post.image, ...(Array.isArray(post.images) ? post.images : [])];
+  for (const source of sources) {
+    const asset = assetFromRaw(source, post);
+    if (asset) return asset;
+  }
+  return null;
+}
+
 export function heroImageAsset(post = {}) {
   const entry = tourImageEntry(post);
   const pexels = pexelsImageAssetsForPost(post)[0];
-  return entry?.hero || entry?.cover || pexels || assetFromRaw(post.image || post.images?.[0] || FALLBACK_IMAGE, post);
+  return entry?.hero || entry?.cover || entry?.banner || entry?.images?.[0] || pexels ||
+    firstAvailableRawImage(post) || assetFromRaw(FALLBACK_IMAGE, post);
 }
 
 export function cardImageAsset(post = {}) {
   const entry = tourImageEntry(post);
   const pexels = pexelsImageAssetsForPost(post)[0];
-  return entry?.cover || pexels || assetFromRaw(post.image || post.images?.[0] || "", post);
+  return entry?.cover || entry?.hero || entry?.banner || entry?.images?.[0] ||
+    pexels || firstAvailableRawImage(post);
 }
 
 export function regionCardImageAsset(post = {}) {
   const entry = tourImageEntry(post);
   const pexels = pexelsImageAssetsForPost(post)[0];
-  return entry?.banner || entry?.cover || pexels || assetFromRaw(post.image || post.images?.[0] || "", post);
+  return entry?.banner || entry?.cover || entry?.hero || entry?.images?.[0] ||
+    pexels || firstAvailableRawImage(post);
 }
 
 function imageAssetContentKey(asset = {}) {

@@ -68,14 +68,45 @@ const jsonLdItems = [
       return <script type="application/ld+json" {...attrs} set:html={JSON.stringify(item.data).replaceAll("<", "\\u003c")}></script>;
     })}
     <script is:inline>
-      // Capture image errors before article/media elements load. Keep source URLs
-      // in HTML intact; swap only a failed img with the local editorial fallback.
+      // Resolve a failed photo through alternatives from the same article
+      // before showing the site's clearly labelled placeholder.
       document.addEventListener("error", (event) => {
         const image = event.target;
         if (!(image instanceof HTMLImageElement)) return;
+        const current = image.getAttribute("src") || "";
+        const rawAlternates = image.getAttribute("data-tripview-alternates");
+        let alternates = [];
+        try {
+          const parsed = rawAlternates ? JSON.parse(rawAlternates) : [];
+          if (Array.isArray(parsed)) alternates = parsed;
+        } catch {
+          // A malformed optional attribute must not prevent the final fallback.
+        }
+        const next = alternates.find((source) =>
+          typeof source === "string" &&
+          (source.startsWith("https://") || source.startsWith("http://") || (source.startsWith("/") && !source.startsWith("//"))) &&
+          source !== current
+        );
+        if (next) {
+          const remaining = alternates.slice(alternates.indexOf(next) + 1);
+          image.setAttribute("data-tripview-alternates", JSON.stringify(remaining));
+          const frame = image.closest(".media-frame");
+          if (frame) frame.style.setProperty("--media-bg", "url(" + JSON.stringify(next) + ")");
+          image.src = next;
+          return;
+        }
+        image.removeAttribute("data-tripview-alternates");
+        const optionalFigure = image.closest("figure[data-tripview-optional-image]");
+        if (optionalFigure) {
+          // Avoid five identical broken-photo placeholders within one article.
+          optionalFigure.hidden = true;
+          return;
+        }
         const replacement = image.getAttribute("data-tripview-fallback");
-        if (!replacement || image.getAttribute("src") === replacement) return;
+        if (!replacement || replacement === current) return;
         image.removeAttribute("data-tripview-fallback");
+        const frame = image.closest(".media-frame");
+        if (frame) frame.style.setProperty("--media-bg", "url(" + JSON.stringify(replacement) + ")");
         image.src = replacement;
       }, true);
     </script>
