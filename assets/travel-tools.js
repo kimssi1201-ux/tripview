@@ -37,9 +37,10 @@ export function compareTripBudgetScenarios(values = {}) {
   const base = calculateTripBudget(values);
   const nightlyRateRaw = Number(values.lodgingPerRoomNight);
   const nightlyRate = Number.isFinite(nightlyRateRaw) ? Math.max(0, Math.min(10000000, nightlyRateRaw)) : 0;
-  const higherLodging = calculateTripBudget({
+  const rateExceedsLimit = nightlyRate > (10000000 / 1.2);
+  const higherLodging = rateExceedsLimit ? null : calculateTripBudget({
     ...values,
-    lodgingPerRoomNight: Math.min(10000000, nightlyRate * 1.2),
+    lodgingPerRoomNight: nightlyRate * 1.2,
   });
   const longerTrip = base.days < 60
     ? calculateTripBudget({ ...values, days: base.days + 1 })
@@ -47,7 +48,7 @@ export function compareTripBudgetScenarios(values = {}) {
   return {
     base,
     higherLodging,
-    higherLodgingDifference: higherLodging.total - base.total,
+    higherLodgingDifference: higherLodging ? higherLodging.total - base.total : null,
     longerTrip,
     longerTripDifference: longerTrip ? longerTrip.total - base.total : null,
   };
@@ -88,11 +89,13 @@ if (app) {
     const scenarios = compareTripBudgetScenarios(inputs);
     const hotelChange = app.querySelector("[data-budget-compare-hotel]");
     const extraDay = app.querySelector("[data-budget-compare-day]");
-    if (hotelChange) hotelChange.textContent = "+" + money(scenarios.higherLodgingDifference);
+    if (hotelChange) hotelChange.textContent = scenarios.higherLodgingDifference === null
+      ? "입력 상한 초과"
+      : "+" + money(scenarios.higherLodgingDifference);
     if (extraDay) extraDay.textContent = scenarios.longerTripDifference === null
       ? "최대 여행일수(60일)"
       : "+" + money(scenarios.longerTripDifference);
-        const desc = result.querySelector("[data-budget-description]");
+    const desc = result.querySelector("[data-budget-description]");
     if (desc) desc.textContent = breakdown.travelers + "명 · " + breakdown.days + "일(" + breakdown.nights + "박) · 객실 " + breakdown.rooms + "개 기준";
   };
   form.addEventListener("submit", (event) => { event.preventDefault(); recalc(); });
