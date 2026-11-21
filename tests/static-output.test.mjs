@@ -150,6 +150,7 @@ test("homepage data builds a magazine landing without duplicate top stories", as
     cardImageAsset,
     homepageImageAsset,
     homepageSections,
+    festivalStatus,
     indexablePosts,
     isDataPipelinePost,
     postDate,
@@ -184,8 +185,14 @@ test("homepage data builds a magazine landing without duplicate top stories", as
   for (const section of [sections.get("domestic"), sections.get("overseas"), sections.get("festival")]) {
     assert.equal(section.kind, "stories");
     assert.ok(section.featured?.slug);
-    assert.ok(section.items.length >= 3);
+    // Completed festivals are excluded from recommendations. A seasonal
+    // section may therefore show fewer than five valid, upcoming items.
+    if (section.id !== "festival") assert.ok(section.items.length >= 3);
+    assert.ok(section.items.length <= 4);
     const sectionPosts = [section.featured, ...section.items];
+    if (section.id === "festival") {
+      assert.ok(sectionPosts.every((post) => !festivalStatus(post).ended));
+    }
     const sectionSlugs = sectionPosts.map((post) => post.slug);
     assert.equal(new Set(sectionSlugs).size, sectionSlugs.length);
     for (const post of sectionPosts) {
@@ -960,7 +967,17 @@ test("article body uses three to five inline images when enough photos are avail
 });
 
 test("article pages open with a readable story section without the metadata summary table", async () => {
-  const article = await readFile(join("dist", "travel-osaka-september-2026", "index.html"), "utf8");
+  // Avoid pinning this check to an older article that may have been excluded
+  // from the public index after editorial review.
+  const { indexablePosts, articleInlineAssets, officialLinks, sectionPairs } = await import("../src/lib/content.mjs");
+  const currentPost = indexablePosts.find((post) =>
+    sectionPairs(post).length > 0 &&
+    officialLinks(post).length > 0 &&
+    articleInlineAssets(post).length > 0 &&
+    existsSync(join("dist", post.slug, "index.html"))
+  );
+  assert.ok(currentPost?.slug, "expected an indexable, sourced article with an inline image in the Astro output");
+  const article = await readFile(join("dist", currentPost.slug, "index.html"), "utf8");
   const body = articleBodyHtml(article);
   const titleBlock = article.match(/<header class="article-hero article-title-block">[\s\S]*?<\/header>/i)?.[0] || "";
   const firstHeading = body.indexOf("<h2>");

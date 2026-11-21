@@ -28,6 +28,31 @@ export function calculateTripBudget(values = {}) {
   return { travelers, days, nights, rooms, lodging, food, localTransport, activities, roundtrip, subtotal, buffer, total, perPerson: Math.round(total / travelers) };
 }
 
+/**
+ * What-if comparisons use the visitor's own inputs, not scraped market prices.
+ * A one-day extension adds one lodging night and one day of per-person costs;
+ * the return-trip fare remains unchanged. All scenarios preserve the buffer %.
+ */
+export function compareTripBudgetScenarios(values = {}) {
+  const base = calculateTripBudget(values);
+  const nightlyRateRaw = Number(values.lodgingPerRoomNight);
+  const nightlyRate = Number.isFinite(nightlyRateRaw) ? Math.max(0, Math.min(10000000, nightlyRateRaw)) : 0;
+  const higherLodging = calculateTripBudget({
+    ...values,
+    lodgingPerRoomNight: Math.min(10000000, nightlyRate * 1.2),
+  });
+  const longerTrip = base.days < 60
+    ? calculateTripBudget({ ...values, days: base.days + 1 })
+    : null;
+  return {
+    base,
+    higherLodging,
+    higherLodgingDifference: higherLodging.total - base.total,
+    longerTrip,
+    longerTripDifference: longerTrip ? longerTrip.total - base.total : null,
+  };
+}
+
 export const PACKING_PRESETS = Object.freeze({
   domestic: ["신분증", "휴대전화와 충전기", "결제 수단", "예약 내역", "날씨에 맞는 겉옷", "상비약", "세면도구", "개인 물병"],
   overseas: ["여권 유효기간 확인", "목적지 입국 요건 확인", "항공·숙박 예약 내역", "현지 결제 수단", "여행자 보험 검토", "로밍·이심 확인", "전원 어댑터", "상비약 반입 규정 확인", "충전기와 보조배터리"],
@@ -60,7 +85,14 @@ if (app) {
       const output = result.querySelector("[data-budget-" + field + "]");
       if (output) output.textContent = money(breakdown[field]);
     }
-    const desc = result.querySelector("[data-budget-description]");
+    const scenarios = compareTripBudgetScenarios(inputs);
+    const hotelChange = app.querySelector("[data-budget-compare-hotel]");
+    const extraDay = app.querySelector("[data-budget-compare-day]");
+    if (hotelChange) hotelChange.textContent = "+" + money(scenarios.higherLodgingDifference);
+    if (extraDay) extraDay.textContent = scenarios.longerTripDifference === null
+      ? "최대 여행일수(60일)"
+      : "+" + money(scenarios.longerTripDifference);
+        const desc = result.querySelector("[data-budget-description]");
     if (desc) desc.textContent = breakdown.travelers + "명 · " + breakdown.days + "일(" + breakdown.nights + "박) · 객실 " + breakdown.rooms + "개 기준";
   };
   form.addEventListener("submit", (event) => { event.preventDefault(); recalc(); });
