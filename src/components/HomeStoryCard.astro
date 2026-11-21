@@ -2,7 +2,7 @@
 import MediaFrame from "./MediaFrame.astro";
 import {
   articleCategoryLabel,
-  cardImageAsset,
+  homepageImageAsset,
   compactRegion,
   imageMode,
   postDate,
@@ -17,7 +17,7 @@ const {
   className = "",
 } = Astro.props;
 
-const asset = cardImageAsset(post) || { src: "/assets/tripview-thumbnail-fallback.svg", alt: "사진 미제공 · 트립뷰 여행정보", width: 960, height: 540 };
+const asset = homepageImageAsset(post) || { src: "/assets/tripview-thumbnail-fallback.svg", alt: "사진 미제공 · 트립뷰 여행정보", width: 960, height: 540 };
 const label = [articleCategoryLabel(post), compactRegion(post?.region)].filter(Boolean).join(" · ");
 ---
 
