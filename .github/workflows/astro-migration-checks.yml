@@ -4,7 +4,15 @@ on:
   pull_request:
     branches: ["main"]
   push:
-    branches: ["astro-migration"]
+    branches: ["main", "astro-migration"]
+    paths:
+      - "src/**"
+      - "assets/*.js"
+      - "scripts/**"
+      - "tests/**"
+      - "package.json"
+      - "astro.config.mjs"
+      - ".github/workflows/astro-migration-checks.yml"
 
 permissions:
   contents: read
