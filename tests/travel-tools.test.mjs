@@ -5,7 +5,7 @@ import { existsSync } from "node:fs";
 
 import { calculateTripBudget, PACKING_PRESETS, packingProgress } from "../assets/travel-tools.js";
 import { AFFILIATE_DISPLAY_ENABLED } from "../src/lib/monetization.mjs";
-import { homepageSections, sitemapUrls } from "../src/lib/content.mjs";
+import { festivalStatus, homepageSections, sitemapUrls } from "../src/lib/content.mjs";
 
 test("two people and three days produce a transparent and accurate budget", () => {
   const result = calculateTripBudget({
@@ -50,6 +50,8 @@ test("approval review hides homepage product recommendations without deleting da
   const urls = sitemapUrls().map((item) => item.loc);
   assert.ok(urls.includes("https://tripview.kr/tools/"));
   assert.ok(urls.includes("https://tripview.kr/guides/travel-budget/"));
+  assert.ok(homepageSections().festivalPosts.every((post) => !festivalStatus(post).ended));
+  assert.ok(homepageSections().latestSidebarPosts.every((post) => !festivalStatus(post).ended));
 });
 
 test("generated pages hide affiliate cards and preserve live planner sections", async () => {
@@ -62,6 +64,8 @@ test("generated pages hide affiliate cards and preserve live planner sections", 
   const tools = await readFile("dist/tools/index.html", "utf8");
   const guide = await readFile("dist/guides/travel-budget/index.html", "utf8");
   assert.match(tools, /data-budget-form/);
+  assert.match(tools, /data-budget-subtotal/);
+  assert.match(tools, /data-budget-copy/);
   assert.match(tools, /data-packing-theme/);
   assert.match(guide, /693,000원/);
 });

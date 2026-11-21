@@ -3,7 +3,7 @@ import ProductCard from "../../components/ProductCard.astro";
 import TravelCard from "../../components/TravelCard.astro";
 import RegionLayout from "../../layouts/RegionLayout.astro";
 import { AFFILIATE_DISPLAY_ENABLED } from "../../lib/monetization.mjs";
-import { regionCardImageAsset, regionGroups, selectAccommodationItems } from "../../lib/content.mjs";
+import { festivalStatus, infoValue, officialLinks, postDate, postTitle, regionCardImageAsset, regionGroups, selectAccommodationItems } from "../../lib/content.mjs";
 
 export function getStaticPaths() {
   return regionGroups().map((group) => ({ params: { region: group.slug }, props: { group } }));
@@ -42,6 +42,22 @@ const subregions = [...group.posts.reduce((map, post) => {
   .map(([label, posts]) => ({ label, posts }))
   .sort((a, b) => b.posts.length - a.posts.length || a.label.localeCompare(b.label, "ko"))
   .slice(0, 12);
+
+// Show only facts that are already stated in reviewed travel articles.
+// Never infer a price, opening hour or travel time from a region name.
+const visitFactCards = group.posts
+  .filter((post) => !festivalStatus(post).ended)
+  .map((post) => {
+    const rows = [
+      ["위치", infoValue(post, ["주소", "장소"])],
+      ["요금", infoValue(post, "요금")],
+      ["운영", infoValue(post, ["운영 확인", "시간"])],
+      ["주차", infoValue(post, "주차")],
+    ].filter((row) => row[1]);
+    return { post, rows, source: officialLinks(post)[0] || null };
+  })
+  .filter((item) => item.rows.length >= 2)
+  .slice(0, 6);
 ---
 
 <RegionLayout group={group} title={`${group.label} 여행 허브`} description={`${group.label} 지역의 여행지와 축제 글을 최신순으로 모았습니다. 지역 소개와 함께 관련 글, 추천 숙소를 한 번에 확인하세요.`} bannerAsset={bannerAsset} tags={[
@@ -57,6 +73,25 @@ const subregions = [...group.posts.reduce((map, post) => {
     </div>
     <p>{group.label} 여행은 계절 행사, 실내 명소, 자연 여행지를 함께 보면 동선 선택이 쉬워집니다. 아래 목록에서 방문 목적에 맞는 글을 먼저 확인하고, 숙소는 일정이 정해진 뒤 비교용으로 활용하세요.</p>
   </section>
+
+  {visitFactCards.length > 0 && (
+    <section class="block region-facts" id="visit-facts" aria-labelledby="visit-facts-title">
+      <div class="block-head">
+        <div><span class="kicker">PLAN YOUR TRIP</span><h2 id="visit-facts-title">{group.label} 여행지 방문 정보 비교</h2></div>
+        <p class="block-note">게시글에 기재된 참고 정보 · 실시간 조회 아님</p>
+      </div>
+      <p>아래는 트립뷰 게시글에 기재된 위치·요금·운영·주차 정보를 모은 것입니다. 비용 합계나 이동 시간을 추정하지 않았으며, 방문 당일 정보는 각 운영기관에서 다시 확인해야 합니다.</p>
+      <div class="region-facts-grid">
+        {visitFactCards.map(({ post, rows, source }) => (
+          <article class="region-fact-card">
+            <h3><a href={`/${post.slug}/`}>{postTitle(post)}</a></h3>
+            <dl>{rows.map(([label, value]) => <div><dt>{label}</dt><dd>{value}</dd></div>)}</dl>
+            <p class="region-fact-foot">글 수정 기준: {postDate(post)} · <a href={`/${post.slug}/`}>상세 정보</a>{source && <> · <a href={source.url} target="_blank" rel="noopener noreferrer">{source.label}</a></>}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  )}
 
   <section class="block" id="region-posts" aria-labelledby="region-posts-title">
     <div class="block-head">
@@ -100,3 +135,17 @@ const subregions = [...group.posts.reduce((map, post) => {
     </section>
   )}
 </RegionLayout>
+
+<style>
+  .region-facts-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 18px; }
+  .region-fact-card { padding: 18px; background: var(--card, #fff); border: 1px solid var(--line, #e5e5e0); border-radius: 14px; }
+  .region-fact-card h3 { margin: 0 0 12px; font-size: 1.04rem; line-height: 1.45; }
+  .region-fact-card h3 a { text-decoration: underline; text-decoration-color: #b6d6d3; text-underline-offset: 3px; }
+  .region-fact-card dl { margin: 0; }
+  .region-fact-card dl > div { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 10px; padding: 5px 0; }
+  .region-fact-card dt { color: var(--muted, #666); font-size: .9rem; }
+  .region-fact-card dd { margin: 0; overflow-wrap: anywhere; font-size: .91rem; }
+  .region-fact-foot { margin: 12px 0 0; font-size: .8rem; color: var(--muted, #666); }
+  .region-fact-foot a { text-decoration: underline; text-underline-offset: 2px; }
+  @media (max-width: 720px) { .region-facts-grid { grid-template-columns: minmax(0, 1fr); } }
+</style>

@@ -35,6 +35,11 @@ test("content quality rejects empty identity fields even with a long body", () =
   assert.equal(isIndexablePost({}), false);
 });
 
+test("dated legacy snapshot feeds stay out of the index even with reviewed content", () => {
+  const snapshot = { ...postWithBody(MIN_INDEXABLE_BODY_LENGTH + 100), slug: "data-festival-schedule-2026" };
+  assert.equal(isIndexablePost(snapshot), false);
+});
+
 test("content quality keeps automated drafts out of the index until editorial review", () => {
   const longPost = postWithBody(MIN_INDEXABLE_BODY_LENGTH + 100);
   assert.equal(isIndexablePost({ ...longPost, editorialStatus: "pending" }), false);

@@ -55,7 +55,7 @@ if (app) {
   const recalc = () => {
     const inputs = Object.fromEntries(new FormData(form).entries());
     const breakdown = calculateTripBudget(inputs);
-    const fields = ["lodging", "food", "localTransport", "activities", "roundtrip", "buffer", "total", "perPerson"];
+    const fields = ["lodging", "food", "localTransport", "activities", "roundtrip", "subtotal", "buffer", "total", "perPerson"];
     for (const field of fields) {
       const output = result.querySelector("[data-budget-" + field + "]");
       if (output) output.textContent = money(breakdown[field]);
@@ -71,6 +71,33 @@ if (app) {
     recalc();
   });
   recalc();
+
+  const copyBudget = app.querySelector("[data-budget-copy]");
+  const copyStatus = app.querySelector("[data-budget-copy-status]");
+  copyBudget?.addEventListener("click", async () => {
+    const budget = calculateTripBudget(Object.fromEntries(new FormData(form).entries()));
+    const summary = [
+      "트립뷰 여행 경비 계산 결과 (이용자 입력 기준, 실제 견적 아님)",
+      budget.travelers + "명 · " + budget.days + "일(" + budget.nights + "박) · 객실 " + budget.rooms + "개",
+      "숙박: " + money(budget.lodging),
+      "식비: " + money(budget.food),
+      "현지 이동: " + money(budget.localTransport),
+      "입장·체험: " + money(budget.activities),
+      "왕복 이동: " + money(budget.roundtrip),
+      "소계: " + money(budget.subtotal),
+      "예비비: " + money(budget.buffer),
+      "총 예상 경비: " + money(budget.total),
+      "1인당 예상: " + money(budget.perPerson),
+      "https://tripview.kr/tools/#budget",
+    ].join("\n");
+    try {
+      if (!navigator.clipboard?.writeText) throw new Error("clipboard-unavailable");
+      await navigator.clipboard.writeText(summary);
+      if (copyStatus) copyStatus.textContent = "예상 경비 요약이 복사됐습니다. 동행자에게 붙여넣어 공유하세요.";
+    } catch {
+      if (copyStatus) copyStatus.textContent = "브라우저에서 복사를 허용하지 않았습니다. 위 계산 결과를 직접 선택해 복사하세요.";
+    }
+  });
 
   const theme = app.querySelector("[data-packing-theme]");
   const checklist = app.querySelector("[data-packing-items]");
