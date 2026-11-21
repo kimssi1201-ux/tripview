@@ -3,6 +3,7 @@ import ArticleMeta from "../components/ArticleMeta.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import ShareToolbar from "../components/ShareToolbar.astro";
 import BaseLayout from "./BaseLayout.astro";
+import { imageAlternativeSources } from "../lib/image-sources.mjs";
 import {
   allPosts,
   articleActivePath,
@@ -126,6 +127,8 @@ const sideNavLinks = rawSideNavLinks.filter((item) => {
                         height={asset.height || 84}
                         loading="lazy"
                         decoding="async"
+                        data-tripview-fallback="/assets/tripview-thumbnail-fallback.svg"
+                        data-tripview-alternates={JSON.stringify(imageAlternativeSources(asset, item))}
                       />
                     )}
                   </span>
