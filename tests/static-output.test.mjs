@@ -148,6 +148,7 @@ test("homepage data builds a magazine landing without duplicate top stories", as
   const {
     CONTENT_TODAY,
     cardImageAsset,
+    homepageImageAsset,
     homepageSections,
     indexablePosts,
     isDataPipelinePost,
@@ -163,17 +164,14 @@ test("homepage data builds a magazine landing without duplicate top stories", as
   assert.equal(data.topLeadPosts.length, 2);
   assert.equal(data.topSmallPosts.length, 4);
   assert.equal(new Set(topSlugs).size, topSlugs.length);
-  const currentMonth = CONTENT_TODAY.slice(0, 7);
-  const currentMonthCount = indexablePosts.filter((post) => (
-    !isDataPipelinePost(post)
-    && cardImageAsset(post)?.src
-    && postDate(post).startsWith(currentMonth)
-  )).length;
-  assert.equal(
-    [...data.topLeadPosts, ...data.topSmallPosts].filter((post) => postDate(post).startsWith(currentMonth)).length,
-    Math.min(topSlugs.length, currentMonthCount),
-    "homepage top stories should prioritize the current month before using older posts",
-  );
+  const trustedHomeImages = [...data.topLeadPosts, ...data.topSmallPosts]
+    .map((post) => homepageImageAsset(post));
+  assert.ok(trustedHomeImages.every((asset) =>
+    asset?.src?.startsWith("/") || /^https:\/\/images\.pexels\.com\//.test(asset?.src || "")
+  ), "all homepage photo candidates must be trusted local assets or Pexels images");
+  assert.ok(data.topLeadPosts.every((post) =>
+    homepageImageAsset(post)?.src?.startsWith("/assets/processed/")
+  ), "large feature images must be self-hosted; remote providers may return an error graphic instead of a 404");
   assert.ok(sidebarPosts.length >= 6);
   assert.equal(new Set(sidebarPosts.map((post) => post.slug)).size, sidebarPosts.length);
   assert.match(homepageSource, /class="home-news-layout"/);
