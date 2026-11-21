@@ -84,11 +84,20 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
             <div><dt>현지 이동</dt><dd data-budget-localTransport>0원</dd></div>
             <div><dt>입장·체험</dt><dd data-budget-activities>0원</dd></div>
             <div><dt>왕복 교통·항공</dt><dd data-budget-roundtrip>0원</dd></div>
+            <div><dt>소계(예비비 제외)</dt><dd data-budget-subtotal>0원</dd></div>
             <div><dt>예비비</dt><dd data-budget-buffer>0원</dd></div>
             <div class="tools-result-person"><dt>1인당 예상</dt><dd data-budget-perPerson>0원</dd></div>
           </dl>
+          <button class="tools-action" type="button" data-budget-copy>내 여행 경비 요약 복사</button>
+          <p data-budget-copy-status role="status" aria-live="polite" class="tools-disclaimer">계산 결과를 복사해 동행자에게 공유할 수 있습니다.</p>
           <p class="tools-disclaimer">* 모든 금액은 이용자가 입력한 단가로 계산한 가정값입니다. 실제 예약 가능한 가격, 세금, 환율, 성수기 요금은 반영되지 않습니다.</p>
         </div>
+      </div>
+      <div class="tools-guide" aria-labelledby="budget-method-title">
+        <h3 id="budget-method-title">계산 기준과 실제 입력 예시</h3>
+        <p><strong>계산식:</strong> 숙박비 = 객실 수 × (여행 일수 − 1) × 1박 요금, 식비·현지 이동·체험비 = 인원 × 일수 × 각 1인 하루 단가, 왕복 이동비 = 인원 × 1인 왕복 요금입니다. 다섯 비용을 더한 소계에 예비비를 적용합니다.</p>
+        <p><strong>2인 2박 3일 예시:</strong> 객실 1개를 1박 10만 원, 1인 하루 식비 3만 원, 현지 이동 1만 원, 체험 1만 5천 원, 왕복 교통 5만 원, 예비비 10%로 입력하면 총 <strong>693,000원</strong>(1인당 346,500원)입니다. 이는 실제 판매 가격이 아닌 계산을 설명하기 위한 가정값입니다.</p>
+        <p>당일 여행은 숙박비를 0원으로 계산합니다. 출발·귀가일에 지출이 적다면 식비 등의 하루 단가를 실제 일정에 맞게 낮춰 입력하고, 숙소·교통·입장료는 방문 전 공식 안내와 최종 결제 화면에서 확인하세요. <a href="/guides/travel-budget/">세부 계산 예시 보기</a></p>
       </div>
     </section>
 
