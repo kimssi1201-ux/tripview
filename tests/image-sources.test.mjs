@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { readFileSync } from "node:fs";
 import { imageAlternativeSources, isUsableImageSource, isUsableImageAsset } from "../src/lib/image-sources.mjs";
+import { cardImageAsset } from "../src/lib/content.mjs";
 
 test("public local photos must exist before they are published", () => {
   assert.equal(isUsableImageSource("/assets/tripview-thumbnail-fallback.svg"), true);
@@ -35,4 +36,14 @@ test("article presentation retries photos and hides broken optional inline photo
   assert.match(frame, /imageAlternativeSources/);
   assert.match(layout, /optionalFigure\.hidden = true/);
   assert.match(layout, /setProperty\("--media-bg"/);
+});
+
+test("cards use another available article photo if the first image is absent", () => {
+  const asset = cardImageAsset({
+    slug: "synthetic-image-fallback-test",
+    title: "이미지 대체 테스트",
+    image: "/assets/processed/missing-image.webp",
+    images: ["/assets/tripview-thumbnail-fallback.svg"],
+  });
+  assert.equal(asset?.src, "/assets/tripview-thumbnail-fallback.svg");
 });
