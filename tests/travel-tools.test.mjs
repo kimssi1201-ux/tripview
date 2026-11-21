@@ -3,7 +3,7 @@ import test from "node:test";
 import { readFile, access } from "node:fs/promises";
 import { existsSync } from "node:fs";
 
-import { calculateTripBudget, PACKING_PRESETS, packingProgress } from "../assets/travel-tools.js";
+import { calculateTripBudget, compareTripBudgetScenarios, PACKING_PRESETS, packingProgress } from "../assets/travel-tools.js";
 import { AFFILIATE_DISPLAY_ENABLED } from "../src/lib/monetization.mjs";
 import { festivalStatus, homepageSections, sitemapUrls } from "../src/lib/content.mjs";
 
@@ -18,6 +18,24 @@ test("two people and three days produce a transparent and accurate budget", () =
     [result.lodging, result.food, result.localTransport, result.activities, result.roundtrip, result.subtotal, result.buffer, result.total, result.perPerson],
     [200000, 180000, 60000, 90000, 100000, 630000, 63000, 693000, 346500],
   );
+});
+
+test("what-if comparison explains how one higher hotel rate or extra day changes the total", () => {
+  const data = {
+    travelers: 2, days: 3, rooms: 1,
+    lodgingPerRoomNight: 100000, foodPerPersonDay: 30000,
+    localTransportPerPersonDay: 10000, activitiesPerPersonDay: 15000,
+    roundtripPerPerson: 50000, bufferPercent: 10,
+  };
+  const scenarios = compareTripBudgetScenarios(data);
+  assert.equal(scenarios.base.total, 693000);
+  assert.equal(scenarios.higherLodging.total, 737000);
+  assert.equal(scenarios.higherLodgingDifference, 44000);
+  assert.equal(scenarios.longerTrip.total, 924000);
+  assert.equal(scenarios.longerTripDifference, 231000);
+  const limit = compareTripBudgetScenarios({ ...data, days: 60 });
+  assert.equal(limit.longerTrip, null);
+  assert.equal(limit.longerTripDifference, null);
 });
 
 test("day trips and zero costs do not create negative nights", () => {
@@ -66,6 +84,10 @@ test("generated pages hide affiliate cards and preserve live planner sections", 
   assert.match(tools, /data-budget-form/);
   assert.match(tools, /data-budget-subtotal/);
   assert.match(tools, /data-budget-copy/);
+  assert.match(tools, /data-budget-compare-hotel/);
+  assert.match(tools, /data-budget-compare-day/);
+  assert.match(guide, /737,000원/);
+  assert.match(guide, /924,000원/);
   assert.match(tools, /data-packing-theme/);
   assert.match(guide, /693,000원/);
 });
