@@ -36,6 +36,9 @@ test("what-if comparison explains how one higher hotel rate or extra day changes
   const limit = compareTripBudgetScenarios({ ...data, days: 60 });
   assert.equal(limit.longerTrip, null);
   assert.equal(limit.longerTripDifference, null);
+  const cappedHotel = compareTripBudgetScenarios({ ...data, lodgingPerRoomNight: 10000000 });
+  assert.equal(cappedHotel.higherLodging, null);
+  assert.equal(cappedHotel.higherLodgingDifference, null);
 });
 
 test("day trips and zero costs do not create negative nights", () => {

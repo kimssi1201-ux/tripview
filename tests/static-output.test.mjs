@@ -412,7 +412,7 @@ test("article pages expose author dates source links and trust schemas", async (
   assert.match(article, /class="article-meta-date">입력\s*<time datetime="\d{4}-\d{2}-\d{2}">/);
   assert.match(article, /class="article-meta-date article-meta-modified">수정\s*<time datetime="\d{4}-\d{2}-\d{2}">/);
   assert.match(article, /공식 확인처/);
-  assert.match(article, /확인 기준/);
+  assert.match(article, /글 최종 수정일은/);
   assert.match(article, /외교부 해외안전여행/);
   assert.match(article, /작성·검수 정보/);
 });
@@ -979,8 +979,8 @@ test("article pages open with a readable story section without the metadata summ
   assert.ok(currentPost?.slug, "expected an indexable, sourced article with an inline image in the Astro output");
   const article = await readFile(join("dist", currentPost.slug, "index.html"), "utf8");
   const body = articleBodyHtml(article);
-  const titleBlock = article.match(/<header class="article-hero article-title-block">[\s\S]*?<\/header>/i)?.[0] || "";
-  const firstHeading = body.indexOf("<h2>");
+  const titleBlock = article.match(/<header\b[^>]*class="article-hero article-title-block"[^>]*>[\s\S]*?<\/header>/i)?.[0] || "";
+  const firstHeading = body.search(/<h2(?:\s|>)/i);
   const firstInlinePhoto = body.indexOf("ARTICLE_INLINE_PHOTO_START 1");
 
   assert.doesNotMatch(titleBlock, /class="kicker"/);
