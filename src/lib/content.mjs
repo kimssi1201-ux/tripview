@@ -455,22 +455,34 @@ export function imageAlt(asset = {}, post = {}) {
   return asset.alt || post.alt || postTitle(post);
 }
 
+function firstAvailableRawImage(post = {}) {
+  const sources = [post.image, ...(Array.isArray(post.images) ? post.images : [])];
+  for (const source of sources) {
+    const asset = assetFromRaw(source, post);
+    if (asset) return asset;
+  }
+  return null;
+}
+
 export function heroImageAsset(post = {}) {
   const entry = tourImageEntry(post);
   const pexels = pexelsImageAssetsForPost(post)[0];
-  return entry?.hero || entry?.cover || pexels || assetFromRaw(post.image || post.images?.[0] || FALLBACK_IMAGE, post);
+  return entry?.hero || entry?.cover || entry?.banner || entry?.images?.[0] || pexels ||
+    firstAvailableRawImage(post) || assetFromRaw(FALLBACK_IMAGE, post);
 }
 
 export function cardImageAsset(post = {}) {
   const entry = tourImageEntry(post);
   const pexels = pexelsImageAssetsForPost(post)[0];
-  return entry?.cover || pexels || assetFromRaw(post.image || post.images?.[0] || "", post);
+  return entry?.cover || entry?.hero || entry?.banner || entry?.images?.[0] ||
+    pexels || firstAvailableRawImage(post);
 }
 
 export function regionCardImageAsset(post = {}) {
   const entry = tourImageEntry(post);
   const pexels = pexelsImageAssetsForPost(post)[0];
-  return entry?.banner || entry?.cover || pexels || assetFromRaw(post.image || post.images?.[0] || "", post);
+  return entry?.banner || entry?.cover || entry?.hero || entry?.images?.[0] ||
+    pexels || firstAvailableRawImage(post);
 }
 
 function imageAssetContentKey(asset = {}) {
