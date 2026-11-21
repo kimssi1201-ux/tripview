@@ -18,7 +18,7 @@ export function isUsableImageSource(value = "", root = process.cwd()) {
     return false;
   }
   if (!relative || relative.split("/").some((part) => part === "." || part === "..")) return false;
-  return existsSync(join(root, relative));
+  return existsSync(join(root, relative)) || existsSync(join(root, "public", relative));
 }
 
 export function isUsableImageAsset(asset, root = process.cwd()) {
