@@ -93,6 +93,18 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
           <p class="tools-disclaimer">* 모든 금액은 이용자가 입력한 단가로 계산한 가정값입니다. 실제 예약 가능한 가격, 세금, 환율, 성수기 요금은 반영되지 않습니다.</p>
         </div>
       </div>
+      <div class="tools-scenario-panel" aria-labelledby="budget-scenario-title">
+        <div>
+          <span class="kicker">WHAT IF?</span>
+          <h3 id="budget-scenario-title">예산이 달라지는 상황 비교</h3>
+          <p>실시간 시세가 아니라 <strong>방금 입력한 금액</strong>으로 계산한 차이입니다. 입력값을 수정하면 비교 결과도 바로 바뀝니다.</p>
+        </div>
+        <dl class="tools-scenario-grid" aria-live="polite">
+          <div><dt>객실 1박 요금이 20% 오르면</dt><dd data-budget-compare-hotel>+0원</dd><small>숙박비 증가와 예비비 변화 포함</small></div>
+          <div><dt>같은 인원으로 하루 더 머무르면</dt><dd data-budget-compare-day>+0원</dd><small>1박 숙박비·1일 생활비·예비비 추가, 왕복 이동비는 그대로</small></div>
+        </dl>
+        <p class="tools-disclaimer">실제 숙소 인상률이 20%라는 뜻이 아닙니다. 최장 60일 여행에서는 추가 하루 비교를 하지 않습니다.</p>
+      </div>
       <div class="tools-guide" aria-labelledby="budget-method-title">
         <h3 id="budget-method-title">계산 기준과 실제 입력 예시</h3>
         <p><strong>계산식:</strong> 숙박비 = 객실 수 × (여행 일수 − 1) × 1박 요금, 식비·현지 이동·체험비 = 인원 × 일수 × 각 1인 하루 단가, 왕복 이동비 = 인원 × 1인 왕복 요금입니다. 다섯 비용을 더한 소계에 예비비를 적용합니다.</p>
@@ -149,7 +161,16 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
   .trip-tool-card-go { margin-top: 5px; font-weight: 800; font-size: 13px; color: #096d73; }
   @media(max-width: 900px) { .trip-tool-cards { grid-template-columns: repeat(2,minmax(0,1fr)); } }
   @media(max-width: 460px) { .trip-tool-card { padding: 15px 12px; } .trip-tool-card strong { font-size: 15px; } }
-  .tools-page { max-width: 1160px; margin: 0 auto; padding: 32px 20px 85px; }
+  .tools-scenario-panel { margin: 18px 0 24px; padding: 22px; background: #f7fbfa; border: 1px solid #cddfdd; border-radius: 13px; }
+  .tools-scenario-panel h3 { margin: 8px 0; font-size: 21px; color: #144648; }
+  .tools-scenario-panel p { margin: 8px 0; }
+  .tools-scenario-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; margin: 18px 0 12px; }
+  .tools-scenario-grid > div { display: grid; gap: 7px; padding: 16px; background: white; border: 1px solid #d5e5e3; border-radius: 10px; }
+  .tools-scenario-grid dt { color: #334e55; font-weight: 700; font-size: 14px; }
+  .tools-scenario-grid dd { margin: 0; color: #005b60; font-size: clamp(21px, 4vw, 28px); font-weight: 850; font-variant-numeric: tabular-nums; }
+  .tools-scenario-grid small { color: #60737c; line-height: 1.5; }
+  @media (max-width: 600px) { .tools-scenario-grid { grid-template-columns: 1fr; } .tools-scenario-panel { padding: 16px; } }
+    .tools-page { max-width: 1160px; margin: 0 auto; padding: 32px 20px 85px; }
   .tools-heading { padding: 30px 0 24px; }
   .tools-heading h1 { font-size: clamp(30px, 4vw, 44px); margin: 10px 0 14px; letter-spacing: -.03em; }
   .tools-heading p, .tools-panel p { color: #475569; line-height: 1.8; }
