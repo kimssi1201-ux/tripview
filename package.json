@@ -11,6 +11,8 @@
     "test": "node --test tests/*.test.mjs",
     "lint": "node scripts/check-syntax.mjs",
     "audit:content": "node scripts/audit-content-quality.mjs",
+    "audit:adsense": "node scripts/audit-adsense-readiness.mjs",
+    "audit:crawl": "node scripts/check-public-crawl.mjs",
     "generate:data-posts": "node scripts/generate-data-posts.mjs",
     "validate:data-posts": "node scripts/validate-data-posts.mjs",
     "validate:astro": "node scripts/validate-astro-migration.mjs",
