@@ -4,6 +4,7 @@ import test from "node:test";
 import {
   MIN_INDEXABLE_BODY_LENGTH,
   flattenPostSections,
+  hasCompleteFaqAnswers,
   isIndexablePost,
   postBodyLength,
 } from "../scripts/lib/content-quality.mjs";
@@ -38,6 +39,15 @@ test("content quality rejects empty identity fields even with a long body", () =
 test("dated legacy snapshot feeds stay out of the index even with reviewed content", () => {
   const snapshot = { ...postWithBody(MIN_INDEXABLE_BODY_LENGTH + 100), slug: "data-festival-schedule-2026" };
   assert.equal(isIndexablePost(snapshot), false);
+});
+
+test("content quality detects empty FAQ answers in either published field", () => {
+  assert.equal(hasCompleteFaqAnswers({ faq: [["어디인가요?", "서울입니다."]] }), true);
+  assert.equal(hasCompleteFaqAnswers({ faq: [["어디인가요?", ""]] }), false);
+  assert.equal(hasCompleteFaqAnswers({ faqs: [["문의", ""]] }), false);
+  assert.equal(hasCompleteFaqAnswers({ faq: [{ question: "운영 시간은?", answer: "" }] }), false);
+  assert.equal(hasCompleteFaqAnswers({ faq: [{ question: "운영 시간은?", answer: "공식 안내 확인" }] }), true);
+  assert.equal(hasCompleteFaqAnswers({}), true);
 });
 
 test("content quality keeps automated drafts out of the index until editorial review", () => {

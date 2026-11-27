@@ -1,7 +1,7 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { MIN_INDEXABLE_BODY_LENGTH, postBodyLength } from "./lib/content-quality.mjs";
+import { MIN_INDEXABLE_BODY_LENGTH, hasCompleteFaqAnswers, postBodyLength } from "./lib/content-quality.mjs";
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const postsPath = join(root, "data", "generated-posts.json");
@@ -29,11 +29,6 @@ function imagesOf(post) {
 
 function hasInfo(post) {
   return Array.isArray(post.info) && post.info.some((row) => Array.isArray(row) && text(row[1]));
-}
-
-function hasFaqAnswers(post) {
-  if (!Array.isArray(post.faqs)) return true;
-  return post.faqs.every((row) => Array.isArray(row) && text(row[0]) && text(row[1]));
 }
 
 function groupBy(items, keyFn) {
@@ -67,7 +62,7 @@ const audited = posts.map((post) => {
   if (length < MIN_INDEXABLE_BODY_LENGTH) issues.push("short_body_under_1500_chars");
   if (duplicateTitleSlugs.has(post.slug)) issues.push("duplicate_title");
   if (duplicateImageSlugs.has(post.slug)) issues.push("duplicate_primary_image");
-  if (!hasFaqAnswers(post)) issues.push("empty_faq_answer");
+  if (!hasCompleteFaqAnswers(post)) issues.push("empty_faq_answer");
 
   return {
     slug: post.slug,
